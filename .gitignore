@@ -1,0 +1,7 @@
+.cache.json
+.translate_cache.json
+__pycache__/
+*.pyc
+logs/
+config.json
+.env

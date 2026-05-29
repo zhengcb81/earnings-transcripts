@@ -1,0 +1,540 @@
+{
+ "meta": {
+  "company": "Figma (Figma)",
+  "quarter": "Q3 2025",
+  "source": "motley_fool",
+  "url": "https://www.fool.com/earnings/call-transcripts/2025/11/05/figma-fig-q3-2025-earnings-call-transcript/",
+  "translated": "2026-05-29T23:29:45.836805",
+  "backend": "google"
+ },
+ "pairs": [
+  {
+   "en": "Nov. 5, 2025 at 5 p.m. ET",
+   "zh": "2025 年 11 月 5 日下午 5 点ET"
+  },
+  {
+   "en": "Call participants",
+   "zh": "呼叫参与者"
+  },
+  {
+   "en": "Chief Executive Officer — Dylan Field",
+   "zh": "首席执行官 — 迪伦·菲尔德"
+  },
+  {
+   "en": "Chief Financial Officer — Praveer Malwani",
+   "zh": "首席财务官 — Praveer Malwani"
+  },
+  {
+   "en": "Revenue-- $274 million, reflecting 38% year-over-year growth and marking a company record for sequential net revenue added forFigma(FIG+9.19%).",
+   "zh": "收入——2.74 亿美元，同比增长 38%，创下公司 Figma 连续净收入增加记录（FIG+9.19%）。"
+  },
+  {
+   "en": "Annualized revenue run rate-- Surpassed $1 billion as of quarter-end.",
+   "zh": "年化收入运行率——截至季度末超过 10 亿美元。"
+  },
+  {
+   "en": "Net dollar retention (NDR)-- Rose to 131% for paid customers with over $10,000 in annual recurring revenue, up two percentage points quarter over quarter.",
+   "zh": "年度经常性收入超过 10,000 美元的付费客户的净美元留存率 (NDR) 上升至 131%，环比上升两个百分点。"
+  },
+  {
+   "en": "Payer base expansion-- 540,000 total paid customers at quarter-end, up from nearly 450,000 at the end of Q1, adding over 90,000 paid teams in two quarters.",
+   "zh": "支付者基础扩张——季度末付费客户总数达到 540,000 名，高于第一季度末的近 450,000 名，两个季度内增加了 90,000 多个付费团队。"
+  },
+  {
+   "en": "Large customer cohorts-- Nearly 13,000 paid customers spend over $10,000 in ARR; over 1,250 paid customers spend more than $100,000 in ARR; 140 net adds for $100,000+ customers, up from 88 prior quarter.",
+   "zh": "庞大的客户群体——近 13,000 名付费客户的 ARR 支出超过 10,000 美元；超过 1,250 名付费客户的 ARR 支出超过 100,000 美元；价值 100,000 美元以上的客户净增加 140 名，高于上一季度的 88 名。"
+  },
+  {
+   "en": "Product adoption-- More than 70% of customers use three or more Figma products; 27% quarter-over-quarter increase in multiyear customer deals.",
+   "zh": "产品采用率——超过 70% 的客户使用三种或更多 Figma 产品；多年客户交易量环比增长 27%。"
+  },
+  {
+   "en": "AI and product innovation-- Over 50 new features launched in the quarter, with Figma Make generally available since July, and 30% of $100,000+ ARR customers using Make weekly by September.",
+   "zh": "人工智能和产品创新——本季度推出了 50 多项新功能，Figma Make 自 7 月起全面推出，到 9 月，ARR 超过 100,000 美元的客户中有 30% 每周使用 Make。"
+  },
+  {
+   "en": "International momentum-- International revenue grew 42%, slightly outpacing domestic growth; strategic investments continue globally, including an upcoming India hub opening.",
+   "zh": "国际动力——国际收入增长 42%，略高于国内增长；全球战略投资仍在继续，包括即将开设的印度枢纽。"
+  },
+  {
+   "en": "Gross profit and margins-- Gross profit of $237 million with 86% gross margin; non-GAAP operating margin at 12%; adjusted free cash flow margin at 18% for the quarter.",
+   "zh": "毛利润和利润率——毛利润为 2.37 亿美元，毛利率为 86%；非公认会计准则营业利润率为 12%；本季度调整后的自由现金流利润率为 18%。"
+  },
+  {
+   "en": "Operating expenses-- On a non-GAAP basis, expenses increased to support AI initiatives, team expansion, and go-public efforts; recognized a large one-time GAAP stock-based compensation expense as liquidity condition on RSUs was satisfied, resulting in a GAAP net loss.",
+   "zh": "运营支出——按照非公认会计准则计算，支出增加是为了支持人工智能计划、团队扩张和上市工作；由于 RSU 的流动性条件得到满足，确认了一笔巨额一次性 GAAP 股票补偿费用，导致 GAAP 净亏损。"
+  },
+  {
+   "en": "Cash position-- Ended the quarter with $1.6 billion in cash, cash equivalents, and marketable securities.",
+   "zh": "现金状况——本季度末现金、现金等价物和有价证券为 16 亿美元。"
+  },
+  {
+   "en": "Outlook upward revision-- Raised full-year revenue guidance to $1.044 billion-$1.046 billion (up $22 million at midpoint), and Q4 revenue guidance to $292 million-$294 million, implying 40% and 35% year-over-year growth at respective midpoints; full-year non-GAAP operating income guidance raised to $112 million-$117 million.",
+   "zh": "展望上调——将全年收入指导上调至 10.44 亿美元至 10.46 亿美元（中点增加 2200 万美元），将第四季度收入指导上调至 2.92 亿至 2.94 亿美元，意味着中点同比增长分别为 40% 和 35%；全年非 GAAP 营业收入指引上调至 1.12 亿至 1.17 亿美元。"
+  },
+  {
+   "en": "Tax rate-- Non-GAAP tax rate decreased from 25% to 10% due to recent legislation, positively impacting Q3 net income and EPS.",
+   "zh": "税率——由于最近的立法，非公认会计准则税率从 25% 降至 10%，对第三季度净利润和每股收益产生了积极影响。"
+  },
+  {
+   "en": "Notable acquisition-- Closed the acquisition of Weavee; it will join as Figma Weave, though integration is expected to occur in coming months and is immaterial to near-term guidance.",
+   "zh": "重大收购——完成对 Weavee 的收购；它将作为 Figma Weave 加入，尽管整合预计将在未来几个月内进行，并且对近期指导并不重要。"
+  },
+  {
+   "en": "Integration and partnerships-- Announced new integrations in the quarter with Gemini, GitHub, Notion, Linear, Subbase, and deeper ChatGPT integration focused on FigJam diagramming; monetization discussions ongoing.",
+   "zh": "集成和合作伙伴关系——本季度宣布与 Gemini、GitHub、Notion、Linear、Subbase 进行新的集成，以及专注于 FigJam 图表绘制的更深入的 ChatGPT 集成；货币化讨论正在进行中。"
+  },
+  {
+   "en": "Pricing model transition-- About halfway through rollout; anticipated as a mid to high single-digit growth driver for the year, with further benefits expected in 2026 as full-year renewals occur.",
+   "zh": "定价模型过渡——大约推出一半；预计将成为今年中高个位数的增长动力，随着全年续约的发生，预计 2026 年将进一步受益。"
+  },
+  {
+   "en": "Management confirmed continued acceleration in both customer and revenue growth driven by strong AI product adoption and expanded platform usage. Product launches, including more than 50 new features and the general availability of Figma Make, drove a 27% quarter-over-quarter increase in multiyear deals and spurred platform expansion into new customer segments. International revenues outpaced domestic, underlining the importance of recent global investments, while gross margins remained high even as infrastructure and AI-related expenses rose. The company also implemented a reduced non-GAAP tax rate, which increased quarterly profitability, and raised its outlook for both full-year revenue and operating income.",
+   "zh": "管理层确认，在人工智能产品的强劲采用和平台使用范围扩大的推动下，客户和收入增长持续加速。产品的发布，包括 50 多项新功能和 Figma Make 的全面上市，推动多年交易量环比增长 27%，并刺激平台扩展到新的客户群。国际收入超过国内收入，凸显了近期全球投资的重要性，而即使基础设施和人工智能相关费用上升，毛利率仍然很高。该公司还实施了降低的非公认会计原则税率，这提高了季度盈利能力，并提高了全年收入和营业收入的预期。"
+  },
+  {
+   "en": "CEO Field emphasized, \"AI is the most important technology shift of our lifetimes so far,\" highlighting management's conviction in Figma's AI-native strategy as a growth lever.",
+   "zh": "首席执行官 Field 强调，“人工智能是迄今为止我们一生中最重要的技术转变”，强调了管理层对 Figma 的人工智能原生战略作为增长杠杆的信念。"
+  },
+  {
+   "en": "CFO Malwani stated, \"Our annualized revenue run rate is now over $1 billion,\" which signals scale and continued momentum.",
+   "zh": "首席财务官马尔瓦尼 (Malwani) 表示，“我们的年化收入运行率现已超过 10 亿美元”，这标志着规模和持续的势头。"
+  },
+  {
+   "en": "Management reported that Flipkart renewed in the quarter, leveraging the platform to launch a new service \"three times faster than previous launches,\" according to Dylan Field, reflecting sticky enterprise adoption of integrated workflows.",
+   "zh": "Dylan Field 表示，管理层报告称，Flipkart 在本季度进行了更新，利用该平台推出的新服务“比之前的发布速度快了三倍”，这反映出企业对集成工作流程的采用具有粘性。"
+  },
+  {
+   "en": "Specific mention was made of 30% of $100,000+ ARR customers using Figma Make weekly by September, indicating early but impactful AI-driven engagement among large accounts.",
+   "zh": "特别提到的是，到 9 月份，ARR 超过 100,000 美元的客户中有 30% 每周使用 Figma Make，这表明大客户之间早期但有影响力的人工智能驱动的参与。"
+  },
+  {
+   "en": "Recent product integration with ChatGPT and other leading platforms demonstrates Figma's commitment to open ecosystem connectivity and future revenue opportunities, though current contribution is immaterial.",
+   "zh": "最近与 ChatGPT 和其他领先平台的产品集成表明 Figma 对开放生态系统连接和未来收入机会的承诺，尽管目前的贡献并不重要。"
+  },
+  {
+   "en": "\"We are investing to support our product innovation and growth across talent, AI, and M&A,\" management noted, aligning higher spend with long-term platform leadership.",
+   "zh": "管理层指出：“我们正在投资支持我们在人才、人工智能和并购方面的产品创新和增长，”将更高的支出与长期平台领导地位相结合。"
+  },
+  {
+   "en": "Industry glossary",
+   "zh": "行业术语"
+  },
+  {
+   "en": "Annual recurring revenue (ARR): Total value of recurring revenue from subscriptions over a one-year period, providing a baseline for business predictability and scale.",
+   "zh": "年度经常性收入 (ARR)：一年内来自订阅的经常性收入总价值，为业务可预测性和规模提供基准。"
+  },
+  {
+   "en": "Net dollar retention (NDR): Metric representing how much recurring revenue from existing customers increases or declines over a specific period, inclusive of upgrades, downgrades, and churn.",
+   "zh": "净美元保留率 (NDR)：表示现有客户的经常性收入在特定时期内增加或减少的量的指标，包括升级、降级和流失。"
+  },
+  {
+   "en": "RSU (restricted stock unit): Equities granted to employees that vest over time or upon achieving specific milestones; upon vesting, they become tradable shares, and their expensing affects reported earnings.",
+   "zh": "RSU（限制性股票单位）：授予员工的股权，随着时间的推移或在实现特定里程碑时归属；归属后，它们成为流通股，其费用会影响报告的收益。"
+  },
+  {
+   "en": "GA (general availability): Stage when a product is released for mainstream use after beta or limited release phases.",
+   "zh": "GA（一般可用性）：产品在测试版或有限发布阶段之后发布供主流使用的阶段。"
+  },
+  {
+   "en": "Dev Mode: Figma's product feature designed to help developers inspect and implement design files directly, often integrating with code repositories.",
+   "zh": "开发模式：Figma 的产品功能旨在帮助开发人员直接检查和实现设计文件，通常与代码存储库集成。"
+  },
+  {
+   "en": "MCP server: Internal Figma technology that synchronizes design context and assets across products and into code, streamlining developer workflows.",
+   "zh": "MCP 服务器：内部 Figma 技术，可将跨产品的设计上下文和资产同步到代码中，从而简化开发人员工作流程。"
+  },
+  {
+   "en": "Full Conference Call Transcript",
+   "zh": "完整的电话会议记录"
+  },
+  {
+   "en": "Dylan Field, Figma, Inc.'s co-founder and Chief Executive Officer, and Praveer Malwani, our Chief Financial Officer. During the course of today's call, we may make forward-looking statements, including but not limited to, statements regarding our guidance and future financial performance, market demand, product development, growth prospects, business strategies and plans, partnerships, ability to attract and retain customers, and ability to compete effectively. These forward-looking statements are based on management's current views and assumptions and should not be relied upon as of any subsequent date. We disclaim any obligation to update any forward-looking statements. Actual results may vary materially from today's statements.",
+   "zh": "Figma, Inc. 的联合创始人兼首席执行官 Dylan Field 和我们的首席财务官 Praveer Malwani。在今天的电话会议期间，我们可能会做出前瞻性陈述，包括但不限于有关我们的指导和未来财务业绩、市场需求、产品开发、增长前景、业务战略和计划、合作伙伴关系、吸引和留住客户的能力以及有效竞争能力的陈述。这些前瞻性陈述基于管理层当前的观点和假设，不应在任何后续日期被依赖。我们不承担更新任何前瞻性陈述的义务。实际结果可能与今天的声明存在重大差异。"
+  },
+  {
+   "en": "Information concerning our risks, uncertainties, and other factors that could cause results to differ from these forward-looking statements are included in our filings with the SEC, including our quarterly report on Form 10-Q for the quarter ended 09/30/2025. Our discussion today will include certain non-GAAP financial measures. These non-GAAP financial measures should be considered in addition to, as a substitute for, or in isolation from, GAAP measures. Our non-GAAP measures exclude the effect of our GAAP results of stock-based compensation and certain other items. Reconciliations of non-GAAP financial measures to comparable GAAP measures can be found in our press release accompanying this call, which is posted to our website.",
+   "zh": "有关我们的风险、不确定性和其他可能导致结果与这些前瞻性陈述不同的因素的信息包含在我们向 SEC 提交的文件中，包括我们截至 2025 年 9 月 30 日的季度 10-Q 表格的季度报告。我们今天的讨论将包括某些非公认会计准则财务指标。这些非公认会计原则财务指标应作为公认会计原则指标的补充、替代或独立考虑。我们的非公认会计原则衡量指标排除了基于股票的薪酬和某些其他项目的公认会计原则结果的影响。非 GAAP 财务指标与可比 GAAP 指标的对账可在本次电话会议随附的新闻稿中找到，该新闻稿发布在我们的网站上。"
+  },
+  {
+   "en": "I would now like to turn the conference call over to Dylan.",
+   "zh": "我现在想把电话会议转给迪伦。"
+  },
+  {
+   "en": "Dylan Field:Thanks, Kate, and thanks everyone for joining Figma, Inc.'s Q3 earnings call today. After the Internet, AI is the most important technology shift of our lifetimes so far. I believe it's also an incredible tailwind for Figma, Inc. And there are two reasons why. First, AI is uniquely good at co-generation, which means value is moving up the stack and, like we've said for the last decade, in asset creation. $4 million, a record for sequential net revenue added. This represents 38% year-over-year growth and is above the high end of the guidance that we shared. Our team is working harder, moving faster, and shipping extremely quickly.",
+   "zh": "Dylan Field：谢谢 Kate，也感谢大家今天参加 Figma, Inc. 的第三季度财报电话会议。继互联网之后，人工智能是迄今为止我们一生中最重要的技术转变。我相信这对 Figma, Inc. 来说也是一个令人难以置信的顺风车。原因有两个。首先，人工智能在热电联产方面有着独特的优势，这意味着价值正在不断上升，就像我们在过去十年中所说的那样，在资产创造方面。400 万美元，创下连续净收入纪录。这意味着同比增长 38%，高于我们分享的指导上限。我们的团队工作更加努力，行动更快，发货速度也非常快。"
+  },
+  {
+   "en": "We are in the lucky position of getting to dogfood everything that we're building. This helps us launch products more quickly and with higher quality. Week to week, we're unlocking new capabilities that are resonating with new and existing customers. In Q3, our net dollar retention increased two points to 131%, driven by faster customer adoption of our new products and platform. We are investing to support our product innovation and growth across talent, AI, and M&A. Even with these investments, we continue to generate profits, with a non-GAAP operating margin of 12% and an adjusted free cash flow margin of 18% in the quarter. Ending Q3, our balance of cash, cash equivalents, and marketable securities was $1.6 billion.",
+   "zh": "我们很幸运，能够对我们正在构建的所有东西进行测试。这有助于我们更快、更高质量地推出产品。我们每周都在解锁新功能，引起新老客户的共鸣。在第三季度，由于客户更快地采用我们的新产品和平台，我们的净美元保留率增加了两个百分点，达到 131%。我们正在投资支持我们在人才、人工智能和并购方面的产品创新和增长。即使进行了这些投资，我们仍继续产生利润，本季度非 GAAP 营业利润率为 12%，调整后自由现金流利润率为 18%。截至第三季度末，我们的现金、现金等价物和有价证券余额为 16 亿美元。"
+  },
+  {
+   "en": "Brands and businesses are quickly realizing that design and craft are increasingly how they stand out and win. Our community is reporting that the design talent wars are fierce. According to our own research, more than designers, 56% of those surveyed, are engaged in design-centric tasks. These same non-designers self-reported that they're spending more time and giving more attention to design-centric tasks than they did a year ago. Today, designing can start anywhere with anyone, and it is no longer a linear process. PMs are visualizing their ideas as working prototypes, designers are mapping user journeys with chatbots, and developers are jumping into design details at the beginning of the process rather than just at the end.",
+   "zh": "品牌和企业很快意识到，设计和工艺越来越成为他们脱颖而出和获胜的方式。我们的社区报告称，设计人才争夺战非常激烈。根据我们自己的研究，超过设计师（56% 的受访者）从事以设计为中心的任务。这些非设计师自我报告说，与一年前相比，他们在以设计为中心的任务上花费了更多的时间和更多的注意力。如今，任何人都可以从任何地方开始设计，并且它不再是一个线性过程。产品经理正在将他们的想法可视化为工作原型，设计师正在使用聊天机器人绘制用户旅程，而开发人员则在流程开始时而不是在结束时就开始讨论设计细节。"
+  },
+  {
+   "en": "We are building our platform to meet these changing needs, and it is driving our momentum in a few key ways: product velocity, platform strategy, and AI investment. First, as I already said, we are building and shipping new features at an extremely fast pace. In Q3 alone, we launched more than 50 new features across every product on our platform. These launches are quickly giving our customers new capabilities and making new workflows possible, helping to spread Figma, Inc. to new teams within the organization, like brand design and marketing. For example, Intercom, a leading customer service platform, used Figma Buzz to develop hundreds of on-brand visual assets across social, email, and advertising for their annual AI summit, Pioneer.",
+   "zh": "我们正在构建我们的平台来满足这些不断变化的需求，它在几个关键方面推动了我们的发展势头：产品速度、平台战略和人工智能投资。首先，正如我已经说过的，我们正在以极快的速度构建和发布新功能。仅在第三季度，我们就为平台上的每款产品推出了 50 多项新功能。这些产品的推出迅速为我们的客户提供了新的功能，并使新的工作流程成为可能，有助于将 Figma, Inc. 传播到组织内的新团队，例如品牌设计和营销。例如，领先的客户服务平台 Intercom 使用 Figma Buzz 为其年度 AI 峰会 Pioneer 开发了数百个跨社交、电子邮件和广告的品牌视觉资产。"
+  },
+  {
+   "en": "Using templates, designers were freed up to focus on high-impact work, and marketers were able to customize hundreds of assets while maintaining creative integrity. Our second momentum driver is our platform strategy. The ability to go from idea to product all in Figma, Inc. is unique. Our customers appreciate the interoperability of our products. No matter where you start, you can move seamlessly across mediums. In today's workflows, this is not a nice-to-have; it's a requirement. For example, Flipkart, one of India's largest e-commerce platforms with over 500 million users, renewed in Q3. The company uses Figma, Inc. for brainstorming, designing, and moving to production.",
+   "zh": "使用模板，设计师可以腾出时间专注于高影响力的工作，营销人员可以定制数百种资产，同时保持创意的完整性。我们的第二个动力驱动因素是我们的平台战略。Figma, Inc. 从创意到产品的能力是独一无二的。我们的客户非常欣赏我们产品的互操作性。无论从哪里开始，您都可以跨媒体无缝移动。在当今的工作流程中，这并不是可有可无的。这是一个要求。例如，拥有超过 5 亿用户的印度最大电商平台之一 Flipkart 在第三季度进行了更新。该公司使用 Figma, Inc. 进行集思广益、设计并转向生产。"
+  },
+  {
+   "en": "This connected workflow helped Flipkart launch Flipkart Minutes, its new quick commerce platform, three times faster than previous launches. Flipkart is one of many amazing customers in India, and we're excited to officially open our India hub next week. Rivian also uses the entire Figma, Inc. platform, designed for one of the most complex digital ecosystems in the world, including multiple in-vehicle displays, web and mobile experiences, and autonomous driving. Their unified design system in Figma, Inc. maintains consistency across every single screen. By standardizing their production files and adopting Code Connect, Rivian's designers and engineers now work in lockstep, reducing thrash and accelerating ship times. Lastly, we're building AI-native workflows across our platform.",
+   "zh": "这种互联的工作流程帮助 Flipkart 推出了新的快速商务平台 Flipkart Minutes，速度比之前的发布速度快了三倍。Flipkart 是印度众多出色客户之一，我们很高兴下周正式开设我们的印度中心。Rivian 还使用整个 Figma, Inc. 平台，该平台专为世界上最复杂的数字生态系统之一而设计，包括多个车载显示器、网络和移动体验以及自动驾驶。Figma, Inc. 的统一设计系统在每个屏幕上保持一致性。通过标准化生产文件并采用 Code Connect，Rivian 的设计师和工程师现在可以同步工作，减少混乱并加快发货时间。最后，我们正在跨平台构建人工智能原生工作流程。"
+  },
+  {
+   "en": "I'm really excited about our progress here. As Figma Make and MCP server are spreading Figma, Inc. to new teams and new audiences, combined with the platform strategy that I already mentioned, we're gaining momentum. During a period where some vibe coding tools are reportedly slowing growth, Figma Make is speeding up. By September, approximately 30% of customers spending $100,000 or more in ARR were creating in Figma Make on a weekly basis, and that number has continued to grow. We will continue investing heavily in AI, and we will trade near-term margin to build the right long-term platform for our customers. Today, I want to demo a few of these AI-native workflows with Figma Make and Prompt Edit.",
+   "zh": "我对我们在这里取得的进展感到非常兴奋。随着 Figma Make 和 MCP 服务器将 Figma, Inc. 传播给新团队和新受众，再加上我已经提到的平台策略，我们正在获得动力。据报道，在一些氛围编码工具增长放缓的时期，Figma Make 正在加速增长。到 9 月份，大约 30% 在 ARR 上花费 100,000 美元或以上的客户每周都会在 Figma Make 中进行创作，而且这个数字还在持续增长。我们将继续大力投资人工智能，并以短期利润为代价，为客户建立合适的长期平台。今天，我想使用 Figma Make 和 Prompt Edit 演示一些 AI 原生工作流程。"
+  },
+  {
+   "en": "I'll share some of the ways that our customers use them. Let's start with Figma Make, a product that lets anyone turn simple text prompts or existing Figma designs into a workable prototype or even a full web app with the power of AI. We first launched Make in beta earlier this year, and it became available to all users in July. Since our last earnings call, the team has been working incredibly hard to improve Figma Make for our users. One feature we announced recently is the ability to bring your design system into Figma Make. This helps ensure you stay on brand and create outputs that are consistent with your design system.",
+   "zh": "我将分享我们的客户使用它们的一些方式。让我们从 Figma Make 开始，该产品允许任何人将简单的文本提示或现有 Figma 设计转变为可行的原型，甚至是具有人工智能功能的完整网络应用程序。我们于今年早些时候首次推出了 Make 测试版，并于 7 月份向所有用户开放。自从我们上次的财报电话会议以来，该团队一直在非常努力地为我们的用户改进 Figma Make。我们最近宣布的一项功能是能够将您的设计系统引入 Figma Make。这有助于确保您保持品牌并创建与您的设计系统一致的输出。"
+  },
+  {
+   "en": "So let's say I'm on the product team at Duolingo, and I want to create a new lesson that allows me to review my previous mistakes. So I've decided to use Figma Make to create that prototype for a rapid-fire this-or-that exercise. And you can see it here. When I press start, you can see how, you know, this is a working prototype, but it's not amazing, definitely not on brand. It's something I could show people, but they might judge it by its looks rather than its merits. So how can I get it to an equal footing with other prototypes? Well, the design system has an incredible amount of context that has already been created in Figma, Inc.",
+   "zh": "假设我是 Duolingo 产品团队的一员，我想创建一个新课程，让我能够回顾以前的错误。因此，我决定使用 Figma Make 来创建原型，以进行快速的这样或那样的练习。你可以在这里看到它。当我按下开始键时，你可以看到，你知道，这是一个工作原型，但它并不令人惊奇，绝对不是品牌上的。这是我可以向人们展示的东西，但他们可能会根据它的外观而不是它的优点来判断它。那么如何才能让它与其他原型处于同等地位呢？好吧，设计系统拥有大量已在 Figma, Inc. 创建的上下文。"
+  },
+  {
+   "en": "This is Duolingo's; you can see their buttons, their labels, and it keeps going. It's explicitly laid out and very clear how things should work. So now if I say export library to Figma Make, I can use that in order to make it so that I'm able to use that as a make kit. And with a bit of prompting, I can make it just perfect. So you can see as I scroll down, I can even click these buttons and interact with the components. It's all here for me to use. This is an example of us taking that make kit and actually using it in Figma Make.",
+   "zh": "这是 Duolingo 的；你可以看到他们的按钮、标签，而且它会一直持续下去。它的布局很明确，并且非常清楚事情应该如何运作。所以现在如果我说将库导出到Figma Make，我可以使用它来制作它，这样我就可以将其用作制作工具包。只要有一点提示，我就能让它变得完美。因此，您可以看到，当我向下滚动时，我什至可以单击这些按钮并与组件交互。这一切都在这里供我使用。这是我们采用该制作套件并在 Figma Make 中实际使用它的一个例子。"
+  },
+  {
+   "en": "You can see that when I click here, I've got the Duolingo make kit being applied. And now when I click on it, you'll see the imagery and the overall brand and design language of Duolingo. Pretty cool. If I want to, I can also copy this design and I can bring it into a design file. This is another feature that we recently launched. So one thing I might do here is take some of the objects and let's say I want to actually go and rotate this a bit, I'll put it behind this card in kind of a playful way. I'll take this one and do the same.",
+   "zh": "您可以看到，当我单击此处时，我已经应用了 Duolingo make 套件。现在，当我点击它时，您将看到 Duolingo 的图像以及整体品牌和设计语言。很酷。如果我愿意，我还可以复制此设计并将其放入设计文件中。这是我们最近推出的另一项功能。因此，我可能在这里做的一件事是拿一些对象，假设我想实际旋转一下它，我会以一种有趣的方式将其放在这张卡后面。我会拿这个并做同样的事情。"
+  },
+  {
+   "en": "And now I'm going to scale this all and I'll make this a bit smaller. And I'll move this card back a bit. I'll clip content on this frame, and here I go. So now I've got a design that can kind of see what the things on the left and right might be, what you last did, as well as what's coming up. If I want to use Prompt Edit, I can do that and show you the power of an upcoming feature that we have not launched yet. It's just in private alpha, but we're very excited about it.",
+   "zh": "现在我要缩放这一切，并将其缩小一点。我会把这张卡向后移一点。我将剪辑此框架上的内容，然后开始。所以现在我有了一个设计，可以看到左边和右边的东西可能是什么，你上次做了什么，以及接下来会发生什么。如果我想使用“提示编辑”，我可以这样做并向您展示我们尚未推出的即将推出的功能的强大功能。虽然它还处于私人测试阶段，但我们对此感到非常兴奋。"
+  },
+  {
+   "en": "So let's say that I want to go and say, okay, let's give this a fall theme and translate everything from French to Spanish. When I do that, the assistant will get to work, and it's going to hopefully give us some good results. Let's see. Alright. So it was able to infer from a fall theme that we should go orange, and it's changed it to Spanish successfully. And we can see that in the design.",
+   "zh": "假设我想去说，好吧，让我们给它一个秋季主题，并将所有内容从法语翻译成西班牙语。当我这样做时，助理就会开始工作，希望能给我们带来一些好的结果。让我们来看看。好吧。因此，它能够从秋季主题推断出我们应该选择橙色，并成功将其更改为西班牙语。我们可以在设计中看到这一点。"
+  },
+  {
+   "en": "And if I wanted to go back, I can now go into my overall make prototype, and I can go prompt, and actually copy and paste my design from Figma Design into Make in order to make it so I can update this entire view. And you can see that the design has been copied, its context communicated to Make here as well. So it's very exciting where we can head with this. You can also now use MCP to go pull that context from Make and Figma Design into code in order to go build a prototype or reflect your changes accurately in code as well. Alright.",
+   "zh": "如果我想回去，我现在可以进入我的整体制作原型，我可以进行提示，实际上将我的设计从 Figma Design 复制并粘贴到 Make 中，以便制作它，以便我可以更新整个视图。您可以看到设计已被复制，其上下文也已传达到此处的 Make。因此，我们可以朝这个方向前进，这非常令人兴奋。您现在还可以使用 MCP 将 Make 和 Figma Design 中的上下文提取到代码中，以便构建原型或在代码中准确反映您的更改。好吧。"
+  },
+  {
+   "en": "Now I want to share a couple of the ways customers are using these new products. Take Lowe's, a company that serves a range of consumers, from DIY builders taking on a home remodel to professionals doing large-scale renovations. Designing for these different customers used to be time-consuming and cumbersome. When Lowe's built Milo, their AI chat experience, Make allowed the team to rapidly explore the option space, designing and prototyping interfaces for different scenarios. For example, they prototyped Milo to show a variety of tones, responses, and flows. Because it's a conversational experience, their design needs to adapt accordingly. And with Figma Make, they can now test and refine design variations in just minutes.",
+   "zh": "现在我想分享客户使用这些新产品的几种方式。以 Lowe's 为例，这家公司为各种消费者提供服务，从进行房屋改造的 DIY 建筑商到进行大规模翻修的专业人士。过去，为这些不同的客户进行设计既耗时又麻烦。当 Lowe's 构建 Milo（他们的 AI 聊天体验）时，Make 使团队能够快速探索选项空间，为不同场景设计界面并制作原型。例如，他们对 Milo 进行了原型设计，以显示各种语气、响应和流程。因为这是一种对话体验，所以他们的设计需要做出相应的调整。借助Figma Make，他们现在可以在短短几分钟内测试和完善设计变体。"
+  },
+  {
+   "en": "This helps Lowe's create world-class AI experiences with the accuracy and flexibility they need. Or consider Okta, a global leader in digital identity and security. They chose Figma Make as their AI prototyping tool because of its enterprise-grade security and trusted admin controls. And they quickly scaled it across teams. Okta's user research team has become a champion of the product, using Make to test ideas and build interactive prototypes for potential new features. During a recent hackathon, one researcher used Make to prototype a new chat experience in just five minutes, and they were able to test it with customers immediately.",
+   "zh": "这有助于 Lowe's 以其所需的准确性和灵活性创造世界一流的人工智能体验。或者考虑一下 Okta，它是数字身份和安全领域的全球领导者。他们选择 Figma Make 作为他们的 AI 原型工具，因为它具有企业级安全性和值得信赖的管理控制。他们很快就将其扩展到各个团队。Okta 的用户研究团队已成为该产品的冠军，他们使用 Make 来测试想法并为潜在的新功能构建交互式原型。在最近的一次黑客马拉松中，一位研究人员使用 Make 在短短五分钟内制作了新的聊天体验原型，并且他们能够立即与客户进行测试。"
+  },
+  {
+   "en": "We're not only building AI-native workflows directly on our platform, but we also invest deeply in partnerships and product integrations. I want to highlight one in particular: Figma app and ChatGPT. People are generating a lot of information in chat sessions with LLMs. But what else can you do with that context? One way to use it is to generate a diagram, a flowchart, or a Gantt chart in FigJam. This integration lets you do that inside of ChatGPT, and then lets you pop out to Figma, Inc.'s platform to save, share, or further edit.",
+   "zh": "我们不仅直接在我们的平台上构建人工智能原生工作流程，而且还对合作伙伴关系和产品集成进行了深入投资。我想特别强调其中一个：Figma 应用程序和 ChatGPT。人们在与法学硕士的聊天中产生了大量信息。但在这种背景下你还能做什么呢？使用它的一种方法是在 FigJam 中生成图表、流程图或甘特图。通过这种集成，您可以在 ChatGPT 内部执行此操作，然后可以弹出到 Figma, Inc. 的平台进行保存、共享或进一步编辑。"
+  },
+  {
+   "en": "We've seen that this is useful for developers creating system diagrams, researchers mapping out user journeys, or even educators building a flowchart for a lesson plan. This integration is just one example. Over the past quarter alone, we've launched new integrations with Gemini, GitHub, Notion, Linear, Subbase, and many more. Last week, we announced our acquisition of Weavee. They will join our team and platform as Figma Weave. AI has made it easy to create anything, but we believe the first prompt is just a creative starting point, not the final destination. Weavee combines leading AI models and professional editing tools on a single browser-based canvas. The result is an inspiring space for creative exploration. Let me show you.",
+   "zh": "我们已经看到，这对于开发人员创建系统图表、研究人员绘制用户旅程，甚至教育工作者为课程计划构建流程图非常有用。这种集成只是一个例子。仅在过去的一个季度，我们就推出了与 Gemini、GitHub、Notion、Linear、Subbase 等的新集成。上周，我们宣布收购 Weavee。他们将作为 Figma Weave 加入我们的团队和平台。人工智能让创造任何东西变得容易，但我们相信第一个提示只是一个创造性的起点，而不是最终的目的地。Weavee 将领先的人工智能模型和专业编辑工具结合在一个基于浏览器的画布上。其结果是一个鼓舞人心的创造性探索空间。让我告诉你。"
+  },
+  {
+   "en": "With this powerful yet approachable combination, Weavee gives creatives new ways to channel their craft and their point of view. In less than a year, the Weavee team has built a passionate community, from freelancers to Fortune 100 users. The testimonials that we heard from creatives using Weavee completely blew us away. We share the same community focus, maker spirit, and deep love of craft. And together, we have so many ideas for what we can build. We're so excited to welcome them to Figma, Inc. and plan to grow the team in Tel Aviv and beyond to support this work.",
+   "zh": "凭借这种强大而平易近人的组合，Weavee 为创意人员提供了表达他们的工艺和观点的新方法。在不到一年的时间里，Weavee 团队建立了一个充满热情的社区，从自由职业者到财富 100 强用户。我们从使用 Wea​​vee 的创意人员那里听到的感言完全让我们震惊。我们拥有相同的社区关注点、创客精神和对工艺的热爱。在一起，我们对我们可以构建的东西有很多想法。我们非常高兴地欢迎他们加入 Figma, Inc.，并计划在特拉维夫及其他地区发展团队以支持这项工作。"
+  },
+  {
+   "en": "Between our product launches, the Weavee acquisition, our integrations, and our AI investments, we accomplished a lot since our last earnings call. And we still have so much opportunity ahead. Zooming out, with the explosive growth of software and creative assets, good enough is simply not good enough. It's merely mediocre. You have to push beyond the prompt, with design, with craft, and with a bold point of view to build something that truly stands out. Design is the differentiator, how products, brands, and businesses will win. It's part of why we brought on Chief Design Officer Lordana Krishan in Q3, who joined us after spending nine years at Meta, most recently leading AI products.",
+   "zh": "自上次财报电话会议以来，我们在产品发布、收购 Weavee、集成和人工智能投资方面取得了很多成就。我们前面还有很多机会。缩小范围来看，随着软件和创意资产的爆炸性增长，仅仅足够好还不够好。这只是平庸。你必须超越提示，通过设计、工艺和大胆的观点来打造真正脱颖而出的东西。设计是差异化因素，是产品、品牌和企业获胜的关键。这也是我们在第三季度聘请首席设计官 Lordana Krishan 的部分原因，她在 Meta 工作了九年后加入我们，最近领导了人工智能产品。"
+  },
+  {
+   "en": "Just like our customers, we are also elevating design within Figma, Inc. In closing, let me just say we are so lucky to work with the most innovative companies in the world and with the most creative community on the Internet. Building for them motivates us every single day. And with that, I'll pass it to Praveer. Before we get too deep into the numbers, I want to reinforce our growth philosophy. Dylan. We're proud of our growth in Q3. We're focused on building a business for the long term and have been intentional about both where we invest and how we invest. Dylan discussed product innovation and differentiation of the platform across several product areas.",
+   "zh": "就像我们的客户一样，我们也在 Figma, Inc. 内部提升设计水平。最后，我想说的是，我们非常幸运能够与世界上最具创新性的公司以及互联网上最具创意的社区合作。为他们而建设每天都激励着我们。接下来，我会将其传递给普拉维尔。在我们深入研究数字之前，我想强调一下我们的增长理念。迪伦.我们对第三季度的增长感到自豪。我们专注于建立长期业务，并有意投资于何处以及如何投资。迪伦讨论了多个产品领域的产品创新和平台差异化。"
+  },
+  {
+   "en": "That remains our focus, and this approach is working. As we previewed last quarter, we deepened our investments in Q3 to build for the AI-native workflows of the future. We will stay intentional with where we spend, opportunistically improving efficiency in the short term, but are absolutely focused on prioritizing long-term market leadership. With that, let's walk through our financial performance in Q3. We ended Q3 with $274 million in revenue, representing 38% year-over-year growth. Our annualized revenue run rate is now over $1 billion. And on a quarterly basis, this represents our best sequential quarter of net revenue added on record.",
+   "zh": "这仍然是我们的重点，而且这种方法正在发挥作用。正如我们上季度预览的那样，我们在第三季度加深了投资，以构建未来的人工智能原生工作流程。我们将有意识地控制支出，在短期内伺机提高效率，但绝对专注于优先考虑长期市场领导地位。接下来，让我们回顾一下我们第三季度的财务业绩。第三季度末，我们的收入为 2.74 亿美元，同比增长 38%。我们的年化收入运行率现已超过 10 亿美元。按季度计算，这代表了我们有记录以来最好的连续季度净收入增加。"
+  },
+  {
+   "en": "The general availability of Figma Make and our AI features in July has begun to accelerate a change in the business. Driven by Figma Make adoption, we ended Q3 with 540,000 total paid customers, up from nearly 450,000 paid customers at the end of Q1, adding over 90,000 paid teams in just two quarters. We're proud of the traction and welcome these new users and teams to Figma, Inc., and we'll be monitoring how these cohorts mature, continuing to improve our understanding over time. As of the end of Q3, more than 70% of our customers were using three or more products. Teams expanded both their number of users and engagement on the platform.",
+   "zh": "Figma Make 和我们的人工智能功能于 7 月份全面上市，已经开始加速业务的变革。在 Figma Make 采用的推动下，我们在第三季度末的付费客户总数达到 540,000 名，高于第一季度末的近 450,000 名付费客户，在短短两个季度内就增加了超过 90,000 名付费团队。我们为这种吸引力感到自豪，并欢迎这些新用户和团队加入 Figma, Inc.，我们将监控这些群体的成熟情况，随着时间的推移继续提高我们的理解。截至第三季度末，超过 70% 的客户使用三种或更多产品。团队扩大了平台的用户数量和参与度。"
+  },
+  {
+   "en": "We saw a 27% quarter-over-quarter increase in customers signing multiyear deals, demonstrating that Figma, Inc. is becoming the system of record for design and product development. After releasing our Governance Plus add-on last year and seeing strong interest in highly regulated industries like finance and banking, we're now seeing broader interest among customers in many different sectors. The add-on is designed for organizations with advanced security and compliance needs like IP allow list, enhanced export controls, and idle session timeouts.",
+   "zh": "我们看到签署多年期协议的客户数量环比增长了 27%，这表明 Figma, Inc. 正在成为设计和产品开发的记录系统。去年发布了 Governance Plus 附加组件并看到人们对金融和银行等高度监管的行业产生了浓厚的兴趣后，我们现在看到许多不同行业的客户也产生了更广泛的兴趣。该附加组件专为具有高级安全性和合规性需求（例如 IP 允许列表、增强的导出控制和空闲会话超时）的组织而设计。"
+  },
+  {
+   "en": "Turning to our key metrics, the combination of growth in new customers plus expansion within our existing customers driven by our new functionality, our net dollar retention for paid customers with ARR and products like Figma Make improved key metrics as compared to Q2. Of $10,000 or more ended the quarter at 131%, an increase of two percentage points quarter over quarter. We now have nearly 13,000 paid customers who spend more than $10,000 in ARR, adding over 1,000 paid customers in Q3. And we have over 1,250 paid customers spending more than $100,000 in ARR. We added 140 net customers in Q3, up from 88 in Q2, an acceleration in growth quarter over quarter.",
+   "zh": "谈到我们的关键指标，新客户的增长加上新功能推动的现有客户的扩张、我们通过 ARR 和 Figma Make 等产品为付费客户保留的净美元保留率与第二季度相比，改善了关键指标。本季度末，10,000 美元或以上的用户比例为 131%，比上一季度增加了两个百分点。我们现在有近 13,000 名 ARR 支出超过 10,000 美元的付费客户，第三季度增加了 1,000 多名付费客户。我们有超过 1,250 名付费客户的 ARR 支出超过 100,000 美元。我们在第三季度增加了 140 个净客户，高于第二季度的 88 个，季度环比增长加速。"
+  },
+  {
+   "en": "Turning to our key income statement results. Unless otherwise noted, all metrics are non-GAAP. We have provided a reconciliation of GAAP to non-GAAP financials in our earnings release, which is posted to our website. Our Q3 gross profit was $237 million, representing a gross margin of 86%. As we brought Figma Make and our other AI features to our entire customer base, the cost to serve these products and features impacted gross margin. We believe that this is an investment in driving both the ubiquity of our products and is critical to the workflows of the future. Currently, we are not enforcing the credit limits on our full seats or charging for a consumption add-on.",
+   "zh": "转向我们的主要损益表结果。除非另有说明，所有指标均为非公认会计准则。我们在我们网站上发布的收益报告中提供了 GAAP 与非 GAAP 财务数据的调节表。我们第三季度的毛利润为 2.37 亿美元，毛利率为 86%。当我们将 Figma Make 和其他人工智能功能带给我们的整个客户群时，服务这些产品和功能的成本影响了毛利率。我们相信，这是一项推动我们产品普及的投资，并且对于未来的工作流程至关重要。目前，我们不会对满座座位实施信用限额，也不会收取消费附加费。"
+  },
+  {
+   "en": "When we do, we anticipate it will offset some of the incremental inference spend. Our Q3 operating income was $34 million, with an operating margin of 12%. The outperformance we recognized in our top line flowed through directly to our operating income. On a year-over-year basis, our operating expenses increased as part of our broader philosophy around strategically investing for growth. We continued to build out the team, deepened our investment in Figma Make both in the cost to serve the product and our go-to-market efforts, and incurred incremental costs as part of our go-public efforts.",
+   "zh": "当我们这样做时，我们预计它将抵消一些增量推理支出。我们第三季度的营业收入为 3400 万美元，营业利润率为 12%。我们在营收中所认识到的优异表现直接影响到我们的营业收入。与去年同期相比，我们的运营费用有所增加，这是我们围绕战略投资促进增长的更广泛理念的一部分。我们继续组建团队，深化对 Figma Make 的投资，包括产品服务成本和上市工作成本，并在上市工作中产生增量成本。"
+  },
+  {
+   "en": "As part of the go-public process in Q3, we recognized a large one-time stock-based compensation expense as the liquidity condition on outstanding RSUs was satisfied. This expense resulted in a GAAP net loss in Q3. Going forward, we will continue to recognize stock-based compensation expenses and are focused on managing dilution. We anticipate that it will take several quarters for our stock-based compensation expense to normalize as our pre-IPO awards are expensed using the accelerated attribution method. Additionally, as a result of recent legislation, our non-GAAP tax rate decreased from 25% to 10%. In Q3, both our net income and EPS results benefited from this reduction.",
+   "zh": "作为第三季度上市流程的一部分，我们确认了一大笔一次性股票补偿费用，因为已发行 RSU 的流动性条件得到了满足。这项费用导致第三季度按照公认会计原则 (GAAP) 计算净亏损。展望未来，我们将继续确认基于股票的补偿费用，并专注于管理稀释。我们预计，由于我们的首次公开募股前奖励是使用加速归属法支出的，因此我们的股票薪酬支出需要几个季度才能正常化。此外，由于最近的立法，我们的非 GAAP 税率从 25% 降至 10%。第三季度，我们的净利润和每股收益都受益于这一减少。"
+  },
+  {
+   "en": "Our Q3 adjusted free cash flow was $49 million, with an adjusted free cash flow margin of 18%. The investments in Figma Make and our other AI efforts drove increases in spend on infrastructure and inference providers in the quarter. This, plus the favorable timing of collections in Q2, brought down our margins quarter over quarter. As we continue to scale and increase spend on our infrastructure and inference providers, we expect some changes in the timing of our vendor payments based on business needs. Looking ahead, we anticipate our Q4 adjusted free cash flow margin to decline sequentially given the continued AI investments, as well as some one-time tax payments.",
+   "zh": "第三季度调整后自由现金流为 4900 万美元，调整后自由现金流利润率为 18%。对 Figma Make 的投资和我们其他人工智能工作推动了本季度基础设施和推理提供商支出的增加。再加上第二季度的有利收款时机，我们的利润率逐季下降。随着我们不断扩大和增加基础设施和推理提供商的支出，我们预计供应商付款时间会根据业务需求发生一些变化。展望未来，鉴于持续的人工智能投资以及一些一次性纳税，我们预计第四季度调整后的自由现金流利润率将连续下降。"
+  },
+  {
+   "en": "Given the potential changes quarter over quarter, we will be managing our cash to an annual target. Turning to our guidance for the fourth quarter and full fiscal year. First, our guidance philosophy overall remains unchanged. Our guidance is a snapshot of our current outlook for the business based on recent trends. Q3 was a record quarter on a number of fronts. Customers are adopting our new products, teams are growing their Figma, Inc. usage, and we are becoming the system of record for design and product development. Given the strength across our business, we are raising our outlook both on revenue and operating income for the year.",
+   "zh": "考虑到季度与季度之间的潜在变化，我们将管理现金以达到年度目标。转向我们对第四季度和整个财年的指导。首先，我们的指导思想总体没有变化。我们的指导是基于近期趋势的当前业务前景的快照。第三季度在许多方面都创下了纪录。客户正在采用我们的新产品，团队正在增加 Figma, Inc. 的使用，我们正在成为设计和产品开发的记录系统。鉴于我们业务的实力，我们上调了今年的收入和营业收入预期。"
+  },
+  {
+   "en": "We now expect revenue for the fourth quarter to be between $292 million and $294 million, implying 35% year-over-year growth at the midpoint. For the year, we anticipate that our revenue will be between $1.044 billion and $1.046 billion, an increase of $22 million compared to the midpoint of our prior range. This outlook implies 40% year-over-year growth for 2025 at the midpoint. While we intend to complement the existing seat-based licensing model with a consumption model, the outlook does not assume consumption revenue to be material this year. The strength we're seeing in revenue will directly flow through to our operating income. We expect our full-year operating income to be between $112 million and $117 million.",
+   "zh": "我们现在预计第四季度的收入将在 2.92 亿美元至 2.94 亿美元之间，这意味着中间值同比增长 35%。我们预计今年的收入将在 10.44 亿美元至 10.46 亿美元之间，比之前区间的中值增加 2200 万美元。这一前景意味着 2025 年中间值将实现 40% 的同比增长。虽然我们打算用消费模式来补充现有的基于席位的许可模式，但前景并不认为今年的消费收入会很大。我们在收入方面看到的实力将直接转化为我们的营业收入。我们预计全年营业收入将在 1.12 亿美元至 1.17 亿美元之间。"
+  },
+  {
+   "en": "We are proud of the results we achieved and are executing from a position of strength, with a disciplined investment framework and a clear long-term focus. With that, I'll pass it back to the operator to open it up for questions.",
+   "zh": "我们对所取得的成果感到自豪，并以强大的实力、严格的投资框架和明确的长期重点来执行。这样，我会将其传回给操作员以打开它以供提问。"
+  },
+  {
+   "en": "Eric:At this time, I'd like to remind everyone in order to ask a question, please press *1 on your telephone keypad. Your first question comes from the line of Keith Weiss with Morgan Stanley. Please go ahead.",
+   "zh": "Eric：此时我想提醒大家，提问时请按电话键盘上的*1。你的第一个问题来自摩根士丹利的基思·韦斯 (Keith Weiss)。请继续。"
+  },
+  {
+   "en": "Keith Weiss:Excellent. Thank you guys for taking the questions and congratulations on another really impressive quarter and really impressive new functionality. Dylan, thank you for kind of walking us through those demos. It really highlights the incredible stuff that Figma, Inc. is putting together. And it really does look really cool as well. Maybe a question on Weavee and really two questions. One, where it kind of falls in terms of the design paradigm and how it expands your potential user base and how people are using the overall platform?",
+   "zh": "基思·韦斯：非常好。感谢你们提出问题，并祝贺又一个令人印象深刻的季度和令人印象深刻的新功能。Dylan，谢谢您带领我们完成这些演示。它确实凸显了 Figma, Inc. 正在整合的令人难以置信的东西。它看起来确实也很酷。也许是关于 Weavee 的问题，实际上是两个问题。第一，它在设计范式方面属于什么位置，它如何扩展潜在的用户群以及人们如何使用整个平台？"
+  },
+  {
+   "en": "And two, perhaps a little bit more strategically, it feels like it implies something of where you think the value accrues in the AI tool chain, like, between the design that Figma, Inc. is bringing to the equation and the models themselves. And it almost kind of doubles down on the viewpoint that more of the value than I think many people appreciate is in the platform. Am I thinking about that correctly when you bring in Weavee and their ability to kind of stitch together multiple models into one open canvas?",
+   "zh": "第二，也许更具战略性一点，感觉它暗示了你认为人工智能工具链中的价值累积的地方，比如 Figma, Inc. 为方程式带来的设计和模型本身之间的价值。而且它几乎加倍了这样的观点：平台的价值比我认为许多人所欣赏的更多。当您引入 Weavee 以及他们将多个模型缝合到一张开放画布中的能力时，我是否正确地考虑了这一点？"
+  },
+  {
+   "en": "Dylan Field:Yeah. Thank you, Keith, for the question and the kind words. And I appreciate your excitement about Weavee. We couldn't be more excited. It's an amazing team, and we are really excited to bring it onto the platform as Figma Weave. When I think about why this team stands out, I mean, they've got, with several other co-founders, you know, twenty-plus years of experience in visual effects, animation, creative production, and when we started to really dig in, their shared vision and the culture, I mean, they felt like they're already Figmates. So we're really excited to bring them on board.",
+   "zh": "迪伦·菲尔德：是的。谢谢基思的提问和客气话。我很感谢您对 Weavee 的兴奋。我们非常兴奋。这是一个了不起的团队，我们非常高兴能将其作为 Figma Weave 引入平台。当我思考为什么这个团队脱颖而出时，我的意思是，他们和其他几位联合创始人在视觉效果、动画、创意制作方面拥有二十多年的经验，当我们开始真正深入研究他们共同的愿景和文化时，我的意思是，他们觉得自己已经是Figmates了。所以我们很高兴让他们加入。"
+  },
+  {
+   "en": "For those who are not as familiar with Weavee yet, it is a product that allows you to compose AI model outputs with professional editing tools and really take a more modular approach. And the output from those models, I think of it as almost a new medium for creatives to mold, sort of like clay. To answer your questions, I think that in terms of the design paradigm, it falls into, for us, this is a product that we already, you know, have image fills. We bring in video to Figma Design, but also across the platform. We already have, like, a way to go from prompt to image.",
+   "zh": "对于那些还不熟悉 Weavee 的人来说，它是一款允许您使用专业编辑工具编写 AI 模型输出的产品，并且真正采用更加模块化的方法。我认为这些模型的输出几乎是创意人员塑造的新媒介，有点像粘土。为了回答你的问题，我认为就设计范式而言，对我们来说，这是一个我们已经有图像填充的产品。我们将视频引入Figma Design，同时也跨平台引入。我们已经有了一种从提示到图像的方法。"
+  },
+  {
+   "en": "But this is a way to make it so that those results and the content you're using are way higher craft, way more sculpted. And if we think about it from the Figma design side, a lot of people on the Weavee platform want to bring in layers and aspects of their designs into Weavee as well. And I think in that case, you know, many of the personas that we serve today, whether it be in product or brand, will benefit from this. Longer term, I think, yes, it will open up perhaps new personas for us as well, but it's too early to say that right now.",
+   "zh": "但这是一种方法，可以让你所使用的结果和内容更加工艺精湛、更加精雕细琢。如果我们从 Figma 设计方面考虑，Weavee 平台上的很多人也希望将他们设计的层次和方面引入 Weavee。我认为在这种情况下，我们今天服务的许多角色，无论是产品还是品牌，都将从中受益。从长远来看，我认为，是的，它也许也会为我们开辟新的角色，但现在说这个还为时过早。"
+  },
+  {
+   "en": "Second question you had about the AI tool chain, I really think of it as this is the next step that's very important for us to make it so that people are able to bring a higher craft to the results they generate through AI models. And it really fits our thesis that we've held for a decade now, where design is the differentiator, craft is the differentiator, point of view is the differentiator, and that's how you're going to win this design craft point of view. And it's not enough just to go to that first prompt.",
+   "zh": "关于人工智能工具链的第二个问题，我真的认为这是下一步，这对我们来说非常重要，这样人们就能够通过人工智能模型生成更高的技术来生成结果。这确实符合我们十年来坚持的论点，即设计是差异化因素，工艺是差异化因素，观点是差异化因素，这就是你如何赢得设计工艺观点的方法。仅仅进入第一个提示是不够的。"
+  },
+  {
+   "en": "You've got to go all the way to the final destination, and I think Preview and Figma Design will help you get there.",
+   "zh": "你必须一路走到最终目的地，我认为 Preview 和 Figma Design 将帮助你到达那里。"
+  },
+  {
+   "en": "Eric:Your next question comes from the line of Rishi Jaluria with RBC. Please go ahead.",
+   "zh": "Eric：你的下一个问题来自 Rishi Jaluria 与 RBC 的联系。请继续。"
+  },
+  {
+   "en": "Rishi Jaluria:Wonderful. Thanks so much for taking my questions. It's great to see continued strength in the business. Maybe I just wanted to double-click a little bit on Figma Make here. Really encouraged with the stats that you shared. Maybe two pieces on that I'd love to drill into. First, when we think about your 100k plus customers that are using Figma Make today, what are the tangible results that you're able to see out of them, whether it's a faster time to kind of design and deployment of applications, a greater velocity of innovation, maybe even a greater aperture of what's addressable by Figma, Inc. that wasn't there before?",
+   "zh": "Rishi Jaluria：太棒了。非常感谢您回答我的问题。很高兴看到该业务持续强劲。也许我只是想在 Figma Make 上双击一下。您分享的统计数据让我深受鼓舞。也许我很想深入研究其中的两部分。首先，当我们考虑一下今天使用 Figma Make 的 10 万多名客户时，您可以从他们身上看到哪些实际成果，是否可以更快地设计和部署应用程序、更快的创新速度，甚至可能是 Figma, Inc. 以前没有的更大的可解决范围？"
+  },
+  {
+   "en": "And then, you know, over time, do we see this kind of just continue to go up and to the right in terms of a percentage where basically it just becomes such a core part of Figma, Inc. that all your customers would, you know, are expected to use Figma Make in some shape or form? Or just how are you thinking about longer-term targets in terms of Figma Make adoption and usage within your customer base? Thanks.",
+   "zh": "然后，随着时间的推移，我们是否会看到这种百分比继续上升并向右上升，基本上它成为 Figma, Inc. 的核心部分，以至于您的所有客户都会以某种形式使用 Figma Make？或者您如何考虑 Figma Make 在您的客户群中的采用和使用方面的长期目标？谢谢。"
+  },
+  {
+   "en": "Dylan Field:Yeah. I'll start off. Thank you for the question, Rishi. In terms of what the aspects of the platform are, I mean, first of all, AI investments we're making like Figma Make are working, and it's incredible to see the progress the team has made here. And we're only just speeding up further. The quality of Figma Make and sort of the overall experience of it has gotten so much better even over the last month. And I'm really excited to make that quality continue to improve with these new features that we talked about in the prepared remarks, like make kits, design, and copy it over from Make to Figma. So really excited for that.",
+   "zh": "迪伦·菲尔德：是的。我就开始吧。谢谢你的提问，Rishi。就平台的各个方面而言，我的意思是，首先，我们对 Figma Make 等人工智能的投资正在发挥作用，看到团队在这里取得的进展令人难以置信。我们只是在进一步加速。即使在上个月，Figma Make 的质量和整体体验也变得更好了。我真的很高兴能够通过我们在准备好的评论中讨论的这些新功能（例如制作套件、设计并将其从 Make 复制到 Figma）来继续提高质量。对此我真的很兴奋。"
+  },
+  {
+   "en": "Also seeing a lot of high engagement with customers, new personas. Personas like product managers, user research, and all sorts of other design-adjacent personas. And they can validate their ideas faster this way. It's also really differentiated, I think, as part of the broader Figma, Inc. platform. Interoperable with our other products, I think, ultimately, we need to get to the point where Make and Figma Designer are really two sides of the same coin. So the results that people are driving, I mean, I think it depends on where they're coming from.",
+   "zh": "还看到了与客户的大量互动和新角色。角色如产品经理、用户研究和各种其他与设计相关的角色。他们可以通过这种方式更快地验证他们的想法。我认为，作为更广泛的 Figma, Inc. 平台的一部分，它也确实与众不同。我认为，在与我们其他产品的互操作性方面，最终我们需要让 Make 和 Figma Designer 真正成为同一枚硬币的两个方面。因此，我的意思是，人们驾驶的结果取决于他们来自哪里。"
+  },
+  {
+   "en": "We see, of course, long-tail behavior with Figma Make where more people outside of your traditional B2B structures, individuals sometimes as well as small freelance teams or agencies. And then we also see, you know, more of a B2B use case. B2B use case, I would say, we are most focused on prototyping, making sure your idea works, but we're excited about how far we can go. Whereas I think with that longer tail, people are going more straight to production, they're actually shipping. I'll turn it over to Praveer to follow-up with more answers on part of your question.",
+   "zh": "当然，我们看到 Figma Make 的长尾行为，其中更多的人是传统 B2B 结构之外的人，有时是个人，也包括小型自由团队或机构。然后我们还看到，更多的是 B2B 用例。我想说的是，B2B 用例我们最专注于原型设计，确保您的想法可行，但我们对我们能走多远感到兴奋。然而我认为，随着尾巴更长，人们会更直接地进行生产，他们实际上是在运输。我会将其转交给 Praveer，以便对您的部分问题提供更多答案。"
+  },
+  {
+   "en": "Praveer Malwani:Hey, Rishi. Good to hear from you. Yeah. You know, we're early in our rollout over here. We GA'd Figma Make and our AI products in July, late July of this year. And, you know, the 30% of our 100k plus customers who are using Make on a weekly basis has only continued to grow since Q3. What we get excited about is to where Dylan was going. You know, as the product gets better, as we continue to ship features, it continues to become a larger and larger part of the sales narrative and the pitch. The platform narrative continues to resonate with folks. Today, about 70% of our customers are using three or more products.",
+   "zh": "普拉维尔·马尔瓦尼：嘿，Rishi。很高兴收到你的来信。是的。你知道，我们在这里推出还处于早期阶段。我们在今年 7 月、7 月下旬对 Figma Make 和我们的 AI 产品进行了 GA。而且，您知道，自第三季度以来，我们每周使用 Make 的 10 万多名客户中，有 30% 的比例持续增长。我们兴奋的是迪伦要去的地方。你知道，随着产品变得更好，随着我们继续提供功能，它继续成为销售叙述和宣传中越来越大的一部分。该平台的叙述继续引起人们的共鸣。如今，我们大约 70% 的客户正在使用三种或更多产品。"
+  },
+  {
+   "en": "And our expectation is as these products get better, for us to continue to see improvement in those metrics. You know, our 10k plus customers, our 100k plus customers, you know, their growth accelerated quarter over quarter in large part due to the new products that we launched. So, you know, we get excited about what's to come over here, and we really do believe that we're just at the beginning.",
+   "zh": "我们的期望是，随着这些产品变得更好，我们将继续看到这些指标的改进。你知道，我们的 10,000 多个客户，我们的 100,000 多个客户，你知道，他们的增长逐季加快，很大程度上归功于我们推出的新产品。所以，你知道，我们对这里即将发生的事情感到兴奋，而且我们确实相信我们才刚刚开始。"
+  },
+  {
+   "en": "Eric:Alright. Very helpful. Thanks, Dylan. Thanks, Praveer.",
+   "zh": "埃里克：好吧。非常有帮助。谢谢，迪伦。谢谢，普拉维尔。"
+  },
+  {
+   "en": "Rishi Jaluria:Thank you.",
+   "zh": "Rishi Jaluria：谢谢。"
+  },
+  {
+   "en": "Eric:Your next question comes from the line of Arjun Bhatia with William Blair. Please go ahead.",
+   "zh": "埃里克：你的下一个问题来自阿琼·巴蒂亚和威廉·布莱尔的对话。请继续。"
+  },
+  {
+   "en": "Arjun Bhatia:Alright. Thank you so much and congrats on a strong quarter here. If I can touch on maybe Buzz and incorporate in Weavee together. Like, how do you see both of those kind of fitting together? Is there going to be a clear distinction of you go to market with one versus the other? Or, you know, should those be kind of merging over time? And I would love to hear maybe in this conversation how you're also just targeting that new persona from a go-to-market perspective of the content creator over the sort of app designer or dev user. Thank you.",
+   "zh": "阿琼·巴蒂亚：好的。非常感谢，并祝贺本季度表现强劲。如果我能接触一下也许 Buzz 和 Weavee 一起合并。就像，你如何看待这两者的结合？您与其中之一进入市场时是否有明显的区别？或者，你知道，随着时间的推移，这些应该合并吗？我很想听听在这次对话中，您如何从内容创建者的进入市场角度而不是应用程序设计师或开发用户的角度来瞄准新角色。谢谢。"
+  },
+  {
+   "en": "Dylan Field:Absolutely. So what gets us excited about both Buzz and Weavee, which are, you know, different tools with different expectations, is to see the way that brand teams, creative teams are already using Figma, Inc. And then to make it so that the downstream consumers of their work are able to self-serve more. That's really exciting for Buzz. And there is an aspect to that in Weavee as well. But Weavee is much more about the production workflow and how do you actually craft a way to utilize various models in a modular way and make it so that you can take their outputs and transform them into an end result.",
+   "zh": "迪伦·菲尔德：当然。因此，让我们对 Buzz 和 Weavee 感到兴奋的是看到品牌团队、创意团队已经在使用 Figma, Inc.，然后让其工作的下游消费者能够更多地自助服务，这两个工具是不同的工具，有着不同的期望。这对巴兹来说真的很令人兴奋。Weavee 也有这样的一面。但 Weavee 更多的是关于制作工作流程，以及如何实际设计一种以模块化方式利用各种模型的方法，并使其能够获取它们的输出并将其转换为最终结果。"
+  },
+  {
+   "en": "And, yes, you can also have a workflow process come out of that which can be consumed. But I think that Buzz is more of a surface that is particularly focused on the graphics case and keeping consistent. And I think that there's slightly different dynamics for both. Praveer, do you want to follow-up?",
+   "zh": "是的，您还可以从可使用的内容中产生一个工作流程。但我认为Buzz更多的是一个表面，特别注重图形情况并保持一致。我认为两者的动力略有不同。Praveer，你想跟进吗？"
+  },
+  {
+   "en": "Praveer Malwani:Yeah. And then in the immediate term over here, we will continue to operate as a standalone entity, with the team joining as Figma, Inc. employees being able to leverage some of the resources that they get access to. We'll continue to sell the product on a standalone basis. And in the months ahead, we'll evaluate how we want to integrate the technology and the workflows. And it's good to hear, by the way, Arjun, that you're feeling better this time.",
+   "zh": "普拉维尔·马尔瓦尼：是的。然后，在短期内，我们将继续作为独立实体运营，团队作为 Figma, Inc. 员工加入，能够利用他们可以访问的一些资源。我们将继续独立销售该产品。在接下来的几个月中，我们将评估我们希望如何集成技术和工作流程。顺便说一句，阿琼，很高兴听到你这次感觉好多了。"
+  },
+  {
+   "en": "Eric:Thank you. Appreciate that. Next question comes from the line of Kash Rangan with Goldman Sachs. Please go ahead.",
+   "zh": "埃里克：谢谢。很欣赏这一点。下一个问题来自高盛的卡什·兰根 (Kash Rangan)。请继续。"
+  },
+  {
+   "en": "Kash Rangan:Hi. Thank you very much, Dylan and team. Very good results. Good to see the dollars added at a higher level than we had seen before and also good to see the net dollar retention move up very nicely. Generally, look at the success that Make seems to be having or is having, how do you think about the halo effect that it's creating upstream in the portfolio and how far are we or maybe we're already there where it is time to have a tangible ripple effect on the uptake of your core product design? Also, if you could touch upon the adoption rates and success, any metrics you could share for dev mode, that'll be great.",
+   "zh": "卡什·兰根：嗨。非常感谢迪伦和团队。非常好的结果。很高兴看到美元的添加量比我们之前看到的更高，也很高兴看到净美元保留率的上升非常好。一般来说，看看 Make 似乎正在取得或正在取得的成功，您如何看待它在产品组合上游产生的光环效应，以及我们离您的核心产品设计的采用产生切实的连锁反应还有多远，或者也许我们已经达到了这一目标？另外，如果您可以谈谈采用率和成功率，以及您可以分享的开发模式的任何指标，那就太好了。"
+  },
+  {
+   "en": "And then one for you, Praveer, the effect of the pricing and packaging on the percentage contribution to the revenue growth rate? Thank you so much. Congratulations.",
+   "zh": "Praveer，还有一个问题是定价和包装对收入增长率的贡献百分比有何影响？太感谢了。恭喜。"
+  },
+  {
+   "en": "Dylan Field:Thank you. I'll start with just a short comment on the ways that workflows are changing, and I'll pass it to Praveer. Because I think most of the questions there were more for him. The thing I think is really important in terms of your upstream question is to recognize that the traditionally linear workflow we've seen historically is really starting to change across some of our customer base, especially more of the early adopter types. And I'm very excited about this because what we're seeing is that people are going from, you know, perhaps it's making something in Figma Make and they go and use that as a source of ideation. They might hop back to the ideas.",
+   "zh": "迪伦·菲尔德：谢谢。我将首先对工作流程变化的方式进行简短评论，然后将其传递给 Praveer。因为我认为大多数问题对他来说都有更多的意义。我认为就您的上游问题而言真正重要的是要认识到我们历史上看到的传统线性工作流程确实开始在我们的一些客户群中发生变化，尤其是更多的早期采用者类型。我对此感到非常兴奋，因为我们看到人们可能正在 Figma Make 中制作一些东西，然后将其用作创意的来源。他们可能会跳回这些想法。"
+  },
+  {
+   "en": "They might go to production. You might go into many different aspects of that workflow at various times, and it's really important for us to be able to help them traverse that. And I think that the power of our platform is that everything's there together. And I think if you look at something like copy design from Make to Figma, you can start to see where we're going here. And how Make and Figma Design can be really two sides of the same coin. And the interoperability story, and that interop story will really improve over time. It's something that we're heavily investing in.",
+   "zh": "他们可能会投入生产。您可能会在不同的时间进入该工作流程的许多不同方面，对于我们来说能够帮助他们遍历这些方面非常重要。我认为我们平台的力量在于一切都在一起。我认为，如果你看看从 Make 到 Figma 的文案设计，你就可以开始明白我们的发展方向。Make 和 Figma Design 可以说是同一枚硬币的两面。随着时间的推移，互操作性的故事将会真正得到改善。这是我们正在大力投资的事情。"
+  },
+  {
+   "en": "With that, I'll get to Praveer to answer some of your questions about specifics of how this is happening.",
+   "zh": "接下来，我将联系 Praveer，回答你们关于具体情况的一些问题。"
+  },
+  {
+   "en": "Praveer Malwani:Yeah. No. Appreciate the question, Kash. I mean, the way that I think about it and the way that it kind of shows up in our customer metrics is, you know, you look at both the 10k, 100k plus customers, how those are growing over time, how we've seen the increase in our multi-product adoption up to 70% of customers using three or more products as of the end of the quarter. All of that is honestly giving us confidence in being able to raise our outlook and guidance for Q4 and the rest of this year. You raised a couple of questions there, both on dev mode as well as our pricing and packaging.",
+   "zh": "普拉维尔·马尔瓦尼：是的。不，感谢你提出这个问题，卡什。我的意思是，我思考这个问题的方式以及它在我们的客户指标中显示的方式是，你知道，你看看 10k、100k 以上的客户，这些客户是如何随着时间的推移而增长的，我们如何看到截至本季度末使用三种或更多产品的客户的多产品采用率增加到 70%。所有这些都让我们有信心能够提高第四季度和今年剩余时间的前景和指导。您在那里提出了几个问题，包括开发模式以及我们的定价和包装。"
+  },
+  {
+   "en": "So I'll tackle the dev mode one first. We continue to see strong adoption and growth within our dev seats in particular. We're rapidly innovating there. We've added, you know, remote access to our MCP server. We made updates to Code Connect, and introduced GitHub export, which allows you to export makes into GitHub. You know, we're continuing to bring design and code closer together. We've found, you know, we've accelerated our conversations with developer leaders and buyers over the last couple quarters now. You know, post the launch of our MCP server.",
+   "zh": "所以我将首先解决开发模式。我们继续看到特别是在我们的开发人员席位中的强劲采用和增长。我们正在那里快速创新。您知道，我们添加了对 MCP 服务器的远程访问。我们对 Code Connect 进行了更新，并引入了 GitHub 导出，它允许您将 make 导出到 GitHub。您知道，我们正在继续使设计和代码更加紧密地结合在一起。我们发现，在过去的几个季度里，我们加快了与开发商领导者和买家的对话。您知道，在我们的 MCP 服务器启动后。"
+  },
+  {
+   "en": "You take a look at the customers that Dylan spoke about in the prepared remarks, Flipkart, National Australia Bank, of which who were willing to make bigger swings in investments in the platform as they were growing their dev mode usage. And then lastly there on the pricing and packaging side, you know, we're about halfway through, we're about halfway through the rollout, and, you know, we're largely tracking in line with our early projections. So no changes to the guidance that we rolled out last quarter. We anticipate that's that the, you know, the benefit here is a mid to high single-digit growth rate driver for the year.",
+   "zh": "你看看迪伦在准备好的演讲中提到的客户，Flipkart、澳大利亚国民银行，其中随着开发模式使用量的增加，他们愿意在该平台上进行更大的投资。最后，在定价和包装方面，你知道，我们大约已经完成了一半，我们大约已经完成了一半，而且，你知道，我们基本上与我们的早期预测保持一致。因此，我们上季度推出的指导方针没有变化。我们预计，你知道，这里的好处是今年中高个位数的增长率驱动因素。"
+  },
+  {
+   "en": "With that said, we expect there also to be a benefit in 2026. As the pricing uplift is applied across the entirety of a first year of a customer's renewal onto the new model, and we do have a large number of those renewals in the back half of this year.",
+   "zh": "话虽如此，我们预计 2026 年也会带来好处。由于价格上涨适用于客户续订新型号的第一年，而且今年下半年我们确实有大量续订。"
+  },
+  {
+   "en": "Eric:Your next question comes from the line of Alex Zukin with Wolfe Research. Please go ahead.",
+   "zh": "埃里克：你的下一个问题来自沃尔夫研究中心的亚历克斯·祖金。请继续。"
+  },
+  {
+   "en": "Alex Zukin:Hey, guys. Thanks for taking my question. And congrats on an awesome quarter. Maybe just a quick two for me. Dylan, the OpenAI integration and announcements at their Dev Day, maybe any thought on how that has any potential impact either top of funnel or potential cross-sell or revenue uplift implications for you guys over the next twelve to eighteen months from those relationships? And then Praveer, really nice to see the balance in net dollar retention back up. Any sense for how we should think about it maybe next quarter and over the next few as you guys have some of these multiple tailwinds kind of come to bear?",
+   "zh": "亚历克斯·祖金：嘿，伙计们。感谢您提出我的问题。祝贺这个季度的出色表现。也许对我来说只是快两点。Dylan，OpenAI 集成以及在他们的开发日上发布的公告，也许您有想过这会对你们在未来 12 到 18 个月内通过这些关系对漏斗顶部或潜在的交叉销售或收入提升产生任何潜在影响吗？然后普拉维尔，很高兴看到净美元保留余额回升。当你们遇到这些多重顺风时，我们应该如何考虑下个季度和接下来的几个季度，有什么意义吗？"
+  },
+  {
+   "en": "Dylan Field:Yes. Thank you, Alex. I think it's definitely early days with the ChatGPT integration, and we're very excited about this, the ability to get Figma app out there on ChatGPT. But the use case, of course, is very much focused on FigJam right now and diagramming. We're able to build this and ship it very quickly. And, you know, what we can do with it, you can generate diagrams, flowcharts, Gantt charts using your context from that chat session. And then be able to iterate within ChatGPT a bit through prompting, and when you need to for higher fidelity, you can go and pop out into the Figma, Inc. platform to refine, to collaborate, save it to your account, etcetera.",
+   "zh": "迪伦·菲尔德：是的。谢谢你，亚历克斯。我认为 ChatGPT 集成还处于早期阶段，我们对此感到非常兴奋，能够在 ChatGPT 上推出 Figma 应用程序。但当然，用例目前主要集中在 FigJam 和图表上。我们能够快速构建并发货。而且，您知道，我们可以用它做什么，您可以使用聊天会话中的上下文生成图表、流程图、甘特图。然后能够通过提示在 ChatGPT 中进行一些迭代，当您需要更高的保真度时，您可以进入 Figma, Inc. 平台进行改进、协作、将其保存到您的帐户等。"
+  },
+  {
+   "en": "And users are clearly excited about this. We've heard some really nice remarks. People have told us how much time it saves. And we're, that said, we're still watching. We're learning how it's being used. So nothing to share yet on the monetization front. We're actively discussing that with OpenAI, and overall, I think, you know, if you're popping out a bit or zooming out, I believe that integrations in general, not just ChatGPT, but across the board are really important to our strategy. We added a lot of new integrations in Q3, and we're really excited about how we can connect with our products.",
+   "zh": "用户显然对此感到兴奋。我们听到了一些非常好的评论。人们告诉我们它节省了多少时间。也就是说，我们仍在观察。我们正在学习它的使用方式。因此，在货币化方面还没有什么可分享的。我们正在与 OpenAI 积极讨论这个问题，总的来说，我认为，如果你稍微突出或缩小，我相信总体上的集成，不仅仅是 ChatGPT，而是全面的集成对我们的战略非常重要。我们在第三季度添加了许多新的集成，我们对如何与我们的产品连接感到非常兴奋。"
+  },
+  {
+   "en": "Praveer Malwani:We're proud of our NDR this quarter, up to 131% for that 10k plus cohort. Yeah. Thanks, Alex. I'll take the second part of your question there on NDR, which increased two points quarter over quarter on an increasingly larger base. You know, the drivers here are, you know, it's everything under the sun. It's the platform approach is resonating. There is some benefit there to our pricing and packaging model. The newer products there that we've continued to roll out with more functionality are now reaching a wider share of audience within those particular customers now as well.",
+   "zh": "Praveer Malwani：我们对本季度的 NDR 感到自豪，这 10,000 多人的 NDR 高达 131%。是的。谢谢，亚历克斯。我将在 NDR 上回答你问题的第二部分，NDR 在不断扩大的基数上逐季增加了两个百分点。你知道，这里的司机，你知道，这是阳光下的一切。这是平台方法引起共鸣。我们的定价和包装模式有一些好处。我们继续推出具有更多功能的新产品，现在也吸引了这些特定客户中更广泛的受众。"
+  },
+  {
+   "en": "You know, the one thing I'd remind you of is the tougher comp that we face versus 2024, when we were rolling out dev mode for the first time. But we do feel good, to be able to, you know, we feel confident enough to raise our outlook for the rest of the year, you know, due to some of the strength that we've seen both in the adoption of the platform, the adoption of some of our newer products, and the performance of our pricing and packaging.",
+   "zh": "你知道，我要提醒你的一件事是，与 2024 年相比，我们面临着更艰难的竞争，当时我们第一次推出开发模式。But we do feel good, to be able to, you know, we feel confident enough to raise our outlook for the rest of the year, you know, due to some of the strength that we've seen both in the adoption of the platform, the adoption of some of our newer products, and the performance of our pricing and packaging."
+  },
+  {
+   "en": "Eric:Your next question comes from the line of Brad Sills with Bank of America. Please go ahead.",
+   "zh": "埃里克：你的下一个问题来自美国银行的布拉德·希尔斯（Brad Sils）。请继续。"
+  },
+  {
+   "en": "Brad Sills:Great. Thanks so much. I wanted to ask about the strength you're seeing in new paid customers, really solid result there over the last couple of quarters. Any color on where you're seeing the incremental customer coming in here on the paid side? I think in the past, it's been pretty balanced across international and domestic. So would love to get some color on that and just where you're seeing traction in some of the newer customer additions?",
+   "zh": "布拉德·希尔斯：太好了。非常感谢。我想问一下您在新付费客户中看到的实力，过去几个季度的业绩非常可靠。您在哪里看到付费客户不断增加？我认为过去国际和国内的情况是相当平衡的。那么，您想了解一下这一点吗？您在哪些方面看到了一些新增客户的吸引力？"
+  },
+  {
+   "en": "Praveer Malwani:No. I appreciate the question there. You know, candidly, it's a little bit of the board. You look at, you know, if you look at the 100k plus customer or sorry, 10k plus customer, you look at the 100k plus customers, both of those accelerated quarter over quarter for us. If you look at our international revenue versus domestic, our international business is growing just slightly faster. I think over the course of Q3, we actually grew our international revenue about 42%. You know? So we continue to strategically invest in the international markets. We're investing across all of our, you know, new product surface areas.",
+   "zh": "普拉维尔·马尔瓦尼：不。我很欣赏那里的问题。坦白说，你知道，这只是董事会的一小部分。你看看，你知道，如果你看看 10 万以上的客户，或者抱歉，1 万以上的客户，你看看 10 万以上的客户，这两个客户对我们来说都是逐季加速的。如果你看看我们的国际收入与国内收入，我们的国际业务增长速度稍快一些。我认为在第三季度，我们的国际收入实际上增长了约 42%。你知道？因此，我们继续对国际市场进行战略投资。我们正在对所有新产品领域进行投资。"
+  },
+  {
+   "en": "We've been able to bring in new folks onto the platform with Figma Make and many of our AI features. And so it really is a tide lifting all boats story over here, Brad.",
+   "zh": "我们已经能够通过 Figma Make 和我们的许多人工智能功能将新人引入该平台。所以，布拉德，这确实是一个振奋人心的故事。"
+  },
+  {
+   "en": "Brad Sills:That's great to hear. And I think you made some comments on how Sites is doing. I would love to get some color on how Buzz and Draw, these new offerings, are seeing traction there in the installed base?",
+   "zh": "布拉德·希尔斯：很高兴听到这个消息。我认为您对协作平台的运作方式发表了一些评论。我很想了解一下 Buzz 和 Draw 这些新产品如何在安装基础上获得吸引力？"
+  },
+  {
+   "en": "Praveer Malwani:Many of the things on Buzz and Draw are continuing to roll out to the base. And, you know, we're seeing the uptake on Draws as an example there within many of our existing customers as they look to elevate their craft. And, you know, we get excited about some of the traction that we see over there.",
+   "zh": "Praveer Malwani：Buzz 和 Draw 上的许多内容正在继续向基地推广。而且，您知道，我们在许多现有客户中看到了对抽签的采用，因为他们希望提高自己的技术。而且，你知道，我们对在那里看到的一些吸引力感到兴奋。"
+  },
+  {
+   "en": "Eric:Your next question comes from the line of Michael Turrin with Wells Fargo Securities. Please go ahead.",
+   "zh": "Eric:Your next question comes from the line of Michael Turrin with Wells Fargo Securities.请继续。"
+  },
+  {
+   "en": "Michael Turrin:Thanks very much. Appreciate you taking the question. I have two. I'll just ask upfront. Dylan, you mentioned in the prepared remarks that as some of the vibe coders are slowing, Make is growing. I'd just be curious to tease out more observations around if that's a different type of customer, if that's sequencing or what from your perspective is driving that? And then Praveer, the 4Q guide looks stronger than we were expecting. It doesn't sound like Make or consumption is a meaningful contributing factor there. So just what's driving the Q4 strength and stabilization of growth? Is it some of the renewal dynamics coming through in Q4?",
+   "zh": "迈克尔·特林：非常感谢。感谢您提出问题。I have two.I'll just ask upfront.Dylan, you mentioned in the prepared remarks that as some of the vibe coders are slowing, Make is growing.我只是好奇地想找出更多的观察结果，看看这是否是不同类型的客户，是否是排序，或者从您的角度来看是什么推动了这一点？And then Praveer, the 4Q guide looks stronger than we were expecting.It doesn't sound like Make or consumption is a meaningful contributing factor there.So just what's driving the Q4 strength and stabilization of growth?Is it some of the renewal dynamics coming through in Q4?"
+  },
+  {
+   "en": "Is there anything from Weavee for us to be mindful of or just any additional context there as well as useful? Thanks very much.",
+   "zh": "Weavee 是否有任何需要我们注意的内容，或者是否有任何其他有用的背景信息？非常感谢。"
+  },
+  {
+   "en": "Praveer Malwani:Yeah. Why don't I take that part of the question first, and I'll hand it back over to Dylan to take the first part. So what we've been actually seeing here is strength while we have rolled out our AI features to GA, while we're not monetizing, you know, the consumption side, we have seen, you know, benefit in terms of new users that are expanding onto the platform on our full seats and an increase in the number of teams that are actually now sitting on paid accounts. So that actually that strength has been rolled forward into our guide for the rest of Q4 here as well.",
+   "zh": "普拉维尔·马尔瓦尼：是的。我为什么不先回答问题的这一部分，然后我将其交回给迪伦回答第一部分。因此，当我们向 GA 推出人工智能功能时，我们实际上看到的是实力，虽然我们没有货币化，你知道，消费方面，我们已经看到，你知道，新用户正在扩展到我们的完整席位的平台上，并且现在实际上拥有付费帐户的团队数量有所增加。因此，实际上这种优势也已被纳入我们第四季度剩余时间的指南中。"
+  },
+  {
+   "en": "On the Weavee side, you know, both on the revenue and cost side, you know, it's fairly immaterial or is immaterial for our Q4 guide, but we'll continue to keep you updated there.",
+   "zh": "在 Weavee 方面，您知道，无论是在收入还是成本方面，这都相当无关紧要，或者对于我们的第四季度指南来说无关紧要，但我们将继续向您通报最新情况。"
+  },
+  {
+   "en": "Dylan Field:Yeah. And I can follow-up on the first part of the question. For Figma Make, we are, I think, more focused than others on the B2B side where we believe that we'll see not only our platform have advantages, but also lots of strength as we continue to build out from here our roadmap. And the consumer side, of course, is still interesting, and we do see that behavior too. For that long tail. But what we are most focused on is how do we meet the needs of teams on the platform already. And make sure that we are the best solution for them. Okta, I think, was a great example there. Where we're adopted by the product team.",
+   "zh": "迪伦·菲尔德：是的。我可以跟进问题的第一部分。对于 Figma Make，我认为我们比其他人更专注于 B2B 方面，我们相信，我们不仅会看到我们的平台具有优势，而且随着我们继续从这里构建我们的路线图，我们也会看到强大的实力。当然，消费者方面仍然很有趣，我们也确实看到了这种行为。为了那条长尾巴。但我们最关注的是如何满足平台上团队的需求。并确保我们是他们的最佳解决方案。我认为 Okta 就是一个很好的例子。我们被产品团队采用的地方。"
+  },
+  {
+   "en": "And user researchers were able to validate their prototypes early. Visualize ideas, and be able to put them in front of folks and get that buy-in, but also be part of the conversation. And I see it as, this is very aligned with our strategy of trying to expand the conversation around design of new participants while also allowing a designer to be able to go deeper, level up their craft, and raise the ceiling. And, very excited about where we're seeing both behaviors there. On the B2B side. Thanks very much.",
+   "zh": "用户研究人员能够尽早验证他们的原型。将想法可视化，并能够将它们摆在人们面前并获得认可，同时也成为对话的一部分。我认为，这与我们的策略非常一致，即试图扩大新参与者围绕设计的对话，同时也让设计师能够更深入，提高他们的工艺并提高上限。而且，我们对在那里看到这两种行为感到非常兴奋。在B2B方面。非常感谢。"
+  },
+  {
+   "en": "Eric:Our last question comes from the line of Mark Murphy with JPMorgan. Please go ahead.",
+   "zh": "埃里克：我们的最后一个问题来自摩根大通的马克·墨菲。请继续。"
+  },
+  {
+   "en": "Mark Murphy:Hey, thank you. I'll add my congrats. So Dylan, we have heard more anecdotes that are showing that people that have tried to use prompt-based design tools outside of the Figma, Inc. ecosystem, what happens is they end up with a nice-looking user interface, but then it falls apart when they try to take it into production, right, because they don't have the design primitives or the templates or the brand assets. And so there's a lot of feedback that it becomes a heavy lift for engineering.",
+   "zh": "马克·墨菲：嘿，谢谢。我会添加我的祝贺。Dylan，我们听到了更多轶事，这些轶事表明，那些尝试使用 Figma, Inc. 生态系统之外的基于提示的设计工具的人，最终会得到一个漂亮的用户界面，但当他们尝试将其投入生产时，它就会崩溃，对吧，因为他们没有设计原语、模板或品牌资产。因此，有很多反馈表明，这对工程来说是一个沉重的负担。"
+  },
+  {
+   "en": "And I'm just wondering if your customers are developing a clear understanding of some of the limitations of these competing products and maybe making a move to look a little more closely at Figma Make?",
+   "zh": "我只是想知道您的客户是否正在清楚地了解这些竞争产品的一些局限性，并可能采取行动更仔细地研究 Figma Make？"
+  },
+  {
+   "en": "Dylan Field:Yeah. We're seeing not just increased adoption, but increased interest in Figma Make. I think you recapped that really well. I think it's also important to just note that this has been part of our strategy for a while now to think about Code Connect and the ways to tie Figma design systems to actual code because like you said, it's really important if you're writing code, if you're building a system, one of the first engineering principles that you learn, you know, CS 101 is try. Don't repeat yourself. If you already have something existing in the code base, you don't want to rebuild it.",
+   "zh": "迪伦·菲尔德：是的。我们不仅看到 Figma Make 的采用率有所增加，而且人们对 Figma Make 的兴趣也有所增加。我认为你回顾得很好。我认为同样重要的是要注意，这已经成为我们战略的一部分，考虑 Code Connect 以及将 Figma 设计系统与实际代码联系起来的方法，因为就像您所说，如果您正在编写代码，如果您正在构建系统，那么您学习的第一个工程原理之一就是尝试，您知道，CS 101 是非常重要的。不要重复自己。如果代码库中已经存在某些内容，则您不想重建它。"
+  },
+  {
+   "en": "You want to have that consistency, and the more you have scale, the more that matters. And that is a big part of what we're trying to drive towards is a better way to use your design systems, but also to use things like MCP to go to your code base and go build it. And so we're very much looking forward to figuring out how we can make that work with the entire platform. And make that platform differentiate overall. Thank you.",
+   "zh": "你想要保持一致性，规模越大，这一点就越重要。这是我们努力实现的一个重要目标，即以更好的方式使用您的设计系统，同时也使用 MCP 之类的东西来访问您的代码库并构建它。因此，我们非常期待弄清楚如何使其在整个平台上发挥作用。并使该平台具有整体差异化。谢谢。"
+  },
+  {
+   "en": "Eric:Ladies and gentlemen, there are no further questions at this time. This concludes today's call. Thank you for joining. And you may now disconnect.",
+   "zh": "Eric：女士们、先生们，目前没有其他问题了。今天的电话会议到此结束。感谢您的加入。您现在可以断开连接。"
+  },
+  {
+   "en": "This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.",
+   "zh": "本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。"
+  },
+  {
+   "en": "The Motley Fool has no position in any of the stocks mentioned. The Motley Fool has adisclosure policy.",
+   "zh": "Motley Fool 没有持有上述任何股票的头寸。Motley Fool 有披露政策。"
+  },
+  {
+   "en": "Stocks Mentioned",
+   "zh": "提及的股票"
+  },
+  {
+   "en": "*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.",
+   "zh": "*自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。"
+  }
+ ]
+}

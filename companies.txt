@@ -1,0 +1,9 @@
+# 美股投资者电话会议纪要 - 公司清单
+# 格式: TICKER|公司名称|公司英文名|交易所(nasdaq/nyse)
+MSFT|微软|Microsoft|nasdaq
+GENB|Generate Biomedicines|Generate Biomedicines|nasdaq
+SNOW|Snowflake|Snowflake|nyse
+MDB|MongoDB|MongoDB|nasdaq
+NVO|诺和诺德|Novo Nordisk|nyse
+TAL|好未来|TAL Education|nyse
+FIG|Figma|Figma|nyse
