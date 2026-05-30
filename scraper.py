@@ -30,74 +30,12 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-# ──────────────────────────────────────────────
-# Configuration
-# ──────────────────────────────────────────────
-BASE_DIR = Path(__file__).parent
-COMPANIES_FILE = BASE_DIR / "companies.txt"
-TRANSCRIPTS_DIR = BASE_DIR / "transcripts"
-LOGS_DIR = BASE_DIR / "logs"
-CACHE_FILE = BASE_DIR / ".cache.json"
-
-TRANSCRIPTS_DIR.mkdir(exist_ok=True)
-LOGS_DIR.mkdir(exist_ok=True)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(LOGS_DIR / "scraper.log", encoding="utf-8"),
-    ],
+from common import (
+    load_config, get_path, load_companies, setup_logging,
+    FileNaming, JsonCache, LineClassifier, split_paragraphs,
+    text_hash, parse_transcript_header, extract_body,
+    TranslatorFactory, translate_paragraphs,
 )
-log = logging.getLogger("scraper")
-
-session = requests.Session()
-session.headers.update({
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                  "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-})
-
-
-def load_cache() -> dict:
-    if CACHE_FILE.exists():
-        try:
-            return json.loads(CACHE_FILE.read_text())
-        except (json.JSONDecodeError, OSError):
-            return {}
-    return {}
-
-def save_cache(cache: dict):
-    CACHE_FILE.write_text(json.dumps(cache, indent=2, ensure_ascii=False))
-
-
-def load_companies(path: Path = COMPANIES_FILE, filter_ticker: str = None) -> list[dict]:
-    companies = []
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        parts = [p.strip() for p in line.split("|")]
-        if len(parts) >= 4:
-            companies.append({
-                "ticker": parts[0],
-                "name_cn": parts[1],
-                "name_en": parts[2],
-                "exchange": parts[3].lower(),
-            })
-        elif len(parts) >= 3:
-            # Auto-detect exchange
-            companies.append({
-                "ticker": parts[0],
-                "name_cn": parts[1],
-                "name_en": parts[2],
-                "exchange": "auto",
-            })
-    if filter_ticker:
-        companies = [c for c in companies if c["ticker"].upper() == filter_ticker.upper()]
-    return companies
 
 
 # ──────────────────────────────────────────────
@@ -106,11 +44,29 @@ def load_companies(path: Path = COMPANIES_FILE, filter_ticker: str = None) -> li
 class MotleyFoolScraper:
     """Extract transcript URLs from Motley Fool company quote pages."""
 
-    QUOTE_URL = "https://www.fool.com/quote/{exchange}/{ticker}/"
-    EXCHANGES = ["nasdaq", "nyse"]
-
-    def __init__(self, max_quarters: int = 1):
+    def __init__(self, cfg: dict, max_quarters: int = 1):
         self.max_quarters = max_quarters
+        fool_cfg = cfg.get("fool", {})
+        self.quote_url = fool_cfg.get("quote_url", "https://www.fool.com/quote/{exchange}/{ticker}/")
+        self.exchanges = fool_cfg.get("exchanges", ["nasdaq", "nyse"])
+        self.request_timeout = fool_cfg.get("request_timeout", 15)
+        self.download_timeout = fool_cfg.get("download_timeout", 20)
+        self.min_content_length = fool_cfg.get("min_content_length", 500)
+        self.min_paragraph_length = fool_cfg.get("min_paragraph_length", 5)
+        self.min_header_length = fool_cfg.get("min_header_length", 15)
+        self.skip_patterns = fool_cfg.get("skip_patterns", [
+            "motley fool stock advisor", "click here to learn more",
+            "advertisement", "get access now", "join the motley fool",
+            "our ceo is handing", "need a quote from a motley fool analyst",
+            "[email", "image source:",
+        ])
+
+        self.session = requests.Session()
+        self.session.headers.update({
+            "User-Agent": fool_cfg.get("user_agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": fool_cfg.get("accept_language", "en-US,en;q=0.9"),
+        })
 
     def find_transcript_urls(self, ticker: str, exchange: str = "auto") -> list[dict]:
         """
@@ -121,14 +77,14 @@ class MotleyFoolScraper:
         found_urls = []
 
         # Try exchanges
-        exchanges_to_try = [exchange] if exchange != "auto" else self.EXCHANGES
+        exchanges_to_try = [exchange] if exchange != "auto" else self.exchanges
 
         for ex in exchanges_to_try:
-            url = self.QUOTE_URL.format(exchange=ex, ticker=ticker_lower)
+            url = self.quote_url.format(exchange=ex, ticker=ticker_lower)
             log.info(f"  Checking: {url}")
 
             try:
-                resp = session.get(url, timeout=15)
+                resp = self.session.get(url, timeout=self.request_timeout)
             except Exception as e:
                 log.error(f"  Request failed: {e}")
                 continue
@@ -185,7 +141,7 @@ class MotleyFoolScraper:
         log.info(f"  Downloading: {url}")
 
         try:
-            resp = session.get(url, timeout=20)
+            resp = self.session.get(url, timeout=self.download_timeout)
             resp.raise_for_status()
         except Exception as e:
             log.error(f"  Download failed: {e}")
@@ -203,27 +159,20 @@ class MotleyFoolScraper:
             log.warning(f"  No <main> found")
             return None
 
-        skip_patterns = [
-            "motley fool stock advisor", "click here to learn more",
-            "advertisement", "get access now", "join the motley fool",
-            "our ceo is handing", "need a quote from a motley fool analyst",
-            "[email", "image source:",
-        ]
-
         paragraphs = []
         for el in main.find_all(["p", "h2", "h3", "li"]):
             text = el.get_text(strip=True)
-            if not text or len(text) < 5:
+            if not text or len(text) < self.min_paragraph_length:
                 continue
-            if any(skip.lower() in text.lower() for skip in skip_patterns):
+            if any(skip.lower() in text.lower() for skip in self.skip_patterns):
                 continue
-            if el.name in ("h2", "h3") and len(text) < 15:
+            if el.name in ("h2", "h3") and len(text) < self.min_header_length:
                 continue
             paragraphs.append(text)
 
         content = "\n\n".join(paragraphs)
 
-        if len(content) < 500:
+        if len(content) < self.min_content_length:
             log.warning(f"  Content too short ({len(content)} chars)")
             return None
 
@@ -241,18 +190,23 @@ class MotleyFoolScraper:
 # Source 2: FMP API
 # ──────────────────────────────────────────────
 class FMPScraper:
-    BASE_URL = "https://financialmodelingprep.com/api/v3"
-
-    def __init__(self, api_key: str, max_quarters: int = 1):
+    def __init__(self, cfg: dict, api_key: str, max_quarters: int = 1):
+        fmp_cfg = cfg.get("fmp", {})
+        self.base_url = fmp_cfg.get("base_url", "https://financialmodelingprep.com/api/v3")
+        self.endpoint = fmp_cfg.get("endpoint", "/earning_call_transcript/{ticker}")
+        self.request_timeout = fmp_cfg.get("request_timeout", 15)
+        self.min_content_length = fmp_cfg.get("min_content_length", 200)
         self.api_key = api_key
         self.max_quarters = max_quarters
+        self.session = requests.Session()
 
     def find_and_scrape(self, ticker: str) -> list[dict]:
         log.info(f"  Fetching from FMP API for {ticker}")
         try:
-            resp = session.get(
-                f"{self.BASE_URL}/earning_call_transcript/{ticker}",
-                params={"apikey": self.api_key}, timeout=15,
+            url = self.base_url + self.endpoint.format(ticker=ticker)
+            resp = self.session.get(
+                url,
+                params={"apikey": self.api_key}, timeout=self.request_timeout,
             )
             resp.raise_for_status()
             data = resp.json()
@@ -266,7 +220,7 @@ class FMPScraper:
         results = []
         for item in data[:self.max_quarters]:
             content = item.get("content", "")
-            if not content or len(content) < 200:
+            if not content or len(content) < self.min_content_length:
                 continue
             quarter = f"Q{item.get('quarter', '?')} {item.get('year', '?')}"
             results.append({
@@ -286,16 +240,24 @@ class FMPScraper:
 # ──────────────────────────────────────────────
 # File output
 # ──────────────────────────────────────────────
-def save_transcript(company: dict, transcript: dict, output_dir: Path = TRANSCRIPTS_DIR):
+def save_transcript(cfg: dict, fn: FileNaming, company: dict, transcript: dict, output_dir: Path = None):
     ticker = company["ticker"]
-    company_dir = output_dir / ticker
-    company_dir.mkdir(exist_ok=True)
+    quarter = transcript.get("quarter", "unknown")
 
-    quarter = transcript.get("quarter", "unknown").replace(" ", "_")
-    filename = f"{ticker}_{quarter}_earnings_call.txt"
-    filepath = company_dir / filename
+    if output_dir:
+        company_dir = output_dir / ticker
+        company_dir.mkdir(exist_ok=True)
+        q = quarter.replace(" ", "_")
+        filepath = company_dir / f"{ticker}_{q}{fn.english_suffix}{fn.english_ext}"
+    else:
+        filepath = fn.english_path(ticker, quarter)
+        filepath.parent.mkdir(parents=True, exist_ok=True)
 
-    header = f"""{'='*70}
+    sep_char = cfg.get("format", {}).get("separator_char", "=")
+    sep_width = cfg.get("format", {}).get("separator_width", 70)
+    sep = sep_char * sep_width
+
+    header = f"""{sep}
 Earnings Call Transcript
 Company: {company['name_en']} ({company['name_cn']})
 Ticker: {ticker}
@@ -304,7 +266,7 @@ Source: {transcript.get('source', 'N/A')}
 URL: {transcript.get('url', 'N/A')}
 Scraped: {transcript.get('scraped_at', 'N/A')}
 Characters: {transcript.get('char_count', 'N/A')}
-{'='*70}
+{sep}
 
 """
     filepath.write_text(header + transcript["content"], encoding="utf-8")
@@ -312,13 +274,18 @@ Characters: {transcript.get('char_count', 'N/A')}
     return filepath
 
 
-def save_summary(companies: list, all_results: dict, output_dir: Path = TRANSCRIPTS_DIR):
-    summary_path = output_dir / "summary.txt"
+def save_summary(cfg: dict, companies: list, all_results: dict, output_dir: Path = None):
+    transcripts_dir = output_dir or get_path(cfg, "transcripts_dir")
+    summary_path = transcripts_dir / "summary.txt"
+    sep_char = cfg.get("format", {}).get("separator_char", "=")
+    sep_width = cfg.get("format", {}).get("separator_width", 70)
+    sep = sep_char * sep_width
+
     lines = [
-        "=" * 70,
+        sep,
         "Earnings Call Transcripts - Summary Report",
         f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        "=" * 70, "",
+        sep, "",
     ]
     for company in companies:
         ticker = company["ticker"]
@@ -332,7 +299,7 @@ def save_summary(companies: list, all_results: dict, output_dir: Path = TRANSCRI
                 lines.append(f"    Source: {r.get('source', 'N/A')} | Chars: {r.get('char_count', 'N/A')}")
                 lines.append(f"    URL: {r.get('url', 'N/A')}")
         lines.append("")
-    lines.append("=" * 70)
+    lines.append(sep)
     summary_path.write_text("\n".join(lines), encoding="utf-8")
     log.info(f"Summary saved: {summary_path}")
 
@@ -340,130 +307,33 @@ def save_summary(companies: list, all_results: dict, output_dir: Path = TRANSCRI
 # ──────────────────────────────────────────────
 # Translation (auto after download)
 # ──────────────────────────────────────────────
-def load_translate_config():
-    cfg_file = BASE_DIR / "config.json"
-    if cfg_file.exists():
-        try:
-            return json.loads(cfg_file.read_text())
-        except (json.JSONDecodeError, OSError):
-            return {}
-    return {}
-
-def translate_after_download(english_path: Path, skip: bool = False):
+def translate_after_download(cfg: dict, fn: FileNaming, english_path: Path, skip: bool = False):
     """Translate a downloaded transcript to bilingual. Called right after save_transcript."""
     if skip:
         return None
 
-    bilingual_path = english_path.parent / english_path.name.replace("_earnings_call", "_bilingual").replace(".txt", ".json")
+    bilingual_path = fn.english_to_bilingual(english_path)
     if bilingual_path.exists():
         log.info(f"  Bilingual exists, skipping: {bilingual_path.name}")
         return bilingual_path
 
-    cfg = load_translate_config()
-    api_key = cfg.get("deepseek_api_key", "")
-
-    # Try DeepSeek first
-    backend = None
-    if api_key:
-        try:
-            from openai import OpenAI
-            client = OpenAI(api_key=api_key, base_url=cfg.get("deepseek_base_url", "https://api.deepseek.com"))
-            model = cfg.get("deepseek_model", "deepseek-v4-flash")
-            # Quick test
-            r = client.chat.completions.create(model=model, messages=[{"role":"user","content":"Say OK"}], max_tokens=5)
-            backend = ("deepseek", client, model)
-            log.info(f"  Translating with DeepSeek ({model})...")
-        except Exception as e:
-            log.warning(f"  DeepSeek unavailable ({e}), falling back to Google Translate")
-
-    if backend is None:
-        try:
-            from translatepy import Translator
-            backend = ("google", Translator(), None)
-            log.info(f"  Translating with Google Translate...")
-        except Exception as e:
-            log.error(f"  No translation backend available: {e}")
-            return None
-
     # Read english file
     content = english_path.read_text(encoding="utf-8")
-    sep = "=" * 70
-    parts = content.split(sep)
-    if len(parts) < 3:
-        return None
-    header = parts[1]
-    body = sep.join(parts[2:])
-
-    # Parse header
-    header_meta = {}
-    for line in header.strip().split("\n"):
-        if ":" in line:
-            k, v = line.split(":", 1)
-            header_meta[k.strip()] = v.strip()
+    header_meta = parse_transcript_header(content)
+    body = extract_body(content)
 
     # Split into paragraphs
-    body_lines = body.split("\n")
-    paragraphs = []
-    current = []
-    for line in body_lines:
-        stripped = line.strip()
-        if not stripped:
-            if current:
-                paragraphs.append("\n".join(current))
-                current = []
-        else:
-            current.append(stripped)
-    if current:
-        paragraphs.append("\n".join(current))
+    paragraphs = split_paragraphs(body)
+
+    # Create translator and cache
+    translator = TranslatorFactory.create(cfg, "auto")
+    tcache_path = get_path(cfg, "translate_cache")
+    tcache = JsonCache(tcache_path)
+
+    log.info(f"  Translating with {translator.name}...")
 
     # Translate each paragraph
-    tcache = {}
-    tcache_file = BASE_DIR / ".translate_cache.json"
-    if tcache_file.exists():
-        tcache = json.loads(tcache_file.read_text())
-
-    def t_hash(t):
-        return hashlib.md5(t.strip().encode()).hexdigest()[:16]
-
-    translated_parts = []
-    for i, p in enumerate(paragraphs):
-        h = t_hash(p)
-        if h in tcache:
-            translated_parts.append(tcache[h])
-            continue
-
-        if len(p.strip()) < 5:
-            translated_parts.append(p)
-            continue
-
-        try:
-            if backend[0] == "deepseek":
-                r = backend[1].chat.completions.create(
-                    model=backend[2],
-                    messages=[
-                        {"role": "system", "content": "你是专业金融翻译。翻译为中文，保留数字/金额/百分比/ticker原样，人名保留英文，公司名/产品名保留英文。翻译后换行附原文。"},
-                        {"role": "user", "content": f"翻译为中文，翻译后换行附原文：\n\n{p}"},
-                    ],
-                    max_tokens=4000, temperature=0.1,
-                )
-                result = r.choices[0].message.content.strip()
-            else:
-                result = backend[1].translate(p, "Chinese").result
-
-            tcache[h] = result
-            translated_parts.append(result)
-        except Exception as e:
-            log.warning(f"  Translate error [{i}]: {e}")
-            translated_parts.append(p)
-
-        if (i + 1) % 10 == 0:
-            log.info(f"  Translation progress: {i+1}/{len(paragraphs)}")
-            tcache_file.write_text(json.dumps(tcache, ensure_ascii=False, indent=1))
-
-        time.sleep(0.3)
-
-    # Save cache
-    tcache_file.write_text(json.dumps(tcache, ensure_ascii=False, indent=1))
+    translated_parts = translate_paragraphs(paragraphs, tcache, translator, cfg, log)
 
     # Build aligned pairs JSON
     pairs = []
@@ -477,7 +347,7 @@ def translate_after_download(english_path: Path, skip: bool = False):
             "source": header_meta.get('Source', ''),
             "url": header_meta.get('URL', ''),
             "translated": datetime.now().isoformat(),
-            "backend": backend[0],
+            "backend": translator.name,
         },
         "pairs": pairs,
     }
@@ -487,7 +357,7 @@ def translate_after_download(english_path: Path, skip: bool = False):
     # Generate interleaved txt
     try:
         from make_interleaved import make_interleaved
-        txt_path = make_interleaved(bilingual_path)
+        txt_path = make_interleaved(cfg, bilingual_path)
         if txt_path:
             log.info(f"  Interleaved saved: {txt_path.name}")
     except Exception as e:
@@ -505,25 +375,46 @@ def main():
     parser.add_argument("--quarters", type=int, default=1, help="抓取最近N个季度")
     parser.add_argument("--source", choices=["fool", "fmp", "both"], default="fool")
     parser.add_argument("--api-key", help="FMP API key")
-    parser.add_argument("--output", type=Path, default=TRANSCRIPTS_DIR)
+    parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--list", action="store_true", help="只列出可用transcripts，不下载")
     parser.add_argument("--no-cache", action="store_true", help="忽略缓存")
     parser.add_argument("--no-translate", action="store_true", help="跳过翻译（默认下载后自动翻译）")
     args = parser.parse_args()
 
-    companies = load_companies(filter_ticker=args.ticker)
+    # Load config
+    cfg = load_config()
+    fn = FileNaming(cfg)
+    transcripts_dir = get_path(cfg, "transcripts_dir")
+    logs_dir = get_path(cfg, "logs_dir")
+    transcripts_dir.mkdir(exist_ok=True)
+    logs_dir.mkdir(exist_ok=True)
+
+    global log
+    log = setup_logging(cfg, str(logs_dir / "scraper.log"))
+    log = logging.getLogger("scraper")
+
+    output_dir = args.output or transcripts_dir
+
+    companies = load_companies(cfg, filter_ticker=args.ticker)
     if not companies:
         log.error("No companies found in companies.txt")
         sys.exit(1)
 
     log.info(f"Loaded {len(companies)} companies: {[c['ticker'] for c in companies]}")
 
-    cache = {} if args.no_cache else load_cache()
+    # Cache
+    if args.no_cache:
+        cache = JsonCache(Path(os.devnull))  # dummy
+        cache._data = {}
+    else:
+        cache_path = get_path(cfg, "cache_file")
+        cache = JsonCache(cache_path)
+
     all_results = {c["ticker"]: [] for c in companies}
 
     # ── Phase 1: Discover URLs ──
     if args.source in ("fool", "both"):
-        fool = MotleyFoolScraper(max_quarters=args.quarters)
+        fool = MotleyFoolScraper(cfg, max_quarters=args.quarters)
         log.info(f"\n{'─'*50}")
         log.info("Phase 1: Discovering transcript URLs from Motley Fool")
         log.info(f"{'─'*50}")
@@ -551,6 +442,7 @@ def main():
             return
 
         # ── Phase 2: Download ──
+        sleep_between = cfg.get("fool", {}).get("sleep_between_downloads", 2)
         log.info(f"\n{'─'*50}")
         log.info("Phase 2: Downloading transcripts")
         log.info(f"{'─'*50}")
@@ -572,22 +464,22 @@ def main():
                 transcript = fool.scrape_transcript(url)
                 if transcript:
                     transcript["quarter"] = u["quarter"]
-                    filepath = save_transcript(company, transcript, args.output)
-                    translate_after_download(filepath, skip=args.no_translate)
+                    filepath = save_transcript(cfg, fn, company, transcript, output_dir)
+                    translate_after_download(cfg, fn, filepath, skip=args.no_translate)
                     transcript["local_file"] = str(filepath)
                     all_results[ticker].append(transcript)
-                    cache[url] = {
+                    cache.set(url, {
                         "title": transcript["title"],
                         "quarter": transcript["quarter"],
                         "source": transcript["source"],
                         "char_count": transcript["char_count"],
                         "local_file": str(filepath),
-                    }
-                time.sleep(2)
+                    })
+                time.sleep(sleep_between)
 
     # ── Phase 3: FMP fallback ──
     if args.source in ("fmp", "both") and args.api_key:
-        fmp = FMPScraper(args.api_key, max_quarters=args.quarters)
+        fmp = FMPScraper(cfg, args.api_key, max_quarters=args.quarters)
         for company in companies:
             ticker = company["ticker"]
             if len(all_results[ticker]) >= args.quarters:
@@ -595,16 +487,17 @@ def main():
             try:
                 fmp_results = fmp.find_and_scrape(ticker)
                 for r in fmp_results:
-                    filepath = save_transcript(company, r, args.output)
-                    translate_after_download(filepath, skip=args.no_translate)
+                    filepath = save_transcript(cfg, fn, company, r, output_dir)
+                    translate_after_download(cfg, fn, filepath, skip=args.no_translate)
                     r["local_file"] = str(filepath)
                 all_results[ticker].extend(fmp_results)
             except Exception as e:
                 log.error(f"  FMP error for {ticker}: {e}")
 
     # ── Save ──
-    save_cache(cache)
-    save_summary(companies, all_results, args.output)
+    if not args.no_cache:
+        cache.save()
+    save_summary(cfg, companies, all_results, output_dir)
 
     # ── Report ──
     print(f"\n{'='*70}")
@@ -619,7 +512,7 @@ def main():
         print(f"  {t:6s} ({company['name_en']:30s}): {status}")
     print(f"{'─'*70}")
     print(f"Total: {total} transcript(s) from {len(companies)} companies")
-    print(f"Output: {args.output}")
+    print(f"Output: {output_dir}")
     print(f"{'='*70}")
 
 

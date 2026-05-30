@@ -9,29 +9,10 @@ Usage:
 import json, re, argparse
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
-TRANSCRIPTS_DIR = BASE_DIR / "transcripts"
+from common import load_config, get_path, FileNaming, LineClassifier
 
 
-def classify_line(text: str) -> str:
-    """Classify paragraph type for formatting."""
-    s = text.strip()
-    if re.match(r'^\w+,\s+\w+\.\s+\d+', s) or re.match(r'^\d{1,2}:\d{2}', s):
-        return 'datetime'
-    if '—' in s and len(s) < 120:
-        return 'participant'
-    if len(s) < 120 and re.match(
-        r'^(Revenue|Operating|Earnings|Gross|Net|Free Cash|Guidance|Q&A|Question|'
-        r'Call participants|Highlights|Summary|Financial|Cash Flow|Capital|'
-        r'More Personal|Intelligent Cloud|Productivity|AI Business|'
-        r'Copilot|GitHub|Fabric|Azure|Dynamics|LinkedIn|Windows|Search|Gaming)',
-        s, re.I
-    ):
-        return 'header'
-    return 'body'
-
-
-def make_interleaved(json_path: Path) -> Path:
+def make_interleaved(cfg: dict, json_path: Path) -> Path:
     """Generate interleaved txt from bilingual JSON."""
     data = json.loads(json_path.read_text(encoding="utf-8"))
     meta = data.get("meta", {})
@@ -39,8 +20,20 @@ def make_interleaved(json_path: Path) -> Path:
     if not pairs:
         return None
 
+    # Config values
+    fmt = cfg.get("format", {})
+    sep_char = fmt.get("separator_char", "=")
+    sep_width = fmt.get("separator_width", 70)
+    dt_sep_char = fmt.get("datetime_separator_char", "\u2500")
+    dt_sep_width = fmt.get("datetime_separator_width", 50)
+    labels = fmt.get("language_labels", {})
+    en_label = labels.get("en", "[EN]")
+    zh_label = labels.get("zh", "[中]")
+
+    classifier = LineClassifier(cfg)
+
     lines = []
-    sep = "=" * 70
+    sep = sep_char * sep_width
 
     # Header
     lines.append(sep)
@@ -62,24 +55,24 @@ def make_interleaved(json_path: Path) -> Path:
         if not en:
             continue
 
-        ptype = classify_line(en)
+        ptype = classifier.classify(en)
         num = f"[{i+1:3d}]"
 
         if ptype == 'datetime':
-            lines.append(f"{'─'*50}")
-            lines.append(f"  📅 {en}")
-            lines.append(f"  📅 {zh}")
-            lines.append(f"{'─'*50}")
+            lines.append(f"{dt_sep_char*dt_sep_width}")
+            lines.append(f"  \U0001f4c5 {en}")
+            lines.append(f"  \U0001f4c5 {zh}")
+            lines.append(f"{dt_sep_char*dt_sep_width}")
         elif ptype == 'participant':
-            lines.append(f"  👤 {en}")
+            lines.append(f"  \U0001f464 {en}")
             lines.append(f"     {zh}")
         elif ptype == 'header':
             lines.append(f"")
-            lines.append(f"  ━━ {en} ━━")
-            lines.append(f"  ━━ {zh} ━━")
+            lines.append(f"  \u2501\u2501 {en} \u2501\u2501")
+            lines.append(f"  \u2501\u2501 {zh} \u2501\u2501")
         else:
-            lines.append(f"  {num} [EN] {en}")
-            lines.append(f"       [中] {zh}")
+            lines.append(f"  {num} {en_label} {en}")
+            lines.append(f"       {zh_label} {zh}")
 
         lines.append("")
 
@@ -88,8 +81,9 @@ def make_interleaved(json_path: Path) -> Path:
     lines.append(f"共 {len(pairs)} 段中英对照")
     lines.append(sep)
 
-    # Save
-    out_path = json_path.parent / json_path.name.replace("_bilingual.json", "_interleaved.txt")
+    # Save using FileNaming
+    fn = FileNaming(cfg)
+    out_path = fn.bilingual_to_interleaved(json_path)
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
 
@@ -99,21 +93,26 @@ def main():
     parser.add_argument("--ticker", help="只处理指定股票")
     args = parser.parse_args()
 
+    cfg = load_config()
+    fn = FileNaming(cfg)
+    transcripts_dir = get_path(cfg, "transcripts_dir")
+
     if args.ticker:
-        dirs = [TRANSCRIPTS_DIR / args.ticker.upper()]
+        bilingual_files = fn.find_bilingual_files(args.ticker.upper())
+        dirs = sorted(set(f.parent for f in bilingual_files))
     else:
-        dirs = sorted(d for d in TRANSCRIPTS_DIR.iterdir() if d.is_dir())
+        dirs = sorted(d for d in transcripts_dir.iterdir() if d.is_dir())
 
     total = 0
     for d in dirs:
-        jsons = sorted(d.glob("*_bilingual.json"))
+        jsons = sorted(d.glob(f"*{fn.bilingual_suffix}{fn.bilingual_ext}"))
         if not jsons:
             continue
         print(f"{d.name}: {len(jsons)} file(s)")
         for jf in jsons:
-            out = make_interleaved(jf)
+            out = make_interleaved(cfg, jf)
             if out:
-                print(f"  ✓ {out.name} ({out.stat().st_size:,} bytes)")
+                print(f"  \u2713 {out.name} ({out.stat().st_size:,} bytes)")
                 total += 1
 
     print(f"\n生成完成: {total} 个中英夹排TXT")

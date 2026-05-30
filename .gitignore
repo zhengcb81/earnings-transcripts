@@ -5,3 +5,5 @@ __pycache__/
 logs/
 config.json
 .env
+*.egg-info/
+.pytest_cache/

@@ -1,0 +1,150 @@
+# ============================================================
+# 美股电话会议纪要工具 - 统一配置文件
+# ============================================================
+
+# ── 目录结构 ──
+paths:
+  base_dir: "."                          # 项目根目录（相对于此文件）
+  companies_file: "companies.txt"        # 公司清单
+  transcripts_dir: "transcripts"         # 下载文件根目录
+  logs_dir: "logs"                       # 日志目录
+  cache_file: ".cache.json"              # 下载缓存
+  translate_cache: ".translate_cache.json" # 翻译缓存
+  config_json: "config.json"             # DeepSeek API配置（兼容旧格式）
+
+# ── 文件命名规则 ──
+naming:
+  english_suffix: "_earnings_call"       # 英文原文后缀
+  bilingual_suffix: "_bilingual"         # 中英对照后缀
+  interleaved_suffix: "_interleaved"     # 夹排后缀
+  english_ext: ".txt"                    # 英文原文扩展名
+  bilingual_ext: ".json"                 # 中英对照扩展名
+  interleaved_ext: ".txt"               # 夹排扩展名
+
+# ── Motley Fool 爬虫 ──
+fool:
+  quote_url: "https://www.fool.com/quote/{exchange}/{ticker}/"
+  exchanges: ["nasdaq", "nyse"]
+  request_timeout: 15
+  download_timeout: 20
+  min_content_length: 500
+  min_paragraph_length: 5
+  min_header_length: 15
+  skip_patterns:
+    - "motley fool stock advisor"
+    - "click here to learn more"
+    - "advertisement"
+    - "get access now"
+    - "join the motley fool"
+    - "our ceo is handing"
+    - "need a quote from a motley fool analyst"
+    - "[email"
+    - "image source:"
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+  accept_language: "en-US,en;q=0.9"
+  sleep_between_downloads: 2
+
+# ── FMP API ──
+fmp:
+  base_url: "https://financialmodelingprep.com/api/v3"
+  endpoint: "/earning_call_transcript/{ticker}"
+  request_timeout: 15
+  min_content_length: 200
+
+# ── DeepSeek 翻译 ──
+deepseek:
+  base_url: "https://api.deepseek.com"
+  model: "deepseek-v4-flash"
+  max_tokens: 4000
+  temperature: 0.1
+  availability_test_tokens: 5
+  system_prompt: |
+    你是专业金融翻译。将英文财报电话会议纪要翻译为中文。
+    规则：
+    1. 保留所有数字、金额($4.27)、百分比(18%)、ticker符号原样不动
+    2. 人名保留英文原名，职位翻译为中文
+    3. 专业术语用标准翻译：constant currency=固定汇率, revenue=营收, operating income=营业利润, EPS=每股收益, gross margin=毛利率, RPO=剩余履约义务
+    4. 公司名/产品名保留英文：Azure, Copilot, GitHub, LinkedIn
+    5. 翻译后换行附原文
+  user_prompt_template: "翻译为中文，翻译后换行附原文：\n\n{text}"
+  availability_prompt: "Say OK"
+  sleep_between_calls: 0.3
+  cache_save_interval: 10   # 每N段保存一次缓存
+
+# ── Google Translate ──
+google:
+  target_language: "Chinese"
+  availability_test_text: "test"
+  sleep_between_calls: 0.5
+
+# ── 翻译缓存 ──
+translate:
+  hash_length: 16              # MD5截取长度
+  min_paragraph_length: 5      # 太短的段落不翻译
+
+# ── 文件格式 ──
+format:
+  separator_width: 70
+  separator_char: "="
+  datetime_separator_width: 50
+  datetime_separator_char: "─"
+  language_labels:
+    en: "[EN]"
+    zh: "[中]"
+
+# ── 行分类（用于格式化） ──
+line_classification:
+  max_participant_length: 120
+  max_header_length: 100
+  header_keywords:
+    - "Revenue"
+    - "Operating"
+    - "Earnings"
+    - "Gross"
+    - "Net"
+    - "Free Cash"
+    - "Guidance"
+    - "Q&A"
+    - "Question"
+    - "Call participants"
+    - "Highlights"
+    - "Summary"
+    - "Financial"
+    - "Cash Flow"
+    - "Capital"
+    - "More Personal"
+    - "Intelligent Cloud"
+    - "Productivity"
+    - "AI Business"
+    - "Copilot"
+    - "GitHub"
+    - "Fabric"
+    - "Azure"
+    - "Dynamics"
+    - "LinkedIn"
+    - "Windows"
+    - "Search"
+    - "Gaming"
+
+# ── 阅读器 ──
+reader:
+  host: "127.0.0.1"
+  port: 8765
+  default_font_size: 15
+  min_font_size: 12
+  max_font_size: 22
+  sidebar_width: 280
+  content_max_width: 860
+  split_view_max_width: 1200
+  responsive_breakpoint: 768
+
+# ── 日志 ──
+logging:
+  format: "%(asctime)s [%(levelname)s] %(message)s"
+  level: "INFO"
+
+# ── 公司清单字段 ──
+companies:
+  delimiter: "|"
+  fields: ["ticker", "name_cn", "name_en", "exchange"]
+  comment_prefix: "#"
