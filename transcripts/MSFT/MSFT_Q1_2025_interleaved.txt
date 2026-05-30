@@ -1,0 +1,1113 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Microsoft (微软)
+Quarter: Q1 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2024/10/30/microsoft-msft-q1-2025-earnings-call-transcript/
+Translated: 2026-05-30T10:36:59.008489
+Backend: deepseek
+Paragraphs: 227
+======================================================================
+
+  [  1] [EN] Microsoft(MSFT+5.25%)Q1 2025 Earnings CallOct 30, 2024,5:30 p.m. ET
+       [中] 微软(MSFT+5.25%)2025财年第一季度财报电话会议 2024年10月30日，下午5:30 美国东部时间
+Microsoft(MSFT+5.25%)Q1 2025 Earnings CallOct 30, 2024,5:30 p.m. ET
+
+  [  2] [EN] Prepared Remarks
+       [中] 准备好的发言  
+Prepared Remarks
+
+
+  ━━ Questions and Answers ━━
+  ━━ 问题与答案  
+Questions and Answers ━━
+
+
+  ━━ Call Participants ━━
+  ━━ 电话会议参与者
+
+Call Participants ━━
+
+  [  5] [EN] Prepared Remarks:
+       [中] 准备好的发言：
+Prepared Remarks:
+
+  [  6] [EN] Operator
+       [中] 操作员
+Operator
+
+  [  7] [EN] Greetings, and welcome to the Microsoft Fiscal Year 2025 first-quarter earnings conference call. [Operator instructions] As a reminder, this conference is being recorded. It is now my pleasure to introduce your host, Brett Iversen, vice president of investor relations. Please go ahead.
+       [中] 大家好，欢迎参加微软2025财年第一季度财报电话会议。[操作员说明] 温馨提醒，本次会议正在录音。现在有请投资者关系副总裁布雷特·艾弗森主持。请开始。
+
+Greetings, and welcome to the Microsoft Fiscal Year 2025 first-quarter earnings conference call. [Operator instructions] As a reminder, this conference is being recorded. It is now my pleasure to introduce your host, Brett Iversen, vice president of investor relations. Please go ahead.
+
+  [  8] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [  9] [EN] Good afternoon, and thank you for joining us today. On the call with me are Satya Nadella, chairman and chief executive officer; Amy Hood, chief financial officer; Alice Jolla, chief accounting officer; and Keith Dolliver, corporate secretary and deputy general counsel. On the Microsoft Investor Relations website, you can find our earnings press release and financial summary slide deck, which is intended to supplement our prepared remarks during today's call and provides the reconciliation of differences between GAAP and non-GAAP financial measures. We have recast certain prior period amounts to reflect the FY '25 changes to the composition of our segments announced in August 2024.
+       [中] 下午好，感谢各位今天参与我们的电话会议。今天与我一同参会的有：董事长兼首席执行官Satya Nadella、首席财务官Amy Hood、首席会计官Alice Jolla，以及公司秘书兼副总法律顾问Keith Dolliver。在Microsoft Investor Relations网站上，您可以找到我们的收益新闻稿和财务摘要幻灯片，这些内容旨在补充我们今日电话会议中的正式发言，并提供GAAP与非GAAP财务指标之间的差异调节表。我们已重新调整了某些前期数据，以反映2024年8月公布的2025财年各业务板块构成的变化。
+
+Good afternoon, and thank you for joining us today. On the call with me are Satya Nadella, chairman and chief executive officer; Amy Hood, chief financial officer; Alice Jolla, chief accounting officer; and Keith Dolliver, corporate secretary and deputy general counsel. On the Microsoft Investor Relations website, you can find our earnings press release and financial summary slide deck, which is intended to supplement our prepared remarks during today's call and provides the reconciliation of differences between GAAP and non-GAAP financial measures. We have recast certain prior period amounts to reflect the FY '25 changes to the composition of our segments announced in August 2024.
+
+  [ 10] [EN] Additional details, including FY '23 and FY '24 recast segment revenue, operating income, and product and service level revenue can be found in the financial statements filed on the Investor Relations website. More detailed outlook slides will also be available on the Microsoft Investor Relations website when we provide outlook commentary on today's call. On this call, we will discuss certain non-GAAP items. The non-GAAP financial measures provided should not be considered as a substitute for or superior to the measures of financial performance prepared in accordance with GAAP.
+       [中] 更多详情，包括FY '23和FY '24重述后的分部收入、营业利润以及产品和服务层面的收入，可在投资者关系网站提交的财务报表中查找。更详细的业绩展望幻灯片也将在微软投资者关系网站上提供，届时我们将在今天的电话会议中提供业绩展望评论。在本次电话会议上，我们将讨论某些non-GAAP项目。所提供的non-GAAP财务指标不应视为替代或优于根据GAAP编制的财务业绩指标。
+
+Additional details, including FY '23 and FY '24 recast segment revenue, operating income, and product and service level revenue can be found in the financial statements filed on the Investor Relations website. More detailed outlook slides will also be available on the Microsoft Investor Relations website when we provide outlook commentary on today's call. On this call, we will discuss certain non-GAAP items. The non-GAAP financial measures provided should not be considered as a substitute for or superior to the measures of financial performance prepared in accordance with GAAP.
+
+  [ 11] [EN] They are included as additional clarifying items to aid investors in further understanding the company's first quarter performance in addition to the impact these items and events have on the financial results. All growth comparisons we make on the call today relate to the corresponding period of last year, unless otherwise noted. We will also provide growth rates in constant currency when available as a framework for assessing how our underlying businesses performed, excluding the effect of foreign currency rate fluctuations. Where growth rates are the same in constant currency, we will refer to the growth rate only.
+       [中] 这些项目作为额外说明项纳入，旨在帮助投资者进一步理解公司第一季度业绩，同时说明这些项目及事件对财务结果的影响。除非另有说明，我们今天电话会议中提及的所有增长比较均与去年同期相关。我们还将尽可能提供按固定汇率计算的增长率，作为评估基础业务表现（排除外币汇率波动影响）的框架。若固定汇率下的增长率相同，我们将仅提及增长率。
+
+They are included as additional clarifying items to aid investors in further understanding the company's first quarter performance in addition to the impact these items and events have on the financial results. All growth comparisons we make on the call today relate to the corresponding period of last year, unless otherwise noted. We will also provide growth rates in constant currency when available as a framework for assessing how our underlying businesses performed, excluding the effect of foreign currency rate fluctuations. Where growth rates are the same in constant currency, we will refer to the growth rate only.
+
+  [ 12] [EN] We will post our prepared remarks to our website immediately following the call until the complete transcript is available. Today's call is being webcast live and recorded. If you ask a question, it will be included in our live transmission, in the transcript and in any future use of the recording. You can replay the call and view the transcript on the Microsoft Investor Relations website.
+       [中] 我们将于电话会议结束后立即将准备好的发言稿发布到我们的网站上，直至完整的文字记录可供查阅。今天的电话会议正在进行网络直播并录制。如果您提问，您的问题将被包含在我们的直播、文字记录以及未来任何对录音的使用中。您可以在Microsoft投资者关系网站上回放本次电话会议并查看文字记录。
+
+We will post our prepared remarks to our website immediately following the call until the complete transcript is available. Today's call is being webcast live and recorded. If you ask a question, it will be included in our live transmission, in the transcript and in any future use of the recording. You can replay the call and view the transcript on the Microsoft Investor Relations website.
+
+  [ 13] [EN] During this call, we'll be making forward-looking statements, which are predictions, projections, or other statements about future events. These statements are based on current expectations and assumptions that are subject to risks and uncertainties. Actual results could materially differ because of factors discussed in today's earnings press release, in the comments made during this conference call, and in the Risk Factors section of our Form 10-K, Forms 10-Q and other reports and filings with the Securities and Exchange Commission. We do not undertake any duty to update any forward-looking statement.
+       [中] 在本次电话会议中，我们将做出前瞻性陈述，这些陈述是对未来事件的预测、预估或其他表述。这些陈述基于当前的预期与假设，并受制于风险与不确定性。由于今日财报新闻稿、本次电话会议评论、以及我们向美国证券交易委员会提交的Form 10-K、Forms 10-Q及其他报告和文件中的风险因素部分所讨论的因素，实际结果可能存在重大差异。我们不承担更新任何前瞻性陈述的义务。
+
+During this call, we'll be making forward-looking statements, which are predictions, projections, or other statements about future events. These statements are based on current expectations and assumptions that are subject to risks and uncertainties. Actual results could materially differ because of factors discussed in today's earnings press release, in the comments made during this conference call, and in the Risk Factors section of our Form 10-K, Forms 10-Q and other reports and filings with the Securities and Exchange Commission. We do not undertake any duty to update any forward-looking statement.
+
+  [ 14] [EN] And with that, I'll turn the call over to Satya.
+       [中] 那么，我就把电话交给Satya。
+
+And with that, I'll turn the call over to Satya.
+
+  [ 15] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [ 16] [EN] Thank you, Brett. We are off to a solid start to our fiscal year, driven by continued strength of Microsoft Cloud, which surpassed $38.9 billion in revenue, up 22%. AI-driven transformation is changing work, work artifacts and workflow across every role, function, and business process, helping customers drive new growth and operating leverage. All up, our AI business is on track to surpass an annual revenue run rate of $10 billion next quarter, which will make it the fastest business in our history to reach this milestone.
+       [中] 谢谢，Brett。得益于Microsoft Cloud的持续强劲表现，我们的财年开局稳健，其营收超过389亿美元，同比增长22%。AI驱动的转型正在改变每个角色、职能和业务流程中的工作、工作成果和工作流程，帮助客户推动新的增长和经营杠杆。总的来说，我们的AI业务有望在下个季度实现年收入运行率超过100亿美元，这将使其成为我们历史上达到这一里程碑最快的业务。
+
+Thank you, Brett. We are off to a solid start to our fiscal year, driven by continued strength of Microsoft Cloud, which surpassed $38.9 billion in revenue, up 22%. AI-driven transformation is changing work, work artifacts and workflow across every role, function, and business process, helping customers drive new growth and operating leverage. All up, our AI business is on track to surpass an annual revenue run rate of $10 billion next quarter, which will make it the fastest business in our history to reach this milestone.
+
+  [ 17] [EN] Now I'll highlight examples of our progress starting with infrastructure. Azure took share this quarter. We are seeing continued growth in cloud migration. Azure Arc now has over 39,000 customers across every industry, including American Tower, CTT, L'Oréal, up more than 80% year-over-year.
+       [中] 现在我将重点介绍我们在基础设施方面取得的进展。Azure本季度取得了市场份额。我们看到云迁移持续增长。Azure Arc目前拥有超过39,000家客户，涵盖各个行业，包括American Tower、CTT、L'Oréal，同比增长超过80%。
+
+Now I'll highlight examples of our progress starting with infrastructure. Azure took share this quarter. We are seeing continued growth in cloud migration. Azure Arc now has over 39,000 customers across every industry, including American Tower, CTT, L'Oréal, up more than 80% year-over-year.
+
+  [ 18] [EN] We now have data centers in over 60 regions around the world. And this quarter, we announced new cloud and AI infrastructure investments in Brazil, Italy, Mexico, and Sweden as we expand our capacity in line with our long-term demand signals. At the silicon layer, our new Cobalt 100 VMs are being used by companies like Databricks, Elastic, Siemens, Snowflake and Synopsys to power their general-purpose workloads at up to 50% better price performance than previous generations. On top of this, we are building out our next-generation AI infrastructure, innovating across the full stack to optimize our fleet for AI workloads.
+       [中] 目前我们在全球超过60个区域设有数据中心。本季度，我们宣布在巴西、意大利、墨西哥和瑞典进行新的云和AI基础设施投资，以根据长期需求信号扩大我们的容量。在芯片层面，我们的新Cobalt 100虚拟机正被Databricks、Elastic、Siemens、Snowflake和Synopsys等公司用于支撑其通用工作负载，与前代产品相比，性价比提升高达50%。在此基础上，我们正在构建下一代AI基础设施，在整个技术栈中进行创新，以优化我们面向AI工作负载的机群。
+
+We now have data centers in over 60 regions around the world. And this quarter, we announced new cloud and AI infrastructure investments in Brazil, Italy, Mexico, and Sweden as we expand our capacity in line with our long-term demand signals. At the silicon layer, our new Cobalt 100 VMs are being used by companies like Databricks, Elastic, Siemens, Snowflake and Synopsys to power their general-purpose workloads at up to 50% better price performance than previous generations. On top of this, we are building out our next-generation AI infrastructure, innovating across the full stack to optimize our fleet for AI workloads.
+
+  [ 19] [EN] We offer the broadest selection of AI accelerators, including our first-party accelerator, Maia 100 as well as the latest GPUs from AMD and NVIDIA. In fact, we are the first cloud to bring up NVIDIA's Blackwell system with GB200-powered AI servers. Our partnership with OpenAI also continues to deliver results. We have an economic interest in a company that has grown significantly in value, and we have built differentiated IP and are driving revenue momentum.
+       [中] 我们提供最广泛的AI加速器选择，包括我们的第一方加速器Maia 100，以及来自AMD和NVIDIA的最新GPU。事实上，我们是首个部署NVIDIA Blackwell系统及GB200驱动AI服务器的云服务商。我们与OpenAI的合作也持续产生成果。我们在一家价值大幅增长的公司拥有经济利益，并构建了差异化的知识产权，正在推动收入增长势头。
+
+原文：We offer the broadest selection of AI accelerators, including our first-party accelerator, Maia 100 as well as the latest GPUs from AMD and NVIDIA. In fact, we are the first cloud to bring up NVIDIA's Blackwell system with GB200-powered AI servers. Our partnership with OpenAI also continues to deliver results. We have an economic interest in a company that has grown significantly in value, and we have built differentiated IP and are driving revenue momentum.
+
+  [ 20] [EN] More broadly with Azure AI, we are building an end-to-end app platform to help customers build their own copilots and agents. Azure OpenAI usage more than doubled over the past 6 months as both digital natives like Grammarly and Harvey as well as established enterprises like Bajaj Finance, Hitachi, KT, and LG move apps from test to production. GE Aerospace, for example, used Azure OpenAI to build a new digital assistant for all 52,000 of its employees. In just 3 months, it has been used to conduct over 500,000 internal queries and process more than 200,000 documents.
+       [中] 更广泛地看，借助Azure AI，我们正在构建一个端到端的应用平台，帮助客户打造自己的copilot和agent。Azure OpenAI的使用量在过去6个月里翻了一倍多，因为像Grammarly和Harvey这样的数字原生企业，以及Bajaj Finance、Hitachi、KT、LG这样的成熟企业，都在将应用从测试转向生产。例如，GE Aerospace使用Azure OpenAI为其全部52,000名员工构建了一个新的数字助手。在短短3个月内，它已被用于处理超过50万次内部查询，并处理了20多万份文档。
+
+More broadly with Azure AI, we are building an end-to-end app platform to help customers build their own copilots and agents. Azure OpenAI usage more than doubled over the past 6 months as both digital natives like Grammarly and Harvey as well as established enterprises like Bajaj Finance, Hitachi, KT, and LG move apps from test to production. GE Aerospace, for example, used Azure OpenAI to build a new digital assistant for all 52,000 of its employees. In just 3 months, it has been used to conduct over 500,000 internal queries and process more than 200,000 documents.
+
+  [ 21] [EN] And this quarter, we added support for OpenAI's newest model family, o1. We're also bringing industry-specific models through Azure AI, including a collection of best-in-class multimodal models for medical imaging. And with the GitHub models, we now provide access to our full model catalog directly within the GitHub developer workflow. Azure AI is also increasingly an on-ramp to our data and analytics services.
+       [中] 本季度，我们新增了对OpenAI最新模型系列o1的支持。我们还通过Azure AI引入了行业特定模型，包括一系列用于医学成像的顶级多模态模型。借助GitHub模型，我们现在可以直接在GitHub开发者工作流中访问我们的完整模型目录。Azure AI也日益成为我们数据和分析服务的入口。
+
+And this quarter, we added support for OpenAI's newest model family, o1. We're also bringing industry-specific models through Azure AI, including a collection of best-in-class multimodal models for medical imaging. And with the GitHub models, we now provide access to our full model catalog directly within the GitHub developer workflow. Azure AI is also increasingly an on-ramp to our data and analytics services.
+
+  [ 22] [EN] As developers build new AI apps on Azure, we have seen an acceleration of Azure Cosmos DB and Azure SQL DB hyperscale usage as customers like Air India, Novo Nordisk, Telefonica, Toyota Motor North America and Uniper take advantage of capabilities purpose built for AI applications. And with Microsoft Fabric, we provide a single AI-powered platform to help customers like Chanel, EY, KPMG, Swissair and Syndigo unify their data across clouds. We now have over 16,000 paid Fabric customers, over 70% of the Fortune 500. Now on to developers.
+       [中] 随着开发者在Azure上构建新的AI应用，我们看到Azure Cosmos DB和Azure SQL DB的超大规模使用量加速增长，因为Air India、Novo Nordisk、Telefonica、Toyota Motor North America和Uniper等客户正在利用专为AI应用构建的功能。借助Microsoft Fabric，我们提供了一个由AI驱动的单一平台，帮助Chanel、EY、KPMG、Swissair和Syndigo等客户跨云统一数据。目前我们拥有超过16,000个付费Fabric客户，占财富500强企业的70%以上。接下来是开发者方面。
+
+As developers build new AI apps on Azure, we have seen an acceleration of Azure Cosmos DB and Azure SQL DB hyperscale usage as customers like Air India, Novo Nordisk, Telefonica, Toyota Motor North America and Uniper take advantage of capabilities purpose built for AI applications. And with Microsoft Fabric, we provide a single AI-powered platform to help customers like Chanel, EY, KPMG, Swissair and Syndigo unify their data across clouds. We now have over 16,000 paid Fabric customers, over 70% of the Fortune 500. Now on to developers.
+
+  [ 23] [EN] GitHub Copilot is changing the way the world builds software. Copilot enterprise customers increased 55% quarter-over-quarter as companies like AMD and Flutter Entertainment tailor Copilot to their own code base. And we are introducing the next phase of AI code generation, making GitHub Copilot agentic across the developer workflow. GitHub Copilot Workspace is a developer environment, which leverages agents from start to finish so developers can go from spec to plan to code all in natural language.
+       [中] GitHub Copilot正在改变世界构建软件的方式。Copilot企业客户环比增长55%，AMD和Flutter Entertainment等公司正在根据自身代码库定制Copilot。我们即将推出AI代码生成的下一阶段，使GitHub Copilot在开发者工作流程中具备智能代理能力。GitHub Copilot Workspace是一个开发者环境，从头到尾利用智能代理，使开发者能够以自然语言从规范到计划再到代码。
+
+GitHub Copilot is changing the way the world builds software. Copilot enterprise customers increased 55% quarter-over-quarter as companies like AMD and Flutter Entertainment tailor Copilot to their own code base. And we are introducing the next phase of AI code generation, making GitHub Copilot agentic across the developer workflow. GitHub Copilot Workspace is a developer environment, which leverages agents from start to finish so developers can go from spec to plan to code all in natural language.
+
+  [ 24] [EN] Copilot Autofix is an AI agent that helps developers at companies like Asurion and Auto Group fix vulnerabilities in their code over three times faster than it would take them on their own. We're also continuing to build on GitHub's open platform ethos by making more models available via GitHub Copilot. And we are expanding the reach of GitHub to a new segment of developers introducing GitHub Spark, which enables anyone to build apps in natural language. Already, we have brought generative AI to Power Platform to help customers use low-code, no-code tools to cut costs and development time.
+       [中] Copilot Autofix是一个AI代理，帮助Asurion和Auto Group等公司的开发者修复代码漏洞，速度比他们自己操作快三倍以上。我们还通过GitHub Copilot提供更多模型，持续践行GitHub开放平台理念。同时，我们通过推出GitHub Spark，将GitHub的覆盖范围扩展到新的开发者群体，使任何人都能用自然语言构建应用。此外，我们已将生成式AI引入Power Platform，帮助客户使用低代码/无代码工具来削减成本和开发时间。
+
+Copilot Autofix is an AI agent that helps developers at companies like Asurion and Auto Group fix vulnerabilities in their code over three times faster than it would take them on their own. We're also continuing to build on GitHub's open platform ethos by making more models available via GitHub Copilot. And we are expanding the reach of GitHub to a new segment of developers introducing GitHub Spark, which enables anyone to build apps in natural language. Already, we have brought generative AI to Power Platform to help customers use low-code, no-code tools to cut costs and development time.
+
+  [ 25] [EN] To date, nearly 600,000 organizations have used AI-powered capabilities in Power Platform, up four times year-over-year. Citizen developers at ZF, for example, built apps simply by describing what they need using natural language. And this quarter, we introduced new ways for customers to apply AI to streamline complex workflows with Power Automate. Now on to work.
+       [中] 截至目前，已有近60万家组织使用Power Platform中的AI驱动功能，同比增长四倍。例如，ZF的自助开发人员只需用自然语言描述需求即可构建应用。本季度，我们还推出了新的方式，让客户运用AI通过Power Automate简化复杂工作流程。现在开始进入工作环节。
+
+原文：To date, nearly 600,000 organizations have used AI-powered capabilities in Power Platform, up four times year-over-year. Citizen developers at ZF, for example, built apps simply by describing what they need using natural language. And this quarter, we introduced new ways for customers to apply AI to streamline complex workflows with Power Automate. Now on to work.
+
+  [ 26] [EN] We launched the next wave of Microsoft 365 Copilot innovation last month, bringing together web, work, and Pages as the new design system for knowledge work. Pages is the first new digital artifact for the AI age, and it's designed to help you ideate with AI and collaborate with other people. We've also made Microsoft 365 Copilot responses two times faster and improved response quality by nearly 3x. This innovation is driving accelerated usage, and the number of people using Microsoft 365 daily more than doubled quarter-over-quarter.
+       [中] 我们上个月推出了下一波Microsoft 365 Copilot创新，将web、工作和Pages整合为知识工作的新设计系统。Pages是AI时代第一个新的数字产物，旨在帮助你与AI进行构思并与他人协作。我们还使Microsoft 365 Copilot的响应速度提升了两倍，并将响应质量提高了近3倍。这一创新推动了使用率的加速增长，每天使用Microsoft 365的人数环比增长超过一倍。
+
+原文：
+We launched the next wave of Microsoft 365 Copilot innovation last month, bringing together web, work, and Pages as the new design system for knowledge work. Pages is the first new digital artifact for the AI age, and it's designed to help you ideate with AI and collaborate with other people. We've also made Microsoft 365 Copilot responses two times faster and improved response quality by nearly 3x. This innovation is driving accelerated usage, and the number of people using Microsoft 365 daily more than doubled quarter-over-quarter.
+
+  [ 27] [EN] We are also seeing increased adoption from customers in every industry as they use Microsoft 365 Copilot to drive real business value. Vodafone, for example, will roll out Microsoft 365 Copilot to 68,000 employees after a trial showed that, on average, they save 3 hours per person per week. And UBS will deploy 50,000 seats in our largest finserve deal to date. And we continue to see enterprise customers coming back to buy more seats.
+       [中] 我们还看到各个行业的客户越来越多地采用Microsoft 365 Copilot来驱动真实的业务价值。例如，Vodafone在试用后发现，每位员工平均每周节省3小时，因此将向68,000名员工推出Microsoft 365 Copilot。而UBS将在我们迄今为止最大的金融服务交易中部署50,000个席位。并且我们持续看到企业客户回来购买更多席位。
+
+We are also seeing increased adoption from customers in every industry as they use Microsoft 365 Copilot to drive real business value. Vodafone, for example, will roll out Microsoft 365 Copilot to 68,000 employees after a trial showed that, on average, they save 3 hours per person per week. And UBS will deploy 50,000 seats in our largest finserve deal to date. And we continue to see enterprise customers coming back to buy more seats.
+
+  [ 28] [EN] All up, nearly 70% of the Fortune 500 now use Microsoft 365 Copilot, and customers continue to adopt it at a faster rate than any other new Microsoft 365 suite. Copilot is the UI for AI, and with Microsoft 365 Copilot, Copilot Studio and agents and now autonomous agents, we have built an end-to-end system for AI business transformation. With Copilot Studio, organizations can build and connect Microsoft 365 Copilot to autonomous agents, which then delegate to Copilot when there is an exception. More than 100,000 organizations from Nsure, Standard Bank and Thomson Reuters to Virgin Money and Zurich Insurance have used Copilot Studio to date, up over two times quarter-over-quarter.
+       [中] 总体而言，近70%的财富500强公司现在使用Microsoft 365 Copilot，客户对其的采用率持续高于其他任何新的Microsoft 365套件。Copilot是AI的UI，通过Microsoft 365 Copilot、Copilot Studio和代理以及现在的自主代理，我们构建了一个端到端的系统用于AI业务转型。借助Copilot Studio，组织可以构建并将Microsoft 365 Copilot连接到自主代理，当出现异常时，自主代理会将任务委托给Copilot。迄今为止，从Nsure、Standard Bank和Thomson Reuters到Virgin Money和Zurich Insurance，已有超过100,000个组织使用了Copilot Studio，环比增长超过两倍。
+
+原文：All up, nearly 70% of the Fortune 500 now use Microsoft 365 Copilot, and customers continue to adopt it at a faster rate than any other new Microsoft 365 suite. Copilot is the UI for AI, and with Microsoft 365 Copilot, Copilot Studio and agents and now autonomous agents, we have built an end-to-end system for AI business transformation. With Copilot Studio, organizations can build and connect Microsoft 365 Copilot to autonomous agents, which then delegate to Copilot when there is an exception. More than 100,000 organizations from Nsure, Standard Bank and Thomson Reuters to Virgin Money and Zurich Insurance have used Copilot Studio to date, up over two times quarter-over-quarter.
+
+  [ 29] [EN] More broadly, we are seeing AI drive a fundamental change in the business applications market as customers shift from legacy apps to AI-first business processes. Dynamics 365 continues to take share as organizations like Evron, Heineken and Lexmark chose our apps over other providers. And monthly active users of Copilot across our CRM and ERP portfolio increased over 60% quarter-over-quarter. Our Dynamics 365 contact center is also winning customers like Currys, Le Creuset and RXO as it brings generative AI to every customer engagement channel.
+       [中] 更广泛地说，我们看到AI正在推动商业应用市场的根本性变革，客户正从传统应用转向以AI为先的业务流程。Dynamics 365持续获得市场份额，诸如Evron、Heineken和Lexmark等组织选择我们的应用而非其他供应商。在我们的CRM和ERP产品组合中，Copilot的月活跃用户环比增长超过60%。我们的Dynamics 365联系中心也赢得了Currys、Le Creuset和RXO等客户，因为它将生成式AI引入每一个客户互动渠道。
+
+原文：
+More broadly, we are seeing AI drive a fundamental change in the business applications market as customers shift from legacy apps to AI-first business processes. Dynamics 365 continues to take share as organizations like Evron, Heineken and Lexmark chose our apps over other providers. And monthly active users of Copilot across our CRM and ERP portfolio increased over 60% quarter-over-quarter. Our Dynamics 365 contact center is also winning customers like Currys, Le Creuset and RXO as it brings generative AI to every customer engagement channel.
+
+  [ 30] [EN] And just last week, we added 10 out-of-the-box autonomous agents to Dynamics 365 that helps customers automatically qualify sales leads, track suppliers and work hand in hand with service reps to resolve issues. We're also bringing AI to industry-specific workflows. One year in, DAX Copilot is now documenting over 1.3 million physician-patient encounters each month at over 500 healthcare organizations like Baptist Medical Group, Baylor Scott & White, Greater Baltimore Medical Center, Novant Health and Overlake Medical Center. It is showing faster revenue growth than GitHub Copilot did in this first year.
+       [中] 就在上周，我们向Dynamics 365新增了10个开箱即用的自主代理，帮助客户自动筛选销售线索、跟踪供应商，并与服务代表协同解决问题。我们还正将AI引入行业特定工作流程。一年以来，DAX Copilot每月为超过500个医疗组织（如Baptist Medical Group、Baylor Scott & White、Greater Baltimore Medical Center、Novant Health和Overlake Medical Center）记录逾130万次医患接触。其首年营收增速已超过GitHub Copilot同期表现。
+
+And just last week, we added 10 out-of-the-box autonomous agents to Dynamics 365 that helps customers automatically qualify sales leads, track suppliers and work hand in hand with service reps to resolve issues. We're also bringing AI to industry-specific workflows. One year in, DAX Copilot is now documenting over 1.3 million physician-patient encounters each month at over 500 healthcare organizations like Baptist Medical Group, Baylor Scott & White, Greater Baltimore Medical Center, Novant Health and Overlake Medical Center. It is showing faster revenue growth than GitHub Copilot did in this first year.
+
+  [ 31] [EN] And new features extend DAX beyond notes, helping physicians automatically draft referrals, after-visit instructions, and diagnostic evidence. On top of all this AI innovation, Microsoft Teams usage remains at all-time highs as people use it to streamline all their communications. Nearly 75% of our Teams Enterprise customers now buy Premium, Phone or Rooms. When it comes to Windows, our new class of Copilot+ PCs is winning new customers.
+       [中] 新功能将DAX扩展到笔记之外，帮助医生自动起草转诊单、诊后指导及诊断依据。在所有这些AI创新的基础上，Microsoft Teams的使用量仍处于历史最高水平，人们用它来简化所有沟通。近75%的Teams企业客户现在购买Premium、Phone或Rooms产品。在Windows方面，我们的全新Copilot+ PC系列正在赢得新客户。
+
+原文：And new features extend DAX beyond notes, helping physicians automatically draft referrals, after-visit instructions, and diagnostic evidence. On top of all this AI innovation, Microsoft Teams usage remains at all-time highs as people use it to streamline all their communications. Nearly 75% of our Teams Enterprise customers now buy Premium, Phone or Rooms. When it comes to Windows, our new class of Copilot+ PCs is winning new customers.
+
+  [ 32] [EN] They offer best-in-class AI capability, performance, and value. AMD, Intel, and Qualcomm now all support Copilot+ PCs. This quarter, we also introduced new AI experience only available on Copilot+ PCs like Click to Do, which places an interactive overlay over your desktop to suggest next best actions. And as we approach the end of support for Windows 10 a year from now, we are well positioned to transition our customers to Windows 11, ensuring they benefit from enhanced features and security improvements we've introduced over the past few years.
+       [中] 他们提供一流的AI能力、性能和性价比。AMD、Intel和Qualcomm现在都支持Copilot+ PC。本季度，我们还推出了仅在Copilot+ PC上可用的新AI体验，例如Click to Do，它会在桌面放置一个交互式叠加层，提示下一步最佳操作。随着一年后Windows 10支持接近尾声，我们已做好充分准备将客户迁移到Windows 11，确保他们从我们过去几年推出的增强功能和安全改进中受益。
+
+They offer best-in-class AI capability, performance, and value. AMD, Intel, and Qualcomm now all support Copilot+ PCs. This quarter, we also introduced new AI experience only available on Copilot+ PCs like Click to Do, which places an interactive overlay over your desktop to suggest next best actions. And as we approach the end of support for Windows 10 a year from now, we are well positioned to transition our customers to Windows 11, ensuring they benefit from enhanced features and security improvements we've introduced over the past few years.
+
+  [ 33] [EN] Now on to security. We continue to prioritize security above all else. With our Secure Future Initiative, we have dedicated the equivalent of 34,000 full-time engineers to address the highest-priority security tasks. We have made significant progress to better protect tenants' identities, networks, and engineering systems, and we have created new processes to ensure security is prioritized at every level of the company.
+       [中] 接下来是关于安全方面。我们一如既往地将安全置于最高优先地位。借助我们的Secure Future Initiative，我们投入了相当于34,000名全职工程师的精力，用于处理最高优先级的安全任务。我们在更好保护租户身份、网络和工程系统方面取得了显著进展，并制定了新流程，确保安全在公司的各个层级都得到优先考虑。
+
+Now on to security. We continue to prioritize security above all else. With our Secure Future Initiative, we have dedicated the equivalent of 34,000 full-time engineers to address the highest-priority security tasks. We have made significant progress to better protect tenants' identities, networks, and engineering systems, and we have created new processes to ensure security is prioritized at every level of the company.
+
+  [ 34] [EN] And we continue to take what we learn and turn it into innovations across our products. Security Copilot, for example, is being used by companies in every industry, including Clifford Chance, Intesa Sanpaolo, and Shell to perform SecOps tasks faster and more accurately. And we are now helping customers protect their AI deployments, too. Customers have used Defender to discover and secure more than 750,000 GenAI app instances and used Purview to audit over 1 billion Copilot interactions to meet their compliance obligations.
+       [中] 我们持续将所学转化为产品创新。例如，Security Copilot正被包括Clifford Chance、Intesa Sanpaolo和Shell在内的各行业企业用于更快速、更准确地执行SecOps任务。如今，我们也在帮助客户保护其AI部署。客户已通过Defender发现并保护超过75万个GenAI应用实例，并使用Purview审计了超过10亿次Copilot交互以满足合规要求。
+
+And we continue to take what we learn and turn it into innovations across our products. Security Copilot, for example, is being used by companies in every industry, including Clifford Chance, Intesa Sanpaolo, and Shell to perform SecOps tasks faster and more accurately. And we are now helping customers protect their AI deployments, too. Customers have used Defender to discover and secure more than 750,000 GenAI app instances and used Purview to audit over 1 billion Copilot interactions to meet their compliance obligations.
+
+  [ 35] [EN] And all up, we continue to take share across all major categories we serve and are consistently recognized by top analysts as a leader in 20 categories more than any other vendor. Now let me turn to our consumer businesses, starting with LinkedIn. Member growth continues to accelerate with markets in India and Brazil both growing at double digits. We are also seeing record engagement as we introduce new ways for our more than 1 billion members to connect, sell services, get hired and share knowledge.
+       [中] 总而言之，我们在所服务的所有主要类别中持续扩大市场份额，并被顶级分析师一致评为20个类别的领导者，这一数量超过任何其他供应商。下面我来谈谈我们的消费者业务，先从LinkedIn说起。会员增长持续加速，印度和巴西市场的增长率均达到两位数。我们还看到了创纪录的参与度，因为我们为超过10亿会员提供了新的方式来建立联系、销售服务、找到工作以及分享知识。
+
+原文：
+And all up, we continue to take share across all major categories we serve and are consistently recognized by top analysts as a leader in 20 categories more than any other vendor. Now let me turn to our consumer businesses, starting with LinkedIn. Member growth continues to accelerate with markets in India and Brazil both growing at double digits. We are also seeing record engagement as we introduce new ways for our more than 1 billion members to connect, sell services, get hired and share knowledge.
+
+  [ 36] [EN] Our investments in rich formats like video strengthen our leadership in B2B advertising and amplify the value we deliver to our customers. Weekly immersive video views increased six times quarter-over-quarter, and total video viewership on LinkedIn is up 36% year-over-year. Our AI-powered tools also continue to transform how people sell, learn and hire. In Sales, new AI features help every team member perform at the level of top sellers and drive more profitable growth.
+       [中] 我们在视频等富媒体格式上的投资巩固了在B2B广告领域的领导地位，并提升了为客户创造的价值。每周沉浸式视频观看次数环比增长六倍，LinkedIn上的视频总观看量同比增长36%。我们的AI驱动工具也在持续改变人们销售、学习和招聘的方式。在销售领域，新的AI功能帮助每位团队成员达到顶尖销售人员的水平，并推动更有利可图的增长。
+
+原文：
+Our investments in rich formats like video strengthen our leadership in B2B advertising and amplify the value we deliver to our customers. Weekly immersive video views increased six times quarter-over-quarter, and total video viewership on LinkedIn is up 36% year-over-year. Our AI-powered tools also continue to transform how people sell, learn and hire. In Sales, new AI features help every team member perform at the level of top sellers and drive more profitable growth.
+
+  [ 37] [EN] In Learning, just yesterday, we announced updates to our coaching experience, including personalized career development plans. LinkedIn's first agent hiring assistant will help hirers find qualified candidates faster by tackling the most time-consuming task. Already hirers who use AI assistant messages see a 44% higher acceptance rate compared to those who don't. And our hiring business continues to take share.
+       [中] 在学习业务中，就在昨天，我们宣布了辅导体验的更新，包括个性化职业发展计划。LinkedIn的首个招聘助手智能体将帮助招聘者通过处理最耗时的任务，更快地找到合格候选人。使用AI助手消息的招聘者，其接受率比不使用的招聘者高出44%。我们的招聘业务份额持续增长。
+
+In Learning, just yesterday, we announced updates to our coaching experience, including personalized career development plans. LinkedIn's first agent hiring assistant will help hirers find qualified candidates faster by tackling the most time-consuming task. Already hirers who use AI assistant messages see a 44% higher acceptance rate compared to those who don't. And our hiring business continues to take share.
+
+  [ 38] [EN] Now on to Search, Advertising and News. With Copilot, we are seeing the first step toward creating a new AI companion for everyone with new Copilot experience we introduced earlier this month, includes a refreshed design and tone along with improved speed and fluency across the web and mobile. And it includes advanced capabilities like voice and vision that make it more delightful and useful and feel more natural. You can both browse and converse with Copilot simultaneously because Copilot sees what you see.
+       [中] 接下来是关于搜索、广告和新闻。借助Copilot，我们迈出了为每个人打造全新AI伴侣的第一步——本月早些时候我们推出了新的Copilot体验，包括焕然一新的设计和风格，以及在网页端和移动端提升的速度与流畅度。它还具备语音和视觉等高级功能，使其更令人愉悦、更实用，也更具自然感。您可以同时浏览网页并与Copilot对话，因为Copilot能看到您所看到的内容。
+
+Now on to Search, Advertising and News. With Copilot, we are seeing the first step toward creating a new AI companion for everyone with new Copilot experience we introduced earlier this month, includes a refreshed design and tone along with improved speed and fluency across the web and mobile. And it includes advanced capabilities like voice and vision that make it more delightful and useful and feel more natural. You can both browse and converse with Copilot simultaneously because Copilot sees what you see.
+
+  [ 39] [EN] More broadly, AI is also transforming search, browsers, and digital advertising, and we continue to take share across Bing and Edge. Bing ex TAC revenue growth outpaced the search market. Now on to Gaming. One year since we closed our acquisition of Activision Blizzard King, we are focused on building a business positioned for long-term growth, driven by higher-margin content and services.
+       [中] 更广泛地说，人工智能也在改变搜索、浏览器和数字广告，我们持续在Bing和Edge上获取市场份额。Bing ex TAC收入增长超过了搜索市场。接下来谈游戏。自我们完成对Activision Blizzard King的收购已过去一年，我们正专注于打造一个定位于长期增长的业务，由更高利润的内容和服务驱动。
+
+More broadly, AI is also transforming search, browsers, and digital advertising, and we continue to take share across Bing and Edge. Bing ex TAC revenue growth outpaced the search market. Now on to Gaming. One year since we closed our acquisition of Activision Blizzard King, we are focused on building a business positioned for long-term growth, driven by higher-margin content and services.
+
+  [ 40] [EN] You already see this transformation in our results as we diversify the ways that gamers access our content. We set new records for monthly active users in the quarter as more players than ever play our games across devices and on the Xbox platform. Game Pass also set a new Q1 record for total revenue and average revenue per subscriber. And as we look ahead, our IP across our studios has never been stronger.
+       [中] 你已经在我们的业绩中看到了这一转变，因为我们正在多样化玩家获取我们内容的方式。本季度我们创下了月活跃用户的新纪录，越来越多的玩家跨设备并在Xbox平台上玩我们的游戏。Game Pass也创下了第一季度总收入和每用户平均收入的新纪录。展望未来，我们各工作室的IP从未如此强大。
+
+You already see this transformation in our results as we diversify the ways that gamers access our content. We set new records for monthly active users in the quarter as more players than ever play our games across devices and on the Xbox platform. Game Pass also set a new Q1 record for total revenue and average revenue per subscriber. And as we look ahead, our IP across our studios has never been stronger.
+
+  [ 41] [EN] Last week's launch of Black Ops 6 was the biggest Call of Duty release ever, setting a record for day 1 players as well as Game Pass subscriber adds on launch day. And unit sales on PlayStation and Steam were also up over 60% year-over-year. This speaks to our strategy of meeting gamers where they are by enabling them to play more games across the screens they spend their time on. In closing, we are rapidly innovating to expand our opportunity across our commercial and consumer businesses.
+       [中] 上周发布的《Black Ops 6》是《Call of Duty》系列有史以来规模最大的一次发布，创下了首日玩家数量以及Game Pass首日订阅用户增长的新纪录。同时，PlayStation和Steam上的实体销量也同比增长超过60%。这印证了我们的战略——让玩家在常用屏幕上游玩更多游戏，从而满足他们的需求。最后，我们正在快速创新，以扩大在商业和消费业务领域的机会。
+
+Last week's launch of Black Ops 6 was the biggest Call of Duty release ever, setting a record for day 1 players as well as Game Pass subscriber adds on launch day. And unit sales on PlayStation and Steam were also up over 60% year-over-year. This speaks to our strategy of meeting gamers where they are by enabling them to play more games across the screens they spend their time on. In closing, we are rapidly innovating to expand our opportunity across our commercial and consumer businesses.
+
+  [ 42] [EN] In 3 weeks' time, we will hold our Ignite Conference, and I look forward to sharing more then about how we are helping every business function use AI to drive growth in this new era. With that, let me turn it over to Amy.
+       [中] 三周后我们将举办Ignite Conference，我期待届时分享更多关于我们如何帮助每个业务部门利用AI在这个新时代推动增长的细节。现在，有请Amy。
+
+In 3 weeks' time, we will hold our Ignite Conference, and I look forward to sharing more then about how we are helping every business function use AI to drive growth in this new era. With that, let me turn it over to Amy.
+
+  [ 43] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [ 44] [EN] Thank you, Satya. And good afternoon, everyone. This quarter, revenue was $65.6 billion, up 16%, and earnings per share was $3.30, an increase of 10%. With strong execution by our sales teams and partners, we delivered a solid start to our fiscal year with double-digit top and bottom line growth.
+       [中] 谢谢，Satya。各位下午好。本季度营收为656亿美元，增长16%，每股收益为3.30美元，增长10%。凭借我们销售团队和合作伙伴的强劲执行力，我们实现了两位数的营收和利润增长，为新财年打下了坚实的基础。
+
+Thank you, Satya. And good afternoon, everyone. This quarter, revenue was $65.6 billion, up 16%, and earnings per share was $3.30, an increase of 10%. With strong execution by our sales teams and partners, we delivered a solid start to our fiscal year with double-digit top and bottom line growth.
+
+  [ 45] [EN] We also saw continued share gains across many of our businesses. In our commercial business, increased demand, and growth in long-term commitments to our Microsoft Cloud platform drove our results. Commercial bookings were ahead of expectations and increased 30% and 23% in constant currency. Results were driven by strong execution across our core annuity sales motions and growth in the number of $10 million-plus contracts for both Azure and Microsoft 365.
+       [中] 我们还看到许多业务的市场份额持续增长。在商业业务中，需求的增加以及对Microsoft Cloud平台的长期承诺的增长推动了我们的业绩。商业订单超出预期，同比增长30%，按固定汇率计算增长23%。业绩的取得得益于我们核心年金销售活动的强劲执行，以及Azure和Microsoft 365价值1000万美元以上合同数量的增长。
+
+We also saw continued share gains across many of our businesses. In our commercial business, increased demand, and growth in long-term commitments to our Microsoft Cloud platform drove our results. Commercial bookings were ahead of expectations and increased 30% and 23% in constant currency. Results were driven by strong execution across our core annuity sales motions and growth in the number of $10 million-plus contracts for both Azure and Microsoft 365.
+
+  [ 46] [EN] Additionally, we also saw an increase in the number of $100-million-plus contracts for Azure. Commercial remaining performance obligation increased 22% and 21% in constant currency to $259 billion. Roughly 40% will be recognized in revenue in the next 12 months, up 17% year-over-year. The remaining portion, recognized beyond the next 12 months, increased 27%.
+       [中] 此外，我们还看到Azure的合同金额超过1亿美元的数量有所增加。商业剩余履约义务增长了22%，按固定汇率计算增长了21%，达到2590亿美元。其中约40%将在未来12个月内确认为收入，同比增长17%。剩余部分将在未来12个月之后确认，增长了27%。
+
+原文：
+Additionally, we also saw an increase in the number of $100-million-plus contracts for Azure. Commercial remaining performance obligation increased 22% and 21% in constant currency to $259 billion. Roughly 40% will be recognized in revenue in the next 12 months, up 17% year-over-year. The remaining portion, recognized beyond the next 12 months, increased 27%.
+
+  [ 47] [EN] And this quarter, our annuity mix increased to 98%. In addition to commercial results that were in line with expectations, we also saw some benefit from in-period revenue recognition across Microsoft 365 commercial, Azure, and our on-premises server business. At a company level, Activision contributed a net impact of approximately 3 points to revenue growth with a 2 point drag on operating income growth and had a negative $0.05 impact to earnings per share. A reminder that this net impact includes adjusting for the movement of Activision content from our prior relationship as a third-party partner to first-party and includes $911 million from purchase accounting adjustments, integration, and transaction-related cost.
+       [中] 
+
+  [ 48] [EN] FX did not have a significant impact on our results and was roughly in line with expectations on total company revenue, segment-level revenue, COGS, and operating expense growth. Microsoft Cloud revenue was $38.9 billion and grew 22%, roughly in line with expectations. Microsoft Cloud gross margin percentage decreased 2 points year-over-year to 71%. This was slightly better than expected due to improvement in Azure, although the gross margin percentage decrease year-over-year continues to be driven by scaling our AI infrastructure.
+       [中] FX 对我们的业绩没有显著影响，且在总营收、各板块营收、COGS 及运营费用增长方面基本符合预期。Microsoft Cloud 营收达 389 亿美元，同比增长 22%，基本符合预期。Microsoft Cloud 毛利率同比下降 2 个百分点至 71%，略好于预期，这得益于 Azure 的改善，尽管毛利率同比下降仍受我们扩展 AI 基础设施的推动。
+
+原文：
+FX did not have a significant impact on our results and was roughly in line with expectations on total company revenue, segment-level revenue, COGS, and operating expense growth. Microsoft Cloud revenue was $38.9 billion and grew 22%, roughly in line with expectations. Microsoft Cloud gross margin percentage decreased 2 points year-over-year to 71%. This was slightly better than expected due to improvement in Azure, although the gross margin percentage decrease year-over-year continues to be driven by scaling our AI infrastructure.
+
+  [ 49] [EN] Company gross margin dollars increased 13% and 14% in constant currency, and gross margin percentage was 69%, down 2 points year-over-year, driven by the lower Microsoft Cloud gross margin noted earlier as well as the impact from purchase accounting adjustments, integration, and transaction-related costs from the Activision acquisition. Operating expenses increased 12%, lower than expected due to our focus on cost efficiencies and ongoing prioritization work. Operating expense growth included 9 points from the Activision acquisition. At a total company level, headcount at the end of September was 8% higher than a year ago.
+       [中] 公司毛利润金额增加13%，按固定汇率计算增加14%，毛利率为69%，同比下降2个百分点，主要是由于先前提到的Microsoft Cloud毛利率下降，以及来自Activision收购的购买会计调整、整合和交易相关成本的影响。运营费用增长12%，低于预期，原因是我们专注于成本效率和持续的优先级调整工作。运营费用增长中包含来自Activision收购的9个百分点。在整个公司层面，9月底的员工人数比一年前增加了8%。
+
+Company gross margin dollars increased 13% and 14% in constant currency, and gross margin percentage was 69%, down 2 points year-over-year, driven by the lower Microsoft Cloud gross margin noted earlier as well as the impact from purchase accounting adjustments, integration, and transaction-related costs from the Activision acquisition. Operating expenses increased 12%, lower than expected due to our focus on cost efficiencies and ongoing prioritization work. Operating expense growth included 9 points from the Activision acquisition. At a total company level, headcount at the end of September was 8% higher than a year ago.
+
+  [ 50] [EN] Excluding the growth from the Activision acquisition, headcount was 2% higher. Operating income increased 14% and operating margins were 47%, down 1 point year-over-year. Excluding the net impact from the Activision acquisition, operating margins were up 1 point as we continue to drive efficiencies across our businesses as we invest in AI infrastructure and capabilities. Now to our segment results.
+       [中] 除去Activision收购带来的增长，员工人数增长了2%。营业收入增长14%，营业利润率为47%，同比下降1个百分点。除去Activision收购的净影响，营业利润率上升了1个百分点，因为我们继续在投资AI基础设施和能力的同时推动各业务部门的效率提升。接下来是我们的业务板块业绩。
+
+Excluding the growth from the Activision acquisition, headcount was 2% higher. Operating income increased 14% and operating margins were 47%, down 1 point year-over-year. Excluding the net impact from the Activision acquisition, operating margins were up 1 point as we continue to drive efficiencies across our businesses as we invest in AI infrastructure and capabilities. Now to our segment results.
+
+  [ 51] [EN] Revenue from Productivity and Business Processes was $28.3 billion and grew 12% and 13% in constant currency, ahead of expectations, driven by better-than-expected results across all businesses. M365 commercial cloud revenue increased 15% and 16% in constant currency with business trends that were as expected. The better-than-expected result was due to a small benefit from the in-period revenue recognition noted earlier. ARPU growth was primarily driven by E5 as well as M365 Copilot.
+       [中] 生产力和业务流程业务收入为283亿美元，按固定汇率计算增长12%和13%，超出预期，所有业务表现均优于预期。M365商业云收入增长15%，按固定汇率计算增长16%，业务趋势符合预期。超出预期的结果主要得益于前述期间收入确认带来的小幅收益。ARPU增长主要受E5和M365 Copilot驱动。
+
+Revenue from Productivity and Business Processes was $28.3 billion and grew 12% and 13% in constant currency, ahead of expectations, driven by better-than-expected results across all businesses. M365 commercial cloud revenue increased 15% and 16% in constant currency with business trends that were as expected. The better-than-expected result was due to a small benefit from the in-period revenue recognition noted earlier. ARPU growth was primarily driven by E5 as well as M365 Copilot.
+
+  [ 52] [EN] Paid M365 commercial seats grew 8% year-over-year with installed base expansion across all customer segments. Seat growth was driven by our small and medium business and frontline worker offerings. M365 commercial cloud revenue represents nearly 90% of total M365 commercial products and cloud services. M365 commercial products revenue increased 2% and 3% in constant currency, ahead of expectations, primarily due to the benefit from in-period revenue recognition noted earlier.
+       [中] 付费M365商业席位同比增长8%，各客户群体安装基数均有所扩大。席位增长主要由中小企业和一线员工产品推动。M365商业云收入约占M365商业产品及云服务总收入的90%。M365商业产品收入同比增长2%，按固定汇率计算增长3%，超出预期，主要得益于此前提到的期内收入确认带来的收益。
+
+Paid M365 commercial seats grew 8% year-over-year with installed base expansion across all customer segments. Seat growth was driven by our small and medium business and frontline worker offerings. M365 commercial cloud revenue represents nearly 90% of total M365 commercial products and cloud services. M365 commercial products revenue increased 2% and 3% in constant currency, ahead of expectations, primarily due to the benefit from in-period revenue recognition noted earlier.
+
+  [ 53] [EN] M365 consumer products and cloud services revenue increased 5% and 6% in constant currency. M365 consumer cloud revenue increased 6% and 7% in constant currency, with continued momentum in M365 consumer subscriptions, which grew 10% to 84.4 million. M365 consumer cloud revenue represents 85% of total M365 consumer products and cloud services. LinkedIn revenue increased 10% and 9% in constant currency, slightly ahead of expectations with growth across all lines of business.
+       [中] M365消费者产品和云服务收入在固定汇率基础上分别增长5%和6%。M365消费者云收入在固定汇率基础上增长6%和7%，M365消费者订阅持续增长，增长10%至84.4 million。M365消费者云收入占M365消费者产品和云服务总收入的85%。LinkedIn收入在固定汇率基础上增长10%和9%，略高于预期，所有业务线均实现增长。
+
+M365 consumer products and cloud services revenue increased 5% and 6% in constant currency. M365 consumer cloud revenue increased 6% and 7% in constant currency, with continued momentum in M365 consumer subscriptions, which grew 10% to 84.4 million. M365 consumer cloud revenue represents 85% of total M365 consumer products and cloud services. LinkedIn revenue increased 10% and 9% in constant currency, slightly ahead of expectations with growth across all lines of business.
+
+  [ 54] [EN] Dynamics revenue grew 14%, driven by Dynamics 365, which grew 18% and 19% in constant currency with continued growth across all workloads and continued share gains. As a reminder, Dynamics 365 represents about 90% of total Dynamics revenue. Segment gross margin dollars increased 11% and 12% in constant currency, and gross margin percentage decreased slightly year-over-year, driven by scaling our AI infrastructure. Operating expenses increased 2%, and operating income increased 16%.
+       [中] Dynamics 收入增长14%，主要得益于Dynamics 365，后者在固定汇率下增长18%和19%，所有工作负载持续增长且市场份额不断扩大。需要提醒的是，Dynamics 365约占Dynamics总收入的90%。部门毛利润美元金额在固定汇率下增长11%和12%，毛利率同比略有下降，这主要受扩展AI基础设施的影响。运营支出增长2%，运营收入增长16%。
+
+原文：
+Dynamics revenue grew 14%, driven by Dynamics 365, which grew 18% and 19% in constant currency with continued growth across all workloads and continued share gains. As a reminder, Dynamics 365 represents about 90% of total Dynamics revenue. Segment gross margin dollars increased 11% and 12% in constant currency, and gross margin percentage decreased slightly year-over-year, driven by scaling our AI infrastructure. Operating expenses increased 2%, and operating income increased 16%.
+
+  [ 55] [EN] Next, the Intelligent Cloud segment. Revenue was $24.1 billion, increasing 20% and 21% in constant currency, in line with expectations. Azure and other cloud services revenue grew 33% and 34% in constant currency, with healthy consumption trends that were in line with expectations. The better-than-expected result was due to the small benefit from in-period revenue recognition noted earlier.
+       [中] 接下来，Intelligent Cloud板块。营收为241亿美元，同比增长20%，按固定汇率计算增长21%，符合预期。Azure和其他云服务营收按固定汇率计算增长33%和34%，消费趋势健康，符合预期。业绩优于预期是由于之前提到的期内收入确认带来的小幅收益。
+
+Next, the Intelligent Cloud segment. Revenue was $24.1 billion, increasing 20% and 21% in constant currency, in line with expectations. Azure and other cloud services revenue grew 33% and 34% in constant currency, with healthy consumption trends that were in line with expectations. The better-than-expected result was due to the small benefit from in-period revenue recognition noted earlier.
+
+  [ 56] [EN] Azure growth included roughly 12 points from AI services similar to last quarter. Demand continues to be higher than our available capacity. Non-AI growth trends were also in line with expectations in total and across regions as customers continued to migrate and modernize on the Azure platform. The non-AI point contribution to Azure growth was sequentially lower by approximately 1 point.
+       [中] Azure的增长中，来自AI服务的贡献约为12个百分点，与上一季度类似。需求仍然高于我们现有的容量。非AI的增长趋势在总体和各个地区也符合预期，因为客户继续在Azure平台上迁移和现代化。非AI对Azure增长的贡献环比下降约1个百分点。
+
+Azure growth included roughly 12 points from AI services similar to last quarter. Demand continues to be higher than our available capacity. Non-AI growth trends were also in line with expectations in total and across regions as customers continued to migrate and modernize on the Azure platform. The non-AI point contribution to Azure growth was sequentially lower by approximately 1 point.
+
+  [ 57] [EN] In our on-premises server business, revenue decreased 1%. Lower-than-expected transactional purchasing ahead of the Windows Server 2025 launch as well as lower purchasing of licenses running in multi-cloud environments was mostly offset by the benefit from in-period revenue recognition noted earlier. Enterprise and partner services revenue decreased 1% and was relatively unchanged in constant currency. Segment gross margin dollars increased 15%, and gross margin percentage decreased 3 points year-over-year, driven by scaling our AI infrastructure.
+       [中] 在我们的本地服务器业务中，收入下降了1%。Windows Server 2025发布前低于预期的交易性采购，以及在多云环境中运行的许可证采购减少，大部分被之前提到的当期收入确认带来的收益所抵消。企业和合作伙伴服务收入下降了1%，按固定汇率计算基本保持不变。分部毛利润美元金额增长了15%，而毛利率同比下降了3个百分点，原因是我们在扩展AI基础设施。
+
+In our on-premises server business, revenue decreased 1%. Lower-than-expected transactional purchasing ahead of the Windows Server 2025 launch as well as lower purchasing of licenses running in multi-cloud environments was mostly offset by the benefit from in-period revenue recognition noted earlier. Enterprise and partner services revenue decreased 1% and was relatively unchanged in constant currency. Segment gross margin dollars increased 15%, and gross margin percentage decreased 3 points year-over-year, driven by scaling our AI infrastructure.
+
+  [ 58] [EN] Operating expenses increased 8% and operating income grew 18%. Now to More Personal Computing. Revenue was $13.2 billion, increasing 17% with 15 points of net impact from the Activision acquisition. Results were above expectations, driven by Gaming and Search.
+       [中] 营业费用增长了8%，营业收入增长了18%。接下来是More Personal Computing。营收为132亿美元，增长了17%，其中来自Activision收购的净影响为15个百分点。在Gaming和Search的推动下，业绩超出了预期。
+
+Operating expenses increased 8% and operating income grew 18%. Now to More Personal Computing. Revenue was $13.2 billion, increasing 17% with 15 points of net impact from the Activision acquisition. Results were above expectations, driven by Gaming and Search.
+
+  [ 59] [EN] Windows OEM and Devices revenue increased 2% year-over-year as better-than-expected results in Windows OEM due to mix shift to higher monetizing markets was partially offset by the lower-than-expected results in devices due to execution challenges in the commercial segment. Search and news advertising revenue ex TAC increased 18% and 19% in constant currency ahead of expectations, primarily due to continued execution improvement. We saw rate expansion in addition to healthy volume growth in both Edge and Bing. And in Gaming, revenue increased 43% and 44% in constant currency with 43 points of net impact from the Activision acquisition.
+       [中] Windows OEM与设备业务收入同比增长2%，Windows OEM因市场组合向更高变现市场转移而表现优于预期，但设备业务因商业领域执行挑战导致低于预期，部分抵消了这一增长。搜索与新闻广告收入（扣除流量获取成本）同比增长18%，按固定汇率计算增长19%，超出预期，主要得益于持续的执行改进。我们看到Edge和Bing在健康增长的同时，费率也在扩大。游戏业务收入同比增长43%，按固定汇率计算增长44%，其中来自动视收购的净影响为43个百分点。
+
+Windows OEM and Devices revenue increased 2% year-over-year as better-than-expected results in Windows OEM due to mix shift to higher monetizing markets was partially offset by the lower-than-expected results in devices due to execution challenges in the commercial segment. Search and news advertising revenue ex TAC increased 18% and 19% in constant currency ahead of expectations, primarily due to continued execution improvement. We saw rate expansion in addition to healthy volume growth in both Edge and Bing. And in Gaming, revenue increased 43% and 44% in constant currency with 43 points of net impact from the Activision acquisition.
+
+  [ 60] [EN] Results were ahead of expectations, driven by stronger-than-expected performance in both first- and third-party content as well as consoles. Xbox content and services revenue increased 61% with 53 points of net impact from the Activision acquisition. Segment gross margin dollars increased 16% and 17% in constant currency with 12 points of net impact from the Activision acquisition. Gross margin percentage was relatively unchanged year-over-year.
+       [中] 业绩超出预期，主要受第一方和第三方内容以及游戏机业务表现强于预期的推动。Xbox内容与服务收入增长61%，其中动视暴雪收购带来53个百分点的净影响。部门毛利率美元金额增长16%，按固定汇率计算增长17%，动视暴雪收购带来12个百分点的净影响。毛利率同比相对持平。
+
+Results were ahead of expectations, driven by stronger-than-expected performance in both first- and third-party content as well as consoles. Xbox content and services revenue increased 61% with 53 points of net impact from the Activision acquisition. Segment gross margin dollars increased 16% and 17% in constant currency with 12 points of net impact from the Activision acquisition. Gross margin percentage was relatively unchanged year-over-year.
+
+  [ 61] [EN] Our strong execution on margin improvement in gaming and search was offset by sales mix shift to those businesses. Operating expenses increased 49% with 51 points from the Activision acquisition. Operating income decreased 4%. Now back to total company results.
+       [中] 我们在游戏和搜索领域的利润率提升方面的强劲执行被销售组合转向这些业务所抵消。运营费用增加了49%，其中51个百分点来自收购Activision。运营收入下降了4%。现在回到公司总体业绩。
+
+Our strong execution on margin improvement in gaming and search was offset by sales mix shift to those businesses. Operating expenses increased 49% with 51 points from the Activision acquisition. Operating income decreased 4%. Now back to total company results.
+
+  [ 62] [EN] Capital expenditures including finance leases were $20 billion, in line with expectations, and cash paid for PP&E was $14.9 billion. Roughly half of our cloud and AI-related spend continues to be for long-lived assets that will support monetization over the next 15 years and beyond. The remaining cloud and AI spend is primarily for servers, both CPUs and GPUs, to serve customers based on demand signals. Cash flow from operations was $34.2 billion, up 12%, driven by strong cloud billings and collections, partially offset by higher supplier employee and tax payments.
+       [中] 包括融资租赁在内的资本支出为$20 billion，符合预期，用于PP&E的现金支付为$14.9 billion。我们约一半的云和AI相关支出仍用于长期资产，这些资产将在未来15年及更长时间内支持变现。剩余的云和AI支出主要用于服务器（包括CPU和GPU），以根据需求信号为客户提供服务。运营现金流为$34.2 billion，增长12%，得益于强劲的云账单和收款，但部分被供应商员工和税款支付的增加所抵消。
+
+原文：Capital expenditures including finance leases were $20 billion, in line with expectations, and cash paid for PP&E was $14.9 billion. Roughly half of our cloud and AI-related spend continues to be for long-lived assets that will support monetization over the next 15 years and beyond. The remaining cloud and AI spend is primarily for servers, both CPUs and GPUs, to serve customers based on demand signals. Cash flow from operations was $34.2 billion, up 12%, driven by strong cloud billings and collections, partially offset by higher supplier employee and tax payments.
+
+  [ 63] [EN] Free cash flow was $19.3 billion, down 7% year-over-year, reflecting higher capital expenditures to support our cloud and AI offerings. This quarter, other income expense was negative $283 million, significantly more favorable than anticipated due to foreign currency remeasurement and net gains on investments. Our losses on investments accounted for under the equity method were as expected. Our effective tax rate was approximately 19%.
+       [中] 自由现金流为193亿美元，同比下降7%，反映了为支持我们的cloud和AI offerings而增加的资本支出。本季度，其他收入费用为-2.83亿美元，由于外币重计量和投资净收益，显著好于预期。我们的权益法核算的投资损失符合预期。我们的有效税率约为19%。
+
+Free cash flow was $19.3 billion, down 7% year-over-year, reflecting higher capital expenditures to support our cloud and AI offerings. This quarter, other income expense was negative $283 million, significantly more favorable than anticipated due to foreign currency remeasurement and net gains on investments. Our losses on investments accounted for under the equity method were as expected. Our effective tax rate was approximately 19%.
+
+  [ 64] [EN] And finally, we returned $9 billion to shareholders through dividends and share repurchases. Now moving to our Q2 outlook, which, unless specifically noted otherwise, is on a U.S. dollar basis. First, FX.
+       [中] 最后，我们通过股息和股票回购向股东返还了90亿美元。现在来看第二季度的展望，除非特别说明，否则均以美元为基础。首先是外汇。
+
+And finally, we returned $9 billion to shareholders through dividends and share repurchases. Now moving to our Q2 outlook, which, unless specifically noted otherwise, is on a U.S. dollar basis. First, FX.
+
+  [ 65] [EN] With the weaker U.S. dollar and assuming current rates remain stable, we expect FX to increase total revenue and segment level revenue growth by less than 1 point. We expect FX to have no meaningful impact to COGS or operating expense growth. Our outlook has many of the trends we saw in Q1 continue through Q2.
+       [中] 由于美元走弱，并假设当前汇率保持稳定，我们预计外汇将对总收入及分部收入增长带来不到1个百分点的提升。我们预计外汇不会对COGS或运营费用增长产生实质性影响。我们的展望中，第一季度看到的许多趋势将在第二季度持续。
+
+With the weaker U.S. dollar and assuming current rates remain stable, we expect FX to increase total revenue and segment level revenue growth by less than 1 point. We expect FX to have no meaningful impact to COGS or operating expense growth. Our outlook has many of the trends we saw in Q1 continue through Q2.
+
+  [ 66] [EN] Customer demand for our differentiated solutions should drive another quarter of strong growth. In commercial bookings, we expect strong growth on a growing expiry base driven by increased long-term commitments to our platform and strong execution across core annuity sales motions. As a reminder, larger long-term Azure contracts, which are more unpredictable in their timing, can drive increased quarterly volatility in our bookings growth rate. Microsoft Cloud gross margin percentage should be roughly 70%, down year-over-year, driven by the impact of scaling our AI infrastructure.
+       [中] 客户对我们差异化解决方案的需求应推动又一个季度的强劲增长。在商业预订方面，我们预计在到期的基数不断增长的情况下，由于客户对我们平台的长期承诺增加以及核心年金销售执行有力，将实现强劲增长。需要提醒的是，较大的长期Azure合同在时间上更难以预测，可能导致我们预订增长率的季度波动加剧。微软云毛利率应约为70%，同比下降，这受到扩展AI基础设施的影响。
+
+Customer demand for our differentiated solutions should drive another quarter of strong growth. In commercial bookings, we expect strong growth on a growing expiry base driven by increased long-term commitments to our platform and strong execution across core annuity sales motions. As a reminder, larger long-term Azure contracts, which are more unpredictable in their timing, can drive increased quarterly volatility in our bookings growth rate. Microsoft Cloud gross margin percentage should be roughly 70%, down year-over-year, driven by the impact of scaling our AI infrastructure.
+
+  [ 67] [EN] We expect capital expenditures to increase on a sequential basis given our cloud and AI demand signals. As I said last quarter, we will stay aligned and if needed, adjust to the demand signals we see. As a reminder, there can be quarterly spend variability from cloud infrastructure build-outs and the timing of delivery of finance leases. Next, segment guidance, starting with Productivity and Business Processes.
+       [中] 我们根据云和AI需求信号，预计资本支出将环比增长。正如我上季度所说，我们将保持一致，并在必要时根据需求信号进行调整。提醒一下，云基础设施建设和融资租赁交付时间可能导致季度支出波动。接下来是业务板块指引，先从生产力和业务流程开始。
+
+原文：We expect capital expenditures to increase on a sequential basis given our cloud and AI demand signals. As I said last quarter, we will stay aligned and if needed, adjust to the demand signals we see. As a reminder, there can be quarterly spend variability from cloud infrastructure build-outs and the timing of delivery of finance leases. Next, segment guidance, starting with Productivity and Business Processes.
+
+  [ 68] [EN] We are the market leader when it comes to knowledge-based copilots and agents in the enterprise space, and we are focused on continuing to gain share across our productivity solutions. Therefore, we expect revenue in Productivity and Business Processes to grow between 10% and 11% in constant currency or USD 28.7 billion to USD 29 billion. M365 commercial cloud revenue growth should be approximately 14% in constant currency with moderating seat growth across customer segments and ARPU growth through E5 and M365 Copilot. For H2, we expect revenue growth to remain relatively stable compared to Q2.
+       [中] 我们是企业领域基于知识的副驾驶和代理的市场领导者，并专注于继续在生产力解决方案中扩大份额。因此，我们预计生产力和业务流程部门的收入在固定汇率下将增长10%至11%，即287亿至290亿美元。M365商业云收入增长在固定汇率下应约为14%，各客户群体的席位增长放缓，而通过E5和M365 Copilot实现的ARPU增长。对于下半年，我们预计收入增长将较第二季度保持相对稳定。
+
+We are the market leader when it comes to knowledge-based copilots and agents in the enterprise space, and we are focused on continuing to gain share across our productivity solutions. Therefore, we expect revenue in Productivity and Business Processes to grow between 10% and 11% in constant currency or USD 28.7 billion to USD 29 billion. M365 commercial cloud revenue growth should be approximately 14% in constant currency with moderating seat growth across customer segments and ARPU growth through E5 and M365 Copilot. For H2, we expect revenue growth to remain relatively stable compared to Q2.
+
+  [ 69] [EN] We continue to see growth in M365 Copilot seats, and we expect the related revenue to continue to grow gradually over time. For M365 commercial products, we expect revenue to decline in the low single digits. As a reminder, M365 commercial products include on-premises components of M365 suites, so our quarterly revenue growth can have variability primarily from in-period revenue recognition depending on the mix of contracts. M365 consumer cloud revenue growth should be in the mid-single digits driven by M365 subscriptions.
+       [中] 我们继续看到M365 Copilot席位的增长，我们预计相关收入将随着时间的推移逐渐增长。对于M365商业产品，我们预计收入将下降低个位数。提醒一下，M365商业产品包括M365套件的本地部署组件，因此我们的季度收入增长可能主要由于合同组合的不同而在期内收入确认方面出现波动。M365消费者云收入增长应在中个位数，由M365订阅推动。
+
+We continue to see growth in M365 Copilot seats, and we expect the related revenue to continue to grow gradually over time. For M365 commercial products, we expect revenue to decline in the low single digits. As a reminder, M365 commercial products include on-premises components of M365 suites, so our quarterly revenue growth can have variability primarily from in-period revenue recognition depending on the mix of contracts. M365 consumer cloud revenue growth should be in the mid-single digits driven by M365 subscriptions.
+
+  [ 70] [EN] For LinkedIn, we expect revenue growth of approximately 10%, driven by continued growth across all businesses. And in Dynamics 365, we expect revenue growth to be in the mid- to high teens, driven by continued growth across all workloads. Next, Intelligent Cloud. Helping our customers transform and grow with innovative cloud and AI solutions is driving continued growth in Azure.
+       [中] 对于LinkedIn，我们预计营收增长约10%，这得益于所有业务的持续增长。对于Dynamics 365，我们预计营收增长将在15%至19%之间，这得益于所有工作负载的持续增长。接下来是Intelligent Cloud。通过创新的云和AI解决方案帮助客户转型和增长，推动了Azure的持续增长。
+
+For LinkedIn, we expect revenue growth of approximately 10%, driven by continued growth across all businesses. And in Dynamics 365, we expect revenue growth to be in the mid- to high teens, driven by continued growth across all workloads. Next, Intelligent Cloud. Helping our customers transform and grow with innovative cloud and AI solutions is driving continued growth in Azure.
+
+  [ 71] [EN] Therefore, we expect revenue in Intelligent Cloud to grow between 18% and 20% in constant currency or USD 25.55 billion to USD 25.85 billion. Revenue will continue to be driven by Azure, which, as a reminder, can have quarterly variability primarily from in-period revenue recognition depending on the mix of contracts. In Azure, we expect Q2 revenue growth to be 31% to 32% in constant currency, driven by strong demand for our portfolio of services. We expect consumption growth to be stable compared to Q1, and we expect to add more sequential dollars to Azure than any other quarter in history.
+       [中] 因此，我们预计智能云部门的收入按固定汇率计算将增长18%至20%，即 USD 25.55 billion 至 USD 25.85 billion。收入将继续由 Azure 驱动，提醒一下，Azure 的收入可能因合同组合的不同而产生季度波动，主要来自当期收入确认。在 Azure 方面，我们预计第二季度收入按固定汇率计算将增长31%至32%，这得益于对我们服务组合的强劲需求。我们预计消费增长将与第一季度持平，并且预计 Azure 的连续美元增长将超过历史上任何其他季度。
+
+Therefore, we expect revenue in Intelligent Cloud to grow between 18% and 20% in constant currency or USD 25.55 billion to USD 25.85 billion. Revenue will continue to be driven by Azure, which, as a reminder, can have quarterly variability primarily from in-period revenue recognition depending on the mix of contracts. In Azure, we expect Q2 revenue growth to be 31% to 32% in constant currency, driven by strong demand for our portfolio of services. We expect consumption growth to be stable compared to Q1, and we expect to add more sequential dollars to Azure than any other quarter in history.
+
+  [ 72] [EN] We expect the contribution from AI services to be similar to last quarter, given the continued capacity constraints as well as some capacity that shifted out of Q2. And in H2, we still expect Azure growth to accelerate from H1 as our capital investments create an increase in available AI capacity to serve more of the growing demand. And in our on-premises server business, we expect revenue to decline in the low to mid-single digits on a prior year comparable that benefited from purchasing ahead of Windows Server 2012 end of support. And in Enterprise and partner services, we expect revenue growth to be in the low single digits.
+       [中] 我们预计AI服务的贡献将与上一季度相近，原因是持续的产能限制以及部分产能从第二季度转移出去。在下半年，我们仍预计Azure的增长将比上半年加速，因为我们的资本投资增加了可用的AI产能，以满足日益增长的需求。在本地服务器业务方面，预计收入将同比下降低个位数到中个位数，而去年同期因Windows Server 2012终止支持前的提前购买而受益。在企业与合作伙伴服务方面，预计收入增长将为低个位数。
+
+原文：
+We expect the contribution from AI services to be similar to last quarter, given the continued capacity constraints as well as some capacity that shifted out of Q2. And in H2, we still expect Azure growth to accelerate from H1 as our capital investments create an increase in available AI capacity to serve more of the growing demand. And in our on-premises server business, we expect revenue to decline in the low to mid-single digits on a prior year comparable that benefited from purchasing ahead of Windows Server 2012 end of support. And in Enterprise and partner services, we expect revenue growth to be in the low single digits.
+
+  [ 73] [EN] Now to More Personal Computing. We continue to make decisions to prioritize strategic higher-margin opportunities within each of our consumer businesses. Our outlook reflects the improvement in gross and operating margins from this prioritization work across gaming, search, and devices. We expect revenue in More Personal Computing to be USD 13.85 billion to USD 14.25 billion.
+       [中] 现在来看"More Personal Computing"部门。我们持续做出决策，优先考虑每个消费业务中的战略高利润机会。我们的展望反映了在游戏、搜索和设备等多个领域，通过这一优先化工作带来的毛利率和运营利润率改善。我们预计"More Personal Computing"部门的营收将在138.5亿至142.5亿美元之间。
+
+Now to More Personal Computing. We continue to make decisions to prioritize strategic higher-margin opportunities within each of our consumer businesses. Our outlook reflects the improvement in gross and operating margins from this prioritization work across gaming, search, and devices. We expect revenue in More Personal Computing to be USD 13.85 billion to USD 14.25 billion.
+
+  [ 74] [EN] Windows OEM and devices revenue should decline in the low to mid-single digits. We expect Windows OEM revenue growth in line with the PC market to be more than offset by a decline in devices as the trends from Q1 continue. Search and news advertising ex TAC revenue growth should be in the high teens, with continued growth in both volume and revenue per search. This will be higher than overall search and news advertising revenue growth, which we expect to be in the high single digits.
+       [中] Windows OEM和设备收入预计将下降低到中个位数百分比。我们预计Windows OEM收入增长将符合PC市场趋势，但会被设备收入的下降所抵消，因为第一季度以来的趋势仍在延续。搜索和新闻广告（不含TAC）收入增长预计将保持十几百分比的高位，搜索量和每次搜索收入均持续增长。这将高于整体搜索和新闻广告收入增长，后者预计为高个位数百分比。
+
+原文：
+Windows OEM and devices revenue should decline in the low to mid-single digits. We expect Windows OEM revenue growth in line with the PC market to be more than offset by a decline in devices as the trends from Q1 continue. Search and news advertising ex TAC revenue growth should be in the high teens, with continued growth in both volume and revenue per search. This will be higher than overall search and news advertising revenue growth, which we expect to be in the high single digits.
+
+  [ 75] [EN] And in Gaming, we expect revenue to decline in the high single digits due to hardware. We expect Xbox content and services revenue growth to be relatively flat. We're excited about last week's launch of Call of Duty, where we saw the most Game Pass subscriber adds we've ever seen on a launch day. There are two things about the launch that are different than the Call of Duty launch a year ago, where revenue was mostly recognized in the quarter of purchase.
+       [中] 在游戏业务方面，受硬件影响，我们预计收入将出现高个位数百分比的下滑。Xbox内容与服务收入增长预计将相对持平。我们对上周《使命召唤》的发布感到振奋，这是我们在发布日有史以来看到的最多Game Pass订阅者新增。与一年前的《使命召唤》发布相比，本次发布有两处不同，当时收入主要是在购买季度确认的。
+
+原文：And in Gaming, we expect revenue to decline in the high single digits due to hardware. We expect Xbox content and services revenue growth to be relatively flat. We're excited about last week's launch of Call of Duty, where we saw the most Game Pass subscriber adds we've ever seen on a launch day. There are two things about the launch that are different than the Call of Duty launch a year ago, where revenue was mostly recognized in the quarter of purchase.
+
+  [ 76] [EN] First, the game is available on Game Pass, so for players who play through Game Pass, the subscription revenue is recognized over time. Second, the game requires an online connection to play, so even for players who purchased the stand-alone game, revenue recognition will also occur ratably over time. Now back to company guidance. We expect COGS to grow between 11% and 13% in constant currency or to be between USD 21.9 billion to USD 22.1 billion, and operating expense to grow approximately 7% in constant currency or to be between USD 16.4 billion and USD 16.5 billion.
+       [中] 首先，该游戏已加入Game Pass，因此对于通过Game Pass游玩的玩家，订阅收入会随时间逐步确认。其次，游戏需要联网才能游玩，所以即便是购买了独立版游戏的玩家，收入也将按比例随时间逐步确认。现在回到公司指引。我们预计销售成本按固定汇率计算将增长11%至13%，即在219亿美元至221亿美元之间；运营费用按固定汇率计算将增长约7%，即在164亿美元至165亿美元之间。
+
+First, the game is available on Game Pass, so for players who play through Game Pass, the subscription revenue is recognized over time. Second, the game requires an online connection to play, so even for players who purchased the stand-alone game, revenue recognition will also occur ratably over time. Now back to company guidance. We expect COGS to grow between 11% and 13% in constant currency or to be between USD 21.9 billion to USD 22.1 billion, and operating expense to grow approximately 7% in constant currency or to be between USD 16.4 billion and USD 16.5 billion.
+
+  [ 77] [EN] This should result in another quarter of operating margin expansion. Other income and expense is expected to be roughly negative $1.5 billion, primarily driven by our share of the expected loss from OpenAI, which is accounted for under the equity method. As a reminder, we do not recognize mark-to-market gains or losses on equity method investments. As you heard from Satya, our strategic partnership and investment in OpenAI has been pivotal in building and scaling our AI business and positioning us as the leader in the AI platform wave.
+       [中] 这应带来又一个季度的运营利润率扩张。其他收入和支出预计约为负15亿美元，主要源于我们在OpenAI预期亏损中按权益法核算的份额。提醒一下，我们不对权益法投资确认按市价计值的损益。正如大家从Satya那里听到的，我们与OpenAI的战略合作及投资在构建和扩展AI业务、将我们定位为AI平台浪潮的领导者方面发挥了关键作用。
+
+原文：
+This should result in another quarter of operating margin expansion. Other income and expense is expected to be roughly negative $1.5 billion, primarily driven by our share of the expected loss from OpenAI, which is accounted for under the equity method. As a reminder, we do not recognize mark-to-market gains or losses on equity method investments. As you heard from Satya, our strategic partnership and investment in OpenAI has been pivotal in building and scaling our AI business and positioning us as the leader in the AI platform wave.
+
+  [ 78] [EN] And lastly, we expect our Q2 effective tax rate to be approximately 19%. In closing, we remain focused on strategically investing in the long-term opportunities that we believe drive shareholder value. Monetization from these investments continues to grow, and we're excited that only 2.5 years in, our AI business is on track to surpass $10 billion of annual revenue run rate in Q2. This will be the fastest business in our history to reach this milestone.
+       [中] 最后，我们预计第二季度的实际税率约为19%。总而言之，我们将继续专注于战略性投资那些我们认为能推动股东价值的长期机遇。这些投资带来的变现能力持续增长，令人兴奋的是，仅用2.5年时间，我们的AI业务就有望在第二季度实现年收入运行率超过100亿美元。这将是我们公司历史上最快达到这一里程碑的业务。
+
+And lastly, we expect our Q2 effective tax rate to be approximately 19%. In closing, we remain focused on strategically investing in the long-term opportunities that we believe drive shareholder value. Monetization from these investments continues to grow, and we're excited that only 2.5 years in, our AI business is on track to surpass $10 billion of annual revenue run rate in Q2. This will be the fastest business in our history to reach this milestone.
+
+  [ 79] [EN] We are committed to growing this leadership position across our entire Microsoft Cloud while maintaining our disciplined focus on cost management and prioritization across every team. With that, let's go to Q&A, Brett.
+       [中] 我们致力于在整个 Microsoft Cloud 中巩固这一领导地位，同时保持对每个团队的成本管理和优先级的严格关注。接下来，我们进入问答环节，Brett。
+
+We are committed to growing this leadership position across our entire Microsoft Cloud while maintaining our disciplined focus on cost management and prioritization across every team. With that, let's go to Q&A, Brett.
+
+  [ 80] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [ 81] [EN] Thanks, Amy. We'll now move over to Q&A. [Operator instructions] Operator, can you please repeat your instructions?
+       [中] 谢谢，Amy。我们现在进入问答环节。[Operator instructions] Operator，能否请你重复一遍你的指令？
+
+Thanks, Amy. We'll now move over to Q&A. [Operator instructions] Operator, can you please repeat your instructions?
+
+
+  ━━ Questions & Answers: ━━
+  ━━ 问题与解答：
+Questions & Answers: ━━
+
+  [ 83] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 84] [EN] [Operator instructions] Our first question comes from the line of Keith Weiss with Morgan Stanley. Please go ahead.
+       [中] [操作员指令] 我们的第一个问题来自摩根士丹利的Keith Weiss。请继续。
+
+[Operator instructions] Our first question comes from the line of Keith Weiss with Morgan Stanley. Please go ahead.
+
+  [ 85] [EN] Keith Weiss--Analyst
+       [中] Keith Weiss--分析师
+
+Keith Weiss--Analyst
+
+  [ 86] [EN] Excellent. Thank you, guys, for taking the questions. Congratulations on a really solid quarter. So Satya, the expansion of capabilities, the speed of innovation, the magnitude of the opportunities ahead for generative AI makes this the most exciting period for software I've seen in my 25 years of covering this space.
+       [中] 太好了。感谢各位回答问题。祝贺你们取得了一个非常扎实的季度。那么，Satya，能力的扩展、创新的速度，以及生成式AI未来机遇的规模，使得这是我在25年关注这个领域中所见过的最激动人心的软件时期。
+
+Excellent. Thank you, guys, for taking the questions. Congratulations on a really solid quarter. So Satya, the expansion of capabilities, the speed of innovation, the magnitude of the opportunities ahead for generative AI makes this the most exciting period for software I've seen in my 25 years of covering this space.
+
+  [ 87] [EN] And based upon this call, it seems like you share that excitement. But in my investor conversation, that excitement also feeds two related questions, and they both have to do with constraints. And the first is like what are the internal constraints or guardrails that Microsoft has when it comes to investing behind these innovations, particularly in relation to the funding of future generations of foundational models, where people are talking about price tags using the tens of billions or even $100 billion plus. And then on the other side of the spectrum, what are the external constraints that Microsoft sees in building out this capacity to meet the demand and capture the opportunity, particularly constraints in your ability to power all these new data centers being built out and power it in an environmentally sustainable fashion? I'd love to get the Microsoft perspective on both those questions.
+       [中] 根据本次通话内容，您似乎也认同这种兴奋感。但在与投资者的交流中，这种兴奋也引发了两个相关问题，且都涉及制约因素。首先是内部制约因素——微软在投资这些创新时设置了哪些内部限制或护栏，尤其是在资助下一代基础模型方面（人们讨论的价格标签已达数百亿甚至千亿美元级别）。另一方面是外部制约因素——微软在建设能力以满足需求、把握机遇时面临哪些外部限制，特别是以环境可持续的方式为所有新建数据中心供电的能力？希望了解微软对这两个问题的看法。
+
+And based upon this call, it seems like you share that excitement. But in my investor conversation, that excitement also feeds two related questions, and they both have to do with constraints. And the first is like what are the internal constraints or guardrails that Microsoft has when it comes to investing behind these innovations, particularly in relation to the funding of future generations of foundational models, where people are talking about price tags using the tens of billions or even $100 billion plus. And then on the other side of the spectrum, what are the external constraints that Microsoft sees in building out this capacity to meet the demand and capture the opportunity, particularly constraints in your ability to power all these new data centers being built out and power it in an environmentally sustainable fashion? I'd love to get the Microsoft perspective on both those questions.
+
+  [ 88] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [ 89] [EN] Thank you, Keith, for those questions. I think on the first point, ultimately, when you think about, let's say, capital outlay for training because that's essentially what you're asking, it is going to be rate limited by your monetization of inference in a given generation, right? So just like in the past, we would allocate capital to build out cloud based on the demand signal we were seeing and then we would then project the demand, and that's what we would build it for. So you can think of training essentially as that, right, which is you're building the next-generation model so that then you have a more capable model that then drives more inference demand, right? So ultimately -- even with all the scaling laws and what have you, I think you ultimately will normalize to having a pace. In fact, I think the best way to think about even is given that Moore's Law effectively is working on the sort of silicon and system side, so it's just not compute, right? It's efficiencies in compute.
+       [中] 感谢Keith提出的这些问题。关于第一点，归根结底，当你考虑训练资本支出时——这本质上正是你问的问题——其节奏将受到特定世代推理变现能力的限制。就像过去我们根据观察到的需求信号来分配资本建设云基础设施，然后预测需求并据此建设。你可以把训练理解为类似的过程：构建下一代模型，从而拥有更强大的模型，进而催生更多推理需求。所以最终——即便存在各种规模定律——我认为终究会形成稳定的节奏。事实上，最合理的思考方式是：鉴于摩尔定律同时在硅片和系统层面发挥作用，这不仅仅是算力问题，更是算力效率的提升。
+
+Thank you, Keith, for those questions. I think on the first point, ultimately, when you think about, let's say, capital outlay for training because that's essentially what you're asking, it is going to be rate limited by your monetization of inference in a given generation, right? So just like in the past, we would allocate capital to build out cloud based on the demand signal we were seeing and then we would then project the demand, and that's what we would build it for. So you can think of training essentially as that, right, which is you're building the next-generation model so that then you have a more capable model that then drives more inference demand, right? So ultimately -- even with all the scaling laws and what have you, I think you ultimately will normalize to having a pace. In fact, I think the best way to think about even is given that Moore's Law effectively is working on the sort of silicon and system side, so it's just not compute, right? It's efficiencies in compute.
+
+  [ 90] [EN] It's data as well as algorithms. You will want to sort of keep on that curve, which is you really want to refresh your fleet with the Moore's Law every year and then effectively depreciate it over the period of the life cycle of it. And then the inference demand ultimately will govern how much we invest in training because that's, I think, at the end of the day, you're all subject to ultimately demand. The second piece of the external constraints, we have run into obviously lots of external constraints because this demand all showed up pretty fast, right? I mean if you think about even the most hit product of this generation, all are in our cloud, right, whether it's ChatGPT, whether it's Copilot, whether it's GitHub Copilot or even DAX Copilot.
+       [中] 这既涉及数据也涉及算法。你需要尽量跟上这条曲线，也就是每年根据摩尔定律更新你的设备，然后在其生命周期内进行有效折旧。而推理需求最终将决定我们在训练上的投入，因为归根结底，一切都受最终需求的制约。第二个外部约束因素——我们显然遇到了很多外部约束，因为所有这些需求都来得非常快，对吧？我的意思是，想想这一代最热门的产品，它们都在我们的云端，无论是ChatGPT、Copilot、GitHub Copilot，还是DAX Copilot。
+
+It's data as well as algorithms. You will want to sort of keep on that curve, which is you really want to refresh your fleet with the Moore's Law every year and then effectively depreciate it over the period of the life cycle of it. And then the inference demand ultimately will govern how much we invest in training because that's, I think, at the end of the day, you're all subject to ultimately demand. The second piece of the external constraints, we have run into obviously lots of external constraints because this demand all showed up pretty fast, right? I mean if you think about even the most hit product of this generation, all are in our cloud, right, whether it's ChatGPT, whether it's Copilot, whether it's GitHub Copilot or even DAX Copilot.
+
+  [ 91] [EN] I mean pick the top 4 or 5 products of this generation. They're all sort of in and around our ecosystem. And so therefore, we ran into a set of constraints, which are everything because DCs don't get built overnight. So there is DCs.
+       [中] 我的意思是挑选这一代的前4或5个产品。它们都在我们的生态系统内或周围。因此，我们遇到了一系列限制，这些限制就是一切，因为DCs不会一夜之间建成。所以有DCs。
+
+原文：I mean pick the top 4 or 5 products of this generation. They're all sort of in and around our ecosystem. And so therefore, we ran into a set of constraints, which are everything because DCs don't get built overnight. So there is DCs.
+
+  [ 92] [EN] There is power. And so that's sort of been the short-term constraint. Even in Q2, for example, some of the demand issues we have -- or our ability to fulfill demand is because of, in fact, external third-party stuff that we leased moving out. So that's the constraints we have.
+       [中] 存在电力问题。因此这算是短期制约因素。例如，即使在Q2，我们面临的一些需求问题——或者说我们满足需求的能力——实际上是因为我们租赁的外部第三方设施搬离所致。这就是我们所面临的制约因素。
+
+There is power. And so that's sort of been the short-term constraint. Even in Q2, for example, some of the demand issues we have -- or our ability to fulfill demand is because of, in fact, external third-party stuff that we leased moving out. So that's the constraints we have.
+
+  [ 93] [EN] But in the long run, we do need effectively power and we need DCs. And some of these things are more long lead. But I feel pretty good that going into the second half of even this fiscal year, that some of that supply/demand will match up.
+       [中] 但从长期来看，我们确实需要有效的电力供应和数据中心（DCs）。其中一些项目的准备周期较长。不过，我相当乐观地认为，即便是在本财年下半年，部分供需矛盾有望得到缓解。
+
+原文：
+But in the long run, we do need effectively power and we need DCs. And some of these things are more long lead. But I feel pretty good that going into the second half of even this fiscal year, that some of that supply/demand will match up.
+
+  [ 94] [EN] Keith Weiss--Analyst
+       [中] Keith Weiss--分析师
+
+Keith Weiss--Analyst
+
+  [ 95] [EN] Excellent. Thank you, guys.
+       [中] 太好了。谢谢你们，各位。
+
+Excellent. Thank you, guys.
+
+  [ 96] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [ 97] [EN] Thanks, Keith. Operator, next question please.
+       [中] 谢谢，Keith。操作员，下一个问题。
+
+Thanks, Keith. Operator, next question please.
+
+  [ 98] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 99] [EN] The next question comes from the line of Brent Thill with Jefferies.
+       [中] 下一个问题来自Jefferies的Brent Thill。
+
+The next question comes from the line of Brent Thill with Jefferies.
+
+  [100] [EN] Brent Thill--Analyst
+       [中] Brent Thill--分析师  
+Brent Thill--Analyst
+
+  [101] [EN] Thanks, Amy. Good to hear the reacceleration in the back half for Azure. I guess many are asking, 34% growth in Q1 falling to low 30s. I know the comp is a couple of points harder.
+       [中] 谢谢，Amy。很高兴听到Azure在下半年重新加速。我想很多人都在问，Q1的34%增长率下降到30%出头。我知道同期比较基数要高出几个百分点。
+
+原文：Thanks, Amy. Good to hear the reacceleration in the back half for Azure. I guess many are asking, 34% growth in Q1 falling to low 30s. I know the comp is a couple of points harder.
+
+  [102] [EN] But is there anything else you're contemplating in that guide for Q2 to see that deceleration other than a tougher comp? Thank you.
+       [中] 除了更艰难的对比基数之外，您在第二季度的指引中是否考虑了其他导致增速放缓的因素？谢谢。
+
+But is there anything else you're contemplating in that guide for Q2 to see that deceleration other than a tougher comp? Thank you.
+
+  [103] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [104] [EN] Thanks, Brent. Maybe this is a great question because I can sort of reiterate some of the points I made and tie them together a little bit. In Q1, the 34% in CC, we talked about that upside versus the 33% that we had guided to was primarily due to some revenue recognition benefits. And so I think about that on a sort of a pure consumption basis and AI as being 33%.
+       [中] 谢谢，Brent。这或许是个很好的问题，因为我可以重新阐述之前提到的几个要点，并将它们稍作整合。在第一季度，以固定汇率计算（CC）的34%增长，与我们此前指引的33%相比，这一上修主要得益于某些收入确认方面的利好。因此，从纯消费角度来看，我认为AI业务的贡献率为33%。
+
+原文：Thanks, Brent. Maybe this is a great question because I can sort of reiterate some of the points I made and tie them together a little bit. In Q1, the 34% in CC, we talked about that upside versus the 33% that we had guided to was primarily due to some revenue recognition benefits. And so I think about that on a sort of a pure consumption basis and AI as being 33%.
+
+  [105] [EN] And you think about 1 point or 2 of decel that we've guided to, and the majority of that is due to, unfortunately, some supply pushouts that I mentioned and then Satya reiterated in terms of AI supply coming online that we counted on. The underlying consumption growth is stable Q1 to Q2. And so to your question on some ins and outs, it is certainly some ins and outs. I do, as you heard, have confidence, as we get a good influx of supply across the second half of the year particularly on the AI side, that we'll be better able to do some supply demand matching and hence, while we're talking about acceleration in the back half.
+       [中] 考虑到我们此前预测的1到2个百分点的减速，其主要原因，不幸的是，在于我之前提到的部分供应延迟，以及Satya再次强调的我们原本依赖的AI供应的迟到。基础消费增长在第一到第二季度保持稳定。所以关于你提到的"一些具体出入"问题，确实存在一些出入。正如你听到的，我确实有信心，随着下半年特别是AI方面供应的大幅增加，我们将能够更好地实现供需匹配，这也是我们在谈论下半年加速的原因。
+
+And you think about 1 point or 2 of decel that we've guided to, and the majority of that is due to, unfortunately, some supply pushouts that I mentioned and then Satya reiterated in terms of AI supply coming online that we counted on. The underlying consumption growth is stable Q1 to Q2. And so to your question on some ins and outs, it is certainly some ins and outs. I do, as you heard, have confidence, as we get a good influx of supply across the second half of the year particularly on the AI side, that we'll be better able to do some supply demand matching and hence, while we're talking about acceleration in the back half.
+
+  [106] [EN] I'll also take the opportunity to say, when you see usage in AI workloads, we always intend to think about that as just a GPU exercise. The importance of having GPUs and CPUs be able to run these workloads is also important. So that's a piece of the acceleration in H2 as well.
+       [中] 我也借此机会说明，当大家看到AI工作负载的使用时，我们往往会将其单纯视为GPU的范畴。但其实，让GPU和CPU都能运行这些工作负载同样至关重要。这也是下半年加速的一部分。
+
+I'll also take the opportunity to say, when you see usage in AI workloads, we always intend to think about that as just a GPU exercise. The importance of having GPUs and CPUs be able to run these workloads is also important. So that's a piece of the acceleration in H2 as well.
+
+  [107] [EN] Brent Thill--Analyst
+       [中] Brent Thill--分析师  
+Brent Thill--Analyst
+
+  [108] [EN] Thanks.
+       [中] 谢谢。
+Thanks.
+
+  [109] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [110] [EN] Thanks, Brant. Operator, next question please.
+       [中] 谢谢，Brant。接线员，请下一个问题。  
+Thanks, Brant. Operator, next question please.
+
+  [111] [EN] Operator
+       [中] 操作员
+Operator
+
+  [112] [EN] The next question comes from the line of Mark Moerdler with Bernstein. Please proceed.
+       [中] 下一位提问者来自Bernstein的Mark Moerdler。请提问。
+
+The next question comes from the line of Mark Moerdler with Bernstein. Please proceed.
+
+  [113] [EN] Mark Moerdler--Analyst
+       [中] Mark Moerdler——分析师  
+Mark Moerdler--Analyst
+
+  [114] [EN] Thank you very much for taking my question. Congratulations on the quarter. The question every investor obviously asks is a question on the capex growth and the capex spend. Obviously, half of that facility is an equivalent that have a longer life, but the other half is the rest of the components.
+       [中] 非常感谢您回答我的问题。祝贺本季度业绩。每个投资者显然都会问的一个问题是关于资本支出增长和资本支出支出。显然，该设施的一半是使用寿命更长的等效部分，但另一半是其余组件。
+
+Thank you very much for taking my question. Congratulations on the quarter. The question every investor obviously asks is a question on the capex growth and the capex spend. Obviously, half of that facility is an equivalent that have a longer life, but the other half is the rest of the components.
+
+  [115] [EN] Can you give any color on how you think of that growth? Does it return to the traditional approach, where basically capex is going to grow in line or slightly slower than cloud revenue? And if so, any sense of the timing? Do we have enough facilities online by sometime next year, et cetera? Any color would be appreciated.
+       [中] 你能就你如何看待这种增长提供一些信息吗？是否回到了传统模式，即资本支出大致与云收入同步或略慢增长？如果是的话，时间上有什么感觉？到明年某个时候我们是否有足够的设施上线等等？任何信息都感谢。
+
+原文：
+Can you give any color on how you think of that growth? Does it return to the traditional approach, where basically capex is going to grow in line or slightly slower than cloud revenue? And if so, any sense of the timing? Do we have enough facilities online by sometime next year, et cetera? Any color would be appreciated.
+
+  [116] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [117] [EN] Thanks, Mark. I think in some ways, it's helpful to go back to the cloud transition that we worked on over a decade ago, I think, in the early stages. And what you did see, and you'll see us do in the same time is you have to build to meet demand. Unlike the cloud transition, we're doing it on a global basis in parallel as opposed to sequential given the nature of the demand.
+       [中] 谢谢，Mark。我认为从某些方面来看，回顾我们十多年前在早期阶段进行的云转型是有帮助的。当时你所看到的，以及你将看到我们在同一时期所做的，就是必须建设以满足需求。与云转型不同，鉴于需求的特性，我们是在全球范围内并行推进，而不是顺序推进。
+
+Thanks, Mark. I think in some ways, it's helpful to go back to the cloud transition that we worked on over a decade ago, I think, in the early stages. And what you did see, and you'll see us do in the same time is you have to build to meet demand. Unlike the cloud transition, we're doing it on a global basis in parallel as opposed to sequential given the nature of the demand.
+
+  [118] [EN] And then as long as we continue to see that demand grow, you're right, the growth in capex will slow and the revenue growth will increase. And those 2 things, to your point, get closer and closer together over time. The pace of that entirely depends really on the pace of adoption. And to Satya's point, some of that spend goes toward building the next training infrastructure so you won't see all of it in COGS.
+       [中] 只要我们看到需求持续增长，您说得对，资本支出的增长将会放缓，而收入增长将会加速。正如您所说，这两者随着时间的推移会越来越接近。其速度完全取决于应用的速度。正如Satya所说，部分支出用于建设下一代训练基础设施，因此你不会在COGS中看到全部支出。
+
+And then as long as we continue to see that demand grow, you're right, the growth in capex will slow and the revenue growth will increase. And those 2 things, to your point, get closer and closer together over time. The pace of that entirely depends really on the pace of adoption. And to Satya's point, some of that spend goes toward building the next training infrastructure so you won't see all of it in COGS.
+
+  [119] [EN] Some of it goes to opex when you're spending it on training. But in general, that's a healthy way to think about the balance as that over time does do and should, like the last cycle, get closer together.
+       [中] 其中一部分在用于训练时计入运营支出。但总体而言，这是一种健康的思考平衡的方式，因为随着时间的推移，就像上一个周期一样，两者确实也会并且应该会逐渐趋近。
+
+Some of it goes to opex when you're spending it on training. But in general, that's a healthy way to think about the balance as that over time does do and should, like the last cycle, get closer together.
+
+  [120] [EN] Mark Moerdler--Analyst
+       [中] Mark Moerdler——分析师  
+Mark Moerdler--Analyst
+
+  [121] [EN] Thank you very much. That's very helpful.
+       [中] 非常感谢。这非常有帮助。
+
+原文：Thank you very much. That's very helpful.
+
+  [122] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [123] [EN] Thanks, Mark. Operator, next question please.
+       [中] 谢谢，Mark。接线员，请接下一个问题。
+
+Thanks, Mark. Operator, next question please.
+
+  [124] [EN] Operator
+       [中] 操作员
+Operator
+
+  [125] [EN] The next question comes from the line of Karl Keirstead with UBS. Please proceed.
+       [中] 下一个问题来自UBS的Karl Keirstead。请继续。
+
+The next question comes from the line of Karl Keirstead with UBS. Please proceed.
+
+  [126] [EN] Karl Keirstead--Analyst
+       [中] Karl Keirstead--分析师  
+Karl Keirstead--Analyst
+
+  [127] [EN] OK. Great. Thank you. I'm actually not going to ask a question about the numbers, but Satya and Amy, I'd love to ask a question about OpenAI.
+       [中] 好的，很好。谢谢。实际上我不打算问关于数字的问题，但Satya和Amy，我想问一个关于OpenAI的问题。
+
+OK. Great. Thank you. I'm actually not going to ask a question about the numbers, but Satya and Amy, I'd love to ask a question about OpenAI.
+
+  [128] [EN] Since the print 3 months ago, we, investors have been hit with a torrent of media stories about OpenAI and Microsoft. And I'd love to give Microsoft an opportunity to frame the relationship. It seems to me it's critically important. But we have been, I think, everyone on the line, picking up signals that perhaps Microsoft wants to diversify somewhat at the model layer and offer customers choice.
+       [中] 自3个月前的那次发布以来，我们投资者被大量关于OpenAI和Microsoft的媒体报道所冲击。我很想给Microsoft一个机会来界定这段关系。在我看来这至关重要。但我觉得，我们所有人都一直在捕捉到一些信号，表明Microsoft可能希望在模型层进行一定程度的多元化，并为客户提供选择。
+
+Since the print 3 months ago, we, investors have been hit with a torrent of media stories about OpenAI and Microsoft. And I'd love to give Microsoft an opportunity to frame the relationship. It seems to me it's critically important. But we have been, I think, everyone on the line, picking up signals that perhaps Microsoft wants to diversify somewhat at the model layer and offer customers choice.
+
+  [129] [EN] So Satya, I'd love to get your framing of the relationship. And then in terms of the numbers, maybe this is a little bit more for you, Amy. But how does Microsoft manage the demands on capex from helping OpenAI with its scaling ambitions? And how do you manage the impact on other income that you just gave us some color on?
+       [中] 那么Satya，我想听听你如何看待这种关系。至于数字方面，也许这更多是问Amy你的。但Microsoft如何管理因帮助OpenAI实现其规模化目标而产生的资本支出需求？同时，你们又如何管理这对其他收入的影响——你刚刚对此给出了一些说明？
+
+原文：
+So Satya, I'd love to get your framing of the relationship. And then in terms of the numbers, maybe this is a little bit more for you, Amy. But how does Microsoft manage the demands on capex from helping OpenAI with its scaling ambitions? And how do you manage the impact on other income that you just gave us some color on?
+
+  [130] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [131] [EN] Sure. Thanks, Karl. So I'd say, first, the partnership for both sides, that's OpenAI and Microsoft, has been super beneficial. After all, we were the -- we effectively sponsored what is one of the most highest-valued private companies today when we invested in them and really took a bet on them and their innovation 4, 5 years ago.
+       [中] 当然。谢谢，Karl。所以我想说，首先，双方的合作伙伴关系，即OpenAI和Microsoft，一直非常有益。毕竟，我们是——当我们4、5年前投资它们并真正押注于它们及其创新时，我们实际上赞助了当今估值最高的私营公司之一。
+
+Sure. Thanks, Karl. So I'd say, first, the partnership for both sides, that's OpenAI and Microsoft, has been super beneficial. After all, we were the -- we effectively sponsored what is one of the most highest-valued private companies today when we invested in them and really took a bet on them and their innovation 4, 5 years ago.
+
+  [132] [EN] And that has led to great success for Microsoft. That's led to great success for OpenAI. And we continue to build on it, right? So we serve them with world-class infrastructure on which they do their innovation in terms of models, on top of which we innovate on both the model layer with some of the post-training stuff we do as well as some of the small models we build and then, of course, all of the product innovation, right? One of the things that my own sort of conviction of OpenAI and what they were doing came about when I started seeing something like GitHub Copilot as a product get built or DAX Copilot get built or M365 Copilot get built. So we have a fantastic portfolio of innovation that we build on top of that.
+       [中] 这也为微软带来了巨大成功。为OpenAI带来了巨大成功。而我们也在持续深耕，对吧？我们以世界级的基础设施支持他们，让他们在模型层面进行创新；在此基础上，我们也在模型层进行创新——包括我们做的一些后期训练工作，以及我们构建的一些小型模型——当然，还有所有产品层面的创新，对吧？我个人对OpenAI及其所做之事的信念，始于我开始看到像GitHub Copilot、DAX Copilot或M365 Copilot这样的产品被构建出来的时候。因此，我们拥有一个非常出色的创新组合，并在此基础上不断推进。
+
+And that has led to great success for Microsoft. That's led to great success for OpenAI. And we continue to build on it, right? So we serve them with world-class infrastructure on which they do their innovation in terms of models, on top of which we innovate on both the model layer with some of the post-training stuff we do as well as some of the small models we build and then, of course, all of the product innovation, right? One of the things that my own sort of conviction of OpenAI and what they were doing came about when I started seeing something like GitHub Copilot as a product get built or DAX Copilot get built or M365 Copilot get built. So we have a fantastic portfolio of innovation that we build on top of that.
+
+  [133] [EN] And the same also, I would say, we are investors. We feel very, very good about sort of our investment stake in OpenAI. And so our focus -- and we're always in constant dialogue with them in a partnership like this where both sides have achieved mutual success at the pace at which we've achieved it. That means we need to kind of push each other to do more, to capture the moment, and that's what we plan to do, and we intend to keep building on it.
+       [中] 同样，我要说，我们是投资者。我们对在OpenAI的投资感到非常非常满意。因此我们的重点是——我们始终与他们保持持续的对话，在这样的合作伙伴关系中，双方都取得了同步的互赢成功。这意味着我们需要互相推动去做更多，抓住时机，这正是我们计划做的，并且我们打算继续在此基础上发展。
+
+And the same also, I would say, we are investors. We feel very, very good about sort of our investment stake in OpenAI. And so our focus -- and we're always in constant dialogue with them in a partnership like this where both sides have achieved mutual success at the pace at which we've achieved it. That means we need to kind of push each other to do more, to capture the moment, and that's what we plan to do, and we intend to keep building on it.
+
+  [134] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [135] [EN] And maybe to your other two questions, Karl, listen, I'm thrilled with their success and need for supply from Azure and infrastructure and really what it's meant in terms of being able to also serve other customers for us. It's important that we continue to invest capital to meet not only their demand signal and needs for compute but also from our broader customers. That's partially why you've seen us committing the amount of capital we've seen over the past few quarters, is our commitment to both grow together and for us to continue to grow the Azure platform for customers beyond them. And so I don't really think of it as how do you balance it.
+       [中] 至于你的另外两个问题，Karl，听着，我对他们的成功以及他们从Azure和基础设施方面带来的需求感到非常兴奋，这对我们服务其他客户也意义重大。我们必须持续投入资本，不仅满足他们对算力的需求信号，也要满足我们更广泛客户的需求。这就是为什么你在过去几个季度看到我们承诺了如此大规模的资本支出——这是我们共同成长的承诺，也是我们继续为更广泛的客户拓展Azure平台的承诺。所以我不认为这是一个需要权衡的问题。
+
+And maybe to your other two questions, Karl, listen, I'm thrilled with their success and need for supply from Azure and infrastructure and really what it's meant in terms of being able to also serve other customers for us. It's important that we continue to invest capital to meet not only their demand signal and needs for compute but also from our broader customers. That's partially why you've seen us committing the amount of capital we've seen over the past few quarters, is our commitment to both grow together and for us to continue to grow the Azure platform for customers beyond them. And so I don't really think of it as how do you balance it.
+
+  [136] [EN] It's just we have customers who have needs and real use cases and delivering value today. And if we can't meet that, we need to work to meet it. And that means working harder and faster to make sure we do that, which is what the team is committed to do. Second piece of your question, I think, was on the impact to other income.
+       [中] 只是因为我们有客户，他们有需求、有实际用例，并且今天就能带来价值。如果我们无法满足这些需求，就必须努力去实现。这意味着要更努力、更迅速地行动，确保我们做到这一点，而这也是团队所致力于的。至于你问题的第二部分，我想是关于对其他收入的影响。
+
+It's just we have customers who have needs and real use cases and delivering value today. And if we can't meet that, we need to work to meet it. And that means working harder and faster to make sure we do that, which is what the team is committed to do. Second piece of your question, I think, was on the impact to other income.
+
+  [137] [EN] And not to get too accounting heavy on the earnings phone call, but I would say, just a reminder, this is under the equity method, which means we just take our percentage of losses every quarter. And those losses, of course, are capped by the amount of investment we make in total, which we did talk about in the Q this quarter as being $13 billion. And so over time, that's just the constraint, and it's a bit of a mechanical entry. And so I don't really think about managing that.
+       [中] 在财报电话会议上不想过多谈论会计细节，但我想提醒一下，这采用的是权益法核算，也就是说我们每季度只按持股比例确认亏损。当然，这些亏损的上限是我们总投资金额，本季度我们在季报中提到的总投资额为$13 billion。因此，长期来看这就是一个约束条件，属于比较机械的账务处理。所以我不会刻意去管理这个数字。
+
+And not to get too accounting heavy on the earnings phone call, but I would say, just a reminder, this is under the equity method, which means we just take our percentage of losses every quarter. And those losses, of course, are capped by the amount of investment we make in total, which we did talk about in the Q this quarter as being $13 billion. And so over time, that's just the constraint, and it's a bit of a mechanical entry. And so I don't really think about managing that.
+
+  [138] [EN] That's the investment and acceleration that OpenAI is making in themselves, and we take a percentage of that.
+       [中] 这是OpenAI对自己进行的投资和加速，我们从中收取一定比例。
+
+That's the investment and acceleration that OpenAI is making in themselves, and we take a percentage of that.
+
+  [139] [EN] Karl Keirstead--Analyst
+       [中] Karl Keirstead--分析师  
+Karl Keirstead--Analyst
+
+  [140] [EN] Got it. OK. Very helpful. Thank you both.
+       [中] 明白了。好的。非常有帮助。谢谢你们两位。
+Got it. OK. Very helpful. Thank you both.
+
+  [141] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [142] [EN] Thanks, Karl. Operator, next question please.
+       [中] 谢谢，Karl。接线员，请接下一个问题。  
+Thanks, Karl. Operator, next question please.
+
+  [143] [EN] Operator
+       [中] 操作员
+Operator
+
+  [144] [EN] The next question comes from the line of Kash Rangan with Goldman Sachs. Please proceed.
+       [中] 下一个问题来自高盛的Kash Rangan。请继续。
+
+The next question comes from the line of Kash Rangan with Goldman Sachs. Please proceed.
+
+  [145] [EN] Kash Rangan--Analyst
+       [中] Kash Rangan--分析师  
+Kash Rangan--Analyst
+
+  [146] [EN] Hi. Thank you very much. Satya, when you talked about the investment cycle, these models are getting bigger, more expensive, but you also pointed out to how in the inference phase, we're likely to get paid. How does that cycle look like in inference for Microsoft? Where are the products and the applications that will show up on the Microsoft P&L as a result of the inference phase of AI kicking in?
+       [中] 你好。非常感谢。Satya，当你谈到投资周期时，这些模型正在变得越来越大、越来越昂贵，但你也指出了在推理阶段，我们很可能会获得回报。对于微软来说，推理阶段的周期会是怎样的？由于AI推理阶段的启动，哪些产品和应用会出现在微软的损益表上？
+
+Hi. Thank you very much. Satya, when you talked about the investment cycle, these models are getting bigger, more expensive, but you also pointed out to how in the inference phase, we're likely to get paid. How does that cycle look like in inference for Microsoft? Where are the products and the applications that will show up on the Microsoft P&L as a result of the inference phase of AI kicking in?
+
+  [147] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [148] [EN] Thanks, Kash. I mean the good news for us is that we're not waiting for that inference to show up, right? If you sort of think about the point we even made that this is going to be the fastest growth to $10 billion of any business in our history, it's all inference, right? One of the things that may not be as evident is that we're not actually selling raw GPUs for other people to train. In fact, that's sort of a business we turn away because we have so much demand on inference that we are not taking what I would -- in fact, there's a huge adverse selection problem today where people -- it's just a bunch of tech companies still using VC money to buy a bunch of GPUs. We kind of really are not even participating in most of that because we are literally going to the real demand, which is in the enterprise space or our own products like GitHub Copilot or M365 Copilot.
+       [中] 谢谢，Kash。对我们来说好消息是，我们不必等待推理业务带来的增长，对吧？如果回想一下我们曾提到的"这将是公司历史上最快突破100亿美元的业务"，这全都是推理业务，对吗？可能不太明显的一点是，我们实际上并没有向其他人出售原始GPU用于训练。事实上，这类业务我们基本是拒绝的，因为推理需求实在太旺盛了，我甚至可以说——实际上，现在存在严重的逆向选择问题：很多科技公司仍在用风投资金购买大量GPU。我们基本上没有参与这类业务，因为我们真正瞄准的是实体需求，即企业级应用场景，或者像GitHub Copilot和M365 Copilot这样的自有产品。
+
+原文：
+Thanks, Kash. I mean the good news for us is that we're not waiting for that inference to show up, right? If you sort of think about the point we even made that this is going to be the fastest growth to $10 billion of any business in our history, it's all inference, right? One of the things that may not be as evident is that we're not actually selling raw GPUs for other people to train. In fact, that's sort of a business we turn away because we have so much demand on inference that we are not taking what I would -- in fact, there's a huge adverse selection problem today where people -- it's just a bunch of tech companies still using VC money to buy a bunch of GPUs. We kind of really are not even participating in most of that because we are literally going to the real demand, which is in the enterprise space or our own products like GitHub Copilot or M365 Copilot.
+
+  [149] [EN] So I feel the quality of our revenue is also pretty superior in that context. And that's what gives us even the conviction, to even Amy's answers previously, about our capital spend, is if this was just all about sort of a bunch of people training large models and that was all we got, then that would be ultimately still waiting, to your point, for someone to actually have demand, which is real. And in our case, the good news here is we have a diversified portfolio. We're seeing real demand across all of that portfolio.
+       [中] 因此，我认为在这种背景下，我们的收入质量也相当优越。这也正是我们（包括Amy之前回答时提到的）对资本支出充满信心的原因——如果这一切只是围绕一群人训练大模型，而我们获得的仅此而已，那么按照您的观点，最终仍要等待真正的需求出现。而对我们而言，好消息是我们拥有多元化的业务组合。我们正在看到整个组合中的真实需求。
+
+原文：
+So I feel the quality of our revenue is also pretty superior in that context. And that's what gives us even the conviction, to even Amy's answers previously, about our capital spend, is if this was just all about sort of a bunch of people training large models and that was all we got, then that would be ultimately still waiting, to your point, for someone to actually have demand, which is real. And in our case, the good news here is we have a diversified portfolio. We're seeing real demand across all of that portfolio.
+
+  [150] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [151] [EN] And Kash, maybe just to add a little bit to what Satya is saying. I think a part of his 2 answers is that what you're seeing is this number we're talking about, the $10 billion, across inference and our apps is already what that momentum and that investment and that progress and that revenue is what builds the next cycle of training, right? And so it's that circle as opposed to, oh, we're doing training now and then inference. Much of the training investments that are -- that fuel this revenue growth came before, and we already funded that work. And so that's an important part.
+       [中] Kash，或许我再补充一下Satya所说的内容。我认为他两个回答中的一点是，你看到的这个数字——我们提到的100亿美元——覆盖推理和我们的应用，正是这种势头、投资、进展和收入，推动了下一轮训练周期，对吧？所以这是一个循环，而不是说我们现在只做训练，之后再做推理。那些推动收入增长的训练投资，大部分早已投入，而且我们已经为这些工作提供了资金。这一点很重要。
+
+And Kash, maybe just to add a little bit to what Satya is saying. I think a part of his 2 answers is that what you're seeing is this number we're talking about, the $10 billion, across inference and our apps is already what that momentum and that investment and that progress and that revenue is what builds the next cycle of training, right? And so it's that circle as opposed to, oh, we're doing training now and then inference. Much of the training investments that are -- that fuel this revenue growth came before, and we already funded that work. And so that's an important part.
+
+  [152] [EN] Kash Rangan--Analyst
+       [中] Kash Rangan--分析师  
+Kash Rangan--Analyst
+
+  [153] [EN] That's, to your point, that you invest now, and you can get the growth later even if you slow down the capex, right? That's what you're trying to tell us.
+       [中] 根据你的观点，你现在投资，即使以后放缓资本支出，也能获得增长，对吧？这就是你想告诉我们的。
+
+That's, to your point, that you invest now, and you can get the growth later even if you slow down the capex, right? That's what you're trying to tell us.
+
+  [154] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [155] [EN] That's the cycle that is important to understand.
+       [中] 这就是需要理解的那个周期。
+
+That's the cycle that is important to understand.
+
+  [156] [EN] Kash Rangan--Analyst
+       [中] Kash Rangan--分析师  
+Kash Rangan--Analyst
+
+  [157] [EN] Got it. Thank you so much.
+       [中] 明白了。非常感谢。
+Got it. Thank you so much.
+
+  [158] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [159] [EN] Thanks, Kash. Operator, next question please.
+       [中] 感谢，Kash。操作员，请继续下一个问题。
+
+Thanks, Kash. Operator, next question please.
+
+  [160] [EN] Operator
+       [中] 操作员
+Operator
+
+  [161] [EN] The next question comes from the line of Mark Murphy with J.P. Morgan. Please proceed.
+       [中] 下一个问题来自J.P. Morgan的Mark Murphy。请继续。
+
+The next question comes from the line of Mark Murphy with J.P. Morgan. Please proceed.
+
+  [162] [EN] Mark Murphy--Analyst
+       [中] Mark Murphy--分析师
+
+Mark Murphy--Analyst
+
+  [163] [EN] Thank you very much. I'm wondering if you can shed any more light just on the nature of the supply limitations that you're mentioning that are impacting Azure in Q2, where that impact might be incrementally just a touch more than we expected. Is it more the GPU supply? Is there some element of power cooling or the ability to wire up the networks? And Amy, should we infer that the supply is constraining Azure growth by roughly a couple of few points in Q2? Or am I overestimating that?
+       [中] 非常感谢。我想知道您能否进一步说明您提到的供应链限制的性质，这些限制在Q2对Azure造成了影响，而其影响幅度可能略高于我们的预期。这更多是GPU供应的问题吗？还是涉及电力冷却或网络连接能力方面的因素？另外，Amy，我们是否应该推断供应在Q2将Azure的增长约束了大约几个百分点？还是我高估了？
+
+原文：Thank you very much. I'm wondering if you can shed any more light just on the nature of the supply limitations that you're mentioning that are impacting Azure in Q2, where that impact might be incrementally just a touch more than we expected. Is it more the GPU supply? Is there some element of power cooling or the ability to wire up the networks? And Amy, should we infer that the supply is constraining Azure growth by roughly a couple of few points in Q2? Or am I overestimating that?
+
+  [164] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [165] [EN] Maybe to answer both those questions, Mark, very directly, I wouldn't think about it component logic in my Q2 answer. The supply pushout, as Satya said, was third parties that are delivering later than we had expected, that get pushed mainly into the second half of the year and in general, Q3. So that's third parties where we have tended to buy supply inclusive of kits, so it's complete end-to-end third-party delivery. In terms of the impact, as I was saying, when you think about having flat consumption Q1 to Q2, there really are only 2 things that impact that difference, and 1 was the help we got in Q1 from the revenue and accounting help.
+       [中] 马克，直接回答这两个问题的话，我不会在第二季度业绩答复中考虑组件逻辑。正如萨蒂亚所说，供应延迟源自第三方交付比我们预期更晚，主要推迟到下半年乃至第三季度。这些第三方采购通常包含成套设备，属于完整的端到端第三方交付。关于影响，正如我所说，当考虑第一季度到第二季度消费平缓时，实际上只有两个因素会导致差异，其中一个是我们第一季度在营收和会计处理方面获得的帮助。  
+
+Maybe to answer both those questions, Mark, very directly, I wouldn't think about it component logic in my Q2 answer. The supply pushout, as Satya said, was third parties that are delivering later than we had expected, that get pushed mainly into the second half of the year and in general, Q3. So that's third parties where we have tended to buy supply inclusive of kits, so it's complete end-to-end third-party delivery. In terms of the impact, as I was saying, when you think about having flat consumption Q1 to Q2, there really are only 2 things that impact that difference, and 1 was the help we got in Q1 from the revenue and accounting help.
+
+  [166] [EN] And then Q2 has been the supply pushout.
+       [中] 然后第二季度是供应推迟。  
+And then Q2 has been the supply pushout.
+
+  [167] [EN] Mark Murphy--Analyst
+       [中] Mark Murphy--分析师
+
+Mark Murphy--Analyst
+
+  [168] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [169] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [170] [EN] Thanks, Mark. Operator, next question please.
+       [中] 谢谢，Mark。接线员，请接下一个问题。
+
+Thanks, Mark. Operator, next question please.
+
+  [171] [EN] Operator
+       [中] 操作员
+Operator
+
+  [172] [EN] The next question comes from the line of Raimo Lenschow with Barclays. Please proceed.
+       [中] 下一个问题来自Barclays的Raimo Lenschow。请继续。
+
+The next question comes from the line of Raimo Lenschow with Barclays. Please proceed.
+
+  [173] [EN] Raimo Lenschow--Analyst
+       [中] Raimo Lenschow——分析师
+
+Raimo Lenschow--Analyst
+
+  [174] [EN] Thank you. If you talk about the market at the moment -- because you were first with Copilot, you had identified a lot with copilots and now we're talking agents. Can you kind of -- Satya, how do you think about that? And to me, it looks like an evolution that we're discovering how to kind of productize AI better, et cetera. So how do you think about that journey between copilots, agents and maybe what's coming next?
+       [中] 谢谢。如果你谈到现在的市场——因为你是第一个推出Copilot的，你对copilot有很多了解，而现在我们在谈论agents。你能——Satya，你怎么看？对我来说，这看起来是一个进化过程，我们正在学习如何更好地将AI产品化，等等。那么你怎么看待从copilots到agents，以及可能接下来会发生什么？
+
+Thank you. If you talk about the market at the moment -- because you were first with Copilot, you had identified a lot with copilots and now we're talking agents. Can you kind of -- Satya, how do you think about that? And to me, it looks like an evolution that we're discovering how to kind of productize AI better, et cetera. So how do you think about that journey between copilots, agents and maybe what's coming next?
+
+  [175] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [176] [EN] Sure. The system we have built is Copilot, Copilot Studio, agents, and autonomous agents. You should think of that as the spectrum of things, right? So ultimately, the way we think about how this all comes together is you need humans to be able to interface with AI. So the UI layer for AI is Copilot.
+       [中] 当然。我们构建的系统包括Copilot、Copilot Studio、agents和autonomous agents。你应该把它看作是一个连续的谱系，对吧？所以最终，我们思考这一切如何整合的方式是，你需要人类能够与AI交互。因此，AI的UI层就是Copilot。
+
+Sure. The system we have built is Copilot, Copilot Studio, agents, and autonomous agents. You should think of that as the spectrum of things, right? So ultimately, the way we think about how this all comes together is you need humans to be able to interface with AI. So the UI layer for AI is Copilot.
+
+  [177] [EN] You can then use Copilot Studio to extend Copilot. For example, you want to connect it to your CRM system, to your office system, to your HR system. You do that through Copilot Studio by building agents effectively. You also build autonomous agents.
+       [中] 然后你可以使用Copilot Studio来扩展Copilot。例如，你想要将其连接到你的CRM系统、办公系统、HR系统。你可以通过Copilot Studio有效地构建代理来完成。你还可以构建自主代理。
+
+You can then use Copilot Studio to extend Copilot. For example, you want to connect it to your CRM system, to your office system, to your HR system. You do that through Copilot Studio by building agents effectively. You also build autonomous agents.
+
+  [178] [EN] So you can use even -- that's the announcement we made a couple of weeks ago, is you can even use Copilot Studio to build autonomous agents. Now these autonomous agents are working independently, but from time to time, they need to raise an exception, right? So autonomous agents are not fully autonomous because, at some point, they need to either notify someone or have someone input something. And when they need to do that, they need a UI layer, and that's where, again, it's Copilot. So Copilot, Copilot agents built-in Copilot Studio, autonomous agents built in Copilot Studio, that's the full system, we think, that comes together, and we feel very, very good about the position.
+       [中] 因此，您甚至可以使用——这是我们几周前宣布的——使用Copilot Studio来构建自主代理。这些自主代理现在可以独立工作，但有时它们需要抛出异常，对吧？所以自主代理并非完全自主，因为某些时候它们需要通知某人或让某人输入信息。而这时它们就需要一个UI层，而这正是Copilot的用武之地。因此，Copilot、构建于Copilot Studio中的Copilot代理、以及构建于Copilot Studio中的自主代理，我们认为这些共同构成了完整的系统，而我们对这一局面感到非常非常满意。
+
+So you can use even -- that's the announcement we made a couple of weeks ago, is you can even use Copilot Studio to build autonomous agents. Now these autonomous agents are working independently, but from time to time, they need to raise an exception, right? So autonomous agents are not fully autonomous because, at some point, they need to either notify someone or have someone input something. And when they need to do that, they need a UI layer, and that's where, again, it's Copilot. So Copilot, Copilot agents built-in Copilot Studio, autonomous agents built in Copilot Studio, that's the full system, we think, that comes together, and we feel very, very good about the position.
+
+  [179] [EN] And then, of course, we are taking the underlying system services across that entire stack that I just talked about, making it available in Azure, right? So you have the raw infrastructure if you wanted. You have the model layer independent of it. You have the AI app server in Azure AI, right? So everything is also a building block service in Azure for you to be able to build. In fact, if you want to build everything that we have built in the Copilot stack, you can build it yourself using the AI platform.
+       [中] 当然，我们正在将我刚刚提到的整个技术栈中的底层系统服务提供给Azure，对吧？所以，如果你需要原始基础设施，你可以直接使用。我们的模型层独立于基础设施。我们还有Azure AI中的AI应用服务器，对吧？因此，所有内容也都是Azure中的构建块服务，供你自行构建。事实上，如果你想构建我们在Copilot技术栈中构建的一切，你可以使用AI平台自己完成。
+
+And then, of course, we are taking the underlying system services across that entire stack that I just talked about, making it available in Azure, right? So you have the raw infrastructure if you wanted. You have the model layer independent of it. You have the AI app server in Azure AI, right? So everything is also a building block service in Azure for you to be able to build. In fact, if you want to build everything that we have built in the Copilot stack, you can build it yourself using the AI platform.
+
+  [180] [EN] So that's sort of, in simple terms, our strategy, and that's kind of how it all comes together.
+       [中] 所以简单来说，这就是我们的策略，也是所有部分如何整合在一起的方式。
+
+So that's sort of, in simple terms, our strategy, and that's kind of how it all comes together.
+
+  [181] [EN] Raimo Lenschow--Analyst
+       [中] Raimo Lenschow——分析师
+
+Raimo Lenschow--Analyst
+
+  [182] [EN] OK. Perfect. Very clear.
+       [中] 好的。完美。非常清楚。
+
+OK. Perfect. Very clear.
+
+  [183] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [184] [EN] Thanks, Raimo. Operator, we have time for one last question.
+       [中] 谢谢，Raimo。接线员，我们还有时间再问最后一个问题。
+
+Thanks, Raimo. Operator, we have time for one last question.
+
+  [185] [EN] Operator
+       [中] 操作员
+Operator
+
+  [186] [EN] And the last question will come from the line of Rishi Jaluria with RBC. Please proceed.
+       [中] 最后一个问题来自RBC的Rishi Jaluria。请继续。
+
+And the last question will come from the line of Rishi Jaluria with RBC. Please proceed.
+
+  [187] [EN] Rishi Jaluria--Analyst
+       [中] Rishi Jaluria--分析师
+
+Rishi Jaluria--Analyst
+
+  [188] [EN] Wonderful. Thanks. Hi, Satya. Hi, Amy.
+       [中] 太好了。谢谢。你好，Satya。你好，Amy。
+
+Wonderful. Thanks. Hi, Satya. Hi, Amy.
+
+  [189] [EN] Appreciate the question. I want to go and think a little bit about Copilot, how we should be thinking about kind of numbers here with the recategorization. It seems like that was maybe softer in the past than expected or maybe with the numbers this quarter starting to pick up. Can you maybe walk us through what you're seeing on that and maybe more importantly, how we should be thinking about your overall AI strategy on consumer versus enterprise, especially now with Moustafa on the fold?
+       [中] 感谢提问。我想深入思考一下关于Copilot的情况，以及我们应如何看待这次重新分类后的相关数据。过去的数据似乎比预期要疲软，但本季度的数据可能开始回升。能否请您谈谈你们观察到的现象，更重要的是，我们应如何看待贵公司在消费者与企业端的整体AI战略，尤其是在Moustafa加入之后？
+
+Appreciate the question. I want to go and think a little bit about Copilot, how we should be thinking about kind of numbers here with the recategorization. It seems like that was maybe softer in the past than expected or maybe with the numbers this quarter starting to pick up. Can you maybe walk us through what you're seeing on that and maybe more importantly, how we should be thinking about your overall AI strategy on consumer versus enterprise, especially now with Moustafa on the fold?
+
+  [190] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [191] [EN] Yes. On the first part, Rishi, to your question, I think we feel very, very good about the momentum we have in the commercial Copilot, right? As I said in my remarks and Amy talked about, this is the fastest growth of a new suite in M365. If I compare it to what we saw even back -- way back in E3 or E5 or the transition from O to M, this is really much faster, right? It's the numbers of penetration of the Fortune 500 and then the fact that they're coming back for more seats and what have you. So it's very strong in that context.
+       [中] 是的。关于第一个部分，Rishi，针对你的问题，我认为我们对商业Copilot的增长势头感到非常非常乐观，对吧？正如我在发言中提到的，以及Amy谈到的，这是M365中增长最快的新套件。如果与我之前看到的E3、E5或从O到M的转型相比，这次的速度确实快得多，对吧？从财富500强的渗透率以及他们不断追加更多席位等事实来看，势头非常强劲。
+
+原文：
+Yes. On the first part, Rishi, to your question, I think we feel very, very good about the momentum we have in the commercial Copilot, right? As I said in my remarks and Amy talked about, this is the fastest growth of a new suite in M365. If I compare it to what we saw even back -- way back in E3 or E5 or the transition from O to M, this is really much faster, right? It's the numbers of penetration of the Fortune 500 and then the fact that they're coming back for more seats and what have you. So it's very strong in that context.
+
+  [192] [EN] The other thing I'd also mention is that we want this to be something that is systemic, right, because people need to be able to put the security controls. Then they need to deploy. Then there's skilling, and then there's change management. So this is not like you just -- it's not a tool.
+       [中] 还要提到的另一件事是，我们希望这是系统性的，对吧，因为人们需要能够实施安全控制。然后他们需要部署。接着是技能培训，然后是变更管理。所以这不像你只是——它不是一个工具。
+
+The other thing I'd also mention is that we want this to be something that is systemic, right, because people need to be able to put the security controls. Then they need to deploy. Then there's skilling, and then there's change management. So this is not like you just -- it's not a tool.
+
+  [193] [EN] Like when I talk about Copilot, Copilot Studio, agents, it's really as much about a new way to work. And sometimes I describe it as what happened throughout the '90s with PC penetration. After all, if you take a business process like forecasting, what was it like pre email and Excel and post email and Excel? That's the type of change that you see with Copilot. But overall, we feel great about the rate of progress and the penetration.
+       [中] 就像当我谈到Copilot、Copilot Studio、agents时，这实际上也关乎一种新的工作方式。有时我将其描述为上世纪'90s PC普及所发生的情况。毕竟，如果你拿预测这样的业务流程来说，电子邮件和Excel出现之前和之后是什么样子？这就是你在Copilot身上看到的那种变化。但总体而言，我们对进步的速度和普及程度感到非常满意。
+
+Like when I talk about Copilot, Copilot Studio, agents, it's really as much about a new way to work. And sometimes I describe it as what happened throughout the '90s with PC penetration. After all, if you take a business process like forecasting, what was it like pre email and Excel and post email and Excel? That's the type of change that you see with Copilot. But overall, we feel great about the rate of progress and the penetration.
+
+  [194] [EN] And then on the consumer side, look, for us, the exciting part here is to be able to use the same investment we are making in the commercial where we have structural strength and then beyond the offense. One of the things that, I think, I hope you all catch in our earnings is ex TAC. Our revenue, when it comes to what we describe as search, news, and ads, is growing faster than market. So that's -- it's fantastic to see that.
+       [中] 然后在消费者端，你看，对我们来说，令人兴奋的是能够将我们在商业领域（我们拥有结构性优势）进行的同样的投资用于进攻之外。我认为，我希望你们都从我们的财报中注意到了ex TAC。在我们所谓的搜索、新闻和广告方面，我们的收入增长速度超过了市场。所以——看到这一点真是太棒了。
+
+And then on the consumer side, look, for us, the exciting part here is to be able to use the same investment we are making in the commercial where we have structural strength and then beyond the offense. One of the things that, I think, I hope you all catch in our earnings is ex TAC. Our revenue, when it comes to what we describe as search, news, and ads, is growing faster than market. So that's -- it's fantastic to see that.
+
+  [195] [EN] And so that's kind of our consumer business, which in Microsoft's large scope, it's sort -- even a $10-plus billion business sort of sometimes go missing. But in our case, it is actually a fantastic growth business that's growing faster than market. We feel good about how we will use AI in LinkedIn. In fact, LinkedIn is a consumer business as you know.
+       [中] 这就是我们的消费者业务，在微软庞大的体系中，即使是一个超过100亿美元的业务有时也会被忽略。但对我们而言，这实际上是一个增长远超市场的出色业务。我们对如何在LinkedIn上应用AI感到乐观。事实上，正如你所知，LinkedIn本身就是一项消费者业务。
+
+原文：And so that's kind of our consumer business, which in Microsoft's large scope, it's sort -- even a $10-plus billion business sort of sometimes go missing. But in our case, it is actually a fantastic growth business that's growing faster than market. We feel good about how we will use AI in LinkedIn. In fact, LinkedIn is a consumer business as you know.
+
+  [196] [EN] You saw even this week, they announced some new capabilities for both consumers and in their case, even recruiting. So we think that AI, the same investment gets monetized even through LinkedIn's innovation. And gaming, of course, is another place where you'll see some of these things apply and Windows, right? So the place where I think I'm excited about is Copilot+ PCs. For us, it's not about having a disconnected edge.
+       [中] 就在本周，他们宣布了一些面向消费者以及他们自身招聘场景的新功能。因此我们认为，同样的人工智能投资将通过LinkedIn的创新实现变现。当然，游戏是另一个你会看到这些技术应用的领域，还有Windows，对吧？所以，让我感到兴奋的是Copilot+ PCs。对我们来说，这并非关于拥有一个断开的边缘。
+
+You saw even this week, they announced some new capabilities for both consumers and in their case, even recruiting. So we think that AI, the same investment gets monetized even through LinkedIn's innovation. And gaming, of course, is another place where you'll see some of these things apply and Windows, right? So the place where I think I'm excited about is Copilot+ PCs. For us, it's not about having a disconnected edge.
+
+  [197] [EN] It's about having hybrid AI where the rebirth of sort of the PC as the edge of AI is going to be one of the most exciting things for developers. So we feel well positioned, quite frankly, with the same investment. So this is -- that's the thing. We're not a conglomerate here.
+       [中] 关键在于构建混合AI，使PC作为AI边缘设备重获新生，这将成为开发者最激动人心的事情之一。坦白说，凭借同样的投资，我们处于有利地位。这就是关键所在——我们并非企业集团。
+
+原文：
+It's about having hybrid AI where the rebirth of sort of the PC as the edge of AI is going to be one of the most exciting things for developers. So we feel well positioned, quite frankly, with the same investment. So this is -- that's the thing. We're not a conglomerate here.
+
+  [198] [EN] We are sort of one company. That means we invest once, and then we have all these categories that benefit from that. And that's the theory of the firm for us. And so we feel good about all of that coming together.
+       [中] 我们是一家公司。这意味着我们投资一次，然后所有类别都能从中受益。这就是我们公司的理论。所以我们对此感到满意。
+
+We are sort of one company. That means we invest once, and then we have all these categories that benefit from that. And that's the theory of the firm for us. And so we feel good about all of that coming together.
+
+  [199] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [200] [EN] And maybe just to add one piece because I think, Rishi, now that I'm listening and thinking through the question, it feels like you're wondering, like why am I not seeing the Copilot, if you've made all this progress and the results, and the answer is you already are. In that M365 commercial number, we've seen that seat growth, but those seats that we're adding, the majority of them are driven by frontline worker and small businesses. Those have a lower ARPU point. And so it masks some of the ARPU that we're already seeing not just from E5, which continues to contribute, but also this quarter, additional impact from Copilot.
+       [中] 再补充一点，因为我在听这个问题并思考时，感觉你在疑惑：既然Copilot取得了这么多进展和成果，为什么我没有看到Copilot的表现？答案是，你已经看到了。在M365的商业数据中，我们看到了席位增长，但新增的席位大部分来自一线员工和小企业。这些用户的ARPU值较低。因此，它掩盖了我们已经在看到的ARPU增长，不仅来自持续贡献的E5，还包括本季度Copilot带来的额外影响。
+
+原文：
+And maybe just to add one piece because I think, Rishi, now that I'm listening and thinking through the question, it feels like you're wondering, like why am I not seeing the Copilot, if you've made all this progress and the results, and the answer is you already are. In that M365 commercial number, we've seen that seat growth, but those seats that we're adding, the majority of them are driven by frontline worker and small businesses. Those have a lower ARPU point. And so it masks some of the ARPU that we're already seeing not just from E5, which continues to contribute, but also this quarter, additional impact from Copilot.
+
+  [201] [EN] So as we go forward, being able -- that is where you're going to see the impact will be in ARPU in M365 commercial, and as Satya said, I think you'll see the impact of Copilot engagement, frankly, across the same ex TAC number.
+       [中] 因此，展望未来，能够——这就是你们将看到的影响所在，即M365商业版的ARPU，正如Satya所说，坦白讲，我认为你们会看到Copilot参与度带来的影响，同样体现在之前的ex TAC数字上。
+
+So as we go forward, being able -- that is where you're going to see the impact will be in ARPU in M365 commercial, and as Satya said, I think you'll see the impact of Copilot engagement, frankly, across the same ex TAC number.
+
+  [202] [EN] Rishi Jaluria--Analyst
+       [中] Rishi Jaluria--分析师
+
+Rishi Jaluria--Analyst
+
+  [203] [EN] OK. Wonderful. Thank you.
+       [中] 好的。太好了。谢谢。
+
+OK. Wonderful. Thank you.
+
+  [204] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [205] [EN] Thanks, Rishi. That wraps up the Q&A portion of today's earnings call. Thank you for joining us today, and we look forward to speaking with all of you again soon.
+       [中] 感谢，Rishi。今天财报电话会议的问答环节到此结束。感谢大家今天的参与，我们期待很快再次与各位交流。
+
+Thanks, Rishi. That wraps up the Q&A portion of today's earnings call. Thank you for joining us today, and we look forward to speaking with all of you again soon.
+
+  [206] [EN] Operator
+       [中] 操作员
+Operator
+
+  [207] [EN] [Operator signoff]
+       [中] [操作员签退]  
+[Operator signoff]
+
+  [208] [EN] Duration: 0 minutes
+       [中] 持续时间：0分钟  
+Duration: 0 minutes
+
+
+  ━━ Call participants: ━━
+  ━━ 通话参与者：
+Call participants: ━━
+
+  [210] [EN] Brett Iversen--Vice President, Investor Relations
+       [中] Brett Iversen——投资者关系副总裁  
+Brett Iversen--Vice President, Investor Relations
+
+  [211] [EN] Satya Nadella--Chair and Chief Executive Officer
+       [中] Satya Nadella -- 董事长兼首席执行官
+
+Satya Nadella--Chair and Chief Executive Officer
+
+  [212] [EN] Amy E. Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy E. Hood——执行副总裁，首席财务官
+
+Amy E. Hood--Executive Vice President, Chief Financial Officer
+
+  [213] [EN] Keith Weiss--Analyst
+       [中] Keith Weiss--分析师
+
+Keith Weiss--Analyst
+
+  [214] [EN] Brent Thill--Analyst
+       [中] Brent Thill--分析师  
+Brent Thill--Analyst
+
+  [215] [EN] Amy Hood--Executive Vice President, Chief Financial Officer
+       [中] Amy Hood--执行副总裁，首席财务官  
+
+Amy Hood--Executive Vice President, Chief Financial Officer
+
+  [216] [EN] Mark Moerdler--Analyst
+       [中] Mark Moerdler——分析师  
+Mark Moerdler--Analyst
+
+  [217] [EN] Karl Keirstead--Analyst
+       [中] Karl Keirstead--分析师  
+Karl Keirstead--Analyst
+
+  [218] [EN] Kash Rangan--Analyst
+       [中] Kash Rangan--分析师  
+Kash Rangan--Analyst
+
+  [219] [EN] Mark Murphy--Analyst
+       [中] Mark Murphy--分析师
+
+Mark Murphy--Analyst
+
+  [220] [EN] Raimo Lenschow--Analyst
+       [中] Raimo Lenschow——分析师
+
+Raimo Lenschow--Analyst
+
+  [221] [EN] Rishi Jaluria--Analyst
+       [中] Rishi Jaluria--分析师
+
+Rishi Jaluria--Analyst
+
+  [222] [EN] More MSFT analysis
+       [中] 更多MSFT分析  
+More MSFT analysis
+
+  [223] [EN] All earnings call transcripts
+       [中] 
+
+  [224] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为The Motley Fool制作的本次电话会议的记录。尽管我们努力做到最好，但此记录中可能存在错误、遗漏或不准确之处。与我们的所有文章一样，The Motley Fool不对您使用此内容承担任何责任，我们强烈建议您自行研究，包括亲自收听电话会议并阅读公司的SEC文件。详情请参阅我们的Terms and Conditions，包括强制性的大写责任免责声明。
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+  [225] [EN] The Motley Fool has positions in and recommends Microsoft. The Motley Fool recommends the following options: long January 2026 $395 calls on Microsoft and short January 2026 $405 calls on Microsoft. The Motley Fool has adisclosure policy.
+       [中] The Motley Fool持有并推荐微软。The Motley Fool推荐以下期权：做多2026年1月微软$395 call，做空2026年1月微软$405 call。The Motley Fool有adisclosure政策。
+
+The Motley Fool has positions in and recommends Microsoft. The Motley Fool recommends the following options: long January 2026 $395 calls on Microsoft and short January 2026 $405 calls on Microsoft. The Motley Fool has adisclosure policy.
+
+  [226] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [227] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 227 段中英对照
+======================================================================

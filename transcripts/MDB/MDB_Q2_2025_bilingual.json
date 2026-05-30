@@ -1,0 +1,972 @@
+{
+ "meta": {
+  "company": "MongoDB (MongoDB)",
+  "quarter": "Q2 2025",
+  "source": "motley_fool",
+  "url": "https://www.fool.com/earnings/call-transcripts/2024/08/29/mongodb-mdb-q2-2025-earnings-call-transcript/",
+  "translated": "2026-05-30T14:53:00.423943",
+  "backend": "deepseek"
+ },
+ "pairs": [
+  {
+   "en": "MongoDB(MDB+2.97%)Q2 2025 Earnings CallAug 29, 2024,5:00 p.m. ET",
+   "zh": "MongoDB(MDB+2.97%) 2025财年第二季度财报电话会议，2024年8月29日，下午5:00（美国东部时间）\n\nMongoDB(MDB+2.97%)Q2 2025 Earnings CallAug 29, 2024,5:00 p.m. ET"
+  },
+  {
+   "en": "Prepared Remarks",
+   "zh": "准备好的发言  \nPrepared Remarks"
+  },
+  {
+   "en": "Questions and Answers",
+   "zh": "问题与答案  \nQuestions and Answers"
+  },
+  {
+   "en": "Call Participants",
+   "zh": "电话会议参与者\n\nCall Participants"
+  },
+  {
+   "en": "Prepared Remarks:",
+   "zh": "准备好的发言：\nPrepared Remarks:"
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Good day, and thank you for standing by. Welcome to the MongoDB's second quarter fiscal year 2025 conference call. [Operator instructions] Please be advised that today's conference is being recorded. I would now like to turn the call over to your speaker for today.",
+   "zh": "大家好，感谢您的耐心等待。欢迎参加MongoDB 2025财年第二季度电话会议。[操作员说明]请注意，今天的会议正在录制。现在，我将把电话交给今天的主讲人。\n\nGood day, and thank you for standing by. Welcome to the MongoDB's second quarter fiscal year 2025 conference call. [Operator instructions] Please be advised that today's conference is being recorded. I would now like to turn the call over to your speaker for today."
+  },
+  {
+   "en": "Brian Denyeau. Please go ahead.",
+   "zh": "Brian Denyeau，请继续。\n\nBrian Denyeau. Please go ahead."
+  },
+  {
+   "en": "Brian Raferty Denyeau--Investor Relations",
+   "zh": "Brian Raferty Denyeau--投资者关系  \nBrian Raferty Denyeau--Investor Relations"
+  },
+  {
+   "en": "Thank you, Lisa. Good afternoon, and thank you for joining us today to review MongoDB's second quarter fiscal 2025 financial results, which we announced in our press release issued after the close of market today. Joining me on the call today are: Dev Ittycheria, president and CEO of MongoDB; and Michael Gordon, MongoDB's COO and CFO. During this call, we will make forward-looking statements, including statements related to our market and future growth opportunities, our expectations for the macroeconomic environment in fiscal 2025 and the impact of AI, the benefits of our product platform, our competitive landscape, customer behaviors, our financial guidance and our planned investments and growth opportunities in AI.",
+   "zh": "谢谢，Lisa。下午好，感谢大家今天加入我们，回顾MongoDB的2025财年第二季度财务业绩，这些结果已在今天市场收盘后发布的新闻稿中公布。今天与我一同出席电话会议的有：MongoDB总裁兼首席执行官Dev Ittycheria，以及MongoDB首席运营官兼首席财务官Michael Gordon。在本次电话会议中，我们将做出前瞻性声明，包括与我们的市场和未来增长机会相关的声明、我们对2025财年宏观经济环境及AI影响的预期、我们产品平台的优势、竞争格局、客户行为、财务指引以及我们在AI方面的计划投资和增长机会。\n\n原文：\nThank you, Lisa. Good afternoon, and thank you for joining us today to review MongoDB's second quarter fiscal 2025 financial results, which we announced in our press release issued after the close of market today. Joining me on the call today are: Dev Ittycheria, president and CEO of MongoDB; and Michael Gordon, MongoDB's COO and CFO. During this call, we will make forward-looking statements, including statements related to our market and future growth opportunities, our expectations for the macroeconomic environment in fiscal 2025 and the impact of AI, the benefits of our product platform, our competitive landscape, customer behaviors, our financial guidance and our planned investments and growth opportunities in AI."
+  },
+  {
+   "en": "These statements are subject to a variety of risks and uncertainties including the results of operations and financial conditions that could cause actual results to differ materially from our expectations. For a discussion of the material risks and uncertainties that could affect our actual results, please refer to the risks described in our quarterly report on Form 10-Q for the quarter ended April 30th, 2024, filed with the SEC at May 31st, 2024. Any forward-looking statements made on this call reflect our views only as of today, and we undertake no obligation to update them, except as required by law. Additionally, we will discuss non-GAAP financial measures in this conference call.",
+   "zh": "这些陈述面临各种风险和不确定性，包括经营业绩和财务状况，可能导致实际结果与我们的预期存在重大差异。有关可能影响我们实际结果的重要风险和不确定性的讨论，请参阅我们于2024年4月30日结束的季度报告中描述的、于2024年5月31日提交给SEC的Form 10-Q季度报告中所列的风险。本次电话会议中作出的任何前瞻性陈述仅代表我们截至今日的观点，除法律要求外，我们没有义务更新这些陈述。此外，我们将在本次电话会议中讨论非GAAP财务指标。\n\nThese statements are subject to a variety of risks and uncertainties including the results of operations and financial conditions that could cause actual results to differ materially from our expectations. For a discussion of the material risks and uncertainties that could affect our actual results, please refer to the risks described in our quarterly report on Form 10-Q for the quarter ended April 30th, 2024, filed with the SEC at May 31st, 2024. Any forward-looking statements made on this call reflect our views only as of today, and we undertake no obligation to update them, except as required by law. Additionally, we will discuss non-GAAP financial measures in this conference call."
+  },
+  {
+   "en": "Please refer to the tables in our earnings release on the investor relations portion of our website for a reconciliation of these measures to their most directly comparable GAAP financial measure. With that, I'd like to turn the call over to Dev.",
+   "zh": "请参阅我们网站投资者关系部分的财报新闻稿中的表格，了解这些指标与其最直接可比的GAAP财务指标的对账情况。接下来，我想把电话交给Dev。\n\nPlease refer to the tables in our earnings release on the investor relations portion of our website for a reconciliation of these measures to their most directly comparable GAAP financial measure. With that, I'd like to turn the call over to Dev."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Thanks, Brian, and thank you to everyone for joining us today. I'm pleased to report that we had a good quarter and executed well against our large market opportunity. Let's begin by reviewing our second quarter results before giving you a broader company update. We generated revenue of $478 million, a 13% year-over-year increase against a very difficult year-over-year compare and above the high end of our guidance.",
+   "zh": "谢谢，Brian，也感谢大家今天参加我们的会议。我很高兴地报告，我们本季度表现良好，在巨大的市场机遇中执行出色。在我们提供更广泛的公司更新之前，让我们先回顾一下第二季度的业绩。我们创造了4.78亿美元的收入，同比增长13%，这是在非常困难的同比对比下取得的，并且超出了我们指引的高端。\n\nThanks, Brian, and thank you to everyone for joining us today. I'm pleased to report that we had a good quarter and executed well against our large market opportunity. Let's begin by reviewing our second quarter results before giving you a broader company update. We generated revenue of $478 million, a 13% year-over-year increase against a very difficult year-over-year compare and above the high end of our guidance."
+  },
+  {
+   "en": "Atlas revenue grew 27% year over year, representing 71% of revenue. We generated non-GAAP operating income of $52.5 million for 11% non-GAAP operating margin, and we ended the quarter with over 50,700 customers. Overall, we were pleased with the performance in the second quarter. We had a strong new business quarter and we saw improving sales productivity year over year.",
+   "zh": "Atlas收入同比增长27%，占总收入的71%。非GAAP运营收入为5250万美元，非GAAP运营利润率为11%，本季度末客户数超过50,700。总体而言，我们对第二季度的表现感到满意。我们迎来了强劲的新业务季度，销售生产率同比提升。\n\n原文：\nAtlas revenue grew 27% year over year, representing 71% of revenue. We generated non-GAAP operating income of $52.5 million for 11% non-GAAP operating margin, and we ended the quarter with over 50,700 customers. Overall, we were pleased with the performance in the second quarter. We had a strong new business quarter and we saw improving sales productivity year over year."
+  },
+  {
+   "en": "We saw strength across the board with both Atlas and Enterprise Advanced exceeding our expectations, demonstrating the enduring appeal of our run anywhere strategy. Our Q2 performance reinforced our belief the slow start to the new business in Q1 was purely operational, and we feel good about our new business outlook in the second half of the year. Moving on to Atlas consumption. The quarter played out modestly better than our expectations.",
+   "zh": "我们在各个领域都表现出色，Atlas和Enterprise Advanced均超出预期，彰显了我们的\"随处运行\"战略的持久吸引力。第二季度的表现强化了我们的信念：第一季度新业务起步缓慢纯粹是运营层面的问题，我们对下半年新业务前景感到乐观。接下来谈谈Atlas的消费情况。本季度的表现略好于我们的预期。\n\n原文：\nWe saw strength across the board with both Atlas and Enterprise Advanced exceeding our expectations, demonstrating the enduring appeal of our run anywhere strategy. Our Q2 performance reinforced our belief the slow start to the new business in Q1 was purely operational, and we feel good about our new business outlook in the second half of the year. Moving on to Atlas consumption. The quarter played out modestly better than our expectations."
+  },
+  {
+   "en": "Michael will discuss consumption trends in more detail. Finally, retention rates remained strong in Q2, demonstrating the quality of our product and the mission criticality of our platform. Our performance this quarter reinforced our confidence in our ability to execute on our long-term opportunity. As we said before, companies today rely on software to express their business strategy.",
+   "zh": "Michael将更详细地讨论消费趋势。最后，第二季度的留存率保持强劲，这证明了我们产品的质量以及我们平台的任务关键性。本季度的业绩增强了我们对执行长期机遇能力的信心。正如我们之前所说，当今的公司依赖软件来体现其业务战略。\n\nMichael will discuss consumption trends in more detail. Finally, retention rates remained strong in Q2, demonstrating the quality of our product and the mission criticality of our platform. Our performance this quarter reinforced our confidence in our ability to execute on our long-term opportunity. As we said before, companies today rely on software to express their business strategy."
+  },
+  {
+   "en": "This trend has driven our success for the past decade, and we anticipate it will continue to do so for the foreseeable future. Even with our success to date, we only have a low single-digit share in one of the largest and fastest-growing markets in all of software. When you combine this foundational tailwind with the opportunities for our customers to incorporate generative AI into their businesses and modernize their legacy application estate, it is clear that MongoDB has multiple long-term growth opportunities. Turning to AI.",
+   "zh": "这一趋势在过去十年推动了我们取得成功，并且我们预计在可预见的未来它将继续如此。尽管我们已取得当前的成就，但在整个软件行业中规模最大、增长最快的市场之一，我们仅占据低个位数的份额。当我们将这一基础性顺风与客户将生成式AI融入业务、并实现遗留应用现代化的机遇相结合时，显而易见，MongoDB拥有多个长期增长机会。接下来谈谈AI。\n\n原文：\nThis trend has driven our success for the past decade, and we anticipate it will continue to do so for the foreseeable future. Even with our success to date, we only have a low single-digit share in one of the largest and fastest-growing markets in all of software. When you combine this foundational tailwind with the opportunities for our customers to incorporate generative AI into their businesses and modernize their legacy application estate, it is clear that MongoDB has multiple long-term growth opportunities. Turning to AI."
+  },
+  {
+   "en": "AI continues to be an additional long-term opportunity for our business. At the start of the fiscal year, we told you that we didn't expect AI to be a meaningful tailwind for our business in fiscal year 2025, which has proven accurate. Based on recent peer commentary, it seems that the industry now mostly agrees with this view. Companies are currently focusing their spending on the infrastructure layer of AI and are still largely experimenting with AI applications.",
+   "zh": "AI 继续为我们的业务带来额外的长期机遇。在财年伊始，我们曾告知大家，预计AI不会在2025财年成为业务的重要推动力，这一判断已被证实准确。根据近期同行评论，行业现在似乎普遍认同这一观点。各公司目前正将支出集中在AI基础设施层面，且大部分仍处于AI应用的试验阶段。\n\nAI continues to be an additional long-term opportunity for our business. At the start of the fiscal year, we told you that we didn't expect AI to be a meaningful tailwind for our business in fiscal year 2025, which has proven accurate. Based on recent peer commentary, it seems that the industry now mostly agrees with this view. Companies are currently focusing their spending on the infrastructure layer of AI and are still largely experimenting with AI applications."
+  },
+  {
+   "en": "Inference workloads will come and should benefit MongoDB greatly in the long run, but we are still very early when the monetization of AI apps will take time. AI demand is a question of when, not if, and our discussions with customers and partners give us increasing conviction that we are the ideal data layer for AI apps for a number of key reasons. First, more than any other type of modern workload, AI-driven workloads require the underlying database to be capable of processing queries against rich and complex data structures quickly and efficiently. Our flexible document model is uniquely positioned to help customers build sophisticated AI applications because it is designed to handle different data types, your source data, vector data, metadata and generated data right alongside your live operational data, outdating the need for multiple database systems and complex back-end architectures.",
+   "zh": "推理工作负载将会出现，从长远来看应该会极大地惠及MongoDB，但AI应用的变现仍需时日，我们目前仍处于非常早期的阶段。AI需求只是时间问题，而非是否会发生的问题。我们与客户和合作伙伴的讨论让我们越来越确信，MongoDB是AI应用的理想数据层，这基于几个关键原因。首先，与任何其他类型的现代工作负载相比，AI驱动的工作负载要求底层数据库能够快速高效地处理针对丰富复杂数据结构的查询。我们灵活的文档模型具有独特优势，能够帮助客户构建复杂的AI应用，因为它旨在处理不同类型的数据——源数据、向量数据、元数据和生成数据，同时与实时运营数据共存，从而无需多个数据库系统和复杂的后端架构。\n\nInference workloads will come and should benefit MongoDB greatly in the long run, but we are still very early when the monetization of AI apps will take time. AI demand is a question of when, not if, and our discussions with customers and partners give us increasing conviction that we are the ideal data layer for AI apps for a number of key reasons. First, more than any other type of modern workload, AI-driven workloads require the underlying database to be capable of processing queries against rich and complex data structures quickly and efficiently. Our flexible document model is uniquely positioned to help customers build sophisticated AI applications because it is designed to handle different data types, your source data, vector data, metadata and generated data right alongside your live operational data, outdating the need for multiple database systems and complex back-end architectures."
+  },
+  {
+   "en": "Second, MongoDB offers a high performance and scalable architecture. As the latency of LLMs improve, the value of using real-time operational data for AI apps will become even more important. Third, we are seamlessly integrated with leading app development frameworks and AI platforms, enabling developers to incorporate MongoDB into their existing workflows while having the flexibility to choose the LLM and other specific tools that best suit their needs. Fourth, we meet or exceed the security and compliance requirements expected from an enterprise database, including enterprise-grade encryption, authorization and auditability.",
+   "zh": "其次，MongoDB提供高性能且可扩展的架构。随着LLM的延迟不断降低，在AI应用中使用实时运营数据的价值将变得更加重要。第三，我们与领先的应用开发框架和AI平台无缝集成，使开发者能够将MongoDB融入现有工作流程，同时灵活选择最适合其需求的LLM及其他特定工具。第四，我们满足或超越企业数据库所要求的安全性和合规性标准，包括企业级加密、授权和审计能力。\n\nSecond, MongoDB offers a high performance and scalable architecture. As the latency of LLMs improve, the value of using real-time operational data for AI apps will become even more important. Third, we are seamlessly integrated with leading app development frameworks and AI platforms, enabling developers to incorporate MongoDB into their existing workflows while having the flexibility to choose the LLM and other specific tools that best suit their needs. Fourth, we meet or exceed the security and compliance requirements expected from an enterprise database, including enterprise-grade encryption, authorization and auditability."
+  },
+  {
+   "en": "Lastly, customers can run MongoDB anywhere, on-premise or as a fully managed service in one of the 118 global cloud regions across three hyperscalers giving them the flexibility to run workloads to meet -- to best meet their application use cases and business needs. We see three main opportunities where we believe AI will accelerate our business over time. The first is that the cost of building applications in the world of AI will come down as we've seen with every previous platform shift, creating more applications and more data requiring more databases. The second opportunity is for us to be the database of choice for customers building greenfield AI applications.",
+   "zh": "最后，客户可以在任何地方运行MongoDB，无论是在本地部署，还是作为完全托管服务在三大超大规模云服务商遍布全球118个云区域中的任意一个运行，这为他们提供了灵活性，能够以最适合其应用场景和业务需求的方式运行工作负载。我们看到了三大主要机遇，相信人工智能将随着时间的推移加速我们的业务发展。首先，在人工智能领域构建应用的成本将下降，正如我们之前每次平台转型时所看到的那样，这将催生更多应用和更多数据，从而需要更多数据库。其次，我们有机会成为客户构建全新人工智能应用的首选数据库。\n\nLastly, customers can run MongoDB anywhere, on-premise or as a fully managed service in one of the 118 global cloud regions across three hyperscalers giving them the flexibility to run workloads to meet -- to best meet their application use cases and business needs. We see three main opportunities where we believe AI will accelerate our business over time. The first is that the cost of building applications in the world of AI will come down as we've seen with every previous platform shift, creating more applications and more data requiring more databases. The second opportunity is for us to be the database of choice for customers building greenfield AI applications."
+  },
+  {
+   "en": "While we see that there's tremendous amount of interest in and planning for new AI-powered applications, the complexity and fast-moving nature of the AI ecosystem slows customers down. That's why we launched the MongoDB AI Applications Program, or MAAP, which became generally available to customers last month. MAAP brings together a unique ecosystem, including the three major cloud providers, AWS, Azure and GCP, as well as Accenture and AI pioneers like Anthropic and Cohere. MAAP offers customers reference architectures and end-to-end technology stack that includes prebuilt integrations, professional services and a unified support system to help customers quickly build and deploy AI applications.",
+   "zh": "尽管我们看到人们对新型AI驱动应用充满兴趣并进行了大量规划，但AI生态系统的复杂性和快速变化的特性拖慢了客户的速度。因此，我们推出了MongoDB AI应用程序计划（MAAP），该计划已于上月正式向客户开放。MAAP整合了一个独特的生态系统，包括三大主要云服务提供商AWS、Azure和GCP，以及埃森哲和Anthropic、Cohere等AI先驱企业。MAAP为客户提供参考架构和端到端技术栈，包含预构建集成、专业服务和统一支持系统，帮助客户快速构建和部署AI应用。\n\nWhile we see that there's tremendous amount of interest in and planning for new AI-powered applications, the complexity and fast-moving nature of the AI ecosystem slows customers down. That's why we launched the MongoDB AI Applications Program, or MAAP, which became generally available to customers last month. MAAP brings together a unique ecosystem, including the three major cloud providers, AWS, Azure and GCP, as well as Accenture and AI pioneers like Anthropic and Cohere. MAAP offers customers reference architectures and end-to-end technology stack that includes prebuilt integrations, professional services and a unified support system to help customers quickly build and deploy AI applications."
+  },
+  {
+   "en": "The third opportunity is to help customers modernize their legacy application estate. As you know, this segment of the market is a massive opportunity for us as most of the existing $80-billion-plus database industry is built on dated relational architecture. Modernizing legacy applications has always been part of our business, and we have taken steps over the years to simplify and demystify this complex process through partnerships, education and most recently, our Relational Migrator product. AI offers a potential step function improvement, lowering the cost and reducing their time and risk to modernize legacy applications.",
+   "zh": "第三个机会是帮助客户实现其传统应用资产的现代化。如您所知，这一市场领域对我们而言是一个巨大的机遇，因为当前超过800亿美元的数据库行业大多建立在过时的关系型架构之上。传统应用现代化一直是我们业务的一部分，多年来我们通过合作伙伴关系、教育以及最近推出的Relational Migrator产品，不断简化并阐明这一复杂流程。AI有望带来阶梯式改进，降低传统应用现代化的成本、时间与风险。\n\nThe third opportunity is to help customers modernize their legacy application estate. As you know, this segment of the market is a massive opportunity for us as most of the existing $80-billion-plus database industry is built on dated relational architecture. Modernizing legacy applications has always been part of our business, and we have taken steps over the years to simplify and demystify this complex process through partnerships, education and most recently, our Relational Migrator product. AI offers a potential step function improvement, lowering the cost and reducing their time and risk to modernize legacy applications."
+  },
+  {
+   "en": "For that reason, earlier this year, we launched several pilots with our customers where we work with them to modernize mission-critical applications, leveraging both AI tooling and services. The early results from these pilots are very exciting as our customers are experiencing significant reductions in time and cost of modernization. In particular, we have seen dramatic improvements in time and cost to rewrite application code and generate test suites. We see increasing interest from customers that want to modernize their legacy application estate, including large enterprise customers.",
+   "zh": "因此，今年早些时候，我们与客户共同启动了多个试点项目，利用AI工具和服务帮助他们实现关键任务应用的现代化。这些试点的初步成果令人振奋，客户在现代化过程中大幅缩短了时间，降低了成本。尤其在重写应用代码和生成测试套件方面，我们观察到时间和成本显著改善。我们看到越来越多的客户，包括大型企业客户，希望将其遗留应用资产进行现代化改造。\n\nFor that reason, earlier this year, we launched several pilots with our customers where we work with them to modernize mission-critical applications, leveraging both AI tooling and services. The early results from these pilots are very exciting as our customers are experiencing significant reductions in time and cost of modernization. In particular, we have seen dramatic improvements in time and cost to rewrite application code and generate test suites. We see increasing interest from customers that want to modernize their legacy application estate, including large enterprise customers."
+  },
+  {
+   "en": "As a CIO of one of the world's largest insurance companies said about our pilot, this is the first tangible return he's seen on his AI investments. While it's still early days and generating meaningful revenue from this program will take time, we are excited about the results of our pilots and the growing pipeline of customers eager to modernize their legacy estate. Finally, I understand that there are a lot of questions about the current business conditions and the macro environment more broadly. So let me give you a sense of what we're seeing across the business.",
+   "zh": "作为全球最大保险公司之一的首席信息官在评价我们的试点项目时提到，这是他首次从AI投资中看到实际回报。虽然目前仍处于早期阶段，要通过该项目创造可观收入尚需时日，但我们对试点结果以及越来越多客户希望实现遗留系统现代化的需求感到振奋。最后，我深知大家对于当前业务状况及宏观环境存在诸多疑问，接下来我将简要介绍我们在各业务领域的观察。  \n\n原文：  \nAs a CIO of one of the world's largest insurance companies said about our pilot, this is the first tangible return he's seen on his AI investments. While it's still early days and generating meaningful revenue from this program will take time, we are excited about the results of our pilots and the growing pipeline of customers eager to modernize their legacy estate. Finally, I understand that there are a lot of questions about the current business conditions and the macro environment more broadly. So let me give you a sense of what we're seeing across the business."
+  },
+  {
+   "en": "As a reminder, when thinking of the macro influence on our business, it's important to distinguish between consumption of existing workloads and new business. Starting with consumption of existing application on our platform, this is where we have historically seen a macro impact as usage of applications impacted by the underlying business conditions of our customers. As we discussed on our last earnings call, in Q1, we did see broad based consumption growth slowdown suggesting some macro softening. Our usage trends suggest a similar macro environment in Q2 as in Q1, even though Q2 Atlas consumption growth was modestly ahead of our expectations.",
+   "zh": "提醒一下，在思考宏观经济对我们业务的影响时，区分现有工作负载的消耗与新业务至关重要。先从我们平台上现有应用程序的消耗说起，这是我们传统上看到宏观经济影响的领域，因为应用程序的使用受到客户基础业务状况的影响。正如我们上次财报电话会议所讨论的，第一季度我们确实观察到广泛的消耗增长放缓，表明经济有所疲软。我们的使用趋势显示第二季度的宏观环境与第一季度类似，尽管第二季度Atlas消耗增长略高于我们的预期。\n\n原文：\nAs a reminder, when thinking of the macro influence on our business, it's important to distinguish between consumption of existing workloads and new business. Starting with consumption of existing application on our platform, this is where we have historically seen a macro impact as usage of applications impacted by the underlying business conditions of our customers. As we discussed on our last earnings call, in Q1, we did see broad based consumption growth slowdown suggesting some macro softening. Our usage trends suggest a similar macro environment in Q2 as in Q1, even though Q2 Atlas consumption growth was modestly ahead of our expectations."
+  },
+  {
+   "en": "Moving on to new business. We generally have not seen the macro environment impact our ability to win new business, and that was true in Q2 as well. We realized that this is different from what you hear from some other software vendors. Ultimately, software application development continues even in uncertain environments as customers know they need to continue investing in internally developed software to run the business, as well as to drive competitive differentiation.",
+   "zh": "接下来谈谈新业务。我们通常没有看到宏观环境影响我们赢得新业务的能力，第二季度也是如此。我们意识到这与您从其他一些软件供应商那里听到的不同。最终，即使在不确定的环境中，软件应用程序开发仍在继续，因为客户知道他们需要继续投资于内部开发的软件来运营业务，并推动竞争优势的差异化。\n\nMoving on to new business. We generally have not seen the macro environment impact our ability to win new business, and that was true in Q2 as well. We realized that this is different from what you hear from some other software vendors. Ultimately, software application development continues even in uncertain environments as customers know they need to continue investing in internally developed software to run the business, as well as to drive competitive differentiation."
+  },
+  {
+   "en": "In addition, we still have relatively low market share in a large market, which means we have an opportunity to gain share in any environment. Now I'd like to spend a few minutes reviewing the adoption trends of MongoDB across our customer base. Customers across industries and around the world are running mission-critical projects on MongoDB Atlas, leveraging the full power of our developer data platform, including Fanatics, Occidental Petroleum, and Indeed. Fanatics Betting and Gaming, a division of the sports ecosystem company, Fanatics, leverages MongoDB to significantly enhance their user experience of their mobile app.",
+   "zh": "此外，我们在一个庞大的市场中仍占据相对较低的市场份额，这意味着我们在任何环境下都有机会获得份额。现在我想花几分钟回顾MongoDB在我们客户群中的采用趋势。全球各行各业的客户都在MongoDB Atlas上运行关键任务项目，充分利用我们开发者数据平台的全部能力，包括Fanatics、Occidental Petroleum和Indeed。体育生态系统公司Fanatics旗下的Fanatics Betting and Gaming利用MongoDB显著提升其移动应用的用户体验。\n\n原文：\n\nIn addition, we still have relatively low market share in a large market, which means we have an opportunity to gain share in any environment. Now I'd like to spend a few minutes reviewing the adoption trends of MongoDB across our customer base. Customers across industries and around the world are running mission-critical projects on MongoDB Atlas, leveraging the full power of our developer data platform, including Fanatics, Occidental Petroleum, and Indeed. Fanatics Betting and Gaming, a division of the sports ecosystem company, Fanatics, leverages MongoDB to significantly enhance their user experience of their mobile app."
+  },
+  {
+   "en": "Initially, the team launched a platform on Postgres but faced challenges with scalability, flexibility and excessive complexity. After migrating to MongoDB Atlas, the team also integrates Atlas Search to provide users with a better experience to find all available betting options. With Atlas having scaling, partitioning and operations, developers can focus on writing code and improving the user experience. Looking ahead, Fanatics plans to continue to expand on MongoDB Atlas as they ensure they can operate at scale as they prepare for the start of the NFL season.",
+   "zh": "最初，该团队在Postgres上推出了一个平台，但面临可扩展性、灵活性和过度复杂性方面的挑战。迁移到MongoDB Atlas后，该团队还集成了Atlas Search，为用户提供更佳体验，以便查找所有可用的投注选项。借助Atlas的扩展、分区和运维能力，开发人员可以专注于编写代码和改善用户体验。展望未来，Fanatics计划继续在MongoDB Atlas上进行扩展，以确保在为NFL赛季开始做准备时能够大规模运营。\n\nInitially, the team launched a platform on Postgres but faced challenges with scalability, flexibility and excessive complexity. After migrating to MongoDB Atlas, the team also integrates Atlas Search to provide users with a better experience to find all available betting options. With Atlas having scaling, partitioning and operations, developers can focus on writing code and improving the user experience. Looking ahead, Fanatics plans to continue to expand on MongoDB Atlas as they ensure they can operate at scale as they prepare for the start of the NFL season."
+  },
+  {
+   "en": "L'Oreal, McKesson and Nationwide Building Society are turning to MongoDB to modernize applications. L'Oreal's tech accelerator, a department dedicated to catalyzing digital innovation at L'Oreal, is utilizing MongoDB for an application designed to bring products and solutions to market while quickly improving employee efficiency. The team's previous database solution had limited out-of-the-box functionality and was unable to handle the complex calculations needed to retrieve and restructure large amounts of data from their data warehouse. L'Oreal migrated to MongoDB Atlas to streamline the application architecture and simplify a previously highly complex and time-consuming data access layer.",
+   "zh": "L'Oreal、McKesson和Nationwide Building Society正转向使用MongoDB来现代化其应用程序。L'Oreal的技术加速器部门，该部门致力于推动L'Oreal的数字创新，正在利用MongoDB构建一个旨在将产品和解决方案推向市场，同时快速提升员工效率的应用程序。该团队之前的数据库解决方案开箱即用的功能有限，无法处理从数据仓库检索和重组大量数据所需的复杂计算。L'Oreal迁移到了MongoDB Atlas，以简化应用程序架构，并简化之前高度复杂且耗时的数据访问层。\n\n原文：\nL'Oreal, McKesson and Nationwide Building Society are turning to MongoDB to modernize applications. L'Oreal's tech accelerator, a department dedicated to catalyzing digital innovation at L'Oreal, is utilizing MongoDB for an application designed to bring products and solutions to market while quickly improving employee efficiency. The team's previous database solution had limited out-of-the-box functionality and was unable to handle the complex calculations needed to retrieve and restructure large amounts of data from their data warehouse. L'Oreal migrated to MongoDB Atlas to streamline the application architecture and simplify a previously highly complex and time-consuming data access layer."
+  },
+  {
+   "en": "With this migration, L'Oreal achieved a 40-fold performance improvement. On Atlas, the existing code is easier to maintain, more scalable and more efficient, making life easier for developers. Mature companies and start-ups alike are using MongoDB to help deliver the next wave of AI-powered applications to their customers, including Delivery Hero, Generali and Questflow. Delivery Hero, a longtime MongoDB Atlas customer is the world's leading local delivery platform, operating in 70-plus countries across four continents.",
+   "zh": "通过这次迁移，L'Oreal实现了40倍的性能提升。在Atlas上，现有代码更易维护、更具可扩展性和效率，让开发人员的工作更轻松。成熟公司和初创公司都在使用MongoDB来帮助向客户提供下一波AI驱动的应用程序，包括Delivery Hero、Generali和Questflow。Delivery Hero是MongoDB Atlas的长期客户，它是全球领先的本地配送平台，业务遍及四大洲的70多个国家。\n\nWith this migration, L'Oreal achieved a 40-fold performance improvement. On Atlas, the existing code is easier to maintain, more scalable and more efficient, making life easier for developers. Mature companies and start-ups alike are using MongoDB to help deliver the next wave of AI-powered applications to their customers, including Delivery Hero, Generali and Questflow. Delivery Hero, a longtime MongoDB Atlas customer is the world's leading local delivery platform, operating in 70-plus countries across four continents."
+  },
+  {
+   "en": "Their quick commerce service enables customers to select fresh produce for delivery from local grocery stores. Approximately 10% of the inventory is fast-moving perishable produce that can go quickly out of stock. The company risks losing revenue and increasing customer churn if the customer didn't have viable alternatives to their first choice. To address these risks, they are now using state-of-the-art AI models and MongoDB Atlas Vector Search to give hyper-personalized alternatives to customers in real time if items they want to order are out of stock.",
+   "zh": "他们的即时商务服务让客户能够从当地杂货店选择新鲜农产品进行配送。大约10%的库存是快速流动的易腐农产品，很容易迅速缺货。如果客户没有可行的替代品来替代他们的首选，公司就有损失收入并增加客户流失的风险。为应对这些风险，他们现在使用最先进的AI模型和MongoDB Atlas Vector Search，在客户想要订购的商品缺货时，实时向他们提供高度个性化的替代品。\n\nTheir quick commerce service enables customers to select fresh produce for delivery from local grocery stores. Approximately 10% of the inventory is fast-moving perishable produce that can go quickly out of stock. The company risks losing revenue and increasing customer churn if the customer didn't have viable alternatives to their first choice. To address these risks, they are now using state-of-the-art AI models and MongoDB Atlas Vector Search to give hyper-personalized alternatives to customers in real time if items they want to order are out of stock."
+  },
+  {
+   "en": "With the introduction of MongoDB Atlas Vector Search, the data science team recognized that they could build a highly performant, real-time solution more quickly and for less cost than alternative technologies. In summary, we had a healthy Q2 with both Atlas and EA exceeding expectations. We saw a strong new business quarter and improved sales productivity, and we are confident in our ability to keep winning new business in the second half of the year. Looking forward, we see great opportunity to help our customers modernize legacy applications and build the next generation of AI-powered applications.",
+   "zh": "随着MongoDB Atlas Vector Search的推出，数据科学团队认识到，他们能够以比替代技术更快的速度和更低的成本构建高性能的实时解决方案。总体而言，我们第二季度表现良好，Atlas和EA均超出预期。新业务季度表现强劲，销售效率有所提升，我们对下半年持续赢得新业务的能力充满信心。展望未来，我们看到了帮助客户现代化遗留应用并构建下一代AI驱动应用的巨大机遇。\n\nWith the introduction of MongoDB Atlas Vector Search, the data science team recognized that they could build a highly performant, real-time solution more quickly and for less cost than alternative technologies. In summary, we had a healthy Q2 with both Atlas and EA exceeding expectations. We saw a strong new business quarter and improved sales productivity, and we are confident in our ability to keep winning new business in the second half of the year. Looking forward, we see great opportunity to help our customers modernize legacy applications and build the next generation of AI-powered applications."
+  },
+  {
+   "en": "With that, here's Michael.",
+   "zh": "那么，有请Michael。\n\nWith that, here's Michael."
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Thanks, Dev. I'll begin with a detailed review of our second quarter results and then finish with our outlook for the third quarter and full fiscal year 2025. First, I'll start with our second quarter results. Total revenue in the quarter was $478.1 million, up 13% year over year and above the high end of our guidance.",
+   "zh": "谢谢，Dev。我将首先详细回顾我们第二季度的业绩，然后阐述我们对第三季度和2025整个财年的展望。首先，从第二季度业绩开始。本季度总收入为4.781亿美元，同比增长13%，并超出了我们指引的上限。\n\nThanks, Dev. I'll begin with a detailed review of our second quarter results and then finish with our outlook for the third quarter and full fiscal year 2025. First, I'll start with our second quarter results. Total revenue in the quarter was $478.1 million, up 13% year over year and above the high end of our guidance."
+  },
+  {
+   "en": "As a reminder, while we have difficult compares throughout fiscal '25, we are facing a particularly difficult year-over-year comparison in Q2 given we had a number of large multiyear partnership licensing deals in Q2 last year. Under 606 accounting rules, we recognize the license component upfront, which creates a difficult compare a year later. Shifting to our product mix. Let's start with Atlas.",
+   "zh": "提醒一下，虽然整个25财年我们都面临困难的同比比较，但第二季度的同比比较尤其困难，因为去年第二季度我们有多项大型多年合作伙伴许可交易。根据606会计准则，许可部分提前确认，这造成一年后的对比变得困难。接下来谈谈我们的产品组合。先从Atlas说起。\n\nAs a reminder, while we have difficult compares throughout fiscal '25, we are facing a particularly difficult year-over-year comparison in Q2 given we had a number of large multiyear partnership licensing deals in Q2 last year. Under 606 accounting rules, we recognize the license component upfront, which creates a difficult compare a year later. Shifting to our product mix. Let's start with Atlas."
+  },
+  {
+   "en": "Atlas grew 27% in the quarter, compared to the previous year and now represents 71% of the total revenue, compared to 63% in the second quarter of fiscal 2024 and 70% last quarter. We recognize Atlas revenue primarily based on customer consumption of our platform, and that consumption is closely related to end user activity of their applications. Let me provide some context on Atlas consumption in the quarter. First, as a reminder, in Q1, Atlas consumption growth was below our expectations, and we updated our growth assumptions for the remainder of the year.",
+   "zh": "Atlas在该季度同比增长27%，目前占总收入的71%，而2024财年第二季度为63%，上一季度为70%。我们确认Atlas收入主要基于客户对我们平台的使用量，而这种使用量与最终用户在其应用程序上的活动密切相关。下面我来介绍一下本季度Atlas使用量的一些背景。首先，提醒一下，在Q1，Atlas使用量增长低于我们的预期，我们更新了今年剩余时间的增长假设。\n\nAtlas grew 27% in the quarter, compared to the previous year and now represents 71% of the total revenue, compared to 63% in the second quarter of fiscal 2024 and 70% last quarter. We recognize Atlas revenue primarily based on customer consumption of our platform, and that consumption is closely related to end user activity of their applications. Let me provide some context on Atlas consumption in the quarter. First, as a reminder, in Q1, Atlas consumption growth was below our expectations, and we updated our growth assumptions for the remainder of the year."
+  },
+  {
+   "en": "In Q2, Atlas consumption growth was modestly ahead of those updated expectations across the board. While this is encouraging, consumption growth is still below our original forecast from the beginning of the year. Turning to non-Atlas revenue. Non-Atlas came in modestly ahead of our expectations in the quarter as we continue to have success selling incremental workloads into our existing customer base.",
+   "zh": "第二季度，Atlas消费增长略微全面超出这些更新后的预期。虽然这令人鼓舞，但消费增长仍低于我们年初的原始预测。转向非Atlas收入。非Atlas在本季度略微超出我们的预期，因为我们持续成功地向现有客户群销售增量工作负载。\n\nIn Q2, Atlas consumption growth was modestly ahead of those updated expectations across the board. While this is encouraging, consumption growth is still below our original forecast from the beginning of the year. Turning to non-Atlas revenue. Non-Atlas came in modestly ahead of our expectations in the quarter as we continue to have success selling incremental workloads into our existing customer base."
+  },
+  {
+   "en": "On a year-over-year basis, non-Atlas revenue was down 13% due to the especially difficult compare I referenced earlier. Turning to customer growth. During the second quarter, we grew our customer base by approximately 1,500 customers sequentially, bringing our total customer count to over 50,700, which is up from over 45,000 in the year-ago period. Of our total customer count, over 7,300 are direct sales customers, which compares to over 6,800 in the year-ago period.",
+   "zh": "按年计算，non-Atlas收入下降13%，原因是我之前提到的特别困难的对比。接下来看客户增长。在第二季度，我们的客户基数环比增加了约1,500个客户，使客户总数超过50,700个，高于去年同期的超过45,000个。在客户总数中，超过7,300个是直销客户，而去年同期超过6,800个。\n\nOn a year-over-year basis, non-Atlas revenue was down 13% due to the especially difficult compare I referenced earlier. Turning to customer growth. During the second quarter, we grew our customer base by approximately 1,500 customers sequentially, bringing our total customer count to over 50,700, which is up from over 45,000 in the year-ago period. Of our total customer count, over 7,300 are direct sales customers, which compares to over 6,800 in the year-ago period."
+  },
+  {
+   "en": "The growth in our total customer count is being driven primarily by Atlas, which had over 49,200 customers at the end of the quarter, compared to over 43,500 in the year-ago period. It is important to keep in mind that growth in our Atlas customer count reflects new customers to MongoDB in addition to existing EA customers adding incremental Atlas workloads. Continuing on. In Q2, our net AR expansion rate was approximately 119%.",
+   "zh": "我们的总客户数增长主要由Atlas驱动，该平台季度末客户超过49,200家，去年同期则超过43,500家。需注意的是，Atlas客户数增长既包括MongoDB的新客户，也涵盖现有EA客户增加Atlas工作负载的情况。接下来，第二季度我们的净AR扩张率约为119%。\n\nThe growth in our total customer count is being driven primarily by Atlas, which had over 49,200 customers at the end of the quarter, compared to over 43,500 in the year-ago period. It is important to keep in mind that growth in our Atlas customer count reflects new customers to MongoDB in addition to existing EA customers adding incremental Atlas workloads. Continuing on. In Q2, our net AR expansion rate was approximately 119%."
+  },
+  {
+   "en": "The decline versus historical periods is attributable to a smaller contribution from expanding customers. We ended the quarter with 2,189 customers with at least $100,000 in ARR and annualized MRR, up from 1,855 in the year-ago period. Moving down the income statement. I'll be discussing our results on a non-GAAP basis unless otherwise noted.",
+   "zh": "与历史时期相比的下降可归因于扩展客户贡献减少。本季度末，我们拥有2,189个年化ARR和MRR至少$100,000的客户，高于去年同期的1,855个。接下来看损益表。除非另有说明，我将基于non-GAAP基础讨论我们的业绩。\n\nThe decline versus historical periods is attributable to a smaller contribution from expanding customers. We ended the quarter with 2,189 customers with at least $100,000 in ARR and annualized MRR, up from 1,855 in the year-ago period. Moving down the income statement. I'll be discussing our results on a non-GAAP basis unless otherwise noted."
+  },
+  {
+   "en": "Gross profit in the second quarter was $360.8 million, representing a gross margin of 75%, which is down from 78% in the year-ago period. Our year-over-year margin decline is primarily driven by a lower mix of high-margin upfront license revenue compared to last Q2, as well as Atlas growing as a percentage of the overall business. Our income from operations was $52.5 million or an 11% operating margin for the second quarter, compared to a 19% margin in the year-ago period. The primary reason for a more favorable operating income results versus guidance is our revenue outperformance.",
+   "zh": "第二季度毛利润为3.608亿美元，毛利率为75%，低于去年同期的78%。毛利率同比下降主要源于与去年第二季度相比，高利润的首期许可收入占比降低，同时Atlas在整体业务中的占比上升。第二季度运营收入为5250万美元，运营利润率为11%，而去年同期为19%。运营收入表现好于预期的主要原因是收入超出预期。\n\nGross profit in the second quarter was $360.8 million, representing a gross margin of 75%, which is down from 78% in the year-ago period. Our year-over-year margin decline is primarily driven by a lower mix of high-margin upfront license revenue compared to last Q2, as well as Atlas growing as a percentage of the overall business. Our income from operations was $52.5 million or an 11% operating margin for the second quarter, compared to a 19% margin in the year-ago period. The primary reason for a more favorable operating income results versus guidance is our revenue outperformance."
+  },
+  {
+   "en": "In addition, Q2 operating income benefited from the timing of certain marketing and other spend, which we now expect to incur in the second half of the year. Net income in the second quarter was $59 million or $0.70 per share based on 83.8 million diluted weighted average shares outstanding. This compares to a net income of $76.7 million or $0.93 per share on 82.5 million diluted weighted average shares outstanding in the year-ago period. Turning to the balance sheet and cash flow.",
+   "zh": "此外，第二季度的营业收入得益于某些营销及其他支出的时间安排，这些支出我们预计将在下半年发生。第二季度净利润为5900万美元，按稀释后加权平均流通股8380万股计算，每股收益0.70美元。相比之下，去年同期净利润为7670万美元，按稀释后加权平均流通股8250万股计算，每股收益0.93美元。接下来看资产负债表和现金流。\n\nIn addition, Q2 operating income benefited from the timing of certain marketing and other spend, which we now expect to incur in the second half of the year. Net income in the second quarter was $59 million or $0.70 per share based on 83.8 million diluted weighted average shares outstanding. This compares to a net income of $76.7 million or $0.93 per share on 82.5 million diluted weighted average shares outstanding in the year-ago period. Turning to the balance sheet and cash flow."
+  },
+  {
+   "en": "We ended the second quarter with $2.3 billion in cash, cash equivalents, short-term investments and restricted cash. Operating cash flow in the second quarter was negative $1.4 million. After taking into consideration approximately $2.6 million in capital expenditures and principal repayments of finance lease liabilities, free cash flow was negative $4 million in the quarter. This compares to free cash flow of negative $27.3 million in the year-ago period.",
+   "zh": "我们第二季度结束时持有$2.3 billion现金、现金等价物、短期投资和受限制现金。第二季度经营活动现金流为负$1.4 million。考虑到约$2.6 million的资本支出和融资租赁负债的本金偿还后，本季度自由现金流为负$4 million。相比之下，上年同期自由现金流为负$27.3 million。\n\nWe ended the second quarter with $2.3 billion in cash, cash equivalents, short-term investments and restricted cash. Operating cash flow in the second quarter was negative $1.4 million. After taking into consideration approximately $2.6 million in capital expenditures and principal repayments of finance lease liabilities, free cash flow was negative $4 million in the quarter. This compares to free cash flow of negative $27.3 million in the year-ago period."
+  },
+  {
+   "en": "In addition, this quarter, we also received $170.6 million in cash from the settlement of the capped calls associated with our 2024 convertible notes. I'd now like to turn to our outlook for the third quarter and full fiscal year 2025. For the third quarter, we expect revenue to be in the range of $493 million to $497 million. We expect non-GAAP income from operations to be in the range of $57 million to $60 million and non-GAAP net income per share to be in the range of $0.65 to $0.68 based on 84.6 million estimated diluted weighted average shares outstanding.",
+   "zh": "此外，本季度我们通过与2024年可转换票据相关的封顶看涨期权结算获得了1.706亿美元现金。下面我将转向2025年第三季度及整个财年的展望。第三季度，我们预计营收在4.93亿至4.97亿美元之间。我们预计非GAAP运营利润在5700万至6000万美元之间，基于8460万股预估稀释加权平均流通股，非GAAP每股净收益在0.65至0.68美元之间。\n\n原文：\nIn addition, this quarter, we also received $170.6 million in cash from the settlement of the capped calls associated with our 2024 convertible notes. I'd now like to turn to our outlook for the third quarter and full fiscal year 2025. For the third quarter, we expect revenue to be in the range of $493 million to $497 million. We expect non-GAAP income from operations to be in the range of $57 million to $60 million and non-GAAP net income per share to be in the range of $0.65 to $0.68 based on 84.6 million estimated diluted weighted average shares outstanding."
+  },
+  {
+   "en": "For the full fiscal year 2025, we expect revenue to be in the range of $1.92 billion to $1.93 billion, non-GAAP income from operations to be in the range of $187 million to $195 million and non-GAAP net income per share to be in the range of $2.33 to $2.47 based on 84.3 million estimated diluted weighted average shares outstanding. Note that the non-GAAP net income per share guidance for the third quarter and full fiscal year 2025 includes a non-GAAP tax provision of approximately 20%. I'll now provide some context around our updated guidance. First, because of the stronger-than-expected Atlas consumption in Q2, our starting Atlas ARR for the back half of the year is higher than we anticipated in May.",
+   "zh": "对于2025整个财年，我们预计营收将在19.2亿至19.3亿美元之间，非GAAP运营收入将在1.87亿至1.95亿美元之间，基于8430万预计稀释加权平均流通股，非GAAP每股净利润将在2.33至2.47美元之间。请注意，第三季度和2025整个财年的非GAAP每股净利润指引包括约20%的非GAAP税项准备。现在我将就更新后的指引提供一些背景信息。首先，由于第二季度Atlas消耗强于预期，我们下半年初始Atlas ARR高于5月份的预期。\n\nFor the full fiscal year 2025, we expect revenue to be in the range of $1.92 billion to $1.93 billion, non-GAAP income from operations to be in the range of $187 million to $195 million and non-GAAP net income per share to be in the range of $2.33 to $2.47 based on 84.3 million estimated diluted weighted average shares outstanding. Note that the non-GAAP net income per share guidance for the third quarter and full fiscal year 2025 includes a non-GAAP tax provision of approximately 20%. I'll now provide some context around our updated guidance. First, because of the stronger-than-expected Atlas consumption in Q2, our starting Atlas ARR for the back half of the year is higher than we anticipated in May."
+  },
+  {
+   "en": "As a result, we're raising our Atlas revenue forecast to reflect that higher starting point. We are not changing our underlying Atlas Q3 and Q4 consumption growth rate assumptions. Second, we are slightly increasing our EA assumptions for the rest of the year to reflect the strength of the second half EA pipeline. Finally, thanks to the performance in Q2 and the increased revenue outlook, we now expect a 10% operating margin at the midpoint of our fiscal '25 guidance.",
+   "zh": "因此，我们上调了Atlas的收入预测，以反映这一更高的起点。我们并未改变对Atlas第三季度和第四季度潜在消费增长率的假设。其次，我们略微上调了今年剩余时间的EA假设，以反映下半年EA产品线的强劲表现。最后，得益于第二季度的业绩以及收入前景的提升，我们目前预计2025财年指引中点的营业利润率将达到10%。\n\nAs a result, we're raising our Atlas revenue forecast to reflect that higher starting point. We are not changing our underlying Atlas Q3 and Q4 consumption growth rate assumptions. Second, we are slightly increasing our EA assumptions for the rest of the year to reflect the strength of the second half EA pipeline. Finally, thanks to the performance in Q2 and the increased revenue outlook, we now expect a 10% operating margin at the midpoint of our fiscal '25 guidance."
+  },
+  {
+   "en": "We will continue investing to capture our long-term opportunity with a focus on our strategic priorities. Separately, although we don't provide guidance on cash flow, we wanted to call out two items that will impact fiscal '25 cash flow but benefit our long-term financial profile. In Q2, we started paying some of our cloud provider commitments upfront in exchange for better economics. We see this as a very low risk, high ROI use of our cash and one that will benefit our gross margin going forward.",
+   "zh": "我们将继续投资，以抓住长期机会，专注于战略重点。另外，虽然我们不提供现金流指引，但想指出两项将影响 fiscal '25 现金流但有利于我们长期财务状况的项目。在 Q2，我们开始提前支付部分 cloud provider 承诺，以换取更优的经济条件。我们认为这是对现金的极低风险、高 ROI 的运用，并将有利于我们未来的毛利率。\n\nWe will continue investing to capture our long-term opportunity with a focus on our strategic priorities. Separately, although we don't provide guidance on cash flow, we wanted to call out two items that will impact fiscal '25 cash flow but benefit our long-term financial profile. In Q2, we started paying some of our cloud provider commitments upfront in exchange for better economics. We see this as a very low risk, high ROI use of our cash and one that will benefit our gross margin going forward."
+  },
+  {
+   "en": "These prepayments will represent a negative impact to our operating cash flow in the back half of the year of roughly $20 million per quarter. In addition, in Q3, we will incur approximately $20 million to $25 million of capex to acquire IPv4 addresses, which will allow us to further reduce our cloud infrastructure costs in the future. To summarize, we're pleased with our second quarter results and especially our ability to win new business. We have a small share in one of the largest and fastest-growing markets in all of software.",
+   "zh": "这些预付款将对我们下半年的运营现金流产生负面影响，每季度约2000万美元。此外，在第三季度，我们将花费约2000万至2500万美元的资本支出以获取IPv4地址，这将使我们能够进一步降低未来的云基础设施成本。总之，我们对第二季度的业绩感到满意，尤其是我们赢得新业务的能力。我们在整个软件行业中最大且增长最快的市场中，仅占据一小部分份额。\n\nThese prepayments will represent a negative impact to our operating cash flow in the back half of the year of roughly $20 million per quarter. In addition, in Q3, we will incur approximately $20 million to $25 million of capex to acquire IPv4 addresses, which will allow us to further reduce our cloud infrastructure costs in the future. To summarize, we're pleased with our second quarter results and especially our ability to win new business. We have a small share in one of the largest and fastest-growing markets in all of software."
+  },
+  {
+   "en": "The secular tailwinds at our back are getting stronger in the age of AI, and we're excited about the future. We'll continue investing judiciously and focusing on our execution to capture this long-term opportunity. With that, we'd like to open it up to questions. Operator?",
+   "zh": "在人工智能时代，我们背后的长期顺风正变得越来越强劲，我们对未来感到兴奋。我们将继续审慎投资，专注于执行，以抓住这一长期机遇。接下来，我们想开放提问。接线员？\n\nThe secular tailwinds at our back are getting stronger in the age of AI, and we're excited about the future. We'll continue investing judiciously and focusing on our execution to capture this long-term opportunity. With that, we'd like to open it up to questions. Operator?"
+  },
+  {
+   "en": "Questions & Answers:",
+   "zh": "问题与解答：\nQuestions & Answers:"
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "[Operator instructions] And the first question today is going to come from Sanjit Singh of Morgan Stanley. Your line is open.",
+   "zh": "[操作员说明] 今天第一个问题来自摩根士丹利的Sanjit Singh。请提问。\n\n[Operator instructions] And the first question today is going to come from Sanjit Singh of Morgan Stanley. Your line is open."
+  },
+  {
+   "en": "Sanjit Singh--Analyst",
+   "zh": "Sanjit Singh--分析师\n\nSanjit Singh--Analyst"
+  },
+  {
+   "en": "Thank you for taking the questions, and congrats on Q2. Nice to see Mongo beating and raising again. Dev, I wanted to follow up on some of the changes that -- the operational changes you're making to the business that you announced last quarter. Just in terms of the update in terms of realigning some of the sales incentives to drive higher workload quality and while maintaining some of that record workload growth that you saw last year, could you sort of walk us through what you -- what the changes were that you put in place? And how much confidence do you have that you will drive better workload growth as we get into early next year?",
+   "zh": "感谢大家的提问，祝贺第二季度的表现。很高兴看到Mongo再次实现超预期并上调业绩指引。Dev，我想跟进您上季度宣布的一些业务运营调整。具体来说，在重新调整部分销售激励措施以推动更高工作负载质量、同时维持去年创纪录的工作负载增长方面，能否请您详细介绍您实施了哪些调整？您对明年年初实现更好的工作负载增长有多大信心？\n\nThank you for taking the questions, and congrats on Q2. Nice to see Mongo beating and raising again. Dev, I wanted to follow up on some of the changes that -- the operational changes you're making to the business that you announced last quarter. Just in terms of the update in terms of realigning some of the sales incentives to drive higher workload quality and while maintaining some of that record workload growth that you saw last year, could you sort of walk us through what you -- what the changes were that you put in place? And how much confidence do you have that you will drive better workload growth as we get into early next year?"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah, sure. So first of all, thanks, Sanjit. Just a reminder for everyone, we made some slight incentive comp changes to really get our reps to focus to have a little bit more balance on size versus volume of workloads acquired. These changes were well received by the field.",
+   "zh": "当然可以。首先，感谢你，Sanjit。提醒大家一下，我们对激励薪酬做了一些微调，目的是让我们的销售代表更注重在获取的工作负载规模与数量之间取得更好的平衡。这些调整在现场反响不错。\n\n原文：\nYeah, sure. So first of all, thanks, Sanjit. Just a reminder for everyone, we made some slight incentive comp changes to really get our reps to focus to have a little bit more balance on size versus volume of workloads acquired. These changes were well received by the field."
+  },
+  {
+   "en": "we had a good workload quarter, as you just described. Workloads start small, so it's too early -- while we're pleased with our results, obviously, it's too early to declare victory and to really see if this is going to have a material impact on changes, but clearly, we're happy with what we've seen so far.",
+   "zh": "我们度过了一个不错的工作负载季度，正如你所描述的。工作负载通常起步很小，所以现在说胜利还为时过早——尽管我们对目前的结果感到满意，但显然，宣布胜利并真正判断这是否会对变化产生实质性影响还为时过早。不过很明显，我们对目前看到的情况感到满意。\n\n原文：\nwe had a good workload quarter, as you just described. Workloads start small, so it's too early -- while we're pleased with our results, obviously, it's too early to declare victory and to really see if this is going to have a material impact on changes, but clearly, we're happy with what we've seen so far."
+  },
+  {
+   "en": "Sanjit Singh--Analyst",
+   "zh": "Sanjit Singh--分析师\n\nSanjit Singh--Analyst"
+  },
+  {
+   "en": "Right. And then, as a follow-up for Michael, I remember at the Q4 last year, you gave us the update on sort of the unused credit dynamics. As we start to think about the back half of this year, is there anything else that we should think about that -- I mean, you just mentioned some of the cash flow impacts just now. Is there anything on sort of like the revenue side of the equation that we should keep in mind? I kind of noticed, at the end of this year, there's just more holiday days in the quarter in Q4.",
+   "zh": "好的。接下来，作为对Michael的追问，我记得在去年第四季度，你曾向我们更新了关于未使用信贷动态的情况。当我们开始考虑今年下半年时，是否还有其他方面需要我们留意——我是说，你刚才提到了一些现金流影响。在收入端，有什么是我们应该记住的吗？我注意到，今年年底，第四季度的假日天数会更多。\n\n原文：\nRight. And then, as a follow-up for Michael, I remember at the Q4 last year, you gave us the update on sort of the unused credit dynamics. As we start to think about the back half of this year, is there anything else that we should think about that -- I mean, you just mentioned some of the cash flow impacts just now. Is there anything on sort of like the revenue side of the equation that we should keep in mind? I kind of noticed, at the end of this year, there's just more holiday days in the quarter in Q4."
+  },
+  {
+   "en": "Does that have an impact? Anything that we should be -- that you would like to call out in terms of our modeling when we think about expectations for Atlas more broadly going into the end of the year?",
+   "zh": "这会产生影响吗？在考虑Atlas今年余下时间的预期时，我们在建模方面需要注意哪些问题，您有什么想指出的吗？\n\nDoes that have an impact? Anything that we should be -- that you would like to call out in terms of our modeling when we think about expectations for Atlas more broadly going into the end of the year?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah, I think there are a few things to take into account that have been throughout the year but of course, are reflected in the updated guide. Specifically on Atlas, throughout the year, we have tough compares given the headwinds from the back of the unused commitments. That's, obviously, hardest. As the year goes on, that sort of number builds, so that makes for a tough year-over-year comparison.",
+   "zh": "是的，我认为有几个因素贯穿全年需要考虑，当然这些也反映在更新后的指引中。具体到Atlas，全年我们都面临严峻的同比对比，因为未使用承诺带来的逆风持续存在。这显然是最棘手的部分。随着时间推移，这类数字不断累积，使得同比比较变得更加困难。\n\n原文：Yeah, I think there are a few things to take into account that have been throughout the year but of course, are reflected in the updated guide. Specifically on Atlas, throughout the year, we have tough compares given the headwinds from the back of the unused commitments. That's, obviously, hardest. As the year goes on, that sort of number builds, so that makes for a tough year-over-year comparison."
+  },
+  {
+   "en": "I think, the other thing to think about in the context of Atlas is the ending year dynamic is really a compounding over the course of the year, as we talked about at the beginning of the year. We got off to a slower start and some of the prior-year workloads, those cohorts were growing at slower rates, and so that does affect and kind of compound over the course of the year. And so, I think that's important to keep in mind is factored -- and is factored into our guidance. And then, looking at the revenue picture more broadly, moving away from Atlas and thinking about EA, we've had throughout the year a headwind on EA, and we'll have that as a multiyear headwind in the back half as well.",
+   "zh": "我认为，在Atlas的背景下要考虑的另一件事是，年末动态实际上是在一年中不断累积的，正如我们年初所讨论的那样。年初我们起步较慢，部分前一年的工作量，即那些用户群的增长速度较慢，这确实会影响并在一年中累积。所以我认为重要的是要记住这一点——它已被纳入我们的指引。然后，更广泛地看收入情况，从Atlas转向考虑EA，我们在全年都面临EA的逆风，下半年也将继续面临这种持续多年的逆风。\n\nI think, the other thing to think about in the context of Atlas is the ending year dynamic is really a compounding over the course of the year, as we talked about at the beginning of the year. We got off to a slower start and some of the prior-year workloads, those cohorts were growing at slower rates, and so that does affect and kind of compound over the course of the year. And so, I think that's important to keep in mind is factored -- and is factored into our guidance. And then, looking at the revenue picture more broadly, moving away from Atlas and thinking about EA, we've had throughout the year a headwind on EA, and we'll have that as a multiyear headwind in the back half as well."
+  },
+  {
+   "en": "The only other thing, I think, I would call out is we saw a slower seasonal rebound in Q1, and so we're expecting that slower seasonal rebound to occur in Q3 as well. And then, as you mentioned, Q4 is a seasonally weaker quarter. And so, all those are some of the considerations to think about when you're thinking about the rest of the year.",
+   "zh": "我想指出的另一件事是，我们在Q1看到了季节性复苏较慢，因此预计Q3也会出现类似的缓慢季节性复苏。然后，正如你提到的，Q4是季节性的疲软季度。所以，在考虑今年剩余时间时，这些都是需要考虑的一些因素。\n\nThe only other thing, I think, I would call out is we saw a slower seasonal rebound in Q1, and so we're expecting that slower seasonal rebound to occur in Q3 as well. And then, as you mentioned, Q4 is a seasonally weaker quarter. And so, all those are some of the considerations to think about when you're thinking about the rest of the year."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "And our next question today will be coming from the line of Raimo Lenschow of Barclays. Your line is open.",
+   "zh": "我们今天的下一个问题来自巴克莱银行的Raimo Lenschow。您的线路已接通。\n\nAnd our next question today will be coming from the line of Raimo Lenschow of Barclays. Your line is open."
+  },
+  {
+   "en": "Raimo Lenschow--Analyst",
+   "zh": "Raimo Lenschow——分析师\n\nRaimo Lenschow--Analyst"
+  },
+  {
+   "en": "Thank you. And two quick questions from me. Michael, on the EA, you kind of talked about like a slightly better pipeline in the second half. Can you talk a little bit -- is that kind of still the continuation of what we saw in Q2, Q3 last year where people wanted to modernize their kind of self-service footprint ahead of the cloud to the -- move to the cloud or what's the dynamic there? And then, one for Dev.",
+   "zh": "谢谢。我有两个简短问题。Michael，关于EA，您提到下半年的管道略有改善。您能否谈谈——这是否仍是去年Q2、Q3趋势的延续，即人们希望在迁移到云端之前先现代化其自助服务足迹？目前的动态是怎样的？然后，有一个问题给Dev。\n\n原文：Thank you. And two quick questions from me. Michael, on the EA, you kind of talked about like a slightly better pipeline in the second half. Can you talk a little bit -- is that kind of still the continuation of what we saw in Q2, Q3 last year where people wanted to modernize their kind of self-service footprint ahead of the cloud to the -- move to the cloud or what's the dynamic there? And then, one for Dev."
+  },
+  {
+   "en": "Like there's a big debate about like reference architecture on AI. And I think it's a little bit too early, but it comes up with investors a lot. Like what are you seeing there? I know AI infrastructure, we're still in the early innings. But what are you seeing there in terms of people engaging with you? Good to see you back on track.",
+   "zh": "关于AI的参考架构，业内确实存在很大的争论。我认为现在讨论这个还为时过早，但投资者经常提起这个问题。您在那边观察到什么情况？我知道AI基础设施仍处于早期阶段，但在人们与您互动方面，您看到了什么？很高兴看到你重回正轨。\n\nLike there's a big debate about like reference architecture on AI. And I think it's a little bit too early, but it comes up with investors a lot. Like what are you seeing there? I know AI infrastructure, we're still in the early innings. But what are you seeing there in terms of people engaging with you? Good to see you back on track."
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Thanks, Raimo. On the EA question, I would say, there are lots of reasons why we are seeing strength of EA. I wouldn't uniquely or exclusively tie it to AI. I think, it's broadly in support and shows the strength of the run anywhere strategy.",
+   "zh": "谢谢，Raimo。关于EA的问题，我想说，我们看到EA表现强劲有很多原因。我不会将其单独或完全归因于AI。我认为，这广泛地得到了支持，并展示了run anywhere策略的实力。\n\n原文：Thanks, Raimo. On the EA question, I would say, there are lots of reasons why we are seeing strength of EA. I wouldn't uniquely or exclusively tie it to AI. I think, it's broadly in support and shows the strength of the run anywhere strategy."
+  },
+  {
+   "en": "The other thing that I'd call out is given the 606 dynamics as it relates to EA, we're always sensitive to sort of the multiyear aspect, and that's sort of what's provided, given the strength in multiyear in fiscal '24, some of the tough compares here in fiscal '25. I think, what we've seen in terms of the pipeline is strength in EA broadly, so not just a multiyear phenomenon but really sort of a volume phenomenon as well that we're seeing we kind of look out on the horizon, and that is reflected in the updated guide.",
+   "zh": "我想指出的另一点是，考虑到与EA相关的606动态，我们始终对多年期方面保持敏感，而这也是当前状况的反映——鉴于24财年多年期合同的强劲表现，25财年将面临一些艰难的同比比较。我认为，从管道情况来看，EA整体表现强劲，这不只是多年期现象，实际上也是一种量的现象，正如我们展望未来时所看到的，这一点已体现在最新的指引中。\n\nThe other thing that I'd call out is given the 606 dynamics as it relates to EA, we're always sensitive to sort of the multiyear aspect, and that's sort of what's provided, given the strength in multiyear in fiscal '24, some of the tough compares here in fiscal '25. I think, what we've seen in terms of the pipeline is strength in EA broadly, so not just a multiyear phenomenon but really sort of a volume phenomenon as well that we're seeing we kind of look out on the horizon, and that is reflected in the updated guide."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Thanks, and Raimo, on the question about AI, I think in terms of reference architectures, I think it's important to understand, and I said this in the prepared remarks, is that unlike most of the workloads, AI-driven workloads really require the underlying database to be capable of processing queries against very rich and complex data structures both quickly and efficiently. And MongoDB is well-positioned to do that. We can basically unify and handle source data, vector data, metadata, generated data from your LLM right alongside your live operational data. And then, as the performance of these LLMs and latency of these LLMs increase, accessing real-time data becomes really important like, say, you're calling and talking to a customer support chatbot, that you want that chatbot to have up-to-date information about that customer so that they can provide the most relevant and accurate information possible.",
+   "zh": "谢谢。Raimo，关于AI的问题，我认为在参考架构方面，理解这一点很重要，我在准备好的发言中也提到过：与大多数工作负载不同，AI驱动的工作负载真正要求底层数据库能够快速高效地处理针对极其丰富复杂的数据结构的查询。MongoDB在这方面具备良好优势。我们基本上可以统一处理源数据、向量数据、元数据、从你的LLM生成的数-据，并且与你的实时运营数据并存。然后，随着这些LLM性能和延迟的提升，访问实时数据变得非常重要——比如，当你与客户支持聊天机器人通话时，你希望该聊天机器人拥有关于该客户的最新信息，以便能提供最相关、最准确的信息。\n\n原文：\nThanks, and Raimo, on the question about AI, I think in terms of reference architectures, I think it's important to understand, and I said this in the prepared remarks, is that unlike most of the workloads, AI-driven workloads really require the underlying database to be capable of processing queries against very rich and complex data structures both quickly and efficiently. And MongoDB is well-positioned to do that. We can basically unify and handle source data, vector data, metadata, generated data from your LLM right alongside your live operational data. And then, as the performance of these LLMs and latency of these LLMs increase, accessing real-time data becomes really important like, say, you're calling and talking to a customer support chatbot, that you want that chatbot to have up-to-date information about that customer so that they can provide the most relevant and accurate information possible."
+  },
+  {
+   "en": "There are some questions about LLMs, whether a general-purpose LLM or a fine-tune LLM, what the trade-offs are. Our belief is that given the performance of LLMs, you're going to see the general purpose LLMs probably win and will use RAG as the predominant approach to marry generally available data with proprietary data. And then, you are starting to see things like advanced RAG use cases where you get much more sophisticated ways to ask complex questions, provide more accurate and detailed answers and better adapt to different types of information and queries. And so, that's what we're seeing.",
+   "zh": "关于大语言模型存在一些问题，无论是通用型大语言模型还是微调后的大语言模型，各自的权衡取舍是什么。我们相信，鉴于大语言模型的性能表现，通用型大语言模型很可能会胜出，并将采用RAG作为主要方式，将通用数据与专有数据结合。此外，你开始看到像高级RAG这样的用例，它们提供了更复杂的方式来提出复杂问题、给出更准确详细的答案，并更好地适应不同类型的信息和查询。这就是我们目前观察到的趋势。\n\nThere are some questions about LLMs, whether a general-purpose LLM or a fine-tune LLM, what the trade-offs are. Our belief is that given the performance of LLMs, you're going to see the general purpose LLMs probably win and will use RAG as the predominant approach to marry generally available data with proprietary data. And then, you are starting to see things like advanced RAG use cases where you get much more sophisticated ways to ask complex questions, provide more accurate and detailed answers and better adapt to different types of information and queries. And so, that's what we're seeing."
+  },
+  {
+   "en": "I think, it's a quickly evolving space, but we feel very good about our positioning for AI, even though it's still very early days.",
+   "zh": "我认为，这是一个快速发展的领域，尽管目前仍处于非常早期的阶段，但我们对我们在AI方面的定位感到非常满意。\n\nI think, it's a quickly evolving space, but we feel very good about our positioning for AI, even though it's still very early days."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "And our next question will be coming from Kash Rangan of Goldman Sachs. Your line is open.",
+   "zh": "下一个问题来自高盛的Kash Rangan。您的线路已接通。\n\nAnd our next question will be coming from Kash Rangan of Goldman Sachs. Your line is open."
+  },
+  {
+   "en": "Kash Rangan--Analyst",
+   "zh": "Kash Rangan--分析师  \nKash Rangan--Analyst"
+  },
+  {
+   "en": "That's perfect. I was about to call Raimo and say, \"Can you please explain reference architectures, and I'll buy you a nice glass of wine.\" So hopefully, he'll take me up on that offer because that was a very technical question. But anyway, coming back to the call here, Dev, a question for you. Why is EA doing so well? So you talked about a pipeline in the second half of the year.",
+   "zh": "太好了。我正准备给Raimo打电话说：“你能解释一下参考架构吗？我请你喝杯好酒。”希望他接受这个提议，因为那是个非常技术性的问题。不过，回到本次电话会议，Dev，有个问题想问你。为什么EA表现得这么好？你提到了今年下半年的项目储备。\n\n原文：That's perfect. I was about to call Raimo and say, \"Can you please explain reference architectures, and I'll buy you a nice glass of wine.\" So hopefully, he'll take me up on that offer because that was a very technical question. But anyway, coming back to the call here, Dev, a question for you. Why is EA doing so well? So you talked about a pipeline in the second half of the year."
+  },
+  {
+   "en": "Last year, you had some significant wins for EA. We were supposed to be on this cloud journey, so definitely, Atlas has reached parity in many senses. It can support big scale applications, whatnot. So curious to get your thoughts on why is EA still an important piece of the business.",
+   "zh": "去年，你在EA取得了一些重大胜利。我们本应踏上云端之旅，毫无疑问，Atlas在许多方面已实现同等水平。它能支持大规模应用等等。所以很想知道，为什么EA仍然是业务的重要组成部分。\nLast year, you had some significant wins for EA. We were supposed to be on this cloud journey, so definitely, Atlas has reached parity in many senses. It can support big scale applications, whatnot. So curious to get your thoughts on why is EA still an important piece of the business."
+  },
+  {
+   "en": "And I suppose when you look at AI, could something surprise us? I know that you've had this view that we're building infrastructure first and then the platform, then applications. Could it be, by any chance, a different way to approach AI in this cycle and that we don't really need applications, but somehow these LLMs are gonna be a perfect replacement for the way we think about old world applications? Just curious to see what the devil's advocate -- you might be somewhat very skeptical of the whole AI applications build-out on top of the infrastructure and platform.",
+   "zh": "我想当你审视人工智能时，会不会有什么事情让我们感到意外？我知道你一直以来的观点是，我们先构建基础设施，然后是平台，最后才是应用。有没有可能，在这个周期中，我们处理人工智能的方式会有所不同，我们其实并不需要应用，而这些大语言模型会完美取代我们看待旧世界应用的方式？我只是好奇想听听唱反调的观点——你或许对整个在基础设施和平台之上构建人工智能应用的做法相当怀疑。\n\nAnd I suppose when you look at AI, could something surprise us? I know that you've had this view that we're building infrastructure first and then the platform, then applications. Could it be, by any chance, a different way to approach AI in this cycle and that we don't really need applications, but somehow these LLMs are gonna be a perfect replacement for the way we think about old world applications? Just curious to see what the devil's advocate -- you might be somewhat very skeptical of the whole AI applications build-out on top of the infrastructure and platform."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah, so thanks, Kash. What I would just say is we did have a better-than-expected both Atlas and EA quarter. There's no question about that. I don't want to suddenly say there's some inflection point on EA in our business.",
+   "zh": "好的，谢谢Kash。我只想说，我们确实在Atlas和EA两个业务上取得了超出预期的季度表现。这一点毫无疑问。但我不想突然就说EA业务出现了某种转折点。\n\n原文：Yeah, so thanks, Kash. What I would just say is we did have a better-than-expected both Atlas and EA quarter. There's no question about that. I don't want to suddenly say there's some inflection point on EA in our business."
+  },
+  {
+   "en": "I think, I would really attribute it to, one, better execution, and two, customers do really appreciate our run anywhere strategy. There's still lots of customers, either for regulatory reasons or other reasons who want to run workloads on-premise and they're not going away. I mean, we've been in this cloud journey for 10 years and some workloads are just very hard to move to the cloud or some workloads, for many customers, don't make sense to work -- move to the cloud, at least not anytime soon. So the fact that they can build it on MongoDB and have the optionality to move it to the cloud later very easily is something that's very compelling for customers.",
+   "zh": "我认为，这主要归功于两点：一是执行力更强，二是客户确实非常欣赏我们的“随处运行”策略。仍有很多客户出于监管或其他原因，希望在本地运行工作负载，而这些需求不会消失。我的意思是，我们踏上云之旅已有10年，但某些工作负载很难迁移到云端，或者对许多客户来说，迁移到云端并不合理——至少短期内不会。因此，他们可以在MongoDB上构建应用，并保留日后轻松迁移到云端的选项，这对客户来说极具吸引力。\n\nI think, I would really attribute it to, one, better execution, and two, customers do really appreciate our run anywhere strategy. There's still lots of customers, either for regulatory reasons or other reasons who want to run workloads on-premise and they're not going away. I mean, we've been in this cloud journey for 10 years and some workloads are just very hard to move to the cloud or some workloads, for many customers, don't make sense to work -- move to the cloud, at least not anytime soon. So the fact that they can build it on MongoDB and have the optionality to move it to the cloud later very easily is something that's very compelling for customers."
+  },
+  {
+   "en": "With regards to AI, I mean, we predominantly see most of the AI workloads in the cloud, but there are definitely lots of customers who are looking at using open source LLMs, in particular, things like Llama, and running those workloads locally. Obviously, it means that they have -- also have to have access to NVIDIA hardware like GPUs, but we do see some customers do that. Again, I wouldn't suggest that that's also an inflection point or cause for the EA outperformance. I think, it's very, very early days, and most of those are experiments that customers are running.",
+   "zh": "关于AI，我认为我们主要看到大部分AI工作负载在云端进行，但确实有很多客户正在考虑使用开源大语言模型，尤其是像Llama这样的模型，并在本地运行这些工作负载。显然，这意味着他们还需要使用NVIDIA的硬件，比如GPU，我们确实看到一些客户这样做了。不过，我并不认为这足以构成一个转折点，或者导致EA表现超常的原因。我认为现在还为时过早，大多数仍处于客户试验阶段。\n\nWith regards to AI, I mean, we predominantly see most of the AI workloads in the cloud, but there are definitely lots of customers who are looking at using open source LLMs, in particular, things like Llama, and running those workloads locally. Obviously, it means that they have -- also have to have access to NVIDIA hardware like GPUs, but we do see some customers do that. Again, I wouldn't suggest that that's also an inflection point or cause for the EA outperformance. I think, it's very, very early days, and most of those are experiments that customers are running."
+  },
+  {
+   "en": "But clearly, we feel really good about run anywhere strategy. And as we've said in the past, we are investing in basically introducing Search and Vector Search to our community product, and that will then show up in EA. So EA is definitely an area where we are also investing from a product point of view.",
+   "zh": "但显然，我们对run anywhere策略感到非常满意。正如我们过去所说，我们正在投资将Search和Vector Search引入我们的community product，然后这将在EA中体现。所以从产品角度来看，EA确实是我们也在投资的领域。\n\nBut clearly, we feel really good about run anywhere strategy. And as we've said in the past, we are investing in basically introducing Search and Vector Search to our community product, and that will then show up in EA. So EA is definitely an area where we are also investing from a product point of view."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Our next question will be coming from the line of Tyler Radke of Citi. Your line is open.",
+   "zh": "下一个问题将来自Citi的Tyler Radke。请提问。\nOur next question will be coming from the line of Tyler Radke of Citi. Your line is open."
+  },
+  {
+   "en": "Tyler Radke--Citi -- Analyst",
+   "zh": "Tyler Radke--Citi--分析师  \nTyler Radke--Citi -- Analyst"
+  },
+  {
+   "en": "Hi, this is Tyler Radke. I think, the question was for me. Couldn't hear my name. Dev, you talked about a Postgres displacement in the quarter, and I think that's the first time you've talked about that at least in recent quarters.",
+   "zh": "你好，我是Tyler Radke。我认为这个问题是问我的，刚才没听到自己的名字。Dev，你谈到了本季度Postgres被替代的情况，呃，我记得这至少是最近几个季度里你第一次提到这个。\n\n原文：\nHi, this is Tyler Radke. I think, the question was for me. Couldn't hear my name. Dev, you talked about a Postgres displacement in the quarter, and I think that's the first time you've talked about that at least in recent quarters."
+  },
+  {
+   "en": "So was wondering if you could just sort of frame for us what use cases do you come across them? I know it is popular in terms of a SQL displacement for migrating out of legacy applications. But if you could just frame for us sort of the competitive environment in Postgres, both the open source stuff and some of the new venture-backed start-ups in the space.",
+   "zh": "所以想知道您能否为我们概括一下您遇到的使用场景？我知道它在将传统应用迁移至新系统时作为SQL替代方案很受欢迎。但您能否为我们梳理一下Postgres的竞争环境，包括开源部分和一些该领域新获得风投资助的初创公司？\n\nSo was wondering if you could just sort of frame for us what use cases do you come across them? I know it is popular in terms of a SQL displacement for migrating out of legacy applications. But if you could just frame for us sort of the competitive environment in Postgres, both the open source stuff and some of the new venture-backed start-ups in the space."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah, sure. Thanks for the question. Yes, it's important to understand that Postgres has been around for almost 40 years. I mean, it's -- Postgres, the name has turned from post ingress.",
+   "zh": "当然，谢谢你的提问。是的，需要了解Postgres已经存在了近40年。我的意思是，Postgres这个名字源自\"post ingress\"。\n\n原文：\nYeah, sure. Thanks for the question. Yes, it's important to understand that Postgres has been around for almost 40 years. I mean, it's -- Postgres, the name has turned from post ingress."
+  },
+  {
+   "en": "So that technology has been around a long time. As you said, they're really the beneficiary of lift and shift from Oracle, SQL Server and MySQL, so they're kind of consolidating the relational market. In terms of why do we compete or why do we win, I would say, it's a few things. One, our scheme of flexibility, it's a very -- MongoDB has a very flexible scheme allowing you to store documents in a JSON-like format.",
+   "zh": "这项技术已经存在很长时间了。正如你所说，他们实际上是从Oracle、SQL Server和MySQL的“迁移和转移”中受益，因此他们正在整合关系型数据库市场。至于我们为什么竞争或为什么能赢，我认为有几个原因。第一，我们的模式灵活性——MongoDB拥有非常灵活的模式，允许你以类似JSON的格式存储文档。\n\nSo that technology has been around a long time. As you said, they're really the beneficiary of lift and shift from Oracle, SQL Server and MySQL, so they're kind of consolidating the relational market. In terms of why do we compete or why do we win, I would say, it's a few things. One, our scheme of flexibility, it's a very -- MongoDB has a very flexible scheme allowing you to store documents in a JSON-like format."
+  },
+  {
+   "en": "So this is beneficial for application structures that evolve over time. We can horizontally scale, so we're making it very easy to distribute data across multiple servers or virtual servers for applications that require massive amounts of data. Performance of large data sets, again, we can handle that better than Postgres. The built-in chartings allows for automatic data distribution.",
+   "zh": "因此，这对于随时间演变的应用程序结构是有益的。我们可以水平扩展，因此对于需要大量数据的应用程序，我们使得跨多个服务器或虚拟服务器分发数据变得非常容易。大数据集的性能，同样，我们比Postgres处理得更好。内置的chartings允许自动数据分发。\n\n原文：So this is beneficial for application structures that evolve over time. We can horizontally scale, so we're making it very easy to distribute data across multiple servers or virtual servers for applications that require massive amounts of data. Performance of large data sets, again, we can handle that better than Postgres. The built-in chartings allows for automatic data distribution."
+  },
+  {
+   "en": "And then, we also, I think, developer productivity, that JSON-like format and flexible schema can lead to faster development cycles, especially for customers who really work in agile environments. So we feel like we compete. Our win rates against Postgres are high. But again, there's lots of decisions being made where we are not party to where people are just doing a lift and shift of a legacy platform or they just want to stay on relational because that's what they know.",
+   "zh": "此外，我认为开发者生产力方面，类似JSON的格式和灵活的Schema可以加快开发周期，尤其适用于真正在敏捷环境中工作的客户。所以我们认为自己具有竞争力。我们对阵Postgres的胜率很高。但同样，在许多决策中我们并未参与，比如人们只是简单地将传统平台进行直接迁移，或者他们只想留在关系型数据库，因为那是他们熟悉的东西。\n\n原文：\nAnd then, we also, I think, developer productivity, that JSON-like format and flexible schema can lead to faster development cycles, especially for customers who really work in agile environments. So we feel like we compete. Our win rates against Postgres are high. But again, there's lots of decisions being made where we are not party to where people are just doing a lift and shift of a legacy platform or they just want to stay on relational because that's what they know."
+  },
+  {
+   "en": "And obviously, it's our job to educate them on the benefits of MongoDB, but we feel good about our competitive position against Postgres.",
+   "zh": "显然，我们有责任教育他们了解MongoDB的优势，但我们对与Postgres的竞争地位感到乐观。\n\nAnd obviously, it's our job to educate them on the benefits of MongoDB, but we feel good about our competitive position against Postgres."
+  },
+  {
+   "en": "Tyler Radke--Citi -- Analyst",
+   "zh": "Tyler Radke--Citi--分析师  \nTyler Radke--Citi -- Analyst"
+  },
+  {
+   "en": "And a follow-up question for Michael. You talked about how consumption in Atlas in the quarter tracked a bit better than planned. It sounds like it was not a macro-related improvement. What do you think the driver of that was? And are you seeing any improvement in some of the recently acquired workloads, those starting to ramp up better? Or maybe they have different seasonal patterns than you thought.",
+   "zh": "还有一个补充问题要问Michael。你提到本季度Atlas的消费情况略好于预期。听起来这并非宏观因素相关的改善。你认为背后的驱动因素是什么？另外，你是否看到近期收购的一些工作负载有所改善，它们开始更好地增长了吗？或者，它们的季节性模式可能与你原先设想的不同。\n\n原文：\nAnd a follow-up question for Michael. You talked about how consumption in Atlas in the quarter tracked a bit better than planned. It sounds like it was not a macro-related improvement. What do you think the driver of that was? And are you seeing any improvement in some of the recently acquired workloads, those starting to ramp up better? Or maybe they have different seasonal patterns than you thought."
+  },
+  {
+   "en": "Any color on sort of that driver of outperformance would be helpful.",
+   "zh": "能提供一些关于那个跑赢大盘的驱动因素的细节会很有帮助。\n\nAny color on sort of that driver of outperformance would be helpful."
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah, sure. I would say that, yes, Q2 consumption growth was better than our expectations. That was great to see. I would describe it as within a reasonable or typical range of outcomes, and so there are no signs that we've seen that would specifically point to anything -- any material changes in the underlying macroeconomic environment better or worse.",
+   "zh": "好的，当然。我想说，第二季度的消费增长确实好于我们的预期，这令人欣喜。我会将其描述为处于合理或典型的预期结果范围内，因此我们没有看到任何迹象表明基础宏观经济环境发生了任何实质性的好转或恶化。\n\nYeah, sure. I would say that, yes, Q2 consumption growth was better than our expectations. That was great to see. I would describe it as within a reasonable or typical range of outcomes, and so there are no signs that we've seen that would specifically point to anything -- any material changes in the underlying macroeconomic environment better or worse."
+  },
+  {
+   "en": "We've certainly seen -- to your question on sort of the workloads and sort of some of the cohorting, we did see a little better performance there as well and in line with what we saw elsewhere, but they're still below our original expectations. So I think that's probably the key couple of things there.",
+   "zh": "关于您提到的工作负载和分组情况，我们确实看到了一些改善，表现与其他领域一致，但整体仍低于我们最初的预期。所以我认为这可能是需要关注的重点。\n\nWe've certainly seen -- to your question on sort of the workloads and sort of some of the cohorting, we did see a little better performance there as well and in line with what we saw elsewhere, but they're still below our original expectations. So I think that's probably the key couple of things there."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Our next question for today will be coming from Brad Reback of Stifel. Your line is open.",
+   "zh": "今天的下一个问题来自Stifel的Brad Reback。请提问。\n\nOur next question for today will be coming from Brad Reback of Stifel. Your line is open."
+  },
+  {
+   "en": "Brad Reback--Analyst",
+   "zh": "Brad Reback--分析师  \nBrad Reback--Analyst"
+  },
+  {
+   "en": "Thanks very much. Dev, on your commentary around the modernization pilots, how should we think about timing of that being a bit of a tailwind to the overall growth rate?",
+   "zh": "非常感谢。Dev，在你关于现代化试点的评论中，我们应该如何看待这成为整体增长率的一个小幅推动力的时机？\n\nThanks very much. Dev, on your commentary around the modernization pilots, how should we think about timing of that being a bit of a tailwind to the overall growth rate?"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah. So again, just to make sure everyone understands, the legacy relational application market or database market is quite large. It's over 80 billion, and it's a massive opportunity for us. And since day one, since our IPO, we've been getting customers to migrate off relational to MongoDB.",
+   "zh": "是的。再次重申，为了让每个人都能理解，传统关系型应用市场或数据库市场非常庞大，超过800亿美元，这对我们来说是一个巨大的机遇。从第一天开始，自从我们IPO以来，我们一直在引导客户从关系型数据库迁移到MongoDB。\n\n原文：\nYeah. So again, just to make sure everyone understands, the legacy relational application market or database market is quite large. It's over 80 billion, and it's a massive opportunity for us. And since day one, since our IPO, we've been getting customers to migrate off relational to MongoDB."
+  },
+  {
+   "en": "But one of the biggest friction points has been that while it's easy to move the data, you can map the schema from a relational schema to a document schema and you can automate that, the biggest stumbling block is that the customer has to or some third party has to rewrite the application, which, by definition, creates more costs, more time and in some cases, more risk especially for older apps, where the development teams who built those apps no longer exist. So what's been compelling about AI is that AI has finally created a shortcut to overcome that big hurdle. And so, essentially, you can start basically diagnosing the code, understand the code, recreate a modern version of that code and generate test suites to make sure the new code performs like the old code. So that definitely gets people's interest because now, all of a sudden, what may take years or multiyears, you can do in a lot less time.",
+   "zh": "但其中一个最大的难点在于，虽然数据迁移很容易，你可以将关系型模式映射到文档模式并实现自动化，但最大的障碍是客户或第三方必须重写应用程序，这本身就意味着更高的成本、更长的时间，甚至对某些老旧应用而言风险更大——尤其是当开发这些应用的团队已经不存在时。而AI的吸引力在于，它终于为跨越这一障碍提供了捷径。实际上，你可以开始诊断代码、理解代码、重构现代化版本的代码，并生成测试套件以确保新代码的性能与旧代码一致。这无疑引发了人们的兴趣，因为原本需要数年甚至更久的事情，现在可以用更短的时间完成。\n\n原文：\nBut one of the biggest friction points has been that while it's easy to move the data, you can map the schema from a relational schema to a document schema and you can automate that, the biggest stumbling block is that the customer has to or some third party has to rewrite the application, which, by definition, creates more costs, more time and in some cases, more risk especially for older apps, where the development teams who built those apps no longer exist. So what's been compelling about AI is that AI has finally created a shortcut to overcome that big hurdle. And so, essentially, you can start basically diagnosing the code, understand the code, recreate a modern version of that code and generate test suites to make sure the new code performs like the old code. So that definitely gets people's interest because now, all of a sudden, what may take years or multiyears, you can do in a lot less time."
+  },
+  {
+   "en": "And the pilots that we have done, the time and cost savings have been very, very compelling. That being said, we're in the very early days. There's a lot of interest. We have a growing pipeline of customers across, frankly, all parts of the world from North America to EMEA and even the Pac Rim.",
+   "zh": "我们完成的试点项目在时间和成本上的节省非常非常显著。不过，我们仍处于非常早期的阶段。市场兴趣浓厚。坦白说，我们在全球各地的客户管道都在不断增长，从北美到EMEA，甚至包括环太平洋地区。\n\nAnd the pilots that we have done, the time and cost savings have been very, very compelling. That being said, we're in the very early days. There's a lot of interest. We have a growing pipeline of customers across, frankly, all parts of the world from North America to EMEA and even the Pac Rim."
+  },
+  {
+   "en": "And so, we're quite excited about the opportunity. But again, I would say, it's very early days. But there's a number of reasons why I would say that customers are very focused on this. What -- the cost of licensing and maintaining legacy apps, is it becoming too high to bear? In many cases, the regulatory and compliance requirements are forcing customers to upgrade.",
+   "zh": "因此，我们对这一机会感到非常兴奋。但我要再次强调，目前仍处于非常早期的阶段。不过，我认为客户如此关注这一点有多重原因。比如，传统应用的许可和维护成本是否变得难以承受？在许多情况下，监管与合规要求正迫使客户进行升级。\n\nAnd so, we're quite excited about the opportunity. But again, I would say, it's very early days. But there's a number of reasons why I would say that customers are very focused on this. What -- the cost of licensing and maintaining legacy apps, is it becoming too high to bear? In many cases, the regulatory and compliance requirements are forcing customers to upgrade."
+  },
+  {
+   "en": "There's a whole end of life of critical technologies. Notably side base is forcing customers to act. There's a ton of technical depth on these legacy platforms that limits the organization's flexibility to do things with AI. And candidly, customers have also soured on the traditional approach of using large systems integration projects that are very costly and take a long time.",
+   "zh": "关键技术的整个生命周期结束了。特别是side base正在迫使客户采取行动。这些遗留平台上有着大量的技术深度，限制了组织在AI方面做事情的灵活性。坦率地说，客户也已经对使用昂贵且耗时的大型系统集成项目的传统方式感到厌倦。\n\nThere's a whole end of life of critical technologies. Notably side base is forcing customers to act. There's a ton of technical depth on these legacy platforms that limits the organization's flexibility to do things with AI. And candidly, customers have also soured on the traditional approach of using large systems integration projects that are very costly and take a long time."
+  },
+  {
+   "en": "So this whole approach is definitely getting their attention.",
+   "zh": "所以这整个方法确实引起了他们的注意。\nSo this whole approach is definitely getting their attention."
+  },
+  {
+   "en": "Brad Reback--Analyst",
+   "zh": "Brad Reback--分析师  \nBrad Reback--Analyst"
+  },
+  {
+   "en": "That's great. And then, one fast follow-up. It feels like we've spoken about EA more than typical on this call, which is great. As we think about the back half pipeline, is the composition similar insomuch as it's predominantly existing customers? Or are you beginning to see an uptick in net new customers there as well?",
+   "zh": "太好了。接下来，还有一个快速追问。感觉这次电话会议中我们谈论EA比平时多，这很好。当我们考虑下半年管道时，其构成是否类似，即主要是现有客户？还是也开始看到净新客户有所增加？\n\nThat's great. And then, one fast follow-up. It feels like we've spoken about EA more than typical on this call, which is great. As we think about the back half pipeline, is the composition similar insomuch as it's predominantly existing customers? Or are you beginning to see an uptick in net new customers there as well?"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah. I would say that it's predominantly existing customers that are doing this, where -- who are maybe doubling down on EA and expanding the footprint to EA. And that's typically the driver for our EA business.",
+   "zh": "是的。我想说，主要是现有客户在进行这项操作，他们可能在EA上加大投入并扩大EA的业务覆盖范围。而这通常是我们EA业务的驱动力。\n\n原文：Yeah. I would say that it's predominantly existing customers that are doing this, where -- who are maybe doubling down on EA and expanding the footprint to EA. And that's typically the driver for our EA business."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Our next question will be coming from Karl Keirstead of UBS. Your line is open.",
+   "zh": "我们的下一个问题来自瑞银的Karl Keirstead。请开始提问。  \nOur next question will be coming from Karl Keirstead of UBS. Your line is open."
+  },
+  {
+   "en": "Karl Keirstead--Analyst",
+   "zh": "Karl Keirstead--分析师  \nKarl Keirstead--Analyst"
+  },
+  {
+   "en": "OK. Great. Hey, Dev, at the beginning of the call, you mentioned that Mongo's slow start to the year was \"purely operational\" but on the Q1 call, when you were describing what happened, you described it as very much a broad based macro issue. So I'm curious, should I interpret that comment as you, Mike and the team have done a bit of a rethink and might be changing modestly at least your explanation about the Q1 results?",
+   "zh": "好的。嘿，Dev，在电话会议开始时，你提到Mongo今年的开局缓慢是“纯运营层面的”，但在第一季度电话会议上，当你描述发生的事情时，你描述为非常广泛的宏观问题。所以我很好奇，我是否应该将你的评论理解为，你、Mike和团队进行了一些反思，可能至少是在适度改变对第一季度结果的解释？\n\nOK. Great. Hey, Dev, at the beginning of the call, you mentioned that Mongo's slow start to the year was \"purely operational\" but on the Q1 call, when you were describing what happened, you described it as very much a broad based macro issue. So I'm curious, should I interpret that comment as you, Mike and the team have done a bit of a rethink and might be changing modestly at least your explanation about the Q1 results?"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah. Actually, just to be clear, I think just to make sure everyone understands, what we called out was that the consumption of existing workloads was broad based. The slowdown was broad based across both geos and channels. It was new business.",
+   "zh": "是的。实际上，为了说清楚，我想确保每个人都理解，我们指出的问题是，现有工作负载的消耗是广泛的。而放缓是跨地区和跨渠道的广泛现象。这是新业务方面的放缓。\n\nYeah. Actually, just to be clear, I think just to make sure everyone understands, what we called out was that the consumption of existing workloads was broad based. The slowdown was broad based across both geos and channels. It was new business."
+  },
+  {
+   "en": "It just got off to a slower start. So that was what we called out in our Q1 call. And with our Q2 call and results, as you can see, new business performed better as expected -- than expected on both Atlas and EA, which is why we believe the Q1 issue was an operational issue, not a -- Q1 new business, sorry, was a operational issue, not a macro issue. The macro issue was all about the slowdown in consumption because Q1 typically tends to be a seasonally strong quarter for us, and that didn't happen.",
+   "zh": "它只是起步较慢。这就是我们在Q1电话会议中指出的问题。而随着Q2电话会议和业绩的公布，如您所见，Atlas和EA的新业务表现均好于预期，因此我们认为Q1的问题是一个运营问题，而不是——对不起，Q1新业务的问题是一个运营问题，而不是宏观问题。宏观问题在于消费放缓，因为Q1通常是我们季节性强势的季度，但这次并没有出现。\n\nIt just got off to a slower start. So that was what we called out in our Q1 call. And with our Q2 call and results, as you can see, new business performed better as expected -- than expected on both Atlas and EA, which is why we believe the Q1 issue was an operational issue, not a -- Q1 new business, sorry, was a operational issue, not a macro issue. The macro issue was all about the slowdown in consumption because Q1 typically tends to be a seasonally strong quarter for us, and that didn't happen."
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah, I think that's really important, Karl. Just to keep in mind, when we talk about macro, it could have those two different effects, right, the new business piece and then the expansion of existing workloads. And so, what we were talking about, as Dev said, in Q1 was the existing workload expansion. The operational piece was on the new business side.",
+   "zh": "是的，我认为这非常重要，Karl。需要记住的是，当我们讨论宏观趋势时，它可能产生两种不同的影响，对吧？一是新业务部分，二是现有工作负载的扩展。正如Dev所说，我们在第一季度谈论的是现有工作负载的扩展，而运营层面则涉及新业务领域。\n\nYeah, I think that's really important, Karl. Just to keep in mind, when we talk about macro, it could have those two different effects, right, the new business piece and then the expansion of existing workloads. And so, what we were talking about, as Dev said, in Q1 was the existing workload expansion. The operational piece was on the new business side."
+  },
+  {
+   "en": "And I think the key thing that we've observed really in a wide range of macroeconomic conditions in our almost seven years as a public company is with the exception of that one quarter we've been able to execute quite well in the new business opportunity really in most environments given that we have a huge market, relatively low share, strong product and a talented team that executes well. And so, I think that's probably helpful just to understand as we're sort of using the terms just to make sure we don't trip ourselves up.",
+   "zh": "我认为，在我们作为上市公司的近七年时间里，我们在各种宏观经济环境中观察到的关键一点是，除了那一个季度之外，我们能够在大多数环境中很好地执行新业务机会，因为我们拥有巨大的市场、相对较低的份额、强大的产品和执行出色的优秀团队。因此，我认为这有助于理解我们在使用术语时要确保不让自己陷入困境。\n\n原文：\nAnd I think the key thing that we've observed really in a wide range of macroeconomic conditions in our almost seven years as a public company is with the exception of that one quarter we've been able to execute quite well in the new business opportunity really in most environments given that we have a huge market, relatively low share, strong product and a talented team that executes well. And so, I think that's probably helpful just to understand as we're sort of using the terms just to make sure we don't trip ourselves up."
+  },
+  {
+   "en": "Karl Keirstead--Analyst",
+   "zh": "Karl Keirstead--分析师  \nKarl Keirstead--Analyst"
+  },
+  {
+   "en": "Yeah, that's great. And then, my follow-up for you, Mike, is when you were pressed in prior questions about the second half, most of the variables that you brought up were, frankly, headwinds, things like tough compares. But if I look objectively at your 3Q total revenue guide of $497 million -- and this is my assumption, but I assume kind of a normal beat. That's going to result in sequential total revenue growth.",
+   "zh": "是的，这很好。那么，Mike，我的后续问题是，之前你在回答关于下半年的问题时，提到的变量坦白说大多是逆风因素，比如艰难的同比基数。但客观来看，你们第三季度的总收入指引为4.97亿美元——这是我的假设，我假设会是一个正常的超预期表现。这将带来总收入的环比增长。\n\n原文：\nYeah, that's great. And then, my follow-up for you, Mike, is when you were pressed in prior questions about the second half, most of the variables that you brought up were, frankly, headwinds, things like tough compares. But if I look objectively at your 3Q total revenue guide of $497 million -- and this is my assumption, but I assume kind of a normal beat. That's going to result in sequential total revenue growth."
+  },
+  {
+   "en": "That's actually the highest, I think, that MongoDB has ever put up. So clearly, there's something good that you're embedding in that 3Q guide. What is that specifically?",
+   "zh": "我认为，这实际上是MongoDB有史以来给出的最高数字。显然，你们在第三季度指南中嵌入了一些好的东西。具体是什么呢？\n\nThat's actually the highest, I think, that MongoDB has ever put up. So clearly, there's something good that you're embedding in that 3Q guide. What is that specifically?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah. So I'm not sure I follow all the math on the fly, and I'll -- happy to follow up, obviously, with any of that. But if I just think about the Q3 guide, I won't belabor the headwinds, but they exist and we've sort of been through those, as you've called out. But maybe to talk about the couple of positive things that we see that lead to sort of our improved outlook or increased revenue forecast for the balance of the year, I'd say, it's really two things.",
+   "zh": "好的。我不确定能否立刻跟上所有的计算，不过我很乐意后续再跟进这些问题。但如果我们单看第三季度的指引，我不想过多强调那些不利因素，但正如你指出的，它们确实存在，我们也经历过了。不过，或许可以谈谈我们看到的几个积极因素，这让我们对全年剩余时间的展望有所改善，或者说收入预期上调，我觉得主要是两点。\n\n原文：\nYeah. So I'm not sure I follow all the math on the fly, and I'll -- happy to follow up, obviously, with any of that. But if I just think about the Q3 guide, I won't belabor the headwinds, but they exist and we've sort of been through those, as you've called out. But maybe to talk about the couple of positive things that we see that lead to sort of our improved outlook or increased revenue forecast for the balance of the year, I'd say, it's really two things."
+  },
+  {
+   "en": "In Atlas, it's reflecting the stronger-than-expected Q2 and therefore, the starting ARR at the beginning of Q3 is higher. Because we haven't seen any change in the underlying macro, the actual growth assumptions for Q3 and Q4 we have remained unchanged, and so you're supplying growth to a higher base. But as the base keeps getting bigger and bigger, that does matter and that flows through. And then, secondly was the positive impact of the increased strength in the EA pipeline for the second half of the year and the impact on that revenue.",
+   "zh": "在Atlas中，这反映了第二季度表现强于预期，因此第三季度初的起始ARR更高。由于我们未观察到宏观基本面有任何变化，第三和第四季度的实际增长假设保持不变，因此增长是建立在一个更高的基数之上。但随着基数不断扩大，这确实会产生影响，并会传导下去。其次，EA管道在下半年的增强对收入产生了积极影响。\n\n原文：\nIn Atlas, it's reflecting the stronger-than-expected Q2 and therefore, the starting ARR at the beginning of Q3 is higher. Because we haven't seen any change in the underlying macro, the actual growth assumptions for Q3 and Q4 we have remained unchanged, and so you're supplying growth to a higher base. But as the base keeps getting bigger and bigger, that does matter and that flows through. And then, secondly was the positive impact of the increased strength of the EA pipeline for the second half of the year and the impact on that revenue."
+  },
+  {
+   "en": "So those probably will be the two things that I'd call out on the positive side of the revenue in addition to, of course, having everyone keep in mind the tough compare and some of the headwinds we talked about.",
+   "zh": "所以，除了当然要让大家记住我们谈到的艰难对比和一些不利因素之外，这些可能是我在收入积极方面要指出的两件事。\n\nSo those probably will be the two things that I'd call out on the positive side of the revenue in addition to, of course, having everyone keep in mind the tough compare and some of the headwinds we talked about."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Our next question will be coming from Jason Ader of William Blair. Your line is open.",
+   "zh": "我们的下一个问题来自William Blair的Jason Ader。您的线路已经接通。\n\nOur next question will be coming from Jason Ader of William Blair. Your line is open."
+  },
+  {
+   "en": "Jason Ader--Analyst",
+   "zh": "Jason Ader——分析师\n\nJason Ader--Analyst"
+  },
+  {
+   "en": "Yeah, thank you. I'm trying to understand the Q4 implied revenue guide, Michael. Just the implied sequential growth there is only 1.5%. If I look at your full year relative to what you said specifically on Q3, that would be well below the historical seasonal pattern in Q4.",
+   "zh": "是的，谢谢。Michael，我想了解一下第四季度隐含的收入指引。仅从隐含的环比增长来看，只有1.5%。如果我把你们全年的情况与你第三季度具体所说的相比较，那将远低于第四季度的历史季节性模式。\n\n原文：Yeah, thank you. I'm trying to understand the Q4 implied revenue guide, Michael. Just the implied sequential growth there is only 1.5%. If I look at your full year relative to what you said specifically on Q3, that would be well below the historical seasonal pattern in Q4."
+  },
+  {
+   "en": "So I just want to understand, is there something going on in Q4 that's different? Just sequential -- I understand the year over year is tough, but the sequential seem well below where you've normally been. And is there something specific that we should think about there?",
+   "zh": "我只是想了解一下，第四季度有什么不同吗？单看环比——我理解同比数据比较艰难，但环比数字似乎远低于你们平时的水平。有什么具体的事情是我们应该考虑的吗？\n\nSo I just want to understand, is there something going on in Q4 that's different? Just sequential -- I understand the year over year is tough, but the sequential seem well below where you've normally been. And is there something specific that we should think about there?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah, I think there are two things. So obviously, it sounds like you get the year over year, but just to make sure everyone is sort of on the same page, is making sure that people understand the tough compare for Atlas specifically around the unused commitments and then EA, the multiyear. And then, more broadly, we had one -- we had less growth in Q1. That compounds.",
+   "zh": "是的，我认为有两点需要注意。显然，您已经理解了同比情况，但为了确保大家信息一致，需要明确让大家了解Atlas在未使用承诺及EA多年期项目方面面临的艰难对比。更广泛地说，我们在第一季度增长放缓，这加剧了问题。\n\n原文：\nYeah, I think there are two things. So obviously, it sounds like you get the year over year, but just to make sure everyone is sort of on the same page, is making sure that people understand the tough compare for Atlas specifically around the unused commitments and then EA, the multiyear. And then, more broadly, we had one -- we had less growth in Q1. That compounds."
+  },
+  {
+   "en": "And then also, we talked about how we have -- we are assuming -- just in the same way that we saw in Q1, we're assuming less of a seasonal rebound in Q3. That has implications for Q4.",
+   "zh": "此外，我们还谈到，正如我们在Q1所见，我们假设Q3的季节性反弹会减弱。这对Q4也有影响。\n\n原文：And then also, we talked about how we have -- we are assuming -- just in the same way that we saw in Q1, we're assuming less of a seasonal rebound in Q3. That has implications for Q4."
+  },
+  {
+   "en": "Jason Ader--Analyst",
+   "zh": "Jason Ader——分析师\n\nJason Ader--Analyst"
+  },
+  {
+   "en": "Gotcha. OK. And then, just one quick follow-up on gross margins. Did you talk about Atlas gross margins in the quarter? And then, how material will the impact be from the prepayments and the IPv4 purchases on Atlas gross margins over time?",
+   "zh": "明白了。好的。然后，就毛利率再快速追问一个问题。你谈到了本季度Atlas的毛利率吗？另外，预付款和IPv4购买对Atlas毛利率的长期影响会有多大？\n\nGotcha. OK. And then, just one quick follow-up on gross margins. Did you talk about Atlas gross margins in the quarter? And then, how material will the impact be from the prepayments and the IPv4 purchases on Atlas gross margins over time?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah, so we didn't specifically break out Atlas gross margin in the quarter, but they continue to be lower. But obviously, we've pretty significantly shrunk the delta. That does explain some of the comparison on a year-over-year basis. We didn't give specific guidance going forward.",
+   "zh": "是的，我们没有在本季度单独列出Atlas的毛利率，但它们仍然较低。不过很明显，我们已大幅缩小了差距。这确实解释了同比比较中的部分情况。我们没有给出未来的具体指引。\n\n原文：\nYeah, so we didn't specifically break out Atlas gross margin in the quarter, but they continue to be lower. But obviously, we've pretty significantly shrunk the delta. That does explain some of the comparison on a year-over-year basis. We didn't give specific guidance going forward."
+  },
+  {
+   "en": "If you think about the two changes that we called out on the cash flow side, those will benefit us in terms of gross margin. There won't be a significant benefit in fiscal '25. So we'll, obviously, talk about that more when we get to the fiscal '26 guide. But it's a very excellent use of our cash and good ROI in terms of improving those economics further.",
+   "zh": "关于我们之前在现金流方面提到的两个变化，它们将为我们的毛利率带来好处。在2025财年，不会有显著收益。显然，我们会在讨论2026财年指引时进一步谈及此事。但这是对我们现金的极佳运用，并且在进一步改善这些经济指标方面具有良好的投资回报率。\n\n原文：If you think about the two changes that we called out on the cash flow side, those will benefit us in terms of gross margin. There won't be a significant benefit in fiscal '25. So we'll, obviously, talk about that more when we get to the fiscal '26 guide. But it's a very excellent use of our cash and good ROI in terms of improving those economics further."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "And our next question will be coming from Brad Sills of Bank of America.",
+   "zh": "下一个提问来自美国银行的Brad Sills。\n\nAnd our next question will be coming from Brad Sills of Bank of America."
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "Great. Thank you so much. Great to hear the continued strength in new workloads here. That's been very consistent theme here throughout all this.",
+   "zh": "很好。非常感谢。很高兴听到这里新工作负载持续强劲。这在整个过程中一直是一个非常一致的主题。\n\nGreat. Thank you so much. Great to hear the continued strength in new workloads here. That's been very consistent theme here throughout all this."
+  },
+  {
+   "en": "I did want to ask about some of the newer services like vector and stream processing. How are those contributing to the strength you're seeing in -- or sustained strength you're seeing in new workloads?",
+   "zh": "我确实想问一下一些较新的服务，比如vector和stream processing。这些服务如何促使你所看到的——或者说你在新工作负载中看到的持续增长？\n\nI did want to ask about some of the newer services like vector and stream processing. How are those contributing to the strength you're seeing in -- or sustained strength you're seeing in new workloads?"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah, Brad, thanks for the question. So in terms of Search, we're seeing solid momentum in Search. We are having success with that business. It's starting to grow, and we just introduced a new capability called Search Nodes, which allows customers to optimize their search deployments by asymmetrically scaling specific nodes dedicated for Search versus the rest of the nodes on their cluster.",
+   "zh": "嗯，Brad，谢谢你的提问。关于搜索业务，我们看到其势头稳健。这项业务表现良好，正开始增长。我们刚刚推出了一项新功能，名为Search Nodes，它允许客户通过非对称扩展集群中专用于搜索的节点与其他节点，来优化其搜索部署。\n\n原文：\nYeah, Brad, thanks for the question. So in terms of Search, we're seeing solid momentum in Search. We are having success with that business. It's starting to grow, and we just introduced a new capability called Search Nodes, which allows customers to optimize their search deployments by asymmetrically scaling specific nodes dedicated for Search versus the rest of the nodes on their cluster."
+  },
+  {
+   "en": "It also helps dealing with use cases that are very search-intensive. One of the largest gaming companies in the world replatformed their content moderation platform from DocDB, Elastic and Dynamo to Atlas and Atlas Search and using Atlas Search Nodes for workload isolation, high performance. On Vector, we're continuing to see growth in adoption, and we see Vector is effective in attracting new customers to the MongoDB platform. A world-renowned financial news organization, which is already running in Atlas, migrated from Elasticsearch to Atlas Search using Search Nodes to take advantage of our Vector Search capabilities to build a site search that combines lexical search with semantic search to find the most relevant articles for user query.",
+   "zh": "这也有助于处理搜索密集型的使用场景。全球最大的游戏公司之一将其内容审核平台从DocDB、Elastic和Dynamo迁移到Atlas和Atlas Search，并利用Atlas Search Nodes实现工作负载隔离和高性能。在向量搜索方面，我们继续看到采用率的增长，并且向量搜索在吸引新客户使用MongoDB平台方面效果显著。一家已经在使用Atlas的世界知名金融新闻机构，从Elasticsearch迁移到Atlas Search，并使用Search Nodes来利用我们的向量搜索能力，构建一个结合词汇搜索与语义搜索的站点搜索，从而为用户查询找到最相关的文章。\n\nIt also helps dealing with use cases that are very search-intensive. One of the largest gaming companies in the world replatformed their content moderation platform from DocDB, Elastic and Dynamo to Atlas and Atlas Search and using Atlas Search Nodes for workload isolation, high performance. On Vector, we're continuing to see growth in adoption, and we see Vector is effective in attracting new customers to the MongoDB platform. A world-renowned financial news organization, which is already running in Atlas, migrated from Elasticsearch to Atlas Search using Search Nodes to take advantage of our Vector Search capabilities to build a site search that combines lexical search with semantic search to find the most relevant articles for user query."
+  },
+  {
+   "en": "And a European energy company built a geospatial search application using Atlas Search and Vector search and the app was built on-prem but -- and to clouds to vectorize geospatial data and facilitate research and discovery. And then, we recently announced streaming -- stream processing, I should say, GA in .local New York in May, and we've seen strong interest. It's still early days, but we're seeing interest from a variety of industries ranging from automotive to retail to transportation who all want to -- who work with streaming data and wanted to be able to take actions on that data to drive their business. And so, customers are very pleased with the performance of the product and how easy it is to use, but again, it's just early days since we just launched it only in May.",
+   "zh": "一家欧洲能源公司使用Atlas Search和Vector search构建了一个地理空间搜索应用，该应用部署在本地，但同时也上云以实现地理空间数据的向量化，从而促进研究探索。另外，我们最近宣布了流处理——应该说是流处理——在5月于.local New York实现GA，并看到了强烈的兴趣。虽然仍处于早期阶段，但我们发现从汽车到零售到运输等多个行业对此有浓厚兴趣，这些行业都在处理流数据，希望基于这些数据采取行动以推动业务发展。客户对产品的性能及其易用性非常满意，但再次强调，由于我们仅在今年5月才推出，这仅仅是早期阶段。\n\n原文：\nAnd a European energy company built a geospatial search application using Atlas Search and Vector search and the app was built on-prem but -- and to clouds to vectorize geospatial data and facilitate research and discovery. And then, we recently announced streaming -- stream processing, I should say, GA in .local New York in May, and we've seen strong interest. It's still early days, but we're seeing interest from a variety of industries ranging from automotive to retail to transportation who all want to -- who work with streaming data and wanted to be able to take actions on that data to drive their business. And so, customers are very pleased with the performance of the product and how easy it is to use, but again, it's just early days since we just launched it only in May."
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "Wonderful. Great to hear. One more if I may, please. On the last earnings call, you mentioned how the slowdown in consumption was broad based across industries and workload types, which led you to believe that it was a macro-related impact.",
+   "zh": "太好了。很高兴听到。如果允许的话，再问一个。在上一季度的财报电话会议上，您提到消费放缓广泛存在于各个行业和工作负载类型，这使您认为这与宏观因素有关。\n\nWonderful. Great to hear. One more if I may, please. On the last earnings call, you mentioned how the slowdown in consumption was broad based across industries and workload types, which led you to believe that it was a macro-related impact."
+  },
+  {
+   "en": "With some of the improvement you've seen this quarter, I know it's early, but was that also broad based? And could you deduce that maybe that might mean some improvement in the underlying macro? Or was it more outsized to certain types of industries and services?",
+   "zh": "考虑到本季度你所看到的一些改善，我知道现在为时尚早，但这是否也是广泛存在的？以及你是否可以推断，这可能意味着基础宏观层面有所改善？还是说这种改善更多地集中在某些特定类型的行业和服务上？\n\nWith some of the improvement you've seen this quarter, I know it's early, but was that also broad based? And could you deduce that maybe that might mean some improvement in the underlying macro? Or was it more outsized to certain types of industries and services?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "No, I would -- Brad, I would describe it as broad based, but I would describe it within sort of a reasonable range of outcomes, and so no clear indication that macro is improving or deteriorating and just a good quarter.",
+   "zh": "不，我会——Brad，我会将其描述为基础广泛，但我认为是在一个合理的结果范围内，所以没有明确迹象表明宏观环境在改善或恶化，只是一个不错的季度。\n\nNo, I would -- Brad, I would describe it as broad based, but I would describe it within sort of a reasonable range of outcomes, and so no clear indication that macro is improving or deteriorating and just a good quarter."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "And our next question will be coming from Rishi Jaluria of RBC Capital Markets. Your line is open.",
+   "zh": "我们下一位提问者来自RBC Capital Markets的Rishi Jaluria。请开始提问。\n\nAnd our next question will be coming from Rishi Jaluria of RBC Capital Markets. Your line is open."
+  },
+  {
+   "en": "Rishi Jaluria--Analyst",
+   "zh": "Rishi Jaluria--分析师\n\nRishi Jaluria--Analyst"
+  },
+  {
+   "en": "Wonderful. Hey, this is Rishi Jaluria from RBC. Two questions. Maybe, Dev, I wanted to first start out going back to some of what you talked about, which is the MongoDB versus Postgres debate.",
+   "zh": "太好了。嘿，我是RBC的Rishi Jaluria。有两个问题。或许，Dev，我想先回到你之前谈到的一些内容，也就是MongoDB与Postgres之争。\n\nWonderful. Hey, this is Rishi Jaluria from RBC. Two questions. Maybe, Dev, I wanted to first start out going back to some of what you talked about, which is the MongoDB versus Postgres debate."
+  },
+  {
+   "en": "One of the kind of popular theories out there is -- or debates out there is which architecture is better suited to new generative AI applications, especially if we truly do believe AI will lead to a replatforming a software similar to what we saw with the cloud. I know you talked a little bit about reference architecture earlier in Q&A. But maybe could you walk us through why you believe MongoDB is better suited to new generative AI native applications versus Postgres? And then, I've got a quick follow-up.",
+   "zh": "有一种流行的理论——或者说争论——是关于哪种架构更适合新的生成式AI应用，特别是如果我们真的相信AI将导致类似于我们在云端看到的软件平台重构。我知道你在之前的问答环节中稍微谈到过参考架构。但也许你能向我们解释一下，为什么你认为MongoDB比Postgres更适合新的生成式AI原生应用？然后我有一个快速追问。\n\nOne of the kind of popular theories out there is -- or debates out there is which architecture is better suited to new generative AI applications, especially if we truly do believe AI will lead to a replatforming a software similar to what we saw with the cloud. I know you talked a little bit about reference architecture earlier in Q&A. But maybe could you walk us through why you believe MongoDB is better suited to new generative AI native applications versus Postgres? And then, I've got a quick follow-up."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah, sure. So very quickly, the reason we believe that we're well-positioned to win these new workloads is that AI-driven workloads require the underlying database to be capable of processing queries against rich and complex data structures. As you know with AI, the data structures can be very, very complex. So this means that the data can be large and, obviously, not in any consistent size.",
+   "zh": "是的，当然。简单来说，我们认为自己能够很好地赢得这些新工作负载的原因是，AI驱动的工作负载要求底层数据库能够处理针对丰富且复杂数据结构的查询。如你所知，对于AI来说，数据结构可能非常非常复杂。这意味着数据可能很大，而且显然没有统一的大小。\n\n原文：\nYeah, sure. So very quickly, the reason we believe that we're well-positioned to win these new workloads is that AI-driven workloads require the underlying database to be capable of processing queries against rich and complex data structures. As you know with AI, the data structures can be very, very complex. So this means that the data can be large and, obviously, not in any consistent size."
+  },
+  {
+   "en": "MongoDB is designed to handle these different data structures. And I talked about we can help unify metadata, operational data, vector data and generate it all in one platform. Relational databases, and Postgres is one of them, have limitations in terms of what they can -- how they can handle different types of data. In fact, when the data gets too large, these relational databases have to do what's called off-row storage.",
+   "zh": "MongoDB设计用于处理这些不同的数据结构。我提到过，我们可以帮助统一元数据、运营数据、向量数据，并在一个平台上生成所有数据。关系型数据库（Postgres只是其中之一）在处理不同类型数据的能力上存在局限性。事实上，当数据量过大时，这些关系型数据库不得不采用所谓的行外存储（off-row storage）。\n\nMongoDB is designed to handle these different data structures. And I talked about we can help unify metadata, operational data, vector data and generate it all in one platform. Relational databases, and Postgres is one of them, have limitations in terms of what they can -- how they can handle different types of data. In fact, when the data gets too large, these relational databases have to do what's called off-row storage."
+  },
+  {
+   "en": "And it becomes -- it creates a performance overhead on these relational platforms. Postgres has this thing called TOAST, which is -- stands for The Oversized-Attribute Storage Technique. And it's basically a way to handle these different data types, but it creates a massive performance overhead. So we believe that we are architecturally far better for these more complex AI workloads than relational databases.",
+   "zh": "这会导致关系型平台产生性能开销。Postgres有一个叫TOAST的东西，全称是The Oversized-Attribute Storage Technique。它本质上是一种处理不同数据类型的方法，但却造成了巨大的性能开销。因此我们相信，与关系型数据库相比，我们在架构上更适合处理这些更复杂的AI工作负载。\n\n原文：\nAnd it becomes -- it creates a performance overhead on these relational platforms. Postgres has this thing called TOAST, which is -- stands for The Oversized-Attribute Storage Technique. And it's basically a way to handle these different data types, but it creates a massive performance overhead. So we believe that we are architecturally far better for these more complex AI workloads than relational databases."
+  },
+  {
+   "en": "And we believe that, ultimately, we are the ideal data layer for AI applications. Obviously, it's early days. As I said, we haven't seen a lot of inference workloads in production. But architecturally, we feel very good about our ability to compete against relational databases and Postgres in particular.",
+   "zh": "我们认为，最终，我们是AI应用的理想数据层。显然，现在还为时过早。正如我所说，我们还没有在生产中看到很多推理工作负载。但从架构上讲，我们对自己的能力感觉非常好，能够与关系型数据库，特别是Postgres竞争。\n\nAnd we believe that, ultimately, we are the ideal data layer for AI applications. Obviously, it's early days. As I said, we haven't seen a lot of inference workloads in production. But architecturally, we feel very good about our ability to compete against relational databases and Postgres in particular."
+  },
+  {
+   "en": "That being said, Postgres is popular because they're the beneficiary of people who want to stay on relational and who've kind of lived in relational for the last 30, 40 years. But head to head, we feel like we can win our share of business.",
+   "zh": "话虽如此，Postgres之所以受欢迎，是因为那些希望继续使用关系型数据库、并且过去30、40年来一直生活在关系型世界里的人受益于它。但正面交锋时，我们觉得我们能赢得我们应得的那部分业务。\n\nThat being said, Postgres is popular because they're the beneficiary of people who want to stay on relational and who've kind of lived in relational for the last 30, 40 years. But head to head, we feel like we can win our share of business."
+  },
+  {
+   "en": "Rishi Jaluria--Analyst",
+   "zh": "Rishi Jaluria--分析师\n\nRishi Jaluria--Analyst"
+  },
+  {
+   "en": "That's really helpful. And then, maybe just sticking on the theme of AI. We've talked before in the past that AI is just driving a lot of new code, making developers significantly more productive. Have you seen that behavior in any of your existing customers on Atlas where maybe their utilization rate goes up or the number of applications built per customer goes up? Anything like that understanding, it's super early, might at least give you some early indication that the increased developer productivity could turn into a real tailwind in terms of consumption of the underlying Atlas stream?",
+   "zh": "这真的很有帮助。接下来，也许我们继续围绕AI这个话题。我们过去曾讨论过，AI正在推动大量新代码的产生，显著提高了开发者的生产力。你有没有在现有的Atlas客户中看到这种行为——比如他们的利用率上升，或者每个客户构建的应用数量增加？任何类似的迹象，即使现在还非常早期，至少能给你一些初步提示：开发者生产力的提升是否会转化为对底层Atlas流消耗的实际顺风？\n\n原文：\nThat's really helpful. And then, maybe just sticking on the theme of AI. We've talked before in the past that AI is just driving a lot of new code, making developers significantly more productive. Have you seen that behavior in any of your existing customers on Atlas where maybe their utilization rate goes up or the number of applications built per customer goes up? Anything like that understanding, it's super early, might at least give you some early indication that the increased developer productivity could turn into a real tailwind in terms of consumption of the underlying Atlas stream?"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah. So this is a common question I ask our customers when I meet with them in terms of what code generation tools that they're using and what benefits they're gaining. The answers tend to be a little bit all over the map. Some people see 10%, 15% productivity improvement.",
+   "zh": "是的。所以这是我与客户会面时经常问的问题，关于他们正在使用哪些代码生成工具以及获得了哪些好处。答案往往五花八门。有些人看到了10%、15%的生产力提升。\n\n原文：Yeah. So this is a common question I ask our customers when I meet with them in terms of what code generation tools that they're using and what benefits they're gaining. The answers tend to be a little bit all over the map. Some people see 10%, 15% productivity improvement."
+  },
+  {
+   "en": "Some people say 20%, 25% productivity improvement. Some people say it helps my senior developers be more productive. Some people say it helps my junior developers become more like senior developers. So the answers tend to be all over the map.",
+   "zh": "有些人说生产力提升20%、25%。有些人说它帮助我的资深开发者更高效。有些人说它帮助我的初级开发者变得更像资深开发者。所以答案往往五花八门。\n\nSome people say 20%, 25% productivity improvement. Some people say it helps my senior developers be more productive. Some people say it helps my junior developers become more like senior developers. So the answers tend to be all over the map."
+  },
+  {
+   "en": "There's no question in my mind that with this platform shift, like previous platform shifts, the cost of building apps will come down. And so, by definition, more apps will be produced, which will generate more data, which requires more databases. Now, obviously, we are in the early days and much like -- I've lived through other platform shifts like going to the Internet. A lot of people built our these -- there's all this dark fiber that was built out to service all this potential demand.",
+   "zh": "毫无疑问，随着这次平台转型，就像之前的平台转型一样，构建应用的成本将会下降。因此，必然会产生更多应用，从而生成更多数据，而这又需要更多数据库。显然，我们还处于早期阶段，就像我经历过的其他平台转型（如互联网兴起）一样。很多人建设了大量基础设施——所有这些暗光纤（dark fiber）都是为了服务潜在需求而铺设的。  \n\n原文：There's no question in my mind that with this platform shift, like previous platform shifts, the cost of building apps will come down. And so, by definition, more apps will be produced, which will generate more data, which requires more databases. Now, obviously, we are in the early days and much like -- I've lived through other platform shifts like going to the Internet. A lot of people built our these -- there's all this dark fiber that was built out to service all this potential demand."
+  },
+  {
+   "en": "It didn't happen. People thought it was maybe overinflated, and then before we knew it, the Internet transformed the way we work, the way we live, the way we socialize. And so, I think that the same thing is happening here. I think, it's all on the come, but I think we're well-positioned for that opportunity.",
+   "zh": "这并没有发生。人们原本认为它可能过度膨胀，但回过神来，互联网已经改变了我们的工作方式、生活方式和社交方式。所以，我认为同样的事情正在这里发生。我认为这还在发展初期，但我们已经为这一机遇做好了充分准备。\n\nIt didn't happen. People thought it was maybe overinflated, and then before we knew it, the Internet transformed the way we work, the way we live, the way we socialize. And so, I think that the same thing is happening here. I think, it's all on the come, but I think we're well-positioned for that opportunity."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Our next question will be coming from Brent Bracelin of Piper Sandler. Your line is open.",
+   "zh": "下一个问题来自Piper Sandler的Brent Bracelin。请提问。\n\nOur next question will be coming from Brent Bracelin of Piper Sandler. Your line is open."
+  },
+  {
+   "en": "Brent Bracelin--Analyst",
+   "zh": "Brent Bracelin——分析师  \nBrent Bracelin--Analyst"
+  },
+  {
+   "en": "Thank you. This is Brent Bracelin, Piper Sandler. Dev, I wanted to go back to Atlas. And the question here is, given all the moving parts here around accounting, tough compares, unused commitments, Atlas growth looked really strong, I think 30%-plus on a normalized basis after adjusting for unused commitments.",
+   "zh": "谢谢。我是Piper Sandler的Brent Bracelin。Dev，我想回到Atlas这个话题。问题是，考虑到围绕会计、艰难对比、未使用承诺等所有变动因素，Atlas的增长看起来确实非常强劲，我认为在调整未使用承诺后，按正常化基准计算增长率超过30%。\n\n原文：\nThank you. This is Brent Bracelin, Piper Sandler. Dev, I wanted to go back to Atlas. And the question here is, given all the moving parts here around accounting, tough compares, unused commitments, Atlas growth looked really strong, I think 30%-plus on a normalized basis after adjusting for unused commitments."
+  },
+  {
+   "en": "That's before any benefit from AI. Can you just go back to the growth algorithm for Atlas here? I ask because 30% normalized growth would be three times faster than industry growth, implying a meaningful share capture of new software build. So maybe it would be worthwhile if you just go walk through what is driving the momentum on the Atlas side that is, again, two or three times faster than the industry.",
+   "zh": "这还不包括AI带来的任何收益。能否请您回顾一下Atlas的增长算法？我问这个问题是因为30%的标准化增长率将是行业增速的三倍，这意味着在新的软件开发领域占据了相当大的市场份额。所以，如果能够解释一下Atlas方面为何能实现比行业快两到三倍的增长动力，那将非常有价值。\n\nThat's before any benefit from AI. Can you just go back to the growth algorithm for Atlas here? I ask because 30% normalized growth would be three times faster than industry growth, implying a meaningful share capture of new software build. So maybe it would be worthwhile if you just go walk through what is driving the momentum on the Atlas side that is, again, two or three times faster than the industry."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Well, what I would say is, obviously, we're pleased with our results. What I would say is, one, Atlas is the most widely available cloud service by definition because it runs across the largest hyperscalers in 118 regions around the world. So no matter who you are, you can run on Atlas almost anywhere in the world. Second, because MongoDB is a general-purpose database, you can use us for almost any conceivable use case.",
+   "zh": "嗯，我想说的是，显然我们对结果感到满意。首先，Atlas 从定义上讲是覆盖范围最广的云服务，因为它运行在全球最大的超大规模云平台上，遍布 118 个区域。所以无论你是谁，几乎可以在世界任何地方运行 Atlas。其次，由于 MongoDB 是一个通用数据库，你可以将其用于几乎所有能想到的用例。\n\nWell, what I would say is, obviously, we're pleased with our results. What I would say is, one, Atlas is the most widely available cloud service by definition because it runs across the largest hyperscalers in 118 regions around the world. So no matter who you are, you can run on Atlas almost anywhere in the world. Second, because MongoDB is a general-purpose database, you can use us for almost any conceivable use case."
+  },
+  {
+   "en": "So we're not limited to some narrow set of use cases or narrow set of users who have a very particular set of needs. That helps. Three, we have a large community of developers. We have millions of developers all around the world from Asia to North America to EMEA who are using MongoDB to address some problem.",
+   "zh": "因此，我们并不局限于某些狭窄的用例，或那些有非常特定需求的小众用户。这很有帮助。第三，我们拥有庞大的开发者社区。我们在全球拥有数百万开发者，从亚洲到北美再到EMEA，他们都在使用MongoDB解决各种问题。\n\n原文：So we're not limited to some narrow set of use cases or narrow set of users who have a very particular set of needs. That helps. Three, we have a large community of developers. We have millions of developers all around the world from Asia to North America to EMEA who are using MongoDB to address some problem."
+  },
+  {
+   "en": "And so, that also, obviously, because of the popularity of MongoDB, we are the world's most popular modern database. I think that also speaks to the strength of the product. And then, I would say, we try and execute well. Obviously, we got off to a slower start than we liked in Q1, but we are very, very focused on execution.",
+   "zh": "因此，很明显，得益于MongoDB的流行，我们是全球最受欢迎的现代数据库。我认为这也体现了产品的实力。然后，我想说，我们努力并执行得很好。显然，我们在第一季度的起步比我们预期的要慢，但我们非常非常专注于执行。\n\n原文：And so, that also, obviously, because of the popularity of MongoDB, we are the world's most popular modern database. I think that also speaks to the strength of the product. And then, I would say, we try and execute well. Obviously, we got off to a slower start than we liked in Q1, but we are very, very focused on execution."
+  },
+  {
+   "en": "We have a really good team, both in terms of our go-to-market team, as well as our product and the supporting ecosystem teams, our partner team, engineering team. And so, we all try and put our heads down, and we were, obviously, disappointed by Q1, and we're really focused on growing the business as fast as we can.",
+   "zh": "我们拥有一支非常优秀的团队，无论是在市场推广团队，还是产品和支持生态系统团队、合作伙伴团队、工程团队方面。所以，我们都努力埋头苦干，显然，我们对Q1感到失望，现在我们正专注于尽可能快地发展业务。  \nWe have a really good team, both in terms of our go-to-market team, as well as our product and the supporting ecosystem teams, our partner team, engineering team. And so, we all try and put our heads down, and we were, obviously, disappointed by Q1, and we're really focused on growing the business as fast as we can."
+  },
+  {
+   "en": "Brent Bracelin--Analyst",
+   "zh": "Brent Bracelin——分析师  \nBrent Bracelin--Analyst"
+  },
+  {
+   "en": "Perfect. And then, Michael, just a quick follow-up on op margins. Guidance implies 10%-plus op margins in the second half. Particularly as the revenue run rate here gets to $2 billion exiting the year, can you continue to invest in sales capacity while balancing double-digit op margins at this scale?",
+   "zh": "完美。那么，Michael，接下来快速跟进一下运营利润率的问题。指引暗示下半年运营利润率将达到10%以上。尤其是在年收入运行率即将达到20亿美元的情况下，您能否在保持两位数运营利润率的同时，继续对销售能力进行投资？\n\nPerfect. And then, Michael, just a quick follow-up on op margins. Guidance implies 10%-plus op margins in the second half. Particularly as the revenue run rate here gets to $2 billion exiting the year, can you continue to invest in sales capacity while balancing double-digit op margins at this scale?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah. So specifically around the second half, we've, obviously, increased the full year guide and that flows through. We did talk about some of the timing issues between halves. We are incrementally on a marginal basis investing in the back half of the year in our AI initiatives.",
+   "zh": "是的。具体来说围绕下半年，我们显然提高了全年指引，并且这贯穿始终。我们确实讨论了上下半年之间的一些时间安排问题。我们正在边际基础上逐步增加对下半年AI计划的投资。\n\nYeah. So specifically around the second half, we've, obviously, increased the full year guide and that flows through. We did talk about some of the timing issues between halves. We are incrementally on a marginal basis investing in the back half of the year in our AI initiatives."
+  },
+  {
+   "en": "But I think if you look at the two-year view, we are still making 500 basis points op margin progress over the last two years. So yes, I think it's a balancing act, Brent. I think, the key thing is we have such a large opportunity in such attractive investment areas that we'll try and continue to do both.",
+   "zh": "但我认为，如果从两年的角度来看，我们过去两年仍实现了500 basis points的op margin进步。所以是的，我认为这是一种平衡，Brent。我认为，关键在于我们在如此有吸引力的投资领域拥有如此巨大的机会，我们将努力继续兼顾两者。\n\nBut I think if you look at the two-year view, we are still making 500 basis points op margin progress over the last two years. So yes, I think it's a balancing act, Brent. I think, the key thing is we have such a large opportunity in such attractive investment areas that we'll try and continue to do both."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Our next question will be coming from Eric Heath of KeyBanc Capital Markets. Your line is open.",
+   "zh": "我们的下一个问题将来自KeyBanc Capital Markets的Eric Heath。您的线路已接通。\n\nOur next question will be coming from Eric Heath of KeyBanc Capital Markets. Your line is open."
+  },
+  {
+   "en": "Eric Heath--KeyBanc Capital Markets -- Analyst",
+   "zh": "Eric Heath--KeyBanc Capital Markets -- 分析师  \n\nEric Heath--KeyBanc Capital Markets -- Analyst"
+  },
+  {
+   "en": "Hey, good afternoon. Thanks for taking the question. Just a couple of quick ones for me. Mike, was curious to get a better understanding on just maybe some of your assumptions on why you're expecting a slower than typical rebound coming out of 3Q.",
+   "zh": "嘿，下午好。感谢你回答这个问题。我有几个简短的问题。Mike，我很好奇想更深入了解一下，你基于哪些假设认为第三季度后的复苏会比典型情况更慢。\n\nHey, good afternoon. Thanks for taking the question. Just a couple of quick ones for me. Mike, was curious to get a better understanding on just maybe some of your assumptions on why you're expecting a slower than typical rebound coming out of 3Q."
+  },
+  {
+   "en": "And then, Dev, thinking about the third quarter here and Fed fiscal year-end, just what are some of your expectations for that vertical, which I assume is usually a big EA opportunity?",
+   "zh": "那么，Dev，考虑到第三季度和Fed财政年底，你对那个垂直领域有什么预期？我猜那通常是一个大型EA机会。\n\nAnd then, Dev, thinking about the third quarter here and Fed fiscal year-end, just what are some of your expectations for that vertical, which I assume is usually a big EA opportunity?"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Yeah. So quickly, just on Q3, I think we're informed by our recent experience, including the fact that the seasonal rebound in Q1 of this year was slower than what we've typically seen. And so, that's what we're taking into account when we think about Q3, and that's really what's driving it.",
+   "zh": "是的。简单说一下第三季度，我们的判断基于近期经验，包括今年第一季度季节性反弹的速度慢于我们通常所见的情况。因此，在考虑第三季度时我们纳入了这一因素，而这也正是驱动当前预期的原因。\n\nYeah. So quickly, just on Q3, I think we're informed by our recent experience, including the fact that the seasonal rebound in Q1 of this year was slower than what we've typically seen. And so, that's what we're taking into account when we think about Q3, and that's really what's driving it."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Yeah. And on the -- I think you said -- if I heard you correctly, you talked about the Fed -- your public sector and the Fed in particular, yes. I mean, obviously, the fiscal year ends in September. We have a good team there.",
+   "zh": "好的。而且关于——我想你说了——如果我没听错的话，你提到了Fed——你的公共部门，特别是Fed，是的。我的意思是，显然，财政年度在September结束。我们在那里有一个很好的团队。\n\n原文：\nYeah. And on the -- I think you said -- if I heard you correctly, you talked about the Fed -- your public sector and the Fed in particular, yes. I mean, obviously, the fiscal year ends in September. We have a good team there."
+  },
+  {
+   "en": "We have FedRAMP Moderate. So we are well suited for workloads that have that requirement. We are not yet FedRAMP High certified. So that is something that we're working on as well to try and expand the envelope of opportunities we can pursue.",
+   "zh": "我们拥有FedRAMP Moderate认证，因此非常适合有该要求的工作负载。我们尚未获得FedRAMP High认证，因此我们也在努力推动这一点，以扩大我们可以追求的机会范围。  \nWe have FedRAMP Moderate. So we are well suited for workloads that have that requirement. We are not yet FedRAMP High certified. So that is something that we're working on as well to try and expand the envelope of opportunities we can pursue."
+  },
+  {
+   "en": "And then, on -- and as you implied, there's also an opportunity to sell EA to these customers, and we're doing that as well. Obviously, all that is baked into our guide for how we think about Q3 and the second half of the year, but we feel good about the opportunities in that segment.",
+   "zh": "正如您所暗示的，我们还有向这些客户销售EA的机会，我们也在这样做。显然，所有这些都已纳入我们对第三季度及下半年的预测指南中，但我们对该板块的机会感到乐观。  \nAnd then, on -- and as you implied, there's also an opportunity to sell EA to these customers, and we're doing that as well. Obviously, all that is baked into our guide for how we think about Q3 and the second half of the year, but we feel good about the opportunities in that segment."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "And this does conclude today's Q&A session. I would now like to turn the call back to Dev Ittycheria for closing remarks. Please go ahead.",
+   "zh": "这确实结束了今天的问答环节。现在我想把电话交回给Dev Ittycheria做总结发言。请继续。\n\nAnd this does conclude today's Q&A session. I would now like to turn the call back to Dev Ittycheria for closing remarks. Please go ahead."
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Thank you. And again, I want to thank everyone for joining us today. We are pleased with our Q2 results and our continued execution against our large market opportunity. While the macro environment remains mixed, our ability to win new business remains strong across both Atlas and EA.",
+   "zh": "谢谢。再次感谢各位今天加入我们。我们对第二季度的业绩以及在巨大市场机会中的持续执行力感到满意。尽管宏观环境仍显复杂，但我们在Atlas和EA两大业务中赢得新业务的能力依然强劲。  \n原文：Thank you. And again, I want to thank everyone for joining us today. We are pleased with our Q2 results and our continued execution against our large market opportunity. While the macro environment remains mixed, our ability to win new business remains strong across both Atlas and EA."
+  },
+  {
+   "en": "And as we look ahead, we believe we are the ideal data layer for AI applications, and we continue to see increased demand from customers to modernize their legacy applications. And last but not least, we will continue investing judiciously and focusing on our execution to capture this long-term opportunity. Thank you for joining us today, and we'll talk to you soon. Take care.",
+   "zh": "展望未来，我们相信自己是AI应用的理想数据层，并且持续看到客户对传统应用现代化的需求日益增长。最后但同样重要的是，我们将继续审慎投资，专注于执行，以抓住这一长期机遇。感谢您今天的参与，期待下次交流。保重。\n\n原文：\nAnd as we look ahead, we believe we are the ideal data layer for AI applications, and we continue to see increased demand from customers to modernize their legacy applications. And last but not least, we will continue investing judiciously and focusing on our execution to capture this long-term opportunity. Thank you for joining us today, and we'll talk to you soon. Take care."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "[Operator signoff]",
+   "zh": "[操作员签退]  \n[Operator signoff]"
+  },
+  {
+   "en": "Duration: 0 minutes",
+   "zh": "持续时间：0分钟  \nDuration: 0 minutes"
+  },
+  {
+   "en": "Call participants:",
+   "zh": "通话参与者：\nCall participants:"
+  },
+  {
+   "en": "Brian Raferty Denyeau--Investor Relations",
+   "zh": "Brian Raferty Denyeau--投资者关系  \nBrian Raferty Denyeau--Investor Relations"
+  },
+  {
+   "en": "Dev C. Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev C. Ittycheria——总裁兼首席执行官\n\nDev C. Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Michael Gordon--Chief Operating Officer and Chief Financial Officer",
+   "zh": "迈克尔·戈登（Michael Gordon）——首席运营官兼首席财务官\n\nMichael Gordon--Chief Operating Officer and Chief Financial Officer"
+  },
+  {
+   "en": "Sanjit Singh--Analyst",
+   "zh": "Sanjit Singh--分析师\n\nSanjit Singh--Analyst"
+  },
+  {
+   "en": "Dev Ittycheria--President and Chief Executive Officer",
+   "zh": "Dev Ittycheria——总裁兼首席执行官\n\nDev Ittycheria--President and Chief Executive Officer"
+  },
+  {
+   "en": "Raimo Lenschow--Analyst",
+   "zh": "Raimo Lenschow——分析师\n\nRaimo Lenschow--Analyst"
+  },
+  {
+   "en": "Kash Rangan--Analyst",
+   "zh": "Kash Rangan--分析师  \nKash Rangan--Analyst"
+  },
+  {
+   "en": "Tyler Radke--Citi -- Analyst",
+   "zh": "Tyler Radke--Citi--分析师  \nTyler Radke--Citi -- Analyst"
+  },
+  {
+   "en": "Brad Reback--Analyst",
+   "zh": "Brad Reback--分析师  \nBrad Reback--Analyst"
+  },
+  {
+   "en": "Karl Keirstead--Analyst",
+   "zh": "Karl Keirstead--分析师  \nKarl Keirstead--Analyst"
+  },
+  {
+   "en": "Jason Ader--Analyst",
+   "zh": "Jason Ader——分析师\n\nJason Ader--Analyst"
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "Rishi Jaluria--Analyst",
+   "zh": "Rishi Jaluria--分析师\n\nRishi Jaluria--Analyst"
+  },
+  {
+   "en": "Brent Bracelin--Analyst",
+   "zh": "Brent Bracelin——分析师  \nBrent Bracelin--Analyst"
+  },
+  {
+   "en": "Eric Heath--KeyBanc Capital Markets -- Analyst",
+   "zh": "Eric Heath--KeyBanc Capital Markets -- 分析师  \n\nEric Heath--KeyBanc Capital Markets -- Analyst"
+  },
+  {
+   "en": "More MDB analysis",
+   "zh": "更多MDB分析  \nMore MDB analysis"
+  },
+  {
+   "en": "All earnings call transcripts",
+   "zh": ""
+  },
+  {
+   "en": "This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.",
+   "zh": "本文是为The Motley Fool制作的本次电话会议的记录。尽管我们努力做到最好，但此记录中可能存在错误、遗漏或不准确之处。与我们的所有文章一样，The Motley Fool不对您使用此内容承担任何责任，我们强烈建议您自行研究，包括亲自收听电话会议并阅读公司的SEC文件。详情请参阅我们的Terms and Conditions，包括强制性的大写责任免责声明。\n\nThis article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability."
+  },
+  {
+   "en": "The Motley Fool has positions in and recommends MongoDB. The Motley Fool has adisclosure policy.",
+   "zh": "Motley Fool 对 MongoDB 持仓并推荐。Motley Fool 有披露政策。"
+  },
+  {
+   "en": "Stocks Mentioned",
+   "zh": "提及的股票"
+  },
+  {
+   "en": "*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.",
+   "zh": "*自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。"
+  }
+ ]
+}

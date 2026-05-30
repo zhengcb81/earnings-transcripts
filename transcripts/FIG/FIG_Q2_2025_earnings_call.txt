@@ -1,0 +1,298 @@
+======================================================================
+Earnings Call Transcript
+Company: Figma (Figma)
+Ticker: FIG
+Quarter: Q2 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2025/09/04/figma-fig-q2-2025-earnings-call-transcript/
+Scraped: 2026-05-30T17:40:43.958268
+Characters: 52878
+======================================================================
+
+Sept. 3, 2025
+
+CALL PARTICIPANTS
+
+Co-Founder and Chief Executive Officer — Dylan Field
+
+Chief Financial Officer — Praveer Melwani
+
+Revenue-- $250 million in revenue for fiscal Q2 2025 (ended June 30, 2025), representing 41% year-over-year growth and setting a new quarterly record.
+
+Non-GAAP Operating Margin-- 5% non-GAAP operating margin in fiscal Q2 2025, reflecting profitability during a period of significant investment and product launches.
+
+Adjusted Free Cash Flow Margin-- Adjusted free cash flow margin was 24% in fiscal Q2 2025, primarily driven by strong collections growth.
+
+Gross Margin-- 90% non-GAAP gross margin in fiscal Q2 2025, with management anticipating near-term compression as AI product spending, particularly inference costs, increases.
+
+Net Dollar Retention Rate-- 129% net dollar retention rate among paid customers spending over $10,000 in ARR in fiscal Q2 2025, attributed to seat expansion and renewals under new pricing and packaging models.
+
+Payers by Segment-- Over 11,900 paid customers generated more than $10,000 in ARR, while more than 1,100 paid customers spent over $100,000 in ARR, representing 42% year-over-year growth as of fiscal Q2 2025.
+
+Product Usage Breadth-- More than 80% of customers used two or more products, and two-thirds used at least three products on the unified platform in fiscal Q2 2025.
+
+New Product Launches-- Figma announced the launch of Figma Make, Figma Draw, Figma Sites, and Figma Buzz, doubling the portfolio and expanding addressable use cases.
+
+Acquisitions-- Modify and Payload were acquired in the quarter to enhance visual expression capabilities and developer-focused content management, respectively.
+
+Developer Engagement-- Developers made up approximately 30% of monthly active users in fiscal Q2 2025.
+
+Localization Initiatives-- Figma expanded support to Korean and Brazilian Portuguese, broadening international accessibility.
+
+Cash, Equivalents, and Securities-- Ending balance of $1.6 billion, including $91 million held in a Bitcoin exchange-traded fund, as of fiscal Q2 2025.
+
+Employee and VC Lockups-- Nonexecutive employees may sell up to 25% of vested holdings, and the five largest VC stockholders have staged lockup releases over the next four quarters, with specific percentages unlocked after each report.
+
+Guidance-- Management projects fiscal Q3 2025 revenue between $263 million and $265 million, and fiscal 2025 revenue in the $1.021 billion-$1.025 billion range, implying 37% year-over-year growth at the midpoint.
+
+Full-Year Operating Income-- Full-year operating income is expected to be between $88 million and $98 million under a flexible, opportunity-based investment framework.
+
+Sales and Marketing Trend-- Expense as a percentage of revenue declined to 39% in fiscal Q2 2025 from 46% in fiscal Q2 2024, even during the ramped-up Config event period.
+
+Pricing and Packaging-- The new model is fully deployed for monthly plans, with annual contracts migrating at renewal; the company expects a mid- to high-single-digit growth tailwind from these changes this year.
+
+AI Investment Plans-- Management stated, "we expect margins to come down in the near term as we invest in the long term," referring to major AI products including Figma Make.
+
+Figma(FIG+9.19%)highlighted robust 41% year-over-year revenue growth and solid non-GAAP profitability for fiscal Q2 2025 (ended June 30, 2025), while emphasizing the rapid expansion of its product suite and go-to-market reach. Expanding internationalization and broader use across customer personas were presented as central to the company's evolving growth model and future monetization plans.
+
+Field said, "Figma Make gives anyone the power to visualize an idea in high fidelity and validate a concept with something realistic."
+
+Melwani stated that non-GAAP gross margins are expected to compress in the near term as AI usage grows, with inference spend identified as the largest driver of the sequential margin decline.
+
+Config, the company's flagship community event, was leveraged to launch new offerings, increase user engagement, and support customer expansion.
+
+Figma committed to complementing its seat-based subscription model with an additional consumption model to reflect new product usage patterns.
+
+Management disclosed that CEO Field established a Rule 10b5-1 trading plan, starting in November, which may lead to the sale of up to 3.3% of his total holdings, inclusive of restricted stock units.
+
+INDUSTRY GLOSSARY
+
+MCP (Model Code Protocol): A Figma developer integration server that enables AI tools to generate code informed directly by Figma design context.
+
+ARR (Annual Recurring Revenue): The annualized value of recurring revenue from customers, excluding non-recurring fees.
+
+Inference Spend: Cloud computing costs incurred by running generative AI features and models within the product environment.
+
+Rule 10b5-1 Trading Plan: SEC-compliant plan allowing insiders to pre-schedule trades of company stock at predetermined times or prices.
+
+Full Conference Call Transcript
+
+Kate DeLeo-Joglekar:Good afternoon and thank you for joining us on today's conference call to discuss Figma's results for 2025. On the call, we have Dylan Field, Figma's Co-Founder and Chief Executive Officer, and Praveer Malwani, our Chief Financial Officer. During the course of today's call, we may make forward-looking statements, including, but not limited to, statements regarding our guidance and future financial performance, market demand, product development, growth prospects, business strategies and plans, ability to attract and retain customers, and ability to compete effectively. These forward-looking statements are based on management's current views and assumptions and should not be relied upon as of any subsequent date, and we disclaim any obligation to update any forward-looking statements.
+
+Actual results may vary materially from today's statements. Information concerning our risks, uncertainties, and other factors that could cause results to differ from these forward-looking statements are included in our filings with the SEC, including the final perspectives filed in connection with our IPO and our quarterly report on Form 10-Q for the quarter ended 06/30/2025. Our discussion today will include certain non-GAAP financial measures. These non-GAAP financial measures should be considered in addition to, not as a substitute or in isolation from GAAP measures. Our non-GAAP measures exclude the effect of our GAAP results of stock-based compensation and certain other items.
+
+Reconciliations of non-GAAP financial measures to comparable GAAP measures can be found in our press release accompanying this call and which is posted to our website. I'd like to now turn it over to Dylan.
+
+Dylan Field:Thanks, Kate, and hi, everybody. Thank you for tuning in today. I want to note that for today's earnings call, we're using one of our products, Figma Slides, which teams around the world use to co-create beautifully designed presentations. Figma Slides should look familiar to anyone who has used a presentation tool before. One feature I want to call out is our grid view feature.
+
+This gives you a bird's eye view of the canvas and allows you to organize your presentation in a multiplayer environment. And, of course, Figma Slides is interoperable with the rest of our platform. If I go back to our main slide view, I can edit or go into design mode. But for right now, I'm going to flip into presentation mode to get us going. So Q2 was a strong quarter for Figma. We achieved $250 million of revenue, a new quarterly revenue record for Figma, representing 41% year-over-year growth. We also continue to operate profitably with a non-GAAP operating margin of 5% and adjusted free cash flow margin of 24%.
+
+With that said, I'm most proud of how our pace of innovation continues to accelerate. Given this is our first earnings report, I want to set clear expectations that we may reevaluate our reporting framework in the future as our business evolves. For example, we might adjust our guidance philosophy or deprecate metrics we no longer believe are reflective of our business. And, of course, if we do this, we'll share our rationale with investors. As you all know, we're at the very start of what I hope is a long-term relationship together. Our goal is to be clear and transparent. With that, let's get into it.
+
+Today, virtually every business is becoming a software business, and AI has made software easier than ever to create. In this world, we believe your design, your craft, and your brand's point of view is what's going to make your product and your company stand out. Design is now the differentiator. It's how companies win or lose. And our goal at Figma is to build and expand our platform so we can do even more to unleash the taste and craft of our customers, who together are shaping and defining this next era of digital products. This goal is what guides our team, it guides our road map, and it guides our investment philosophy.
+
+It's also what motivates me as I think about the years and the decades ahead of how we can expand our platform. We're focused on building a durable, long-term business that serves the evolving needs of designers and product development teams. Our focus drives our capital allocation decisions at Figma. For example, you should expect to see significant investments in our AI efforts because we believe AI will be critical to how software development workflows evolve moving forward. This means that we expect margins to come down in the near term as we invest in the long term.
+
+And as I wrote in my S1 founder letter, we do plan to take big swings if and when we see opportunities to invest, both organically and inorganically. We know this approach won't resonate with everyone, but we believe we have a massive opportunity in front of us, and we intend to capture it. Figma is where teams come together to turn ideas into the world's best digital products and experiences. What started as a design tool when we launched our closed beta back in 2015 has now grown into something much bigger, a single connected AI-powered platform that serves the entire product development process. We serve a deeply engaged global community of designers and product builders.
+
+They're passionate about their craft, and they inspire us to think bigger every day, which brings me to Q2. This May, we brought nearly 10,000 members of our global community together in San Francisco for our annual config conference. Hundreds of thousands of users also tuned in to watch virtually, and then the next week, we hosted thousands more in person at config London. At config, we launched four new products, doubling our product offering. These products are Figma Make, Figma Draw, Figma Sites, and Figma Buzz. We also launched our dev mode MCP server, which speeds up developer workflows by bringing context from Figma Design into any surface that consumes MCP, for example, IDs like Versus Code and Cursor.
+
+In Q2, we also made two exciting acquisitions, a company called Modify, support our work around visual expression, and Payload, an open-source company with a strong developer community that offers a leading headless content management system and application framework. Now I'll go into more detail on each of the four products that we launched at Config. First up, Figma Make. Figma Make is our new prompt-to-code product that allows you to use an existing Figma design or natural language to create a fully functional prototype. You can also build working apps and publish them directly to the web. Teams tell us that the speed of going from an idea to a working app is a game changer.
+
+Figma Make gives anyone the power to visualize an idea in high fidelity and validate a concept with something realistic. And in some cases, their creation can even be the real final product. This is important because so much of what has made product building a challenge is slow cycle times and not having a way to explore the full option space of your ideas. Now you can do this more quickly and sometimes really quickly in a matter of minutes with Figma Make. So let me show you how it works. This is Figma Make. On the bottom left, you'll notice a chat box where you can type in a prompt to generate a full dynamic web app.
+
+Now you may have seen other AI vibe coding tools like this, and perhaps you're wondering what makes Figma Make different? Figma Make's superpower is the design context it can tap into to create higher quality outputs even if you're not a designer yourself. Let's say I'm a product manager on a team building a fitness app. I have all these amazing designs that my designers have mocked up, and they look great. But maybe I want to get a better sense of how the app actually works from the end user's point of view. This is where having a prototype that I can play with can help validate my direction.
+
+Rather than asking a designer to wire one up, I can just ask Figma Make. All I have to do is copy this from Figma Design into Figma Make, It's pasting in. And with that, all the design context and the metadata that is in Figma Design is now in Figma Make. So let me add a prompt in the chat box to bring in a bit more context. I'll ask Make to make this a fully interactive dashboard that matches this design one to one, allow me to hover over the chart to see data and filter by time range.
+
+One thing we've heard from customers is that they want the outputs they generate to look and feel consistent with their other products. With Figma Make, you can connect your design library and bring in style context, like color palettes and other core styling elements. This is an area we're investing a lot of time in. There's even more improvements to come. Alright. So now we're ready. We'll click here, and Figma Make, as you can see, is starting to interpret the prompt, the designs we provided, and even starting to write the code that'll turn them into functional prototypes. You can see it begin to work. This will take a couple of minutes.
+
+So in the interest of time, let's take a look at a finished example. Here, you can see the working prototype that we got from the design in just a single, simple, natural language prompt. And you can see it's fully interactive as I move my mouse around my cursor and actually see the hover effects or toggle between these tabs. And if I want to make changes to generate output, I can simply prompt again. I can also easily refine my result by clicking here in order to select part of the prototype, for example, this new reminder button.
+
+And as I do that, I have the ability to change its color to something else should I want to and easily directly manipulate the output. Voila. There we go. With Make, you can also edit, download, or export the actual code behind the prototype. Figma Make also allows for multiplayer editing, so I can collaborate with my team in this code view, and anyone in the file can also prompt their own changes alongside me. Okay. Now I have a working prototype for my fitness app that I can preview across screen sizes, share directly with my team for feedback, test with users, or, if I feel it's ready, publish directly to the web.
+
+This is still early days for Figma Make, and we're working hard to rapidly improve it. The response we've seen from users so far has just been amazing, and we're so energized for what's next. For example, a firm is using Figma Make to help visualize and validate their ideas faster. Rather than writing detailed PRDs, product managers at Affirm use Make to create prototypes that everyone can interact with. This helps them work through their ideas faster. Designers use Make at Affirm as a thought partner when they want to work through multiple concepts, such as a user interaction pattern.
+
+Affirm's PMs, engineers, and designers also use our DevMode MCP server, and they've told us it speeds up their development velocity by, quote, orders of magnitude. One designer was able to rebuild major product flows in less than two days. Affirm also recently upgraded to an enterprise account From building with Make to brand marketing in Figma Buzz to executive reviews with Figma Slides, Affirm uses the Figma platform company-wide. Switching gears from Make, for some time now, our users have asked us to improve Figma's vector functionality.
+
+In this age of AI where software is created faster than ever, it's an especially important moment for us to give our customers ways to be even more expressive on the Figma platform. We want to help our customers differentiate their product and their brands. They need to stand out from the crowd. So at Config, we launched Figma Draw, a set of tools optimized for visual design and free-form creation in Figma. Draw is part of our full seat, and it became generally available in Q2. Let me hop into a quick demo so you can see how it works.
+
+To use Figma Draw, all you need to do is go into a Figma design file and click this toggle. Okay. Now I'm in Figma Draw. Draw offers 20 plus new tools like textures, effects, and improved vector editing. But the real power of Figma Draw is the ability to bring more creativity and visual expression to your designs. I'm just gonna show you a few of the features. You'll have to look at the rest yourself. I'll start with a sun illustration. It's a good start, but we can do more to bring this to life. One way to do it is with our repeaters feature.
+
+If I click here, you can see that as I move my mouse around, I can easily add more rays. And, also, if I click the brush feature, then I can give a bit more texture with different brushstrokes. I'll choose the noir one right here. What's also great about FigmaDraw is you can use your existing design system. In that way, you're able to keep your illustrations on brand and avoid repetitive work. For example, I've already defined a color palette here that works across a light mode and a dark mode of my app. So what I can do is I can take my component here, and I can copy and paste it into this new frame.
+
+When I do that, you'll notice that the colors update on this hand and, basically, the ground below the grass from black to white. That way, I don't have to go select those colors again from the start. Our community has made some incredible things with Draw, and it's been amazing just to watch their creativity flourish. And some of them made things that we honestly didn't even think were possible. One example is from a community member, Erica Leung, a visual designer based in Canada. Erica uses FigmaDraw in her role at our product and design agency as well as her freelance work.
+
+She can work and draw to riff on an illustration and then flip to Figma Design to do product design work, all without leaving the Figma platform. And Inge Hampton, a brand designer and illustrator, is pushing the boundaries of illustration in Figma, as you can see here. If I hover over her design in the different layers, you can see how complex her illustration is. She has layers representing freckles, interesting masking groups. It's quite impressive to see how these files are created. And, of course, this is just a peek into what you can create with Figma Draw.
+
+Our community is always just so amazing in how they push our tools to the limit, and we're always excited to see where they take Figma next. Alright. Let's move on to Figma sites. For years, our community and customers have had a simple request for us. They say, if we design in Figma, why can't I just press the publish button and go directly to the web? Well, now with Figma Sites, users can do that. They can create beautifully designed, dynamic websites with custom code interactions powered by AI. We also offer animations, responsive layouts, and more.
+
+When it's time to ship, you can just hit that publish button, and just like that, you've got a live working website. You can even connect it to your own custom domain if you want to. We're very excited about what our users will be able to do with not just Figma Sites but also our CMS offering that we have under development. And finally, we announced Figma Buzz at config. Buzz helps brand and marketing teams build assets at scale using their design teams' libraries and brand graphics in Figma. When using Buzz, creatives and marketers can quickly customize everything from social media assets to event materials, you name it, at high volume with consistency.
+
+While Sites and Buzz are still in beta, we're thrilled by the responses that we've seen so far from the community. Our users can now go from design to build all the way to shipping a product or brand assets all in Figma. And lastly, we continue to serve the evolving needs of developers who accounted for approximately 30% of our monthly active users during Q2. In Q2, we launched our DevMode MCP server. With DevMode MCP, developers can connect the design context in Figma to their AI coding tools, and with that, they can generate the base implementation of their front end at lightning speed.
+
+The combination of design context plus code-based context helps produce better code output from LMs tailored to the users' designs, and it's been so exciting to hear how our customers are using this. One customer example here is Coinbase, who serves users in more than 100 countries. Coinbase has been a Figma customer since 2018, and they've grown from just a few users I remember when I went there and demoed in the first place to hundreds of designers, developers, product managers, marketers, and more building multiple products from start to finish all in Figma. And Coinbase ships fast.
+
+AI coding tools have helped, and by implementing Figma's dev mode MCP server, Coinbase can make sure that LM-generated code is design informed. This means they can move quickly but without sacrificing their brand or system integrity. Coinbase has seen encouraging early results with improved developer velocity, greater parity between design and development, and a consistent user experience across their platform of products. From the start, we've taken so much inspiration from Figma users and customers around the world. And, of course, we're super focused on how we can keep meeting their needs. In Q2, we continued to make our product more accessible to customers outside The United States.
+
+In April, we localized our product and support for Korean language users. And then shortly afterwards, in May, we made our product and support available in Brazilian Portuguese. We've seen this resonate with customers, including Itau Unabenco and Nubank in the LatAm region. Itau is Latin America's largest private bank. With Figma's AI-powered platform, they've accelerated their product development process and the way teams work together across the company. Itau uses Figma to go from ideation to prototyping all the way to code and delivery, elevating the quality of their experiences that they deliver to customers. NewBank is a fintech company that uses Figma Enterprise and serves more than 118 million customers.
+
+Figma's platform is where everyone works together in one space, including hundreds of designers, researchers, engineers, and PMs. Figma has helped new banks scale their products with consistency and speed as they've grown across North And South America. As I look ahead, I'm just so excited about the opportunity in front of us. The role of design and craft and the importance of building great user experiences has never been more critical, and this is especially true in a world where AI makes it easier than ever to build software. In this world, design is more essential, and it's more powerful. Design is how companies win or lose. It is the critical differentiator.
+
+I want to thank our customers for their trust, our community for their energy and ideas, and the entire Figma team for their hard work and incredible execution. We have so much more to build together, and I'm so looking forward to the future. With that, I'll hand it over to our CFO, Praveer.
+
+Praveer Melwani:Thank you, Dylan. As Dylan mentioned, we are excited to share the results of another strong quarter. First, I want to reiterate our growth philosophy. We are focused on growing responsibly, which you can see in our multiyear track record of durable growth and non-GAAP operating margin profitability.
+
+We have been disciplined stewards of capital and will continue to invest in the growth opportunities while managing our margins. As Dylan said, we believe the opportunity ahead of us is large. We plan to deepen our investment in the near term to take advantage of this opportunity. We held our annual user conference, Config, during Q2, and it remains a key investment in our community, customer relationships, and product momentum. When we introduce new products and features at Config, we often roll them out gradually to gather feedback and learn from early usage before we expand to broader availability. This brings me to our Q2 results.
+
+As we laid out in our S1, our rapid pace of innovation has been a consistent component of our growth algorithm, helping us win new customers and expand adoption within our existing customers as we meet their evolving needs. We rolled out updates to our pricing and packaging in March, so Q2 is the first full quarter with the new pricing and packaging in place. Customers on annual plans will remain on our legacy plan until their first renewal. The customers who are on our monthly plans have all migrated to our new model. We ended Q2 with $250 million in revenue, which is our best quarter yet.
+
+This represents 41% year-over-year revenue growth fueled by an increase in new paid customers, renewals on our new pricing and packaging model, and growth within our existing customers. As we've expanded Figma's capabilities to serve more parts of the product development journey, we've seen the benefits of working on a unified platform resonate with more and more customers. During Q2, more than 80% of our customers used two or more products, and two-thirds of our customers used three or more products. One example is Alaska Airlines. When Alaska Airlines and Hawaiian Airlines merged late last year, their design teams needed a way to work together while keeping each brand distinct.
+
+Both airlines were already using Figma, so when Alaska renewed their enterprise plan in Q2, they were able to bring their teams together seamlessly. Both brands now share design systems in a single secure account with built-in support for brand-specific libraries. With variables, dev mode, and Figma make, the teams innovate faster and keep experiences consistent across every touch point, making it easier for millions of passengers to travel. Our net dollar retention rate, which accounts for expansion, contraction, and churn across paid customers who spend over $10,000 in ARR, was 129% in Q2. Our net dollar retention rate was primarily driven by seat expansion within existing customers, along with renewals on our new pricing and packaging model.
+
+As of Q2, we now have over 11,900 paid customers spending over $10,000 in ARR and more than 1,100 paid customers spending over $100,000 in ARR, which grew 42% year over year. Now to discuss some key income statement results. Unless otherwise noted, all metrics are non-GAAP. We've provided a reconciliation of GAAP to non-GAAP financials in our earnings release, which is posted to our website. Our gross margin this quarter was 90%. We anticipate that we will see further gross margin compression in the near term as we roll out our AI products, including FigmaMake, and recognize increases in inference spend. This is the largest driver of the quarter-over-quarter change in our gross margin.
+
+We view this as an investment in our products, our product differentiation, and meeting the evolving needs of our customers. Our operating margin for Q2 was 5%. We see elevated sales and marketing spend in the quarter when config takes place. If you look at our historical financials, you will see similar seasonality in Q2 2023 and Q2 2024. We decreased our sales and marketing costs as a percent of revenue year over year from 46% in Q2 2024 to 39% in Q2 2025. We also experienced a year-over-year increase in G and A costs as we invested in our public company readiness efforts. Our adjusted free cash flow margin in Q2 was 24%.
+
+We saw year-over-year improvements in our adjusted free cash flow margin primarily due to strong collections growth. And we ended the quarter with $1.6 billion of cash, cash equivalents, and marketable securities on our balance sheet. Within the $1.6 billion, we also held approximately $91 million in our Bitcoin exchange-traded fund. I also want to provide additional detail on our lockup releases. First, as described in our S1, current nonexecutive Figma employees may have the ability to sell up to 25% of their vested holdings after this earnings announcement depending on the stock price.
+
+Second, our early VC stockholders represent a large collective ownership position in the business, and we want to provide some new information around when their shares will be released from lockup restrictions. Five of our largest VC stockholders have signed a new extended lockup agreement with us. Their extended lockup will expire approximately one year after the IPO, with 17.5% of their shares being released after the Q3 2025 earnings, 20% after Q4 2025 earnings, 27.5% after Q1 2026 earnings, and 35% after Q2 2026 earnings. When these shares are released, they may be held, transferred, distributed, or sold at the discretion of the extended lockup holders.
+
+Additionally, Dillon has entered into a Rule 10b5-one trading plan with a start date in November that will sell up to a maximum of 3.3% of Dillon's holdings, including all outstanding RSUs. For clarity, that does not include any shares that may be sold to cover tax withholding obligations in connection with the potential future settlement of RSUs. More details can be found in our 8-Ks and 10-Q that would be filed today. Now let's close it out. As you may have seen in our earnings release, we intend to provide revenue guidance for both our current quarter and our annual outlook going forward.
+
+Today, our revenue base consists of seat-based subscriptions with the majority of our pro tier on monthly subscriptions and our Oregon enterprise tiers on annual subscriptions. We intend to complement the existing seat-based model with a consumption model meeting the needs of our evolving product platform. We also plan to provide annual guidance for operating income in the foreseeable future as we expect to have timely opportunities to reinvest throughout the year meeting the needs of a rapidly evolving market. Okay. Let's turn to guidance for the third quarter and full fiscal year. For the third quarter ending September 30, we expect revenue to be between $263 million and $265 million.
+
+As we previously discussed, our model is changing rapidly given the rollout of several new products in the quarter. While we have a proven track record of monetizing products and use cases on our platform, we are still early in understanding long adoption of our newer products. We will continue to learn more as we expand usage in Q3 and refine our pricing and packaging strategy. For the year, we anticipate that our revenue will be between $1.021 billion and $1.025 billion implying 37% year-over-year growth at the midpoint. Turning to operating income. We expect our full-year operating income to be between $88 million and $98 million.
+
+We continue to explore ways that we can invest in our products and go to market support. We are willing to deepen this investment where we see strong returns. We are proud of the results that we have achieved, and we are even more excited about what is ahead for our customers, our community, our Figmates, and our shareholders.
+
+With that, we'll pass it back to the operator to open it up for questions.
+
+Operator:Our first question comes from the line of Elizabeth Porter with Morgan Stanley. Your line is open.
+
+Elizabeth Porter:Great. Thank you very much for the question.
+
+Dylan, as you walked through earlier, Figma showed an accelerated pace of innovation and doubled the size of the product portfolio earlier this year. While understanding it's still early, just given the change in the scale of the portfolio and the areas that you're addressing, is there any context you could provide on how we should think about the ramp of new products or the monetization of new seat types maybe relative to prior product rollouts for DevMode or FigJam? Thank you.
+
+Dylan Field:Hi. Thank you for the question and for being here. Yeah. So for new products, I would say that, obviously, we're still early in the life cycle.
+
+These products are still quite young, and there's a lot of maturing to do. That said, we've been very excited by the initial engagement that we're seeing. For FigmaDraw, we are covering a lot more of the use case than even I believed might be possible when we launched it. I mean, we launched with 20 plus new features, which is very exciting. But the amount of expression that our users are able to do has been definitely extraordinary in my eyes, and we've been glad to see the usage as well.
+
+For Figma sites, we're seeing lots of use among freelancers and individuals who are creating websites directly in Figma, and they've always been wanting that publish button so they can go directly to a live published site. And, also, we're seeing usage amongst some enterprise customers as well. And then, for Figma Buzz, I would say that we're seeing demand across teams and also a lot of energy around this product. And this is one where we're getting extremely interesting feedback that is pulling us into thinking through new directions on the Buzz road map, and it's gonna be very exciting to see how that plays out.
+
+And finally on Make, this is one where it's a big priority for us, and we're really excited about everything we can do here. We think there's an opportunity to differentiate that product in a way that's very Figma specific, make it more interoperable with the rest of our platform, and really give it a Figma spin that others have not seen with similar tools on the market. And I'll pass it to Praveer to speak more.
+
+Praveer Melwani: Yep. Yeah. I appreciate the question, and excited to be here. I think, you know, our approach to guidance here is we want to reflect what we know about the business with a high degree of confidence today.
+
+And as we've explained previously, our goal is to be as transparent as possible on what is being included there. And so as Dylan was sharing, we doubled the product portfolio, rolled a number of these newer products out into beta post config, and GA make just recently in July. And so from an understanding perspective, we're still early in that monetization journey and our understanding of how these products will perform. But from an investment perspective, we're not gonna shy away from making deeper investments here in the near term in the form of broader sales and marketing pushes, investments in inference.
+
+We feel that there's a path here to strong returns over the medium to long term, and get excited about the potential there.
+
+Operator:Our next question comes from the line of Gabriela Boris with Goldman Sachs. Your line is open.
+
+Gabriela Borges:Hey. Good afternoon, and congratulations to the team on the IPO. Dylan and Praveer, wanted to stay on Figma Make for a moment. Maybe for Praveer, could you quantify or give us a little bit of directional color? Are you already seeing an uptick in the full seat? Did you see a change in trend because of Figma Make? And for Dylan, tell us a little bit about the competitive environment.
+
+You started alluding to it there at the end with being able to integrate into the broader suite of Figma to be able to differentiate yourself. To what extent is still a greenfield opportunity? Are you having to convince customers that have already played around with other prototyping tools to move over? Maybe just a little bit of feedback from the field. Thank you.
+
+Praveer Melwani:Yes. So I'm happy to start on the make monetization side. And then there are additional pieces that Dylan wants to speak to on the competition side, we can go there.
+
+So you're right in that, you know, we very quickly rolled out from beta to GA, and we're, you know, behind the scenes working to build out the billing infrastructure to support, you know, the future monetization of the product. And, you know, today, what we've seen is we've broadened from, you know, providing usage on our full seat type now to now to being able to provide usage across all different personas and all different seat types, including our starter plan as we've gotten closer and closer to the GA moment there.
+
+And so while we've allotted different credits based on tier, so as a full user on our enterprise tier, you have a higher credit limit than the full user on our organization's tier. We're not strictly enforcing those limits today for full seats, but are enforcing those limits on other seat types. We plan on letting customers know that they have the opportunity to purchase additional AI credits in the future, and we plan to be intentional about how we transition folks to feel like they understand the model and can map the value that they're seeing with the value that's being received in the future.
+
+Dylan Field:Yeah. I can take competition.
+
+There are a ton of other tools that are sort of in this vibe coding, vibe designing, vibe whatever you want to call it, area. And what makes Figma Make unique is the ability to take the design context from Figma into Make. And we believe that there's a lot more that we'll be able to do there in the future to make it so that you're able to create amazing results. And, also, we believe that the interoperability with the rest of Figma will set Make apart in a pretty significant way. So lots we're exploring there.
+
+And I think that, in terms of customer feedback, we are excited to see just all the interest in Make overall, but also the engagement we're getting with customers and the time they're spending with us on this product. And I would say that the position we're in from a platform standpoint, I feel, is to our advantage here.
+
+Operator:Our next question comes from the line of Arjun Bhatia with William Blair. Your line is open.
+
+Arjun Bhatia:Yes. Perfect. Thank you so much. Bear with me here. I'm losing my voice. So hopefully you can understand me.
+
+Bill, maybe sticking on make, I think one of the benefits of it or potential benefits of it is that they'll attract different personas to create. I'm curious what you're seeing in terms of which types of users are actually using FigmaMake and is it expanding kind of your exposure to different personas across marketing, across product management, and obviously, the core design persona as well?
+
+Dylan Field:Yeah. Thank you for your question, and I hope you feel better soon. Thanks for making the time to call in. So for Figma Make and Personas, I'd say that designers are obviously at our core for Figma. That said, we've seen a range of users get value out of Make.
+
+And we see it serving not just designers, but also developers, PMs, marketers. Really, the entire organization can get benefit here. And if we just zoom out and kind of think about the core thesis that we talked about at the start of the call, our perspective has been for a long time now, you know, a decade or so, that design is a differentiator. And I think that in the age of AI, when software is easier to build than ever, that's even more so the case. And with that, you need to be able to lower the floor but also raise the ceiling, make it so that you're able to bring more people into the design process.
+
+But, also, the raising ceiling part is making it so that you can actually allow professionals to do even more with AI. And the interesting thing about Make is that it sort of does both. It invites more people in to express their ideas and to share different perspectives on where you can take a product, but it also allows designers and professionals to go more high fidelity. And as we think about the AI functionality across our entire platform, I'm very excited about how we can continue to lower the floor and raise the ceiling. I think this is just the start.
+
+Operator:Our next question comes from the line of Rishi Jaluria with RBC. Wonderful.
+
+Rishi Jaluria:Hey, Dylan. Hey, Praveer. Thanks so much for taking my question. One common question that we got, you know, during the IPO process and post-launching is maybe fast-forwarding a little bit on the AI front. You know, obviously, Pigma made great to see some of the early traction there. But if, in fact, AI ends up being a major paradigm shift and the nature of, you know, what we call, quote, software shift from prepackaged SaaS application to agents and multi-agent systems, can you maybe walk us through why you expect that Figma is still going to be not just relevant, but, you know, market-leading in that new paradigm and that new post-AI software world?
+
+Dylan Field:Thank you. Yeah. Thank you for the question, and always down to talk about agents. It's a fun topic. I think that, first of all, I'd say that the narrative around agents is not necessarily where I expect that will go with the world, but we'll see over time. I think that right now, agents are being seen as this kind of black box that will take care of everything for you. And where I think it'll end up is instead you'll need to have way more surfaces that actually you expose through an agent in order to audit the work it's doing, but, also, you'll need to integrate agents into your software.
+
+And I think that with agents, and the surfaces that you'll have to design for them, they'll have different constraints than the software that you're designing otherwise. And this is just one example of sort of how much multiplication of screens and different targets that you design for. And I think that the role and the job of the designer will increase in complexity because of that multiplication of surface area. You know, we're also gonna see a lot more on different screen sizes, different modalities like VR and AR, as well as, I suspect, different ways of interacting with screens in general. And I'm quite excited for that.
+
+I think our job for Figma is to make sure that whatever you're designing, we're able to support you. And so that's what we're focused on.
+
+Operator:Our next question comes from the line of Michael Turrin with Wells Fargo. Your line is open.
+
+Michael Turrin:Hey, great. Thanks very much. Appreciate you taking the question and congrats to the team on making it this milestone. Dylan, you mentioned willing to take big swings just as part of the presentation. It's clearly been an amazing journey for Figma thus far.
+
+Maybe you and Praveera can speak to how you're thinking about use of cash given just the $1.6 billion you have on the balance sheet currently alongside any framework you're using to evaluate what would drive you to take one of those bigger swings going forward? Thanks very much.
+
+Praveer Melwani:Thanks, Michael. Appreciate the question. You know, I think, we bought you're right. We sit on $1.6 billion in cash.
+
+It gives us some flexibility here to invest in some of these newer areas that we've been exploring both as we deepen our investments in AI with products like Figma Make in particular, and spend on the inference side as we evolve our sales and marketing presences, and strategies there as we seek to, you know, take off now a full suite and platform that out to market. And so we've got, you know, no shortage of ideas on how we can continue to refine our investment thesis internally, and we expect, you know, to pull those levers as we see fit.
+
+I think, you know, the reason why we've settled on an annual guidance framework for operating margin is because we do believe we're gonna find these opportunities throughout the year, and wanna have and wanna be really clear that we intend to, you know, find those opportunities and really pounce on them at the right moments. And so expect to hear more from us on that in the future. And right now, we feel like, you know, we're well capitalized to be able to tackle the ideas that we've got on the table.
+
+Dylan Field:Yeah. And I'll I can add on the framework part.
+
+First of all, just reemphasize the previous side, which is that we're always scanning and looking at the landscape around us, both in ways that map to the current priorities of Figma as well as future directions we could go. And sometimes, M&A for us is small scale, but we also, as I indicated in my founder letter, we're very willing to take big bets if we truly believe in them. So what would be that framework for us to do that if we wanted to do M&A at scale? I think it would have to hit three criteria.
+
+The first is, of course, it has to be an amazing team and an amazing asset, in a way that we think it's a good setup for us to bring in. The second characteristic I'd be looking at is they would need to be culturally consistent and, hopefully, actually additive to the culture, bringing new cultural traits that, you know, we want to get even stronger on. The third is I think that going forward, we would have to believe for M&A at scale that whatever we are bringing on maps to a company priority as one of our first or maybe second priorities, but not like a third. So if it's in the top two going forward, great.
+
+If not, it's probably not for us. I wouldn't limit our scanning and what we're looking at to things that are our current priorities. But in order to actually go forward, I would make sure that it matches something that is a top priority. Of course, it's just the minimum, but that's the three planks that I would want to meet, at least. And, again, we have a very high bar for ANTHIAN scale.
+
+Operator:Our next question comes from the line of Alex Zukin with Wolfe Research. Your line is open.
+
+Alex Zukin:Hey, thanks guys. Maybe I'll ask one on kind of pricing and packaging.
+
+Maybe just talk a little bit about how the conversations have gone with your enterprise customers with the new pricing and packaging rollout. Are you seeing anything different from what you initially expected, either positive or negative? And any way to think about the growth contribution from pricing and packaging for the rest of the year based on how the quarter played out?
+
+Praveer Melwani:Hey, Alex. I really appreciate the question. And I think let me first recap some of the changes that we made in March. So one, we introduced the concept of a multiproduct seat giving more functionality to each user.
+
+Second, we changed the admin upgrade experience, effectively empowering our admins to have explicit approval authority prior to a new user being provisioned. And lastly, we increased the price of our full user seat type. You know, in some cases, our customers may see that their spend is increasing with us. In other cases, customers won't actually see any price change. And, you know, and there are cases here where monthly prices will actually go down for a particular customer cohort.
+
+And, you know, we recognize that, you know, as we roll through some of these changes and we've now had an opportunity to see many of these changes through a few renewal cadences on our pro business, which is majority monthly. We see an initial sort of seat remapping, as users are or rather as teams are transitioning, and post that, they end up in a much more predictable expansion pattern. And then on the, you know, the Oregon enterprise side, which are annual in nature and contracts while also, you know, we sell an annual subscription for parts of our pro tier, we're still phasing in through some of those renewals there.
+
+And so we just completed our first quarter where we've seen that full transition for companies that were going through those initial renewal moments. And while we aren't commenting on the quarterly impact, we do estimate that we'll have a mid to high single-digit tailwind of growth this year due to the changes that we've rolled out.
+
+Operator:Our next question comes from the line of Brad Sills with Bank of America. Your line is open.
+
+Bradley Sills:Great. Thank you so much. I wanted to ask a question about agents and some of the agentic features, really an impressive array of new features that you've launched throughout the different offerings.
+
+I wondered if there's any pattern recognition that you're seeing here with regards to usage, engagement, adoption, any themes or trends that you've noticed that maybe stand out to you with regard to usage of those features?
+
+Dylan Field:Yes. Thank you for the question. I would say that we are still early, especially in the sense that we have so many ideas of how we can improve our AI functionality as well as add additional AI functionality across our entire platform.
+
+And I think that the sort of distribution of usage that we see now, while it's showing good amounts of activity, will be fundamentally different as we go forward and probably not in ways that we can fully predict. And so we're watching that carefully and making sure we can learn as much as possible from it.
+
+Operator:Our next question comes from the line of Brent Bracelin with Piper Sandler. Your line is open.
+
+Brent Bracelin:Good afternoon. Thanks for taking the question here. Dylan, I'm trying to understand the Figma make opportunity. I was hoping you could maybe help size the prototyping market that it addresses.
+
+If I go back and look at Figma Design, clearly disrupted the single-player design tools out there. Figma dev mode really expanded the user base outside of design into the developers. And what does Figma make bring? Is this a new user base? Do you think this is gonna increase ARPU by cross-selling in the installed base? Walk us through the AI prototyping opportunity and what Figma Make brings there. Thank you.
+
+Dylan Field:For sure. I'd say that, first of all, I don't see Figma Make as just prototyping. I see it as a way to prototype as well, but also, you can go from prompts to working app and actually ship what you have.
+
+I think that in terms of personas, what I believe we will see in the long term is expansion of the personas that are doing more complex editing tasks on the Figma platform and creation tasks. And if you think about it, again, if design is the differentiator, it's how you win or lose. If you accept that as the premise in this age of AI and easier to build software, then I think you really want to make sure that great ideas are coming from everywhere.
+
+And, also, I think it's very important to be in a world where you have all the context that you need, not only the context from your visuals or your user flows or your brand, but also culture, business constraints, and insights across your organization. Figma Make opens up that opportunity for more people to contribute to the design process.
+
+I also think that if you conceptualize design as this branching path where you're looking at a full option space and trying to figure out which of the branches to go down, FiguMate helps you really explore that option space faster and get to an insight around where you want to go deeper on that you can add your own craft as a human. You can add your own point of view. We can help with that through Figma Make in order to help designers, but also everyone else in the organization, accelerate ideas further, and designers can help lead that transformation.
+
+Operator:Ladies and gentlemen, that concludes today's call. Thank you all for joining. You may now disconnect.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has no position in any of the stocks mentioned. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

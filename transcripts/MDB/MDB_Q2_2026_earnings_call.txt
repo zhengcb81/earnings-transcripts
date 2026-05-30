@@ -1,0 +1,394 @@
+======================================================================
+Earnings Call Transcript
+Company: MongoDB (MongoDB)
+Ticker: MDB
+Quarter: Q2 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2025/08/26/mongodb-mdb-q2-2026-earnings-call-transcript/
+Scraped: 2026-05-30T13:37:14.809081
+Characters: 68605
+======================================================================
+
+Aug. 26, 2025 at 5 p.m. ET
+
+CALL PARTICIPANTS
+
+President and Chief Executive Officer — Dev Ittycheria
+
+Chief Financial Officer — Mike Gordon
+
+Vice President of Investor Relations — Jess Lubert
+
+Revenue-- $591 million for fiscal second quarter ended July 31, 2025, reflecting 24% year-over-year growth (non-GAAP) and surpassing the high end of guidance.
+
+Atlas revenue-- 29% year-over-year growth for Atlas revenue in the fiscal second quarter, now comprising 74% of total revenue, up from 72% last quarter.
+
+Non-GAAP operating income-- $87 million (non-GAAP) for the fiscal second quarter, resulting in a 15% non-GAAP operating margin, versus 11% in the year-ago period.
+
+Customer count-- Increased to over 59,900, with sequential growth of approximately 2,800 customers.
+
+Atlas customers-- Exceeded 58,300 Atlas customers, up from over 49,200 in the previous year.
+
+Non-Atlas ARR growth-- 7% year-over-year growth in non-Atlas annual recurring revenue for the fiscal second quarter, with half of non-Atlas revenue outperformance attributed to more multiyear deals.
+
+Customers with $100,000+ ARR-- 2,564 customers with at least $100,000 in annual recurring revenue for the fiscal second quarter, marking 17% growth from the prior year.
+
+Net ARR expansion rate-- Approximately 119% for the fiscal second quarter, consistent with recent quarters.
+
+Gross profit-- $436 million gross profit for the fiscal second quarter, translating to a 74% gross margin, down from 75% in the prior-year period due to Atlas mix shift.
+
+Share repurchases-- 930,000 shares repurchased for $200 million during the fiscal second quarter under the $1 billion authorization.
+
+Operating cash flow-- $72 million operating cash flow for the fiscal second quarter, with free cash flow of $70 million, versus negative results ($1 million operating, $4 million free cash flow) in the prior-year period.
+
+Cash balance-- $2.3 billion in cash, cash equivalents, short-term investments, and restricted cash at the end of the fiscal second quarter.
+
+Fiscal year revenue guidance update-- Increased by $70 million for fiscal year ending Jan. 31, 2026, now ranging from $2.34 billion to $2.36 billion.
+
+Fiscal year operating margin guidance update-- Raised non-GAAP operating margin guidance for fiscal year ending Jan. 31, 2026 to 14% at the high end, up from 12.5% previously.
+
+Non-GAAP income from operations guidance-- Non-GAAP income from operations guidance for fiscal year ending Jan. 31, 2026 updated to $321 million-$331 million.
+
+Third quarter revenue guidance-- Projected revenue between $587 million and $592 million for the fiscal third quarter ending July 31, 2025.
+
+Third quarter non-GAAP operating income guidance-- Set in the $66 million-$70 million range.
+
+Restructuring charges-- Less than 2% of employees affected, incurring approximately $5 million in one-time costs, excluded from non-GAAP results.
+
+Mid-single digit non-Atlas subscription revenue decline expected-- Managers now anticipate a mid-single digit decrease for fiscal year ending Jan. 31, 2026, compared to the previous expectation of a high single-digit decline.
+
+Multiyear license revenue headwind update-- Now estimated at $40 million for fiscal year ending Jan. 31, 2026, reduced from the earlier $50 million projection due to fiscal second quarter outperformance.
+
+MongoDB(MDB+2.97%)reported accelerated Atlas revenue growth and raised both annual revenue and margin guidance for the fiscal year ending Jan. 31, 2026. The company attributed operational and cash flow outperformance to large customer workloads, a continued shift toward Atlas, and increased multiyear deal activity. Management highlighted ongoing platform expansion, including integrated search and vector search, and noted that AI-native customer traction has not yet produced material revenue impact.
+
+CEO Dev Ittycheria stated that over 70% of the Fortune 500, as well as seven of the 10 largest banks, 14 of the 15 largest healthcare companies, and nine of the 10 largest manufacturers globally, are customers.
+
+Management is increasing R&D and developer engagement investments, with further details to be unveiled at Investor Day.
+
+Non-Atlas revenue remains partially supported by broad-based, smaller multiyear deals, with no pull-forwards or outsized transactions.
+
+The company cited a "modest restructuring" to enhance operating efficiency, affecting less than 2% of staff.
+
+AI-related workloads and customer wins, while growing, have not yet been material contributors to overall revenue growth according to management.
+
+CFO Mike Gordon clarified that fiscal third quarter non-Atlas revenue is expected to decline in the low-20% range year-over-year due to the prior year’s multiyear deal concentration.
+
+Management stated that Atlas penetration and durability in large enterprise accounts are the key current growth drivers, rather than early-stage AI adoption, as discussed on the fiscal second quarter earnings call.
+
+The company’s broad feature integration—search, vector search, and embeddings—was positioned as a differentiator for workload consolidation and future agent-based applications.
+
+Platform optionality for cloud, on-premise, and cross-cloud deployments continues to be emphasized as critical for enterprise customers making long-term database decisions.
+
+INDUSTRY GLOSSARY
+
+Atlas: MongoDB's cloud-based database-as-a-service offering, supporting multi-cloud deployments and representing a large and growing proportion of company revenue.
+
+EA (Enterprise Advanced): The commercial, enterprise-grade, self-managed version of MongoDB sold for on-premise or hybrid cloud deployment.
+
+ARR (Annual Recurring Revenue): Metric indicating predictable, normalized recurring revenue generated from active subscriptions within a year.
+
+Vector search: Feature allowing database queries over high-dimensional vector embeddings, important for AI and semantic search applications.
+
+PG Vector: The vector search extension for the PostgreSQL database, used for AI workloads and compared as a competitor to MongoDB Vector Search.
+
+Full Conference Call Transcript
+
+Brian Denyeau:Good afternoon, and thank you for joining us today to review MongoDB, Inc.'s second quarter fiscal 2026 financial results, which we announced in our press release issued after the close of market today. Joining me on the call today are Dev Ittycheria, President and CEO of MongoDB, Inc., Mike Gordon, CFO of MongoDB, Inc., and Jess Lubert, MongoDB, Inc.'s new Vice President of Investor Relations.
+
+During this call, we will make forward-looking statements including statements related to our market and future growth opportunities, our opportunity to win new business, our expectations regarding Atlas consumption growth, the impact of non-Atlas business and multiyear license revenue, the long-term opportunity of AI, our financial guidance and underlying assumptions, and our investments and growth opportunities in AI. These statements are subject to a variety of risks and uncertainties including the results of operations and financial conditions, that could cause actual results to differ materially from our expectations.
+
+For discussion of material risks and uncertainties that could affect our actual results, please refer to risks described in our quarterly report on Form 10-Q for the quarter ended April 30, 2025, filed with the SEC on June 4, 2025. Any forward-looking statements made on this call reflect our views only as of today, we undertake no obligation to update them except as required by law. Additionally, we will discuss non-GAAP financial measures on this conference call. Please refer to the tables in the earnings release on the Investor Relations portion of our website for a reconciliation of these measures to the most directly comparable GAAP financial measure. With that, I'd like to turn the call over to Dev.
+
+Dev Ittycheria:Thank you, Brian, and thank you to everyone for joining us today. Before discussing our strong quarter, I want to remind everyone about our upcoming Investor Day, which will take place on September 17, at the Javits Center in New York City during our .local conference. We'll spend the day discussing the investments we're making to drive durable growth and margin expansion and our view of the future. I look forward to seeing you then. Now on to Q2. I'm pleased to report another strong quarter as we continue to execute against our large market opportunity. Let me start with our results before giving you a broader company update.
+
+We generated revenue of $591 million, up 24% year over year and above the high end of our guidance. Atlas revenue grew 29% year over year, representing 74% of total revenue. We delivered non-GAAP operating income of $87 million for a 15% non-GAAP operating margin. And we ended the quarter with over 59,900 customers. Atlas performance was strong, accelerating to 29% year over year growth up from 26% in Q1. Our customer additions were also robust. We have added over 5,000 customers over the last two quarters. These results reflect the strength of MongoDB, Inc.'s platform. Our flexible document model, expanded capabilities like search and vector search, enterprise readiness, and the ability to run anywhere.
+
+Many of our recently added customers are building AI applications underscoring how our value proposition is resonating for AI, and why MongoDB, Inc. is emerging as a key component of the AI infrastructure stack. At the same time, we significantly outperformed on operating margin, demonstrating that we can drive durable revenue growth while expanding profitably. In short, our results show that customers are choosing MongoDB, Inc. Let me tell you why. First, MongoDB, Inc. is an enterprise-ready database capable of meeting the most stringent enterprise requirements. Over 70% of the Fortune 500 as well as seven of the 10 largest banks, 14 of the largest 15 healthcare companies, nine of the 10 largest manufacturers globally are MongoDB, Inc. customers.
+
+MongoDB, Inc. is a battle-tested enterprise platform relied on by some of the sophisticated and demanding organizations in the world. In part because of our strong enterprise posture across security, durability, availability, and performance. Atlas enabled one of the world's largest automakers to overcome Postgres' scalability and flexibility limits while reducing complexity. The company's management console tracks over 8.5 million vehicles requiring a modern schema to handle both structured and unstructured data. Something Postgres could not handle. Ultimately, Atlas consolidated infrastructure accelerated innovation, and support the scale of millions of connected vehicles. Second, MongoDB, Inc. is suitable for a broad range of use cases, including the most mission-critical and transaction-intensive applications.
+
+MongoDB, Inc. has also supported full asset transactions for more than six years, ensuring strong consistency and data integrity at scale. This is why some of the world's most demanding transactional workloads run on MongoDB, Inc. today. For example, Deutsche Telekom selected MongoDB Atlas as the foundation for its internal developer platform which includes mission-critical workloads like contract management, device purchases, and billing for 30 million customers. With 90 Atlas clusters managing over 60 million customer records, Deutsche Telekom's customer data platform now handles 15 times the concurrent logins of legacy systems. By consolidating these high-volume transaction-intensive applications on MongoDB, Inc., Deutsche Telekom has improved resiliency, accelerated innovation, and delivered a step change in customer engagement.
+
+Third, MongoDB, Inc. has redefined what's core for the database by natively including capabilities like search, vector search, embeddings, and stream processing. Comparing MongoDB, Inc. to another database like Postgres is not an apples-to-apples comparison. Take a global e-commerce application that manages inventory and order data while enabling product discovery through sophisticated search across millions of SKUs. The choice for this application, not between MongoDB, Inc. or Postgres, is between MongoDB, Inc. or Postgres plus other offerings like Pinecone, Elastic, and Cohere, for embeddings. MongoDB, Inc.'s complete solution allows developers to spend less time stitching together and maintaining a patchwork of disparate systems and more time building differentiated functionality that drives the business forward.
+
+For example, Agibank, a Brazilian neobank with 2.7 million active customers migrated their content management system storing customer records from Postgres to Atlas. As data volumes grew, Postgres' inflexibility and task execution latency drove performance issues and the database lacked sophisticated secondary indexes and full-text search. Earning sales of core offerings such as loans, insurance, and card approvals. Agibank was constantly updating the database and manually scaling infrastructure. Which is both time-consuming and error-prone. With Atlas, Agibank gained a resilient flexible system that handles rising demand and supports new services delivering nearly five times better performance and 90% lower cost, all with no outages. Fourth, MongoDB, Inc. is emerging as a standard for AI applications.
+
+Over the last few quarters, we've seen a strength in our self-serve channel, driven in part by AI-native startups choosing Atlas as the foundation for their applications. In the enterprise segment, adoption is real but early. Much of the activity today centers on employee productivity tools and packaged IoT solutions. Enterprises are still in the very early stages of building their own custom AI applications that will transform their business. We consistently hear from customers that when teams try to scale from five prototypes built on relational back ends, to enterprise-grade deployments, these platforms quickly hit limits in flexibility, scalability, and performance. Across startups and increasingly enterprises, our unified platform is resonating strongly.
+
+In the enterprise segment, a leading electric vehicle company chose Atlas and Vectrus Service to power its autonomous driving platform. After testing VectorSearch against Postgres PG Vector for their in-vehicle voice assistance, they selected MongoDB, Inc. for superior performance at scale and stronger ROI. They now rely on Atlas to handle over 1 billion vectors and expect 10 times growth in data usage by next year. DevRev, a well-funded AI native with proven founders disrupting the help desk market, built AgentOS. It's a complete agentic platform that autonomously handles billions of monthly requests on Atlas. DevRev accelerated development velocity, lowered cost, and scaled globally with low latency by using Atlas.
+
+AgentOS also leverages Atlas Vector Search for semantic search enriching its knowledge graph and LLMs with domain-specific content. Companies in nearly every industry and across every geography are choosing MongoDB, Inc. because we deliver the features, performance, cost-effectiveness, and AI readiness they need. All in one platform. As we look ahead, we remain confident MongoDB, Inc.'s position to lead both the current wave of digital transformation and the next wave powered by AI. With that, here's Mike.
+
+Mike Gordon:Thanks, Dev. I'll begin with a detailed review of our second quarter results. And then finish with our outlook for the third quarter and fiscal year 2026. I will be discussing our results on a non-GAAP basis unless otherwise noted. As Dev mentioned, we had a great quarter. As we exceeded all of our guidance ranges and are increasing our full-year guidance across the board. Now onto the results. In the second quarter, total revenue was $591 million, up 24% year over year and above the high end of our guidance. Shifting to our product mix, Atlas grew 29% in the quarter and now represents 74% of total revenue.
+
+This compares to 71% in the prior year and 72% last quarter. We had an impressive Atlas growth quarter which benefited in part from the strong start to consumption in May that we referenced on our last call as well as broad-based strength, especially in larger customers in the US. Let me provide some context on Atlas consumption in the quarter. In Q2, Atlas consumption growth was strong and relatively consistent with last year's growth rates. This drove the acceleration in revenue as well as the growth in absolute revenue dollars year to date for fiscal 2026.
+
+Turning to non-Atlas, revenue came in ahead of our expectations in the quarter as we continue to have success selling incremental workloads into our existing EA customer base. Non-Atlas ARR, which reflects the underlying revenue growth of this product line without the impact of changes in duration, grew 7% year over year. In addition to the good underlying trends in non-Atlas, in Q2, we also benefited from more multiyear deals than expected, reflecting our customers' desire to commit to building with MongoDB, Inc. long term. Approximately half of the non-Atlas revenue outperformance versus guidance was attributable to multiyear outperformance.
+
+We had another strong quarter for customer adds in the second quarter as we grew our customer base by approximately 2,800 sequentially. Bringing the total customer count to 59,900 which is up from over 50,700 in the year-ago period. This quarter, we incorporated new customers added from the 300 of the 2,800 added. The growth in our total customer count is being driven primarily by Atlas, which had over 58,300 customers at the end of the quarter compared to over 49,200 in the year-ago period. It is important to keep in mind the growth in our Atlas customer count reflects new customers to MongoDB, Inc. In addition, to existing EA customers deploying workloads on Atlas for the first time.
+
+Of our total customer count, over 7,300 are direct sales customers a decline of 200 customers sequentially and flat year over year. These metrics are largely due to our decision to reallocate a portion of our go-to-market resources from the mid-market to the enterprise channel starting in the second half of last year. This does not impact our total customer count but is an output of fewer self-serve originated customers being elevated to our direct sales team as we move upmarket. In Q2, our total company net ARR expansion rate was approximately 119%, which is consistent with recent quarters. We ended the quarter with 2,564 customers with at least $100,000 in ARR, representing 17% growth versus the year-ago period.
+
+Moving down the income statement, gross profit in the second quarter was $436 million representing a gross margin of 74% which is down from 75% in the year-ago period. Our year-over-year gross margin decline is primarily driven by Atlas growing as a percent of the overall business. Our income from operations was $87 million for a 15% operating margin, compared to 11% in the year-ago period. We are very pleased with our stronger than expected margin results, which benefited mainly from our revenue outperformance. Additionally, I'd like to provide a little context on the modest restructuring we undertook in the quarter.
+
+It impacted less than 2% of employees and resulted in approximately $5 million of one-time charges which we have excluded from our non-GAAP financials. This action is consistent with the key priorities I outlined for you last quarter to identify ways to both reallocate existing spend to higher ROI opportunities and be more disciplined about incremental spending. We are focused on running an efficient, scalable business that supports growth in revenue and profitability to drive long-term shareholder value. Net income in the second quarter was $87 million or $1 per share, based on 87 million diluted shares outstanding.
+
+This compares to a net income of $59 million or 70¢ per share on 84 million diluted shares outstanding in the year-ago period. Turning to the balance sheet and cash flow. We ended the second quarter with $2.3 billion in cash, cash equivalents, short-term investments, and restricted cash. During the quarter, we spent $200 million to repurchase 930,000 shares which was under our previously announced $1 billion total share repurchase authorization. Operating cash flow was well above our expectations at $72 million and free cash flow was $70 million which compares to negative $1 million and negative $4 million respectively in the year-ago period. Our strong cash flow results were driven primarily by strong operating profit and higher cash collections.
+
+Before turning to our outlook in greater detail, I'd like to share the key points driving how we are looking at the rest of fiscal year 2026. Number one, we are raising our expectations for revenue based on our confidence in Atlas. As well as a strong performance in the first half of the year providing a higher starting point for Atlas heading into the second half. Number two, we are increasing our operating margin guidance by 150 basis points at the high end, reflecting our strong Q2 performance and continued focus on margin improvement.
+
+And number three, we are raising our operating margin guidance while still continuing to make incremental investments for growth with a focus on R&D and developer awareness. Now moving on to our full-year guidance. I'd like to provide some incremental comments on our expectations. First, as we discussed, we had a strong start to the year and are confident in our ability to drive continued revenue and profitability growth. We are raising our full-year revenue guidance by $70 million including the $38 million outperformance in Q2. This reflects the strong Q2 consumption benefiting revenue in the second half and our continued confidence in Atlas growth.
+
+All in, this implies mid-twenties percentage growth for Atlas in the second half of the year. Second, incorporating our strong performance in the first half, we expect non-Atlas subscription revenue will now be down in the mid-single digits for the year. Compared to our prior expectation of high single-digit decline. We also expect the headwind from multiyear license revenue for fiscal 2026 to now be $40 million due to the Q2 outperformance compared to our prior expectation of approximately $50 million. Please note, we expect non-Atlas ARR will continue to grow year over year. Finally, we are raising our expectations for operating margin to 14% at the high end, up from 12.5% in our prior quarter guidance.
+
+This reflects the better than expected revenue performance, the impact of our more disciplined approach to investing for growth, and our increased focus on efficiency. For fiscal year 2026, we now expect revenue to be in the range of $2.34 to $2.36 billion, an increase of $70 million from our prior guide. We are raising our non-GAAP income from operations expectations by $44 million and are now targeting a range of $321 to $331 million and non-GAAP net income per share to be in the range of $3.64 to $3.73 based on 87.4 million diluted shares outstanding.
+
+Note that the non-GAAP net income per share guidance for the third quarter and fiscal year 2026 assumes a non-GAAP tax provision of 20%. Moving on to our Q3 guidance, a few things to keep in mind. First, we expect to see a low 20% year-over-year percentage decline in the non-Atlas business after the strong multiyear outperformance we experienced in 2025. As a reminder, Q3 of last year was our strongest multiyear revenue quarter and is the largest portion of the multiyear headwind. Second, we expect operating margin will be lower than in Q2, primarily due to the expected sequential decline in non-Atlas revenue, which is very high-margin revenue.
+
+In addition, it is also impacted by the timing of operating expenses specifically R&D hiring, and seasonality of our marketing investments. With that context, I will now turn to our outlook for the third quarter. For the third quarter, we expect revenue to be in the range of $587 to $592 million. We expect non-GAAP income from operations to be in the range of $66 to $70 million and non-GAAP net income per share to be in the range of 76 to 79¢ based on 87.7 million diluted shares outstanding. To summarize, we had a very strong quarter. We are pleased with our ability to drive revenue growth across the business and increase our operating profit expectations.
+
+We remain incredibly excited about the opportunity ahead and will continue to invest responsibly to drive long-term shareholder value. I would also like to take a moment to extend a warm welcome to Jess Lubert, our new Vice President of Investor Relations who started with us yesterday. Jess joins us from Juniper Networks where he led their investor relations effort including most recently helping the company navigate the acquisition by Hewlett Packard Enterprise. We're excited to have him on board and eager to see the impact of his work. Last but not least, look forward to seeing many of you in a few weeks at our Investor Day.
+
+Operator:Thank you so much. And as a reminder, that is star one to get in the queue. And wait for your name to be announced. To withdraw the question, simply press star one again. Our first question is from Sanjit Singh with Morgan Stanley. Please proceed.
+
+Sanjit Singh:Hi. Thank you for taking the question and congrats on a heck of a quarter in Q2. I wanted to dive into some of the drivers into Q2. When I look at the acceleration in Atlas, which is now accelerated for two quarters in a row, kinda just look at the sequential dollar adds. I had that up, you know, more than $40 million in Q2, which is kind of the strongest sequential dollar adds we've seen in quite some time in what's been a pretty sober sort of cloud spending environment. So I was wondering if you could you know, give us some sense of the drivers of you know, of the strong sequential adds of this quarter.
+
+I know you pointed to May. But if anything you can give us from a, like, a workload perspective, or any other new factors, maybe the workloads from last year are starting to ramp. I'd just love to understand that trajectory a little bit better.
+
+Dev Ittycheria:Yeah. Sanjit, thank you. Thanks for the question. So clearly, we're really pleased by the quarter and really pleased by the accelerating growth in Atlas. I would say a lot of it was due to the workloads that we acquired over the past year, especially with a move upmarket. That are growing faster and becoming bigger than previous workloads we've seen. So I think the move upmarket is really paying off. And what we're also seeing is that there's a great uptick of some of the other capabilities they offer like search and vector search that are also adding to that growth of those workloads. And then as we mentioned, we also acquired a ton of new customers.
+
+Obviously, self-serve customers tend to spend less on a per customer basis, but we also have added lots of customers over the last six months. And I think that's also helping drive some of the growth.
+
+Sanjit Singh:Yeah. That's a that's a that's great color. I wanted to follow-up on the go-to-market side. You know, over the last couple of years, we've been sort of tinkering and optimizing the go-to-market organization across you know, sort of, you know, territory investment, but also sort of quotas and moving to incremental consumption. Could you give us an update on the state of operations for the Salesforce today and in some sense, you know, if I look at the customer adds, it seems like things are humming quite well. But just to get to understand, you know, how like, what's the state of the organization That'd be really helpful.
+
+Dev Ittycheria:Yeah. Sure. So nothing really has changed. We're just doubling down on what we said previously. We are moving up markets. We're focusing our high-end, you know, sales force, focus on the most sophisticated and demanding customers. You know, these are typically enterprise customers all around the world. And then, we're using our self-serve channel to better serve the SMB market. I know there are a lot of questions about where we kind of abandoning the self-serve the early stage market. By this move. And I think the results over the last couple of quarters have shown that we are not.
+
+I think we're just becoming much more effective in serving that market while also being very effective in growing you know, our wallet share in these larger accounts. So we're really just continuing with the strategy that we articulated before, and, obviously, we're pleased with the results.
+
+Sanjit Singh:Appreciate the thoughts, Dev. Thank you.
+
+Dev Ittycheria:Thank you, Sanjit.
+
+Operator:Thank you. Our next question is from Raimo Lenschow with Barclays. Please proceed.
+
+Raimo Lenschow:Perfect. Thank you. First of all, congrats to Jess. All the best. Two quick questions from me. Staying on that theme of self-service, that acceleration, Dev, obviously, you know, you changed things around, but it kind of it's accelerated despite kind of you actually moving upmarket. Like, can you help us understand then what's driving that a little bit? And then I have one follow-up for Mike.
+
+Dev Ittycheria:Yeah. I mean clearly, the output metrics look really good, but I would say the work around self-serve began, you know, has been going on for a while. The team is really good at running experiments using a data-driven approach to figure out what's working, to figure out what's not working, a new motion that we're also doing that's showing good results is going after SQL developers who don't really know MongoDB, Inc., attract them to our platform, really, you know, helping them understand the value props of MongoDB, Inc. Even running, like, things like office hours where we spend time with, you know, SQL developers to explain the benefits of modeling data in a document database.
+
+And all these experiments and tactics that we're doing, which are very data-driven, are really paying off. And, May Petrie used to run that group, is now our CMO. And she has a strong team under her, and we feel really good about what that self-serve team has been doing. But, again, we don't want to declare a victory too early, but, obviously, we're very pleased with the results.
+
+Raimo Lenschow:Yeah. No. That's really nice to see. And then, Mike, the things first of all, for all the access disclosure, the ARR for the non-Atlas or EA part is kind of really helpful. If you think about the I get the logic around the renewal cohorts, especially Q3. But in am I doing the graph correctly that actually next year that part of the business looks more interesting because the cohort looks better. Like, just trying to get your idea or maybe you might not even give it to us because you just do ARR. Thank you.
+
+Mike Gordon:Sure. So thanks for the question. So I'm gonna hold that answer till we get to Q3 of next year because it kinda depends on what happens in Q3 of this year. So the one thing is, as we've talked about, the big impact in Q3 of this year is the multiyear. We'll see how it how it comes back next year, but it really depends, Raimo, on how we do in Q3 this year.
+
+Raimo Lenschow:Yeah. Okay. Perfect. Thank you, Ben. Thanks for the disclosure. Really helpful.
+
+Mike Gordon:You're welcome. Thanks, Raimo.
+
+Operator:Thank you so much. And our next question comes from Tyler Radke with Citi. Please proceed.
+
+Tyler Radke:Hey, thanks for taking the question. And nice job on the Atlas growth. Wanted to dig into the AI commentary that you had, Dev. Obviously, last quarter, you talked about Cursor. Which obviously is ramping up significantly in terms of their ARR, and I think you called out many examples this quarter, including an autonomous vehicle company. It sounds like, you know, expecting pretty significant growth there. But how much of that is playing into the Atlas strength that you're seeing here in the quarter?
+
+Any way to quantify you know, that cohort or use cases, whether it's you know, vector search or maybe even if you throw in voyage, just help us understand if that's starting to move the needle because it sounds like there's some pretty high-profile wins in there.
+
+Dev Ittycheria:Yeah. So thanks for the question, Tyler. While we're adding thousands of AI-native customers, I will tell you that the growth that we delivered this quarter was not material to that growth. The growth was really driven by our core business and our core customer base. And so and, you know, while we're very happy with the, you know, the AI customers increasingly choosing MongoDB, Inc., it was not a material mover of the needle for our growth.
+
+Tyler Radke:Great. And then follow-up on the migration opportunity. I know you know, you've been investing in Relational Migrator. You know, you're working with companies like Cognition to accelerate the code migration opportunity. And you've seen professional services ramp up a little bit, but where have you started to see sort of the time to migration or replatform improve a bit just anything you could share in terms of that migration opportunity if that's started to improve in terms of velocity or size of workload migration would be helpful. Thank you.
+
+Dev Ittycheria:Yeah. Sure. So, yes, we're super excited about what we call app modernization or legacy app modernization. You'll hear a lot more about this at Investor Day in September, Tyler. But what I will say to you is that the value proposition is very clear. Customers are very, very motivated to try and modernize these legacy systems for a wide variety of reasons. We are seeing a lot of progress. We've actually brought in a new leader, new product leader who brings a lot of depth and scale, especially around AI to help us build the tooling to leverage AI to really, you know, drive more automation in terms of how we analyze and refactor the code.
+
+We brought in a new leader last quarter to help really help drive the delivery and the go-to-market efforts around AppMod. So we're definitely beefing up resources and I would say that we're investing a lot in product, and there's a lot more to do. And I would say this is something that we're very excited about, but it'll drive more of our longer-term growth less it'll the it won't be as pronounced in terms of this year but we're very, very excited about the opportunity, and we're definitely we'll spend more time discussing this and what we're actually doing on the product side in September. Thank you.
+
+Operator:Thank you. One moment for our next question. It comes from Jason Ader with William Blair. Please proceed.
+
+Jason Ader:Yeah. Thank you. Dev, I was hoping you could talk about some of the kind of latest industry developments just on the technology side. In particular, I'm thinking about Lake Base from Databricks and then DocumentDB and the Linux Foundation. Can you just comment on both those things and know, how they might impact MongoDB, Inc. and how you differentiate?
+
+Dev Ittycheria:Yeah. So let me tackle them one by one. Clearly, what we are seeing is that the strategic high ground for AI, when it comes to inference, is OLTP. So we talked about this on the last call where some companies that acquired early-stage OLTP startups. And what it really spoke to and those companies had spoken about their organic efforts to build an OLTP platform. And I think what it spoke to was the fact that they building an OLTP platform that's ready and mission-critical and enterprise can serve the most demanding requirements of enterprises is not trivial. And I think they basically threw in the towel and decided to do these acquisitions.
+
+And what it just reinforces that OLTP is the strategic high ground for AI, and we believe that if now customers are gonna be choosing what OLTP platform to that they want for AI, just given our architecture just given the fact that we have a durable architectural advantage in terms of JSON support, which addresses messy complicated and highly interdependent and costly changing data structures, The fact that we integrated search and vector search, I think, really helps us position going after AI. With regards to your second question around the Linux Foundation, I think what this really also suggests shows is that, you know, real JSON is much more important now with AI than ever before.
+
+And the clones and bolt-ons and, you know, that have traded off features and performance and developer experience have just not met customer expectations. And, candidly, what I see this is that the hyperscalers are investing less and really handing off to the open-source community to kind of really take on the bulk of the work in terms of product development. Our hyperscaler partnerships remain strong. And I think we have the right open-source model where we can balance the access to free software while preserving the ability to both generate and capture value.
+
+Jason Ader:Great. Thank you. And then just one quick follow-up. Why do we hear so much about Postgres adoption for AI startups? You talked about the success you guys are having. But if Postgres has the disadvantages that you've talked about, you know, multiple times, scalability, JSON support, How come we hear so much about that? You know, kind of at least in the early stages of AI?
+
+Dev Ittycheria:Yeah. That's a really good question. And I think it's important to understand. And we spent a lot of time we have now invested in the team in the Bay Area that spends a lot of time with the startup community. What's become clear is a lot of these startup founders don't think that hard about their database choice. They kinda go with what they know. And what we are seeing is that as some of these startups are scaling, they're running into real scaling challenges with Postgres. And what you know, and we've talked about this in the past.
+
+Like, when you add a JSON when you use JSONB on Postgres, a two-kilobyte document or bigger starts really creating performance problems because Postgres has to do something called off-road storage, which creates enormous performance overheads. And so the, you know, developers need a platform that can handle structured, semi-structured, unstructured data. They need a obviously, a platform that performs well. And they need a platform that can scale as they grow. And what we're hearing clearly from the startup communities Postgres, in many cases, is not scaling for them. And they're now coming to us.
+
+And so we feel really good about our position, but the reality is that a lot of, you know, these AI founders kinda struggle with what they know. What they've used in the past. And only when the business starts scaling do they start recognizing the challenges. And we realized we need to do more developer education and do more work, and so we're investing a lot in the startup community. We're running a big event in October in San Francisco with a big hackathon, and we're inviting a lot of customers to participate.
+
+But that's just the start of a meaningful investment we're making in the Bay Area and the AI startup community to rethink their decisions around just going with what they know.
+
+Jason Ader:Thank you.
+
+Dev Ittycheria:Thank you.
+
+Operator:One moment for our next question. That comes from Mike Cikos with Needham. Please proceed.
+
+Mike Cikos:Hey, thanks for taking the questions, guys. Just wanted to come back to Atlas specifically. And, Mike, I appreciate last quarter, you gave us some very granular color around Atlas trends. Was hoping we could get an update on how Atlas trends played out this quarter. Or just at the very least why we did see such broad-based strength from large customers this quarter? Thank you.
+
+Mike Gordon:Sure. Thanks for the question, Mike. So when we talk about consumption in the second quarter for Atlas, as we talked about, it performed well, grew 29% year over year. As we talked about, Mike, the consumption growth was relatively consistent with last year. And as we talked about on the last call, we started out with a strong May, we saw broad-based strength across most of the geos and segments, so nothing to call out there. But we did see notable strength in the larger customers in the US. And if we dive deeper on that one, as Dev talked about, we are seeing some workloads from our larger customers grow for longer.
+
+And expand more than we have seen in the past, so that's good. While there's many moving parts in the consumption business, we also expect that there is benefit from our go-to-market changes. And given the preponderance of our strategic accounts being in the US, no surprise that we saw that growth mostly in the US. And then lastly, Mike, there is some benefit from comparing it to a little slower growth in Q1. So that would be the detail on Q2. As it relates to consumption growth.
+
+Mike Cikos:Thank you for that. And if I could just squeeze maybe one more in. On the outperformance that we saw this quarter from the multiyear deals. And maybe I'm just misunderstanding here. But my assumption was the reason we were facing this outperformance was really tied to the fact that in prior years, we've had some pretty big deals on the multiyear front. And so to see some of these deals come in this year, is that a function of customers renewing earlier, which is helping fill that larger divot that we previously expected? Is that a fair assumption? Or can you help me think through that a little bit more? Thank you.
+
+Mike Gordon:So thanks for the golf analogy. No. It did not fill the divot. So in Q2, it was really it was good underlying strength in ARR growth. And then greater than expected multiyear. There were really no pull-forwards, Mike. And this is a hard business to forecast because sometimes even customers don't know whether they're gonna opt for an annual renewal or a multiyear. So there were no pull-forwards. And there was nothing out of the ordinary. Very importantly, we left the net the non-Atlas assumptions consistent with our last guidance. Hence, pulling down the multiyear headwind from 50 to 40. And, again, nothing to call out on Q2. No pull-forwards, and there were really no large multiyears in there.
+
+It was just across a good subset of customers.
+
+Mike Cikos:Thank you again.
+
+Mike Gordon:Yep.
+
+Operator:Thank you. Our next question comes from the line of Alex Zukin with Wolfe Research. Please proceed.
+
+Alex Zukin:Yes. Thanks for squeezing me in and I'll echo the congrats, on truly, truly amazing quarter.
+
+I guess Dev, when you think about the AI comments that you've talked about both in the press release and in the call, maybe just a little bit more nuance in the use cases, not necessarily that you're seeing kinda contribute materially today, but the differentiation of the platform that you're able to incrementally take market share as it becomes available both in net new kind of AI-native companies, but also in some of your larger existing companies or customers that are starting to modernize for this kinda conversational or AI-native era where are you seeing the most momentum in terms of workload construction and scale?
+
+And when do you think we should expect to kinda actually start seeing that contribute more materially to the growth, in consumption?
+
+Dev Ittycheria:Yes. So thanks for the question, Alex. Couple of points. Again, we're very pleased with the results of this quarter, but I would say the AI cohort was not a material driver of the growth. That being said, what we are seeing is a lot of customers very, very interested in our architecture. Let me again walk through why. You know, one, we're a JSON database. JSON is the best way to express and model the complicated and messy and highly interdependent and constantly evolving data structures that you have to deal with in the real world. So that's point number one.
+
+So it's much easier to do that on MongoDB, Inc. than to do that on some Kluge you know, kind of setup on top of a relational database. Second is that we integrate search and vector search so you can do some very sophisticated things to people call hybrid search and retrieval can do very sophisticated things in finding information quickly. Which is a very unique differentiator for us. So what this means is that rather than stitching together multiple systems, you can do this all on MongoDB, Inc., so it becomes less complexity and lower cost. The third thing is that we've now embedded voyage models on our platform. Right?
+
+So the you know, if you control the embedding layer, you sit at the gateway of meeting. Of AI. Right? What the embedding models do is really are a bridge between a company's private data and the LLM. So that becomes really important because the better the quality of the embedding model, the better the quality of the signal of your own data. So that reduces things like hallucinations or just bad outputs. And so customers are now people start caring more and more about, like, you know, high higher stake use cases, they really wanna ensure those outputs are high.
+
+And the fact that it's part of our platform we can enable you to do auto embeddings, becomes an incredibly you know, compelling feature. In terms of the market, what I would say is that know, the enterprise uptake of AI is still early. I've said this for a couple of years now, and I think a lot of people were a little skeptical of what I said, but it's proving to be true. As you predicted, like, you know, the lack of skills and the lack of trust with AI systems, is kind of slowing, you know, people are being very cautious about deploying AI.
+
+Where it is being deployed is really on end-user productivity, whether it's developers with code gen tools, or business users using tools to summarize documents extract data, or things like deflecting tickets from people to systems with, like, conversational AI. I think you are starting to see the first steps in people deploying agent-based systems. And I can talk a little bit about that. But that's still very, very early. We're seeing small ISVs. Some of them are taking off who are really driving most of the impact. But the real enduring value will come. You know, when you talk to a customer today, most of them, when you ask them, is AI really transforming your business? They'll say no.
+
+Yes. We're seeing some productivity gains here and there, but it's not really transforming my business. I think the real enduring value will come when they build custom AI solutions that truly transform their business, whether it's to drive you know, new revenue opportunities or dramatically reduce their existing cost structure. But we're really pleased. We you know, I mentioned this electric car company that's very tech-savvy that's using MongoDB, Inc. I should mention one of the fastest-growing startups in the Bay Area has bet big on MongoDB, Inc. DevRev, the company going after the help desk space, has built their own agentic platform of MongoDB, Inc.
+
+So we feel really good about you know, what this all portends for the future. But as I said, it was a small part of our growth this quarter.
+
+Alex Zukin:Very helpful. And then maybe if I could just sneak one in for Mike. Yeah. You've been kinda saying from, I think, the first day you started about how the margin profile of this business, it's not an or, it's an and, and it's clearly coming through in both the growth acceleration, but also the meaningful margin outperformance. As you think about sustaining this kinda accelerating pace and investing in things like the you know, the Bay Area startup community, how are you finding that balance, that and versus or balance that quite frankly, is elusive to a lot of companies that are doing what you guys are doing.
+
+Mike Gordon:Well, I think it's the funnest part of my job, quite frankly. So I would give kudos to not only the management team, but everybody at MongoDB, Inc. to really jump in. I think that this has been a company-wide effort. And as we look forward and as we talked about, Alex, the number one driver of margin expansion for MongoDB, Inc. is the revenue growth. So those two are directly connected. It's a great business model where when we can grow Atlas in the 20% plus range, and then, keep that ARR or EA in that single digit. It generates a ton of gross profit that funds a lot.
+
+And the team has done a really has done a great job of making sure that we are investing in growth that we go back and look at what we're doing, making sure that it's driving growth. If it's not, then we have an open discussion about whether we should reallocate. So I felt good about it when I started. Candidly, I feel better about it. Ninety days later.
+
+Alex Zukin:Excellent. Thank you, guys. Congrats again.
+
+Mike Gordon:Thanks. Thank you, Alex.
+
+Operator:Thank you. Our next question comes from Kash Rangan with Goldman Sachs. Please proceed.
+
+Kash Rangan:It's always tough to go after Alex because he has such good questions, but that's not gonna stop me. So, Dev and Mike, congratulations on the quarter. You know, it's super interesting. You were talking about how it's with Silicon Valley. AI startup founders don't have the have time to think about databases, but our good friend Dheeraj at DevRev, seems to have made a wise choice here. So as you set encampment up in the Bay Area, and start to evangelize the need for an Atlas consumption AI-savvy database. How do you reconcile type with the fact that same time enterprise is where we really saw the bread and butter value proposition of Mongo resonate.
+
+So could what is happening with DevRev be a leading indication of what's gonna happen in the enterprise? Because we've all much to your observation, not seeing much of a productivity impact from the enterprise because of AI at the business level. And so what could be that unlock is one of a what are folks like Dheeraj doing correctly that is a precursor, if it is, for what is to come in the enterprise.
+
+Dev Ittycheria:Yeah. So, Kash, thanks for the question. You know, obviously, I have so much respect for Dheeraj. He built Nutanix into a real great business. And he's gonna do the same at DevRev. I will tell you that the AI cohort, as I said earlier, was not really material to our growth. So I think you know, these are all customers kind of earlier in their journey. So I you know, what we are seeing, what's driving the growth right now is these you know, large enterprises with workloads that we acquired both last year and this year that are really driving the growth, especially the Atlas growth that we saw this quarter.
+
+And what that really confirms is that our move upmarket made sense. The quality of those workloads, the durability of their growth, they become you know, grow for grow for longer and become bigger. What we've seen in the past is really making us feel good about that decision and come and to juxtapose that, we also obviously decided to double down on self-serve to better serve the small and medium-sized business market, and that's also become you know, you know, obviously becoming more and more effective and gets us given the number of customers that we've added over the last six months. So we feel like those motions are working well in concert together.
+
+And we feel like this allows us to, you know, be much more efficient about how we go to market. And there's also gonna be continued more work to, you know, continue to drive that efficiency even better, but we also are investing for the long term. And so we're just constantly, you know, you know, debating those decisions internally, but we feel good about what's working. And we feel good that, like, someone like Dheeraj is know, is betting early on MongoDB, Inc. because that's a good signal for other founders who are thinking about doing the same.
+
+Kash Rangan:Awesome. We'll drill into this more in a couple of weeks when you we see you in San Francisco.
+
+Dev Ittycheria:Absolutely.
+
+Operator:Thank you. One moment for our next question. Is Brad Reback with Stifel? Please proceed.
+
+Brad Reback:Great. Thanks very much. The 7% EA ARR growth seems fine. I'm assuming you're not satisfied with single-digit growth there. Dave, any sense of where we should think about that longer term? Thanks.
+
+Dev Ittycheria:You know, clearly, EA is a large enterprise motion, and what we've seen is that it's typically, you know, less new customers choose EA and it's more of our existing customer base who have a mix of EA and then sometimes they then also start deploying Atlas. I think one thing that's becoming more and more clear is that customers are becoming much more thoughtful about, like, how to think about using, you know, deployments on-premise versus using the cloud. I think four or five years ago, there's a belief that everything was gonna move to the cloud.
+
+I think large enterprises have become much more sophisticated and nuanced in their thinking, and they believe that some workloads make sense to run on-prem and some workloads make sense to run in the cloud. And I think that's where the MongoDB, Inc. story becomes really attractive because the same code base can be used. And so it also gives them optionality for the future where they can move from on-prem to the cloud, and a lot of our EA customers have done that. Either with new workloads and some existing workloads and then they can also move from cloud to cloud. And they can also move back to on-prem if they choose to do so.
+
+So that optionality becomes a very powerful value proposition. For our customers.
+
+Brad Reback:Great. Thank you very much.
+
+Dev Ittycheria:Thank you, Brad.
+
+Operator:Thank you. Our next question is from the line of Ittai Kidron with Oppenheimer. Please proceed.
+
+Ittai Kidron:Thanks. I've had great numbers and congrats to Jess, and good luck in the new role. Dev, I wanted to dig into the AI opportunity again, but take it from a perspective of a go-to-market motion. Clearly, you can power a lot of AI use cases that are embedded with bigger platforms through a self-serve motion, but it sounds like to really capture the big workload opportunities, it's gonna have to be more of an enterprise push. So I'm kinda wondering how do you think about targeting the AI opportunity from go-to-market motion? Does that doesn't just fall into if you're a big enterprise, I'm gonna send you to an enterprise salesperson.
+
+And all the rest call our self-serve and do it yourself. Is it something a little bit more you think targeted perhaps that you need to take here in order to capitalize on this opportunity?
+
+Dev Ittycheria:Yeah. What I would say, Ittai, is that, you know, we've seen this movie before with the cloud where some early-stage customers started growing very, very quickly, and then we just we then put, you know, dedicated sales you know, focus on those accounts, and they grew then even faster. So we're clearly watching the market. And when self-serve customers are to a point where you know, they really need a higher touch kind of engagement model then we're more than happy to do that. And we have a team that kinda helps transition customers from self-serve to more of a direct sales approach. And that has worked for us.
+
+I think what we have learned is that line by which we actually engage a high-touch model can move higher because we've become so sophisticated with self-serve that we can really serve customers for early-stage customers for a long period of time. In terms of the enterprise, what I would say is what I've said earlier is that the enterprise is still quite early in their journey to AI. Most of the investments right now are more on end-user productivity, like, you know, developers using codegen tools, and, you know, what I call low stakes use cases.
+
+In fact, I had two meetings today with two different leaders of two different financial institutions here in New York and they both talked about what they're doing in AI. They've both admitted that they've kind of, you know, started with low stakes use cases. But their appetite to start doing more is increasing as they get more and more comfortable with the technology, and they're quite excited to leverage MongoDB, Inc. as part of that journey. But, again, I think that's kind of a microcosm into the enterprise market where I think there's still, you know, quite early in their AI journey.
+
+If you remember, this is something I've been saying for a while that you know, most customers you know, most people overestimate the impact of a new technology AI in the short term, but underestimate in the long term. And I think we're just in that classic journey right now.
+
+Ittai Kidron:Appreciate that. And maybe as a follow-up, Mike, I just wanna make sure to dig in a little bit into the non-Atlas business, the EA the predominantly EA business. Can you tell us roughly what of your customers here are on multiyear deals versus just annual deals? And just kinda curious how where we are now and what was it say, a year or two ago, and where do you think that mix is gonna be a year or two from now?
+
+Mike Gordon:Yeah. Thanks for the question. We don't break out the percentage of customers on multiyear versus one year. What I would say is in fiscal 2025, obviously, we saw a lot of larger multiyear deals, and you see that in the numbers. This year, we will always see multiyear deals. They haven't been at I would call it, as large. So it's more widespread. So we that's really the change that we've seen. We haven't broken that out. I don't think that it has changed much, especially over the year. As Dev talked about, it's gonna be a mix of Atlas and on-prem, and that mix has stayed relatively consistent.
+
+Ittai Kidron:When you look at the customers that are choosing multiyear deals, has anything changed in the way they think about the reasoning behind doing that versus not?
+
+Mike Gordon:No. Reasons are the same. It's typically they're if it aligns with their long-term strategy, they wanna be able to lock in that the pricing and as everybody knows, hey, data has gravity. Moving data around is not fun for everybody. So they wanna be able to lock in and guarantee their prices for that period of time.
+
+Ittai Kidron:Appreciate it.
+
+Mike Gordon:You bet. Thank you.
+
+Operator:Our next question comes from the line of Siti Panigrahi with Mizuho. Please proceed.
+
+Siti Panigrahi:Thanks for taking my question. And, Dev, I think some of the comments you were talking about AI slowdown and you heard about recent MIT report about 95% AI implementation not getting any kind of you know, return. How do you see what's kind of do you think the inflection point? When do we think we'll start seeing some of the adoption of this AI? Like you said, they're testing, but what can trigger know you have been talking about a year ago, you know, probably we are a few years out. But it's good to see some of the traction.
+
+So how do you, first of all, characterize what will be your view on that report, and how should we think about the you know, in terms of revenue contribution material contribution from AI.
+
+Dev Ittycheria:Yeah. So I think it just comes down to, you know, the fundamental principles. I think customers need to feel, one, that the quality of the output of these AI systems is high. Obviously, AI systems are probabilistic in nature, not deterministic in nature, so you can't always guarantee the output. You can hope that you've trained the models well. You hope that you've given it the right information. But you can't always guarantee the output. So as I mentioned, I had meetings with two financial service customers earlier today, and both of them are still hesitant to roll out an end-user facing AI applications for those specific reasons.
+
+So it's gonna take a little bit of time for people to really get comfortable that they can really know, deal with the last mile issues and make sure that they don't have any errors that potentially could be know, impacting the brand or really call cause a lot of customer problems. So that's point number one. Then there's issues around, obviously, the security of these systems, the stability and reliability of these systems, the scalability of these systems that I mentioned some of these early-stage companies are running into scaling issues with existing which is why they're coming to us. So I think we're just in that learning journey.
+
+I mean, I don't know if there's gonna be some massive tipping point. I think what we are seeing with the frontier models is that every all these frontier models are kinda clustering around the same ballpark in terms of performance and the efficacy of their models. So I think what's gonna start happening is how people start leveraging these insights to build what I call a scaffolding around these frontier models to address the needs of their business. Obviously, everyone's talking about agents. And people are very, very focused on essentially, you know, using agents to drive a lot of work.
+
+Agents require you know, if you think about if you're using agents, agents will use your systems much more intensely than humans will because they can do things much more quickly. So you need platforms that can massively scale up and down which is again a good sign and support indicator for MongoDB, Inc. So I think it's gonna take a little bit of time. It's gonna take, you know, time being comfortable with technology. It's gonna take time where people start with low stakes use cases and start gravitating to higher stakes use cases. So I don't think there's gonna be some seminal inflection point. I think it's just gonna take time. But I think that time is coming.
+
+Siti Panigrahi:That's great color, Dev. Thank you.
+
+Dev Ittycheria:Thank you.
+
+Operator:Our next question is from Brad Sills with Bank of America. Please proceed.
+
+Brad Sills:Great. Thank you so much. I wanted to ask about some of the investments that you alluded to earlier that you're making in R&D. How are you thinking about that? Is it incremental investments in some of these newer offerings, you know, like vector and streaming? Are there new workloads? You're thinking of addressing here? Would love to get some color on just where you're investing in the stack. Thank you.
+
+Dev Ittycheria:Yeah. Sure. So we talked about the fact that R&D is a big part of our investment focus for this year. One, you know, we came out with 8.0, which is the most performing release ever. So we're already starting to see dividends of our investments in our platform. 8.1 is even better. And then we're also making investments, you know, in the expansion parts of our platform. What I will say is we're gonna go into a lot more detail around this investor day.
+
+So if you can hold until September 17, we'll go into a lot of things that we're doing on the R&D side as well as what we're doing on, you know, application modernization and the tooling that we're building there. That will really speak to those investments that we're making a lot, and it will give you a lot more color.
+
+Brad Sills:Got it. Great. Thanks for that, Dev. And one more if I may, please. I know there's been an effort to focus on driving, you know, higher quality workloads in that larger account base. I mean, to what extent would you attribute some of this upside to that effort? And maybe just an update on that effort? As you've made.
+
+Dev Ittycheria:I would attribute a lot to that effort. I would say a big part of this growth is the fact that we're acquiring higher quality workloads, that are growing faster and for longer than the workloads required, say, in earlier years. And I think that's a big part of why you're seeing this growth happen now.
+
+Brad Sills:Great. Thank you.
+
+Mike Gordon:Carmen, I think we have time for one more question.
+
+Operator:Alright. One moment, please. And we have the line of Rishi Jaluria with RBC. Please proceed.
+
+Rishi Jaluria:Oh, wonderful. Thanks for squeezing me in at the deadline. I'll keep myself to one question. Dev, really nice to see the early traction with AI-native companies. You know, it's always made sense to us especially given your scalability and your ability to work with unstructured data. If we were to fast forward five, ten years, and we start to see a real paradigm shift where instead of agents built on kind of the traditional GUI mobile interface that we've been in for the past thirty years, we actually entered kind of a multi-agentic world where maybe the interaction vector may move away from what we've been used to into more natural language.
+
+Can you talk about why MongoDB, Inc. still has a strong role and some of the investments that you might be making to position yourself well for that world, understanding that's, know, at the very least several years away. Thanks.
+
+Dev Ittycheria:Yeah, sure. So again, just to make sure we're all talking in the same language, you know, we believe that agents, do three things. One, they perceive or understand the state of things. So you need a per essentially, a way to understand the state of what's happening in your business. Then you need to decide what to do or plan. So, basically, you have to come up with a plan saying, I wanna take this action or these sets of actions, and then you have to act. You actually have to go execute those actions. Right? So why is MongoDB, Inc. good for agents?
+
+One is, as I said before, the JSON document database is the best of being able to model the real world. The messiness, the complicated, nature. The real world does not, you know, fit in easily in rows and columns. And that's why the you know, our document database, I think, is the best way to do that. Two, we obviously support search and vector search. So you can do very sophisticated hybrid search. So that becomes super important. And then with memory, you know, if agents didn't have memory, they would act like goldfish. They could only react to the last thing last piece of information that they saw. So memory lets agents connect the dots across and situation.
+
+So you have different kinds of memory, things like short-term context, past experiences, knowledge, skills, etcetera, that you need to be able to share quickly. You need to be able to orchestrate those agents because you may have multiple agents doing a certain task. You need to register and have governance policies around those agents. You know, we think that the underlying platform needs to be able to support those things. While there's a lot more work, you know, needs to be done, the underlying architecture that we have in MongoDB, Inc. is well suited to address those needs.
+
+And we think that, you know, we'll be positioned to be a winner as people deploy more and more agents in their enterprise.
+
+Rishi Jaluria:Alright. Very helpful. Thank you so much.
+
+Dev Ittycheria:Thank you. Thank you so much. And with that, we conclude the Q&A session, and I will pass it back to Dev Ittycheria for his final comments.
+
+Dev Ittycheria:Sure. Thank you again for joining us today. In summary, I think it's clear that we delivered another strong quarter highlighted by the accelerating Atlas growth, the continued adoption of for AI applications, and our expanding profitability. We are raising our revenue and operating margin guidance for the full fiscal year 2026. And these results really reinforce that MongoDB, Inc. is well positioned to capture the next wave of AI application development. While driving durable and efficient growth. So with that, thank you, and we'll talk to you soon. Take care.
+
+Operator:Thank you. And this concludes our conference. Thank you for participating and you may now disconnect.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has positions in and recommends MongoDB. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

@@ -1,0 +1,202 @@
+======================================================================
+Earnings Call Transcript
+Company: TAL Education (好未来)
+Ticker: TAL
+Quarter: Q4 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q4-2025-earnings-call-transcript/
+Scraped: 2026-05-30T17:15:52.844609
+Characters: 39447
+======================================================================
+
+Thursday, April 24, 2025 at 8 a.m. ET
+
+CALL PARTICIPANTS
+
+Chief Executive Officer — Alex Peng
+
+Chief Financial Officer — Jackson Ding
+
+Net Revenues-- $610.2 million, representing a 42.1% year-over-year increase in U.S. dollar terms (44.3% in RMB terms).
+
+Gross Profit-- $317.6 million, up $39.7 million from the prior year period, with gross margin at 52% compared to 52.9% previously.
+
+Non-GAAP Loss from Operations-- $1.7 million versus non-GAAP operating income of $9.4 million last year.
+
+Net Income Attributable to TAL-- $7 million on a non-GAAP basis, down from $48 million last year; $7.3 million GAAP net loss reported versus prior year's $27.5 million net income.
+
+Full-Year Net Revenues-- $2.3 billion, showing 51% year-over-year growth; non-GAAP net income attributable to TAL reached $149.5 million compared with $85.3 million previously.
+
+Cash and Short-Term Investments-- $3.2 billion as of February 28, 2025, comprising $1.77 billion in cash and cash equivalents, $1.85 billion in short-term investments, and $220.5 million in restricted cash.
+
+Deferred Revenue-- $671.2 million at quarter end.
+
+Non-GAAP Selling & Marketing Expenses-- $214.3 million, up 77.9% year over year, comprising 35.1% of net revenues versus 28% prior; increase attributed to expanded online marketing activity and brand initiatives.
+
+Peiyou Small Class Retention Rate-- 80% for the quarter, as reported by management.
+
+Learning Devices Weekly Active Rate-- ~80% weekly active users, with average daily time spent around one hour per device during the quarter.
+
+Share Repurchase Program-- Board extended authorization for up to $490.7 million repurchases through April 30, 2026; $13.1 million spent repurchasing 0.5 million shares in fiscal 2025.
+
+G&A Expenses (Non-GAAP)-- $108.5 million, up 3.5% year over year, but declined as a percentage of net revenues from 24.4% to 17.8%.
+
+Operational Focus-- Management articulated prioritization of sustainable quality growth, channel refinement, operational efficiency, and continued AI integration across business lines.
+
+Board Appointments-- Yi Wang named Independent Director and Chairman of the Compensation Committee; Dr. Wei Wu Chen transitioned to advisor role.
+
+Non-GAAP selling and marketing expenses increased to 35.1% of net revenue, up from 28%, largely due to expanded online channels and brand building, which management identified as the main reason for the year-over-year decline in adjusted operating margin.
+
+Learning Devices segment reported an adjusted operating loss in both the quarter and full fiscal year, with management emphasizing near-term prioritization of capability building over immediate profitability.
+
+Sequential quarter-over-quarter revenue decline in Learning Devices attributed to seasonality following a Q3 e-commerce peak, as stated by management.
+
+TAL Education Group(TAL0.51%)reported robust year-over-year revenue growth and full-year profitability on a non-GAAP basis, supported by expansion in both Learning Services and Content Solutions. Management emphasized strategic expansion, prudent operational discipline, and the integration of advanced AI features across core product lines. The company further enhanced its capital return framework by extending its share repurchase authorization and confirmed a strong cash position to support growth and shareholder returns.
+
+Management specified that operating leverage, particularly reductions in general and administrative expenses as a percentage of revenue, is an ongoing source of profitability improvement.
+
+Investment priorities outlined by management include continued scaling of core business lines, technology-driven product upgrades, and disciplined resource allocation.
+
+AI is being leveraged for content creation, personalized learning, customer service, and R&D efficiency, with DeepSeek V3 named as a foundational model for TAL’s proprietary Mass GPT initiative.
+
+New board-level leadership is expected to contribute strategic and governance improvements.
+
+INDUSTRY GLOSSARY
+
+Peiyou Small Class: TAL’s flagship small-group enrichment learning program for K-12 students, focused on high retention and parent satisfaction.
+
+Content Solutions: Business segment including Learning Devices and digital educational products beyond traditional classroom formats.
+
+DeepSeek: AI foundational model utilized for TAL’s Mass GPT education platform to enhance subject-specific learning content and support interactive tutoring.
+
+Deferred Revenue: Payment collected in advance for services or products not yet delivered, commonly used as a leading indicator of future revenue recognition in education services.
+
+Full Conference Call Transcript
+
+Alex Peng:Thank you, Huang. I'd also like to thank all of you for participating in today's conference call. So, I'll begin with an overview of our business progress for the fourth quarter and full fiscal year 2025. Next, Jackson will review our operational advancements and financial results. To conclude, I'll also provide a brief update on our strategic priorities and outlook moving forward. So, with that, let's get started with our core business performance this fiscal year. To begin with, our learning services delivered steady growth in fiscal year 2025, really empowering learners through both offline and online enrichment programs. An uptick in user demand and our relentless focus on high-quality learning experiences were really the key drivers of this progress.
+
+During the past quarter, we strategically added new enrichment learning centers in existing cities, providing local communities with more accessible and convenient learning opportunities. Our online enrichment learning business also remained healthy, consistently providing engaging learning experiences through technology-driven learning products. Over the past year, we conducted in-depth analysis of user preferences and tailored the development of new products to better meet their needs. We also continue to refine existing offerings, based on user feedback, and we enhance teaching effectiveness by integrating smart interactive features to boost user engagement. Then, for Learning Devices, we expanded our product offerings to reach a broader user base, making it easier for users to find the right learning solution for their needs.
+
+We also integrated more smart features and learning resources to better support users on their self-learning journeys. Through monthly feature updates and content refresh, we provide the users with an increasingly intelligent and practical study companion, making at-home self-learning more engaging and efficient. So, with this operational momentum as a backlog, let's turn to our financial highlights for the quarter and the full year. In the fourth quarter, we recorded net revenues of $610.2 million or RMB 4.44 billion, reflecting year-over-year growth of 42.1% and 44.3% respectively. On a non-GAAP basis, loss from operations was $1.7 million while net income attributable to TAL reached $7 million.
+
+For the full fiscal year, net revenues totaled $2.3 billion or RMB 16.2 billion RMB, up 51% and 52.2% year-over-year respectively. Non-GAAP income from operations amounted to $61.8 million with non-GAAP net income attributable to TAL at a $149.5 million. Before Jackson takes us through the detailed operational and financial review, I'd like to share a brief update from the Board. We are delighted to welcome Mr. Yi Wang as TAL's new Independent Director and Chairman of the Compensation Committee. Mr. Wang brings extensive experience across both the business and education sectors, and we are confident that his insights will further strengthen TAL's strategic direction, governance, and operational excellence. We also want to express our deep appreciation to Dr.
+
+Wei Wu Chen for his outstanding service and invaluable contributions over the past decade. We look forward to continue our collaboration with Dr. Chen in his new advisor role. So, with that high level overview complete, I'll now pass the call to Jackson to delve deeper into our operational execution and detailed financial performance. Jackson?
+
+Jackson Ding:Thank you, Alex. Before diving into the details, I'd like to note that all quarterly financial figures discussed today are unaudited. I'll start with our Learning Services and Others business, which includes a broad range of learning programs for our customers. Learning Services sustained its revenue growth momentum in the fourth quarter of fiscal year 2025, fueled by advancements across multiple product lines. Over the past few quarters, revenue from Peiyou Small Class Enrichment programs has achieved year-over-year growth. We have consistently provided high-quality services, earning positive feedback from both the learners and their parents. While we have expanded our learning center footprint, we've maintained a disciplined approach.
+
+We're carefully evaluating market demand, user feedback, and operational efficiency to balance growth with quality. This approach has been further validated by key operational metrics and has directly contributed to year-over-year enrollment growth. Notably, the retention rate for Peiyou Small Class reached 80% this fiscal quarter. In our online enrichment learning business, ongoing innovation has helped us to navigate the ever-evolving market landscape and our users' dynamic needs. Guided by user feedback and market insights, we're continually investing in strengthening our online product capabilities and refining our operational and marketing strategies. Through new products and interactive formats, we deliver tangible value to learners, enhancing both learning outcomes and user experiences. Recent initiatives include interactive learning modules and AI-powered assistants.
+
+Additionally, by building diverse customer touchpoints across multiple channels, we're expanding our market reach among current and potential users and gaining deeper insights into their needs. This has enabled us to scale our operations while laying the foundation for sustained long-term competitiveness. Next, let's turn to our Content Solutions business. Our Learning Devices business grew year-over-year in the fourth fiscal quarter, fueled by our enhanced product development and go-to-market capabilities. We have expanded our Learning Devices product portfolio to appeal to a wider audience in the past year. We also further upgraded our hardware and software, enriching our content library, refining the reading experience, and integrating practical AI features to create more immersive self-directed learning.
+
+This February, we further enriched our content across our entire range of Learning Devices by providing fresh and classic materials with progressively challenging exercises. We keep students engaged while developing their ability to question, analyze, and problem solve. Our unique ladder approach, which guides children step-by-step with tailored hints, helps them to build confidence as they master new skills. To strengthen foundational literacy, we launched a seamless graded reading system covering early education through high school with age-appropriate tools like phonetic aids for young learners and interdisciplinary content for older students. Through partnerships with over 20 publishers, we have expanded our library to include thousands of titles.
+
+Thanks to our enhanced product capabilities, our Learning Devices have sustained solid user engagement while reaching a broader audience. Notably, as our active user base continues to grow, the weekly active rate has remained stable at around 80%, with an average daily time spent of approximately an hour per device throughout the quarter. Next, please let me now review our financial performance for the quarter. The company reported net revenues of $610.2 million or RMB 4.44 billion, representing a year-over-year growth of 42.1% in U.S. dollar terms and 44.3% in RMB terms. These increases were attributable to the growth in both our Learning Services business and our Content Solutions business. Now looking at costs.
+
+Cost of revenues rose 44.7% year-over-year to $292.6 million from $202.2 million. When excluding share-based compensation expenses, non-GAAP cost of revenues moved 46.1% higher to $291.7 million compared to $199.6 million in the same quarter last year. Gross profit stood at $317.6 million, which was $39.7 million above the prior year period. Gross margin was at 52% compared to 52.9% from the same period last year. Turning to operating expenses. Selling and marketing expenses for the quarter were $218 million up 73.1% from the prior year. The non-GAAP equivalent of these expenses increased 77.9% to $214.3 million.
+
+As a percentage of net revenues, non-GAAP selling and marketing expenses accounted for 35.1% versus 28% in the prior year period, with the change mainly resulting from increased selling and marketing activities through some online channels. General and administrative expenses increased 0.8% to $118.2 million compared to the same period last year. The non-GAAP measure showed a 3.5% rise to $108.5 million. However, as a percentage of net revenues, non-GAAP general and administrative expenses decreased from 24.4% to 17.8%. Total share-based compensation expenses declined 30.1% to $14.3 million from $20.5 million in the comparable period. Loss from operations was $16.0 million for the quarter. This compares to a loss from operations of $11.1 million in the same period last year.
+
+On a non-GAAP basis, the loss from operations was $1.7 million compared to non-GAAP income from operations of $9.4 million in the same period of last year. Net loss attributable to TAL was $7.3 million for the quarter, while in the same period last year, there was net income attributable to TAL of $27.5 million. Non-GAAP net income attributable to TAL was $7.0 million versus $48.0 million in the same period last year. Regarding our cash position, as of February 28, 2025, we held $1.77 million, excuse me, we held $1.77 billion in cash and cash equivalents along with US$1.85 billion in short-term investments and US$220.5 million in restricted cash. Our deferred revenue balance was $671.2 million at quarter end.
+
+In terms of cash flow, net cash used in operating activities was $226.3 million during the quarter. For the full fiscal year 2025, net revenues were $2.3 billion or $16.2 billion, reflecting year-over-year increase of 51.0% in U.S. dollar terms and 52.2% in RMB terms. Gross profit was $1.2 billion, 48.9% higher than the previous year. Loss from operations was $3.2 million in the fiscal year 2025 compared to loss from operations of $69.2 million in fiscal 2024. On a non-GAAP basis, income from operations was $61.8 million versus $19.7 million in the prior fiscal year.
+
+On the bottom line, net income attributable to TAL came to $84.6 million compared to a net loss attributable to TAL of $3.6 million in fiscal 2024. Non-GAAP net income attributable to TAL was $149.5 million, while previous fiscal year showed $85.3 million. Finally, I'd like to briefly address our share repurchase program. In April 2025, the company's Board of Directors approved a 12-month extension of its share repurchase program, originally launched in April 2021. Under the extended program, the company may spend up to approximately $490.7 million to repurchase its common shares through April 30, 2026. In fiscal 2025, the company had repurchased 0.5 million common shares for a total consideration of approximately $13.1 million under the program.
+
+That concludes my review of our business performance and financial updates. Alex, I'll now hand the call back to you for our outlook.
+
+Alex Peng:Thanks, Jackson. Overall, we believe fiscal year 2025 laid a solid foundation for our future development. Now I'd like to share insights into the company's strategy and outlook for fiscal year 2026. So, first, we remain committed to sustainable growth in our core business lines. We will continue to uphold the high-quality standards for both our offline and online enrichment learning products and services to deliver quality programs to an even broader user base. We anticipate that our learning services will continue to be our largest revenue stream in the new fiscal year. Beyond learning services, we're also focused on expanding our learning Content Solutions.
+
+We will continue scaling this business, thoughtfully refining our content and device features, and leveraging technological advancements, particularly AI-driven features, to enhance learning outcomes. As our business continues to evolve and grow, we're actively exploring new fields and emerging sectors to extend our core business lines' reach. Along the way, we're also steadily strengthening our channel capabilities, building brand recognition, and deepening our engagement with the new generation of parents and learners. Through these efforts, we're consistently cleaning valuable insights from outstanding companies across various industries and will continue to refine our growth strategies accordingly in the upcoming fiscal year. Secondly, we're committed to ongoing innovation at the intersection of learning and technology.
+
+By integrating cutting-edge AI with pedagogical expertise, we seek to meaningfully improve both learning and teaching experiences. Looking ahead, we'll continue to enhance our products and services to meet the evolving demands of digital learning, redefining intelligent learning solutions for the AI era. Throughout history, every major technological breakthrough from television to computers and the Internet has found its way into education. Today, we are discovering and shaping how AI can transform learning and integrating these advancements into our products and services. We also remain open to collaboration and knowledge sharing, ensuring that our insights into smart learning contribute meaningful value to the education community. Finally, we will focus on refining operation details to boost overall efficiency and profitability.
+
+While we expect to benefit from economies of scale, as our revenue grows, efficient management will be increasingly critical, as our operations expand and become more complex. We'll closely monitor efficiency metrics across all business lines and make timely adjustments to optimize every aspect of our operations, including content creation, product R&D, sales, marketing, and beyond. So that concludes my prepared remarks. Operator, I think we are ready to open the call for questions.
+
+Operator:Thank you.[Operator Instructions]We will now take our first question from the line of Eddie Wang from Morgan Stanley. Please ask your question, Eddie.
+
+Eddie Wang:Thank you, Alex, Jackson, Fang for taking my question. My question is regarding the Peiyou enrichment learning business. Could management provide an update on the progress of the fourth quarter Peiyou enrichment learning business? And how should we view the growth strategy and expansion pace for Peiyou in the next fiscal year? Thank you.
+
+Alex Peng:Thanks, Eddie. This is Alex. Let me take that one. Really, as we've seen in recent quarters, Peiyou continues to deliver a steady year-over-year growth. I think we've already covered the key highlights in our prepared remarks. So, let me instead focus more on our path forward. Okay. So, looking ahead to the next fiscal year, really as long as our key growth drivers, which is market demand, product capability, our ability to recruit and train our instructors, as long as these key growth drivers hold up, we really expect to maintain this positive momentum for Peiyou, but I also want to just add, technology will play an increasingly important role in our strategy, right?
+
+So, you may have noticed, we are expanding the rollout of our dual small and large screen solutions. It really brings smart classroom experiences to more students. I think, literally, it's reimagining the classroom learning experience. And at the same time, we're continuing to innovate our products and refine our product market fit to create solutions that are both students, loved by students and trusted by parents.
+
+We're firm really in our belief that sustainable growth in this market comes from developing and continuously developing these high-quality products with strong performance metrics that really truly meet user needs and it's not just user needs in a broad sense, but localized user needs and this will remain central to our product development philosophy and strategy. I know many of you are interested in expansion. Regarding expansion, we're maintaining the same prudent approach that has served us well this past year. Each decision to open a new learning center really carefully balances multiple factors. The local market demand, when I say local, it's truly local to a city, to a district, to a community.
+
+The customer adoption, operational capacity, and efficiency target. So, I think this disciplined methodology will continue to guide our business to fiscal year '26. Really, if I take a step back, I would say, we remain optimistic about industry's growth potential. In this new sector, I think I've talked about before, we feel -- we truly feel the enrichment learning is hitting, the need with this new generation of parents and learners, and we're optimistic about our ability to deliver high-quality products to meet that future needs. Really as we are operating from a significantly higher baseline than a few years ago, we expect Peiyou enrichment's year-on-year growth rate to probably gradually taper off moving forward.
+
+But our focus really remains what I just said before, the sustainable healthy growth rather than pursuing hyper growth for growth's sake. So, Eddie, I hope that answered your question.
+
+Operator:Thank you. Our next question comes from the line of Timothy Zhao from Goldman Sachs. Please ask your question, Timothy.
+
+Timothy Zhao:Great. Thank you, management, for taking my question. My question is regarding the Learning Devices or the Learning Content Solutions segment. Just wondering if management can give us some color on the profitability profile of this segment in the fourth quarter and also in the fiscal year, last year. And when you look into fiscal year 2026, I'm just wondering if there's any updates on your strategy on this specific segment, and what are the new plans or measures that you are going to take to further improve the profitability of the Learning Content Solutions segment? Thank you.
+
+Alex Peng:Thanks, Timothy. This is Alex. Let me take this one as well. Look, our learning device business reported an adjusted operating loss in our P&L in the fiscal fourth quarter and fiscal full year of 2025. It's a new product group that launched about two years ago, and we believe this business still has room to really expand access to high-quality learning experience, at-home self-learning experience we just talked about, really, and that among a much wider range of customers. At this stage, our priority really remains building long-term competitiveness and capabilities. So, if I move to our strategy for fiscal 2026, our efforts were focused on the following few areas. So, I would say, first, enhancing the device functionality.
+
+We'll roll out artificial intelligence empower functionality upgrades, continuously. We continuously expand our content library. We believe these are the core values we deliver to our learners and I think that's been our track record in the past two years of regular and continuous updates, to functionalities and to the content library. Secondly, I think we're going to expand our portfolio. Our effort in expanding the portfolio really would improve product market fit and expand access. As I said, we're very convinced that, there is ample room to expand access, and thereby expand the access to high-quality learning experiences, high-quality content. So, our expanding portfolio will aim to do that. Number three is go-to-market.
+
+I think we've been enhancing our distribution, our marketing to reach more users while deepening engagement with existing customers. Both are very crucial and you probably have seen and we've discussed this in on previous calls. When we look at the go-to-market, we look across different channel formats, and you probably have noticed that there are more offline channel and points of sales available. So, these are continuous effort to both expand with these, both user growth and user engagement are really priorities, as we scale the learning device business. I would also say, operational efficiency. Look as revenue scales, will leverage economies of scale, or refine cost structures and optimize operations to drive healthy and efficient business growth.
+
+I think, while I said it's new for just two years, I think we've gained experience across all these dimensions to really drive further operational efficiency gains. So, in summary, we view this as a multi-year capability building, where every initiative was really designed to build sustainable competitiveness and pave the way for both future growth and profitability. So, Timothy, I hope that answered your question.
+
+Operator:Thank you. Our next question comes from the line of Sophie Zhang from CICC. Please go ahead, Sophie.
+
+Sophie Zhang:Good evening, Alex and Jackson. Thanks for taking my question. Could you please break down the top-line growth by business line for the past quarter to help us better understand the respective drivers? And also, could you elaborate on what led to the year-over-year decline in operating profit and what were the key reasons behind the growth in sales and marketing spend? Thank you.
+
+Jackson Ding:Sophie, thanks for the question. This is Jackson. Let me take this one, and let me maybe unpack this question a little bit. I think you asked both about top-line and bottom-line. So, let me address top line performance first. Similar to last quarter, our Peiyou Small Class Enrichment programs remain both the largest revenue contributor and the primary growth driver within our learning services business line. Meanwhile, Learning Devices continue to be the largest revenue contributor within Content Solutions, while also serving as a key growth driver. So, let me maybe add additional color on these two businesses. Peiyou Enrichment delivered solid quarter-over-quarter and year-over-year growth this quarter and this year.
+
+While we now operate from a significantly higher baseline than in prior years, which, as Alex talked about, will naturally moderate year-over-year growth rate over time. We expect continued expansion in this business supported by expanding market demand and our enhanced product capabilities. Learning Devices saw a sequential fourth quarter decline quarter-over-quarter, reflecting typical seasonality after a peak in Q3 due to e-commerce festivals. However, this business remained healthy, when we look at year-over-year growth, underscoring the businesses' momentum. When we look at full year fiscal 2025, both Learning Services and Content Solutions delivered year-over-year a stable business mix relative to fiscal 2024. Now, Sophie, let me adjust the second part of your question on margin profile.
+
+Maybe let's look at first general and administrative expenses. Non-GAAP G&A expenses have decreased from 24.4% to 17.8% this quarter, demonstrating leverage achieved through a larger revenue base. However, as you touched on, non-GAAP selling and marketing expenses rose to 35.1% of revenue, up 7.1 percentage points year-over-year and that's primarily due to increased activities in online channels aimed at market penetrations and product visibility enhancements. That was the main reason for year-over-year decline in our adjusted operating margin. Additionally, we conducted brand building initiatives that it may not yield immediate revenue, but are expected to promote customer awareness and our market positioning. As part of our strategy, we're committed to establishing and strengthening multi-channel communication mechanisms with our users.
+
+For digital products such as Learning Devices and shares.com, these efforts are crucial in fostering deep customer engagement, reaching more users, and gaining broader acceptance. Looking ahead, we're refining our market approach and diversifying our channels to align with business maturity, product cycles, and market conditions. Through this process, we aim to steadily strengthen our channel capabilities, enhance brand recognition, and deepen connections with the next generation of parents and learners. We believe that by upgrading our channel strategies, diversifying our distribution networks, and driving user engagement will drive long-term business growth. I hope that answers your question.
+
+Sophie Zhang:Thank you, Jackson, and that's very helpful. So just a quick follow-up on the bottom line. So, should we expect improvement in profitability going forward? Thank you.
+
+Alex Peng:Sophie, thanks, and that's a good question. I would say moving forward, improving overall profitability remains a key priority for us. As our business continues to develop, we expect two primary drivers of profitability. First, our expanding revenue base naturally generates our operating leverage, which will allow for more efficient allocation of fixed cost, and you can probably see that in some of the financial results we printed in the last few quarters, right? We continue to unlock our operating leverage as our business grow, and general, for example, general and administrative expenses as a percentage of revenue has largely come down in the last few quarters.
+
+Our profitability would be, us implementing targeted operational refinements at every stage of our workflow. This includes content creation, product R&D, service delivery, and sales and marketing, right? While these efforts will take a bit of time to fully impact our P&L, I would just like to reiterate again that operating efficiency will remain a priority for us in the next fiscal year. I hope that answers your question, Sophie.
+
+Operator:Thank you. Our next question comes from the line of Felix Liu from UBS. Please ask your question, Felix.
+
+Felix Liu:Good evening, management. Thank you for taking my question. My question is on AI. So, what learning scenarios does management anticipate that AI can be implemented to your business in the near-term? What are the impacts that integrating DeepSeek into your business model will present particularly in our learning services and the Learning Devices business? Thank you.
+
+Alex Peng:Thanks, Felix, this is Alex. Let me take this one on. I will actually take a step back a little bit. We've been talking about the AI, and I just want to go back to something that I've discussed maybe a year or even two ago. I think it really has multi-dimensional impact on us, and look, we really welcome every single advance of this in AI capabilities from the foundational models. I think every single advance is welcoming use to us and let me explain why. So, first of all, we think AI has a huge, huge impact on educational content creation. The entire creation process is benefiting tremendously from AI.
+
+I think number one, it has tremendous implication in terms of efficiency gain, in terms of speed gain, and we're witnessing that every single day in the last two years. I think that -- and it also by the way has made things that previously seemed impossible to be possible. Leveraging this capability, you can develop multi-language, multi-curriculum, adapted learning content material. So, I think that's just something that we didn't think was quite possible. I think we are getting very close to be able to use AI to generate interactive, high-quality content in real time. Again, that wasn't even a cost issue. I think that was just basically not possible before.
+
+So, these, I think, offer really raising up the top the ceiling of what's possible while doing it, it was a tremendously different cost structure than before, right? So, I think that's just the first thing I want to really lock with everybody on the call. I think look, secondly, with every single advance of AI, we just see more possibilities of leveraging on service, it goes from instruction, to customer service to after sales service and across the board. I think in these areas, again, we have -- it's not even the possibility. I think we're pushing those every day in terms of both raising the level of customer service, while gaining more efficiency.
+
+So, I think that's also been tremendously helpful. And again, I think we're just expecting more, as the capability of AI, it gets even more obvious. I think number three in terms of research and development, we're really seeing so much more code generated by AI, that is advancing speed, gaining efficiency, we are a large research and development and education technology, and I think AI is really giving us a very different way of developing this. It's faster. It's nimble. It's you get very fast prototyping, and you get more efficiency not only from using AI to code by itself, but that nimble and fast prototyping is actually removing a lot of friction in the R&D process versus before.
+
+I just want to log those three. Those are things that we probably didn't discuss in a whole other detail in the last few calls, but I think those are actually very tangible, meaningful, and we expect more benefit, and more impact from those. So, if going back to the integration in learning scenarios, look, I think we're increasingly seeing AI becoming, a learning companion. I think the shelf to chat assistant, that really embodies that fact that it is there. More and more students who are native in this AI age are getting comfortable to get on the spot help and learning support from AI as they learn.
+
+So, currently, DeepSeek V3 service is one of the foundational models for our Mass GPT or in Chinese. Beyond its general intelligence capabilities, we've also finding that on learning content, enhancing its ability to support really subject specific tasks. And also, let me add this. I think we need to fine-tune it and to support those pedagogical scenarios. For our model to be able to produce the answer is one thing.
+
+For it to be able to actually make the solution more accessible, easier to understand, liked by students, these are actually, we believe are fundamentally vertical capabilities to an education player and that's how we look at it, that we're going to continue to work and invest on those, really lowering the barrier to accessing these AI capabilities, improving the user interface, making it easier for user to provide their input to the large language model, but also working really hard to make the output from AI, not the raw straight output from these large language models, but make the output a learning purpose and serve it well.
+
+And lastly, I would just say, look, we'll also remain committed to contributing to the broader intelligent learning ecosystem, advancing new educational paradigms, supporting future schools and third-party institutions, as we've done in the past and we really look forward to reimagining the future of learning, and shape a more dynamic for thinking education ecosystem as a whole. Felix, I hope that answered your question.
+
+Operator:Thank you. Our next question comes from the line of Alice Tsai from Citi. Please ask your question, Alice.
+
+Alice Tsai:Thanks management for taking my question. How are we considering cash usage? Could you please give us more color about the future investment strategy and also shareholder returns? Thank you so much.
+
+Jackson Ding:Alice, thank you for the question. This is Jackson. Let me take this one. Let me maybe first address our current cash position. As of February 28, 2025, the company holds approximately $3.2 billion in cash, cash equivalents, and short-term investments and restricted cash, while excluding deferred revenue. Given our cash position, we think we're well-positioned to fund both growth and returns. When it comes to deploying this capital, very much like how we do a lot of things, we take a thoughtful and balanced approach when evaluating potential uses of cash. We consider multiple factors to strike the right balance between short-term needs and long-term development.
+
+Our focus remains on optimizing resource allocation, reinvesting strategically into the business, while also delivering value to shareholders. Given our current margin profile, which remains relatively thin, and with a meaningful portion of our operations and businesses still in growth phases, maintaining operational flexibility is one of our key priorities. As we assess investment opportunities for fiscal 2026, we're particularly interested in areas that enhance our existing products and services, strengthening our core capabilities, and support business expansion. Additionally, as our industry evolves and new technologies emerge, we'll invest in integrating these advancements into our operations. We believe these investments will drive long-term value creation for our shareholders. Alongside of these investments, we remain equally focused on shareholder returns.
+
+As previously mentioned, the Board has extended our share repurchase program for an additional year, authorizing purchases of up to $490.7 million. Going forward, we'll prudently evaluate market to really serve a learning purpose and that to enhance our services. We're a very large services provider. Our touch base with customers on service market conditions, our business needs, and other relevant factors, before executing further repurchases. So, to summarize, our philosophy centers around a disciplined, forward-looking approach, one that fosters sustainable development while maintaining the agility needed to navigate this dynamic market, and we'll keep you guys posted as appropriate. I hope that answers your question, Alice.
+
+Operator:We have now reached the end of the question-and-answer session. Thank you all very much for your questions. I'll now turn the conference back to the management team for closing comments.
+
+Alex Peng:So again, thanks everybody on the call for joining us today and we'll see you next quarter. Thank you. Bye, bye.
+
+Operator:Thank you for your participation in today's conference. This does conclude the program. You may now disconnect.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has no position in any of the stocks mentioned. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

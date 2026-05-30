@@ -1,0 +1,1152 @@
+{
+ "meta": {
+  "company": "Snowflake (Snowflake)",
+  "quarter": "Q3 2025",
+  "source": "motley_fool",
+  "url": "https://www.fool.com/earnings/call-transcripts/2024/11/20/snowflake-snow-q3-2025-earnings-call-transcript/",
+  "translated": "2026-05-30T12:12:47.433136",
+  "backend": "deepseek"
+ },
+ "pairs": [
+  {
+   "en": "Snowflake(SNOW+7.02%)Q3 2025 Earnings CallNov 20, 2024,5:00 p.m. ET",
+   "zh": "Snowflake(SNOW+7.02%)2025财年第三季度财报电话会议2024年11月20日,下午5:00 ET\n\nSnowflake(SNOW+7.02%)Q3 2025 Earnings CallNov 20, 2024,5:00 p.m. ET"
+  },
+  {
+   "en": "Prepared Remarks",
+   "zh": "准备好的发言  \nPrepared Remarks"
+  },
+  {
+   "en": "Questions and Answers",
+   "zh": "问题与答案  \nQuestions and Answers"
+  },
+  {
+   "en": "Call Participants",
+   "zh": "电话会议参与者\n\nCall Participants"
+  },
+  {
+   "en": "Prepared Remarks:",
+   "zh": "准备好的发言：\nPrepared Remarks:"
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Good afternoon. Thank you for attending the Snowflake Q3 fiscal 2025 earnings conference call. My name is Matt, and I'll be your moderator for today's call. All lines be muted during the presentation portion of the call for an opportunity for questions and answers at the end.",
+   "zh": "下午好。感谢参加Snowflake 2025财年第三季度财报电话会议。我叫Matt，是今天会议的主持人。在电话会议的演示环节，所有线路将被静音，以便在会议结束时进行问答环节。\n\nGood afternoon. Thank you for attending the Snowflake Q3 fiscal 2025 earnings conference call. My name is Matt, and I'll be your moderator for today's call. All lines be muted during the presentation portion of the call for an opportunity for questions and answers at the end."
+  },
+  {
+   "en": "[Operator instructions] I'll now have to pass the conference over to our host, Jimmy Sexton, head of investor relations. Jimmy, please go ahead.",
+   "zh": "[操作员指示] 现在我将会议交给我们的主持人，投资者关系主管Jimmy Sexton。Jimmy，请继续。  \n[Operator instructions] I'll now have to pass the conference over to our host, Jimmy Sexton, head of investor relations. Jimmy, please go ahead."
+  },
+  {
+   "en": "Jimmy Sexton--Head of Investor Relations",
+   "zh": "Jimmy Sexton--投资者关系主管  \n原文：Jimmy Sexton--Head of Investor Relations"
+  },
+  {
+   "en": "Good afternoon, and thank you for joining us on Snowflake's Q3 fiscal 2025 earnings call. Joining me on the call today is Sridhar Ramaswamy, our chief executive officer; Mike Scarpelli, our chief financial officer; and Christian Kleinerman, our executive vice president of product, who will participate in the Q&A session. During today's call, we will review our financial results for the third quarter fiscal 2025 and discuss our guidance for the fourth quarter and full year fiscal 2025. During today's call, we will make forward-looking statements, including statements related to our business operations and financial performance.",
+   "zh": "下午好，感谢您参加Snowflake 2025财年第三季度财报电话会议。今天与会的包括我们的首席执行官Sridhar Ramaswamy、首席财务官Mike Scarpelli，以及产品执行副总裁Christian Kleinerman，他将参与问答环节。在今天的电话会议中，我们将回顾2025财年第三季度的财务业绩，并讨论第四季度及2025财年全年的业绩指引。在今天的电话会议中，我们将做出前瞻性陈述，包括与我们的业务运营和财务表现相关的陈述。\n\nGood afternoon, and thank you for joining us on Snowflake's Q3 fiscal 2025 earnings call. Joining me on the call today is Sridhar Ramaswamy, our chief executive officer; Mike Scarpelli, our chief financial officer; and Christian Kleinerman, our executive vice president of product, who will participate in the Q&A session. During today's call, we will review our financial results for the third quarter fiscal 2025 and discuss our guidance for the fourth quarter and full year fiscal 2025. During today's call, we will make forward-looking statements, including statements related to our business operations and financial performance."
+  },
+  {
+   "en": "These statements are subject to risks and uncertainties, which could cause them to differ materially from our actual results. Information concerning these risks and uncertainties is available in our earnings press release, our most recent Forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements.",
+   "zh": "这些陈述存在风险和不确定性，可能导致其与我们的实际结果存在重大差异。有关这些风险和不确定性的信息，请参阅我们的财报新闻稿、最新的 Forms 10-K 和 10-Q 以及我们向 SEC 提交的其他报告。所有陈述均基于我们目前掌握的信息，于今日作出。除非法律另有规定，我们没有义务更新任何此类陈述。\n\nThese statements are subject to risks and uncertainties, which could cause them to differ materially from our actual results. Information concerning these risks and uncertainties is available in our earnings press release, our most recent Forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements."
+  },
+  {
+   "en": "During today's call, we will also discuss certain non-GAAP financial measures. See our investor presentation for a reconciliation of GAAP to non-GAAP measures and business metric definitions, including adoption. Earnings press release and investor presentation are available on our website at investors.snowflake.com. A replay of today's call will also be posted on the website.",
+   "zh": "在今天的电话会议中，我们还将讨论某些非GAAP财务指标。请参阅我们的投资者演示文稿，了解GAAP与非GAAP指标的调节以及业务指标定义（包括adoption）。收益新闻稿和投资者演示文稿可在我们的网站investors.snowflake.com上获取。今天电话会议的重播也将发布在该网站上。\n\nDuring today's call, we will also discuss certain non-GAAP financial measures. See our investor presentation for a reconciliation of GAAP to non-GAAP measures and business metric definitions, including adoption. Earnings press release and investor presentation are available on our website at investors.snowflake.com. A replay of today's call will also be posted on the website."
+  },
+  {
+   "en": "With that, I would now like to turn the call over to Sridhar.",
+   "zh": "说完这些，我现在想把电话转给Sridhar。\n\nWith that, I would now like to turn the call over to Sridhar."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Thanks, Jimmy. And hi, everyone. Thanks for joining us today. As you've seen by now, we had a strong third quarter, outperforming expectations and increasing our FY '25 product revenue guide.",
+   "zh": "谢谢，Jimmy。大家好。感谢大家今天加入我们。正如你们所见，我们第三季度表现强劲，超出预期，并上调了FY '25产品收入指引。\n\nThanks, Jimmy. And hi, everyone. Thanks for joining us today. As you've seen by now, we had a strong third quarter, outperforming expectations and increasing our FY '25 product revenue guide."
+  },
+  {
+   "en": "More and more, it is clear that our customers believe Snowflake is the easiest and most cost effective [Technical difficulty]",
+   "zh": "越来越明显，我们的客户认为Snowflake是最简单且最具成本效益的[Technical difficulty]\n\nMore and more, it is clear that our customers believe Snowflake is the easiest and most cost effective [Technical difficulty]"
+  },
+  {
+   "en": "Questions & Answers:",
+   "zh": "问题与解答：\nQuestions & Answers:"
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Ladies and gentlemen, please remain holding while I reconnect the speaking line. Everyone, please remain holding the call, resuming momentarily.",
+   "zh": "女士们、先生们，请在重连发言线路时保持通话。各位，请保持通话，即将恢复。\n\nLadies and gentlemen, please remain holding while I reconnect the speaking line. Everyone, please remain holding the call, resuming momentarily."
+  },
+  {
+   "en": "Jimmy Sexton--Head of Investor Relations",
+   "zh": "Jimmy Sexton--投资者关系主管  \n原文：Jimmy Sexton--Head of Investor Relations"
+  },
+  {
+   "en": "Welcome back. I'd now like to pass the call back over to Sridhar.",
+   "zh": "欢迎回来。现在我想把电话交回给Sridhar。\n\nWelcome back. I'd now like to pass the call back over to Sridhar."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Thanks, Jimmy, and hi, everyone. Thanks for joining us today. As you've seen by now, we had a strong third quarter, outperforming expectations and increasing our fiscal 2025 product revenue guide. More and more, it is clear that our customers believe Snowflake is the easiest and most cost effective enterprise data platform out there.",
+   "zh": "谢谢Jimmy，大家好。感谢大家今天参加。如大家所见，我们第三季度表现强劲，超出预期并上调了2025财年产品收入指引。越来越明显的是，我们的客户认为Snowflake是最简单、最具成本效益的企业数据平台。\n\nThanks, Jimmy, and hi, everyone. Thanks for joining us today. As you've seen by now, we had a strong third quarter, outperforming expectations and increasing our fiscal 2025 product revenue guide. More and more, it is clear that our customers believe Snowflake is the easiest and most cost effective enterprise data platform out there."
+  },
+  {
+   "en": "Our customers are getting tremendous value from us with many of them going all-in on Snowflake. Our product development engine continues to accelerate as we launched the same number of Tier 1 features to general availability in Q3 as we did in all of fiscal 2024. Our AI feature family, Snowflake Cortex, is showing significant adoption. And we improved our go-to-market motion across the board, and it's having a huge impact on new product adoption.",
+   "zh": "我们的客户正从我们这里获得巨大的价值，其中许多客户已全面采用Snowflake。我们的产品开发引擎持续加速，在第三季度推出的Tier 1功能数量与整个2024财年持平。我们的AI功能系列Snowflake Cortex正显示出显著的采用率。此外，我们全面优化了市场推广策略，这对新产品的采用产生了巨大影响。\n\nOur customers are getting tremendous value from us with many of them going all-in on Snowflake. Our product development engine continues to accelerate as we launched the same number of Tier 1 features to general availability in Q3 as we did in all of fiscal 2024. Our AI feature family, Snowflake Cortex, is showing significant adoption. And we improved our go-to-market motion across the board, and it's having a huge impact on new product adoption."
+  },
+  {
+   "en": "We are firing on all cylinders. The credit goes to the entire Snowflake team, and I'm very encouraged by our progress showing up so well in the numbers. Product revenue for the quarter was $900 million, up a strong 29% year on year. Remaining performance obligations totaled $5.7 billion with year-over-year growth accelerating to 55%.",
+   "zh": "我们正在全速前进。这要归功于整个Snowflake团队，我们的进展在数字上如此出色，令我深受鼓舞。本季度产品收入为9亿美元，同比增长29%，表现强劲。剩余履约义务总额为57亿美元，同比增长加速至55%。\n\n原文：\nWe are firing on all cylinders. The credit goes to the entire Snowflake team, and I'm very encouraged by our progress showing up so well in the numbers. Product revenue for the quarter was $900 million, up a strong 29% year on year. Remaining performance obligations totaled $5.7 billion with year-over-year growth accelerating to 55%."
+  },
+  {
+   "en": "Given the strong quarter, we are again increasing our product revenue outlook for the year. In the quarter, non-GAAP operating margin improved to 6%. Having driven strong gains in product speed and revenue growth in Q3, we initiated an even more rigorous approach to cost management. We've been creating centralized and more efficient teams for some areas and removing redundant management layers, which enables us to make decisions faster.",
+   "zh": "鉴于强劲的季度表现，我们再次上调了全年产品营收展望。本季度，非GAAP营业利润率提升至6%。在第三季度产品速度及营收增长取得强劲成果后，我们启动了更为严格的成本管理方法。我们一直在为某些领域组建集中化且效率更高的团队，并去除冗余的管理层级，从而能够更快地做出决策。\n\nGiven the strong quarter, we are again increasing our product revenue outlook for the year. In the quarter, non-GAAP operating margin improved to 6%. Having driven strong gains in product speed and revenue growth in Q3, we initiated an even more rigorous approach to cost management. We've been creating centralized and more efficient teams for some areas and removing redundant management layers, which enables us to make decisions faster."
+  },
+  {
+   "en": "And we are deploying AI to drive higher velocity while reducing overall costs. We also eliminated a number of efforts that were underperforming and not aligned with our top goals as a company. I'm particularly proud of the team for driving efficiency throughout our business. This operational rigor is now a way of life for us, enabling us to improve profitability while aggressively investing in our innovation and go-to-market engines.",
+   "zh": "我们正在部署AI，以推动更高的效率，同时降低整体成本。我们还淘汰了一些表现不佳且与公司首要目标不一致的项目。我尤其为团队在提升整个业务效率方面所做的努力感到自豪。这种运营纪律如今已成为我们的行事之道，使我们在积极投资创新和市场推广引擎的同时，持续提高盈利能力。\n\nAnd we are deploying AI to drive higher velocity while reducing overall costs. We also eliminated a number of efforts that were underperforming and not aligned with our top goals as a company. I'm particularly proud of the team for driving efficiency throughout our business. This operational rigor is now a way of life for us, enabling us to improve profitability while aggressively investing in our innovation and go-to-market engines."
+  },
+  {
+   "en": "Our obsessive drive to produce product cohesion and ease of use has built Snowflake into the easiest to use and most cost effective enterprise data platform. And that is what is leading us to win new logo after new logo, expand within our customer base, and displace our competition over and over again. Like in the quarter, when a global telecom giant went all-in on Snowflake as their data foundation, we are helping them process network performance data from systems that carry a large volume of the world's mobile traffic so they can consistently deliver superior network speeds and reliability to millions of mobile users worldwide. I personally spent a lot of time connecting with our customers around the world.",
+   "zh": "我们对产品凝聚力和易用性的执着追求，将Snowflake打造成最易于使用且最具成本效益的企业数据平台。这正引领我们赢得一个又一个新客户，在现有客户群体中不断扩大，并一次又一次地取代竞争对手。比如在本季度，一家全球电信巨头全面采用Snowflake作为其数据基础，我们正在帮助他们处理来自承载全球大量移动流量的系统的网络性能数据，以便他们能够持续为全球数百万移动用户提供卓越的网络速度和可靠性。我个人花了很多时间与全球各地的客户沟通。\n\nOur obsessive drive to produce product cohesion and ease of use has built Snowflake into the easiest to use and most cost effective enterprise data platform. And that is what is leading us to win new logo after new logo, expand within our customer base, and displace our competition over and over again. Like in the quarter, when a global telecom giant went all-in on Snowflake as their data foundation, we are helping them process network performance data from systems that carry a large volume of the world's mobile traffic so they can consistently deliver superior network speeds and reliability to millions of mobile users worldwide. I personally spent a lot of time connecting with our customers around the world."
+  },
+  {
+   "en": "Much of it took place during our Snowflake world tours, where we welcomed a record 29,000 attendees across 24 in-person events. In the cities we returned to, we saw a remarkable 40% increase in attendance year over year, demonstrating the incredible momentum we are seeing at a global scale. And city after city, we heard the same three things from our customer, how much they allow our technology, how easy it is to use, and how quickly they get real value and lower total cost of ownership. On the flip side, we also consistently hear a lot of feedback that some of our competitors' technology is highly complex and requires a ton of highly expensive engineering resources.",
+   "zh": "这些活动大多发生在我们的Snowflake全球巡展期间，我们在24场线下活动中创纪录地迎来了29,000名与会者。在我们回归的城市，参会人数同比增长了40%，彰显了我们在全球范围内展现出的惊人势头。而且，每到一个城市，我们都从客户那里听到同样的三件事：他们有多认可我们的技术，使用起来有多简单，以及他们能多快获得实际价值并降低总拥有成本。另一方面，我们也经常听到大量反馈，称我们某些竞争对手的技术非常复杂，需要投入大量昂贵工程资源。\n\nMuch of it took place during our Snowflake world tours, where we welcomed a record 29,000 attendees across 24 in-person events. In the cities we returned to, we saw a remarkable 40% increase in attendance year over year, demonstrating the incredible momentum we are seeing at a global scale. And city after city, we heard the same three things from our customer, how much they allow our technology, how easy it is to use, and how quickly they get real value and lower total cost of ownership. On the flip side, we also consistently hear a lot of feedback that some of our competitors' technology is highly complex and requires a ton of highly expensive engineering resources."
+  },
+  {
+   "en": "And with complexity comes risk. What is one step in Snowflake is 10 on some other platforms. That's 10 times more chances to engineer a mistake. It's just not that scalable.",
+   "zh": "复杂性伴随风险。在Snowflake中只需一步的操作，在其他平台上可能需要十步，这意味着犯错的几率高出十倍。这样的架构并不具备良好的可扩展性。\n\nAnd with complexity comes risk. What is one step in Snowflake is 10 on some other platforms. That's 10 times more chances to engineer a mistake. It's just not that scalable."
+  },
+  {
+   "en": "And the joy of Snowflake is that it works right out of the box. We are helping our customers drive down costs. For example, Snowpark is generating on data engineering one after another. We've had multiple customers saying that they have saved at least 50% migrating to Snowflake from other providers.",
+   "zh": "Snowflake的乐趣在于它开箱即用。我们正在帮助客户降低成本。例如，Snowpark在数据工程领域不断取得成果。多位客户表示，从其他供应商迁移到Snowflake后，他们节省了至少50%的成本。\n\nAnd the joy of Snowflake is that it works right out of the box. We are helping our customers drive down costs. For example, Snowpark is generating on data engineering one after another. We've had multiple customers saying that they have saved at least 50% migrating to Snowflake from other providers."
+  },
+  {
+   "en": "And that's how our technology sells itself and why Snowpark is on track to be roughly 3% of our revenue. Snowflake superpower is the ability to simplify the implementation of all the popular enterprise data architecture patterns that customers want. It's what makes us the best enterprise-grade technology for the warehouse, the lakehouse, and data mesh architectures. We give our customers real architectural choice without trade-offs on enterprise capabilities, and they love it.",
+   "zh": "这就是我们的技术如何自我推销，以及为什么Snowpark有望贡献我们约3%的收入。Snowflake的超能力在于简化客户所需的所有主流企业数据架构模式的实施。这使我们成为仓库、湖屋和数据网格架构的最佳企业级技术。我们为客户提供真正的架构选择，无需在企业能力上妥协，而他们对此非常满意。\n\n原文：\nAnd that's how our technology sells itself and why Snowpark is on track to be roughly 3% of our revenue. Snowflake superpower is the ability to simplify the implementation of all the popular enterprise data architecture patterns that customers want. It's what makes us the best enterprise-grade technology for the warehouse, the lakehouse, and data mesh architectures. We give our customers real architectural choice without trade-offs on enterprise capabilities, and they love it."
+  },
+  {
+   "en": "One of those discovery uses Snowflake unified data across their vast portfolio, including streaming, gaming, news and studio divisions. This helps them deliver personalized entertainment recommendations to millions of viewers. And global hotel chain, Hyatt, is using Snowflake to better understand guests' preferences across their properties, helping craft a more personalized stay for guests throughout their travel journey. And we are accelerating across the business.",
+   "zh": "其中一个发现是利用Snowflake统一数据，覆盖其庞大的业务组合，包括流媒体、游戏、新闻和制片部门。这帮助他们为无数观众提供个性化的娱乐推荐。而全球连锁酒店Hyatt正使用Snowflake更好地了解客人对旗下各物业的偏好，从而在客人的整个旅行过程中打造更加个性化的住宿体验。我们正在加速推进各项业务。\n\nOne of those discovery uses Snowflake unified data across their vast portfolio, including streaming, gaming, news and studio divisions. This helps them deliver personalized entertainment recommendations to millions of viewers. And global hotel chain, Hyatt, is using Snowflake to better understand guests' preferences across their properties, helping craft a more personalized stay for guests throughout their travel journey. And we are accelerating across the business."
+  },
+  {
+   "en": "As I said, our foot's on the gas when it comes to product innovation. Just last week, we held our BUILD developer summit for more than 10,000 attendees worldwide. We made some key announcements in our core business, like the general availability of Unistore and internal marketplace and cutting-edge innovations like Snowflake Intelligence, a platform to create data agents. Our AI adoption continues to be strong.",
+   "zh": "就像我说的，我们在产品创新上持续发力。就在上周，我们举办了BUILD开发者峰会，吸引了全球超过10,000名参会者。我们在核心业务上发布了一些重要公告，例如Unistore和内部市场的全面上线，以及Snowflake Intelligence这样的前沿创新——一个用于创建数据代理的平台。我们的人工智能应用依然强劲。\n\nAs I said, our foot's on the gas when it comes to product innovation. Just last week, we held our BUILD developer summit for more than 10,000 attendees worldwide. We made some key announcements in our core business, like the general availability of Unistore and internal marketplace and cutting-edge innovations like Snowflake Intelligence, a platform to create data agents. Our AI adoption continues to be strong."
+  },
+  {
+   "en": "As of the end of Q3, we have over a thousand deployed use cases, which you can think of as individual projects we manage with our customers of our AI and ML products in production deployments. More than 3,200 accounts are now using our AI and ML features. Equally exciting is the momentum that our latest engineering features are seeing. Our push into interoperability and transforming data that previously would not have been addressed by Snowflake is proving to be a key differentiator with our customers.",
+   "zh": "截至Q3末，我们已有超过一千个已部署的使用案例，您可以将其视为我们与客户共同管理的、在生产环境中部署的AI和ML产品的独立项目。目前超过3,200个账户正在使用我们的AI和ML功能。同样令人兴奋的是我们最新工程功能所展现的势头。我们致力于互操作性以及转化以前Snowflake无法处理的数据，这正被证明是我们与客户之间的关键差异化优势。\n\nAs of the end of Q3, we have over a thousand deployed use cases, which you can think of as individual projects we manage with our customers of our AI and ML products in production deployments. More than 3,200 accounts are now using our AI and ML features. Equally exciting is the momentum that our latest engineering features are seeing. Our push into interoperability and transforming data that previously would not have been addressed by Snowflake is proving to be a key differentiator with our customers."
+  },
+  {
+   "en": "These features are now north of a $200 million run rate as of the end of Q3. We're also partnering with Microsoft and ServiceNow to increase data interoperability, making it easier for our customers to bring data in and out of Snowflake to build and run applications faster. As we launch new products like Unistore, Snowflake Open Catalog, and others, if we are fine-tuning a go-to-market motion that brings together engineering, product, marketing, and sales to rapidly launch, test, iterate, and scale products. It is giving us a scalable way to broaden our footprint with our customers and also acquire new ones.",
+   "zh": "截至第三季度末，这些功能已实现超过2亿美元的年度经常性收入。我们还在与Microsoft和ServiceNow合作，以增强数据互操作性，使客户更轻松地将数据导入和导出Snowflake，从而更快地构建和运行应用程序。随着我们推出Unistore、Snowflake Open Catalog等新产品，我们正在优化一项整合工程、产品、营销和销售团队的市场进入策略，以快速启动、测试、迭代并规模化产品。这为我们提供了一种可扩展的方式，既能扩大现有客户的覆盖范围，也能获取新客户。\n\nThese features are now north of a $200 million run rate as of the end of Q3. We're also partnering with Microsoft and ServiceNow to increase data interoperability, making it easier for our customers to bring data in and out of Snowflake to build and run applications faster. As we launch new products like Unistore, Snowflake Open Catalog, and others, if we are fine-tuning a go-to-market motion that brings together engineering, product, marketing, and sales to rapidly launch, test, iterate, and scale products. It is giving us a scalable way to broaden our footprint with our customers and also acquire new ones."
+  },
+  {
+   "en": "Our product innovation is fueling alignment with our cloud infrastructure partners. Through our collaboration with AWS, we have booked over $3.9 billion over the past four quarters, an increase of 68% versus the preceding four quarters. Looking at our results in Q3, I can tell you that these shifts are working and enabling us to drive multi-product adoption and further strengthen our position in the market. Finally, I want to talk about the tectonic shifts happening in the world of data.",
+   "zh": "我们的产品创新正在推动与云基础设施合作伙伴的协同。通过与AWS的合作，我们在过去四个季度中获得了超过39亿美元的订单，较前四个季度增长了68%。回顾第三季度的业绩，我可以告诉你们，这些转变正在发挥作用，使我们能够推动多产品采用，并进一步巩固我们在市场中的地位。最后，我想谈谈数据领域正在发生的结构性巨变。\n\nOur product innovation is fueling alignment with our cloud infrastructure partners. Through our collaboration with AWS, we have booked over $3.9 billion over the past four quarters, an increase of 68% versus the preceding four quarters. Looking at our results in Q3, I can tell you that these shifts are working and enabling us to drive multi-product adoption and further strengthen our position in the market. Finally, I want to talk about the tectonic shifts happening in the world of data."
+  },
+  {
+   "en": "We are seeing massive adoption of open data formats, especially truly open formats like Apache Iceberg. We are justifiably proud of our support for and our investments in Iceberg under Snowflake Open Catalog based on Apache Polaris that is seeing rapid adoption with developers and enterprises. Similarly, it is clear that AI is going to change how people consume data. Not only is AI going to make structured and unstructured data more interchangeable, it is also going to heavily influence areas like business intelligence.",
+   "zh": "我们看到开放数据格式正被大规模采用，尤其是像Apache Iceberg这样真正开放的格式。我们理所当然地为基于Apache Polaris的Snowflake Open Catalog中支持并投资Iceberg感到自豪，该产品正被开发者和企业迅速采用。同样明显的是，AI将改变人们使用数据的方式。AI不仅会让结构化和非结构化数据更容易互换，还将对商业智能等领域产生重大影响。\n\nWe are seeing massive adoption of open data formats, especially truly open formats like Apache Iceberg. We are justifiably proud of our support for and our investments in Iceberg under Snowflake Open Catalog based on Apache Polaris that is seeing rapid adoption with developers and enterprises. Similarly, it is clear that AI is going to change how people consume data. Not only is AI going to make structured and unstructured data more interchangeable, it is also going to heavily influence areas like business intelligence."
+  },
+  {
+   "en": "With our unmatched product capability, ease-of-use, architectural flexibility, comprehensive governance, and prescient bets in Iceberg, Polaris, Cortex, and many others, we are well-positioned to be the data platform of choice for enterprises over the next decade. Our intended acquisition of Datavolo strengthens our foundation to deliver an extensible and flexible connectivity platform for unstructured, as well as structured data. It accelerates our ability to bring in and vastly simplify data engineering workloads for our customers. On the consumption side, the GA of Snowflake Notebooks, as well as the success and adoption of products like Cortex AI, position us well to take advantage of the new capabilities that AI will enable us to create.",
+   "zh": "凭借我们无与伦比的产品能力、易用性、架构灵活性、全面治理以及对Iceberg、Polaris、Cortex等领域的先见布局，我们处于有利位置，将成为未来十年企业首选的数据平台。我们对Datavolo的拟议收购，将进一步夯实我们为结构化和非结构化数据提供可扩展、灵活连接平台的基础，加速我们为客户引入并极大简化数据工程工作负载的能力。在消费端，Snowflake Notebooks的全面上市以及Cortex AI等产品的成功与采用，使我们能够充分利用AI将赋予我们的新能力。\n\nWith our unmatched product capability, ease-of-use, architectural flexibility, comprehensive governance, and prescient bets in Iceberg, Polaris, Cortex, and many others, we are well-positioned to be the data platform of choice for enterprises over the next decade. Our intended acquisition of Datavolo strengthens our foundation to deliver an extensible and flexible connectivity platform for unstructured, as well as structured data. It accelerates our ability to bring in and vastly simplify data engineering workloads for our customers. On the consumption side, the GA of Snowflake Notebooks, as well as the success and adoption of products like Cortex AI, position us well to take advantage of the new capabilities that AI will enable us to create."
+  },
+  {
+   "en": "As you've probably seen, we just announced a partnership with Anthropic to bring their most powerful models to our customers through Snowflake Cortex AI. This gives enterprises the choice to build cutting-edge AI applications using the model of their choice with the ease, built-in security, and governance of the Snowflake platform. The cost efficiency, flexibility, and extensibility we deliver are why iconic brands like Accor, Chipotle, Comcast, Hyatt, Kraft Heinz, NBC Universal, Sanofi, Toyota, and thousands more are betting their business on Snowflake. As we move forward, we have a big opportunity to continue to expand with AI throughout the data journey continues.",
+   "zh": "您可能已经看到，我们刚刚宣布与Anthropic合作，通过Snowflake Cortex AI将其最强大的模型带给我们的客户。这让企业能够选择使用自己偏好的模型，在Snowflake平台简便、内置安全性和治理的支持下，构建尖端的AI应用。我们提供的成本效益、灵活性和可扩展性，正是雅高、Chipotle、Comcast、凯悦、卡夫亨氏、NBC环球、赛诺菲、丰田等标志性品牌及数千家企业将其业务押注于Snowflake的原因。展望未来，我们拥有巨大的机遇，在数据旅程的持续推进中，借助AI不断扩展。\n\n原文：\nAs you've probably seen, we just announced a partnership with Anthropic to bring their most powerful models to our customers through Snowflake Cortex AI. This gives enterprises the choice to build cutting-edge AI applications using the model of their choice with the ease, built-in security, and governance of the Snowflake platform. The cost efficiency, flexibility, and extensibility we deliver are why iconic brands like Accor, Chipotle, Comcast, Hyatt, Kraft Heinz, NBC Universal, Sanofi, Toyota, and thousands more are betting their business on Snowflake. As we move forward, we have a big opportunity to continue to expand with AI throughout the data journey continues."
+  },
+  {
+   "en": "This isn't just our product vision if you ask from some of our most significant customers. They see the ease of use and quality and savings we provide today and wanted to expand further so they can reduce even more cost by Snowflake handling more and more of their data journey. We see a day when we can power the end-to-end data life cycle for our customers, and that's our North Star. We come at this from a position of strength that we will continue to leverage.",
+   "zh": "如果你去问我们最重要的客户，这不仅仅是我们的产品愿景。他们看到了我们当前提供的易用性、质量和成本节约，并希望进一步扩展，以便Snowflake能处理他们越来越多的数据旅程，从而进一步降低成本。我们预见到有一天，我们能够为客户的端到端数据生命周期提供动力，这就是我们的北极星（North Star）。我们以强大的姿态出发，并将继续利用这一优势。\n\nThis isn't just our product vision if you ask from some of our most significant customers. They see the ease of use and quality and savings we provide today and wanted to expand further so they can reduce even more cost by Snowflake handling more and more of their data journey. We see a day when we can power the end-to-end data life cycle for our customers, and that's our North Star. We come at this from a position of strength that we will continue to leverage."
+  },
+  {
+   "en": "Our core long-term differentiation of an easy-to-use, simple, efficient, integrated product with comprehensive governance, cross-cloud consistency, and collaboration will continue to set us apart. This is exciting, and I look forward to sharing more and more of our progress along the way. With that, Mike, I'll turn it over to you.",
+   "zh": "我们易于使用、简单、高效、集成的产品，具备全面的治理、跨云一致性和协作能力，这一核心长期差异化优势将继续使我们脱颖而出。这令人振奋，我期待在此过程中分享越来越多的进展。就这样，Mike，我把话筒交给你。\n\nOur core long-term differentiation of an easy-to-use, simple, efficient, integrated product with comprehensive governance, cross-cloud consistency, and collaboration will continue to set us apart. This is exciting, and I look forward to sharing more and more of our progress along the way. With that, Mike, I'll turn it over to you."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "Thank you, Sridhar. Q3 was a quarter of strong execution across revenue, bookings, and margins, growth in our core business outperformed. Net revenue retention rates stabilized at 127%. New product initiatives are beginning to contribute to growth.",
+   "zh": "谢谢，Sridhar。第三季度我们在营收、预订量和利润率方面执行有力，核心业务增长表现突出。净收入留存率稳定在127%。新产品计划开始为增长做出贡献。\n\n原文：\nThank you, Sridhar. Q3 was a quarter of strong execution across revenue, bookings, and margins, growth in our core business outperformed. Net revenue retention rates stabilized at 127%. New product initiatives are beginning to contribute to growth."
+  },
+  {
+   "en": "As Sridhar mentioned, Snowpark is well on track to represent 3% of product revenue and growing nicely. With approximately 500 accounts adopting Iceberg and storage remaining 11% of our consumption, we have seen minimal headwinds from customers moving to Iceberg. We believe our contribution from data engineering features like Snowpark, dynamic tables, connectors, and Snowpipe Streaming will more than offset the potential loss of storage revenue. Bookings were strong in the quarter, and we are seeing large deal volume increase.",
+   "zh": "正如Sridhar提到的，Snowpark进展顺利，有望占产品收入的3%且增长良好。约有500个账户采用了Iceberg，存储仍占我们消费的11%，我们几乎没有遇到客户转向Iceberg带来的阻力。我们认为，来自Snowpark、动态表、连接器和Snowpipe Streaming等数据工程功能的贡献，将足以抵消存储收入的潜在损失。本季度预订量强劲，我们看到大单数量在增加。\n\nAs Sridhar mentioned, Snowpark is well on track to represent 3% of product revenue and growing nicely. With approximately 500 accounts adopting Iceberg and storage remaining 11% of our consumption, we have seen minimal headwinds from customers moving to Iceberg. We believe our contribution from data engineering features like Snowpark, dynamic tables, connectors, and Snowpipe Streaming will more than offset the potential loss of storage revenue. Bookings were strong in the quarter, and we are seeing large deal volume increase."
+  },
+  {
+   "en": "We signed three $50 million-plus total contract value deals, and we expect this momentum to continue in Q4. We had 18 Global 2000 customers in the quarter. Turning to margins for Q3. Non-GAAP product gross margin of 76% stabilized sequentially.",
+   "zh": "我们签署了三笔总合同价值超过5000万美元的交易，并且我们预计这一势头将在第四季度持续。本季度我们拥有18家Global 2000客户。转向第三季度的利润率。非GAAP产品毛利率为76%，环比稳定。\n\nWe signed three $50 million-plus total contract value deals, and we expect this momentum to continue in Q4. We had 18 Global 2000 customers in the quarter. Turning to margins for Q3. Non-GAAP product gross margin of 76% stabilized sequentially."
+  },
+  {
+   "en": "Non-GAAP operating margin of 6% exceeded our guidance, benefiting from revenue outperformance, efficiencies in R&D, and expenses related to our new Bay Area office space being pushed to Q4. Our non-GAAP adjusted free cash flow margin was 9%, driven by strong bookings. We continue to see approximately 80% of our customers paying us annually in advance. In Q3, we issued $1.15 billion and 0% convertible senior notes due in 2027 and $1.15 billion and 0% convertible senior notes due in 2029.",
+   "zh": "非GAAP营业利润率为6%，超出我们的预期，这得益于营收的超预期表现、研发效率提升，以及我们新湾区的办公空间相关费用推迟至第四季度。非GAAP调整后自由现金流利润率为9%，由强劲的预订量驱动。我们继续看到约80%的客户提前按年付款。第三季度，我们发行了2027年到期的11.5亿美元零利率可转换优先票据，以及2029年到期的11.5亿美元零利率可转换优先票据。\n\nNon-GAAP operating margin of 6% exceeded our guidance, benefiting from revenue outperformance, efficiencies in R&D, and expenses related to our new Bay Area office space being pushed to Q4. Our non-GAAP adjusted free cash flow margin was 9%, driven by strong bookings. We continue to see approximately 80% of our customers paying us annually in advance. In Q3, we issued $1.15 billion and 0% convertible senior notes due in 2027 and $1.15 billion and 0% convertible senior notes due in 2029."
+  },
+  {
+   "en": "Proceeds from the offering were used to pay for the capped calls and concurrent share repurchase. We expect to use the remaining proceeds to fund stock repurchases and potential acquisitions and for general corporate purposes. Year to date, we have used $1.9 billion to repurchase 14.8 million shares at a weighted average price per share of $130.87. We have $2 billion remaining on our authorization through March 2027.",
+   "zh": "本次发行的收益已用于支付封顶看涨期权和同步的股票回购。我们计划将剩余收益用于支持股票回购、潜在收购以及一般公司用途。年初至今，我们已使用19亿美元回购了1480万股，加权平均每股价格为130.87美元。根据授权，截至2027年3月，我们还有20亿美元的回购额度剩余。\n\nProceeds from the offering were used to pay for the capped calls and concurrent share repurchase. We expect to use the remaining proceeds to fund stock repurchases and potential acquisitions and for general corporate purposes. Year to date, we have used $1.9 billion to repurchase 14.8 million shares at a weighted average price per share of $130.87. We have $2 billion remaining on our authorization through March 2027."
+  },
+  {
+   "en": "Our share count guidance does not include the impact from potential upcoming stock repurchases. We ended the quarter with $5 billion in cash, cash equivalents, short-term, and long-term investments. Now, let's turn to guidance. For the fourth quarter, we expect product revenue between $906 million and $911 million, representing 23% year-over-year growth.",
+   "zh": "我们的股份数量指引未考虑潜在即将进行的股票回购的影响。本季度末，我们持有50亿美元现金、现金等价物、短期和长期投资。现在，让我们转向业绩指引。第四季度，我们预计产品收入在9.06亿至9.11亿美元之间，同比增长23%。\n\nOur share count guidance does not include the impact from potential upcoming stock repurchases. We ended the quarter with $5 billion in cash, cash equivalents, short-term, and long-term investments. Now, let's turn to guidance. For the fourth quarter, we expect product revenue between $906 million and $911 million, representing 23% year-over-year growth."
+  },
+  {
+   "en": "We are increasing our FY '25 product revenue guidance. We now expect full year product revenue of approximately $3.43 billion, representing 29% year-over-year growth. This includes contributions from our newer product features and product efficiency headwinds. We view product efficiencies as a normal part of our business so we will not be breaking out those assumptions going forward.",
+   "zh": ""
+  },
+  {
+   "en": "Turning to margins. In FY '25, we are increasing our non-GAAP product gross margin guidance to 76%, our non-GAAP operating margin guidance to 5%. We expect approximately 26% non-GAAP adjusted free cash flow margin for the year. As Sridhar mentioned, we have gone through a rigorous process of evaluating our cost structure.",
+   "zh": "接下来是关于利润率的。在25财年，我们将非GAAP产品毛利率指引上调至76%，非GAAP营业利润率指引上调至5%。我们预计全年非GAAP调整后自由现金流利润率约为26%。正如Sridhar所提到的，我们经过严格评估了成本结构。\n\nTurning to margins. In FY '25, we are increasing our non-GAAP product gross margin guidance to 76%, our non-GAAP operating margin guidance to 5%. We expect approximately 26% non-GAAP adjusted free cash flow margin for the year. As Sridhar mentioned, we have gone through a rigorous process of evaluating our cost structure."
+  },
+  {
+   "en": "We believe we can invest aggressively to address the large opportunity in front of us while also being more efficient. Our innovation and revenue-driving functions are being resourced to drive durable growth while also enabling us to show operating leverage for years to come. With that, operator, we will now open up the line for questions.",
+   "zh": "我们相信，我们可以积极投资以抓住眼前的巨大机遇，同时提高效率。我们的创新和创收部门正在获得资源，以推动可持续增长，同时使我们能够在未来几年内展现运营杠杆效应。那么，接线员，现在我们可以开始提问环节了。\n\nWe believe we can invest aggressively to address the large opportunity in front of us while also being more efficient. Our innovation and revenue-driving functions are being resourced to drive durable growth while also enabling us to show operating leverage for years to come. With that, operator, we will now open up the line for questions."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "[Operator instructions] The first question is from the line of Mark Murphy with JPMorgan. Your line is now open.",
+   "zh": "[操作员指令] 第一个问题来自JPMorgan的Mark Murphy。请开始提问。  \n[Operator instructions] The first question is from the line of Mark Murphy with JPMorgan. Your line is now open."
+  },
+  {
+   "en": "Mark Murphy--Analyst",
+   "zh": "Mark Murphy--分析师\n\nMark Murphy--Analyst"
+  },
+  {
+   "en": "Hi. Thank you. Mike, it's impressive to see the strength here simultaneously in both the consumption revenue and the bookings, especially given the prioritization of consumption incentives this year. I'm curious to what you might attribute that and specifically whether Iceberg tables might have contributed all or whether Snowpark might have picked up in any meaningful way.",
+   "zh": "你好。谢谢。Mike，同时看到消费收入和预订量的强劲表现令人印象深刻，尤其是在今年优先考虑消费激励的情况下。我很好奇您认为这归因于什么，具体来说，Iceberg tables是否贡献了全部，或者Snowpark是否以某种有意义的方式有所增长。\n\n原文：Hi. Thank you. Mike, it's impressive to see the strength here simultaneously in both the consumption revenue and the bookings, especially given the prioritization of consumption incentives this year. I'm curious to what you might attribute that and specifically whether Iceberg tables might have contributed all or whether Snowpark might have picked up in any meaningful way."
+  },
+  {
+   "en": "And then, I have a quick follow-up.",
+   "zh": "然后，我有一个快速的后续问题。\n\nAnd then, I have a quick follow-up."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "I would say we're starting to see the positive benefit of Iceberg with a number of customers that are now bringing new workloads that are now being addressed by Snowflake and Iceberg tables. But I would just say, it's broad-based demand across our customers. Yeah, there's a few verticals that were very strong, technology, financial services, and healthcare, but it's really broad-based. And we are seeing the uptick, as Sridhar was mentioning, a lot of the data engineering stuff, as well, too.",
+   "zh": "我认为我们开始看到Iceberg带来的积极效益，许多客户正在将新的工作负载引入Snowflake和Iceberg表来处理。但我想说，这种需求在我们的客户群中非常广泛。是的，有几个行业表现非常强劲，比如科技、金融服务和医疗，但整体上非常广泛。而且正如Sridhar提到的，我们也看到了数据工程相关业务的增长。\n\n原文：I would say we're starting to see the positive benefit of Iceberg with a number of customers that are now bringing new workloads that are now being addressed by Snowflake and Iceberg tables. But I would just say, it's broad-based demand across our customers. Yeah, there's a few verticals that were very strong, technology, financial services, and healthcare, but it's really broad-based. And we are seeing the uptick, as Sridhar was mentioning, a lot of the data engineering stuff, as well, too."
+  },
+  {
+   "en": "And Snowpark is part of that.",
+   "zh": "Snowpark是其中的一部分。\n\nAnd Snowpark is part of that."
+  },
+  {
+   "en": "Mark Murphy--Analyst",
+   "zh": "Mark Murphy--分析师\n\nMark Murphy--Analyst"
+  },
+  {
+   "en": "Great to hear. And, Sridhar, I believe you had mentioned displacing the petition over and over again, and that stood out to me. I'm curious if you saw an increase in those competitive displacements during Q3 and what you think might be triggering it. Because we always hear the data sharing is unparalleled, but you had released a slew of AI-related products.",
+   "zh": "太好了。Sridhar，我记得你反复提到过“取代请愿”这件事，这让我印象深刻。我很好奇，在第三季度你是否看到了这些竞争性替代的增加，以及你认为是什么触发了它。因为我们总是听到数据共享是无与伦比的，但你们发布了一系列AI相关产品。\n\nGreat to hear. And, Sridhar, I believe you had mentioned displacing the petition over and over again, and that stood out to me. I'm curious if you saw an increase in those competitive displacements during Q3 and what you think might be triggering it. Because we always hear the data sharing is unparalleled, but you had released a slew of AI-related products."
+  },
+  {
+   "en": "And I'm also wondering if you think that that might be swaying some of these competitive accounts over.",
+   "zh": "我也在想，你是否认为这可能会动摇一些竞争账户。\n\nAnd I'm also wondering if you think that that might be swaying some of these competitive accounts over."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "At one level, the products that we're releasing that we release makes everybody feel great about sort of the future of the platform, what they can do with it, both today and also tomorrow. The kind of things that people are already getting done with Cortex AI Search and Analyst is already pretty impressive. But when it comes to the displacement, I would say that if the core aspects of the product, which is the ease of use, the faster time to value, the -- like the lack of needing a very large team to set up deployments and maintain them as we go along, those are the things that contribute most to people then, you know, like trying something and coming back to Snowflake and going, this is a much better way to make progress with data. And this is the reason why we obsessed about making sure Cortex, for example, is integrated very tightly with everything else.",
+   "zh": "从某种程度上说，我们正在发布的产品让每个人都对平台的未来充满信心，无论是今天还是明天，用户能用它做些什么。人们已经通过Cortex AI Search和Analyst完成的事情已经相当令人印象深刻。但谈到替代效应，我认为如果产品的核心特质——如易用性、更快的价值实现时间、无需庞大团队来部署和维护——这些最能促使人们尝试后重新选择Snowflake，并认为这是利用数据取得进展的更好方式。这也是我们执着于确保Cortex等产品与所有其他功能紧密集成的原因。\n\nAt one level, the products that we're releasing that we release makes everybody feel great about sort of the future of the platform, what they can do with it, both today and also tomorrow. The kind of things that people are already getting done with Cortex AI Search and Analyst is already pretty impressive. But when it comes to the displacement, I would say that if the core aspects of the product, which is the ease of use, the faster time to value, the -- like the lack of needing a very large team to set up deployments and maintain them as we go along, those are the things that contribute most to people then, you know, like trying something and coming back to Snowflake and going, this is a much better way to make progress with data. And this is the reason why we obsessed about making sure Cortex, for example, is integrated very tightly with everything else."
+  },
+  {
+   "en": "You build a chatbot on Snowflake. It is automatically going to obey all of the permissions on the data that is underneath. And that's the magic of Snowflake. Christian, any additional thoughts?",
+   "zh": "你在Snowflake上构建一个聊天机器人。它会自动遵守底层数据的所有权限。这就是Snowflake的神奇之处。Christian，还有什么补充吗？\n\nYou build a chatbot on Snowflake. It is automatically going to obey all of the permissions on the data that is underneath. And that's the magic of Snowflake. Christian, any additional thoughts?"
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "The governance continues to be an important region, and we continue -- region and continue to invest on security, privacy, and compliance in addition to everything Sridhar mentioned.",
+   "zh": "治理仍然是一个重要领域，我们继续——领域，除了Sridhar提到的所有内容之外，我们继续在安全、隐私和合规方面进行投资。\n\nThe governance continues to be an important region, and we continue -- region and continue to invest on security, privacy, and compliance in addition to everything Sridhar mentioned."
+  },
+  {
+   "en": "Mark Murphy--Analyst",
+   "zh": "Mark Murphy--分析师\n\nMark Murphy--Analyst"
+  },
+  {
+   "en": "Thank you very much, and congrats.",
+   "zh": "非常感谢，恭喜。\nThank you very much, and congrats."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Thank you, Mark.",
+   "zh": "谢谢你，Mark.\n\nThank you, Mark."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Keith Weiss with Morgan Stanley. Your line is now open.",
+   "zh": "感谢你的提问。下一个问题来自摩根士丹利的Keith Weiss。现在请开始提问。\n\nThank you for your question. Next question is from the line of Keith Weiss with Morgan Stanley. Your line is now open."
+  },
+  {
+   "en": "Keith Weiss--Analyst",
+   "zh": "Keith Weiss--分析师\n\nKeith Weiss--Analyst"
+  },
+  {
+   "en": "Excellent. Thank you guys for taking the question, and congratulations on a really solid quarter. Mike, a question for you just in terms of like the strength in the quarter. From your commentary, things like the core business, like the core data warehousing business was really the standout in the quarter, and that's firming up and the NRR firming up.",
+   "zh": "很好。谢谢各位提问，也祝贺你们交出了一份非常扎实的季度业绩。Mike，我想问你一个问题，关于本季度的强势表现。从你的评述来看，像是核心业务，比如核心数据仓库业务，在本季度确实表现突出，而且这一趋势正在巩固，NRR也在企稳。\n\nExcellent. Thank you guys for taking the question, and congratulations on a really solid quarter. Mike, a question for you just in terms of like the strength in the quarter. From your commentary, things like the core business, like the core data warehousing business was really the standout in the quarter, and that's firming up and the NRR firming up."
+  },
+  {
+   "en": "But I was hoping if you could give us some kind of visibility into the ramp that you're seeing with the new AI products like Cortex. And how does that compare to what you saw with Snowpark if we think about them in the same time in their evolution? So, that's a top-line question. And then, also, a bottom-line question for you. Last quarter, we talked about sort of accelerating investments particularly in distribution.",
+   "zh": "但我希望您能让我们了解一下您所看到的新AI产品（如Cortex）的增长轨迹。如果我们将它们放在相同的发展阶段来比较，这与Snowpark当时的情况相比又如何？所以，这是一个收入端的问题。然后，还有一个利润端的问题。上季度，我们谈到了加速投资，特别是在分销方面。\n\nBut I was hoping if you could give us some kind of visibility into the ramp that you're seeing with the new AI products like Cortex. And how does that compare to what you saw with Snowpark if we think about them in the same time in their evolution? So, that's a top-line question. And then, also, a bottom-line question for you. Last quarter, we talked about sort of accelerating investments particularly in distribution."
+  },
+  {
+   "en": "It sounds like that's being somewhat offset by being able to find sort of redundancies or headcount reductions because we didn't really see it in the headcount number, and that addition was relatively modest. So, it seems like you guys were able to kind of drive investment, but also find sort of like nets to take out of headcount. Is that the right way to think about it?",
+   "zh": "听起来，这似乎在一定程度上被冗余职位裁减或人员编制缩减所抵消，因为我们并没有在人员数量上看到明显变化，而新增的编制也相对有限。所以，你们似乎既能推动投资，又能通过某种方式削减人员编制。这样理解对吗？\n\nIt sounds like that's being somewhat offset by being able to find sort of redundancies or headcount reductions because we didn't really see it in the headcount number, and that addition was relatively modest. So, it seems like you guys were able to kind of drive investment, but also find sort of like nets to take out of headcount. Is that the right way to think about it?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "Yeah. So, on your first question, when I talk about the core business, the core business is data warehousing with data engineering. What we are talking about is the newer data engineering features that Sridhar was talking about. But there's a lot of data engineering that's done in Snowflake, and that was very strong as well.",
+   "zh": "是的。关于你的第一个问题，当我谈到核心业务时，核心业务是数据仓库与数据工程。我们讨论的是Sridhar刚才提到的新数据工程功能。但在Snowflake中已经有很多数据工程工作，这些也非常强劲。\n\n原文：\nYeah. So, on your first question, when I talk about the core business, the core business is data warehousing with data engineering. What we are talking about is the newer data engineering features that Sridhar was talking about. But there's a lot of data engineering that's done in Snowflake, and that was very strong as well."
+  },
+  {
+   "en": "We are seeing the uptick in new products. I would say Cortex is starting to take off. It's still very much in the early innings, and we are very optimistic of what that's going to do in the future based upon what we're seeing. And Snowpark continues to track as expected.",
+   "zh": "我们看到新产品有所增加。可以说Cortex正在开始起飞。目前仍处于非常早期的阶段，根据我们所观察到的情况，我们对它未来的表现非常乐观。而Snowpark继续按预期发展。\n\n原文：We are seeing the uptick in new products. I would say Cortex is starting to take off. It's still very much in the early innings, and we are very optimistic of what that's going to do in the future based upon what we're seeing. And Snowpark continues to track as expected."
+  },
+  {
+   "en": "It will be 3% of our revenue for the year and growing very nicely year over year. In terms of the efficiencies, we've gone through done a lot of performance management, especially in the sales organization. They've been hiring, and there's going to be a lot of hiring in the sales organization this quarter they're doing. And we really looked across the company at combining teams together where possible.",
+   "zh": "这将占我们年度营收的3%，并且同比增长非常良好。在效率方面，我们进行了大量的绩效管理，尤其是在销售组织。他们一直在招聘，而且本季度他们将在销售组织进行大量招聘。我们还真正审视了整个公司，尽可能地将团队合并。\n\n原文：It will be 3% of our revenue for the year and growing very nicely year over year. In terms of the efficiencies, we've gone through done a lot of performance management, especially in the sales organization. They've been hiring, and there's going to be a lot of hiring in the sales organization this quarter they're doing. And we really looked across the company at combining teams together where possible."
+  },
+  {
+   "en": "And we're not replacing backfills as quickly because of that. And that's why we are seeing the operating savings that we're doing. There is no mass riff or anything like that. Don't think about that.",
+   "zh": "正因如此，我们没有那么快地进行补缺替换。这也是我们正在实现运营成本节约的原因。没有大规模裁员之类的事情。别往那方面想。\n\nAnd we're not replacing backfills as quickly because of that. And that's why we are seeing the operating savings that we're doing. There is no mass riff or anything like that. Don't think about that."
+  },
+  {
+   "en": "We're not doing that. It's normal performance management and really being thoughtful of where we put people.",
+   "zh": "我们没在那样做。这是正常的绩效管理，并且是在认真考虑我们把人员安排到哪里。\n\nWe're not doing that. It's normal performance management and really being thoughtful of where we put people."
+  },
+  {
+   "en": "Keith Weiss--Analyst",
+   "zh": "Keith Weiss--分析师\n\nKeith Weiss--Analyst"
+  },
+  {
+   "en": "Got it. That's super helpful. Thank you.",
+   "zh": "明白了。这非常有帮助。谢谢。\n\nGot it. That's super helpful. Thank you."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you. Next question is from the line of Kash Rangan with Goldman Sachs. Your line is now open.",
+   "zh": "谢谢。下一个问题来自Goldman Sachs的Kash Rangan。您的线路已接通。\nThank you. Next question is from the line of Kash Rangan with Goldman Sachs. Your line is now open."
+  },
+  {
+   "en": "Kash Rangan--Analyst",
+   "zh": "Kash Rangan--分析师  \nKash Rangan--Analyst"
+  },
+  {
+   "en": "Hi. Thank you very much. One for you, Sridhar, and one for Mike. Sridhar, there is a narrative, which you will definitely dispute that the core of the Snowflake data platform, that structured data does not really have a long runway in the world of generative AI and that also Snowflake has a lot to prove with respect to generative AI on the unstructured data.",
+   "zh": "你好。非常感谢。一个问题给你，Sridhar，另一个给Mike。Sridhar，有一种说法——你肯定会反驳——认为Snowflake数据平台的核心即结构化数据在生成式AI领域前景有限，而且Snowflake在非结构化数据方面的生成式AI能力还有很多需要证明的地方。\n\nHi. Thank you very much. One for you, Sridhar, and one for Mike. Sridhar, there is a narrative, which you will definitely dispute that the core of the Snowflake data platform, that structured data does not really have a long runway in the world of generative AI and that also Snowflake has a lot to prove with respect to generative AI on the unstructured data."
+  },
+  {
+   "en": "What proof points can you talk to the quarter that would invalidate that bearish view and reinforce your conviction. And one for you, Mike. With the headwinds from storage not being as much as was dialed in, should we safely assume that you're guiding to product revenue, 29% for the year, or take away 3 points for Snowpark container services, that the core is actually at a point where you can see it be stable going to next year. I know you're not giving guidance, and if we can start to think about doing the dream of all the new products to be largely incremental to that growth, right? Thank you so much, and congratulations.",
+   "zh": "在本季度，有哪些证据能够推翻看空观点并增强您的信心？还有一个问题给Mike。由于存储方面的逆风不如预期严重，我们是否可以稳妥地假设，您给出的产品收入指引为全年29%，或者剔除Snowpark container services的3个百分点后，核心业务实际上已趋于稳定，明年有望保持？我知道您没有提供指引，但如果我们开始考虑所有新产品对增长带来大幅增量贡献的愿景，是否可行？非常感谢，恭喜。\n\n原文：\nWhat proof points can you talk to the quarter that would invalidate that bearish view and reinforce your conviction. And one for you, Mike. With the headwinds from storage not being as much as was dialed in, should we safely assume that you're guiding to product revenue, 29% for the year, or take away 3 points for Snowpark container services, that the core is actually at a point where you can see it be stable going to next year. I know you're not giving guidance, and if we can start to think about doing the dream of all the new products to be largely incremental to that growth, right? Thank you so much, and congratulations."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Thank you, Kash. On the, you know, core business side, analytics, you know, still is going to be pretty important, getting the most important data about your business, but increasingly being able to act on it quickly in real time, is the thing that is going to set great companies apart. If you look at the best companies that have been created in the past like two, two and a half decades, these are companies that have integrated data into the core of how they are operating. And when I talk to customers, not just about the analytics, the view of clean data, but also about being able to act on it, being able to see trends, being able to.",
+   "zh": "谢谢你，Kash。在核心业务方面，分析依然非常重要，它能帮你获取关于业务的最关键数据，但越来越重要的是能够快速实时地采取行动，这才是让优秀公司脱颖而出的关键。回顾过去二十到二十五年间诞生的顶尖企业，它们都将数据融入了运营的核心。当我与客户交流时，不仅谈论分析和清洁数据的视图，还强调能够基于数据采取行动、洞察趋势、以及——\n\n原文：  \nThank you, Kash. On the, you know, core business side, analytics, you know, still is going to be pretty important, getting the most important data about your business, but increasingly being able to act on it quickly in real time, is the thing that is going to set great companies apart. If you look at the best companies that have been created in the past like two, two and a half decades, these are companies that have integrated data into the core of how they are operating. And when I talk to customers, not just about the analytics, the view of clean data, but also about being able to act on it, being able to see trends, being able to."
+  },
+  {
+   "en": "you know, figure out things like guest experiences like our customers, Hyatt and Disney, do at scale. So, there's a very long runway because analytics flows over seamlessly and fluidly into things like machine learning. And AI then becomes even more of an accelerant because you can now go from unstructured data to structured data very, very easily. And that's the magic of products like Cortex AI.",
+   "zh": "你知道，像我们的客户Hyatt和Disney那样，大规模地分析宾客体验等事务。所以这是一条很长的跑道，因为分析能够无缝、流畅地过渡到机器学习等领域。而AI则进一步成为加速器，因为你现在可以非常轻松地从非结构化数据转向结构化数据。这就是像Cortex AI这类产品的魔力所在。\n\nyou know, figure out things like guest experiences like our customers, Hyatt and Disney, do at scale. So, there's a very long runway because analytics flows over seamlessly and fluidly into things like machine learning. And AI then becomes even more of an accelerant because you can now go from unstructured data to structured data very, very easily. And that's the magic of products like Cortex AI."
+  },
+  {
+   "en": "And the new things that we announced in BUILD, where you can bring multimodal models. Imagine a world in which you just write a SQL statement that goes to act on a PDF and produces a bunch of structured information out on the other side. It redefines what you and I think of as analytics because just a lot more can be done. And so, that's the world that we are driving toward, and that's where investments in companies, like Datavolo, that bring even more data into Snowflake is, you know, exciting and empowering for us as a data platform.",
+   "zh": "我们在BUILD大会上宣布的新功能，让您能够引入多模态模型。想象这样一个世界：你只需编写一条SQL语句，它就能作用于PDF文件，并从中提取出一系列结构化信息。这重新定义了你我所认知的分析学，因为能实现的事情远超以往。这正是我们致力于构建的未来，而像Datavolo这类公司（它们能将更多数据引入Snowflake）所获得的投资，对我们作为数据平台而言既令人振奋，也赋予了我们更强大的能力。\n\n原文：\nAnd the new things that we announced in BUILD, where you can bring multimodal models. Imagine a world in which you just write a SQL statement that goes to act on a PDF and produces a bunch of structured information out on the other side. It redefines what you and I think of as analytics because just a lot more can be done. And so, that's the world that we are driving toward, and that's where investments in companies, like Datavolo, that bring even more data into Snowflake is, you know, exciting and empowering for us as a data platform."
+  },
+  {
+   "en": "And then, on the other side, when it comes to unstructured data or just AI applications, as I said in my remarks, we have over a thousand deployed use cases. And in all of them, these are not tie deployments. We work with our customers. We make sure that they get value from it.",
+   "zh": "此外，另一方面，当谈到非结构化数据或仅仅是AI应用时，正如我在发言中所说，我们有超过一千个已部署的用例。所有这些都不是tie部署。我们与客户合作。我们确保他们从中获得价值。\n\n原文：And then, on the other side, when it comes to unstructured data or just AI applications, as I said in my remarks, we have over a thousand deployed use cases. And in all of them, these are not tie deployments. We work with our customers. We make sure that they get value from it."
+  },
+  {
+   "en": "That's the first thing that I tell all our customers. AI needs to be a business accelerant. It's not a hobby. And the products that we have created, which do things like take trustability, the work that we are doing with the TruEra acquisition, for example, that brings observability to how people create AI applications, are the ones that are creating rock-solid applications and where increasingly, the difference between structured and unstructured is going to be less and less meaningful as we go forward.",
+   "zh": "这是我告诉所有客户的第一件事。AI需要成为业务的加速器，而不是一个爱好。我们创造的产品——例如通过收购TruEra所做的工作，它为人们创建AI应用带来了可观测性——正是那些打造出坚如磐石的应用的产品，并且随着我们不断前进，结构化与非结构化之间的差异将变得越来越没有意义。\n\nThat's the first thing that I tell all our customers. AI needs to be a business accelerant. It's not a hobby. And the products that we have created, which do things like take trustability, the work that we are doing with the TruEra acquisition, for example, that brings observability to how people create AI applications, are the ones that are creating rock-solid applications and where increasingly, the difference between structured and unstructured is going to be less and less meaningful as we go forward."
+  },
+  {
+   "en": "And then, in terms of examples, there are a ton of them, Siemens, Bayer, these are all folks -- Zoom, these are all folks that have used our AI product, got immense value, and talked publicly about them. So, I feel very good about where we are executing on that side.",
+   "zh": "此外，从案例来看也有很多，比如Siemens、Bayer，还有Zoom等公司，都使用了我们的AI产品，获得了巨大价值，并公开分享过这些经验。因此，我对我们在这一方面的执行情况感到非常满意。\n\nAnd then, in terms of examples, there are a ton of them, Siemens, Bayer, these are all folks -- Zoom, these are all folks that have used our AI product, got immense value, and talked publicly about them. So, I feel very good about where we are executing on that side."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "And, Kash, on your question on the stability of the business. As I said, the core business is very stable and strong. You know, we just had a very good quarter, but more importantly, our NRR has remained at 127% the last two quarters. We're guiding to 23%.",
+   "zh": "而且，Kash，关于你问到的业务稳定性问题。如我所说，核心业务非常稳定且强劲。你知道，我们刚刚经历了一个非常好的季度，但更重要的是，我们的NRR在过去两个季度保持在127%。我们给出的指引是23%。\n\nAnd, Kash, on your question on the stability of the business. As I said, the core business is very stable and strong. You know, we just had a very good quarter, but more importantly, our NRR has remained at 127% the last two quarters. We're guiding to 23%."
+  },
+  {
+   "en": "I do want to remind you, Q4 has the most number of holidays in it, and there is some seasonality that we experienced during that period of time. But our business is very strong, and I feel really good about next year right now where we're sitting. And why I say that is because we've really built a good muscle in our sales organization this year for really identifying new workloads that customers are going to move into production next year. And we have a very good backlog of those things that our salespeople are calling for next year, including Q4 as well.",
+   "zh": "我想提醒您，第四季度包含的假期最多，而且在此期间我们确实会经历一些季节性波动。但我们的业务非常强劲，而且就目前情况来看，我对明年非常有信心。我这么说是因为今年我们在销售组织中真正建立了坚实的肌肉记忆，能够识别出客户将在明年投入生产的新工作负载。对于销售人员明年（包括第四季度）正在争取的这些业务，我们拥有非常健康的储备。\n\nI do want to remind you, Q4 has the most number of holidays in it, and there is some seasonality that we experienced during that period of time. But our business is very strong, and I feel really good about next year right now where we're sitting. And why I say that is because we've really built a good muscle in our sales organization this year for really identifying new workloads that customers are going to move into production next year. And we have a very good backlog of those things that our salespeople are calling for next year, including Q4 as well."
+  },
+  {
+   "en": "Kash Rangan--Analyst",
+   "zh": "Kash Rangan--分析师  \nKash Rangan--Analyst"
+  },
+  {
+   "en": "Great to see this turnaround. Thank you so much. Congrats.",
+   "zh": "很高兴看到这一转机。非常感谢。恭喜。  \nGreat to see this turnaround. Thank you so much. Congrats."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Raimo Lenschow with Barclays. Your line is now open.",
+   "zh": "谢谢你的提问。下一位提问来自巴克莱银行的Raimo Lenschow。现在请提问。\n\nThank you for your question. Next question is from the line of Raimo Lenschow with Barclays. Your line is now open."
+  },
+  {
+   "en": "Raimo Lenschow--Analyst",
+   "zh": "Raimo Lenschow——分析师\n\nRaimo Lenschow--Analyst"
+  },
+  {
+   "en": "Hey. Thank you. Sridhar, can you talk a little bit about the acquisition from today? Like, you know, historically, you always said you wanted to do some ETL, but there's obviously quite a few ETL players in the market. How do you see that evolving between what do you want to do? What do the other players want to do? And what does it bring to Snowflake? And then I have a follow-up for Mike.",
+   "zh": "嘿，谢谢。Sridhar，能聊聊今天的收购吗？比如，你知道的，历史上你一直说想做些ETL，但市场上显然已有不少ETL玩家。你怎么看待你想要的、其他玩家想要的以及这对Snowflake带来的影响？然后我还有个后续问题问Mike。  \n原文：Hey. Thank you. Sridhar, can you talk a little bit about the acquisition from today? Like, you know, historically, you always said you wanted to do some ETL, but there's obviously quite a few ETL players in the market. How do you see that evolving between what do you want to do? What do the other players want to do? And what does it bring to Snowflake? And then I have a follow-up for Mike."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "I mean, first of all, these are all very, very, very large spaces. The overall vision, especially with the Era interoperable data that's upon us is we think that there is a very large opportunity for Snowflake to help our customers act on all of their data, not just the gold data that they used to put into Snowflake for analytics. Anecdotal, but the kind of examples that I get from talking to our customers is they have hundreds, sometimes thousand times as much data sitting in cloud storage as they will do in a structured data platform. And more and more, they also feel like it is important that they own that data.",
+   "zh": "我的意思是，首先，这些都是非常、非常、非常庞大的领域。整体愿景，尤其是随着我们正步入的Era可互操作数据时代，我们认为Snowflake有一个巨大的机会，帮助我们的客户处理他们所有的数据，而不仅仅是他们过去放入Snowflake进行分析的黄金数据。举例来说，根据我与客户交流得到的案例，他们在云存储中的数据量，往往是他们放在结构化数据平台上的数据的数百倍，有时甚至上千倍。而且，他们越来越觉得拥有这些数据也很重要。\n\nI mean, first of all, these are all very, very, very large spaces. The overall vision, especially with the Era interoperable data that's upon us is we think that there is a very large opportunity for Snowflake to help our customers act on all of their data, not just the gold data that they used to put into Snowflake for analytics. Anecdotal, but the kind of examples that I get from talking to our customers is they have hundreds, sometimes thousand times as much data sitting in cloud storage as they will do in a structured data platform. And more and more, they also feel like it is important that they own that data."
+  },
+  {
+   "en": "And so, you're seeing a shift in which things like application data is getting de-siloed, deconstructed so that, you know, great new things that you can imagine, both for data transformation, data engineering, but also AI is going to happen. And this is the context in which something like a Datavolo is really important for us. It comes with over a hundred different connectors out of the box. It is going to run as part of Snowflake.",
+   "zh": "因此，你正在看到一种转变，即应用程序数据等正在打破孤岛、解构，这样，你可以想象到的各种精彩新事物——无论是数据转换、数据工程，还是AI——都将会发生。正是在这种背景下，像Datavolo这样的产品对我们来说非常重要。它开箱即用，提供了超过100个不同的连接器。它将作为Snowflake的一部分运行。\n\nAnd so, you're seeing a shift in which things like application data is getting de-siloed, deconstructed so that, you know, great new things that you can imagine, both for data transformation, data engineering, but also AI is going to happen. And this is the context in which something like a Datavolo is really important for us. It comes with over a hundred different connectors out of the box. It is going to run as part of Snowflake."
+  },
+  {
+   "en": "It can also be deployed in customer VPCs, which lets us bring data in from places where normally we would not be able to run Snowflake on. And so. it's really a first multiplier for the data that our data engineering pipelines can take on but our AI products can be built on. But as I said, this is a very, very large space, estimated, you know, just data engineering -- data products as a whole, we think will be on the order of several hundred billion dollars 10 years from now.",
+   "zh": "它还可以部署在客户的VPC中，这使我们能够从通常无法运行Snowflake的地方引入数据。因此，这实际上是数据工程管线能够处理的数据的第一个倍增器，同时我们的AI产品也可以基于这些数据构建。但正如我所说，这是一个非常、非常大的领域，据估计，仅数据工程——整个数据产品，我们认为10年后将达到数千亿美元的规模。\n\nIt can also be deployed in customer VPCs, which lets us bring data in from places where normally we would not be able to run Snowflake on. And so. it's really a first multiplier for the data that our data engineering pipelines can take on but our AI products can be built on. But as I said, this is a very, very large space, estimated, you know, just data engineering -- data products as a whole, we think will be on the order of several hundred billion dollars 10 years from now."
+  },
+  {
+   "en": "And so, there's going to be lots of company. Our value add is this easy integrated, highly efficient platform that we can bring for our customers. And things like Datavolo are an important piece here. Christian?",
+   "zh": ""
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "I think you commented well. And, of course, we have plenty of partners also doing data integration. And the reality is there's so many sources of data. A big area of focus of Datavolo was the unstructured data that Sridhar mentioned.",
+   "zh": "我认为你的评论很好。当然，我们也有许多合作伙伴在做数据集成。现实情况是数据来源非常之多。Datavolo的一个重点领域是Sridhar提到的非结构化数据。\n\nI think you commented well. And, of course, we have plenty of partners also doing data integration. And the reality is there's so many sources of data. A big area of focus of Datavolo was the unstructured data that Sridhar mentioned."
+  },
+  {
+   "en": "Raimo Lenschow--Analyst",
+   "zh": "Raimo Lenschow——分析师\n\nRaimo Lenschow--Analyst"
+  },
+  {
+   "en": "OK. Perfect. And then, Mike, if you look at this quarter, much better performance. Congrats from me as well.",
+   "zh": "好的。完美。那么，Mike，如果你看看这个季度，业绩好多了。我也表示祝贺。\n\nOK. Perfect. And then, Mike, if you look at this quarter, much better performance. Congrats from me as well."
+  },
+  {
+   "en": "And if you think about the question that everyone is going to ask is like, is it economy, or are you guys executing better? Is there any comments you can make in terms of what you're seeing in the field from just end demand getting better?",
+   "zh": "如果你思考一下大家都会问的问题，比如，是因为经济因素，还是你们执行得更好？关于你在实地看到的终端需求改善情况，有什么想说的吗？\n\nAnd if you think about the question that everyone is going to ask is like, is it economy, or are you guys executing better? Is there any comments you can make in terms of what you're seeing in the field from just end demand getting better?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "I would say from the economy, it's very similar to what I said last quarter, it's not Q4, but it's good. It's not bad. And I think we are just executing very well. And we are really seeing the results of our go-to-market efforts that we've had this year and really working to identify new workloads rather than just trying to focus on bookings.",
+   "zh": "我想说，从经济角度来看，这与我上一季度的说法非常相似——不是第四季度，但情况不错，也不算差。我认为我们只是执行得很好。我们确实看到了今年市场拓展工作的成果，真正致力于识别新的工作负载，而不仅仅是专注于预订量。\n\n原文：\nI would say from the economy, it's very similar to what I said last quarter, it's not Q4, but it's good. It's not bad. And I think we are just executing very well. And we are really seeing the results of our go-to-market efforts that we've had this year and really working to identify new workloads rather than just trying to focus on bookings."
+  },
+  {
+   "en": "And I think that's paying off right now, and it's forcing our salespeople to be closer to customers.",
+   "zh": "我认为现在这正在产生回报，并且它迫使我们的销售人员更贴近客户。\n\nAnd I think that's paying off right now, and it's forcing our salespeople to be closer to customers."
+  },
+  {
+   "en": "Raimo Lenschow--Analyst",
+   "zh": "Raimo Lenschow——分析师\n\nRaimo Lenschow--Analyst"
+  },
+  {
+   "en": "OK, perfect. Make sense. Thank you. Congrats.",
+   "zh": "好的，完美。有道理。谢谢。恭喜。\nOK, perfect. Make sense. Thank you. Congrats."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. The next question is from the line of Kirk Materne with Evercore ISI. Your line is now open.",
+   "zh": "感谢你的提问。下一位提问者是来自Evercore ISI的Kirk Materne。请开始提问。\n\nThank you for your question. The next question is from the line of Kirk Materne with Evercore ISI. Your line is now open."
+  },
+  {
+   "en": "Kirk Materne--Analyst",
+   "zh": "Kirk Materne--分析师  \nKirk Materne--Analyst"
+  },
+  {
+   "en": "Yeah, thanks very much. I'll echo the congrats on a nice quarter. Sridhar, obviously, we're going to hear a lot more about autonomous agents over the next year from a lot of providers in the market. Can you just talk about what that means for consumption on Snowflake data platforms, meaning it would seem that agents are going to be heavy consumers of data.",
+   "zh": "好的，非常感谢。我也要祝贺你们这个季度的出色表现。Sridhar，显然，明年我们会从市场中的许多供应商那里听到更多关于自主代理的信息。你能谈谈这对Snowflake数据平台上的消费意味着什么吗？也就是说，代理似乎会成为数据的大量消费者。\n\n原文：\nYeah, thanks very much. I'll echo the congrats on a nice quarter. Sridhar, obviously, we're going to hear a lot more about autonomous agents over the next year from a lot of providers in the market. Can you just talk about what that means for consumption on Snowflake data platforms, meaning it would seem that agents are going to be heavy consumers of data."
+  },
+  {
+   "en": "Just kind of curious about how you think about that opportunity as this becomes a little bit more of a ubiquitous sort of topic.",
+   "zh": "我有点好奇，随着这个话题变得稍微普遍一些，您如何看待这个机会？\n\n原文：Just kind of curious about how you think about that opportunity as this becomes a little bit more of a ubiquitous sort of topic."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "It is a good question, but, you know, I always focus on customer value. It is important because that will drive consumption. And so, with the products that we have released like Cortex Search, for example, you can build a pretty credible chatbot and play with it and use it at low frequency for something like $10. So, it's our goal to make technology easy.",
+   "zh": "这是个好问题，但你知道，我一直关注客户价值。这很重要，因为客户价值会推动消费。因此，以我们发布的Cortex Search等产品为例，你可以构建一个相当可靠的聊天机器人，并以低频使用它，成本大约为10美元。所以，让技术变得简单是我们的目标。\n\nIt is a good question, but, you know, I always focus on customer value. It is important because that will drive consumption. And so, with the products that we have released like Cortex Search, for example, you can build a pretty credible chatbot and play with it and use it at low frequency for something like $10. So, it's our goal to make technology easy."
+  },
+  {
+   "en": "Consumption is a consequence when there is a broad use. Having said that, our AI investments have always had a very strong focus on trustworthiness on reliability. In fact, the three things that I always talk about when I talk to our customers or our teams about AI is -- our AI is easy, it is efficient, and it is trusted. So, this is what lets our customers create chatbots that can provide citations so they can be sure of the answers that they get.",
+   "zh": "消费是广泛使用的结果。话虽如此，我们在AI方面的投资一直非常注重可信赖性和可靠性。事实上，当我与客户或团队谈论AI时，我始终强调三点——我们的AI简单、高效且值得信赖。正因如此，我们的客户能够创建可以提供引用的聊天机器人，从而确保他们获得的答案准确无误。\n\n原文：Consumption is a consequence when there is a broad use. Having said that, our AI investments have always had a very strong focus on trustworthiness on reliability. In fact, the three things that I always talk about when I talk to our customers or our teams about AI is -- our AI is easy, it is efficient, and it is trusted. So, this is what lets our customers create chatbots that can provide citations so they can be sure of the answers that they get."
+  },
+  {
+   "en": "Similarly, with Cortex Analyst, we've been working on increasing the reliability so that when they get a structured answer to a question, they can actually be sure that it's the right answer. The cool thing about Snowflake Intelligence, especially in conjunction with our partnership with Anthropic, is it is now the -- it now provides the ability to tie all of these things together. So, if you are a salesperson, instead of searching first in drive to see, hey, what action items did you agree to after the last meeting, and then, perhaps, going to Snowflake to find what our consumption trends with a particular customer and then maybe updating Salesforce, we look forward to a world in which actions like this can be done off a single interface. And a natural consequence then is how do you turn this into a periodic task, something that is done on your behalf in the background so that it can tell you if there is a problem.",
+   "zh": "同样地，在Cortex Analyst方面，我们一直在努力提升可靠性，这样当用户获得某个问题的结构化答案时，他们才能真正确信这是正确的答案。Snowflake Intelligence令人兴奋的一点——尤其是结合我们与Anthropic的合作——在于它现在能够将所有这些功能整合在一起。例如，如果你是一名销售人员，不再需要先在Drive里搜索上次会议后你同意采取哪些行动事项，然后再去Snowflake查找某个客户的消费趋势，接着可能还要更新Salesforce——我们期待这样一个世界：类似的操作都可以通过单一界面完成。而一个自然的结果就是，如何将其转化为周期性任务，在后台为你自动执行，以便在出现问题时及时通知你。\n\n原文：\nSimilarly, with Cortex Analyst, we've been working on increasing the reliability so that when they get a structured answer to a question, they can actually be sure that it's the right answer. The cool thing about Snowflake Intelligence, especially in conjunction with our partnership with Anthropic, is it is now the -- it now provides the ability to tie all of these things together. So, if you are a salesperson, instead of searching first in drive to see, hey, what action items did you agree to after the last meeting, and then, perhaps, going to Snowflake to find what our consumption trends with a particular customer and then maybe updating Salesforce, we look forward to a world in which actions like this can be done off a single interface. And a natural consequence then is how do you turn this into a periodic task, something that is done on your behalf in the background so that it can tell you if there is a problem."
+  },
+  {
+   "en": "This is where things like anomaly detection, taking automated actions becomes pretty interesting. But like we provide technology with a view toward what creates value, we feel very confident that you can think of agents as essentially the 21st century version of CRON jobs that we all used to run. That's the real power that agents provide with a lot more sophistication, and it's enabling value for our customers that we think we can be embedded even more deeply in their business. And absolutely, that will also drive a lot of consumption.",
+   "zh": "这就是异常检测、自动采取行动等功能变得相当有趣的地方。但我们提供技术时着眼于创造价值，因此我们确信，你可以将代理视为本质上是我们过去常运行的CRON任务的21世纪版本。这正是代理以更高复杂度提供的真正力量，它正在为我们的客户创造价值，我们认为我们甚至可以更深入地嵌入到他们的业务中。当然，这也会推动大量的消费。\n\nThis is where things like anomaly detection, taking automated actions becomes pretty interesting. But like we provide technology with a view toward what creates value, we feel very confident that you can think of agents as essentially the 21st century version of CRON jobs that we all used to run. That's the real power that agents provide with a lot more sophistication, and it's enabling value for our customers that we think we can be embedded even more deeply in their business. And absolutely, that will also drive a lot of consumption."
+  },
+  {
+   "en": "A lot of our AI consumption, by the way, comes from things like people being able to write a single SQL statement that can do sentiment detection or that can do summarization across a million pieces of customer feedback. Previously, that used to be like a little machine learning project that a team needed to do. At this point, that's a piece of SQL that someone out of college can write in five minutes. That's the utility that we get from it.",
+   "zh": "我们大量的AI应用，其实就体现在人们可以用一条SQL语句完成情感检测，或者对一百万条客户反馈进行摘要总结。过去这需要团队去完成一个小型机器学习项目，而现在，一个刚毕业的大学生花五分钟就能写出这样一条SQL。这就是我们从中获得的实用价值。\n\nA lot of our AI consumption, by the way, comes from things like people being able to write a single SQL statement that can do sentiment detection or that can do summarization across a million pieces of customer feedback. Previously, that used to be like a little machine learning project that a team needed to do. At this point, that's a piece of SQL that someone out of college can write in five minutes. That's the utility that we get from it."
+  },
+  {
+   "en": "And it's the same pattern with agents as well.",
+   "zh": "代理也是同样的模式。\nAnd it's the same pattern with agents as well."
+  },
+  {
+   "en": "Kirk Materne--Analyst",
+   "zh": "Kirk Materne--分析师  \nKirk Materne--Analyst"
+  },
+  {
+   "en": "That's really helpful. And, Mike, just a really quick one. International is obviously a big opportunity for you. How do you feel like you're positioned in sort of Europe and Asia Pac as you head into '25? Thanks again.",
+   "zh": "这非常有帮助。另外，Mike，只是一个非常简短的问题。国际业务显然对你们来说是一个巨大的机遇。在进入2025年之际，你觉得你们在欧洲和亚太地区的定位如何？再次感谢。\n\nThat's really helpful. And, Mike, just a really quick one. International is obviously a big opportunity for you. How do you feel like you're positioned in sort of Europe and Asia Pac as you head into '25? Thanks again."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "I think we're positioned very well going into Europe. We've really been focused on the higher end of the market, and we are going to focus more on the mid-market in Europe, and APJ continues to grow very nicely. We're seeing strong growth in Japan, in particular. We're starting to see stuff in India, Korea.",
+   "zh": "我认为我们进入欧洲市场的定位非常好。我们一直专注于高端市场，而在欧洲我们将更多地聚焦于中端市场，APJ地区继续增长得非常不错。我们在日本尤其看到了强劲的增长。我们也开始看到印度和韩国的一些进展。\n\nI think we're positioned very well going into Europe. We've really been focused on the higher end of the market, and we are going to focus more on the mid-market in Europe, and APJ continues to grow very nicely. We're seeing strong growth in Japan, in particular. We're starting to see stuff in India, Korea."
+  },
+  {
+   "en": "Australia has always done very well for us. And New Zealand, believe it or not, is a very good market for -- it's a small market but a very strong market for us.",
+   "zh": "澳大利亚一直以来都为我们带来了非常好的业绩。而新西兰，信不信由你，对我们来说是一个非常优质的市场——虽然市场规模不大，但表现非常强劲。\n\nAustralia has always done very well for us. And New Zealand, believe it or not, is a very good market for -- it's a small market but a very strong market for us."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Fun fact, we power most of the government agencies in New Zealand, and they do way more sharing of data between each other than most of our U.S. government agencies do.",
+   "zh": "有趣的是，我们为新西兰大多数政府机构提供支持，它们之间的数据共享程度远超美国大多数政府机构。\n\nFun fact, we power most of the government agencies in New Zealand, and they do way more sharing of data between each other than most of our U.S. government agencies do."
+  },
+  {
+   "en": "Kirk Materne--Analyst",
+   "zh": "Kirk Materne--分析师  \nKirk Materne--Analyst"
+  },
+  {
+   "en": "Thank you all.",
+   "zh": "谢谢大家。\nThank you all."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Brad Zelnick with Deutsche Bank. Your line is now open.",
+   "zh": "感谢你的提问。下一个问题来自德意志银行的Brad Zelnick。现在请提问。\n\nThank you for your question. Next question is from the line of Brad Zelnick with Deutsche Bank. Your line is now open."
+  },
+  {
+   "en": "Brad Zelnick--Analyst",
+   "zh": "Brad Zelnick--分析师  \nBrad Zelnick--Analyst"
+  },
+  {
+   "en": "Great. Thank you so much. Congrats. Really, really great to see the pace of innovation showing up in results.",
+   "zh": "很好。非常感谢。祝贺。真的非常高兴看到创新步伐在成果中体现出来。\n\nGreat. Thank you so much. Congrats. Really, really great to see the pace of innovation showing up in results."
+  },
+  {
+   "en": "I wanted to ask, how are customers using Cortex and making it available in their organizations and how much of it should we think of as driving incremental consumption, versus something maybe they were already doing with conventional SQL queries?",
+   "zh": "我想问一下，客户是如何使用Cortex并在其组织中推广的，其中有多少应视为推动了增量消耗，而又有多少可能只是他们之前用传统SQL查询已经做过的事情？\n\nI wanted to ask, how are customers using Cortex and making it available in their organizations and how much of it should we think of as driving incremental consumption, versus something maybe they were already doing with conventional SQL queries?"
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "I think the -- generally, the kind of use cases that Cortex AI enables are pretty distinct from what used to be possible with SQL. I'll let CK chime in, in a second. But let's face it, if you wanted to go through all of the notes written by a sales team on use cases and analyze it, most of the time, the project wouldn't even happen. Recently, this is a self-referential example of us using our own products.",
+   "zh": "我认为——总的来说，Cortex AI 所支持的用例类型与以前 SQL 所能实现的功能截然不同。我稍后会让 CK 补充。但说实话，如果你想逐条查看销售团队撰写的所有用例笔记并进行分析，大多数情况下，这个项目根本就不会启动。最近，我们就在使用自家产品，这正是一个自我指涉的实例。\n\n原文：I think the -- generally, the kind of use cases that Cortex AI enables are pretty distinct from what used to be possible with SQL. I'll let CK chime in, in a second. But let's face it, if you wanted to go through all of the notes written by a sales team on use cases and analyze it, most of the time, the project wouldn't even happen. Recently, this is a self-referential example of us using our own products."
+  },
+  {
+   "en": "One of the things that we wanted to do was we wanted better insight into use cases that our sales team had created, but the idea of clicking through a UI and 50,000 different use cases to figure out what was going on is not something you can generally find volunteers for. But it turns out, you can write a few queries that can, in fact, that can do a pretty amazing job of inserting structured information from all of these notes that are out there. And we were able to do something that honestly would never have gotten done as a project before. It's these kinds of things that I think, you know, the Cortex family of products will enable.",
+   "zh": "我们想做的一件事是，更好地了解销售团队创建的各种使用案例，但要求人们逐一浏览用户界面和50,000个不同的使用案例来弄清情况，这通常找不到志愿者。然而事实证明，你可以编写几条查询语句，就能出色地从所有现有笔记中提取结构化信息。我们做到了一个以前作为项目根本无法完成的事情。我认为，这正是Cortex系列产品将能实现的那类功能。\n\n原文：\nOne of the things that we wanted to do was we wanted better insight into use cases that our sales team had created, but the idea of clicking through a UI and 50,000 different use cases to figure out what was going on is not something you can generally find volunteers for. But it turns out, you can write a few queries that can, in fact, that can do a pretty amazing job of inserting structured information from all of these notes that are out there. And we were able to do something that honestly would never have gotten done as a project before. It's these kinds of things that I think, you know, the Cortex family of products will enable."
+  },
+  {
+   "en": "But again, we focus on value creation, what's the additional value that the customer gets that we get.",
+   "zh": "但再次强调，我们专注于价值创造，也就是顾客得到而我们得到的附加价值是什么。\n\nBut again, we focus on value creation, what's the additional value that the customer gets that we get."
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "Yeah. I think many of the use cases or scenarios that Sridhar covered are around text analytics, which is very adjacent to what we've been for a long time. But as we announced and build, we've expanded beyond text to support images, audio, and video. So, that's one part of it is analytics.",
+   "zh": "是的。我认为Sridhar提到的许多用例或场景都围绕文本分析，这与我们长期以来所做的非常接近。但正如我们所宣布和构建的，我们已经超越了文本，扩展支持图像、音频和视频。所以，这是分析的一部分。\n\n原文：Yeah. I think many of the use cases or scenarios that Sridhar covered are around text analytics, which is very adjacent to what we've been for a long time. But as we announced and build, we've expanded beyond text to support images, audio, and video. So, that's one part of it is analytics."
+  },
+  {
+   "en": "The other piece that we're seeing a lot of momentum and interest is with Cortex Search and Cortex Analyst, which is how do we democratize access to data. And that is going quite well.",
+   "zh": "我们看到的另一个势头强劲且备受关注的方面是Cortex Search和Cortex Analyst，它们是如何将数据访问权民主化。目前进展非常顺利。\n\nThe other piece that we're seeing a lot of momentum and interest is with Cortex Search and Cortex Analyst, which is how do we democratize access to data. And that is going quite well."
+  },
+  {
+   "en": "Brad Zelnick--Analyst",
+   "zh": "Brad Zelnick--分析师  \nBrad Zelnick--Analyst"
+  },
+  {
+   "en": "Exciting stuff. Mike, just maybe a follow-up for you. Based on your comments on Iceberg, are you baking in less headwind for the year into the guide? And then, what's the latest on how customers are thinking about the mix of where data will live? Thank so much.",
+   "zh": "令人兴奋。Mike，或许有个追问。基于你对Iceberg的评论，你在年度指引中是否考虑了更少的逆风因素？另外，关于客户如何看待数据存放地点的组合，最新情况如何？非常感谢。\n\n原文：\nExciting stuff. Mike, just maybe a follow-up for you. Based on your comments on Iceberg, are you baking in less headwind for the year into the guide? And then, what's the latest on how customers are thinking about the mix of where data will live? Thank so much."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "As I said, I'm not going to be talking about different performance improvements going forward. It's factored into the guide with where we see them. But as I've mentioned in my prepared remarks, we think with what we're seeing with some of the new data engineering features that that will more than offset any potential storage revenue we lose as a result of people moving to -- moving data out of Snowflake. We think net-net, it's just going to open more opportunity for us and is a much bigger opportunity, the amount of data that is not in Snowflake today that is accessible to us through Iceberg.",
+   "zh": "正如我所说，我不会继续讨论不同的性能改进。这些已经体现在我们对未来的预期中。但正如我在准备好的发言中提到的那样，我们认为，随着我们看到的一些新数据工程功能，这将远远抵消因用户将数据移出Snowflake而可能损失的任何存储收入。我们认为，总体来看，这只会为我们带来更多机会，这是一个更大的机遇——目前不在Snowflake中、但我们可以通过Iceberg访问的数据量非常庞大。\n\nAs I said, I'm not going to be talking about different performance improvements going forward. It's factored into the guide with where we see them. But as I've mentioned in my prepared remarks, we think with what we're seeing with some of the new data engineering features that that will more than offset any potential storage revenue we lose as a result of people moving to -- moving data out of Snowflake. We think net-net, it's just going to open more opportunity for us and is a much bigger opportunity, the amount of data that is not in Snowflake today that is accessible to us through Iceberg."
+  },
+  {
+   "en": "Brad Zelnick--Analyst",
+   "zh": "Brad Zelnick--分析师  \nBrad Zelnick--Analyst"
+  },
+  {
+   "en": "Thanks for making that clear. Thanks for taking my questions.",
+   "zh": "感谢您的澄清。感谢您回答我的问题。\n\nThanks for making that clear. Thanks for taking my questions."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Brent Thill with Jefferies. Your line is now open.",
+   "zh": "谢谢你的提问。下一个问题来自Jefferies的Brent Thill。请提问。\n\nThank you for your question. Next question is from the line of Brent Thill with Jefferies. Your line is now open."
+  },
+  {
+   "en": "Brent Thill--Analyst",
+   "zh": "Brent Thill--分析师  \nBrent Thill--Analyst"
+  },
+  {
+   "en": "Thanks. Sridhar, just on federal, you mentioned New Zealand powering many of their agencies. How would you characterize where you're at in the federal journey? And given what's just happened in the last month, there's been a lot of concern about efficiency in the central government. Can you give us your thoughts about what's going to happen here over the next couple of years?",
+   "zh": "谢谢。Sridhar，关于联邦政府，你提到新西兰正在为许多机构提供支持。你如何描述联邦业务目前所处的阶段？考虑到过去一个月发生的情况，人们对中央政府的效率有很多担忧。你对未来几年可能发生的情况有什么看法？\n\n原文：\nThanks. Sridhar, just on federal, you mentioned New Zealand powering many of their agencies. How would you characterize where you're at in the federal journey? And given what's just happened in the last month, there's been a lot of concern about efficiency in the central government. Can you give us your thoughts about what's going to happen here over the next couple of years?"
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Yeah. We recently did a small acquisition of a company called Night Shift, which will better position us in the federal business. We continue to think of it as a pretty large opportunity for us. And I would even say that efficiency is actually good news for Snowflake in the sense that we are way better at processing huge amounts of data and letting customers, including the federal government, use it effectively.",
+   "zh": "是的。我们最近进行了一笔小型收购，收购了一家公司叫Night Shift，这将有助于我们在联邦业务中占据更有利的位置。我们依然认为这对我们来说是一个相当大的机会。我甚至想说，效率对Snowflake来说实际上是好消息，因为我们在处理海量数据并让客户（包括联邦政府）有效使用数据方面做得更好了。\n\n原文：\nYeah. We recently did a small acquisition of a company called Night Shift, which will better position us in the federal business. We continue to think of it as a pretty large opportunity for us. And I would even say that efficiency is actually good news for Snowflake in the sense that we are way better at processing huge amounts of data and letting customers, including the federal government, use it effectively."
+  },
+  {
+   "en": "I don't have a lot more color to add right now, but it continues to be a focus. We spend a lot of time in making sure that that business grows. We've gotten a number of certifications, as you know, like prerequisites. We feel good about where we are.",
+   "zh": "我现在没有更多细节可以补充，但这仍然是我们的重点工作。我们投入了大量时间来确保该业务持续增长。如你所知，我们已经获得了多项认证，比如先决条件认证。我们对自己的现状感到满意。\n\nI don't have a lot more color to add right now, but it continues to be a focus. We spend a lot of time in making sure that that business grows. We've gotten a number of certifications, as you know, like prerequisites. We feel good about where we are."
+  },
+  {
+   "en": "Stay tuned for more news.",
+   "zh": "敬请期待更多新闻。\nStay tuned for more news."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "I'll just add to that. As you know, the U.S. federal space is a very, very, very small piece of our business today. We feel good about what we're doing.",
+   "zh": "我再补充一点。如你所知，U.S.联邦业务领域如今只占我们业务中非常非常非常小的一部分。我们对自己所做的一切感到满意。\n\nI'll just add to that. As you know, the U.S. federal space is a very, very, very small piece of our business today. We feel good about what we're doing."
+  },
+  {
+   "en": "And we think there is a lot of upside in the federal space over the next couple of years.",
+   "zh": "我们认为未来几年联邦领域有很大的上行空间。\n\nAnd we think there is a lot of upside in the federal space over the next couple of years."
+  },
+  {
+   "en": "Brent Thill--Analyst",
+   "zh": "Brent Thill--分析师  \nBrent Thill--Analyst"
+  },
+  {
+   "en": "Thank, Mike. And just for you, Mike, on the big deals, you mentioned, you know, three deals over 50. I think you're coming up in comp in a $250 million deal last Q4. Can you just talk about, you know, what you're seeing in these bigger transactions? Are you seeing, you know, more transactions that are smaller? Are you seeing some of these bigger elephants starting to roam again? How would you characterize what you're seeing in the pipe for Q4?",
+   "zh": "谢谢，Mike。专门为你，Mike，关于你提到的大交易——你说有三个超过50的交易。我记得你在去年第四季度参与了一笔2.5亿美元的竞争性交易。能谈谈你在这些较大交易中看到的情况吗？你是看到更多较小的交易，还是那些大型\"大象\"又开始活跃了？你如何描述第四季度管道中的情况？\n\n原文：Thank, Mike. And just for you, Mike, on the big deals, you mentioned, you know, three deals over 50. I think you're coming up in comp in a $250 million deal last Q4. Can you just talk about, you know, what you're seeing in these bigger transactions? Are you seeing, you know, more transactions that are smaller? Are you seeing some of these bigger elephants starting to roam again? How would you characterize what you're seeing in the pipe for Q4?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "I think Q4 is going to be a very strong bookings quarter like it normally is. And we have a number of large deals we're working on that are renewals with existing customers with growth in them.",
+   "zh": "我认为第四季度将会像往常一样是一个非常强劲的预订季度。我们正在处理的几个大额交易中，包括与现有客户的续约，并且这些交易还伴随着增长。\n\nI think Q4 is going to be a very strong bookings quarter like it normally is. And we have a number of large deals we're working on that are renewals with existing customers with growth in them."
+  },
+  {
+   "en": "Brent Thill--Analyst",
+   "zh": "Brent Thill--分析师  \nBrent Thill--Analyst"
+  },
+  {
+   "en": "Great. Thanks.",
+   "zh": "好的。谢谢。\nGreat. Thanks."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Mike Cikos with Needham and Co. Your line is now open.",
+   "zh": "感谢你的提问。下一位提问者来自Needham and Co.的Mike Cikos。你的线路已接通。\n\nThank you for your question. Next question is from the line of Mike Cikos with Needham and Co. Your line is now open."
+  },
+  {
+   "en": "Matt Calitri--Needham and Company -- Analyst",
+   "zh": "Matt Calitri--Needham and Company -- 分析师  \nMatt Calitri--Needham and Company -- Analyst"
+  },
+  {
+   "en": "Thank, guys. This is Matt Calitri on for Mike Cikos over at Needham. This is the healthiest quarter-over-quarter addition to RPO and CRPO during an October quarter, stretching back over multiple years and potentially a record 3Q for the company. Can you help us think about what drove the strong growth? And did the two top 10 customers Mike alluded to being on monthly commitments last quarter signed new commitments during the quarter?",
+   "zh": "谢谢各位。我是Matt Calitri，替Needham的Mike Cikos发言。这是十月季度中环比新增RPO和CRPO最为健康的一次，追溯过去多年，并且可能是公司第三季度的纪录。能否帮我们分析一下是什么推动了如此强劲的增长？另外，Mike提到的上季度按月度承诺的前十大客户中的两个，在本季度是否签署了新的承诺？\n\nThank, guys. This is Matt Calitri on for Mike Cikos over at Needham. This is the healthiest quarter-over-quarter addition to RPO and CRPO during an October quarter, stretching back over multiple years and potentially a record 3Q for the company. Can you help us think about what drove the strong growth? And did the two top 10 customers Mike alluded to being on monthly commitments last quarter signed new commitments during the quarter?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "We didn't have big commitments from those customers in the quarter. And what I would say is a lot of the current RPO growth, in particular, just has to do with larger customers based upon when their renewals are coming up or when they're running out of capacity and renew. But it was a strong growth quarter total RPO and current RPO, and you are seeing that in the actual reported revenue number and what we're guiding to for next quarter.",
+   "zh": "本季度我们从这些客户那里没有获得大额承诺。我想说的是，当前RPO的增长很大程度上与大型客户有关，取决于他们的续约时间或容量耗尽需要续约的时间。但本季度总RPO和当前RPO都实现了强劲增长，你们可以从实际报告的收入数字以及我们对下季度的指引中看到这一点。\n\nWe didn't have big commitments from those customers in the quarter. And what I would say is a lot of the current RPO growth, in particular, just has to do with larger customers based upon when their renewals are coming up or when they're running out of capacity and renew. But it was a strong growth quarter total RPO and current RPO, and you are seeing that in the actual reported revenue number and what we're guiding to for next quarter."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "And overall, a little bit of color, I end up talking to a lot of customers that I will add here is our conversations are invertibly focused on where are places where we can help them get more efficient, where we can help them drive, you know, more revenue. And the more effectively our sales team is able to do that, and they did a wonderful job in the first two, three quarters of the year, the more it reflects itself naturally in renewals. So, I would say that this is a consequence of the hard work that our sales teams are doing day-in and day-out to further the business of our customers.",
+   "zh": "总的来说，补充一点细节：我最终与许多客户进行了交流，这里要补充的是，我们的对话总是围绕着我们可以在哪些方面帮助他们提高效率、推动更多收入展开。我们的销售团队越能有效地做到这一点——他们在今年前两三个季度表现出色——就越能自然地体现在续约上。所以，我认为这是我们的销售团队日复一日努力推动客户业务发展的成果。\n\n原文：\nAnd overall, a little bit of color, I end up talking to a lot of customers that I will add here is our conversations are invertibly focused on where are places where we can help them get more efficient, where we can help them drive, you know, more revenue. And the more effectively our sales team is able to do that, and they did a wonderful job in the first two, three quarters of the year, the more it reflects itself naturally in renewals. So, I would say that this is a consequence of the hard work that our sales teams are doing day-in and day-out to further the business of our customers."
+  },
+  {
+   "en": "Matt Calitri--Needham and Company -- Analyst",
+   "zh": "Matt Calitri--Needham and Company -- 分析师  \nMatt Calitri--Needham and Company -- Analyst"
+  },
+  {
+   "en": "That's great to hear. And then, the trend in sequential customer additions remains mixed. Given the go-to-market changes, when do you expect to begin to start showing an inflection here? Is that more of an FY '26 event? Or how are you thinking about that?",
+   "zh": "听到这消息太好了。此外，季度客户增长的趋势仍然好坏参半。考虑到go-to-market的变化，你预计何时开始出现拐点？这更多是FY '26的事件吗？或者你们是怎么考虑的？\n\nThat's great to hear. And then, the trend in sequential customer additions remains mixed. Given the go-to-market changes, when do you expect to begin to start showing an inflection here? Is that more of an FY '26 event? Or how are you thinking about that?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "You know, in terms of net additions, I expect Q4 to be a good net addition quarter. And I think you'll see the fruits of our labor with what we've done this year flow into 2026.",
+   "zh": "你知道，就净新增而言，我预计Q4会是一个不错的净新增季度。而且我认为你会看到我们今年努力的成果延续到2026年。\n\nYou know, in terms of net additions, I expect Q4 to be a good net addition quarter. And I think you'll see the fruits of our labor with what we've done this year flow into 2026."
+  },
+  {
+   "en": "Matt Calitri--Needham and Company -- Analyst",
+   "zh": "Matt Calitri--Needham and Company -- 分析师  \nMatt Calitri--Needham and Company -- Analyst"
+  },
+  {
+   "en": "Awesome. Thank you so much, guys.",
+   "zh": "太好了。非常感谢各位，伙计们。\n\nAwesome. Thank you so much, guys."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Michael Turrin with Wells Fargo. Your line is now open.",
+   "zh": "谢谢你的提问。下一个问题来自Wells Fargo的Michael Turrin。请开始提问。\n\nThank you for your question. Next question is from the line of Michael Turrin with Wells Fargo. Your line is now open."
+  },
+  {
+   "en": "Michael Turrin--Analyst",
+   "zh": "Michael Turrin--分析师\n\nMichael Turrin--Analyst"
+  },
+  {
+   "en": "Hi. Thanks very much. I appreciate you taking the questions. Maybe on the expansion rates holding stable here.",
+   "zh": "你好。非常感谢。感谢你接受提问。也许是关于这里的扩张率保持稳定。\n原文：Hi. Thanks very much. I appreciate you taking the questions. Maybe on the expansion rates holding stable here."
+  },
+  {
+   "en": "I want to ask about that metric just in context with the go-to-market shift toward consumption. And maybe you could just help give us some context around how that consumption focus may be impacting the trajectory we are seeing on expansion rates, if there are common plays you're seeing work across customers and if you're starting to hit a point where you're feeling comfortable with that retention rates are starting to hit a baseline.",
+   "zh": "我想询问一下关于向消费模式转变的市场策略中的某个指标。或许您可以帮我们提供一些背景，说明这种消费模式导向如何影响着我们目前看到的扩展率趋势，比如是否存在一套适用于不同客户的常见策略，以及您是否开始感到留存率已趋于稳定，达到了一个令人满意的基线水平。\n\n原文：\nI want to ask about that metric just in context with the go-to-market shift toward consumption. And maybe you could just help give us some context around how that consumption focus may be impacting the trajectory we are seeing on expansion rates, if there are common plays you're seeing work across customers and if you're starting to hit a point where you're feeling comfortable with that retention rates are starting to hit a baseline."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "You know, I think our -- I'm never going to guide to revenue retention, by the way. But I do feel it feels pretty stable based upon what we're seeing in there. And a lot of that is driven by our core business with the addition of some of our older customers starting to use some of these newer features as well, too. So, stay tuned.",
+   "zh": "你知道，我认为我们的——顺便说一句，我永远不会对收入留存给出指引。但根据我们所看到的，我确实感觉它相当稳定。这很大程度上是由我们的核心业务推动的，再加上一些老客户也开始使用一些更新的功能。所以，敬请期待。\n\n原文：You know, I think our -- I'm never going to guide to revenue retention, by the way. But I do feel it feels pretty stable based upon what we're seeing in there. And a lot of that is driven by our core business with the addition of some of our older customers starting to use some of these newer features as well, too. So, stay tuned."
+  },
+  {
+   "en": "That's not something we're going to guide to.",
+   "zh": "这不是我们要指导的事情。\n\nThat's not something we're going to guide to."
+  },
+  {
+   "en": "Michael Turrin--Analyst",
+   "zh": "Michael Turrin--分析师\n\nMichael Turrin--Analyst"
+  },
+  {
+   "en": "OK. That's still helpful commentary. And then, just a follow-up on one of the comments around the offsets to storage headwinds, I was just hoping you could help us think through the sequencing of those. Is that something that can immediately help offset any storage headwinds tied to Iceberg? Or is that something that, over time, the customer profile, the spend profile helps suggest for those things? Is there just a sequence of events we should all be mindful of there?",
+   "zh": "好的，这仍然是很有帮助的评论。接着刚才关于抵消存储逆风的话题，我想请您帮我们梳理一下这些措施的先后顺序。这些措施是否能立即帮助抵消与Iceberg相关的存储逆风？还是说，随着时间的推移，客户群体和支出结构会逐渐自然缓解这些问题？我们是否应该留意其中的先后顺序？\n\nOK. That's still helpful commentary. And then, just a follow-up on one of the comments around the offsets to storage headwinds, I was just hoping you could help us think through the sequencing of those. Is that something that can immediately help offset any storage headwinds tied to Iceberg? Or is that something that, over time, the customer profile, the spend profile helps suggest for those things? Is there just a sequence of events we should all be mindful of there?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "Yeah. As I said, I'm really not seeing a big storage headwind as a result of Iceberg. And to the extent any of our customers do move data off, it will be more than offset by the growth we are seeing in data engineering, the newer data engineering features. And as I also said, we are starting to see a positive impact of Iceberg with new workloads that were never in Snowflake before.",
+   "zh": "是的。正如我所说，我真的没有看到Iceberg导致巨大的存储阻力。而且，即使我们的某些客户确实将数据迁移出去，这也会被我们在数据工程以及更新的数据工程功能方面看到的增长所抵消。正如我所说，我们也开始看到Iceberg对以前从未在Snowflake上出现过的新工作负载产生了积极影响。\n\nYeah. As I said, I'm really not seeing a big storage headwind as a result of Iceberg. And to the extent any of our customers do move data off, it will be more than offset by the growth we are seeing in data engineering, the newer data engineering features. And as I also said, we are starting to see a positive impact of Iceberg with new workloads that were never in Snowflake before."
+  },
+  {
+   "en": "Now, customers are using Snowflake on open file Iceberg formats.",
+   "zh": "现在，客户正在使用Snowflake处理开放的Iceberg格式文件。\n\nNow, customers are using Snowflake on open file Iceberg formats."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Yeah, I'll stress something that I said earlier, which is customers typically have hundred to thousand times more data sitting in cloud storage. And with the things that we have done with the data engineering or even things like Cortex AI, which you can think of as AI extensions to what you can do with SQL or with the new paradigms like dynamic tables is a very efficient way to run data pipelines and soon to be combined with things like multimodal models, all of a sudden, you can imagine a data pipeline that is looking at video transcripts, generating text from it, doing sentiment detection off of it, all off of a few SQL queries because of these open data estates that are sitting there. These, again, are use cases that someone honestly would simply not have conceived of in a pre-Iceberg, pre-AI kind of world. And that's the magic of Snowflake, which is to take all of these complex technologies but put them into a form that lots of people can get value from them.",
+   "zh": "是的，我要强调之前提到的一点：客户通常会在云存储中存放比日常数据多出成百上千倍的数据量。借助我们在数据工程方面的成果，甚至是像Cortex AI这样的工具（你可以将其视为SQL操作的人工智能扩展），或是动态表（Dynamic Tables）这类新范式，就能非常高效地运行数据管道。未来这些技术还将与多模态模型等结合，届时你可以想象这样的场景：一条数据管道仅需几条SQL查询，就能分析视频转录内容、从中生成文本并执行情感检测——这一切都得益于现有的开放数据资产。这些用例在Iceberg时代之前、AI时代之前是完全无法想象的。而这正是Snowflake的魔力所在：将所有复杂技术转化为能让大众获益的形态。\n\n原文：\nYeah, I'll stress something that I said earlier, which is customers typically have hundred to thousand times more data sitting in cloud storage. And with the things that we have done with the data engineering or even things like Cortex AI, which you can think of as AI extensions to what you can do with SQL or with the new paradigms like dynamic tables is a very efficient way to run data pipelines and soon to be combined with things like multimodal models, all of a sudden, you can imagine a data pipeline that is looking at video transcripts, generating text from it, doing sentiment detection off of it, all off of a few SQL queries because of these open data estates that are sitting there. These, again, are use cases that someone honestly would simply not have conceived of in a pre-Iceberg, pre-AI kind of world. And that's the magic of Snowflake, which is to take all of these complex technologies but put them into a form that lots of people can get value from them."
+  },
+  {
+   "en": "And so that's the big opportunity rather than a itsy-bitsy tactical thing of some data within Snowflake, perhaps, moving to an Iceberg format. I think -- you know, I don't think it is just such a big deal.",
+   "zh": "因此，这是重大的机遇，而非Snowflake中的某些数据转移到Iceberg格式这类微不足道的战术性小事。我认为——你知道的，我并不觉得这有那么了不起。\n\n原文：\nAnd so that's the big opportunity rather than a itsy-bitsy tactical thing of some data within Snowflake, perhaps, moving to an Iceberg format. I think -- you know, I don't think it is just such a big deal."
+  },
+  {
+   "en": "Michael Turrin--Analyst",
+   "zh": "Michael Turrin--分析师\n\nMichael Turrin--Analyst"
+  },
+  {
+   "en": "Yeah. Sounds great. Thanks very much.",
+   "zh": "是的，听起来很棒。非常感谢。\n\nYeah. Sounds great. Thanks very much."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Alex Zukin with Wolfe Research. Your line is now open.",
+   "zh": ""
+  },
+  {
+   "en": "Alex Zukin--Analyst",
+   "zh": "Alex Zukin——分析师\n\nAlex Zukin--Analyst"
+  },
+  {
+   "en": "Hey, guys. So, maybe taking another stab at the Iceberg question. I guess, maybe, Sridhar, in terms of what you're seeing with some of the kind of first mover customers that are seeing an opportunity with Snowflake to kind of attack a much broader data estate, what are you seeing in terms of that data volume uplift kind of that put and take from storage to incremental services that you were able to unlock?",
+   "zh": "嘿，各位。也许再尝试一下关于Iceberg的问题。我想，也许Sridhar，从你看到的一些率先采用Snowflake的客户那里，他们发现有机会利用Snowflake来攻克更广泛的数据资产，那么你观察到数据量的提升——从存储到能够解锁的增量服务之间的这种此消彼长——是什么样的？\n\nHey, guys. So, maybe taking another stab at the Iceberg question. I guess, maybe, Sridhar, in terms of what you're seeing with some of the kind of first mover customers that are seeing an opportunity with Snowflake to kind of attack a much broader data estate, what are you seeing in terms of that data volume uplift kind of that put and take from storage to incremental services that you were able to unlock?"
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "As I was -- you know, as I was saying, I really think of this as a big new opportunity where all of a sudden, a lot of our customers are realizing that with things like our Iceberg support, they can do things with the Snowflake compute engine, even to run analytics, for example, on historic data that is sitting in data estates that simply would not have been possible before. And, you know, those are the incremental use cases that we are seeing that flow into this category called data sharing, which we gave you some color on. And it's really the combination then of like Iceberg, but then AI features or data pipelining features like dynamic tables that combines to create new opportunity for us. Anything else to add, Christian?",
+   "zh": "正如我——你知道，正如我所说的，我确实认为这是一个巨大的新机遇，突然间，许多客户意识到，借助我们的Iceberg支持等功能，他们可以使用Snowflake计算引擎做一些事情，比如对数据资产中的历史数据运行分析，这在以前根本不可能。而且，你知道，这些正是我们看到的增量用例，它们汇入了一个我们称之为数据共享的类别，我们之前对此做过一些说明。实际上，正是Iceberg与AI功能或动态表等数据管道功能的结合，为我们创造了新的机会。Christian，你还有什么要补充的吗？\n\nAs I was -- you know, as I was saying, I really think of this as a big new opportunity where all of a sudden, a lot of our customers are realizing that with things like our Iceberg support, they can do things with the Snowflake compute engine, even to run analytics, for example, on historic data that is sitting in data estates that simply would not have been possible before. And, you know, those are the incremental use cases that we are seeing that flow into this category called data sharing, which we gave you some color on. And it's really the combination then of like Iceberg, but then AI features or data pipelining features like dynamic tables that combines to create new opportunity for us. Anything else to add, Christian?"
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "No. Maybe what I would say is that the customer pattern is it's easier to say I have data in Snowflake and it is working well. Let me try to use Snowflake data that it's already sitting in cloud storage. And those are the use cases that we are seeing prioritized first, and that's what we're seeing a large increase month over month on amount of data that is being made available to Snowflake via Iceberg tables that leads to additional consumption and that is going ahead of any storage headwinds.",
+   "zh": "不。也许我想说的是，客户模式更容易表述为：我的数据在Snowflake里，而且运行良好。让我尝试使用已经存储在云存储中的Snowflake数据。这些正是我们看到的优先处理的用例，也是我们看到通过Iceberg表提供给Snowflake的数据量环比大幅增长的原因，这带来了额外的消耗，并且这种增长领先于任何存储阻力。\n\n原文：\nNo. Maybe what I would say is that the customer pattern is it's easier to say I have data in Snowflake and it is working well. Let me try to use Snowflake data that it's already sitting in cloud storage. And those are the use cases that we are seeing prioritized first, and that's what we're seeing a large increase month over month on amount of data that is being made available to Snowflake via Iceberg tables that leads to additional consumption and that is going ahead of any storage headwinds."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Do you want to add a comment on how Polaris is important here?",
+   "zh": "你想对Polaris在此处的重要性添加评论吗？\n\nDo you want to add a comment on how Polaris is important here?"
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "That's also a super interesting trend. At summit, we introduced Polaris catalog. Since then, we donated it to the Apache Software Foundation. We let customers host it themselves.",
+   "zh": "这也是一个非常有趣的趋势。在峰会上，我们推出了Polaris catalog。此后，我们将其捐赠给了Apache Software Foundation。我们让客户自行托管。\n\n原文：\nThat's also a super interesting trend. At summit, we introduced Polaris catalog. Since then, we donated it to the Apache Software Foundation. We let customers host it themselves."
+  },
+  {
+   "en": "We also have a Snowflake hosted version, which is our Snowflake Open Catalog. And we are seeing very, very strong interest from organizations across the world being able to rely on a truly open-source catalog that makes more and more data available to Snowflake, but also while honoring the desire and the promise of being able to interoperate with other engines.",
+   "zh": "我们也提供Snowflake托管版本，即我们的Snowflake Open Catalog。我们观察到全球各地的组织对此表现出非常浓厚的兴趣，他们希望依赖一个真正的开源目录，这不仅能让Snowflake获取越来越多的数据，同时还满足了与其他引擎实现互操作的愿望和承诺。\n\nWe also have a Snowflake hosted version, which is our Snowflake Open Catalog. And we are seeing very, very strong interest from organizations across the world being able to rely on a truly open-source catalog that makes more and more data available to Snowflake, but also while honoring the desire and the promise of being able to interoperate with other engines."
+  },
+  {
+   "en": "Alex Zukin--Analyst",
+   "zh": "Alex Zukin——分析师\n\nAlex Zukin--Analyst"
+  },
+  {
+   "en": "Perfect. And then, maybe just a follow-up, Mike, for you, can you maybe talk through some of the sales changes, whether in terms of performance management, in terms of should we be thinking about any incremental conservatism as we look at our models for next year versus what seems to be an improving budget backdrop spending environment potentially going into next year with some of your largest verticals like FinServ and Tech. Anything we should take into account as we look at our models for next year?",
+   "zh": "完美。然后，或许只是一个跟进问题，Mike，能否请你谈谈一些销售变化，无论是在绩效管理方面，还是在我们为明年制定模型时，是否应该考虑任何递增的保守性，因为与似乎正在改善的预算背景和支出环境相比，明年可能进入你最大的垂直领域如FinServ和Tech。我们在审视明年的模型时，有什么需要考虑的吗？\n\nPerfect. And then, maybe just a follow-up, Mike, for you, can you maybe talk through some of the sales changes, whether in terms of performance management, in terms of should we be thinking about any incremental conservatism as we look at our models for next year versus what seems to be an improving budget backdrop spending environment potentially going into next year with some of your largest verticals like FinServ and Tech. Anything we should take into account as we look at our models for next year?"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "I would just say that our sales leaders have gone through and really -- you know, typically salespeople always wait till the end of the year to do performance management based upon how they have performed. And sales leaders now realize you can do performance management throughout the year. And we started doing a lot more performance management in Q3, and we've been backfilling those people with the right skillsets of what we're looking for. And I'm not going to talk about conservatism or whatever we guided for the quarter.",
+   "zh": "我只想说，我们的销售领导团队已经全面审视并意识到——通常销售人员总是等到年底才根据业绩表现进行绩效管理。而现在销售领导们认识到，可以在全年持续推进绩效管理。我们在第三季度就已经开始加强绩效管理，并用符合我们要求的合适技能人才来填补空缺。至于这一季度的指引，我不打算谈论保守与否的问题。\n\nI would just say that our sales leaders have gone through and really -- you know, typically salespeople always wait till the end of the year to do performance management based upon how they have performed. And sales leaders now realize you can do performance management throughout the year. And we started doing a lot more performance management in Q3, and we've been backfilling those people with the right skillsets of what we're looking for. And I'm not going to talk about conservatism or whatever we guided for the quarter."
+  },
+  {
+   "en": "And we feel good and I feel good about what we're seeing next year. The only thing I would remind you is when you are building your models for next year, Q1, we do not have the benefit of leap year that we had last year, so there's one less day in it. That does have an impact on the year-over-year growth rates when you're building your models.",
+   "zh": "我们感到乐观，我对明年的前景也持积极态度。但需要提醒一点：在构建明年第一季度模型时，请注意今年没有像去年那样的闰年加成，因此会少一天。这会对模型中的同比增长率产生影响。\n\n原文：\nAnd we feel good and I feel good about what we're seeing next year. The only thing I would remind you is when you are building your models for next year, Q1, we do not have the benefit of leap year that we had last year, so there's one less day in it. That does have an impact on the year-over-year growth rates when you're building your models."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "And the other small additional color that I will add here is that, you know, our sales teams as part of the consumption push have been evolving a whole new science around how do, you know, you go from activity to use cases, to use cases one to what's in deployment. And this is part -- this is the basis of things like the performance management, and I have to just give them enormous credit for their ability to just manage this process a lot more rationally. And it's being able to do that. That even shines the light on things like what are best-in-class techniques for, you know, driving the business forward.",
+   "zh": "我还要补充一个小小的额外细节，那就是，作为推动消费的一部分，我们的销售团队一直在发展一套全新的科学方法，关于如何从活动到用例，再到用例一到部署中的内容。这是绩效管理之类的基础，我必须对他们的能力给予极大的赞扬，因为他们能够更理性地管理这个过程。而且能够做到这一点，甚至还能凸显出诸如推动业务前进的最佳实践技术之类的东西。\n\n原文：And the other small additional color that I will add here is that, you know, our sales teams as part of the consumption push have been evolving a whole new science around how do, you know, you go from activity to use cases, to use cases one to what's in deployment. And this is part -- this is the basis of things like the performance management, and I have to just give them enormous credit for their ability to just manage this process a lot more rationally. And it's being able to do that. That even shines the light on things like what are best-in-class techniques for, you know, driving the business forward."
+  },
+  {
+   "en": "And, you know, part of -- you see that reflected in the results, and that's what makes me feel positive about how the team is operating. They've done a really wonderful job.",
+   "zh": "而且，你知道，部分——你可以从结果中看到这一点，这让我对团队的表现感到乐观。他们做得非常好。\n\nAnd, you know, part of -- you see that reflected in the results, and that's what makes me feel positive about how the team is operating. They've done a really wonderful job."
+  },
+  {
+   "en": "Alex Zukin--Analyst",
+   "zh": "Alex Zukin——分析师\n\nAlex Zukin--Analyst"
+  },
+  {
+   "en": "Perfect. Thank you guys. Congratulations.",
+   "zh": "完美。谢谢各位。恭喜你们。\n\nPerfect. Thank you guys. Congratulations."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "Thank you for your question. Next question is from the line of Brad Sills with Bank of America. Your line is now open.",
+   "zh": "谢谢你的提问。下一个问题来自美银的Brad Sills。现在可以提问了。\n\nThank you for your question. Next question is from the line of Brad Sills with Bank of America. Your line is now open."
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "Great. Thank you so much. Question for you, Sridhar. I couldn't help but notice some of the comments you made on the strength you're seeing with AWS.",
+   "zh": "好的，非常感谢。Sridhar，有个问题想问你。我忍不住注意到你关于AWS表现强劲的一些评论。\n\nGreat. Thank you so much. Question for you, Sridhar. I couldn't help but notice some of the comments you made on the strength you're seeing with AWS."
+  },
+  {
+   "en": "I would love to get an update from you on kind of where the incremental focus has been on with the big hyperscaler partners in go-to market. It seems to be having a real positive impact here.",
+   "zh": "我很想听听您的更新，关于在与大型超大规模云服务合作伙伴的市场推广中，增量重点放在了哪些方面。这似乎正在产生非常积极的影响。\n\nI would love to get an update from you on kind of where the incremental focus has been on with the big hyperscaler partners in go-to market. It seems to be having a real positive impact here."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "That's right. As you know, we have a great relationship with AWS, but also with Azure. We work together a lot, and there is an excellent relationship, you know, at the exec level but also at the field level. It is absolutely the case that, for example, that AWS plus Snowflake is a great solution, as is Azure plus Snowflake.",
+   "zh": "没错。正如你所知，我们与AWS以及Azure都保持着良好的关系。我们在很多方面都有深入合作，无论是高管层面还是基层层面，关系都非常融洽。毫无疑问，比如AWS加Snowflake就是一个极佳的解决方案，Azure加Snowflake同样如此。\n\n原文：That's right. As you know, we have a great relationship with AWS, but also with Azure. We work together a lot, and there is an excellent relationship, you know, at the exec level but also at the field level. It is absolutely the case that, for example, that AWS plus Snowflake is a great solution, as is Azure plus Snowflake."
+  },
+  {
+   "en": "I would say, we have some, let's call it, like, you know, shoots of grass on our relations with GCP in terms of what is possible there. We are working with that to make it happen. As I said, all of this is in the context of a data platform industry that is going to be expanding pretty massively over the 10 years. So, everybody sees the opportunity.",
+   "zh": "我想说，我们与GCP的关系中已经有了些萌芽迹象，就未来可能性而言。我们正在努力推动实现。正如我所说，这一切都发生在数据平台行业未来十年将大幅扩张的背景下。所以，每个人都看到了机会。\n\nI would say, we have some, let's call it, like, you know, shoots of grass on our relations with GCP in terms of what is possible there. We are working with that to make it happen. As I said, all of this is in the context of a data platform industry that is going to be expanding pretty massively over the 10 years. So, everybody sees the opportunity."
+  },
+  {
+   "en": "But then, it's a question of lining up every single team within multi-thousand person companies to collaborate effectively. And you should definitely expect to see more of that.",
+   "zh": "但接下来，问题在于如何让数千人公司内的每一个团队都有效协作。而且你肯定可以期待看到更多这样的情况。\n\nBut then, it's a question of lining up every single team within multi-thousand person companies to collaborate effectively. And you should definitely expect to see more of that."
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "I would add that an area of common ground with the hyperscalers has been this collaboration around Apache Iceberg as effectively the standard way to represent data so that we can interoperate.",
+   "zh": "我还要补充一点，与hyperscalers的一个共同点就是围绕Apache Iceberg的合作，实际上这是表示数据以便我们能够互操作的标准方式。\n\nI would add that an area of common ground with the hyperscalers has been this collaboration around Apache Iceberg as effectively the standard way to represent data so that we can interoperate."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "That's right. I mean -- and they're all very excited about getting behind Iceberg as is much of the industry because the industry now realizes that this is a true standard that is controlled by no one. Unlike previous formats that were open in name only and controlled by a single company that could arbitrarily change its mind about what was open and what was closed, Iceberg is seen as the format. And, you know, I dare say that Iceberg is the VHS, and the old format are the Betamax of formats.",
+   "zh": "没错。我的意思是——他们对支持Iceberg感到非常兴奋，整个行业也是如此，因为行业现在意识到这是一个不受任何一方控制的真正标准。与以往那些名义上开放却由单一公司控制、可能随意改变对开放与封闭定义的格式不同，Iceberg被视为真正的格式。而且，我敢说Iceberg就是录像带界的VHS，而旧格式则是Betamax。\n\n原文：\nThat's right. I mean -- and they're all very excited about getting behind Iceberg as is much of the industry because the industry now realizes that this is a true standard that is controlled by no one. Unlike previous formats that were open in name only and controlled by a single company that could arbitrarily change its mind about what was open and what was closed, Iceberg is seen as the format. And, you know, I dare say that Iceberg is the VHS, and the old format are the Betamax of formats."
+  },
+  {
+   "en": "And we are very happy to see this because this is great for our customers, and it's great for Snowflake.",
+   "zh": "我们非常高兴看到这一点，因为这对我们的客户非常有利，对Snowflake也非常有利。\n\nAnd we are very happy to see this because this is great for our customers, and it's great for Snowflake."
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "That's great to hear. Thanks, Sridhar. And then, one for you, Mike, if I might. You've said in the past that the strength you're seeing this year, you know, signings of new workloads and things like Snowpark and Cortex are going to lead to some consumption ramp heading into next year.",
+   "zh": "听到这真是太好了。谢谢你，Sridhar。接下来，如果可以的话，我有个问题想问Mike。你过去曾说过，今年看到的新工作负载签约以及像Snowpark和Cortex这样的产品带来的强劲势头，将推动明年的消费增长。\n\n原文：\nThat's great to hear. Thanks, Sridhar. And then, one for you, Mike, if I might. You've said in the past that the strength you're seeing this year, you know, signings of new workloads and things like Snowpark and Cortex are going to lead to some consumption ramp heading into next year."
+  },
+  {
+   "en": "We'd just love to get an update from you on how you see that ramp heading into next year, just given it sounds what you're seeing some real positive momentum on the new product side. Thank you.",
+   "zh": "我们很想听听您对那个爬坡进入明年的看法，因为听起来您在新产品方面看到了一些真正的积极势头。谢谢。  \nWe'd just love to get an update from you on how you see that ramp heading into next year, just given it sounds what you're seeing some real positive momentum on the new product side. Thank you."
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "Well, I'm not going to guide for next year, but it is starting to be meaningful contributors to our revenue. The only thing we've called out in terms of dollars and we called that at the beginning of the year, what we thought is Snowpark is well on track to be 3% of our revenue. But the newer things, dynamic tables is really starting to take off, and that has an impact on consumption. I expect Notebooks is going to be a meaningful thing for us for the data science persona, which is going to lead to more consumption in Snowflake and everything we've talked about Cortex.",
+   "zh": "我不会对下一年做出指引，但这些产品已经开始对营收产生有意义的贡献。我们唯一在金额上提及过的是在年初提到的——Snowpark正稳步推进，预计将占我们营收的3%。而更新的产品，如dynamic tables，正在真正起飞，并对消费产生影响。我预计Notebooks将成为面向数据科学人群的重要产品，这将带动Snowflake以及我们讨论过的Cortex相关的一切消费增长。\n\n原文：\nWell, I'm not going to guide for next year, but it is starting to be meaningful contributors to our revenue. The only thing we've called out in terms of dollars and we called that at the beginning of the year, what we thought is Snowpark is well on track to be 3% of our revenue. But the newer things, dynamic tables is really starting to take off, and that has an impact on consumption. I expect Notebooks is going to be a meaningful thing for us for the data science persona, which is going to lead to more consumption in Snowflake and everything we've talked about Cortex."
+  },
+  {
+   "en": "So, stay tuned for our Q4 call when we'll give you more color on what we're seeing for next year with these new features in particular.",
+   "zh": "所以，请关注我们的Q4电话会议，届时我们将就明年这些新功能的情况提供更多细节。\n\nSo, stay tuned for our Q4 call when we'll give you more color on what we're seeing for next year with these new features in particular."
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "Great. Thanks, Mike.",
+   "zh": "太好了。谢谢，Mike。\n\nGreat. Thanks, Mike."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "We are now out of time for additional questions. So, I will be passing the call back to Sridhar for any closing remarks.",
+   "zh": "我们的时间已用完，无法再回答更多问题。因此，我将把电话转回给Sridhar，让他做结束致辞。  \nWe are now out of time for additional questions. So, I will be passing the call back to Sridhar for any closing remarks."
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Thank you. Before we end the call, I want to leave you all with this. We have great momentum, and I couldn't be more proud of how we are executing day in and day out. Our growth rate at the scale is incredibly impressive, and we have our foot on the gas.",
+   "zh": "谢谢。在结束通话之前，我想和大家分享这一点。我们势头强劲，我对我们日复一日的执行感到无比自豪。我们的规模增速令人难以置信，而且我们正在加速前进。\n\nThank you. Before we end the call, I want to leave you all with this. We have great momentum, and I couldn't be more proud of how we are executing day in and day out. Our growth rate at the scale is incredibly impressive, and we have our foot on the gas."
+  },
+  {
+   "en": "Our core business is strong, and our new products are driving revenue growth. And our operational rigor is enabling us to drive growth and profitability for years to come. Thank you all for joining us.",
+   "zh": "我们的核心业务强劲，新产品正推动收入增长。而我们的运营严谨性使我们能够在未来多年推动增长和盈利。感谢各位的参与。\n\nOur core business is strong, and our new products are driving revenue growth. And our operational rigor is enabling us to drive growth and profitability for years to come. Thank you all for joining us."
+  },
+  {
+   "en": "Operator",
+   "zh": "操作员\nOperator"
+  },
+  {
+   "en": "That concludes the conference call. Thank you for your participation. [Operator signoff]",
+   "zh": "本次电话会议到此结束。感谢您的参与。[Operator signoff]\n\nThat concludes the conference call. Thank you for your participation. [Operator signoff]"
+  },
+  {
+   "en": "Duration: 0 minutes",
+   "zh": "持续时间：0分钟  \nDuration: 0 minutes"
+  },
+  {
+   "en": "Call participants:",
+   "zh": "通话参与者：\nCall participants:"
+  },
+  {
+   "en": "Jimmy Sexton--Head of Investor Relations",
+   "zh": "Jimmy Sexton--投资者关系主管  \n原文：Jimmy Sexton--Head of Investor Relations"
+  },
+  {
+   "en": "Sridhar Ramaswamy--Chief Executive Officer",
+   "zh": "Sridhar Ramaswamy——首席执行官\n\nSridhar Ramaswamy--Chief Executive Officer"
+  },
+  {
+   "en": "Mike Scarpelli--Chief Financial Officer",
+   "zh": "Mike Scarpelli——首席财务官  \nMike Scarpelli--Chief Financial Officer"
+  },
+  {
+   "en": "Mark Murphy--Analyst",
+   "zh": "Mark Murphy--分析师\n\nMark Murphy--Analyst"
+  },
+  {
+   "en": "Christian Kleinerman--Executive Vice President, Product",
+   "zh": "Christian Kleinerman--产品执行副总裁  \n\nChristian Kleinerman--Executive Vice President, Product"
+  },
+  {
+   "en": "Keith Weiss--Analyst",
+   "zh": "Keith Weiss--分析师\n\nKeith Weiss--Analyst"
+  },
+  {
+   "en": "Kash Rangan--Analyst",
+   "zh": "Kash Rangan--分析师  \nKash Rangan--Analyst"
+  },
+  {
+   "en": "Raimo Lenschow--Analyst",
+   "zh": "Raimo Lenschow——分析师\n\nRaimo Lenschow--Analyst"
+  },
+  {
+   "en": "Kirk Materne--Analyst",
+   "zh": "Kirk Materne--分析师  \nKirk Materne--Analyst"
+  },
+  {
+   "en": "Brad Zelnick--Analyst",
+   "zh": "Brad Zelnick--分析师  \nBrad Zelnick--Analyst"
+  },
+  {
+   "en": "Brent Thill--Analyst",
+   "zh": "Brent Thill--分析师  \nBrent Thill--Analyst"
+  },
+  {
+   "en": "Matt Calitri--Needham and Company -- Analyst",
+   "zh": "Matt Calitri--Needham and Company -- 分析师  \nMatt Calitri--Needham and Company -- Analyst"
+  },
+  {
+   "en": "Michael Turrin--Analyst",
+   "zh": "Michael Turrin--分析师\n\nMichael Turrin--Analyst"
+  },
+  {
+   "en": "Alex Zukin--Analyst",
+   "zh": "Alex Zukin——分析师\n\nAlex Zukin--Analyst"
+  },
+  {
+   "en": "Brad Sills--Analyst",
+   "zh": "Brad Sills——分析师  \nBrad Sills--Analyst"
+  },
+  {
+   "en": "More SNOW analysis",
+   "zh": "更多SNOW分析  \nMore SNOW analysis"
+  },
+  {
+   "en": "All earnings call transcripts",
+   "zh": ""
+  },
+  {
+   "en": "This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.",
+   "zh": "本文是为The Motley Fool制作的本次电话会议的记录。尽管我们努力做到最好，但此记录中可能存在错误、遗漏或不准确之处。与我们的所有文章一样，The Motley Fool不对您使用此内容承担任何责任，我们强烈建议您自行研究，包括亲自收听电话会议并阅读公司的SEC文件。详情请参阅我们的Terms and Conditions，包括强制性的大写责任免责声明。\n\nThis article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability."
+  },
+  {
+   "en": "The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.",
+   "zh": "Motley Fool 对 Snowflake 持仓并推荐。Motley Fool 有披露政策。"
+  },
+  {
+   "en": "Stocks Mentioned",
+   "zh": "提及的股票"
+  },
+  {
+   "en": "*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.",
+   "zh": "*自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。"
+  }
+ ]
+}

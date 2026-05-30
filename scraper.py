@@ -483,6 +483,16 @@ def translate_after_download(english_path: Path, skip: bool = False):
     }
     bilingual_path.write_text(json.dumps(bilingual_data, ensure_ascii=False, indent=1), encoding="utf-8")
     log.info(f"  Bilingual saved: {bilingual_path.name} ({len(pairs)} pairs)")
+
+    # Generate interleaved txt
+    try:
+        from make_interleaved import make_interleaved
+        txt_path = make_interleaved(bilingual_path)
+        if txt_path:
+            log.info(f"  Interleaved saved: {txt_path.name}")
+    except Exception as e:
+        log.warning(f"  Interleaved generation failed: {e}")
+
     return bilingual_path
 
 

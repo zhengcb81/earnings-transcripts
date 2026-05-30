@@ -1,0 +1,1321 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Snowflake (Snowflake)
+Quarter: Q1 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2024/05/23/snowflake-snow-q1-2025-earnings-call-transcript/
+Translated: 2026-05-30T12:59:03.137606
+Backend: deepseek
+Paragraphs: 273
+======================================================================
+
+  [  1] [EN] Snowflake(SNOW+7.02%)Q1 2025 Earnings CallMay 22, 2024,5:00 p.m. ET
+       [中] Snowflake(SNOW+7.02%)2025财年第一季度财报电话会议，2024年5月22日，美国东部时间下午5:00。
+
+Snowflake(SNOW+7.02%)Q1 2025 Earnings CallMay 22, 2024,5:00 p.m. ET
+
+  [  2] [EN] Prepared Remarks
+       [中] 准备好的发言  
+Prepared Remarks
+
+
+  ━━ Questions and Answers ━━
+  ━━ 问题与答案  
+Questions and Answers ━━
+
+
+  ━━ Call Participants ━━
+  ━━ 电话会议参与者
+
+Call Participants ━━
+
+  [  5] [EN] Prepared Remarks:
+       [中] 准备好的发言：
+Prepared Remarks:
+
+  [  6] [EN] Operator
+       [中] 操作员
+Operator
+
+  [  7] [EN] Hello, everyone. Thank you for attending today's Q1 fiscal year 2025 Snowflake earnings call. My name is Sierra, and I will be your moderator today. All lines will be muted during the presentation portion of the call with an opportunity for questions and answers at the end.
+       [中] 大家好，感谢参加今天的Snowflake 2025财年第一季度财报电话会议。我是Sierra，今天的会议主持人。在电话会议的演示环节，所有线路将保持静音，最后会有提问与回答的机会。
+
+Hello, everyone. Thank you for attending today's Q1 fiscal year 2025 Snowflake earnings call. My name is Sierra, and I will be your moderator today. All lines will be muted during the presentation portion of the call with an opportunity for questions and answers at the end.
+
+  [  8] [EN] [Operator instructions] I would now like to pass the conference over to our host, Jimmy Sexton, head of investor relations.
+       [中] 现在有请会议主持人、投资者关系主管Jimmy Sexton。
+
+[Operator instructions] I would now like to pass the conference over to our host, Jimmy Sexton, head of investor relations.
+
+  [  9] [EN] Jimmy Sexton--Head of Investor Relations
+       [中] Jimmy Sexton--投资者关系主管  
+原文：Jimmy Sexton--Head of Investor Relations
+
+  [ 10] [EN] Good afternoon, and thanks for joining us on Snowflake's Q1 fiscal 2025 earnings call. Joining me on the call today is Sridhar Ramaswamy, our chief executive officer; Mike Scarpelli, our chief financial officer; and Christian Kleinerman, our executive vice president of product, who will participate in the Q&A session. During today's call, we will review our financial results for the first quarter fiscal 2025 and discuss our guidance for the second quarter and full year fiscal 2025. During today's call, we will make forward-looking statements including statements related to our business operations and financial performance.
+       [中] 下午好，感谢各位参加Snowflake 2025财年第一季度财报电话会议。今天与我一同出席的有首席执行官Sridhar Ramaswamy、首席财务官Mike Scarpelli，以及产品执行副总裁Christian Kleinerman，他将参与问答环节。在今天的电话会议中，我们将回顾2025财年第一季度的财务业绩，并讨论2025财年第二季度及全年的业绩指引。此外，我们还将做出前瞻性陈述，包括与业务运营和财务表现相关的陈述。
+
+Good afternoon, and thanks for joining us on Snowflake's Q1 fiscal 2025 earnings call. Joining me on the call today is Sridhar Ramaswamy, our chief executive officer; Mike Scarpelli, our chief financial officer; and Christian Kleinerman, our executive vice president of product, who will participate in the Q&A session. During today's call, we will review our financial results for the first quarter fiscal 2025 and discuss our guidance for the second quarter and full year fiscal 2025. During today's call, we will make forward-looking statements including statements related to our business operations and financial performance.
+
+  [ 11] [EN] These statements are subject to risks and uncertainties which could cause them to differ from actual results. Information concerning these risks and uncertainties is available in our earnings press release, our most recent forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements.
+       [中] 这些声明存在风险和不确定性，可能导致实际结果与声明内容存在差异。有关这些风险和不确定性的信息，请参见我们的盈利新闻稿、最新的10-K及10-Q表格以及其他提交给SEC的报告。所有声明均基于当前可用信息于今日做出。除法律要求外，我们不承担更新任何此类声明的义务。
+
+These statements are subject to risks and uncertainties which could cause them to differ from actual results. Information concerning these risks and uncertainties is available in our earnings press release, our most recent forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements.
+
+  [ 12] [EN] During today's call, we will also discuss certain non-GAAP financial measures. A reconciliation of GAAP to non-GAAP measures is included in today's earnings press release. The earnings press release and an accompanying investor presentation are available on our website at investors.snowflake.com. A replay of today's call will also be posted on the website.
+       [中] 在今天的电话会议上，我们还将讨论某些非GAAP财务指标。GAAP与非GAAP指标的调节表包含在今天的财报新闻稿中。财报新闻稿及配套的投资者演示材料可在我们的网站investors.snowflake.com上查阅。今天电话会议的回放也将发布在该网站上。
+
+During today's call, we will also discuss certain non-GAAP financial measures. A reconciliation of GAAP to non-GAAP measures is included in today's earnings press release. The earnings press release and an accompanying investor presentation are available on our website at investors.snowflake.com. A replay of today's call will also be posted on the website.
+
+  [ 13] [EN] With that, I would now like to turn the call over to Sridhar.
+       [中] 说完这些，我现在想把电话转给Sridhar。
+
+With that, I would now like to turn the call over to Sridhar.
+
+  [ 14] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [ 15] [EN] Thanks, Jimmy, and good afternoon, everyone. Before we get into it, many of you have given me a warm welcome to my new role over the past few months, and I just wanted to say thank you. I've been focused on three key priorities in my first quarter as CEO: listening to and learning from our customers, driving execution and alignment within our go-to-market teams, and fueling our innovation and product delivery. I have been really impressed by how the team has responded and by our overall pace of play.
+       [中] 谢谢Jimmy，大家下午好。在开始之前，我想感谢过去几个月里许多人对我担任新职务的热烈欢迎。作为CEO的第一个季度，我专注于三个关键优先事项：倾听并学习客户需求、推动市场团队的执行与协调、以及加速创新与产品交付。团队的反应以及整体推进节奏都让我印象深刻。
+
+原文：
+Thanks, Jimmy, and good afternoon, everyone. Before we get into it, many of you have given me a warm welcome to my new role over the past few months, and I just wanted to say thank you. I've been focused on three key priorities in my first quarter as CEO: listening to and learning from our customers, driving execution and alignment within our go-to-market teams, and fueling our innovation and product delivery. I have been really impressed by how the team has responded and by our overall pace of play.
+
+  [ 16] [EN] We have a lot of opportunity ahead of us, and there's a lot of excitement across our company to go and get it. When I look at the Snowflake growth story, it was first driven by an amazing data product and then by the layers of collaboration and applications that we added on top to make Snowflake a true data cloud. What is exciting about AI is that it can turbocharge our capabilities and growth on all three layers. It also helps democratize access to all the amazing enterprise data in Snowflake, massively increasing our reach.
+       [中] 我们面前有大量机遇，全公司上下都满怀兴奋去争取。回顾Snowflake的增长历程，最初是由出色的数据产品驱动，随后我们在此基础上叠加了协作与应用层，使其成为真正的数据云。人工智能令人振奋之处在于，它能极大增强我们在所有三个层面的能力与增长，同时帮助更多人便捷访问Snowflake中所有出色的企业数据，大幅拓展我们的覆盖范围。
+
+We have a lot of opportunity ahead of us, and there's a lot of excitement across our company to go and get it. When I look at the Snowflake growth story, it was first driven by an amazing data product and then by the layers of collaboration and applications that we added on top to make Snowflake a true data cloud. What is exciting about AI is that it can turbocharge our capabilities and growth on all three layers. It also helps democratize access to all the amazing enterprise data in Snowflake, massively increasing our reach.
+
+  [ 17] [EN] The progress we've made in AI for the last year, culminating in the past quarter, is remarkable. We believe AI is going to continue to fuel our platform, helping our customers perform and deliver customer experiences better than ever. As evidenced by our Q1 results, our core business is very strong. We're still in the early innings of our plan to bring our world-class data platform to customers around the globe.
+       [中] 过去一年我们在AI领域取得的进展，尤其是上个季度的成果，非常显著。我们相信AI将继续推动我们的平台，帮助客户实现比以往更卓越的绩效和客户体验。正如第一季度业绩所证明的，我们的核心业务非常强劲。我们仍处于将世界级数据平台带给全球客户计划的早期阶段。
+
+The progress we've made in AI for the last year, culminating in the past quarter, is remarkable. We believe AI is going to continue to fuel our platform, helping our customers perform and deliver customer experiences better than ever. As evidenced by our Q1 results, our core business is very strong. We're still in the early innings of our plan to bring our world-class data platform to customers around the globe.
+
+  [ 18] [EN] And in the first quarter alone, we saw some of our largest customers meaningfully increase their usage of our core offering. The combination of our incredibly strong data cloud, now powerfully boosted by AI, is the strength and story of Snowflake. I want to touch on our Q1 results, and Mike will get into the details with you. I'm really proud that our team delivered a very strong Q1.
+       [中] 仅在第一个季度，我们就看到一些最大客户显著增加了对我们核心产品的使用。我们极其强大的数据云，如今又得到了AI的有力加持，这正是Snowflake的优势所在和核心故事。我想简要谈谈第一季度的业绩，Mike将和你们详细介绍细节。我为我们的团队交出了一份非常强劲的第一季度成绩单而感到自豪。
+
+原文：
+And in the first quarter alone, we saw some of our largest customers meaningfully increase their usage of our core offering. The combination of our incredibly strong data cloud, now powerfully boosted by AI, is the strength and story of Snowflake. I want to touch on our Q1 results, and Mike will get into the details with you. I'm really proud that our team delivered a very strong Q1.
+
+  [ 19] [EN] Product revenue for the quarter was $790 million, up 34% year over year. Remaining performance obligations totaled $5 billion, year-over-year growth accelerated to 46%. And non-GAAP adjusted free cash flow margin was 44%. Given the strong quarter, we are increasing our product revenue outlook for the year.
+       [中] 本季度的产品收入为7.9亿美元，同比增长34%。剩余履约义务总计达50亿美元，同比增长加速至46%。非GAAP调整后的自由现金流利润率为44%。鉴于本季度表现强劲，我们提高了全年的产品收入展望。
+
+Product revenue for the quarter was $790 million, up 34% year over year. Remaining performance obligations totaled $5 billion, year-over-year growth accelerated to 46%. And non-GAAP adjusted free cash flow margin was 44%. Given the strong quarter, we are increasing our product revenue outlook for the year.
+
+  [ 20] [EN] Working through the second quarter and beyond, our priorities remain the same. I've had conversations with over 100 customers for the past several months, and I'm very optimistic. Snowflake is a beloved platform, and the value we bring comes through in every customer conversation I have. We are critical in helping our customers run their businesses.
+       [中] 在第二季度及之后，我们的优先事项保持不变。过去几个月，我与超过100位客户进行了交流，我感到非常乐观。Snowflake是一个深受喜爱的平台，我们带来的价值在我与每一位客户的交流中都能体现。我们对于帮助客户运营业务至关重要。
+
+Working through the second quarter and beyond, our priorities remain the same. I've had conversations with over 100 customers for the past several months, and I'm very optimistic. Snowflake is a beloved platform, and the value we bring comes through in every customer conversation I have. We are critical in helping our customers run their businesses.
+
+  [ 21] [EN] For example, one of the largest U.S. telcos relies on us to help them close their books every month. We also help a global financial service customer from their counterparty credit risk process. The art of the possible on Snowflake is really incredible.
+       [中] 例如，美国最大的电信公司之一依赖我们帮助他们每月完成结账。我们还为一家全球金融服务客户提供对手方信用风险流程支持。在Snowflake上实现的可能性确实令人惊叹。
+
+For example, one of the largest U.S. telcos relies on us to help them close their books every month. We also help a global financial service customer from their counterparty credit risk process. The art of the possible on Snowflake is really incredible.
+
+  [ 22] [EN] It's also probably no surprise that AI is top of mind for our customers as well. They want to make all business data in Snowflake available to everyone, not just the business analyst. They want us to help drive clarity, value creation, and reliability as they enter this new frontier. Over the last quarter, my time spent with our go-to-market teams has been focused on driving execution and alignment.
+       [中] 可能也不出意料，AI同样是我们客户的首要关注点。他们希望让Snowflake中的所有业务数据对所有人都可用，而不仅仅是业务分析师。他们希望我们在进入这一新领域时，帮助他们推动清晰度、价值创造和可靠性。在上一季度，我与我们市场推广团队在一起的时间主要集中在推动执行和协调上。
+
+It's also probably no surprise that AI is top of mind for our customers as well. They want to make all business data in Snowflake available to everyone, not just the business analyst. They want us to help drive clarity, value creation, and reliability as they enter this new frontier. Over the last quarter, my time spent with our go-to-market teams has been focused on driving execution and alignment.
+
+  [ 23] [EN] Internally, we emphasize consumption and new customer acquisition. And we're developing an end-to-end cadence for both priorities. This includes developing sales motions in specific workloads, such as AI and data engineering. We have more to gain as we standardize our consumption mindset and effectively execute.
+       [中] 在内部，我们强调消费和新客户获取。我们正在为这两个优先事项制定端到端的节奏。这包括在特定工作负载中开发销售动作，例如AI和数据工程。随着我们标准化消费思维并有效执行，我们将获得更多收益。
+
+Internally, we emphasize consumption and new customer acquisition. And we're developing an end-to-end cadence for both priorities. This includes developing sales motions in specific workloads, such as AI and data engineering. We have more to gain as we standardize our consumption mindset and effectively execute.
+
+  [ 24] [EN] We expect that this efficiency will contribute to further revenue growth. Those of you who know me know that I have a relentless focus on product innovation and delivery. Teams across the company are building and delivering at an incredible pace. Earlier this month, we announced that Cortex, our AI layer, is generally available.
+       [中] 我们预计这一效率将有助于进一步推动营收增长。认识我的人都知道，我始终专注于产品创新与交付。公司各团队正以惊人的速度进行开发和交付。本月早些时候，我们宣布了我们的AI层Cortex正式全面可用。
+
+We expect that this efficiency will contribute to further revenue growth. Those of you who know me know that I have a relentless focus on product innovation and delivery. Teams across the company are building and delivering at an incredible pace. Earlier this month, we announced that Cortex, our AI layer, is generally available.
+
+  [ 25] [EN] Iceberg, Snowpark Container Services, and Hybrid Tables will all be generally available later this year. We're investing in AI and machine learning, and our pace of progress in a short amount of time has been fantastic. What is resonating most with our customers is that we are bringing differentiation to the market. Snowflake delivers enterprise AI that is easy, efficient, and trusted.
+       [中] Iceberg、Snowpark Container Services和Hybrid Tables都将在今年晚些时候全面上市。我们正在大力投资人工智能和机器学习，并且在短时间内取得的进展非常惊人。最能引起客户共鸣的是，我们正在为市场带来差异化。Snowflake提供的企业级AI简单、高效且值得信赖。
+
+Iceberg, Snowpark Container Services, and Hybrid Tables will all be generally available later this year. We're investing in AI and machine learning, and our pace of progress in a short amount of time has been fantastic. What is resonating most with our customers is that we are bringing differentiation to the market. Snowflake delivers enterprise AI that is easy, efficient, and trusted.
+
+  [ 26] [EN] We've seen an impressive ramp in Cortex AI customer adoption since going generally available. As of last week, over 750 customers are using these capabilities. Cortex can increase productivity by reducing time-consuming tasks. For example, Sigma Computing uses Cortex language models to summarize and categorize customer communications from their CRM.
+       [中] 自从Cortex AI全面上市以来，我们看到客户采用率显著增长。截至上周，已有超过750家客户正在使用这些功能。Cortex能够通过减少耗时任务来提高生产力。例如，Sigma Computing利用Cortex语言模型从CRM中总结和分类客户沟通内容。
+
+We've seen an impressive ramp in Cortex AI customer adoption since going generally available. As of last week, over 750 customers are using these capabilities. Cortex can increase productivity by reducing time-consuming tasks. For example, Sigma Computing uses Cortex language models to summarize and categorize customer communications from their CRM.
+
+  [ 27] [EN] In the quarter, we also announced Arctic, our own language model. Arctic outperformed leading open models such as LLaMA-2-70B and Mixtral 8x7B in various benchmarks. We developed Arctic in less than three months at one-eighth the training cost of peer models. AI is a bridge between structured and unstructured data.
+       [中] 在本季度，我们还发布了我们自己的语言模型Arctic。Arctic在各种基准测试中超越了LLaMA-2-70B和Mixtral 8x7B等领先的开源模型。我们在不到三个月的时间内开发了Arctic，训练成本仅为同类模型的八分之一。AI是连接结构化与非结构化数据的桥梁。
+
+In the quarter, we also announced Arctic, our own language model. Arctic outperformed leading open models such as LLaMA-2-70B and Mixtral 8x7B in various benchmarks. We developed Arctic in less than three months at one-eighth the training cost of peer models. AI is a bridge between structured and unstructured data.
+
+  [ 28] [EN] We see this with Document AI. Customers find value in extracting features on the fly from piles of documents. We're making meaningful progress on Snowpark Container Services being generally available in the second half of the year, and dozens of partners are already building solutions that will leverage container services to serve their end customers. We view Snowpark and other new features as our emerging businesses.
+       [中] 我们可以在Document AI中看到这一点。客户发现从大量文档中实时提取特征的价值。我们正在推进Snowpark Container Services在今年下半年正式发布，并已取得显著进展，数十家合作伙伴已经在构建解决方案，利用容器服务来服务他们的终端客户。我们将Snowpark及其他新功能视为我们的新兴业务。
+
+We see this with Document AI. Customers find value in extracting features on the fly from piles of documents. We're making meaningful progress on Snowpark Container Services being generally available in the second half of the year, and dozens of partners are already building solutions that will leverage container services to serve their end customers. We view Snowpark and other new features as our emerging businesses.
+
+  [ 29] [EN] These are in the early days of revenue contribution, but we're seeing very healthy demand. More than 50% of customers are using Snowpark as of Q1. Revenue from Snowpark is driven by Spark migrations. In Q1, we began the process of migrating several large Global 2000 customers to Snowpark.
+       [中] 这些项目还处于贡献收入的早期阶段，但我们看到需求非常强劲。截至Q1，超过50%的客户正在使用Snowpark。Snowpark的收入由Spark迁移驱动。Q1期间，我们开始将多家大型Global 2000客户迁移至Snowpark。
+
+原文：These are in the early days of revenue contribution, but we're seeing very healthy demand. More than 50% of customers are using Snowpark as of Q1. Revenue from Snowpark is driven by Spark migrations. In Q1, we began the process of migrating several large Global 2000 customers to Snowpark.
+
+  [ 30] [EN] Our collaboration capability is also a key competitive advantage for us. Nearly a third of our customers are sharing data products as of Q1 2025, up from 24% one year ago. Collaboration already serves as a vehicle for new customer acquisition. Through a strategic collaboration with Fiserv, Snowflake was chosen by more than 20 Fiserv financial institutions and merchant clients to enable secure direct access to their financial data and insights.
+       [中] 我们的协作能力也是一项关键竞争优势。截至2025年第一季度，近三分之一的客户正在共享数据产品，而一年前这一比例为24%。协作已成为获取新客户的一种手段。通过与Fiserv的战略合作，超过20家Fiserv金融机构和商户客户选择了Snowflake，以安全地直接访问其财务数据和洞察。
+
+原文：
+Our collaboration capability is also a key competitive advantage for us. Nearly a third of our customers are sharing data products as of Q1 2025, up from 24% one year ago. Collaboration already serves as a vehicle for new customer acquisition. Through a strategic collaboration with Fiserv, Snowflake was chosen by more than 20 Fiserv financial institutions and merchant clients to enable secure direct access to their financial data and insights.
+
+  [ 31] [EN] We announced support for unstructured data over two years ago. Now, about 40% of our customers are processing unstructured data on Snowflake. And we've added more than 1,000 customers in this category over the last six months. Iceberg is enabling us to play offense and address a larger data footprint.
+       [中] 我们在两年多前宣布支持非结构化数据。现在，约有40%的客户正在Snowflake上处理非结构化数据。在过去六个月内，我们在这个类别中新增了超过1,000名客户。Iceberg使我们能够主动出击，覆盖更大的数据规模。
+
+We announced support for unstructured data over two years ago. Now, about 40% of our customers are processing unstructured data on Snowflake. And we've added more than 1,000 customers in this category over the last six months. Iceberg is enabling us to play offense and address a larger data footprint.
+
+  [ 32] [EN] Many of our larger customers have indicated that they will now leverage Snowflake for more workloads as a result of this functionality. More than 300 customers are using Iceberg in public preview. Snowflake has a powerful and unique partner ecosystem. Part of our success is that we have many partners that amplify the power of our platform.
+       [中] 我们的许多大客户表示，由于这一功能，他们现在将利用Snowflake处理更多工作负载。超过300个客户正在公开预览中使用Iceberg。Snowflake拥有强大且独特的合作伙伴生态系统。我们成功的一部分在于，我们有许多合作伙伴能够增强我们平台的能力。
+
+原文：Many of our larger customers have indicated that they will now leverage Snowflake for more workloads as a result of this functionality. More than 300 customers are using Iceberg in public preview. Snowflake has a powerful and unique partner ecosystem. Part of our success is that we have many partners that amplify the power of our platform.
+
+  [ 33] [EN] They range from big organizations like EY and Deloitte, but also firms like LTIMindtree and Next Pathway. S&P Global sees us as a strong collaborator in their cloud distribution model. And companies like Observe, Blue Yonder, RelationalAI, Fivetran, Hex, and Domo have built their software on top of Snowflake. These partners bring on entirely new capabilities and unlock new use cases for us and our customers.
+       [中] 这些合作伙伴包括EY和Deloitte这样的大型机构，也有LTIMindtree和Next Pathway等公司。S&P Global将我们视为其云分销模式中的强大合作者。而Observe、Blue Yonder、RelationalAI、Fivetran、Hex和Domo等公司则在Snowflake之上构建了他们的软件。这些合作伙伴为我们和客户带来了全新的能力，并解锁了新的应用场景。
+
+They range from big organizations like EY and Deloitte, but also firms like LTIMindtree and Next Pathway. S&P Global sees us as a strong collaborator in their cloud distribution model. And companies like Observe, Blue Yonder, RelationalAI, Fivetran, Hex, and Domo have built their software on top of Snowflake. These partners bring on entirely new capabilities and unlock new use cases for us and our customers.
+
+  [ 34] [EN] They also often bring new customers to us. And they really care about how easy it is to build on Snowflake, how reliable Snowflake is, and also about how we can go to customers jointly. Partners bring enormous power to our data cloud vision. Their success creates success for us and our customers.
+       [中] 他们还经常为我们带来新客户。他们非常关心在Snowflake上构建的便捷性、Snowflake的可靠性，以及我们如何共同服务客户。合作伙伴为我们的数据云愿景带来了巨大能量。他们的成功也成就了我们的成功，以及我们客户的成功。
+
+They also often bring new customers to us. And they really care about how easy it is to build on Snowflake, how reliable Snowflake is, and also about how we can go to customers jointly. Partners bring enormous power to our data cloud vision. Their success creates success for us and our customers.
+
+  [ 35] [EN] To wrap it up, Snowflake is the world's best enterprise AI data platform. Combined with our collaboration capability and thriving application platform, we are driving powerful network effects that will fuel our growth. AI vastly amplifies this opportunity both in the near and medium terms. Our product philosophy is simple, one platform with all features available.
+       [中] 总而言之，Snowflake 是全球最佳的企业级AI数据平台。结合我们的协作能力和蓬勃发展的应用平台，我们正在推动强大的网络效应，这将推动我们的增长。AI 在短期和中期内极大地放大了这一机遇。我们的产品理念很简单：一个平台，所有功能都可用。
+
+To wrap it up, Snowflake is the world's best enterprise AI data platform. Combined with our collaboration capability and thriving application platform, we are driving powerful network effects that will fuel our growth. AI vastly amplifies this opportunity both in the near and medium terms. Our product philosophy is simple, one platform with all features available.
+
+  [ 36] [EN] We're turning every analyst and data engineer into a sophisticated AI analyst. The magic of Snowflake is that we make difficult tasks easy. Stay tuned for more to come at Snowflake Data Cloud Summit coming up in San Francisco, June 3rd through the 6th. I look forward to seeing you all there.
+       [中] 我们正将每一位分析师和数据工程师转变为成熟的AI分析师。Snowflake的魔力在于我们把困难的任务变得简单。敬请期待即将于6月3日至6日在旧金山举行的Snowflake Data Cloud Summit上更多精彩内容。我期待与大家在那里相见。
+
+We're turning every analyst and data engineer into a sophisticated AI analyst. The magic of Snowflake is that we make difficult tasks easy. Stay tuned for more to come at Snowflake Data Cloud Summit coming up in San Francisco, June 3rd through the 6th. I look forward to seeing you all there.
+
+  [ 37] [EN] Now, I'll turn it over to Mike.
+       [中] 现在，我将交给Mike。
+
+Now, I'll turn it over to Mike.
+
+  [ 38] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [ 39] [EN] Thank you, Sridhar. Q1 product revenue grew 34% year over year to $790 million. Our largest growth contributors included a median entertainment Global 2000 and a large retail and consumer goods company. Smaller accounts outside of the Global 2000 were an important source of performance.
+       [中] 谢谢，Sridhar。第一季度产品收入同比增长34%，达到7.9亿美元。我们最大的增长贡献者包括一个中等规模的娱乐类Global 2000公司和一家大型零售与消费品公司。Global 2000之外的小型账户也是业绩的重要来源。
+
+Thank you, Sridhar. Q1 product revenue grew 34% year over year to $790 million. Our largest growth contributors included a median entertainment Global 2000 and a large retail and consumer goods company. Smaller accounts outside of the Global 2000 were an important source of performance.
+
+  [ 40] [EN] Inter-quarter, we saw strong growth in February and March. Growth moderated in April. We view this variability as a normal component of the business. Excluding the impact of leap year, product revenue grew approximately 32% year over year.
+       [中] 季度间，我们在二月和三月看到了强劲增长。四月增长放缓。我们认为这种波动是业务的正常组成部分。排除闰年影响，产品收入同比增长约32%。
+
+Inter-quarter, we saw strong growth in February and March. Growth moderated in April. We view this variability as a normal component of the business. Excluding the impact of leap year, product revenue grew approximately 32% year over year.
+
+  [ 41] [EN] We continue to see signs of a stable optimization environment. Seven of our top 10 customers grew quarter over quarter. Q1 marked the first quarter under our FY '25 sales compensation plan. Our sales reps are executing well against their plan.
+       [中] 我们继续看到稳定优化环境的迹象。前十大客户中有七个实现了环比增长。第一季度是我们2025财年销售薪酬计划下的第一个季度。我们的销售代表正在按计划良好执行。
+
+We continue to see signs of a stable optimization environment. Seven of our top 10 customers grew quarter over quarter. Q1 marked the first quarter under our FY '25 sales compensation plan. Our sales reps are executing well against their plan.
+
+  [ 42] [EN] In Q1, we exceeded our new customer acquisition and consumption quotas. Non-GAAP product gross margin of 76.9% was down slightly year over year. As mentioned on our prior call, we have headwinds associated with GPU-related costs as we invest in new AI initiatives. Our non-GAAP operating margin of 4% and benefited from revenue outperformance.
+       [中] 
+
+  [ 43] [EN] Our non-GAAP adjusted free cash flow margin was 44%. As a reminder, Q1 and Q4 are seasonally strong quarters for non-GAAP adjusted free cash flow. We ended the quarter with $4.5 billion in cash, cash equivalents, short-term, and long-term investments. In Q1, we used $516 million to repurchase 3 million shares at an average price of $173.14.
+       [中] 我们的non-GAAP adjusted free cash flow margin为44%。提醒一下，Q1和Q4是non-GAAP adjusted free cash flow的季节性强劲季度。本季度末，我们持有$4.5 billion现金、现金等价物以及短期和长期投资。在Q1，我们使用$516 million以平均价格$173.14回购了3 million股。
+
+Our non-GAAP adjusted free cash flow margin was 44%. As a reminder, Q1 and Q4 are seasonally strong quarters for non-GAAP adjusted free cash flow. We ended the quarter with $4.5 billion in cash, cash equivalents, short-term, and long-term investments. In Q1, we used $516 million to repurchase 3 million shares at an average price of $173.14.
+
+  [ 44] [EN] We have $892 million remaining under our original $2 billion authorization. Now, let's turn to our outlook. As a reminder, we only forecast product revenue based on observed behavior. This means our FY '25 guidance includes contributions from Snowpark.
+       [中] 我们最初授权的20亿美元中，还有8.92亿美元剩余。现在，让我们来看一下前景。提醒一下，我们仅根据观察到的行为来预测产品收入。这意味着我们的FY '25指引包含了Snowpark的贡献。
+
+We have $892 million remaining under our original $2 billion authorization. Now, let's turn to our outlook. As a reminder, we only forecast product revenue based on observed behavior. This means our FY '25 guidance includes contributions from Snowpark.
+
+  [ 45] [EN] FY '25 guidance does not include revenue from newer features such as Cortex until we see material consumption. Iceberg will be GA later this year. We have invested in Iceberg because we expect it to increase our future revenue opportunity. However, for the purpose of guidance, we continue to model revenue headwinds associated with the movement of data out of Snowflake and into Iceberg storage.
+       [中] FY '25 指引不包含来自Cortex等新功能的收入，直到我们看到实质性消费。Iceberg将在今年晚些时候正式发布（GA）。我们投资了Iceberg，因为我们预期它会增加我们未来的收入机会。然而，就指引而言，我们继续模拟与数据从Snowflake迁移到Iceberg存储相关的收入逆风。
+
+FY '25 guidance does not include revenue from newer features such as Cortex until we see material consumption. Iceberg will be GA later this year. We have invested in Iceberg because we expect it to increase our future revenue opportunity. However, for the purpose of guidance, we continue to model revenue headwinds associated with the movement of data out of Snowflake and into Iceberg storage.
+
+  [ 46] [EN] The negative impact is weighted to the back half of the year. For Q2, we expect product revenue between $805 million and $810 million. We are increasing our FY '25 product revenue guidance. We now expect full year product revenue of approximately $3.3 billion, representing 24% year-over-year growth.
+       [中] 负面影响主要集中在下半年。第二季度，我们预计产品收入在8.05亿至8.1亿美元之间。我们正在上调2025财年的产品收入指引。目前预计全年产品收入约为33亿美元，同比增长24%。
+
+The negative impact is weighted to the back half of the year. For Q2, we expect product revenue between $805 million and $810 million. We are increasing our FY '25 product revenue guidance. We now expect full year product revenue of approximately $3.3 billion, representing 24% year-over-year growth.
+
+  [ 47] [EN] Turning to margins. We are lowering our full year margin guidance in light of increased GPU-related costs related to our AI initiatives. We are operating in a rapidly evolving market, and we view these investments as key to unlocking additional revenue opportunities in the future. As a reminder, we have GPU related costs in both cost of revenue and R&D.
+       [中] 接下来谈谈利润率。鉴于与AI计划相关的GPU成本增加，我们正在下调全年利润率指引。我们正处于一个快速变化的市场中，并认为这些投资是未来解锁更多收入机会的关键。需要提醒的是，我们的GPU相关成本既包含在收入成本中，也包含在研发支出中。
+
+Turning to margins. We are lowering our full year margin guidance in light of increased GPU-related costs related to our AI initiatives. We are operating in a rapidly evolving market, and we view these investments as key to unlocking additional revenue opportunities in the future. As a reminder, we have GPU related costs in both cost of revenue and R&D.
+
+  [ 48] [EN] We announced our intent to acquire certain technology assets and hire key employees from TruEra. TruEra is an AI observability platform that provides capabilities to evaluate and monitor large language model apps and machine learning models and production. We are excited to welcome approximately 35 employees from TruEra to Snowflake. The impact of the transaction is reflected in our outlook.
+       [中] 我们宣布打算收购TruEra的部分技术资产并聘用其关键员工。TruEra是一家AI可观测性平台，提供评估和监控大型语言模型应用、机器学习模型及生产环境的能力。我们很高兴欢迎大约35名TruEra员工加入Snowflake。此次交易的影响已反映在我们的展望中。
+
+We announced our intent to acquire certain technology assets and hire key employees from TruEra. TruEra is an AI observability platform that provides capabilities to evaluate and monitor large language model apps and machine learning models and production. We are excited to welcome approximately 35 employees from TruEra to Snowflake. The impact of the transaction is reflected in our outlook.
+
+  [ 49] [EN] With that, operator, you can now open up the line for questions.
+       [中] 这样的话，操作员，你现在可以打开线路开始提问了。
+
+With that, operator, you can now open up the line for questions.
+
+
+  ━━ Questions & Answers: ━━
+  ━━ 问题与解答：
+Questions & Answers: ━━
+
+  [ 51] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 52] [EN] [Operator instructions] Our first question today comes from Keith Weiss with Morgan Stanley. Please proceed.
+       [中] 今天的第一个问题来自摩根士丹利的Keith Weiss。请继续。  
+[Operator instructions] Our first question today comes from Keith Weiss with Morgan Stanley. Please proceed.
+
+  [ 53] [EN] Keith Weiss--Morgan Stanley -- Analyst
+       [中] Keith Weiss--摩根士丹利--分析师  
+Keith Weiss--Morgan Stanley -- Analyst
+
+  [ 54] [EN] Excellent. Very nice quarter, guys. And thank you for taking the question. Looking at the front page of the investor relations page, 5 billion queries.
+       [中] 优秀。各位，这个季度非常好。感谢您接受提问。看看investor relations page的首页，5 billion queries。
+
+Excellent. Very nice quarter, guys. And thank you for taking the question. Looking at the front page of the investor relations page, 5 billion queries.
+
+  [ 55] [EN] It looks like your query volume is actually accelerating now again. Can you walk us through some of the drivers of that acceleration? Is it new products that are driving the acceleration? Or is it the relief of optimization or just like better data center? So, just a little bit more clarity on what's driving that acceleration. And then, on the other side of that equation, it looks like there's still pressures on like the price per query. Any indications on whether that like pressure on the price per query is coming more from the compute side of the equation or the storage side of the equation? Any color there would be super helpful.
+       [中] 看起来您的查询量现在再次加速增长。能否请您详细说明一下推动这一加速的因素？是新产品在驱动加速吗？还是优化带来的缓解，或者只是更好的数据中心？所以，希望能更清晰地了解驱动加速的原因。然后，在等式的另一边，似乎每次查询的价格仍面临压力。是否有迹象表明这种每次查询的价格压力更多来自等式的计算端还是存储端？任何相关说明都会非常有帮助。
+
+It looks like your query volume is actually accelerating now again. Can you walk us through some of the drivers of that acceleration? Is it new products that are driving the acceleration? Or is it the relief of optimization or just like better data center? So, just a little bit more clarity on what's driving that acceleration. And then, on the other side of that equation, it looks like there's still pressures on like the price per query. Any indications on whether that like pressure on the price per query is coming more from the compute side of the equation or the storage side of the equation? Any color there would be super helpful.
+
+  [ 56] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [ 57] [EN] Thank you. Overall, as both Mike and I said, our core business is very strong and growth is coming from both new customers, as well as expansion from existing customers. And as we gain more and different kinds of workloads, for example, AI, data engineering are increasing quite nicely. They're all contributing to additional credit growth.
+       [中] 谢谢。总体而言，正如Mike和我共同提到的，我们的核心业务非常强劲，增长来自于新客户以及现有客户的业务拓展。随着我们获得更多不同类型的工作负载，例如AI和数据工程正在稳步增长，这些都在推动额外的信贷增长。
+
+原文：
+Thank you. Overall, as both Mike and I said, our core business is very strong and growth is coming from both new customers, as well as expansion from existing customers. And as we gain more and different kinds of workloads, for example, AI, data engineering are increasing quite nicely. They're all contributing to additional credit growth.
+
+  [ 58] [EN] And the relationship between credit growth and cost per query is not a simple straightforward one. And we look for broad growth across the different categories of workloads that we handle, and they've all been doing really well.
+       [中] 信贷增长与每次查询成本之间的关系并非简单直接。我们在处理的不同工作负载类别中寻求广泛增长，而所有这些类别都表现良好。
+
+And the relationship between credit growth and cost per query is not a simple straightforward one. And we look for broad growth across the different categories of workloads that we handle, and they've all been doing really well.
+
+  [ 59] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 60] [EN] Our next question today comes from Mark Murphy with JPMorgan. Please proceed.
+       [中] 我们今天的下一个问题来自JPMorgan的Mark Murphy。请继续。
+
+Our next question today comes from Mark Murphy with JPMorgan. Please proceed.
+
+  [ 61] [EN] Mark Murphy--JPMorgan Chase and Company -- Analyst
+       [中] 马克·墨菲——JPMorgan Chase and Company——分析师  
+Mark Murphy--JPMorgan Chase and Company -- Analyst
+
+  [ 62] [EN] Great. Thank you very much. I'll add my congratulation. Sridhar, you trained Arctic LLM with a pretty amazing efficiency.
+       [中] 好的。非常感谢。我也要祝贺你。Sridhar，你以相当惊人的效率训练了Arctic LLM。
+
+Great. Thank you very much. I'll add my congratulation. Sridhar, you trained Arctic LLM with a pretty amazing efficiency.
+
+  [ 63] [EN] Could you walk us through the architectural difference in the product that might allow it to run more efficiently than other products out there in the market? And, Mike, is there any directional change to the $50 million target for GPU spend this year, just considering the launch of Cortex and Arctic LLM? And it sounds like some Snowpark traction. Should we think of that trending a little higher?
+       [中] 你能向我们介绍一下这款产品与市场上其他产品相比，在架构上的哪些差异使其运行效率更高吗？另外，Mike，考虑到Cortex和Arctic LLM的推出，今年GPU投入的5000万美元目标是否有方向性变化？听起来Snowpark也有了一些进展。我们是否应该认为这一趋势会有所上升？
+
+Could you walk us through the architectural difference in the product that might allow it to run more efficiently than other products out there in the market? And, Mike, is there any directional change to the $50 million target for GPU spend this year, just considering the launch of Cortex and Arctic LLM? And it sounds like some Snowpark traction. Should we think of that trending a little higher?
+
+  [ 64] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [ 65] [EN] Thank you. So, absolutely, we did train Arctic in a remarkably short period of time, a little over three months on a remarkably small amount of GPU compute. A lot of the training efficiency of these models do come from architectures. We had a rather unique mixture of experts architecture.
+       [中] 谢谢。是的，我们确实在极短的时间内训练了Arctic，耗时仅三个多月，使用的GPU算力也非常少。这些模型的训练效率很大程度上归功于架构。我们采用了相当独特的混合专家架构。
+
+原文：
+Thank you. So, absolutely, we did train Arctic in a remarkably short period of time, a little over three months on a remarkably small amount of GPU compute. A lot of the training efficiency of these models do come from architectures. We had a rather unique mixture of experts architecture.
+
+  [ 66] [EN] These are increasingly the architectures that are driving impressive gains for all of the other leading AI companies. But what also went into it was just an amazing amount of pre-experimentation in order to figure out things like what are the right data sets, what orders should they be fed in, and how do we make sure that they're actually optimizing for enterprise metrics. The kind of things our customers care about, which are things like are these models really good at creating SQL queries, for example, so that they can talk to data. And so, we are taking very much the view of how do we make AI much better in an enterprise context because, you know, naturally, that's the place where we have the most value to add.
+       [中] 这些都是日益推动其他领先AI公司取得显著收益的架构。但其中同样投入了大量预实验工作，以确定诸如哪些是正确的数据集、应以何种顺序输入数据，以及如何确保它们真正针对企业指标进行优化。这正是我们的客户所关心的，例如这些模型是否真正擅长生成SQL查询，以便与数据交互。因此，我们秉持的核心观点是：如何让AI在企业环境中表现得更好——因为自然而言，这正是我们能够创造最大价值的地方。
+
+These are increasingly the architectures that are driving impressive gains for all of the other leading AI companies. But what also went into it was just an amazing amount of pre-experimentation in order to figure out things like what are the right data sets, what orders should they be fed in, and how do we make sure that they're actually optimizing for enterprise metrics. The kind of things our customers care about, which are things like are these models really good at creating SQL queries, for example, so that they can talk to data. And so, we are taking very much the view of how do we make AI much better in an enterprise context because, you know, naturally, that's the place where we have the most value to add.
+
+  [ 67] [EN] And, you know, our AI budgets are modest in the scheme of things. And so, being creative in how we develop these models is something that the team, you know, comes to naturally expect. And I think that kind of, you know, discipline and scarcity, to be honest, produces a lot of innovation. And I think that's what you're seeing.
+       [中] 而且，你知道，我们的AI预算在整个大环境里算是适度的。所以，团队自然期望在开发这些模型时富有创意。而且我认为，说实话，这种纪律性和资源稀缺反而催生了很多创新。我想这就是你目前看到的。
+
+原文：And, you know, our AI budgets are modest in the scheme of things. And so, being creative in how we develop these models is something that the team, you know, comes to naturally expect. And I think that kind of, you know, discipline and scarcity, to be honest, produces a lot of innovation. And I think that's what you're seeing.
+
+  [ 68] [EN] And then, in terms of investments, I'll hand over to Mike in a second. But I'm comfortable with the amount of investments that we are making. Part of, you know, what we gain as Snowflake is the ability to fast follow on a number of fronts, is the ability to optimize against metrics that we care about, not producing like the latest, greatest, biggest model, let's say, for image generation. And so, having that kind of focus lets us operate on a relatively modest budget pretty efficiently.
+       [中] 那么在投资方面，我稍后会交给Mike。但我对我们目前的投资规模感到满意。我们作为Snowflake所获得的优势之一，就是能够在多个方向上快速跟进，能够针对我们关注的指标进行优化，而不是像其他公司那样去打造最新、最大、最强的模型，比如说图像生成模型。因此，这种专注让我们能够以相对适度的预算高效运营。
+
+And then, in terms of investments, I'll hand over to Mike in a second. But I'm comfortable with the amount of investments that we are making. Part of, you know, what we gain as Snowflake is the ability to fast follow on a number of fronts, is the ability to optimize against metrics that we care about, not producing like the latest, greatest, biggest model, let's say, for image generation. And so, having that kind of focus lets us operate on a relatively modest budget pretty efficiently.
+
+  [ 69] [EN] And so, the focus very much now is on how do we take all of the products that we have released into production. We have over 750 customers that are busy developing against our AI platform. This is a fast-moving space, but we are very comfortable with both the pace, the investments and the choices that we are making to make AI effective for Snowflake. Mike?
+       [中] 因此，现在的重点是我们如何将已发布的所有产品投入生产。我们有超过750家客户正在基于我们的AI平台进行开发。这是一个快速发展的领域，但我们对目前为让AI在Snowflake中发挥作用所采取的速度、投资和选择都感到非常满意。Mike？
+
+And so, the focus very much now is on how do we take all of the products that we have released into production. We have over 750 customers that are busy developing against our AI platform. This is a fast-moving space, but we are very comfortable with both the pace, the investments and the choices that we are making to make AI effective for Snowflake. Mike?
+
+  [ 70] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [ 71] [EN] And I will add that, yes, we think we may be spending a little bit more on GPUs, but it's also people that we're hiring, specifically in AI. We talked about the acquisition of TruEra. Those people all fall into that organization. And so, as I mentioned, the world of AI is rapidly evolving, and we are investing in that because we do think there's a massive opportunity for Snowflake to play there and it will have a meaningful impact on future revenues.
+       [中] 我还要补充一点，是的，我们确实认为在GPU上的支出可能会多一些，但同时我们也在招聘人员，特别是在AI领域。我们之前讨论过收购TruEra的事情。这些人员都归属于那个组织。所以，正如我所提到的，AI世界正在快速发展，我们正在对此进行投资，因为我们确实认为Snowflake在其中有着巨大的机会，并且这将对未来收入产生重要影响。
+
+And I will add that, yes, we think we may be spending a little bit more on GPUs, but it's also people that we're hiring, specifically in AI. We talked about the acquisition of TruEra. Those people all fall into that organization. And so, as I mentioned, the world of AI is rapidly evolving, and we are investing in that because we do think there's a massive opportunity for Snowflake to play there and it will have a meaningful impact on future revenues.
+
+  [ 72] [EN] Mark Murphy--JPMorgan Chase and Company -- Analyst
+       [中] 马克·墨菲——JPMorgan Chase and Company——分析师  
+Mark Murphy--JPMorgan Chase and Company -- Analyst
+
+  [ 73] [EN] Thank you very much.
+       [中] 非常感谢。
+Thank you very much.
+
+  [ 74] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 75] [EN] Our next question today comes from Kirk Materne with Evercore. Please proceed.
+       [中] 我们今天的下一个提问来自Evercore的Kirk Materne。请继续。
+
+Our next question today comes from Kirk Materne with Evercore. Please proceed.
+
+  [ 76] [EN] Kirk Materne--Evercore ISI -- Analyst
+       [中] Kirk Materne--Evercore ISI -- 分析师
+
+Kirk Materne--Evercore ISI -- Analyst
+
+  [ 77] [EN] Yeah, thanks very much and congrats on the quarter. Sridhar, can you just talk a little bit about how we should think about your customers' time to value with Cortex, meaning, you know, how long do you think it takes them to start using the technology before it can start to translate into a little bit faster consumption patterns? And then, just one for Mike. Mike, can you just talk a little bit about deferred? This quarter was down, perhaps, a little bit more sequentially than we've seen in prior years. I don't know if there's anything onetime in nature there, but if you could just touch upon that, that would be great.
+       [中] 好的，非常感谢，恭喜本季度业绩。Sridhar，能否谈谈我们应该如何看待客户使用Cortex实现价值的时间？也就是说，您认为他们需要多长时间才能开始使用这项技术，从而转化为更快的消费模式？然后，还有一个问题给Mike。Mike，能否谈谈递延收入？本季度环比下降幅度可能比往年更大一些。我不知道是否有一次性因素，如果您能提及一下，那就太好了。
+
+Yeah, thanks very much and congrats on the quarter. Sridhar, can you just talk a little bit about how we should think about your customers' time to value with Cortex, meaning, you know, how long do you think it takes them to start using the technology before it can start to translate into a little bit faster consumption patterns? And then, just one for Mike. Mike, can you just talk a little bit about deferred? This quarter was down, perhaps, a little bit more sequentially than we've seen in prior years. I don't know if there's anything onetime in nature there, but if you could just touch upon that, that would be great.
+
+  [ 78] [EN] Thank you all.
+       [中] 谢谢大家。
+Thank you all.
+
+  [ 79] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [ 80] [EN] Thank you. One of the cool things about Cortex AI and our AI products in general, in the context of the consumption model, is that our customers don't have to make big investments to see what value that they're going to get, you know, because they don't have to make commitments to how many GPUs that they are going to be renting, for example. They just use Cortex AI, for example, from SQL, which is very, very easy to do without a pre-commit. And this means that they can focus very much on sort of value creation.
+       [中] 谢谢。关于Cortex AI以及我们整体的AI产品，在消费模式背景下，一个很酷的特点就是我们的客户无需进行大笔投资就能看到他们将获得的价值，因为他们不需要承诺要租用多少GPU，例如。他们只需使用Cortex AI，比如从SQL开始，这非常非常容易，无需预先承诺。这意味着他们可以非常专注于价值创造。
+
+Thank you. One of the cool things about Cortex AI and our AI products in general, in the context of the consumption model, is that our customers don't have to make big investments to see what value that they're going to get, you know, because they don't have to make commitments to how many GPUs that they are going to be renting, for example. They just use Cortex AI, for example, from SQL, which is very, very easy to do without a pre-commit. And this means that they can focus very much on sort of value creation.
+
+  [ 81] [EN] And the structure of Cortex AI is also so that anybody that can write SQL can now begin to do really interesting things, for example, look at how often, let's say, a particular product was mentioned in an earnings transcript or being able to go from other kinds of unstructured information like whether it is text or whether it is images to structured information, which Document AI, our AI product there does. And so, we very much want to structure all of these efforts as ones in which our customers are able to iterate very quickly, take things to production, get value out of it, and then make bigger commitments on top. And that's one of the benefits that you get from making the technology super easy to adopt. There's not a massive learning curve, neither is there a GPU commitment or other kinds of software engineering that needs to happen in order to use AI with Snowflake.
+       [中] Cortex AI 的架构设计使得任何会写 SQL 的人都能开始做一些非常有趣的事情，例如，查看某个特定产品在财报会议记录中被提及的频率，或者能够从其他类型的非结构化信息（无论是文本还是图像）中提取结构化信息——这正是我们的 AI 产品 Document AI 所做的事情。因此，我们非常希望将这些努力结构化，让客户能够快速迭代、投入生产、从中获得价值，并在此基础上做出更大的投入。这正是让技术变得极其易于采用所带来的好处之一。使用 Snowflake 的 AI 功能不需要巨大的学习曲线，也不需要 GPU 承诺或其他软件工程方面的投入。
+
+And the structure of Cortex AI is also so that anybody that can write SQL can now begin to do really interesting things, for example, look at how often, let's say, a particular product was mentioned in an earnings transcript or being able to go from other kinds of unstructured information like whether it is text or whether it is images to structured information, which Document AI, our AI product there does. And so, we very much want to structure all of these efforts as ones in which our customers are able to iterate very quickly, take things to production, get value out of it, and then make bigger commitments on top. And that's one of the benefits that you get from making the technology super easy to adopt. There's not a massive learning curve, neither is there a GPU commitment or other kinds of software engineering that needs to happen in order to use AI with Snowflake.
+
+  [ 82] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [ 83] [EN] Yeah. On your question on deferred, Kirk, if you're referring to January to today, the end of the year, Q4 is always a very, very big billing quarter. Q1 is not as big of a billing quarter. So, you have that flowing through on the deferred revenue.
+       [中] 是的。关于你提到的递延问题，Kirk，如果你指的是从一月至今，年底Q4通常是一个非常非常大的计费季度，而Q1则没有那么大的计费规模。因此，这会影响递延收入的表现。
+
+原文：
+Yeah. On your question on deferred, Kirk, if you're referring to January to today, the end of the year, Q4 is always a very, very big billing quarter. Q1 is not as big of a billing quarter. So, you have that flowing through on the deferred revenue.
+
+  [ 84] [EN] However, RPO -- and you can see RPO, as Sridhar mentioned, is up 46% year over year. And we do have, for instance, we signed a $100 million deal this quarter with a customer who pays us monthly in arrears, so it doesn't show up in deferred revenue. We've signed a number of deals with big companies that pay us monthly in arrears that don't show up in deferred revenue but they're in RPO.
+       [中] 然而，RPO——正如Sridhar提到的，RPO同比增长了46%。举个例子，本季度我们与一位客户签订了一笔价值$100 million的合同，该客户每月后付款，因此这笔收入未计入递延收入。我们还与多家大公司签订了每月后付款的合同，这些合同同样未体现在递延收入中，但已被计入RPO。
+
+However, RPO -- and you can see RPO, as Sridhar mentioned, is up 46% year over year. And we do have, for instance, we signed a $100 million deal this quarter with a customer who pays us monthly in arrears, so it doesn't show up in deferred revenue. We've signed a number of deals with big companies that pay us monthly in arrears that don't show up in deferred revenue but they're in RPO.
+
+  [ 85] [EN] Kirk Materne--Evercore ISI -- Analyst
+       [中] Kirk Materne--Evercore ISI -- 分析师
+
+Kirk Materne--Evercore ISI -- Analyst
+
+  [ 86] [EN] That's helpful. Thanks, Mike. Thanks, Sridhar. Appreciate it.
+       [中] 那很有帮助。谢谢，Mike。谢谢，Sridhar。感激不尽。
+
+That's helpful. Thanks, Mike. Thanks, Sridhar. Appreciate it.
+
+  [ 87] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 88] [EN] Our next question today comes from Karl Keirstead with UBS. Please proceed. Karl, your line is now open.
+       [中] 我们今天的下一个问题来自UBS的Karl Keirstead。请开始提问。Karl，你的线路已接通。
+
+Our next question today comes from Karl Keirstead with UBS. Please proceed. Karl, your line is now open.
+
+  [ 89] [EN] Karl Keirstead--UBS -- Analyst
+       [中] Karl Keirstead——瑞银集团——分析师
+
+Karl Keirstead--UBS -- Analyst
+
+  [ 90] [EN] I'm sorry. Mike, could you elaborate on the comment that usage growth moderated in April? Maybe you could unpack that and explain why it usually does. And then, also, when I look at your 2Q and fiscal '25 revenue guidance, it's actually pretty solid. So, that would lead one to believe that whatever moderation there might be in April, it doesn't feel like it according to your guidance, rolled into May.
+       [中] 抱歉，Mike，能否详细说明一下关于4月份使用量增长放缓的说法？也许你可以展开解释一下，为什么通常会出现这种情况。另外，当我看到你们对第二季度和2025财年的收入预测时，实际上相当强劲。因此，这让人相信，无论4月份可能有什么放缓，根据你们的预测，这种感觉并没有延续到5月。
+
+原文：I'm sorry. Mike, could you elaborate on the comment that usage growth moderated in April? Maybe you could unpack that and explain why it usually does. And then, also, when I look at your 2Q and fiscal '25 revenue guidance, it's actually pretty solid. So, that would lead one to believe that whatever moderation there might be in April, it doesn't feel like it according to your guidance, rolled into May.
+
+  [ 91] [EN] Just curious if that's the correct interpretation. Thank you.
+       [中] 只是好奇这是否是正确解释。谢谢。  
+Just curious if that's the correct interpretation. Thank you.
+
+  [ 92] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [ 93] [EN] Well, what I would say is February and March were very strong. And I'm saying April was more muted. April, just as a reminder, it really impacts you in Europe and some others that is Ascension Day or Easter holiday. And in Europe, they take a long time off that does have an impact on consumption.
+       [中] 嗯，我想说的是二月和三月非常强劲。而四月则较为疲软。顺便提醒一下，四月在欧洲和其他一些地区受到耶稣升天节或复活节假期的影响。在欧洲，人们会放长假，这确实会对消费产生影响。
+
+Well, what I would say is February and March were very strong. And I'm saying April was more muted. April, just as a reminder, it really impacts you in Europe and some others that is Ascension Day or Easter holiday. And in Europe, they take a long time off that does have an impact on consumption.
+
+  [ 94] [EN] Remember, this is a daily consumption model. And the guidance we gave is based upon what we're seeing through our customers as of this week.
+       [中] 请记住，这是一个日常消费模型。我们给出的指引基于我们通过客户截至本周所观察到的情况。  
+Remember, this is a daily consumption model. And the guidance we gave is based upon what we're seeing through our customers as of this week.
+
+  [ 95] [EN] Karl Keirstead--UBS -- Analyst
+       [中] Karl Keirstead——瑞银集团——分析师
+
+Karl Keirstead--UBS -- Analyst
+
+  [ 96] [EN] OK. And, Mike, if I could ask a follow-up. You had mentioned previously, including, I think, at a conference in March that your efforts around that tiered storage side, whereby we could see some roll-off on the storage revenues could begin to impact the P&L in the April quarter. Was that the case? And would you be able to approximate what impact maybe the roll-off on the storage reps had? Thank you.
+       [中] 好的。还有，Mike，我想追问一个后续问题。你之前提到过——我记得是在三月份的一次会议上——你们围绕分层存储方面所做的努力，使得存储收入可能出现一定下滑，并开始对四月份季度的损益表产生影响。实际情况是这样的吗？另外，你能否大致估算一下存储收入下滑（roll-off）对存储代表（storage reps）的影响？谢谢。
+
+OK. And, Mike, if I could ask a follow-up. You had mentioned previously, including, I think, at a conference in March that your efforts around that tiered storage side, whereby we could see some roll-off on the storage revenues could begin to impact the P&L in the April quarter. Was that the case? And would you be able to approximate what impact maybe the roll-off on the storage reps had? Thank you.
+
+  [ 97] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [ 98] [EN] Sure. We did roll out to all of our customers, and we started, by the way, doing it at the end of last year, whereby depending on the amount of commitment you're making on an annual basis, you get tiered storage pricing. So, in essence, you get your storage discounted from the list price of $23 per terabyte. We started rolling that out and that actually in the quarter impacted us somewhere between $6 million and $8 million.
+       [中] 当然。我们确实已向所有客户推广，顺便提一下，我们是去年底开始实施的，即根据客户每年承诺的用量，提供分层存储定价。因此，本质上，你的存储费用会在每TB 23美元的标价基础上享受折扣。我们开始推行这一政策，而在当季度，这给我们带来了大约600万至800万美元的影响。
+
+Sure. We did roll out to all of our customers, and we started, by the way, doing it at the end of last year, whereby depending on the amount of commitment you're making on an annual basis, you get tiered storage pricing. So, in essence, you get your storage discounted from the list price of $23 per terabyte. We started rolling that out and that actually in the quarter impacted us somewhere between $6 million and $8 million.
+
+  [ 99] [EN] I forget exactly what that is. That is pure margin that that impacted. That's not to say there are other customers, big customers where we've always discounted their storage given their size. That is just the pure because of the tiered storage that's rolled out to everyone.
+       [中] 我忘了那具体是什么。那是受影响的纯利润。这并不是说没有其他客户，例如大客户，我们一直根据他们的规模给予存储折扣。那纯粹是因为分层存储已推广给所有人。
+
+I forget exactly what that is. That is pure margin that that impacted. That's not to say there are other customers, big customers where we've always discounted their storage given their size. That is just the pure because of the tiered storage that's rolled out to everyone.
+
+  [100] [EN] And that will continue to have an impact as people continue to renew their contracts. But storage mix as a percent of revenue has remained pretty much consistent at 11% of our revenue as associated with storage. That did not change.
+       [中] 随着人们继续续约，这将持续产生影响。但存储产品组合占总收入的比例一直保持稳定，与存储相关的收入占比为11%。这一点没有变化。
+
+And that will continue to have an impact as people continue to renew their contracts. But storage mix as a percent of revenue has remained pretty much consistent at 11% of our revenue as associated with storage. That did not change.
+
+  [101] [EN] Karl Keirstead--UBS -- Analyst
+       [中] Karl Keirstead——瑞银集团——分析师
+
+Karl Keirstead--UBS -- Analyst
+
+  [102] [EN] OK -- go ahead.
+       [中] 好的，请继续。
+
+OK -- go ahead.
+
+  [103] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [104] [EN] We're actually seeing growth storage in Snowflake.
+       [中] 我们实际上在Snowflake中看到了增长存储。
+We're actually seeing growth storage in Snowflake.
+
+  [105] [EN] Karl Keirstead--UBS -- Analyst
+       [中] Karl Keirstead——瑞银集团——分析师
+
+Karl Keirstead--UBS -- Analyst
+
+  [106] [EN] Got it. OK. Thank you for both answers. Super helpful.
+       [中] 明白了。好的。感谢您的两个回答。非常有帮助。
+
+Got it. OK. Thank you for both answers. Super helpful.
+
+  [107] [EN] Operator
+       [中] 操作员
+Operator
+
+  [108] [EN] Next question comes from Raimo Lenschow with Barclays. Please proceed.
+       [中] 下一个问题来自巴克莱银行的Raimo Lenschow。请继续。
+
+Next question comes from Raimo Lenschow with Barclays. Please proceed.
+
+  [109] [EN] Raimo Lenschow--Barclays -- Analyst
+       [中] Raimo Lenschow—Barclays—分析师  
+Raimo Lenschow--Barclays -- Analyst
+
+  [110] [EN] Thank you. Sridhar, like, thank you for all your comments around the AI evolution for you guys. Where -- is there a kind of a vision for you -- where is the demarcation line in a way where you want to play versus where you don't want to play in this kind of new AI world? Obviously, you know, like there's like how many LLMs do you need to own the acquisition today? The question is like, do you need to do observability? Or is that more people higher with kind of knowledge? Can you just kind of -- how is your thinking here evolving? Thank you.
+       [中] 谢谢。Sridhar，感谢你关于AI演进的所有评论。对于你们来说，是否存在某种愿景——在这个全新的AI世界中，你们想参与和不想参与的分界线在哪里？显然，你知道，比如今天你需要拥有多少个大语言模型才能完成收购？问题在于，你是否需要做可观测性？还是说更需要招募具备相关知识的人？你能大致谈谈——你在这方面的想法是如何演变的？谢谢。
+
+Thank you. Sridhar, like, thank you for all your comments around the AI evolution for you guys. Where -- is there a kind of a vision for you -- where is the demarcation line in a way where you want to play versus where you don't want to play in this kind of new AI world? Obviously, you know, like there's like how many LLMs do you need to own the acquisition today? The question is like, do you need to do observability? Or is that more people higher with kind of knowledge? Can you just kind of -- how is your thinking here evolving? Thank you.
+
+  [111] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [112] [EN] This is a fabulous question. Like, first and foremost, I think it is important for all of us to acknowledge that AI language models are going to have an impact at multiple levels of what you can think of as a data stack. So, for example, the way in which people are going to be migrating from an old system, an on-prem system to something like Snowflake, is going to be aided by the presence of a Copilot that can do much of the translation. We already have such a translation product and we think AI is going to make that go even faster.
+       [中] 这是个极好的问题。首先，我认为我们所有人都需要认识到，AI语言模型将在你所能想到的数据堆栈的多个层级上产生影响。例如，人们从旧系统、本地部署系统迁移到像Snowflake这样的平台的方式，将因Copilot的存在而得到辅助，它能完成大部分翻译工作。我们已经有了这样的翻译产品，而且我们认为AI将使其速度更快。
+
+原文：
+This is a fabulous question. Like, first and foremost, I think it is important for all of us to acknowledge that AI language models are going to have an impact at multiple levels of what you can think of as a data stack. So, for example, the way in which people are going to be migrating from an old system, an on-prem system to something like Snowflake, is going to be aided by the presence of a Copilot that can do much of the translation. We already have such a translation product and we think AI is going to make that go even faster.
+
+  [113] [EN] But in other areas like data cleansing, data engineering that are perhaps not as sexy, but nevertheless required a huge amount of investment in order to make sure that the data is enterprise grade. We think AI is going to play a big role both in the creation of those pipelines, but also in things like how does one make sure that the data is clean. For example, if PII accidentally flips into a table or a distribution goes very wonky, language models can help detect deviations from patterns. And then, going up the stack, we have a very acclaimed product for writing SQL, our Copilot within our user interface, that can significantly accelerate in analysts' ability to get to know a data set and be productive with it.
+       [中] 但在数据清洗、数据工程等其他领域，这些工作或许不那么引人注目，但为了确保数据达到企业级标准，仍需投入大量资金。我们认为，AI不仅将在构建这些数据管道中发挥重要作用，还能在如何确保数据清洁方面贡献力量。例如，若PII意外出现在某张表中，或数据分布出现严重异常，语言模型可以协助检测模式偏差。再往上走，我们拥有一款备受赞誉的用于编写SQL的产品——用户界面内的Copilot，它能显著加速分析师熟悉数据集并高效产出的能力。
+
+原文：But in other areas like data cleansing, data engineering that are perhaps not as sexy, but nevertheless required a huge amount of investment in order to make sure that the data is enterprise grade. We think AI is going to play a big role both in the creation of those pipelines, but also in things like how does one make sure that the data is clean. For example, if PII accidentally flips into a table or a distribution goes very wonky, language models can help detect deviations from patterns. And then, going up the stack, we have a very acclaimed product for writing SQL, our Copilot within our user interface, that can significantly accelerate in analysts' ability to get to know a data set and be productive with it.
+
+  [114] [EN] And then, of course, to something like a data API, which now begins to put enterprise data into the hands of a business user, but with a very high degree of reliability. And so, my point is there is a broad impact. And I think things like automating some of the work that an analyst has to do, for example, to troubleshoot problems, will be things that a language model can do. Having said that, for a variety of problems, small models, which we are perfectly capable of developing from scratch like we have done for Document AI or more a midsized model like what we did with Arctic, actually suffices for the vast majority of the applications, you know, that I'm talking about.
+       [中] 然后，当然，还有像数据API这样的东西，它现在开始将企业数据交到业务用户手中，同时具备非常高的可靠性。所以，我的观点是，这会产生广泛的影响。我认为，诸如自动化分析师必须完成的一些工作（例如排查问题）将由语言模型来完成。不过话说回来，对于各种问题，我们完全有能力从头开发的小型模型（比如我们为Document AI所做的），或者中等规模的模型（比如我们用Arctic构建的），实际上已经足以应对我提到的大多数应用场景。
+
+And then, of course, to something like a data API, which now begins to put enterprise data into the hands of a business user, but with a very high degree of reliability. And so, my point is there is a broad impact. And I think things like automating some of the work that an analyst has to do, for example, to troubleshoot problems, will be things that a language model can do. Having said that, for a variety of problems, small models, which we are perfectly capable of developing from scratch like we have done for Document AI or more a midsized model like what we did with Arctic, actually suffices for the vast majority of the applications, you know, that I'm talking about.
+
+  [115] [EN] And so, there are academic benchmarks like there's one called MMLU. It's a notoriously difficult benchmark and depends very much on model size and how many dollars people are throwing at training those models. We can get a huge amount done with a small team under modest investment without needing to play, you know, at that level where you're talking -- you know, companies are talking about spending billions of dollars. I don't think we need to be there.
+       [中] 因此，有一些学术基准测试，比如MMLU。这是一个公认的困难基准，很大程度上取决于模型规模以及人们投入的训练资金。我们可以在适度投资下，凭借一个小团队完成大量工作，无需参与到那种——你知道的，公司谈论花费数十亿美元的水平。我认为我们不需要达到那种程度。
+
+原文：And so, there are academic benchmarks like there's one called MMLU. It's a notoriously difficult benchmark and depends very much on model size and how many dollars people are throwing at training those models. We can get a huge amount done with a small team under modest investment without needing to play, you know, at that level where you're talking -- you know, companies are talking about spending billions of dollars. I don't think we need to be there.
+
+  [116] [EN] I think being very focused on what we need to deliver for our customers will take us a long way with the amount of investments that we are making. And finally, I will add that we have amazing partnerships with a ton of people. Even today, I wrote about how we're collaborating with Landing.AI and [Inaudible] but we have partnerships with Mistral, with Reika, with a ton of other companies. The field of AI is so large that I don't think there's going to be one company that is going to make every model that every person is going to use.
+       [中] 我认为，专注于为客户提供所需的东西，将帮助我们在进行大量投资时走得更远。最后，我还要补充一点，我们与许多合作伙伴建立了令人惊叹的合作关系。就在今天，我写到了我们如何与Landing.AI和[听不清]合作，但我们还与Mistral、Reika以及许多其他公司建立了合作伙伴关系。人工智能领域如此广阔，我不认为会有哪一家公司能制造出每个人都会使用的每一个模型。
+
+原文：
+I think being very focused on what we need to deliver for our customers will take us a long way with the amount of investments that we are making. And finally, I will add that we have amazing partnerships with a ton of people. Even today, I wrote about how we're collaborating with Landing.AI and [Inaudible] but we have partnerships with Mistral, with Reika, with a ton of other companies. The field of AI is so large that I don't think there's going to be one company that is going to make every model that every person is going to use.
+
+  [117] [EN] We are very good at developing the models that we need in our core. And we actively collaborate with a large set of players for other kinds of models. And obviously, they see value in the 10,000 customers we have and being able to go to market together. And so I think this is likely to continue for the indefinite future in terms of what we need to do.
+       [中] 我们非常擅长开发核心所需的模型，并积极与大量参与方合作开发其他类型的模型。显然，他们看到了我们拥有的10,000名客户的价值，以及能共同进入市场的能力。因此，就我们需要做的事情而言，我认为这种情况很可能会在未来无限期地持续下去。
+
+We are very good at developing the models that we need in our core. And we actively collaborate with a large set of players for other kinds of models. And obviously, they see value in the 10,000 customers we have and being able to go to market together. And so I think this is likely to continue for the indefinite future in terms of what we need to do.
+
+  [118] [EN] Raimo Lenschow--Barclays -- Analyst
+       [中] Raimo Lenschow—Barclays—分析师  
+Raimo Lenschow--Barclays -- Analyst
+
+  [119] [EN] OK, perfect. Thank you.
+       [中] 好的，完美。谢谢你。
+
+OK, perfect. Thank you.
+
+  [120] [EN] Operator
+       [中] 操作员
+Operator
+
+  [121] [EN] Our next question today comes from Brent Thill with Jefferies. Please proceed.
+       [中] 我们今天的下一个问题来自Jefferies的Brent Thill。请继续。
+
+Our next question today comes from Brent Thill with Jefferies. Please proceed.
+
+  [122] [EN] Brent Thill--Jefferies -- Analyst
+       [中] Brent Thill--Jefferies --分析师  
+Brent Thill--Jefferies -- Analyst
+
+  [123] [EN] Mike, on the acceleration of RPO, up 46%, I know you mentioned the $100 million deal. But was there anything else that was surprising to you in the quarter that helped in this reacceleration? Any other notable trends that maybe you haven't seen or you're starting to see now?
+       [中] Mike，关于RPO的加速增长，增长了46%，我知道你提到了那个$100 million的deal。但是本季度是否还有其他让你惊讶的事情帮助了这次重新加速？有没有其他你之前没有看到或者现在开始看到的显著趋势？
+Mike, on the acceleration of RPO, up 46%, I know you mentioned the $100 million deal. But was there anything else that was surprising to you in the quarter that helped in this reacceleration? Any other notable trends that maybe you haven't seen or you're starting to see now?
+
+  [124] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [125] [EN] Yeah. Remember, that 46% is up year over year. So, the year-ago comparison didn't have the $250 million deal we signed in Q4 that went into there. There was another $100 million deal that was signed subsequent to that, too.
+       [中] 是的。记住，这46%是同比增长。因此，去年同期的比较不包含我们在第四季度签署的2.5亿美元的交易，该交易计入了其中。此后还签署了另一笔1亿美元的交易。
+
+Yeah. Remember, that 46% is up year over year. So, the year-ago comparison didn't have the $250 million deal we signed in Q4 that went into there. There was another $100 million deal that was signed subsequent to that, too.
+
+  [126] [EN] So -- but what I will say is, and as I mentioned, we are very pleased with the number of Cap 1s in our bookings in Q1. And there are -- as I mentioned, we did a $100 million deal in Q1, and we will do another $100 million deal this quarter potentially, too. So, we're very pleased with our business and more of the commitment that our customers are making in Snowflake long term.
+       [中] 不过我要说的是，正如我提到的，我们对第一季度计入的Cap 1s数量感到非常满意。而且正如我所说，我们在第一季度完成了一笔1亿美元的交易，本季度可能还会再完成一笔1亿美元的交易。因此，我们对业务以及客户对Snowflake的长期承诺感到非常满意。
+
+So -- but what I will say is, and as I mentioned, we are very pleased with the number of Cap 1s in our bookings in Q1. And there are -- as I mentioned, we did a $100 million deal in Q1, and we will do another $100 million deal this quarter potentially, too. So, we're very pleased with our business and more of the commitment that our customers are making in Snowflake long term.
+
+  [127] [EN] Brent Thill--Jefferies -- Analyst
+       [中] Brent Thill--Jefferies --分析师  
+Brent Thill--Jefferies -- Analyst
+
+  [128] [EN] And quickly, for Sridhar, I know you mentioned the priorities are the same, but you are the new CEO. I guess, from your perspective, what are your top priorities for the rest of '24?
+       [中] 很快，对于Sridhar，我知道你提到优先事项没有变化，但你是新任CEO。我想，从你的角度来看，你在'24年剩余时间里的首要任务是什么？
+
+原文：And quickly, for Sridhar, I know you mentioned the priorities are the same, but you are the new CEO. I guess, from your perspective, what are your top priorities for the rest of '24?
+
+  [129] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [130] [EN] I touched on them. Driving product innovation faster is definitely way up there in the list. And you see this coming to fruition with things like how fast our AI platform, Cortex AI, came to market or what we did with Arctic. But I want to stress again that we see incredible potential across our AI data cloud.
+       [中] 我提到了它们。加快产品创新绝对是在列表的前列。你可以看到这正在结出硕果，比如我们的AI平台Cortex AI推向市场的速度，或者我们在Arctic上的成果。但我想再次强调，我们在AI data cloud中看到了巨大的潜力。
+
+I touched on them. Driving product innovation faster is definitely way up there in the list. And you see this coming to fruition with things like how fast our AI platform, Cortex AI, came to market or what we did with Arctic. But I want to stress again that we see incredible potential across our AI data cloud.
+
+  [131] [EN] The AI related is one part, but support for Iceberg is actually an exciting new chapter for all players in data. You know, we had an announcement yesterday and today at the BUILD conference. But the general theme is, you know, we are able to bring Snowflake to bear on more of the data that is sitting in data lakes. And then, beyond that, we have things like Hybrid Tables that are kind of coming out, Container Services, which massively expand the kind of applications that can run on top of Snowflake.
+       [中] AI相关的只是一部分，但对Iceberg的支持实际上为所有数据参与者开启了令人振奋的新篇章。你知道，我们在昨天的BUILD大会上和今天都发布了公告。但总体主题是，我们能够将Snowflake应用于数据湖中更多的数据。除此之外，我们还有Hybrid Tables等新功能即将推出，以及Container Services，它极大地扩展了可以在Snowflake上运行的应用程序类型。
+
+The AI related is one part, but support for Iceberg is actually an exciting new chapter for all players in data. You know, we had an announcement yesterday and today at the BUILD conference. But the general theme is, you know, we are able to bring Snowflake to bear on more of the data that is sitting in data lakes. And then, beyond that, we have things like Hybrid Tables that are kind of coming out, Container Services, which massively expand the kind of applications that can run on top of Snowflake.
+
+  [132] [EN] So, product innovation is one focus. Just as equally importantly, helping our go-to-market teams take these products to market, having the specialization to be able to zone in on the applications that deliver the most value for our customers, upping the game on just enablement within Snowflake and also doing a great job of enablement with the many partners that we work with. That broad suite of taking products to market, I would say, is my others like priority inside. I also spent a substantial amount of time on the road talking to customers.
+       [中] 因此，产品创新是一个重点。同样重要的是，帮助我们的市场推广团队将这些产品推向市场，具备专业能力聚焦于能为客户带来最大价值的应用，提升Snowflake内部赋能水平，并与我们合作的众多伙伴做好赋能工作。这一整套产品推向市场的工作，可以说是我的另一项内部优先事项。我还花费大量时间在路上与客户交流。
+
+原文：So, product innovation is one focus. Just as equally importantly, helping our go-to-market teams take these products to market, having the specialization to be able to zone in on the applications that deliver the most value for our customers, upping the game on just enablement within Snowflake and also doing a great job of enablement with the many partners that we work with. That broad suite of taking products to market, I would say, is my others like priority inside. I also spent a substantial amount of time on the road talking to customers.
+
+  [133] [EN] I would say, on average, I'm not traveling every other week. That's kind of how you get to meet over 100 customers in, what, 70-odd days. But that's a rough breakdown of my priorities, make sure that I'm in front of customers and with folks in the field, focus on product execution, and also on just go-to-market efficiency.
+       [中] 我会说，平均而言，我并不是每隔一周出差一次。这大概就是你在70多天里会见超过100个客户的方式。但这只是我工作重点的一个大致划分，确保我面对客户、与一线同事在一起，专注于产品执行，同时也关注市场推广效率。
+
+I would say, on average, I'm not traveling every other week. That's kind of how you get to meet over 100 customers in, what, 70-odd days. But that's a rough breakdown of my priorities, make sure that I'm in front of customers and with folks in the field, focus on product execution, and also on just go-to-market efficiency.
+
+  [134] [EN] Brent Thill--Jefferies -- Analyst
+       [中] Brent Thill--Jefferies --分析师  
+Brent Thill--Jefferies -- Analyst
+
+  [135] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [136] [EN] Operator
+       [中] 操作员
+Operator
+
+  [137] [EN] Our next question today comes from Matt Hedberg with RBC. Please proceed.
+       [中] 今天下一个问题来自RBC的Matt Hedberg。请继续。
+
+Our next question today comes from Matt Hedberg with RBC. Please proceed.
+
+  [138] [EN] Matt Hedberg--RBC Capital Markets -- Analyst
+       [中] Matt Hedberg--RBC Capital Markets -- 分析师
+
+Matt Hedberg--RBC Capital Markets -- Analyst
+
+  [139] [EN] Thanks for taking my questions. Sridhar, you know, we spend a lot of time focused on the investments you're making in R&D and GPUs. But I'm wondering about your sales and marketing forecast and maybe what you've learned from your time there especially when you noted expanding your reach. And I guess, specifically, does your sales motion need to change or evolve when talking to, say, data scientists, for instance?
+       [中] 感谢您提出这些问题。Sridhar，您知道，我们花了很多时间关注您在研发和GPU方面的投资。但我想了解您的销售和营销预测，以及您在此期间学到的经验，尤其是当您提到扩大覆盖范围时。具体来说，在与数据科学家这样的对象沟通时，您的销售模式是否需要改变或演变？
+
+Thanks for taking my questions. Sridhar, you know, we spend a lot of time focused on the investments you're making in R&D and GPUs. But I'm wondering about your sales and marketing forecast and maybe what you've learned from your time there especially when you noted expanding your reach. And I guess, specifically, does your sales motion need to change or evolve when talking to, say, data scientists, for instance?
+
+  [140] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [141] [EN] That is a great question, and I touched on this in the answer to my previous question. Absolutely. I think the kind of product offerings that are needed to be able to effectively have a conversation with a data science team is a little bit different from, say, the team that's running warehouses. What is exciting, and I can tell you that today from many conversations that I've had with customers is that applications written on top of Snowflake, something we call managed applications where our customers write applications on top and then using things like our collaborations to actively share data with their customers.
+       [中] 这是一个很好的问题，我在回答上一个问题时已经有所提及。当然可以。我认为，要与数据科学团队有效沟通所需的产品组合，与例如负责仓库运营的团队所需的有所不同。令人兴奋的是，我可以告诉你，根据我与客户的多次交流，如今基于Snowflake构建的应用程序——我们称之为托管应用程序，即客户在其上编写应用程序，并利用我们的协作功能等主动与他们的客户共享数据——正变得越来越重要。
+
+原文：That is a great question, and I touched on this in the answer to my previous question. Absolutely. I think the kind of product offerings that are needed to be able to effectively have a conversation with a data science team is a little bit different from, say, the team that's running warehouses. What is exciting, and I can tell you that today from many conversations that I've had with customers is that applications written on top of Snowflake, something we call managed applications where our customers write applications on top and then using things like our collaborations to actively share data with their customers.
+
+  [142] [EN] That is actually puts us in conversation directly with business leaders in these companies because we now become a part of their top line of actually helping them generate revenue. And yes, so there are different product motions that are needed for different products and the different people that are going to benefit from these. We created a specialized partner organization, for example, that is focused explicitly on data providers on who can bring additional data to Snowflake and then how do we drive revenue opportunity for them. And similarly, with AI, for example, we need people feel much more comfortable in the world of language models.
+       [中] 这实际上让我们直接与这些公司的业务领导者对话，因为我们成为了他们营收的一部分，帮助他们创造收入。是的，不同的产品需要不同的产品策略，而受益对象也各不相同。例如，我们创建了一个专门的合作伙伴组织，专注于数据提供商，他们可以为Snowflake带来更多数据，然后我们如何为他们创造营收机会。同样地，以人工智能为例，我们需要让人们在使用语言模型时感到更加自在。
+
+That is actually puts us in conversation directly with business leaders in these companies because we now become a part of their top line of actually helping them generate revenue. And yes, so there are different product motions that are needed for different products and the different people that are going to benefit from these. We created a specialized partner organization, for example, that is focused explicitly on data providers on who can bring additional data to Snowflake and then how do we drive revenue opportunity for them. And similarly, with AI, for example, we need people feel much more comfortable in the world of language models.
+
+  [143] [EN] Our magic is also that we make AI available to all analysts. And that's a big booth that they are going to get from, you know, how they use Snowflake. Absolutely, there is change going into our go-to-market motion. But as you know, it is a gradual change.
+       [中] 我们的魔力还在于让所有分析师都能使用人工智能。这是他们将通过使用Snowflake获得的一大优势。当然，我们的上市策略正在发生变化。但如您所知，这是一个渐进的变化。
+
+Our magic is also that we make AI available to all analysts. And that's a big booth that they are going to get from, you know, how they use Snowflake. Absolutely, there is change going into our go-to-market motion. But as you know, it is a gradual change.
+
+  [144] [EN] We are constantly looking for what's the best way to take a particular product to market or how to solve a specific customer problem. And, you know, you see that reflected in how our field organizations are organized and managed.
+       [中] 我们一直在寻找将特定产品推向市场的最佳方式，或如何解决特定的客户问题。而且，你看，这反映在我们的现场组织是如何构建和管理的。  
+
+We are constantly looking for what's the best way to take a particular product to market or how to solve a specific customer problem. And, you know, you see that reflected in how our field organizations are organized and managed.
+
+  [145] [EN] Matt Hedberg--RBC Capital Markets -- Analyst
+       [中] Matt Hedberg--RBC Capital Markets -- 分析师
+
+Matt Hedberg--RBC Capital Markets -- Analyst
+
+  [146] [EN] That's great. That's great. And maybe just a quick one for Mike. I appreciate the color on consumption trends.
+       [中] 太好了。太好了。或许再问Mike一个简短的问题。感谢您提供的关于消费趋势的洞察。
+
+That's great. That's great. And maybe just a quick one for Mike. I appreciate the color on consumption trends.
+
+  [147] [EN] That's super helpful. I know you said you based your guidance on what you've seen this week. I guess, you know, maybe just a question on May. Have you seen May then bounce back a bit versus what sounds like a seasonally slow April traditionally?
+       [中] 这非常有帮助。你说你的指引是基于本周所见，我想问一下关于五月的情况。你观察到五月相比传统上季节性低迷的四月是否有所反弹？
+
+That's super helpful. I know you said you based your guidance on what you've seen this week. I guess, you know, maybe just a question on May. Have you seen May then bounce back a bit versus what sounds like a seasonally slow April traditionally?
+
+  [148] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [149] [EN] As I said, our guidance is based upon consumption patterns we're seeing in the quarter, and that's reflected inside there.
+       [中] 正如我所说，我们的指引是基于本季度我们看到的消费模式，这一点已反映在其中。
+
+As I said, our guidance is based upon consumption patterns we're seeing in the quarter, and that's reflected inside there.
+
+  [150] [EN] Matt Hedberg--RBC Capital Markets -- Analyst
+       [中] Matt Hedberg--RBC Capital Markets -- 分析师
+
+Matt Hedberg--RBC Capital Markets -- Analyst
+
+  [151] [EN] Thanks.
+       [中] 谢谢。
+Thanks.
+
+  [152] [EN] Operator
+       [中] 操作员
+Operator
+
+  [153] [EN] Our next question comes from Brent Bracelin with Piper Sandler. Please proceed.
+       [中] 我们的下一个问题来自Piper Sandler的Brent Bracelin。请继续。
+
+Our next question comes from Brent Bracelin with Piper Sandler. Please proceed.
+
+  [154] [EN] Brent Bracelin--Piper Sandler -- Analyst
+       [中] Brent Bracelin--Piper Sandler -- 分析师  
+Brent Bracelin--Piper Sandler -- Analyst
+
+  [155] [EN] Thank you. Good afternoon. Sridhar, in your opening remarks, you flagged Iceberg as the potential unlock that could accelerate growth. Maybe that's a longer-term view.
+       [中] 谢谢。下午好。Sridhar，在你的开场白中，你提到Iceberg可能是加速增长的潜在突破口。也许这需要更长期的视角。
+
+Thank you. Good afternoon. Sridhar, in your opening remarks, you flagged Iceberg as the potential unlock that could accelerate growth. Maybe that's a longer-term view.
+
+  [156] [EN] But can you just walk through how or why spending could actually go up for Snowflake in an environment where customer moves to Iceberg? Thanks.
+       [中] 但你能否详细说明一下，在客户转向Iceberg的环境下，Snowflake的支出为何或如何可能反而增加？谢谢。
+
+But can you just walk through how or why spending could actually go up for Snowflake in an environment where customer moves to Iceberg? Thanks.
+
+  [157] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [158] [EN] So, first of all, Iceberg is a capability. And it is a capability to be able to read and to write file in a structured interoperable format. And, yes, there will be some customers that will move a portion of their data from Snowflake into an Iceberg format because they have an application that they want to run on top of the data. But the fact of the matter is that data lakes or cloud storage in general for most customers has data that is often 100 or 200 times the amount of data that is sitting inside Snowflake.
+       [中] 那么，首先，Iceberg是一种能力。它是以结构化的可互操作格式读写文件的能力。确实，会有一些客户将部分数据从Snowflake迁移到Iceberg格式，因为他们希望在这些数据之上运行某个应用程序。但事实是，对于大多数客户而言，数据湖或云存储中的数据量通常是Snowflake内部数据量的100倍或200倍。
+
+原文：
+So, first of all, Iceberg is a capability. And it is a capability to be able to read and to write file in a structured interoperable format. And, yes, there will be some customers that will move a portion of their data from Snowflake into an Iceberg format because they have an application that they want to run on top of the data. But the fact of the matter is that data lakes or cloud storage in general for most customers has data that is often 100 or 200 times the amount of data that is sitting inside Snowflake.
+
+  [159] [EN] And now, with Iceberg as a format under our support for it, all of a sudden, you can run workloads with Snowflake directly on top of this data. And we don't have to wait for, you know, some future time in order to be able to pitch and win these use cases, whether it's data engineering or whether it is AI, Iceberg becomes a seamless, you know, pipe into all of this information that existing customers already have, and that's the unlock that I'm talking about. I'll also have Christian, you know, say a word. He's been at this for a very long time and has a lot of insight on.
+       [中] 现在，随着我们支持将Iceberg作为一种格式，突然间，你可以直接在这个数据之上通过Snowflake运行工作负载。我们不再需要等待某个未来时机才能争取并赢得这些用例——无论是数据工程还是AI，Iceberg都成为了一条无缝的管道，连接现有客户已经拥有的所有信息，这就是我所说的解锁。接下来，让Christian也说几句。他在这方面深耕已久，见解深刻。
+
+原文：
+And now, with Iceberg as a format under our support for it, all of a sudden, you can run workloads with Snowflake directly on top of this data. And we don't have to wait for, you know, some future time in order to be able to pitch and win these use cases, whether it's data engineering or whether it is AI, Iceberg becomes a seamless, you know, pipe into all of this information that existing customers already have, and that's the unlock that I'm talking about. I'll also have Christian, you know, say a word. He's been at this for a very long time and has a lot of insight on.
+
+  [160] [EN] Christian Kleinerman--Executive Vice President, Product
+       [中] Christian Kleinerman--产品执行副总裁  
+
+Christian Kleinerman--Executive Vice President, Product
+
+  [161] [EN] Yeah. I would just add to what Sridhar said. We have many of our existing customers. Echoing what Sridhar just described, they have lots of data, tens of petabytes of data ready to be analyzed.
+       [中] 是的。我想补充一下Sridhar所说的。我们有很多现有客户。正如Sridhar刚才描述的，他们拥有大量数据，数十PB的数据等待分析。
+
+原文：
+Yeah. I would just add to what Sridhar said. We have many of our existing customers. Echoing what Sridhar just described, they have lots of data, tens of petabytes of data ready to be analyzed.
+
+  [162] [EN] They don't think that it makes sense for -- that they have to be copied or ingested into Snowflake, but they have use cases where they want to combine data in Snowflake with that existing data. So, the opportunity is very real. And what Sridhar also alluded to, the announcement we made with Microsoft in the last two days is entirely about that. How do we take the data that is available in Microsoft Fabric and, through Iceberg, make it available to Snowflake.
+       [中] 他们认为，数据并不一定要被复制或导入到Snowflake，但在某些使用场景中，他们希望将Snowflake中的数据与现有数据结合。因此，这个机会非常真实。Sridhar也提到，我们在过去两天与Microsoft共同发布的公告，正是围绕这一点展开的：如何通过Iceberg，将Microsoft Fabric中的数据提供给Snowflake。
+
+原文：
+They don't think that it makes sense for -- that they have to be copied or ingested into Snowflake, but they have use cases where they want to combine data in Snowflake with that existing data. So, the opportunity is very real. And what Sridhar also alluded to, the announcement we made with Microsoft in the last two days is entirely about that. How do we take the data that is available in Microsoft Fabric and, through Iceberg, make it available to Snowflake.
+
+  [163] [EN] So, the opportunity is not a long-term one. It's not framed that's something that we'll have to wait a lot for.
+       [中] 所以，这个机会并非长期的，它并非被设定成需要我们长期等待的东西。
+
+原文：
+So, the opportunity is not a long-term one. It's not framed that's something that we'll have to wait a lot for.
+
+  [164] [EN] Brent Bracelin--Piper Sandler -- Analyst
+       [中] Brent Bracelin--Piper Sandler -- 分析师  
+Brent Bracelin--Piper Sandler -- Analyst
+
+  [165] [EN] Quick clarification for Mike here. Knocking down some big deals, another $100 million deal in Q1. It sounds like another one in Q2. Last I checked, the macro is pretty tough.
+       [中] 这里给Mike快速澄清一下。敲定了一些大交易，第一季度又有一笔1亿美元的交易。听起来第二季度还会有另一笔。我上次查看时，宏观环境相当艰难。
+
+Quick clarification for Mike here. Knocking down some big deals, another $100 million deal in Q1. It sounds like another one in Q2. Last I checked, the macro is pretty tough.
+
+  [166] [EN] What's driving that? Is the AI roadmap helping?
+       [中] 是什么在驱动这个？AI路线图有帮助吗？
+
+What's driving that? Is the AI roadmap helping?
+
+  [167] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [168] [EN] These are all existing customers and large customers, and it still is core data warehousing. But they're all interested and want to have a discussion around what we're doing in AI. But many of these, both the one in Q1, we are core to their business and the one that's going to do in Q -- the current quarter now, we are core to how they run their business. And that is what's really driving these customers to make these big long-term commitments with us.
+       [中] 这些都是我们的现有客户和大客户，核心业务仍然是数据仓库。但他们都有兴趣，并希望围绕我们在AI领域的工作进行讨论。不过其中很多客户——无论是第一季度的那位，还是本季度即将签约的那位——我们对其业务而言都是核心，我们深入参与其运营方式。这正是推动这些客户与我们签订长期大宗承诺的真正原因。
+
+These are all existing customers and large customers, and it still is core data warehousing. But they're all interested and want to have a discussion around what we're doing in AI. But many of these, both the one in Q1, we are core to their business and the one that's going to do in Q -- the current quarter now, we are core to how they run their business. And that is what's really driving these customers to make these big long-term commitments with us.
+
+  [169] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [170] [EN] And then, several of these deals, not the one that Mike mentioned, but in several other very large ones, collaborations are actually having snowflake be the conduit by which these large customers monetize their data by having their customers access this data serves as a very powerful catalyst. And absolutely, AI is a help in all of these, and these are the folks that are leaning into and creating AI applications on top of Snowflake. But at its core, you should see these very large investments as a bet on Snowflake as the AI data platform. Should we go to the next question?
+       [中] 此外，在这些交易中——并非Mike提及的那一项，而是其他几笔规模非常大的交易——合作实际上让Snowflake成为这些大客户变现数据的通道，通过让他们的客户访问这些数据，这本身就是一个非常强大的催化剂。当然，AI在所有这一切中都起到辅助作用，而这些人正在基于Snowflake积极构建并创建AI应用。但就其核心而言，你应该将这些巨额投资视为对Snowflake作为AI数据平台的一次押注。我们进入下一个问题吗？
+
+原文：And then, several of these deals, not the one that Mike mentioned, but in several other very large ones, collaborations are actually having snowflake be the conduit by which these large customers monetize their data by having their customers access this data serves as a very powerful catalyst. And absolutely, AI is a help in all of these, and these are the folks that are leaning into and creating AI applications on top of Snowflake. But at its core, you should see these very large investments as a bet on Snowflake as the AI data platform. Should we go to the next question?
+
+  [171] [EN] Jimmy Sexton--Head of Investor Relations
+       [中] Jimmy Sexton--投资者关系主管  
+原文：Jimmy Sexton--Head of Investor Relations
+
+  [172] [EN] Operator, next question. I think we have audio issues.
+       [中] 操作员，下一个问题。我认为我们有音频问题。
+
+Operator, next question. I think we have audio issues.
+
+  [173] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [174] [EN] Yeah, we have a little audio glitch. Please be patient.
+       [中] 是的，我们有一点音频故障。请耐心等待。
+
+Yeah, we have a little audio glitch. Please be patient.
+
+  [175] [EN] Jimmy Sexton--Head of Investor Relations
+       [中] Jimmy Sexton--投资者关系主管  
+原文：Jimmy Sexton--Head of Investor Relations
+
+  [176] [EN] We can't hear them. We can't hear the operator.
+       [中] 我们听不到他们。我们听不到操作员。
+
+We can't hear them. We can't hear the operator.
+
+  [177] [EN] Operator
+       [中] 操作员
+Operator
+
+  [178] [EN] Apologies. Can you guys hear me now?
+       [中] 抱歉。你们现在能听到我说话吗？
+
+Apologies. Can you guys hear me now?
+
+  [179] [EN] Jimmy Sexton--Head of Investor Relations
+       [中] Jimmy Sexton--投资者关系主管  
+原文：Jimmy Sexton--Head of Investor Relations
+
+  [180] [EN] We hear you now.
+       [中] 我们现在听到你了。  
+We hear you now.
+
+  [181] [EN] Operator
+       [中] 操作员
+Operator
+
+  [182] [EN] OK, I am so sorry about that. Yes, I did say our next question today comes from Patrick Colville. Your line is actually open. I apologize.
+       [中] 好的，对此我非常抱歉。是的，我确实说了今天我们的下一个问题来自Patrick Colville。您的线路实际上已接通。我很抱歉。
+
+OK, I am so sorry about that. Yes, I did say our next question today comes from Patrick Colville. Your line is actually open. I apologize.
+
+  [183] [EN] Joe Vandrick--Scotiabank -- Analyst
+       [中] Joe Vandrick--Scotiabank -- 分析师
+
+Joe Vandrick--Scotiabank -- Analyst
+
+  [184] [EN] This is Joe Vandrick on for Patrick Colville. Sridhar, I know you joined Snowflake about a year ago, but you've now been CEO for about three months. So, just wondering if there's anything that surprised you or that's worth calling out that you've learned since stepping into the CEO role? And then, also curious of your view on a few other products, Streamlit and Unistore, if you could talk a bit about customer engagement you're seeing there. Thanks.
+       [中] 我是Joe Vandrick，替Patrick Colville主持。Sridhar，我知道你大约一年前加入Snowflake，但现在你担任CEO大约三个月了。所以，想问问自从担任CEO以来，有没有什么让你感到惊讶或者值得一提的收获？另外，我也很好奇你对其他几个产品——Streamlit和Unistore的看法，能否谈谈你在那里看到的客户参与情况？谢谢。
+
+This is Joe Vandrick on for Patrick Colville. Sridhar, I know you joined Snowflake about a year ago, but you've now been CEO for about three months. So, just wondering if there's anything that surprised you or that's worth calling out that you've learned since stepping into the CEO role? And then, also curious of your view on a few other products, Streamlit and Unistore, if you could talk a bit about customer engagement you're seeing there. Thanks.
+
+  [185] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [186] [EN] Yeah. I've been here at Snowflake close to a year. And as I said, I've had a lot and I have a lot of customer conversations. The amount of love and respect that our customers have for the core product, how easy it is to use, how efficient it is and how maintenance-free, dramatically lowering total cost of ownership.
+       [中] 是的，我来到Snowflake已经将近一年。正如我所说，我与客户进行了大量交流。客户对我们的核心产品充满了喜爱与尊重——它易于使用、高效、无需维护，显著降低了总拥有成本。
+
+Yeah. I've been here at Snowflake close to a year. And as I said, I've had a lot and I have a lot of customer conversations. The amount of love and respect that our customers have for the core product, how easy it is to use, how efficient it is and how maintenance-free, dramatically lowering total cost of ownership.
+
+  [187] [EN] It is the thing, you know, that continues to pleasantly surprise me, is also obviously an important quality for us to preserve while we are releasing new products. And we take the trouble to do that. Uniformly, the feedback that we get about Cortex, which is our AI layer, from pretty tough tech reviewers is that, yes, we truly make the hard easy because anybody that can write SQL, now is able to do some pretty nifty things with AI. I think that combination of simplicity and ease of use is an incredibly powerful quality for Snowflake.
+       [中] 你知道，这件事一直让我感到惊喜，也是我们在推出新产品时需要保留的重要特质。我们费尽心思去做到这一点。来自那些相当苛刻的技术评测者对于我们的AI层Cortex的反馈一致认为：是的，我们确实做到了化繁为简，因为任何会写SQL的人现在都能用AI做出一些相当酷的事情。我认为这种简洁易用的结合对于Snowflake来说是一种极其强大的特质。
+
+原文：
+It is the thing, you know, that continues to pleasantly surprise me, is also obviously an important quality for us to preserve while we are releasing new products. And we take the trouble to do that. Uniformly, the feedback that we get about Cortex, which is our AI layer, from pretty tough tech reviewers is that, yes, we truly make the hard easy because anybody that can write SQL, now is able to do some pretty nifty things with AI. I think that combination of simplicity and ease of use is an incredibly powerful quality for Snowflake.
+
+  [188] [EN] And while I knew it, I think it is still a surprise, a pleasant surprise every time customers bring it up. And then, in terms of Streamlit, Streamlit is -- for those that don't know, is a rapid prototyping environment. It's a little bit like being able to write an application and have it be hosted on Snowflake without having to do any other work. You don't have to bring up a Kubernetes cluster.
+       [中] 尽管我对此心知肚明，但每次客户提起时，我仍感到惊喜，一种愉悦的惊喜。至于Streamlit——对于那些不了解的人来说——它是一个快速原型开发环境。它有点像能够编写一个应用，并将其托管在Snowflake上，而无需进行任何额外工作。你不需要启动一个Kubernetes集群。
+
+And while I knew it, I think it is still a surprise, a pleasant surprise every time customers bring it up. And then, in terms of Streamlit, Streamlit is -- for those that don't know, is a rapid prototyping environment. It's a little bit like being able to write an application and have it be hosted on Snowflake without having to do any other work. You don't have to bring up a Kubernetes cluster.
+
+  [189] [EN] You don't have to deploy a binary, none of that stuff. You write a little application, and it just runs. There are a ton of applications inside Snowflake, for example, whether it's our compensation information or whether it is finance information, our forecast or even chatbots that I personally have created, these all run on Streamlit but with just incredible operational efficiency because they just run as part of our Snowflake instance that is already running in the customer deployment. There are folks that have adopted it very, very broadly.
+       [中] 你不需要部署二进制文件，完全不需要。你只需编写一个小型应用程序，它就能直接运行。Snowflake内部有大量应用程序，比如我们的薪酬信息、财务信息、预测，甚至是我个人创建的聊天机器人——它们都运行在Streamlit上，而且运营效率惊人，因为这些应用只是作为Snowflake实例的一部分运行，而该实例已经在客户部署中运行了。已经有非常非常多的人采用了这种方式。
+
+原文：
+You don't have to deploy a binary, none of that stuff. You write a little application, and it just runs. There are a ton of applications inside Snowflake, for example, whether it's our compensation information or whether it is finance information, our forecast or even chatbots that I personally have created, these all run on Streamlit but with just incredible operational efficiency because they just run as part of our Snowflake instance that is already running in the customer deployment. There are folks that have adopted it very, very broadly.
+
+  [190] [EN] And we think of this as really like highlighting, showcasing snowflake functionality, making it super easy to distribute these things to Snowflake users. And in that perspective, it's been a hugely, hugely positive application. And the team has also been the one, for example, that's been working on notebooks which is going to be an important priority going forward. So, lots of positive things on that side.
+       [中] 我们认为这实际上非常有助于突出和展示Snowflake的功能，使得向Snowflake用户分发这些内容变得极其简单。从这个角度来看，这是一款极为、极为积极的应用程序。例如，该团队也一直在致力于笔记本功能，这将是未来的一个重要优先事项。因此，这方面有很多积极进展。
+
+And we think of this as really like highlighting, showcasing snowflake functionality, making it super easy to distribute these things to Snowflake users. And in that perspective, it's been a hugely, hugely positive application. And the team has also been the one, for example, that's been working on notebooks which is going to be an important priority going forward. So, lots of positive things on that side.
+
+  [191] [EN] And then, on Unistore or as we call them Hybrid Tables, these are really meant to address a different kind of workload that is more transactional in nature than the analytics workload that often runs on top of Snowflake. It is in public preview. It will be in GA later this year. I think it opens up several new classes of applications that can run very effectively on top of Snowflake.
+       [中] 然后，关于Unistore（也就是我们所说的Hybrid Tables），它们实际上是为了处理一种本质上更偏向事务型的工作负载，而不同于通常在Snowflake上运行的分析型工作负载。目前它处于公开预览阶段，将在今年晚些时候正式发布（GA）。我认为这开启了几种新型应用程序的类别，它们可以在Snowflake上非常高效地运行。
+
+And then, on Unistore or as we call them Hybrid Tables, these are really meant to address a different kind of workload that is more transactional in nature than the analytics workload that often runs on top of Snowflake. It is in public preview. It will be in GA later this year. I think it opens up several new classes of applications that can run very effectively on top of Snowflake.
+
+  [192] [EN] It's the same Snowflake sort of magic, which is you don't need to stand up servers, you don't need to go do a whole lot of work, you know, on top of them or deal with Kubernetes clusters. And we see, I think, it's close to 300 customers that are actively using Hybrid Tables. We can absolutely expect that number to go up by a lot. Christian, any other thoughts on these two?
+       [中] 这和Snowflake的魔力如出一辙：你无需部署服务器，无需在之上做大量工作，也无需处理Kubernetes集群。据我们观察，目前已有接近300家客户在使用Hybrid Tables。毫无疑问，这个数字还将大幅增长。Christian，你对这两点还有什么看法？
+
+It's the same Snowflake sort of magic, which is you don't need to stand up servers, you don't need to go do a whole lot of work, you know, on top of them or deal with Kubernetes clusters. And we see, I think, it's close to 300 customers that are actively using Hybrid Tables. We can absolutely expect that number to go up by a lot. Christian, any other thoughts on these two?
+
+  [193] [EN] Christian Kleinerman--Executive Vice President, Product
+       [中] Christian Kleinerman--产品执行副总裁  
+
+Christian Kleinerman--Executive Vice President, Product
+
+  [194] [EN] No. Streamlit is not generally available on all three clouds. That has driven a lot of interesting adoption. And the Hybrid Tables, many of our customers have likely valuation, and they are actually waiting for the general availability at the end of this year.
+       [中] 不，Streamlit 并未在所有三个云上全面可用。这推动了大量有趣的采用。至于Hybrid Tables，许多客户可能已经进行了估值，他们实际上正在等待今年年底的全面可用性。
+
+No. Streamlit is not generally available on all three clouds. That has driven a lot of interesting adoption. And the Hybrid Tables, many of our customers have likely valuation, and they are actually waiting for the general availability at the end of this year.
+
+  [195] [EN] Joe Vandrick--Scotiabank -- Analyst
+       [中] Joe Vandrick--Scotiabank -- 分析师
+
+Joe Vandrick--Scotiabank -- Analyst
+
+  [196] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [197] [EN] Operator
+       [中] 操作员
+Operator
+
+  [198] [EN] Our next question today comes from Brad Reback with Stifel. Please proceed.
+       [中] 我们今天的下一个问题来自Stifel的Brad Reback。请继续。
+
+Our next question today comes from Brad Reback with Stifel. Please proceed.
+
+  [199] [EN] Robert Galvin--Stifel Financial Corp. -- Analyst
+       [中] Robert Galvin——Stifel Financial Corp.——分析师
+
+Robert Galvin--Stifel Financial Corp. -- Analyst
+
+  [200] [EN] Hi. This is Rob on for Brad. Thanks for taking the question. For Christian or Sridhar, over the past few months, including yesterday, Snowflake Ventures is investing in a few observability of logging and some companies.
+       [中] 你好。我是Rob，代Brad发言。感谢你的提问。Christian或Sridhar，过去几个月里，包括昨天，Snowflake Ventures正在投资一些日志可观测性公司和其他一些公司。
+
+Hi. This is Rob on for Brad. Thanks for taking the question. For Christian or Sridhar, over the past few months, including yesterday, Snowflake Ventures is investing in a few observability of logging and some companies.
+
+  [201] [EN] And I'm wondering what the underlying strategy is with the visibility type investments, that maybe there is some big opportunity that you're trying to address? Thanks.
+       [中] 我想了解一下，这类Visibility型投资背后的策略是什么，是否你们正在尝试抓住某个重大机遇？谢谢。
+
+And I'm wondering what the underlying strategy is with the visibility type investments, that maybe there is some big opportunity that you're trying to address? Thanks.
+
+  [202] [EN] Christian Kleinerman--Executive Vice President, Product
+       [中] Christian Kleinerman--产品执行副总裁  
+
+Christian Kleinerman--Executive Vice President, Product
+
+  [203] [EN] Christian here. Observability is very important for our customers. One is data observability and be able to understand things like data quality and variations on data itself. But also, as we have evolved Snowflake into be able to host business logic and be an application platform, there's also observability for code.
+       [中] Christian在此。可观测性对我们的客户非常重要。一方面是数据可观测性，能够理解数据质量以及数据本身的变化。同时，随着我们将Snowflake发展为能够承载业务逻辑并成为一个应用平台，代码的可观测性也同样重要。
+
+Christian here. Observability is very important for our customers. One is data observability and be able to understand things like data quality and variations on data itself. But also, as we have evolved Snowflake into be able to host business logic and be an application platform, there's also observability for code.
+
+  [204] [EN] How do I know what my Snowpark Container Service is doing? Or how do I troubleshoot and monitor [Inaudible] on Snowpark. That is a big context for -- observability is an important priority for us, both data, as well code, and we'll continue to partner with all the rich ecosystem that will help us go and more understand what's happening data and code.
+       [中] 如何了解我的Snowpark Container Service正在做什么？或者如何排查和监控Snowpark上的[听不清]？这是一个大背景——可观测性对我们来说是一个重要的优先事项，无论是数据还是代码，我们将继续与丰富的生态系统合作，帮助我们进一步了解数据和代码中发生的情况。
+
+原文：
+How do I know what my Snowpark Container Service is doing? Or how do I troubleshoot and monitor [Inaudible] on Snowpark. That is a big context for -- observability is an important priority for us, both data, as well code, and we'll continue to partner with all the rich ecosystem that will help us go and more understand what's happening data and code.
+
+  [205] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [206] [EN] And the general comment that I will make is that Snowflake is a great platform to develop applications on top of. And we end up collaborating, sometimes investing in a lot of companies that build interesting applications on top of Snowflake. Observability is one area. But just to give another example, we have close partnerships with several, you know, customer data platforms, and that list sort of keeps going on and on because want there to be a vibrant ecosystem on top of Snowflake.
+       [中] 我要给出的总体评价是，Snowflake是一个非常适合在其上开发应用的平台。我们最终会合作，有时也会投资许多在Snowflake上构建有趣应用的公司。可观测性是一个领域。但再举一个例子，我们与多家客户数据平台保持着紧密的合作关系，而且这个名单还在不断增长，因为我们希望在Snowflake之上形成一个充满活力的生态系统。
+
+And the general comment that I will make is that Snowflake is a great platform to develop applications on top of. And we end up collaborating, sometimes investing in a lot of companies that build interesting applications on top of Snowflake. Observability is one area. But just to give another example, we have close partnerships with several, you know, customer data platforms, and that list sort of keeps going on and on because want there to be a vibrant ecosystem on top of Snowflake.
+
+  [207] [EN] Robert Galvin--Stifel Financial Corp. -- Analyst
+       [中] Robert Galvin——Stifel Financial Corp.——分析师
+
+Robert Galvin--Stifel Financial Corp. -- Analyst
+
+  [208] [EN] Great. Thank you.
+       [中] 好的。谢谢。
+
+Great. Thank you.
+
+  [209] [EN] Operator
+       [中] 操作员
+Operator
+
+  [210] [EN] Our next question today comes from Tyler Radke with Citi. Please proceed.
+       [中] 我们今天的下一个问题来自Citi的Tyler Radke。请继续。
+
+Our next question today comes from Tyler Radke with Citi. Please proceed.
+
+  [211] [EN] Tyler Radke--Citi -- Analyst
+       [中] Tyler Radke--Citi--分析师  
+Tyler Radke--Citi -- Analyst
+
+  [212] [EN] Thank you very much. Mike, you talked about some upside from smaller customers during the quarter. Could you just talk about the nature of those small customers, these start-ups, maybe GenAI companies? And was this more of a one-off? Or do you expect this strength to persist throughout the rest of the year?
+       [中] 非常感谢。Mike，你谈到了本季度中小客户带来的一些上行空间。能否谈谈这些中小客户的性质，这些初创公司，也许是GenAI公司？这是否更像是一次性的？或者你预计这种势头会持续到今年剩余时间？
+
+Thank you very much. Mike, you talked about some upside from smaller customers during the quarter. Could you just talk about the nature of those small customers, these start-ups, maybe GenAI companies? And was this more of a one-off? Or do you expect this strength to persist throughout the rest of the year?
+
+  [213] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [214] [EN] It was very much broad-based, and it's across all industries. It's the non-G2K I'm talking about. And some of these are very large companies, a lot of -- there's private companies in there, too, and it's across the board.
+       [中] 这次增长非常广泛，覆盖所有行业。我指的是非G2K领域。其中一些是非常大的公司，也有很多私营企业，并且是全面性的。
+
+原文：It was very much broad-based, and it's across all industries. It's the non-G2K I'm talking about. And some of these are very large companies, a lot of -- there's private companies in there, too, and it's across the board.
+
+  [215] [EN] Tyler Radke--Citi -- Analyst
+       [中] Tyler Radke--Citi--分析师  
+Tyler Radke--Citi -- Analyst
+
+  [216] [EN] Got it. And then, a quick follow-up on the sales and marketing side. So, both the expenses and headcount increased quite a bit sequentially. Is that primarily quota-carrying hires? Is it, you know, marketing folks? Just give us a sense on exactly what's driving that higher investment?
+       [中] 明白了。接下来，关于销售和营销方面的一个快速追问。因此，费用和员工人数都环比增长了不少。这主要是负责配额的新员工吗？还是说，是市场营销人员？请大概告诉我们，到底是什么驱动了更高的投资？
+
+Got it. And then, a quick follow-up on the sales and marketing side. So, both the expenses and headcount increased quite a bit sequentially. Is that primarily quota-carrying hires? Is it, you know, marketing folks? Just give us a sense on exactly what's driving that higher investment?
+
+  [217] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [218] [EN] Well, first of all, on the expense side, we mentioned at the end of last quarter because of our change in comp plan, we were going to see more commission expense being expensed immediately versus deferred and amortized. As I said, it doesn't really change the cash flow, but it did add to the expense. And we are adding a number of reps, principally a lot in the acquisition team in the commercial space, as well as on the business development, the SDR side as well, too, within the company. But we are adding people throughout the sales organization, including SEs this year, you will see us.
+       [中] 首先，在费用方面，我们在上季末提到，由于薪酬计划的调整，更多佣金费用将立即列支，而非递延摊销。正如我所说，这并未改变现金流，但确实增加了费用。同时，我们正在增加大量销售代表，主要是在商业领域的收购团队，以及公司内部的业务发展和销售开发代表（SDR）团队。但我们正在整个销售组织内增加人手，包括今年会看到的售前工程师（SEs）。
+
+Well, first of all, on the expense side, we mentioned at the end of last quarter because of our change in comp plan, we were going to see more commission expense being expensed immediately versus deferred and amortized. As I said, it doesn't really change the cash flow, but it did add to the expense. And we are adding a number of reps, principally a lot in the acquisition team in the commercial space, as well as on the business development, the SDR side as well, too, within the company. But we are adding people throughout the sales organization, including SEs this year, you will see us.
+
+  [219] [EN] And I think we feel pretty good about our business. We've hit our numbers in the first quarter. And we're constantly looking at headcount, and we will continue to invest in the sales organization as we see that we can ramp them.
+       [中] 我认为我们对业务感到相当满意。我们在第一季度达成了目标。我们一直在关注员工人数，并且当我们看到能够提升销售团队时，我们将继续投资于销售组织。
+
+And I think we feel pretty good about our business. We've hit our numbers in the first quarter. And we're constantly looking at headcount, and we will continue to invest in the sales organization as we see that we can ramp them.
+
+  [220] [EN] Tyler Radke--Citi -- Analyst
+       [中] Tyler Radke--Citi--分析师  
+Tyler Radke--Citi -- Analyst
+
+  [221] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [222] [EN] Operator
+       [中] 操作员
+Operator
+
+  [223] [EN] Our final question today comes from Alex Zukin with Wolfe Research. Please proceed.
+       [中] 我们今天的最后一个问题来自Wolfe Research的Alex Zukin。请继续。
+
+Our final question today comes from Alex Zukin with Wolfe Research. Please proceed.
+
+  [224] [EN] Alex Zukin--Wolfe Research -- Analyst
+       [中] Alex Zukin——Wolfe Research——分析师
+
+Alex Zukin--Wolfe Research -- Analyst
+
+  [225] [EN] Hey, guys. Apologies for the background noise, and congrats on a great quarter. Maybe just first for Sridhar, you mentioned some really interesting Cortex use cases from Sigma on the prepared remarks. Can you maybe dig in a bit more, share some of the vision of how some of your larger customers are thinking and deploying Cortex and maybe Arctic.
+       [中] 嘿，各位。抱歉背景有点嘈杂，祝贺你们度过了出色的一季度。也许首先问Sridhar，你在准备好的发言中提到了Sigma的一些非常有趣的Cortex用例。能否再深入谈谈，分享一些关于你们的大客户如何看待和部署Cortex以及可能还有Arctic的愿景？
+
+Hey, guys. Apologies for the background noise, and congrats on a great quarter. Maybe just first for Sridhar, you mentioned some really interesting Cortex use cases from Sigma on the prepared remarks. Can you maybe dig in a bit more, share some of the vision of how some of your larger customers are thinking and deploying Cortex and maybe Arctic.
+
+  [226] [EN] And how can it impact their experience when they start deploying it in more production grade use cases?
+       [中] 当他们在更多生产级用例中开始部署它时，这如何影响他们的体验？
+
+And how can it impact their experience when they start deploying it in more production grade use cases?
+
+  [227] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [228] [EN] I think I got the gist of your question. I'll definitely address it. What Snowflake makes easy is the ability to analyze, for example, unstructured text information for things like sentiment or even like categories of feedback or by using things like vector embedding and soon the Cortex index, be able to do -- be able to figure out what are the most related support cases, let's say, for a new question that came in and auto-generate a response. Increasingly, I think of this as the AI stack, where there is a central repository, let's say, a bunch of previously answered questions and then a new question comes in, you are able to generate an answer for the new customer problem simply based on your history.
+       [中] 我想我理解了你的问题要点。我一定会回答这个问题。Snowflake 让分析非结构化文本信息变得简单，例如，可以分析情绪、反馈类别，或者通过使用向量嵌入以及即将推出的Cortex index，能够找出与新问题最相关的支持案例，并自动生成回复。我越来越把这看作是一套AI技术栈：比如有一个中央存储库，存放着大量之前回答过的问题，当新问题出现时，你可以仅凭历史记录为新客户的问题生成答案。
+
+原文：I think I got the gist of your question. I'll definitely address it. What Snowflake makes easy is the ability to analyze, for example, unstructured text information for things like sentiment or even like categories of feedback or by using things like vector embedding and soon the Cortex index, be able to do -- be able to figure out what are the most related support cases, let's say, for a new question that came in and auto-generate a response. Increasingly, I think of this as the AI stack, where there is a central repository, let's say, a bunch of previously answered questions and then a new question comes in, you are able to generate an answer for the new customer problem simply based on your history.
+
+  [229] [EN] This is a little bit like, you know, what companies do imperfectly today, where they will let you search over, let's say, a forum, Snowflake as a forum, for you to figure out, well, has this question already been answered? The magic of language models is that they can automate this process. So, the truly new questions can get dispatched to a customer service rep to answer from scratch because the company does not know about it. But to me, that is a prototype, which is there is a central repository that's sitting in Snowflake. There's a language model that is basically getting requests from outside routed in and control logic that decides what to do with this.
+       [中] 这有点类似于如今公司做得并不完善的做法——它们会让你在论坛（比如Snowflake作为论坛）中搜索，看看某个问题是否已经被回答过了。语言模型的魔力在于它能自动化这个过程。这样，真正的新问题就会分配给客服代表从头解答，因为公司对此尚未知晓。但对我来说，那只是一个原型，其背后是存储在Snowflake中的一个中央储存库，外加一个语言模型，它接收来自外部的请求，并通过控制逻辑来决定如何处理这些请求。
+
+原文：This is a little bit like, you know, what companies do imperfectly today, where they will let you search over, let's say, a forum, Snowflake as a forum, for you to figure out, well, has this question already been answered? The magic of language models is that they can automate this process. So, the truly new questions can get dispatched to a customer service rep to answer from scratch because the company does not know about it. But to me, that is a prototype, which is there is a central repository that's sitting in Snowflake. There's a language model that is basically getting requests from outside routed in and control logic that decides what to do with this.
+
+  [230] [EN] And obviously, something like just a pure chatbot, where he can just interact. We have one deployed on all of our IT questions internally at Snowflake, for example, is just so you can have like a quick conversation about a problem that somebody is already solved. We make things like this trivial. But, perhaps, what is really interesting about Cortex is basically language transformation.
+       [中] 显然，像纯聊天机器人这样的东西，他可以与之互动。例如，我们在Snowflake内部部署了一个用于回答所有IT问题的机器人，这样你就可以快速聊一聊某个已经有人解决过的问题。我们把这类事情变得很简单。但或许，Cortex真正有趣的地方在于语言转换。
+
+原文：
+And obviously, something like just a pure chatbot, where he can just interact. We have one deployed on all of our IT questions internally at Snowflake, for example, is just so you can have like a quick conversation about a problem that somebody is already solved. We make things like this trivial. But, perhaps, what is really interesting about Cortex is basically language transformation.
+
+  [231] [EN] I talked about sentiment detection, but there's also other stuff like summarization or extracting like data from JSON, are more complicated, extracting information from, let's say, images. We automate all of those things. And the beauty of our model is all of this is driven by consumption. There is no pre-commit to spend.
+       [中] 我提到了情感检测，但还有其他的东西，比如摘要提取，或者从JSON中提取数据，这些更复杂，再比如说从图像中提取信息。我们自动化了所有这些事情。而我们模型的妙处在于，这一切都是由消费驱动的，无需预先承诺支出。
+
+原文：
+I talked about sentiment detection, but there's also other stuff like summarization or extracting like data from JSON, are more complicated, extracting information from, let's say, images. We automate all of those things. And the beauty of our model is all of this is driven by consumption. There is no pre-commit to spend.
+
+  [232] [EN] These applications get deployed. If they get a lot of usage, that generates consumption. And so it's almost Darwinian in how like great applications come out and drive usage. And obviously, making it this simple also means that complex tasks that required software engineering before just become a little pipeline that runs in Snowflake every hour, every two hours, that's acting on all of the data that is coming into Snowflake anyway.
+       [中] 这些应用程序得以部署。如果它们被大量使用，就会产生消耗。因此，优秀的应用程序如何脱颖而出并推动使用，这几乎是达尔文式的。显然，如此简化也意味着以前需要软件工程的复杂任务，现在只需变成一条在Snowflake上每小时或每两小时运行的简单管道，就能处理所有流入Snowflake的数据。
+
+These applications get deployed. If they get a lot of usage, that generates consumption. And so it's almost Darwinian in how like great applications come out and drive usage. And obviously, making it this simple also means that complex tasks that required software engineering before just become a little pipeline that runs in Snowflake every hour, every two hours, that's acting on all of the data that is coming into Snowflake anyway.
+
+  [233] [EN] So, I would say the use cases that I'm talking about -- these are just like things that you could do with Snowflake that are massively accelerated by the presence of language models. This is one category. The second one really is in how do language models make it much easier to access data that is structured data that is in Snowflake. You've heard me refer to it as like a data API.
+       [中] 所以，我要说的这些用例——就像你可以用Snowflake做的事情，而语言模型的出现极大地加速了这些操作。这是第一类。第二类则在于，语言模型如何让访问Snowflake中的结构化数据变得更加容易。你们听过我称之为数据API。
+
+So, I would say the use cases that I'm talking about -- these are just like things that you could do with Snowflake that are massively accelerated by the presence of language models. This is one category. The second one really is in how do language models make it much easier to access data that is structured data that is in Snowflake. You've heard me refer to it as like a data API.
+
+  [234] [EN] The idea basically is that it's currently quite hard. You have to go through an analyst, perhaps, a BI tool, to get any new pieces of information. What we are working on, this is not yet in public preview, it will be soon, is a product by which by giving semantic information about a snowflake schema, you essentially make it possible for people to have a conversation with it. We aren't quite here yet, but I'd like to give Mike Scarpelli an app that knows about finance information that he's able to query but actually trust the information that is coming out of it.
+       [中] 基本思路是目前这相当困难。你必须通过分析师，或者可能是BI工具，才能获取任何新信息。我们正在开发的产品（尚未公开预览，但很快会推出）是通过提供关于snowflake schema的语义信息，使人们能够与它对话。我们还没完全实现，但我希望能给Mike Scarpelli一个了解财务信息的应用，让他能够查询并真正信任从中得出的信息。
+
+The idea basically is that it's currently quite hard. You have to go through an analyst, perhaps, a BI tool, to get any new pieces of information. What we are working on, this is not yet in public preview, it will be soon, is a product by which by giving semantic information about a snowflake schema, you essentially make it possible for people to have a conversation with it. We aren't quite here yet, but I'd like to give Mike Scarpelli an app that knows about finance information that he's able to query but actually trust the information that is coming out of it.
+
+  [235] [EN] Obviously, the big unlock there is that any business user now has access to data within Snowflake. Authorized and governed, of course, but it's a much larger user base that can directly interact with Snowflake. And that's the complement, you know, where there is a direct access to data to a much larger user base. There's lots more.
+       [中] 显然，关键在于任何业务用户现在都可以访问Snowflake中的数据。当然，这需要经过授权和治理，但这是一个更大的用户群体，能够直接与Snowflake交互。而这也是一种补充，即让更广泛的用户群体能够直接访问数据。还有很多其他方面。
+
+Obviously, the big unlock there is that any business user now has access to data within Snowflake. Authorized and governed, of course, but it's a much larger user base that can directly interact with Snowflake. And that's the complement, you know, where there is a direct access to data to a much larger user base. There's lots more.
+
+  [236] [EN] This is a topic that I'm super passionate about. I can keep going on and on. But hopefully, you get a feel for the kinds of application. The first class is unstructured data, the second class is structured data.
+       [中] 这是我非常热衷的话题，我可以一直说下去。但希望你能感受到这些应用的类型。第一类是非结构化数据，第二类是结构化数据。
+
+原文：
+This is a topic that I'm super passionate about. I can keep going on and on. But hopefully, you get a feel for the kinds of application. The first class is unstructured data, the second class is structured data.
+
+  [237] [EN] Our vision is to bring all of these together into like a single box for the enterprise where you can ask any question and be able to get an answer to it.
+       [中] 我们的愿景是将所有这些整合到一个类似于单一解决方案的平台上，让企业能够提出任何问题并得到答案。
+
+Our vision is to bring all of these together into like a single box for the enterprise where you can ask any question and be able to get an answer to it.
+
+  [238] [EN] Alex Zukin--Wolfe Research -- Analyst
+       [中] Alex Zukin——Wolfe Research——分析师
+
+Alex Zukin--Wolfe Research -- Analyst
+
+  [239] [EN] Makes sense. And then, Mike, you talked about consumption exceeding expectations, exceeding quotas. I guess I just wanted to maybe dig into -- you talked about a broad-based driver. It wasn't like specific to any maybe customer size.
+       [中] 有道理。那么，Mike，你提到消费超过了预期，超过了配额。我想进一步深入探讨一下——你提到这是一个广泛的基础驱动因素，似乎并非针对某个特定的客户规模。
+
+Makes sense. And then, Mike, you talked about consumption exceeding expectations, exceeding quotas. I guess I just wanted to maybe dig into -- you talked about a broad-based driver. It wasn't like specific to any maybe customer size.
+
+  [240] [EN] But is there anything around any verticals or any geos that were specifically strong? Or did Snowpark momentum contribute to that strength? Is there anything more you can give us there?
+       [中] 但是，是否有任何垂直行业或特定地区表现特别强劲？还是Snowpark的势头推动了这种增长？您能否在这方面提供更多信息？
+
+原文：
+But is there anything around any verticals or any geos that were specifically strong? Or did Snowpark momentum contribute to that strength? Is there anything more you can give us there?
+
+  [241] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [242] [EN] No. It's really the strength in our core business, and it was across all verticals. Financial services continues to be our biggest. With that said, though, we did see some pretty good uptick in the technology and healthcare space.
+       [中] 不。这确实是我们核心业务的实力，而且它遍布所有垂直领域。金融服务仍然是我们最大的业务。话虽如此，我们确实看到科技和医疗保健领域有一些相当不错的增长。
+
+No. It's really the strength in our core business, and it was across all verticals. Financial services continues to be our biggest. With that said, though, we did see some pretty good uptick in the technology and healthcare space.
+
+  [243] [EN] Their growth outperformed a number of the other groups in the company, but it's broad-based.
+       [中] 他们的增长表现优于公司内其他多个团体，但这一增长是普遍的。
+
+Their growth outperformed a number of the other groups in the company, but it's broad-based.
+
+  [244] [EN] Alex Zukin--Wolfe Research -- Analyst
+       [中] Alex Zukin——Wolfe Research——分析师
+
+Alex Zukin--Wolfe Research -- Analyst
+
+  [245] [EN] Perfect. Thank you, guys.
+       [中] 完美。谢谢你们，各位。
+
+Perfect. Thank you, guys.
+
+  [246] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [247] [EN] OK. Thank you, everyone.
+       [中] 好的。谢谢大家。
+
+OK. Thank you, everyone.
+
+  [248] [EN] Operator
+       [中] 操作员
+Operator
+
+  [249] [EN] That will conclude today's conference call. Thank you all for your participation. [Operator signoff]
+       [中] 今天的电话会议到此结束。感谢各位的参与。[运营商结束语]
+
+That will conclude today's conference call. Thank you all for your participation. [Operator signoff]
+
+  [250] [EN] Duration: 0 minutes
+       [中] 持续时间：0分钟  
+Duration: 0 minutes
+
+
+  ━━ Call participants: ━━
+  ━━ 通话参与者：
+Call participants: ━━
+
+  [252] [EN] Jimmy Sexton--Head of Investor Relations
+       [中] Jimmy Sexton--投资者关系主管  
+原文：Jimmy Sexton--Head of Investor Relations
+
+  [253] [EN] Sridhar Ramaswamy--Chief Executive Officer
+       [中] Sridhar Ramaswamy——首席执行官
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+  [254] [EN] Mike Scarpelli--Chief Financial Officer
+       [中] Mike Scarpelli——首席财务官  
+Mike Scarpelli--Chief Financial Officer
+
+  [255] [EN] Keith Weiss--Morgan Stanley -- Analyst
+       [中] Keith Weiss--摩根士丹利--分析师  
+Keith Weiss--Morgan Stanley -- Analyst
+
+  [256] [EN] Mark Murphy--JPMorgan Chase and Company -- Analyst
+       [中] 马克·墨菲——JPMorgan Chase and Company——分析师  
+Mark Murphy--JPMorgan Chase and Company -- Analyst
+
+  [257] [EN] Kirk Materne--Evercore ISI -- Analyst
+       [中] Kirk Materne--Evercore ISI -- 分析师
+
+Kirk Materne--Evercore ISI -- Analyst
+
+  [258] [EN] Karl Keirstead--UBS -- Analyst
+       [中] Karl Keirstead——瑞银集团——分析师
+
+Karl Keirstead--UBS -- Analyst
+
+  [259] [EN] Raimo Lenschow--Barclays -- Analyst
+       [中] Raimo Lenschow—Barclays—分析师  
+Raimo Lenschow--Barclays -- Analyst
+
+  [260] [EN] Brent Thill--Jefferies -- Analyst
+       [中] Brent Thill--Jefferies --分析师  
+Brent Thill--Jefferies -- Analyst
+
+  [261] [EN] Matt Hedberg--RBC Capital Markets -- Analyst
+       [中] Matt Hedberg--RBC Capital Markets -- 分析师
+
+Matt Hedberg--RBC Capital Markets -- Analyst
+
+  [262] [EN] Brent Bracelin--Piper Sandler -- Analyst
+       [中] Brent Bracelin--Piper Sandler -- 分析师  
+Brent Bracelin--Piper Sandler -- Analyst
+
+  [263] [EN] Christian Kleinerman--Executive Vice President, Product
+       [中] Christian Kleinerman--产品执行副总裁  
+
+Christian Kleinerman--Executive Vice President, Product
+
+  [264] [EN] Joe Vandrick--Scotiabank -- Analyst
+       [中] Joe Vandrick--Scotiabank -- 分析师
+
+Joe Vandrick--Scotiabank -- Analyst
+
+  [265] [EN] Robert Galvin--Stifel Financial Corp. -- Analyst
+       [中] Robert Galvin——Stifel Financial Corp.——分析师
+
+Robert Galvin--Stifel Financial Corp. -- Analyst
+
+  [266] [EN] Tyler Radke--Citi -- Analyst
+       [中] Tyler Radke--Citi--分析师  
+Tyler Radke--Citi -- Analyst
+
+  [267] [EN] Alex Zukin--Wolfe Research -- Analyst
+       [中] Alex Zukin——Wolfe Research——分析师
+
+Alex Zukin--Wolfe Research -- Analyst
+
+  [268] [EN] More SNOW analysis
+       [中] 更多SNOW分析  
+More SNOW analysis
+
+  [269] [EN] All earnings call transcripts
+       [中] 
+
+  [270] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为The Motley Fool制作的本次电话会议的记录。尽管我们努力做到最好，但此记录中可能存在错误、遗漏或不准确之处。与我们的所有文章一样，The Motley Fool不对您使用此内容承担任何责任，我们强烈建议您自行研究，包括亲自收听电话会议并阅读公司的SEC文件。详情请参阅我们的Terms and Conditions，包括强制性的大写责任免责声明。
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+  [271] [EN] The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.
+       [中] Motley Fool 对 Snowflake 持仓并推荐。Motley Fool 有披露政策。
+
+  [272] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [273] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 273 段中英对照
+======================================================================

@@ -1,0 +1,586 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Novo Nordisk (诺和诺德)
+Quarter: Q3 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2025/12/11/novo-nordisk-nvo-q3-2025-earnings-transcript/
+Translated: 2026-05-29T23:29:45.851761
+Backend: google
+Paragraphs: 190
+======================================================================
+
+  [  1] [EN] Nov. 5, 2025 at 12:00 a.m. ET
+       [中] 美国东部时间 2025 年 11 月 5 日中午 12:00
+
+
+  ━━ Call participants ━━
+  ━━ 呼叫参与者 ━━
+
+  👤 President & Chief Executive Officer — Maziar Doustdar
+     总裁兼首席执行官 — Maziar Doustdar
+
+  👤 Executive Vice President, North America Operations — Ludovic Helfgott
+     北美运营执行副总裁 — Ludovic Helfgott
+
+  👤 Executive Vice President, U.S. Operations — David Moore
+     美国运营执行副总裁 — David Moore
+
+  👤 Executive Vice President, Development — Martin Holst Lange
+     开发执行副总裁 — Martin Holst Lange
+
+  👤 Executive Vice President & Chief Financial Officer — Karsten Knudsen
+     执行副总裁兼首席财务官 — Karsten Knudsen
+
+  👤 Head of Investor Relations — Jacob Martin Rode
+     投资者关系主管 — 雅各布·马丁·罗德
+
+  [  9] [EN] Sales growth-- 15% increase in company sales for the first nine months, with U.S. operations up 15% and international operations up 16%.
+       [中] 销售额增长——前 9 个月公司销售额增长 15%，其中美国业务增长 15%，国际业务增长 16%。
+
+  [ 10] [EN] Operating profit-- Grew by 10% at constant exchange rates; adjusted operating profit rose 21% at constant exchange rates when excluding restructuring costs.
+       [中] 营业利润——按固定汇率计算增长10%；不计重组成本，按固定汇率计算，调整后营业利润增长 21%。
+
+  [ 11] [EN] Guidance update-- Sales growth outlook for 2025 narrowed to 8%-11% at constant exchange rates; operating profit expected at 4%-7% at constant exchange rates due to lower GLP-1 growth expectations and one-off restructuring costs.
+       [中] 指引更新——按固定汇率计算，2025 年销售增长前景收窄至 8%-11%；由于 GLP-1 增长预期较低和一次性重组成本，按固定汇率计算，营业利润预计为 4%-7%。
+
+  [ 12] [EN] GLP-1 diabetes sales-- GLP-1 sales in diabetes rose 10%, with Ozempic and Rybelsus driving growth; Region China GLP-1 diabetes sales decreased 4% due to wholesaler inventory movements.
+       [中] GLP-1 糖尿病销售额——糖尿病领域的 GLP-1 销售额增长 10%，其中 Ozempic 和 Rybelsus 推动增长；由于批发商库存变动，中国地区 GLP-1 糖尿病销售额下降 4%。
+
+  [ 13] [EN] Obesity care-- Obesity franchise sales climbed 41%, led by U.S. operations at 24% and international operations at 83%, with Wegovy reaching DKK 20 billion and 168% growth; Wegovy prescriptions in U.S. declined from 280,000 to 270,000 weekly versus last quarter.
+       [中] 肥胖护理——肥胖特许经营销售额增长 41%，其中美国业务增长 24%，国际业务增长 83%，Wegovy 销售额达到 200 亿丹麦克朗，增长 168%；与上季度相比，美国的 Wegovy 处方每周数量从 280,000 份下降至 270,000 份。
+
+  [ 14] [EN] Rare disease segment-- Rare disease sales rose 13%, driven by 14% growth in the U.S. and 13% internationally.
+       [中] 罕见疾病细分市场——在美国增长 14% 和国际增长 13% 的推动下，罕见疾病销售额增长 13%。
+
+  [ 15] [EN] Restructuring and cost actions-- Company-wide transformation announced with expected reduction of 9,000 positions globally, targeting DKK 8 billion in annual savings by end of 2026; DKK 9 billion restructuring costs booked in the quarter.
+       [中] 重组和成本行动——宣布进行全公司转型，预计在全球范围内减少 9,000 个职位，目标是到 2026 年底每年节省 80 亿丹麦克朗；本季度计入 90 亿丹麦克朗的重组费用。
+
+
+  ━━ Gross margin-- Decreased to 81.0% from 84.6% due to DKK 3 billion one-off restructuring costs and impairments. ━━
+  ━━ 毛利率--由于 30 亿丹麦克朗的一次性重组成本和减值，从 84.6% 下降至 81.0%。 ━━
+
+  [ 17] [EN] Free cash flow-- Reported at DKK 63.9 billion for the first nine months, down from DKK 71.8 billion last year, attributed to increased capital expenditures.
+       [中] 自由现金流——前 9 个月报告为 639 亿丹麦克朗，低于去年的 718 亿丹麦克朗，原因是资本支出增加。
+
+  [ 18] [EN] Return to shareholders-- DKK 53 billion returned, mainly via dividends, in first nine months.
+       [中] 股东回报——前 9 个月回报 530 亿丹麦克朗，主要通过股息。
+
+  [ 19] [EN] Metsera acquisition proposal-- Proposal includes $62.2 cash per share upfront (approximate $6.7 billion enterprise value), with up to $2.8 billion in contingent value rights for milestones, total eligibility up to $10 billion.
+       [中] Metsera 收购提案——提案包括每股 62.2 美元的预付现金（约 67 亿美元的企业价值），以及高达 28 亿美元的里程碑或有价值权利，总资格高达 100 亿美元。
+
+  [ 20] [EN] Akero acquisition-- Akero’s efruxifermin, a once-weekly FGF21 analog, is being acquired to address unmet needs in F4 MASH patients, supported by SYMMETRY Phase IIb trial data.
+       [中] Akero 收购——Akero 的 efruxifermin（一种每周一次的 FGF21 类似物）正在被收购，以解决 F4 MASH 患者未满足的需求，并得到 SYMMETRY IIb 期试验数据的支持。
+
+  [ 21] [EN] Pipeline progress-- Cagrilintide Phase III initiated, REIMAGINE and REDEFINE trials for CagriSema ongoing; regulatory submission for Mim8 in U.S./EU; first readout of ziltivekimab expected in the second half of 2026.
+       [中] 管道进展——Cagrilintide III 期启动，CagriSema 的 REIMAGINE 和 REDEFINE 试验正在进行；Mim8 在美国/欧盟的监管提交；ziltivekimab 的首次读数预计将于 2026 年下半年公布。
+
+  [ 22] [EN] Strategic shift-- CEO Doustdar outlined the sharp focus on diabetes, obesity, and related comorbidities, with non-core research assets discontinued and resources redirected to core areas.
+       [中] 战略转变——首席执行官 Doustdar 概述了对糖尿病、肥胖症和相关合并症的高度关注，非核心研究资产被终止，资源被重新分配到核心领域。
+
+  [ 23] [EN] Market leadership-- Novo Nordisk holds a 68% volume market share in GLP-1 in international operations, with expanding availability of Rybelsus (over 40 countries) and Ozempic (about 80 countries).
+       [中] 市场领导地位——诺和诺德在国际业务中拥有 GLP-1 销量 68% 的市场份额，Rybelsus（超过 40 个国家）和 Ozempic（约 80 个国家）的供应不断扩大。
+
+  [ 24] [EN] U.S. market developments-- Management cited growth of compounded GLP-1 usage to over 1 million patients in the U.S., with 10% of Wegovy prescriptions now in the cash market, and ongoing expansion of direct-to-patient initiatives with partners like GoodRx and Costco.
+       [中] 美国市场发展——管理层指出，在美国，复合 GLP-1 的使用量已超过 100 万患者，其中 10% 的 Wegovy 处方目前在现金市场，并且与 GoodRx 和 Costco 等合作伙伴不断扩大直接面向患者的计划。
+
+  [ 25] [EN] Patent and pricing update-- Management disclosed semaglutide patent expiry in certain countries in 2026 is anticipated to have a low single-digit negative impact on global sales growth, and acceptance of Medicare Part D MFP for Ozempic, Rybelsus, and Wegovy beginning in 2027.
+       [中] 专利和定价更新——管理层披露，索马鲁肽在某些国家的专利将于 2026 年到期，预计这将对全球销售增长以及 2027 年开始接受 Ozempic、Rybelsus 和 Wegovy 的 Medicare Part D MFP 产生较低的个位数负面影响。
+
+  [ 26] [EN] Capital expenditure guidance-- 2025 capital expenditure expected to be around DKK 60 billion; free cash flow guidance at DKK 20 million-30 billion, reflecting updated CapEx and anticipated acquisition timing.
+       [中] 资本支出指引——2025年资本支出预计约为600亿丹麦克朗；自由现金流指引为 2000 万至 300 亿丹麦克朗，反映了更新的资本支出和预期收购时机。
+
+  [ 27] [EN] Restructuring will reduce approximately 9,000 positions globally, with DKK 9 billion in associated costs booked and an explicit acknowledgment of the human impact.
+       [中] 重组将在全球范围内减少约 9,000 个职位，计入 90 亿丹麦克朗的相关成本，并明确承认对人类的影响。
+
+  [ 28] [EN] Gross margin contracted to 81.0% from 84.6%, largely due to DKK 3 billion in one-off restructuring costs and production-asset impairments.
+       [中] 毛利率从 84.6% 缩减至 81.0%，主要是由于 30 亿丹麦克朗的一次性重组成本和生产资产减值。
+
+  [ 29] [EN] Management expects 2026 sales growth to be negatively affected by semaglutide patent expiry in certain markets, described as having a "low single-digit" impact on global sales growth.
+       [中] 管理层预计 2026 年的销售增长将受到某些市场索马鲁肽专利到期的负面影响，这对全球销售增长产生“低个位数”影响。
+
+  [ 30] [EN] "Several states have already announced changes to coverage for obesity medicines in response to budgetary concerns, which will affect Medicaid access to Wegovy," as stated by Moore.
+       [中] 摩尔表示：“为了应对预算问题，一些州已经宣布改变肥胖药物的承保范围，这将影响医疗补助对 Wegovy 的使用。”
+
+  [ 31] [EN] Wegovy weekly prescriptions in the U.S. declined sequentially. Management noted that compounding of GLP-1s is "now estimated to be well above 1 million patients in the U.S." undermining authentic product sales.
+       [中] 美国 Wegovy 每周处方量连续下降。管理层指出，“目前估计美国有超过 100 万患者使用 GLP-1”。破坏正品产品的销售。
+
+  [ 32] [EN] Management confirmed intensifying competition and pricing pressure in both diabetes and obesity internationally and in the U.S. Lower expectations for GLP-1 sales growth are driving the reduced 2025 guidance.
+       [中] 管理层确认，国际和美国糖尿病和肥胖症领域的竞争和定价压力日益加剧。对 GLP-1 销售增长的预期降低导致 2025 年指导方针下调。
+
+  [ 33] [EN] Novo Nordisk(NVO+0.14%)delivered 15% sales growth in the first nine months, but narrowed its full-year guidance and emphasized headwinds in GLP-1 diabetes and obesity products, reflecting both increased competition and coverage challenges. Capital allocation priorities were reiterated following major acquisition proposals for Metsera and Akero, with the Metsera offer structured for $6.7 billion upfront and up to $10 billion with milestones, while Akero’s lead asset targets a currently untreatable MASH population. Restructuring is a key focus, with 9,000 positions to be eliminated and DKK 8 billion in annual savings projected, although this incurred significant current-period costs and will reshape Novo Nordisk’s operational model and R&D prioritization. Regulatory submissions and near-term launches—including the Wegovy pill and new rare disease assets—are moving forward. Management signaled that pricing, patent expirations, and evolving payer dynamics in the U.S. Medicaid and Medicare programs could materially influence revenue growth through 2026 and beyond.
+       [中] 诺和诺德 (NVO+0.14%) 前 9 个月销售额增长 15%，但缩小了全年指引，并强调 GLP-1 糖尿病和肥胖产品的不利因素，反映出竞争加剧和覆盖挑战。在 Metsera 和 Akero 提出重大收购提议后，重申了资本分配优先事项，Metsera 的报价结构为 67 亿美元预付款和高达 100 亿美元的里程碑，而 Akero 的主要资产针对的是目前无法治疗的 MASH 人群。重组是一个重点，预计将裁减 9,000 个职位，每年节省 80 亿丹麦克朗，尽管这会产生大量当期成本，并将重塑诺和诺德的运营模式和研发优先顺序。监管提交和近期发布（包括 Wegovy 药丸和新的罕见疾病资产）正在取得进展。管理层表示，美国医疗补助和医疗保险计划中的定价、专利到期和不断变化的付款人动态可能会对 2026 年及以后的收入增长产生重大影响。
+
+  [ 34] [EN] Metsera’s pipeline, if acquired, would bring differentiated GLP-1 and amylin assets, complementing internal development and widening treatment options by dosing, patient phenotype, and delivery channel.
+       [中] 如果收购 Metsera 的管道，将带来差异化的 GLP-1 和胰淀素资产，补充内部开发并通过剂量、患者表型和输送渠道拓宽治疗选择。
+
+  [ 35] [EN] Efruxifermin, from the Akero acquisition, demonstrated statistically significant benefits in Phase IIb for F4 MASH patients and is positioned for pivotal Phase III readout and possible class leadership in late-stage disease.
+       [中] Akero 收购的 Efruxifermin 在 IIb 期试验中对 F4 MASH 患者显示出具有统计学意义的显着益处，并有望在关键的 III 期试验中发挥作用，并可能在晚期疾病中处于领先地位。
+
+  [ 36] [EN] REDEFINE and REIMAGINE series, including CagriSema and cagrilintide programs, anchor next-generation obesity and diabetes clinical milestones, with major readouts—such as Wegovy pill approval and Alzheimer’s data—expected before mid-2026.
+       [中] REDEFINE 和 REIMAGINE 系列，包括 CagriSema 和 cagrilintide 项目，锚定了下一代肥胖和糖尿病临床里程碑，预计在 2026 年中期之前公布主要数据，例如 Wegovy 药物批准和阿尔茨海默病数据。
+
+  [ 37] [EN] Management attributed declining market share and modest U.S. prescription trends to intensifying competition, market access friction, and expanding compounded GLP-1 use. "Millions" of untreated diabetes and obesity cases are still viewed as addressable by product and distribution innovation.
+       [中] 管理层将市场份额下降和美国处方药趋势温和归因于竞争加剧、市场准入摩擦和复合 GLP-1 使用的扩大。“数百万”未经治疗的糖尿病和肥胖病例仍然被认为可以通过产品和分销创新来解决。
+
+  [ 38] [EN] The company expects a negative "low single-digit" impact on global sales growth in 2026 from semaglutide patent expiry in select markets, with additional downward pressure from Medicare pricing to commence in January 2027.
+       [中] 该公司预计，部分市场的索马鲁肽专利到期将对 2026 年全球销售增长产生“低个位数”的负面影响，并且 2027 年 1 月开始的医疗保险定价将带来额外的下行压力。
+
+  [ 39] [EN] Guidance for 2025 capital expenditure stands at DKK 60 billion, with free cash flow projected in the DKK 20 million-30 billion range depending on acquisitions; financial impacts from the proposed Metsera deal were not incorporated in current guidance.
+       [中] 2025 年资本支出指导为 600 亿丹麦克朗，自由现金流预计在 2000 万至 300 亿丹麦克朗之间，具体取决于收购情况；拟议的 Metsera 交易的财务影响并未纳入当前指引中。
+
+  [ 40] [EN] Management remains committed to maintaining its dividend payout strategy alongside R&D expansion and M&A, clarifying that, "have a consistent approach on dividend and have no intention of changing that."
+       [中] 管理层仍然致力于在研发扩张和并购的同时维持其股息支付策略，并澄清说，“对股息采取一致的方法，并且无意改变这一点。”
+
+  [ 41] [EN] Industry glossary
+       [中] 行业术语
+
+  [ 42] [EN] GLP-1: Glucagon-like peptide-1 receptor agonists, a class of drugs used in diabetes and obesity treatment.
+       [中] GLP-1：胰高血糖素样肽-1受体激动剂，一类用于糖尿病和肥胖症治疗的药物。
+
+  [ 43] [EN] MASH: Metabolic dysfunction-associated steatohepatitis, a progressive liver disease formerly known as NASH.
+       [中] MASH：代谢功能障碍相关的脂肪性肝炎，一种进行性肝脏疾病，以前称为 NASH。
+
+  [ 44] [EN] FGF21 analog: Fibroblast growth factor 21 analog, a therapeutic protein targeting metabolic diseases like NASH/MASH.
+       [中] FGF21 类似物：成纤维细胞生长因子 21 类似物，一种针对 NASH/MASH 等代谢疾病的治疗蛋白。
+
+  [ 45] [EN] PNH: Paroxysmal nocturnal hemoglobinuria, a rare blood disorder treated in the company’s rare disease pipeline.
+       [中] PNH：阵发性睡眠性血红蛋白尿，一种罕见的血液疾病，在该公司的罕见疾病管道中进行治疗。
+
+  [ 46] [EN] MFP: Maximum Fair Price under the U.S. Inflation Reduction Act, dictating Medicare Part D drug pricing.
+       [中] MFP：美国通货膨胀减少法案规定的最高公平价格，规定了 Medicare D 部分药品定价。
+
+  [ 47] [EN] CVR: Contingent Value Right, a future payment right conditional on milestones in an acquisition deal.
+       [中] CVR：或有价值权，以收购交易里程碑为条件的未来付款权。
+
+  [ 48] [EN] Full Conference Call Transcript
+       [中] 完整的电话会议记录
+
+  [ 49] [EN] Maziar Doustdar:Thank you, Jacob. Next slide, please. In the first 9 months of 2025, we delivered 15% sales growth and 10% operating profit growth. We've also narrowed our guidance range to 8% to 11% on sales and 4% to 7% for operating profit. This is because we expect lower growth for our GLP-1 treatment in diabetes and obesity. Karsten will get back to the guidance update later in the call. Looking into the R&D in diabetes, Rybelsus is now approved in the U.S. and EU with CV indications based on the SOUL trial. Within obesity, and business development, we have progressed on a number of projects that Martin will come back to later.
+       [中] Maziar Doustdar：谢谢你，雅各布。请下一张幻灯片。2025 年前 9 个月，我们实现了 15% 的销售额增长和 10% 的营业利润增长。我们还将销售额指导范围缩小至 8% 至 11%，营业利润指导范围缩小至 4% 至 7%。这是因为我们预计 GLP-1 治疗糖尿病和肥胖症的增长将会放缓。卡斯滕将在稍后的电话会议中回复指导更新。纵观糖尿病的研发，基于 SOUL 试验，Rybelsus 现已在美国和欧盟获得批准，具有心血管适应症。在肥胖和业务发展方面，我们已经在许多项目上取得了进展，马丁稍后会回来讨论这些项目。
+
+  [ 50] [EN] In rare disease, we have now submitted Mim8 for regulatory approval in both U.S. and EU. We're now serving around 46 million people living with diabetes and obesity. This is around 3 million more people with our GLP-1 treatment compared to just 12 months ago. Furthermore, I would like to note that 2025 strategic aspirations is our current framework for reporting, and we look forward to updating this next year as the current strategic aspiration runs out.
+       [中] 在罕见疾病方面，我们现已提交 Mim8 以获得美国和欧盟监管部门的批准。我们现在为大约 4600 万糖尿病和肥胖症患者提供服务。与 12 个月前相比，接受我们 GLP-1 治疗的人数增加了约 300 万人。此外，我想指出，2025 年战略愿景是我们当前的报告框架，我们期待明年在当前战略愿景到期时进行更新。
+
+  [ 51] [EN] Maziar Doustdar:Next slide, please. Since I became CEO, I have said several times that Novo Nordisk will sharpen its focus on core areas, specifically diabetes and obesity. I want to take a moment to explain how we have refined our strategy. For more than 100 years, we have been guided by a simple purpose: to identify and solve major unmet medical needs. This commitment is unchanged. There are many people who can benefit from expertise in diabetes and obesity, and we believe we can serve them better than anyone else. Going forward, we will concentrate on these areas where we can make the greatest difference. Our strategy begins with patients at the center of everything we will do.
+       [中] Maziar Doustdar：请下一张幻灯片。自从我担任首席执行官以来，我曾多次表示诺和诺德将加强对核心领域的关注，特别是糖尿病和肥胖症。我想花点时间解释一下我们如何完善我们的策略。100 多年来，我们一直遵循一个简单的目标：识别并解决重大的未满足的医疗需求。这一承诺不变。许多人可以从糖尿病和肥胖症方面的专业知识中受益，我们相信我们可以比其他任何人更好地为他们服务。展望未来，我们将专注于这些能够发挥最大作用的领域。我们的战略始于将患者置于我们所做的一切的中心。
+
+  [ 52] [EN] Way more than 1 billion people are affected by diabetes or obesity. We will work tirelessly to develop products that help them live healthier, fuller lives. Some of these products will be developed internally. Others will be added to our portfolio through partnerships and acquisitions. Many of these assets can address multiple unmet needs. We will explore those opportunities and expand indications where appropriate to serve our patients. Speaking of patients, it is a known fact that obesity and diabetes vary by individual and often comes with comorbidities that lack effective treatments.
+       [中] 超过 10 亿人受到糖尿病或肥胖症的影响。我们将不懈努力开发产品，帮助他们过上更健康、更充实的生活。其中一些产品将在内部开发。其他产品将通过合作和收购添加到我们的产品组合中。其中许多资产可以解决多种未满足的需求。我们将探索这些机会，并在适当的情况下扩大适应症，为我们的患者提供服务。说到患者，众所周知，肥胖和糖尿病因人而异，并且常常伴有缺乏有效治疗的合并症。
+
+  [ 53] [EN] As with the Akero acquisition, Novo Nordisk will keep pursuing innovation with identification within research and then advancing those to development to address comorbidities within our core and the overlaps with those cores. We are now shaping our focus -- sharpening our focus. In the past, we spread our resources into areas a bit further away from our core. Think about stem cell research for Parkinson's disease. Therefore, during this last quarter, we have discontinued several noncore assets and redirected resources to areas aligned with our strength. We will intensify our commercial efforts to strengthen competitiveness. To meet evolving market dynamics and increasingly consumer-like behavior, we will, for example, expand telehealth capabilities across markets.
+       [中] 与收购 Akero 一样，诺和诺德将继续在研究中寻求创新和识别，然后将其推进开发，以解决我们核心内的合并症以及与这些核心的重叠问题。我们现在正在塑造我们的焦点——锐化我们的焦点。过去，我们把资源分散到离核心稍远的地方。想想帕金森病的干细胞研究。因此，在最后一个季度，我们停止了多项非核心资产，并将资源重新分配到与我们的优势相符的领域。我们将加大商业力度，增强竞争力。例如，为了满足不断变化的市场动态和日益消费者化的行为，我们将扩展跨市场的远程医疗功能。
+
+  [ 54] [EN] In short, we remain disciplined about where we will compete within diabetes, obesity and related comorbidities in the years ahead. We will also continue our targeted research and commercial work in rare disease. And to support this strategy, we have launched a company-wide transformation, which I would like to give you an update on its progress right now.
+       [中] 简而言之，我们对于未来几年在糖尿病、肥胖症和相关合并症领域的竞争仍保持纪律。我们还将继续在罕见疾病方面开展有针对性的研究和商业工作。为了支持这一战略，我们启动了全公司范围的转型，我想立即向您通报其进展情况。
+
+  [ 55] [EN] Maziar Doustdar:Please go to the next slide. We previously announced a company-wide transformation designed to simplify our operating model, accelerate decision-making and reallocate capital and resource towards the highest growth opportunities in diabetes and obesity. This program supports our strategy to capture rising global demand and strengthening our competitive position in the increasingly consumer-like obesity market. As part of the plan, we expect a reduction of approximately 9,000 positions globally. While this decision was not taken lightly, it is expected to drive approximately DKK 8 billion in annual savings by the end of 2026. Those savings will be redeployed to expand our diabetes and obesity franchises and fund strategic priorities.
+       [中] Maziar Doustdar：请转到下一张幻灯片。我们之前宣布了一项全公司范围的转型，旨在简化我们的运营模式、加快决策速度并重新分配资本和资源，以实现糖尿病和肥胖症领域的最高增长机会。该计划支持我们的战略，以抓住不断增长的全球需求，并加强我们在日益消费者喜爱的肥胖市场中的竞争地位。作为该计划的一部分，我们预计在全球范围内减少约 9,000 个职位。虽然这一决定并非轻率做出的，但预计到 2026 年底，每年将节省约 80 亿丹麦克朗。这些节省的资金将重新用于扩大我们的糖尿病和肥胖症专营权，并为战略重点提供资金。
+
+  [ 56] [EN] We recognize the human impact of these changes and remain committed to responsible transition for affected colleagues. At the same time, we're confident this transformation will increase operational efficiency and strengthen our long-term future and enhance return for our shareholders. I will now hand over to Ludovic for an update on our commercial execution for the first 9 months of 2025.
+       [中] 我们认识到这些变化对人类的影响，并继续致力于为受影响的同事提供负责任的过渡。与此同时，我们相信这一转型将提高运营效率，增强我们的长期未来，并提高股东的回报。现在我将向 Ludovic 汇报 2025 年前 9 个月的商业执行情况的最新情况。
+
+  [ 57] [EN] Ludovic Helfgott:Thank you very much, Mike, and please turn to the next slide. In the first 9 months of 2025, our total sales increased by 15%. The sales growth was driven by both operating units. U.S. operations grew 15% and international operations grew 16%. Sales growth in the first 9 months of 2025 was positively impacted by one-offs in the U.S. of around DKK 6 billion. Our GLP-1 sales in diabetes increased by 10%, driven by both operating units growing at the same rate. Insulin sales increased by 3%, driven by U.S. operations growing 18%. The sales increase was positively impacted by gross to net adjustments related to prior years as well as channel and payer mix.
+       [中] Ludovic Helfgott：非常感谢，迈克，请翻到下一张幻灯片。2025 年前 9 个月，我们的总销售额增长了 15%。销售增长是由两个运营部门推动的。美国业务增长 15%，国际业务增长 16%。2025 年前 9 个月的销售额增长受到美国约 60 亿丹麦克朗一次性销售额的积极影响。在两个运营部门以相同速度增长的推动下，我们在糖尿病领域的 GLP-1 销售额增长了 10%。在美国业务增长 18% 的推动下，胰岛素销售额增长了 3%。销售额增长受到与前几年相关的毛净调整以及渠道和付款人组合的积极影响。
+
+  [ 58] [EN] This was partially countered by a decline in volume. International operations sales decreased 2%. Obesity care sales increased 41%, driven by U.S. operations growing 24% and international operations growing 83%. Our rare disease sales increased by 13%. This was driven by sales increase in the U.S. of 14% and in international operations of 13%.
+       [中] 这在一定程度上被成交量下降所抵消。国际业务销售额下降 2%。在美国业务增长 24% 和国际业务增长 83% 的推动下，肥胖护理销售额增长 41%。我们的罕见病销售额增长了 13%。这是由美国销售额增长 14% 和国际业务销售额增长 13% 推动的。
+
+  [ 59] [EN] Ludovic Helfgott:Next slide, please. Sales in international operations grew by 16% in the first 9 months of 2025, driven by GLP-1 products. GLP-1 diabetes sales increased by 10%, driven by sales growth of Ozempic and Rybelsus. In Region China, GLP-1 diabetes sales decreased by 4%, which was negatively impacted by wholesaler inventory movements. Obesity care grew by 83% to DKK 22.4 billion. Sales of Wegovy reached approximately DKK 20 billion growing at 168%, driven by sales growth across all regions. Please go to next slide. In the combined diabetes and obesity GLP-1 market, Novo Nordisk remains the market leader in international operations with a volume market share of 68%.
+       [中] Ludovic Helfgott：请下一张幻灯片。在 GLP-1 产品的推动下，2025 年前 9 个月国际业务销售额增长了 16%。在 Ozempic 和 Rybelsus 销售增长的推动下，GLP-1 糖尿病销售额增长了 10%。在中国地区，GLP-1糖尿病销售额下降了4%，受到批发商库存变动的负面影响。肥胖症护理增长 83%，达到 224 亿丹麦克朗。在所有地区销售增长的推动下，Wegovy 销售额达到约 200 亿丹麦克朗，增长 168%。请转到下一张幻灯片。在糖尿病和肥胖症 GLP-1 综合市场中，诺和诺德仍然是国际业务的市场领导者，其销量市场份额为 68%。
+
+  [ 60] [EN] Rybelsus is now available in more than 40 countries, and Ozempic continues to be the leading GLP-1 diabetes product within international operations have been launched in around 80 countries. In obesity, Wegovy is now launched in more than 45 countries with more to come. Oral semaglutide 25-milligram or Wegovy in a pill has been submitted in the EU for potential launch in selected EU markets. The GLP-1 class growth of 35% in international operations is encouraging. And while competition in diabetes and obesity across international operations is intensifying, the unmet needs remain substantial. And with that, I would like to hand it over to Dave for an update on our U.S. operations.
+       [中] Rybelsus 现已在 40 多个国家/地区上市，Ozempic 仍然是国际业务中领先的 GLP-1 糖尿病产品，已在约 80 个国家/地区推出。在肥胖方面，Wegovy 现已在超过 45 个国家推出，并且还将在更多国家推出。口服索马鲁肽 25 毫克或药丸 Wegovy 已在欧盟提交申请，可能会在选定的欧盟市场上市。国际业务中 GLP-1 级增长 35% 令人鼓舞。尽管国际业务中糖尿病和肥胖症的竞争正在加剧，但未满足的需求仍然很大。说到这里，我想将其交给戴夫，以了解我们美国业务的最新情况。
+
+  [ 61] [EN] David Moore:Thank you, Ludovic. Please go to the next slide. Sales of GLP-1 diabetes care products in the U.S. increased by 10% in the first 9 months of 2025. The sales increase was driven by continued uptake of Ozempic, partially countered by Victoza and Rybelsus. Ozempic sales in the U.S. were positively impacted by gross to net sales adjustments and wholesaler stocking. Weekly Ozempic prescriptions are currently around 670,000 in standard units compared to 690,000 standard units in the second quarter of 2025. The GLP-1 diabetes market grew around 10% in the third quarter of 2025 compared to the third quarter of 2024.
+       [中] 大卫·摩尔：谢谢你，卢多维克。请转到下一张幻灯片。2025 年前 9 个月，美国 GLP-1 糖尿病护理产品的销售额增长了 10%。销售额增长是由 Ozempic 的持续使用推动的，但 Victoza 和 Rybelsus 部分抵消了这一增长。美国的 Ozempic 销售受到毛净销售调整和批发商库存的积极影响。目前每周 Ozempic 处方约为 670,000 个标准单位，而 2025 年第二季度为 690,000 个标准单位。与 2024 年第三季度相比，GLP-1 糖尿病市场在 2025 年第三季度增长了约 10%。
+
+  [ 62] [EN] In the U.S., we continue to invest in commercial activities and have recently launched Ozempic in our direct-to-patient cash offering.
+       [中] 在美国，我们继续投资商业活动，最近在直接面向患者的现金发行中推出了 Ozempic。
+
+  [ 63] [EN] David Moore:Please go to the next slide. Wegovy sales increased by 25% in the U.S. operations in the first 9 months of 2025. The Wegovy sales growth was driven by increased volumes, partially countered by lower realized prices. Wegovy has around 270,000 weekly prescriptions compared to 280,000 weekly prescriptions at the end of last quarter. In August, we announced that the U.S. FDA approved Wegovy for the treatment of MASH. In U.S. operations, we have established a sales force targeting U.S. hepatologists and gastroenterologists while we work to build access in this segment. Generally, we also continue to work on expanding access to safe and authentic Wegovy.
+       [中] 大卫·摩尔：请转到下一张幻灯片。2025 年前 9 个月，Wegovy 在美国业务的销售额增长了 25%。Wegovy 销售额的增长是由销量增加推动的，但实际价格下降在一定程度上抵消了这一增长。Wegovy 每周有大约 270,000 个处方，而上季度末每周有 280,000 个处方。8月，我们宣布美国FDA批准Wegovy用于治疗MASH。在美国业务中，我们建立了一支针对美国肝病学家和胃肠病学家的销售队伍，同时我们努力建立该细分市场的准入机会。一般来说，我们还会继续努力扩大对安全、真实的 Wegovy 的访问。
+
+  [ 64] [EN] Around 55 million people with obesity have Wegovy coverage in the U.S. with more than 10 million people estimated to be covered with Medicaid. However, looking into 2026, Several states have already announced changes to coverage for obesity medicines in response to budgetary concerns, which will affect Medicaid access to Wegovy. Regrettably, Novo Nordisk market research shows that compounding has continued to increase. Multiple entities continue to market and sell compounded GLP-1s and it is now estimated to be well above 1 million patients in the U.S. that are currently on compounded GLP-1. Novo Nordisk launched NovoCare Pharmacy in March of 2025 and together with retail channel, total cash market is up around 10% of total Wegovy prescriptions.
+       [中] 在美国，约有 5500 万肥胖症患者享受 Wegovy 保险，估计有超过 1000 万人享受医疗补助。然而，展望 2026 年，为了应对预算问题，一些州已经宣布改变肥胖药物的承保范围，这将影响医疗补助对 Wegovy 的使用。遗憾的是，诺和诺德市场研究显示，复利仍在持续增加。多个实体继续营销和销售复合 GLP-1，目前估计美国目前有超过 100 万患者正在服用复合 GLP-1。诺和诺德 (Novo Nordisk) 于 2025 年 3 月推出了 NovoCare Pharmacy，加上零售渠道，现金市场总量占 Wegovy 处方总量的增长约为 10%。
+
+  [ 65] [EN] Novo Nordisk will continue to invest in the expansion of direct-to-patient initiatives like the recently announced collaborations with GoodRx and Costco. We continue to anticipate a regulatory decision regarding Wegovy in a pill later this year, which then we will be ready to launch in early 2026. Now back to you, Ludovic.
+       [中] 诺和诺德将继续投资扩大直接面向患者的计划，例如最近宣布的与 GoodRx 和 Costco 的合作。我们预计今年晚些时候将做出有关 Wegovy 药丸的监管决定，然后我们将准备在 2026 年初推出该药。现在回到你身上，Ludovic。
+
+  [ 66] [EN] Ludovic Helfgott:Thanks, Dave. Please turn to the next slide. Yesterday, we confirmed that we submitted an updated proposal to acquire Metsera to further strengthen our research and development portfolio in diabetes and obesity. As we said before, unlocking the full potential of the obesity market will require a broad and deep portfolio with different treatment options, formats, serving differentiation groups and their very different preferences. Obesity treatment is still in its early stage. And in Novo Nordisk, we foresee future patient segments that, for example, could be categorized based on BMI, age, gender, lifestyle behaviors and comorbidities. We believe that Metsera's innovative pipeline would further enhance our opportunity to meet all these very different needs of all these very different groups.
+       [中] 卢多维克·赫尔夫戈特：谢谢，戴夫。请翻到下一张幻灯片。昨天，我们确认已提交了收购 Metsera 的更新提案，以进一步加强我们在糖尿病和肥胖症方面的研发组合。正如我们之前所说，释放肥胖市场的全部潜力需要广泛而深入的产品组合，包括不同的治疗方案、形式、服务差异化群体及其截然不同的偏好。肥胖治疗仍处于早期阶段。在诺和诺德，我们预见未来的患者细分，例如可以根据体重指数、年龄、性别、生活方式和合并症进行分类。我们相信，Metsera 的创新产品系列将进一步增强我们的机会，满足所有这些截然不同群体的所有这些截然不同的需求。
+
+  [ 67] [EN] MET-097 is a potential best-in-class once-monthly GLP-1 treatment and MET-233 is a next-generation amylin asset. The pipeline of Metsera also includes a combination of the 2 mentioned above as well as innovative oral and injectable preclinical assets. Furthermore, Metsera's institutional knowledge and capabilities around peptide engineering and synthesis, half-life extension technologies and oral peptide delivery nicely complements Novo Nordisk's core strength in research. The proposed deal structure includes an upfront payment of USD 62.2 per share in cash, equal to an approximate enterprise value of USD 6.7 billion. The cash consideration is paid at signing in exchange for nonvoting preferred stock, representing 50% of Metsera's shared capital.
+       [中] MET-097 是一种潜在的同类最佳每月一次 GLP-1 治疗药物，MET-233 是下一代胰淀素资产。Metsera 的产品线还包括上述两者的组合以及创新的口服和注射临床前资产。此外，Metsera 在肽工程和合成、半衰期延长技术和口服肽递送方面的机构知识和能力很好地补充了诺和诺德在研究方面的核心优势。拟议的交易结构包括每股 62.2 美元的现金预付款，相当于企业价值约 67 亿美元。现金对价在签约时支付，以换取无投票权的优先股，占 Metsera 股本的 50%。
+
+  [ 68] [EN] In addition, up to USD 2.8 billion in contingent value right CVRs will be issued upon the closing of the acquisition in exchange for the remaining shares. The CVRs are based on the achievement of certain clinical and regulatory milestones. In total, Metsera is eligible to receive up to USD 10 billion or USD 86.2 per share. Novo Nordisk believes that the proposal, including the structure of the transaction complies with all applicable laws and is in the best interest of patients, who will benefit from our commitment to innovation as well as Metsera's shareholders. The offer highlights Novo Nordisk's commitment to investing in the U.S. and interest in continuing to grow the scale of its U.S. investment.
+       [中] 此外，收购结束后将发行高达 28 亿美元的或有价值权利 CVR，以换取剩余股份。CVR 基于某些临床和监管里程碑的实现。总的来说，Metsera 有资格获得最多 100 亿美元或每股 86.2 美元。诺和诺德认为，该提案（包括交易结构）符合所有适用法律，并且符合患者的最佳利益，患者将受益于我们对创新的承诺以及 Metsera 的股东。该要约凸显了诺和诺德对在美国投资的承诺以及继续扩大其在美国投资规模的兴趣。
+
+  [ 69] [EN] Now over to you, Martin.
+       [中] 现在轮到你了，马丁。
+
+  [ 70] [EN] Martin Holst Lange:Thank you, Ludovic. Please turn to the next slide. As Mike described, we are intensifying our focus on key therapeutic areas such as diabetes and obesity, while continuing our commitment to related comorbidities as well as rare disease. The strategy aligns with our recent acquisition agreements of Akero and Omeros' zaltenibart assets. In early October, we announced the agreement to acquire Akero's efruxifermin, a once-weekly subcutaneous long-acting FGF21 analog with potential to be first to market in F4 and best in class. Efruxifermin complements a strategic position in Novo Nordisk MASH pipeline. Current treatment options such as Wegovy, primarily target patients with F2 and F3 disease states.
+       [中] 马丁·霍尔斯特·兰格：谢谢你，卢多维克。请翻到下一张幻灯片。正如迈克所描述的，我们正在加强对糖尿病和肥胖症等关键治疗领域的关注，同时继续致力于相关合并症和罕见疾病。该战略符合我们最近对 Akero 和 Omeros 的 zaltenibart 资产的收购协议。10 月初，我们宣布达成协议，收购 Akero 的 efruxifermin，这是一种每周一次的皮下注射长效 FGF21 类似物，有可能成为 F4 中率先上市的同类产品中的佼佼者。Efruxifermin 补充了诺和诺德 MASH 管道中的战略地位。目前的治疗方案（例如 Wegovy）主要针对 F2 和 F3 疾病状态的患者。
+
+  [ 71] [EN] Consequently, there remains a significant unmet need in the F4 cirrhosis population, for which no approved therapies are currently available. The Phase II data for efruxifermin are encouraging across F2 to F4. Specifically, the SYMMETRY Phase IIb trial demonstrates that after 96 weeks of treatment, 29% of F4 patients show improvement of at least 1 fibrosis stage with no worsening of MASH and 42% achieved MASH resolution without fibrosis worsening. This is the first Phase II trial to show statistically significant fibrosis regression in F4 patients for an FGF21 analog. Efruxifermin is currently in the Phase III SYNCHRONY program with pivotal readouts in the coming years and expected launch by the end of this decade.
+       [中] 因此，F4 肝硬化人群的需求仍然未得到满足，目前尚无批准的治疗方法。efruxifermin F2 至 F4 的 II 期数据令人鼓舞。具体来说，SYMMETRY IIb 期试验表明，经过 96 周的治疗，29% 的 F4 患者表现出至少 1 个纤维化阶段的改善，且 MASH 没有恶化，42% 的患者实现了 MASH 缓解，而纤维化没有恶化。这是第一个显示 FGF21 类似物在 F4 患者中具有统计学意义的纤维化消退的 II 期试验。Efruxifermin 目前正处于 III 期 SYNCHRONY 计划中，未来几年将迎来关键的结果，预计将在本十年末推出。
+
+  [ 72] [EN] As a result, efruxifermin has the potential to be first-in-class FGF21 analog targeting the F4 population as well as playing a role in F2 and F3 patients, including people who are not responsive to existing treatments. We look forward to leveraging our capabilities to further optimize the SYNCHRONY program trials, assess the potential combinations with our current GLP-1-based portfolio and explore opportunities for additional indications such as alcohol liver disease. Also in October, we announced the agreement to acquire the clinical stage MASP-3 inhibitor zaltenibart from Omeros for rare blood and kidney disorders. This action aligns with the rare disease strategy with a key focus on rare blood disorders.
+       [中] 因此，efruxifermin 有潜力成为针对 F4 人群的一流 FGF21 类似物，并在 F2 和 F3 患者（包括对现有治疗无反应的患者）中发挥作用。我们期待利用我们的能力进一步优化 SYNCHRONY 项目试验，评估与我们当前基于 GLP-1 的产品组合的潜在组合，并探索酒精肝病等其他适应症的机会。同样在 10 月，我们宣布达成协议，从 Omeros 收购临床阶段 MASP-3 抑制剂 zaltenibart，用于治疗罕见的血液和肾脏疾病。这一行动与罕见病战略相一致，重点关注罕见血液疾病。
+
+  [ 73] [EN] Zaltenibart is currently in Phase II for the acquired rare blood disease paroxysmal nocturnal hemoglobinuria or PNH. Plans are in place to begin a global Phase III program for zaltenibart in PNH. The molecule holds big potential in a number of additional indications within rare disease and kidney disorders, which will be evaluated at a later point in time. We believe our extensive expertise in the development, manufacturing and commercialization of medicines within these fields makes us well positioned to advance these assets, optimize the value of their innovation and ensure they reach the patients in need of these treatments in a very timely fashion.
+       [中] Zaltenibart 目前正处于获得性罕见血液病阵发性睡眠性血红蛋白尿症 (PNH) 的 II 期治疗阶段。计划在 PNH 启动 zaltenibart 全球 III 期项目。该分子在罕见疾病和肾脏疾病的许多其他适应症中具有巨大潜力，这些适应症将在稍后的时间点进行评估。我们相信，我们在这些领域的药物开发、制造和商业化方面的广泛专业知识使我们能够很好地推进这些资产，优化其创新价值，并确保它们及时到达需要这些治疗的患者手中。
+
+  [ 74] [EN] Martin Holst Lange:Please turn to the next slide. Looking towards our internal pipeline, we recently published a sub-analysis of REDEFINE 1, focusing on cagrilintide. In the trial, cagrilintide achieved 11.8% weight loss at 68 weeks, assuming full treatment adherence. About 1 in 3 patients on cagrilintide lost at least 15% of their body weight. Overall, cagrilintide was very well tolerated. The most common side effects were gastrointestinal of nature. And the discontinuation rate due to gastrointestinal adverse events was 1.3%. Obesity is a global challenge that requires continued scientific innovation. More treatment options also focusing on tolerability are needed to meet their diverse individual needs and preferences.
+       [中] Martin Holst Lange：请翻到下一张幻灯片。展望我们的内部管道，我们最近发布了 REDEFINE 1 的子分析，重点关注卡格林肽。在试验中，假设完全坚持治疗，卡格里林肽在 68 周时体重减轻了 11.8%。大约三分之一的服用卡格林肽的患者体重减轻了至少 15%。总体而言，卡格里林肽的耐受性非常好。最常见的副作用是胃肠道反应。因胃肠道不良事件而停药的率为1.3%。肥胖是一个全球性挑战，需要持续的科学创新。需要更多注重耐受性的治疗选择，以满足他们不同的个人需求和偏好。
+
+  [ 75] [EN] We are very encouraged by the first Phase III data for cagrilintide from REDEFINE 1, and we look forward to studying it further in Phase III, the so-called RENEW program. RENEW 1 and RENEW 2 will assess the 2.4 milligram dose in people with obesity with and without type 2 diabetes, respectively. Both trials have already been initiated and additional studies evaluating higher doses of cagrilintide are anticipated in the beginning of first half of 2026.
+       [中] 我们对 REDEFINE 1 中卡格里林肽的第一个 III 期数据感到非常鼓舞，我们期待在 III 期（即所谓的 RENEW 计划）中进一步研究它。RENEW 1 和 RENEW 2 将分别评估患有和不患有 2 型糖尿病的肥胖人群的 2.4 毫克剂量。这两项试验均已启动，预计 2026 年上半年将进行更多评估更高剂量卡格林肽的研究。
+
+  [ 76] [EN] Martin Holst Lange:Please turn to the next slide. Turning to the upcoming R&D milestones. We're looking forward to the remainder of 2025 with a number of readouts and milestones. In the first half of 2026, we anticipate the readout of the REIMAGINE 3, which is the first of 3 pivotal trials for CagriSema and people with type 2 diabetes. REIMAGINE 3 is a smaller study with CagriSema as an add on to basal insulin. REIMAGINE 2 is the largest study, which will provide comparison to semaglutide and will read out in the first quarter of 2026. We also look forward to the Phase II results of the subcutaneous and oral amycretin in type 2 diabetes in Q4 this year.
+       [中] Martin Holst Lange：请翻到下一张幻灯片。转向即将到来的研发里程碑。我们期待 2025 年剩下的时间里出现一些数据和里程碑。我们预计将于 2026 年上半年公布 REIMAGINE 3，这是针对 CagriSema 和 2 型糖尿病患者的 3 项关键试验中的第一项。REIMAGINE 3 是一项小型研究，使用 CagriSema 作为基础胰岛素的补充。REIMAGINE 2 是规模最大的研究，将提供与 semaglutide 的比较，并将于 2026 年第一季度公布。我们也期待今年第四季度皮下和口服阿霉素治疗 2 型糖尿病的 II 期结果。
+
+  [ 77] [EN] Within obesity, we completed the Phase I trial with our internal GLP-1/GIP/amylin triagonist. The study assessed the safety, tolerability, pharmacokinetics and pharmacodynamics of the triagonist in the trial. All multiple doses tested appear to have a safe and well-tolerated profile. The result of this study allowed progression to a Phase Ib/II trial in individuals with overweight obesity, which was initiated in October of 2025. Looking forward, we expect the FDA decision regarding the new drug application for the Wegovy pill by the end of this year. Further, the submission of CagriSema as well as the readout of the REDEFINE 4 trial remains on track for the first quarter of 2026.
+       [中] 在肥胖症领域，我们使用内部 GLP-1/GIP/胰淀素三激动剂完成了 I 期试验。该研究评估了试验中三激动剂的安全性、耐受性、药代动力学和药效学。所有经过测试的多次剂量似乎都具有安全且耐受性良好的特点。这项研究的结果使超重肥胖患者进入 Ib/II 期试验，该试验于 2025 年 10 月启动。展望未来，我们预计 FDA 将于今年年底就 Wegovy 药丸的新药申请做出决定。此外，CagriSema 的提交以及 REDEFINE 4 试验的读出仍按计划于 2026 年第一季度进行。
+
+  [ 78] [EN] Within rare disease, we have filed Mim8 as once monthly, once every 2 weeks and once weekly prophylaxis treatment to prevent or reduce the frequency of bleeding episodes in people with hemophilia A with and without inhibitors for regulatory approval in the U.S. and in EU. Finally, we anticipate the results of the evoke trials in patients with early Alzheimer's disease later this year. While there are a number of high unmet need for the treatment of Alzheimer's disease, it is important to remind you that this represents a high-risk opportunity.
+       [中] 在罕见疾病中，我们已将 Mim8 作为每月一次、每两周一次和每周一次的预防性治疗方案提交申请，以预防或减少使用或不使用抑制剂的 A 型血友病患者的出血发作频率，以获得美国和欧盟监管部门的批准。最后，我们预计今年晚些时候对早期阿尔茨海默病患者进行的诱发试验结果。尽管阿尔茨海默病的治疗仍有许多未满足的需求，但重要的是要提醒您，这代表着一个高风险的机会。
+
+  [ 79] [EN] And as the very final remark, while it is not on the slide, I would be remiss if I don't mention that the first readout of ziltivekimab is anticipated to read out in the second half of 2026. With that, over to you, Karsten.
+       [中] 作为最后的评论，虽然它没有出现在幻灯片上，但如果我不提及 ziltivekimab 的首次读数预计将于 2026 年下半年读数，那我就是失职了。那么，就交给你了，Karsten。
+
+  [ 80] [EN] Karsten Knudsen:Thank you, Martin. Please turn to the next slide. In the first 9 months of 2025, our sales grew by 12% in Danish kroner and by 15% at constant exchange rates, driven by both operating units. In the third quarter, DKK 9 billion in costs related to the restructuring was booked. The gross margin decreased to 81.0% compared to 84.6% in 2024. The decline in gross margin mainly reflects impact of around DKK 3 billion from the one-off restructuring costs and impairments related to a few production assets. Further cost of goods sold are impacted by amortization and depreciations related to Catalent as well as costs related to ongoing capacity expansions.
+       [中] 卡斯滕·克努森：谢谢你，马丁。请翻到下一张幻灯片。2025 年前 9 个月，在两个运营部门的推动下，我们的销售额以丹麦克朗计算增长了 12%，以固定汇率计算增长了 15%。第三季度，与重组相关的成本计入90亿丹麦克朗。毛利率从 2024 年的 84.6% 下降至 81.0%。毛利率下降主要反映了一次性重组成本和少数生产资产相关减值带来的约 30 亿丹麦克朗的影响。进一步的销售成本受到与康泰伦特相关的摊销和折旧以及与持续产能扩张相关的成本的影响。
+
+  [ 81] [EN] Sales and distribution costs increased by 12% in Danish kroner and by 15% at constant exchange rates. The increase in costs is driven by both U.S. operations and international operations and is primarily related to Wegovy S&D costs are impacted by one-off restructuring costs of around DKK 2 billion. Research and development costs increased by 9% in Danish kroner and by 10% at constant exchange rates. This reflects increased R&D activity across the early and late-stage portfolio, particularly within obesity care. R&D costs are impacted by one-off restructuring costs of around DKK 4 billion and impairments related to the closure of early noncore projects to free up resources for projects in core therapy areas.
+       [中] 以丹麦克朗计算的销售和分销成本增加了 12%，以固定汇率计算则增加了 15%。成本增加是由美国业务和国际业务共同推动的，主要与 Wegovy S&D 成本受到约 20 亿丹麦克朗一次性重组成本的影响有关。以丹麦克朗计算的研发成本增加了 9%，以固定汇率计算则增加了 10%。这反映出早期和后期产品组合的研发活动有所增加，特别是在肥胖护理领域。研发成本受到约 40 亿丹麦克朗的一次性重组成本以及与关闭早期非核心项目以释放​​资源用于核心治疗领域项目相关的减值的影响。
+
+  [ 82] [EN] This is partially countered by the impairment loss related to ocederunone of DKK 5.7 billion and other impairments of intangible assets in 2024. Operating profit increased by 5% measured in Danish kroner and by 10% at constant exchange rates. Operating profit adjusted for costs related to the restructuring increased by 16% measured in Danish kroner and 21% at constant exchange rates. Net profit increased by 4% and diluted earnings per share increased by 4% to DKK 16.99. Free cash flow in the first 9 months of 2020 was DKK 63.9 billion compared to DKK 71.8 billion in the first 9 months of 2024, driven by increased capital expenditures.
+       [中] 2024 年，与 ocederunone 相关的 57 亿丹麦克朗减值损失和其他无形资产减值部分抵消了这一损失。以丹麦克朗计算的营业利润增长了 5%，按固定汇率计算增长了 10%。经重组相关成本调整后的营业利润以丹麦克朗计算增长了 16%，以固定汇率计算增长了 21%。净利润增长 4%，稀释后每股收益增长 4%，达到 16.99 丹麦克朗。受资本支出增加的推动，2020 年前 9 个月的自由现金流为 639 亿丹麦克朗，而 2024 年前 9 个月的自由现金流为 718 亿丹麦克朗。
+
+  [ 83] [EN] And finally, in the first 9 months of 2025, we have returned DKK 53 billion to shareholders, mainly through dividend payments.
+       [中] 最后，在 2025 年前 9 个月，我们主要通过股息支付向股东返还了 530 亿丹麦克朗。
+
+  [ 84] [EN] Karsten Knudsen:Please go to the next slide. For 2025, sales growth is now expected to be 8% to 11% at constant exchange rates. The new range reflects lower expectations for sales growth of our GLP-1 treatments in diabetes and obesity. Given the current exchange rate versus the Danish kroner, sales growth reported in Danish kroner is expected to be around 4 percentage points lower than constant exchange rate growth. In international operations, the updated outlook reflects current growth trends driven by GLP-1 penetration in diabetes and obesity, partially offset by intensifying competition within both diabetes and obesity.
+       [中] Karsten Knudsen：请转到下一张幻灯片。按固定汇率计算，2025 年销售额预计增长 8% 至 11%。新系列反映了我们对糖尿病和肥胖症 GLP-1 治疗药物销售增长的预期降低。鉴于当前兑丹麦克朗的汇率，以丹麦克朗报告的销售增长预计将比固定汇率增长低 4 个百分点左右。在国际业务中，更新的前景反映了当前由 GLP-1 在糖尿病和肥胖症领域渗透率推动的增长趋势，但部分被糖尿病和肥胖症领域竞争加剧所抵消。
+
+  [ 85] [EN] In U.S. operations, the outlook is based on current prescription trends for Wegovy and Ozempic as well as intensifying competition and pricing pressure within both diabetes and obesity. Operating profit is now expected to be 4% to 7% at constant exchange rates, negatively impacted by DKK 8 billion in restructuring costs. Given the current exchange rates versus Danish kroner, growth reported in Danish kroner is expected to be around 6 percentage points lower than at constant exchange rates. The narrowing of the guidance range mainly reflects the lower sales growth outlook and costs related to the agreed acquisition of Akero and Omeros, partially countered by reduced spending.
+       [中] 在美国业务中，这一前景是基于 Wegovy 和 Ozempic 目前的处方趋势以及糖尿病和肥胖症领域日益激烈的竞争和定价压力。目前预计营业利润按固定汇率计算为 4% 至 7%，受到 80 亿丹麦克朗重组成本的负面影响。鉴于当前兑丹麦克朗的汇率，以丹麦克朗计算的增长率预计将比按固定汇率计算的增长率低 6 个百分点左右。指导范围的收窄主要反映了与商定收购 Akero 和 Omeros 相关的销售增长前景和成本较低，但支出减少在一定程度上抵消了这一影响。
+
+  [ 86] [EN] Novo Nordisk expects net financial items to show a gain of around DKK 2.6 billion, driven by gains on hedged currencies, whereas capital expenditure is now expected to be around DKK 60 billion driven by adjustments to expansion plans. Free cash flow is now expected to be DKK 20 million to DKK 30 billion, reflecting lower-than-expected trade receivables in the U.S. and reduction in capital expenditure. Furthermore, the free cash flow guidance assumed an impact from the acquisition of Akero contingent on final timing of closing. Potential financial impacts related to the potential acquisition of Metsera has not been included.
+       [中] 诺和诺德预计，在对冲货币收益的推动下，净金融项目将出现约 26 亿丹麦克朗的收益，而在扩张计划调整的推动下，资本支出目前预计将在 600 亿丹麦克朗左右。目前预计自由现金流为 2000 万丹麦克朗至 300 亿丹麦克朗，反映了美国的贸易应收账款低于预期以及资本支出的减少。此外，自由现金流指引假设收购 Akero 的影响取决于最终交割时间。与潜在收购 Metsera 相关的潜在财务影响尚未包括在内。
+
+  [ 87] [EN] For the coming years, Novo Nordisk has previously informed that the compound patent expiry of semaglutide molecule in certain countries in international operations is expected to have an estimated negative low single-digit impact on global sales growth in 2026. In 2026, the agreed acquisition of Akero is expected to lead to increased R&D costs with an estimated negative impact on full-year operating profit growth of around 3 percentage points depending on the timing of closing. Lastly, Novo Nordisk accepted the Inflation Reduction Act maximum fair price, MFP, for Ozempic, Rybelsus and Wegovy in Medicare Part D for 2027.
+       [中] 诺和诺德此前曾获悉，索马鲁肽分子在国际业务中的某些国家的化合物专利到期预计将对2026年全球销售增长产生低个位数的负面影响。2026年，协议收购Akero预计将导致研发成本增加，预计对全年营业利润增长产生约3个百分点的负面影响，具体取决于交易完成时间。最后，诺和诺德接受了 2027 年 Medicare D 部分中 Ozempic、Rybelsus 和 Wegovy 的《通货膨胀削减法案》最高公平价格 MFP。
+
+  [ 88] [EN] The estimated direct impact of semaglutide MFP in Medicare Part D had it been introduced first of January 2025, would have been a negative low single-digit impact on global sales growth for the full year of 2025. The MFPs for semaglutide will be effective as of 1st of January 2027 in Medicare Part D in the U.S. That covers the remaining details on the outlook for 2025. Now back to you, Mike.
+       [中] 如果索马鲁肽在 Medicare D 部分中于 2025 年 1 月首次推出，估计的直接影响将对 2025 年全年的全球销售增长产生低个位数的负面影响。索马鲁肽的 MFP 将于 2027 年 1 月 1 日在美国 Medicare D 部分中生效。这涵盖了 2025 年前景的其余细节。现在回到你身边，迈克。
+
+  [ 89] [EN] Maziar Doustdar:Thank you, Karsten. Please turn to the next slide. It's been a busy and productive quarter. Throughout the first 9 months of 2025, we delivered 15% sales growth and nearly 46 million people are now benefiting from our treatments. We have also advanced our R&D pipeline, launched a company-wide transformation program and announced a few strategically aligned R&D acquisitions and agreements. With that, back to you, Jacob.
+       [中] Maziar Doustdar：谢谢你，卡斯滕。请翻到下一张幻灯片。这是一个忙碌而富有成效的季度。2025 年前 9 个月，我们的销售额增长了 15%，目前有近 4600 万人从我们的治疗中受益。我们还推进了研发渠道，启动了全公司范围的转型计划，并宣布了一些战略性的研发收购和协议。说到这里，回到你身边，雅各布。
+
+  [ 90] [EN] Jacob Martin Rode:Thank you, Mike. Next slide, please. And with that, we are now ready for the Q&A, please.[Operator Instructions]So with that, operator, let's take the first question, please.
+       [中] 雅各布·马丁·罗德：谢谢你，迈克。请下一张幻灯片。现在，我们已经准备好进行问答了。[操作员指示]那么，操作员，让我们回答第一个问题。
+
+  [ 91] [EN] Operator:[Operator Instructions]And your first question comes from the line of Carsten Lønborg Madsen from Danske Bank.
+       [中] 接线员：[接线员说明]您的第一个问题来自丹斯克银行的 Carsten Lønborg Madsen。
+
+  [ 92] [EN] Carsten Madsen:I think I'll start -- I have two. I'll start out with sort of a relatively basic question for Mike now that it's the first time you have your sort of a real quarterly conference call here. If we look at your roadshow presentation, you can see that in the combined obesity and diabetes market, the GLP-1 market, you lost 9 percentage points global market share over the last 12 months. That's quite a massive loss of share. We obviously knew about this trend. But still, when you look at what you can actually do in terms of strategic initiatives to turn this around, what is it the intangible initiatives that you are thinking about implementing?
+       [中] Carsten Madsen：我想我会开始——我有两个。我将首先向迈克提出一个相对基本的问题，因为这是您第一次在这里举行真正的季度电话会议。如果我们看一下您的路演演示，您会发现在肥胖和糖尿病综合市场（GLP-1 市场）中，您在过去 12 个月内损失了 9 个百分点的全球市场份额。这是相当大的份额损失。我们显然知道这个趋势。但是，当您考虑在战略举措方面实际上可以采取哪些措施来扭转这一局面时，您正在考虑实施的无形举措是什么？
+
+  [ 93] [EN] You tried pricing in U.S. in Q3. It doesn't really seem to have a sort of a big delta effect on your momentum in the U.S. market. So maybe if you could give some examples. And question two is for Karsten. The acquisitions you have done or are planning to do will lead to sort of a quite significant cash outflow, especially if you get the Metsera. So if you have Akero, Metsera, you have CapEx, you also need to pay dividends next year, I assume.
+       [中] 您在第三季度尝试过在美国定价。这似乎并没有真正对你们在美国市场的势头产生很大的三角洲效应。也许你可以举一些例子。第二个问题是问卡斯滕的。你已经完成或计划进行的收购将导致相当大的现金流出，特别是如果你收购了 Metsera。因此，如果你有 Akero、Metsera，你有资本支出，我认为你明年还需要支付股息。
+
+  [ 94] [EN] Is there anything you can talk about the capital planning, capital allocation and also how high in the hierarchy is the dividend payout ratio in terms of being extremely important for our investors, of course?
+       [中] 当然，对于我们的投资者来说，资本规划、资本配置以及股息支付率的层级有多高，您有什么可以谈论的吗？
+
+  [ 95] [EN] Jacob Martin Rode:Very good. Thanks for those two questions. On the first one on market share development and perhaps market growth also will turn to you, Mike.
+       [中] 雅各布·马丁·罗德：非常好。谢谢你提出这两个问题。关于市场份额发展和市场增长的第一个问题也将取决于你，迈克。
+
+  [ 96] [EN] Maziar Doustdar:Thank you very much, Carsten. So as someone who has been part of the commercial organization for so long, then I would not lie and say I don't like losing market share. But our job right now is to focus the company's strategy around diabetes and obesity predominantly because we see a huge expansion potential as we go forward. We are expanding our pipeline through our own activities as well as, of course, acquisitions. We are getting our costs under control to invest and really make sure that no stone is unturned and we're really putting most of our efforts at this point in expanding the markets.
+       [中] Maziar Doustdar：非常感谢你，卡斯滕。因此，作为一个长期参与商业组织的人，我不会撒谎说我不喜欢失去市场份额。但我们现在的工作是将公司的战略重点放在糖尿病和肥胖问题上，因为我们看到了未来巨大的扩张潜力。我们正在通过自己的活动以及收购来扩大我们的产品线。我们正在控制投资成本，并真正确保不遗余力，目前我们确实将大部分努力用于扩大市场。
+
+  [ 97] [EN] There are millions and millions of diabetes and obesity patients out there, including in the U.S. that are not getting their treatments. Launching new products like our Wegovy pill is one way to go get there. Other ways is through increasing our commercial partnerships. You have seen Costco, Walmart, GoodRx, LifeMD, Ro, all of those are ways for us to expand the market and really make sure that through that we succeed and have a successful future. But it does take time for those measures to take effect. It's a marathon, as I have said a number of times now, not a sprint.
+       [中] 包括美国在内，有数以百万计的糖尿病和肥胖患者没有得到治疗。推出像我们的 Wegovy 药丸这样的新产品是实现这一目标的一种方法。其他方法是增加我们的商业合作伙伴关系。你已经看到了 Costco、沃尔玛、GoodRx、LifeMD、Ro，所有这些都是我们扩大市场的方式，并真正确保我们能够成功并拥有成功的未来。但这些措施确实需要时间才能生效。正如我多次说过的那样，这是一场马拉松，而不是短跑。
+
+  [ 98] [EN] Jacob Martin Rode:Thank you, Mike. And for the second question on capital allocation, we'll turn to you, Karsten.
+       [中] 雅各布·马丁·罗德：谢谢你，迈克。关于资本配置的第二个问题，我们将请您来回答，卡斯滕。
+
+  [ 99] [EN] Karsten Knudsen:Yes. Thank you for the capital allocation question. We have a clearly articulated capital allocation framework, which is invest in the business, provided attractive return, pay out dividend in a consistent manner, do pipeline additions through BD and M&A and finally, if excess cash, do share buyback. So that's our framework, which has remained unchanged for quite a while. And with that, I'm saying that we do have a consistent approach on dividend and have no intention of changing that. The starting point is clearly to convert our earnings into cash flow, which we focus on each and every day. And then looking at value-generating opportunities, both organically and inorganically as in the case with Akero as an example.
+       [中] 卡斯滕·克努森：是的。感谢您提出资本分配问题。我们有一个明确的资本配置框架，即投资于业务，提供有吸引力的回报，以一致的方式支付股息，通过业务拓展和并购增加管道，最后，如果现金过剩，则进行股票回购。这就是我们的框架，很长一段时间以来它一直保持不变。说到这里，我想说的是，我们确实对股息采取了一致的做法，并且无意改变这一点。出发点显然是将我们的收入转化为现金流，这是我们每天关注的焦点。然后以有机和无机的方式寻找创造价值的机会，就像 Akero 的例子一样。
+
+  [100] [EN] So I hope that's clear. Back to you, Jacob.
+       [中] 所以我希望这是清楚的。回到你身边，雅各布。
+
+  [101] [EN] Jacob Martin Rode:Thank you, Karsten. And also thanks to you, Carsten, for the two questions. With that, operator, let's turn to the next set of questions, please.
+       [中] 雅各布·马丁·罗德：谢谢你，卡斯滕。还要感谢卡斯滕提出的两个问题。那么，接线员，让我们转向下一组问题。
+
+  [102] [EN] Operator:Your next question comes from the line of Peter Verdult from BNP Paribas.
+       [中] 接线员：您的下一个问题来自法国巴黎银行的Peter Verdult。
+
+  [103] [EN] Peter Verdult:Two questions, please, for Mike and Martin. Mike, don't shoot the messenger, but there are many people that view your pursuit of Metsera as an implicit signal that the -- or your confidence in the internal pipeline has waned over the past 12 months. My question is, where do you see the clinical differentiation between the assets you're looking to acquire versus a cagri, CagriSema and amycretin. Is it just the multi-dosing angle? Or are there other factors at play? And then secondly, and this is a very simple question.
+       [中] Peter Verdult：请向迈克和马丁提出两个问题。迈克，别开枪打死信使，但很多人认为你对 Metsera 的追捕是一个隐含的信号，表明你对内部管道的信心在过去 12 个月里已经减弱。我的问题是，您如何看待您想要购买的资产与 cagri、CagriSema 和阿霉素之间的临床差异。只是多剂量角度吗？还是有其他因素在起作用？其次，这是一个非常简单的问题。
+
+  [104] [EN] But we've heard overnight from our network that Novo has been contacted by FTC for information relating to Metsera, I know you're not going to go into any details, but can you at least confirm if this is actually the case?
+       [中] 但我们隔夜从我们的网络得知，FTC 已联系 Novo 索取有关 Metsera 的信息，我知道您不会透露任何细节，但您至少能确认一下情况是否属实吗？
+
+  [105] [EN] Jacob Martin Rode:Thank you, Pete. And on the first question, on Metsera, we'll turn to you first, Mike, and then Martin, you can add on the different assets.
+       [中] 雅各布·马丁·罗德：谢谢你，皮特。关于第一个问题，在 Metsera 上，我们将首先向您求助，迈克，然后是马丁，您可以添加不同的资产。
+
+  [106] [EN] Maziar Doustdar:Thanks very much, Pete. I would say, Pete, that I am very excited about our own pipeline. I think we have a fantastic pipeline. But when you have an ambition to go to hundreds of millions of people and treat them, then no pipeline is broad enough. So we have been looking at Metsera for a long time. We are very excited about these assets. The proposal to acquire Metsera really supports our long-term strategy. And it's mainly because these assets are differentiated and complemented to our products and portfolio. That's why we are doing it.
+       [中] Maziar Doustdar：非常感谢，皮特。皮特，我想说，我对我们自己的管道感到非常兴奋。我认为我们有一个很棒的管道。但当你有志向数亿人提供治疗时，就没有任何管道足够宽广了。所以我们很长时间以来一直在关注 Metsera。我们对这些资产感到非常兴奋。收购 Metsera 的提议确实支持了我们的长期战略。这主要是因为这些资产具有差异化，并且与我们的产品和产品组合相辅相成。这就是我们这样做的原因。
+
+  [107] [EN] I'll pass it on to Martin, who can more easily explain you the differentiation to our own assets, but I would say it works very complementary to what we have.
+       [中] 我会将其转交给马丁，他可以更轻松地向您解释我们自己的资产的差异化，但我想说它与我们拥有的资产非常互补。
+
+  [108] [EN] Martin Holst Lange:I can only echo that. What we are looking for is complementary to our pipeline. You've heard us speak to many, many times, obesity is not just one disease, it's many different diseases with many different presentations. Different patients coming in with different age, different BMI, different behaviors, different needs, different body composition and different comorbidities. They have different focus areas. And for us to really serve the full palette of patients suffering for obesity and their comorbidities, we need a diversified pipeline. What we've seen is differentiation and complementarity. And when we see that, then if we can progress that with diligence and in [indiscernible], then obviously, we're interested.
+       [中] Martin Holst Lange：我只能回应这一点。我们正在寻找的是对我们的管道的补充。您已经听过我们很多很多次说过，肥胖不仅仅是一种疾病，它是许多不同的疾病，具有许多不同的表现。不同的患者有不同的年龄、不同的体重指数、不同的行为、不同的需求、不同的身体成分和不同的合并症。他们有不同的重点领域。为了真正为所有患有肥胖症及其合并症的患者提供服务，我们需要多元化的渠道。我们看到的是差异化和互补性。当我们看到这一点时，如果我们能够勤奋地在[音频不清晰]中取得进展，那么显然我们很感兴趣。
+
+  [109] [EN] Jacob Martin Rode:Thank you Mike. And thank you, Martin. And then on the second question, the FTC we'll turn to you, Karsten.
+       [中] 雅各布·马丁·罗德：谢谢迈克。谢谢你，马丁。关于第二个问题，我们将向联邦贸易委员会求助，卡斯滕。
+
+  [110] [EN] Karsten Knudsen:Yes. So the short answer is that at this point, we don't want to get into any details around the process. It's still TBD where everything lands out. We note that Metsera board assessed our to be superior, and that's what we can relate to. And then I can say as part of this due diligence, as with any other due diligence, we do comprehensive homework in terms of living up to all laws and regulations in order for the deal to close. We always do that, and we did that here also with the assistance and channels of external experts. So we are confident that this deal can close according to regulations.
+       [中] 卡斯滕·克努森：是的。所以简短的回答是，目前我们不想深入了解该过程的任何细节。一切都还待确定。我们注意到 Metsera 董事会对我们的评价是优秀的，这也是我们可以理解的。然后我可以说，作为尽职调查的一部分，与任何其他尽职调查一样，我们在遵守所有法律和法规方面做了全面的功课，以便完成交易。我们总是这样做，我们在这里也是在外部专家的帮助和渠道下这样做的。因此我们有信心这笔交易能够按照规定完成。
+
+  [111] [EN] Jacob Martin Rode:Thank you, Pete, for those two deal questions. Let's turn to the next set of questions, please.
+       [中] 雅各布·马丁·罗德：皮特，谢谢你提出这两个交易问题。请让我们转向下一组问题。
+
+  [112] [EN] Operator:Your next question comes from the line of Florent Cespedes from Bernstein.
+       [中] 接线员：您的下一个问题来自 Bernstein 的 Florent Cespedes。
+
+  [113] [EN] Florent Cespedes:One question, a follow-up. About Medicare, maybe could you share with us your view on Medicare, on one hand, the opportunity if there is a broader coverage of people with obesity on this channel? And the second, about the potential risk or the IRA -- the next step on IRA, you gave some color on the press release about that. So any comments about this opportunity and risk on Medicare would be great.
+       [中] Florent Cespedes：一个问题，一个后续。关于医疗保险，也许您可​​以与我们分享一下您对医疗保险的看法，一方面，如果这个频道能够更广泛地覆盖肥胖人群，那么机会会更大吗？第二，关于 IRA 的潜在风险——关于 IRA 的下一步，你在新闻稿中对此做了一些说明。因此，任何关于医疗保险机会和风险的评论都会很好。
+
+  [114] [EN] Jacob Martin Rode:Thank you, Florent, for those two questions. For both of those, we'll turn to you, Dave, on Medicare potential and then on IRA.
+       [中] 雅各布·马丁·罗德：谢谢弗洛伦特提出这两个问题。对于这两个问题，戴夫，我们将向您求助，讨论医疗保险的潜力，然后讨论个人退休账户。
+
+  [115] [EN] David Moore:Thanks for the question, Florent. The Medicare opportunity is very important to us and something we've been pursuing since we launched into obesity over a decade ago. And we know that there's roughly 30 million people of Medicare age that are suffering from obesity, and that is something that we feel is really important that those individuals have access to anti-obesity medicines. We can't speculate on what the potential is and how many of those patients will be able to reach, but we do see this as a very important development for us. Regarding your second question about IRA. As Karsten mentioned, we gave an understanding of the expected impact in the company announcement as well.
+       [中] 大卫·摩尔：谢谢你的提问，弗洛伦特。医疗保险机会对我们来说非常重要，也是我们自十多年前开始肥胖以来一直追求的目标。我们知道大约有 3000 万处于医疗保险年龄的人患有肥胖症，我们认为让这些人获得抗肥胖药物非常重要。我们无法推测潜力有多大以及能够接触到多少患者，但我们确实认为这对我们来说是一个非常重要的发展。关于你关于IRA的第二个问题。正如卡斯滕提到的，我们也在公司公告中了解了预期影响。
+
+  [116] [EN] And it's not something that we are able to comment on. We are under strict confidentiality with CMS, and CMS will be making the announcement of what those prices are at some point in the near future.
+       [中] 我们无法对此发表评论。我们对 CMS 严格保密，CMS 将在不久的将来的某个时候公布这些价格。
+
+  [117] [EN] Jacob Martin Rode:Thank you, Dave, and also thanks to you, Florent. And let's move to the next set of questions in line, please.
+       [中] 雅各布·马丁·罗德：谢谢你，戴夫，也谢谢你，弗洛伦特。请让我们继续讨论下一组问题。
+
+  [118] [EN] Operator:Your next question comes from the line of Martin Parkhoi from SEB.
+       [中] 接线员：您的下一个问题来自 SEB 的 Martin Parkhoi。
+
+  [119] [EN] Martin Parkhoi:Two questions. I have to come a little bit back to the question that's getting from Carsten because I think he was a little bit kind to you, Mike, with respect to market share loss because if we look at the your old area IO and look at reported sales, then Lilly have actually done a sprint. They -- 2 years ago, you had a market share of 80% on all GLP-1 sales on reported numbers. And today, you are at 50%. So can you talk a little bit about what has gone, not wrong for you, but what have they done right in IO to basically capture so much more share than you?
+       [中] 马丁·帕克霍伊：两个问题。我必须稍微回到卡斯滕提出的问题，因为我认为他在市场份额损失方面对你有点友善，迈克，因为如果我们查看你的旧区域 IO 并查看报告的销售额，那么礼来实际上已经完成了冲刺。两年前，根据报告数据，你们在所有 GLP-1 销售中占据了 80% 的市场份额。而今天，你已经完成了 50%。那么你能谈谈发生了什么吗？对你来说这不是错，但他们在 IO 方面做了什么正确的事情，基本上获得了比你多得多的份额？
+
+  [120] [EN] Is it commercial execution in IO across the countries? Or is just due to product superiority? Why can they sprint and you cannot? And then second question is just on device strategy. A bit of a setback for Wegovy FlexTouch in U.S., you had argued for that to be an important part of flexibility in the consumer channel. What are you -- going to '26, are your device strategy overall also with respect to launch of products in vials and in which market would that be relevant?
+       [中] 是各国IO的商业执行吗？还是仅仅因为产品的优势？为什么他们可以冲刺而你却不能？第二个问题是关于设备策略。Wegovy FlexTouch 在美国遭遇了一些挫折，您曾认为这是消费者渠道灵活性的重要组成部分。到了 26 年，您的整体设备策略是否也与推出小瓶产品有关？这与哪个市场相关？
+
+  [121] [EN] Jacob Martin Rode:Thank you, Martin. On the first question on IO, I'll turn it over to you, Mike.
+       [中] 雅各布·马丁·罗德：谢谢你，马丁。关于 IO 的第一个问题，我将把它交给你，迈克。
+
+  [122] [EN] Maziar Doustdar:Yes. Thanks very much. So a couple of different ways to answer your question, Martin. There are markets that we are clearly competing well and gaining market share within IO and there are markets that we are losing. So it is market dynamics that dictates IO and averages sometimes cloud the picture. In certain markets, take China as an example, the market is not growing as much as we had anticipated. We have said it in the past. It's predominantly because we have never launched a previous version of obesity drugs in that market.
+       [中] 马齐亚尔·杜斯塔：是的。非常感谢。马丁，有几种不同的方式来回答你的问题。有些市场我们显然竞争得很好，并在 IO 中获得了市场份额，但有些市场我们正在失去。因此，市场动态决定了 IO，而平均值有时会掩盖情况。在某些市场，以中国为例，市场的增长没有我们预期的那么快。我们过去已经说过了。这主要是因为我们从未在该市场推出过以前版本的肥胖药物。
+
+  [123] [EN] At the same time, we have seen in the same market that we're losing in the online battle to our competitor, predominantly because obesity drugs or Wegovy is not allowed to be sold online, while if you have a mega brand, then it's a very different picture. So that's, I would say, for China. If you take a look at some of the European markets, take U.K. as an example. We have seen how our share of growth over a period of 1 quarter has now bypassed on initiation our competitors' numbers. So this is a dynamic market that changes. And it is really to be seen on a longer horizon and not quarter-by-quarter.
+       [中] 与此同时，我们在同一个市场上看到，我们在在线战斗中输给了竞争对手，主要是因为肥胖药物或 Wegovy 不允许在线销售，而如果你拥有一个大品牌，那么情况就截然不同了。我想说，这就是中国的情况。如果你看一下欧洲的一些市场，以英国为例。我们已经看到，我们一季度的增长份额现在已经超越了竞争对手的数字。所以这是一个不断变化的动态市场。这确实需要从更长远的角度来看待，而不是逐个季度地看待。
+
+  [124] [EN] We still have a patient base more than -- 2x more than our competitor in international operations. The volume strategy and the future potential of international is still incredibly attractive for us. But we came to this market with a very high level of market share, 100% on our own. So losing market share is something that we had anticipated. And as our competitor comes and as we go also into next year, it will not just be Eli Lilly, but also in some of the markets, other players as we lose LOE. So we have to look at this longer term.
+       [中] 我们的患者基础仍然比我们在国际业务中的竞争对手多两倍多。国际化的销量策略和未来潜力对我们来说仍然极具吸引力。但我们进入这个市场时，市场份额非常高，100%是我们自己的。因此失去市场份额是我们预料到的。随着我们的竞争对手的到来以及我们进入明年，它不仅会是礼来公司，而且还会在某些市场上，以及我们失去 LOE 的其他参与者。所以我们必须着眼长远。
+
+  [125] [EN] And when we do look at it longer term, I am incredibly optimistic for the volumes and the level of unmet need that exists in international operations.
+       [中] 当我们从长远来看时，我对国际业务中存在的未满足需求的数量和水平非常乐观。
+
+  [126] [EN] Jacob Martin Rode:Thank you, Mike. And let's move to Dave for the device question, please.
+       [中] 雅各布·马丁·罗德：谢谢你，迈克。现在请戴夫回答设备问题。
+
+  [127] [EN] David Moore:Thank you, Martin. Yes. As you mentioned, it's a setback to receive the CRL on Wegovy FlexTouch. Looking into 2026, we are looking at other presentations. This includes vials. It includes other devices that we're thinking about entering into the market, which would lead to more optionality, especially as we continue to grow in the cash channel as well. On the FlexTouch specifically, we are in active dialogue with FDA and working through the CRL, but can't comment on any specific time lines yet at this point.
+       [中] 大卫·摩尔：谢谢你，马丁。是的。正如您提到的，在 Wegovy FlexTouch 上接收 CRL 是一个挫折。展望 2026 年，我们正在研究其他演示。这包括小瓶。它包括我们正在考虑进入市场的其他设备，这将带来更多的选择，特别是当我们在现金渠道上继续增长时。特别是在 FlexTouch 方面，我们正在与 FDA 积极对话并通过 CRL，但目前无法对任何具体时间线发表评论。
+
+  [128] [EN] Jacob Martin Rode:Thank you, Dave. Thank you, Martin, for the set of two questions. And let's move to the next question, please.
+       [中] 雅各布·马丁·罗德：谢谢你，戴夫。谢谢马丁提出的两个问题。请让我们进入下一个问题。
+
+  [129] [EN] Operator:Your next question comes from Sachin Jain, Bank of America.
+       [中] 接线员：您的下一个问题来自美国银行的 Sachin Jain。
+
+  [130] [EN] Sachin Jain:I have two questions please, one commercial, one financial. Commercial on Wegovy pill, just wondering if you could talk about how you're scenario planning around orforglipron pricing given some news overnight and given your API restrictability, your ability to compete on price? And any further color you can give on launch cadence as we think about that launch? And then second one for Karsten, I'm sure you're expecting the question, but the last couple of years, you've given some high-level color on year forward sort of you'd be willing to just share moving parts as we think about '26.
+       [中] Sachin Jain：我有两个问题，一是商业问题，一是金融问题。关于 Wegovy 药丸的商业广告，只是想知道您是否可以谈谈您如何围绕 orforglipron 定价进行场景规划，考虑到隔夜的一些新闻以及您的 API 限制，您在价格上竞争的能力？当我们考虑该发布时，您可以对发布节奏给出任何进一步的说明吗？然后是卡斯滕的第二个，我相信你在期待这个问题，但在过去的几年里，你已经为未来一年提供了一些高水平的色彩，你愿意分享我们对 26 年的移动部分。
+
+  [131] [EN] A lot of factors there, gross to net in the base, certain IO patents, Akero, consensus sitting at roughly 7% sales, low teens EBIT, so just any high-level thoughts.
+       [中] 有很多因素，基数中的毛净值、某些 IO 专利、Akero、销售额约为 7% 的共识、较低的 EBIT，所以只是任何高层想法。
+
+  [132] [EN] Jacob Martin Rode:Thank you, Sachin. The first question on oral sema, let's go to you, Dave, in terms of preparedness. Of course, for competitive reasons, we cannot go into any details, but the high-level picture, Dave.
+       [中] 雅各布·马丁·罗德：谢谢你，萨钦。关于口头演讲的第一个问题，戴夫，让我们谈谈准备方面的问题。当然，出于竞争的原因，我们不能透露任何细节，但戴夫，我们只能了解高层情况。
+
+  [133] [EN] David Moore:Yes. Thanks a lot, Sachin. We're incredibly excited as we move closer to the approval date of the Wegovy pill. I think this is a big step forward in terms of expanding the market and for those individuals that align better with taking a pill for their obesity. We can't comment on specific pricing, of course. But what I would say is we are going to have the Wegovy pill available in all channels.
+       [中] 大卫·摩尔：是的。非常感谢，萨钦。随着 Wegovy 药物的批准日期越来越近，我们感到非常兴奋。我认为，对于扩大市场以及那些更适合服用药物治疗肥胖的人来说，这是向前迈出的一大步。当然，我们无法评论具体定价。但我想说的是，我们将在所有渠道提供 Wegovy 药丸。
+
+  [134] [EN] And this is different from previous launches because we will have the ability to focus on Medicaid, Medicare and commercial, but also have a cash offering available through all of our different telehealth partnerships as well as our own NovoCare Pharmacy and the retail partnerships that we've aligned as well. This is a new way to launch for us. And we're also thinking about the competitiveness. This is a competitive profile with respect to efficacy and tolerability, and we're really looking forward to bringing this to people living with obesity in the U.S.
+       [中] 这与之前的推出不同，因为我们将有能力专注于医疗补助、医疗保险和商业，但也可以通过我们所有不同的远程医疗合作伙伴关系以及我们自己的 NovoCare 药房和我们已经协调的零售合作伙伴关系提供现金。这对我们来说是一种新的启动方式。我们也在考虑竞争力。这在功效和耐受性方面具有竞争力，我们非常期待将其带给美国的肥胖症患者。
+
+  [135] [EN] Jacob Martin Rode:Thank you, Dave. That's very clear. And the second question, we'll turn it to you, Karsten.
+       [中] 雅各布·马丁·罗德：谢谢你，戴夫。这非常清楚。第二个问题，我们将把它交给你，卡斯滕。
+
+  [136] [EN] Karsten Knudsen:Yes. Thank you for that question, Sachin. And I think you actually already captured some of the key elements going into your own question. So the starting point is we do not guide for next year today. We'll come back to guide for next year at a later point in time as we normally do. What I can say is, as always, current momentum is the foundation for future trends in the business. Not saying everything continues, but current momentum is where we start. Then we have a few specific items worth calling out in relation to next year's growth rates.
+       [中] 卡斯滕·克努森：是的。谢谢你提出这个问题，萨钦。我认为您实际上已经抓住了您自己问题中的一些关键要素。所以我们的出发点是今天我们不为明年提供指导。我们将像往常一样在明年晚些时候回来提供指导。我能说的是，一如既往，当前的势头是未来业务趋势的基础。并不是说一切都会继续，但当前的势头是我们的起点。然后，我们有一些与明年增长率相关的具体项目值得一提。
+
+  [137] [EN] One is this year, we have some gross to net favorability, I would estimate it to around 2 percentage point on group sales growth this year that will not repeat into next year. So that needs to be factored into a growth rate. Then loss of exclusivity in certain IO markets. We've been calling that out for quite some time, including in our release that will have an estimated negative impact of low single digits on next year's sales growth on group sales. Then on sales, Dave was covering the Wegovy pill, which, of course, is our main launch into next year and upon regulatory approval by the FDA.
+       [中] 一是今年，我们有一些毛净值的好感度，我估计今年集团销售增长约为 2 个百分点，这种情况不会延续到明年。因此，这需要考虑到增长率中。然后失去在某些 IO 市场的排他性。我们已经呼吁这一点相当长一段时间了，包括在我们的新闻稿中，预计这将对明年集团销售的销售增长产生低个位数的负面影响。然后在销售方面，戴夫负责报道 Wegovy 药丸，这当然是我们明年主要推出的产品，并获得 FDA 监管批准。
+
+  [138] [EN] And then the final discretionary factor to call out is Akero and the step-up in R&D costs associated with that transaction pending closing expected later this year. That will have a 3% negative impact on operating profit growth in 2026.
+       [中] 最后一个需要注意的因素是 Akero 以及与预计今年晚些时候完成的交易相关的研发成本的增加。这将对 2026 年营业利润增长产生 3% 的负面影响。
+
+  [139] [EN] Jacob Martin Rode:Thank you, Karsten, and thank you to you, Sachin, for those two questions. Now let's move to the next one in line and those set of questions, please.
+       [中] 雅各布·马丁·罗德：谢谢你，卡斯滕，也谢谢你，萨钦，提出这两个问题。现在让我们转到下一个问题以及这组问题。
+
+  [140] [EN] Operator:Your next question comes from the line of Michael Nedelcovych from TD Cowen.
+       [中] 接线员：您的下一个问题来自 TD Cowen 的 Michael Nedelcovych。
+
+  [141] [EN] Michael Nedelcovych:I have two. My first is actually a follow-up on Metsera. Martin, can you articulate what specifically about the Metsera agents is differentiated from Novo's own pipeline candidates other than the potential for once monthly dosing? In response to the previous question, you've restated that Metsera is differentiated and complementary, but I'm wondering what public data lead you to that conclusion or if those data are not public, can you confirm that? That's my first question. And then my second question is on the evoke trials. We are now less than a month away from the CTAD presentation.
+       [中] 迈克尔·内德尔科维奇：我有两个。我的第一个实际上是 Metsera 的后续。Martin，除了每月一次给药的潜力之外，您能否具体阐明 Metsera 药物与 Novo 自己的候选药物有何不同？在回答上一个问题时，您重申了 Metsera 是差异化和互补性的，但我想知道哪些公开数据使您得出了这一结论，或者如果这些数据不是公开的，您能否证实这一点？这是我的第一个问题。我的第二个问题是关于诱发试验。现在距离 CTAD 演示还有不到一个月的时间。
+
+  [142] [EN] So I'm assuming that Novo has the data in-house and is simply cleaning them up before top line release ahead of the presentation. So my question is, if it is an unequivocally negative result, would Novo cancel its CTAD presentation?
+       [中] 因此，我假设 Novo 拥有内部数据，并且只是在演示前发布顶线之前清理它们。所以我的问题是，如果结果明确为阴性，Novo 会取消其 CTAD 演示吗？
+
+  [143] [EN] Jacob Martin Rode:Thank you Mike, for those two questions. Now let's start with the first one on revisiting Metsera and the view on differentiation from your side, Martin.
+       [中] 雅各布·马丁·罗德：谢谢迈克提出这两个问题。现在让我们从第一个话题开始，回顾 Metsera 以及您对差异化的看法，Martin。
+
+  [144] [EN] Martin Holst Lange:Yes. Thank you very much for the question. I don't want to go into specifics, but maybe just to iterate what we're looking at, where we look for complementarity to our pipeline. It's data on efficacy, and those can be differentiated at many levels. It's data on safety and tolerability, a little bit of the same consideration. Its scalability. And then obviously, in this case, the dose in frequency. We, on more than one parameter, see complementarity to our pipeline. And therefore, this is an effective proposition for us. On evoke, I do want to iterate, we do not know the data in-house in this room. If we did, we would actually had to issue a corporate announcement immediately.
+       [中] 马丁·霍尔斯特·兰格：是的。非常感谢你的提问。我不想透露细节，但也许只是为了重申我们正在研究的内容，我们在其中寻找与我们的管道的互补性。它是关于功效的数据，这些数据可以在多个层面上进行区分。这是关于安全性和耐受性的数据，有一点相同的考虑。它的可扩展性。显然，在这种情况下，剂量是频率。我们在多个参数上看到了与我们的管道的互补性。因此，这对我们来说是一个有效的提议。关于唤起，我确实想迭代，我们不知道这个房间内部的数据。如果我们这样做，我们实际上必须立即发布公司公告。
+
+  [145] [EN] So no knowledge amongst any of us in this room. Our starting point is to disclose data, good or bad. So we currently aim to present whatever data that we will have at CTAD in the beginning of December.
+       [中] 所以我们这个房间里的任何人都不知道。我们的出发点是披露数据，无论好坏。因此，我们目前的目标是在 12 月初在 CTAD 上展示我们将获得的所有数据。
+
+  [146] [EN] Jacob Martin Rode:Thanks, Martin. That's very clear. And also thank you to you, Mike, for both of those questions. Now let's move to next question, please.
+       [中] 雅各布·马丁·罗德：谢谢，马丁。这非常清楚。迈克，也感谢你提出这两个问题。现在让我们进入下一个问题。
+
+  [147] [EN] Operator:Your next question comes from Harry Sephton from UBS.
+       [中] 接线员：您的下一个问题来自瑞银集团的 Harry Sephton。
+
+  [148] [EN] Harry Sephton:Two on the U.S., please. So just in light of the agreed IRA direct negotiation discounts on semaglutide. And also some of the press reports yesterday on potential obesity Medicare coverage. I don't want you to comment directly, but it appears you'll end up with significantly different prices for your products across different channels. So I wanted to get your thoughts on how you expect that you're able to maintain this segmented pricing by channel? Or should we assume that all prices gradually trend towards the lowest level? And then the second one on the U.S., just on the current U.S. market trends.
+       [中] 哈里·塞夫顿：请讲两个关于美国的问题。因此，仅根据 IRA 商定的索马鲁肽直接谈判折扣。昨天还有一些媒体报道了潜在的肥胖医疗保险覆盖范围。我不想让您直接发表评论，但看来您最终会在不同渠道获得产品的明显不同价格。因此，我想了解您对如何维持这种按渠道分段定价的想法？或者我们应该假设所有价格都逐渐趋向最低水平？然后第二个是关于美国的，就是关于当前美国市场的趋势。
+
+  [149] [EN] Can you discuss how you're currently thinking about the levers to improve access and commercial insurance coverage on Wegovy and Ozempic going into next year? Or do you expect that the majority of the 2026 U.S. growth is really going to come from the launch of the Wegovy pill?
+       [中] 您能否谈谈您目前如何考虑明年如何改善 Wegovy 和 Ozempic 的准入和商业保险覆盖范围？或者您是否预计 2026 年美国经济增长的大部分真的将来自 Wegovy 药丸的推出？
+
+  [150] [EN] Jacob Martin Rode:Thank you, Harry. Noted two questions here. I'll send both to you, Dave. The first one on the pricing dynamics and then subsequently on the current access picture. Over to you, Dave.
+       [中] 雅各布·马丁·罗德：谢谢你，哈利。这里注意到两个问题。我会把这两封都寄给你，戴夫。第一个关于定价动态，然后是当前的访问情况。交给你了，戴夫。
+
+  [151] [EN] David Moore:Yes. Thank you much. As we mentioned, we can't discuss any of the specifics around IRA or MFN, but we do appreciate the question. And the fact that historically, we have been able to maintain different prices in different channels, given that be Medicaid, Medicare or commercial and now are increasingly expanding cash channel. Of course, we can't speculate what that will mean in the future. But historically, we have been able to maintain the differentiation between those markets and the access that comes with it.
+       [中] 大卫·摩尔：是的。非常感谢。正如我们所提到的，我们无法讨论有关 IRA 或 MFN 的任何具体细节，但我们确实感谢这个问题。事实上，从历史上看，我们一直能够在不同渠道维持不同的价格，无论是医疗补助、医疗保险还是商业，现在我们正在日益扩大现金渠道。当然，我们无法推测这对未来意味着什么。但从历史上看，我们一直能够保持这些市场和随之而来的准入之间的差异化。
+
+  [152] [EN] To your second question around the trends in terms of the quality of access, it's something that continues to be really important for us as sometimes receiving an obesity medication can be a challenge because of the friction that exists in the marketplace. So we are continuing to push for and invest in improved access. It's a clear priority for us. This includes both our cash offerings. It's also what we do with payers. But we haven't seen a large uptake yet in terms of that opportunity, but it's something that we're going to continue to push for in 2026 access.
+       [中] 关于您关于获取质量趋势的第二个问题，这对我们来说仍然非常重要，因为有时由于市场中存在的摩擦，接受肥胖药物可能是一个挑战。因此，我们将继续推动并投资于改善准入。这对我们来说是一个明确的优先事项。这包括我们的现金发行。这也是我们对付款人所做的事情。但就这一机会而言，我们尚未看到大量采用，但我们将在 2026 年继续推动这一机会。
+
+  [153] [EN] We don't really expect the access to be largely changed in 2026, but we do know that each of the payers or Medicaid, as we mentioned earlier, have budget constraints and there could potentially be some loss of coverage as well.
+       [中] 我们并不真正预计 2026 年的准入会发生很大变化，但我们确实知道，正如我们之前提到的，每个付款人或医疗补助都有预算限制，并且也可能会出现一些保险范围的损失。
+
+  [154] [EN] Jacob Martin Rode:Thank you, Dave, for those two. And also thanks to you, Harry. Let's move to the next question, please.
+       [中] 雅各布·马丁·罗德：戴夫，谢谢你这两个人。还要感谢你，哈利。请让我们进入下一个问题。
+
+  [155] [EN] Operator:Your next question comes from Emmanuel Papadakis from Deutsche Bank.
+       [中] 接线员：您的下一个问题来自德意志银行的 Emmanuel Papadakis。
+
+  [156] [EN] Emmanuel Papadakis:A few follow-ups, perhaps. Maybe taking a step back on U.S. commercial channel trends and obesity. Excuse the background noise. Wegovy scripts are pretty much flat since July despite the NASH launch. Even Zepbound has seen most of the growth coming from the cash channel. So talk us through what you think the obstacles actually are to better penetration in that commercial channel? Is it on the demand side due to product profile, lack of demand beyond the motivated minority? Or is the barrier really on the access side, for example, as you referenced potentially insurance companies making it difficult for patients to actually get on or main on therapy?
+       [中] Emmanuel Papadakis：也许是一些后续行动。也许会在美国商业渠道趋势和肥胖问题上退一步。请原谅背景噪音。尽管推出了 NASH，但 Wegovy 脚本自 7 月以来基本持平。就连 Zepbound 也发现大部分增长来自现金渠道。那么请告诉我们您认为更好地渗透该商业渠道的实际障碍是什么？是由于产品概况而导致需求方面缺乏超出积极性的少数人的需求吗？或者障碍是否真的存在于准入方面，例如，正如您提到的潜在保险公司使患者难以真正接受或主要接受治疗？
+
+  [157] [EN] Maybe a follow-up on Metsera, the deal structure and the risk associated with that. Can you just help us understand your comfort with the risk around the way you are structuring your offer? It seems there's a reasonable chance you could end up with 50% of the company you don't control to its ultimate benefit preventing someone else from owning them. So why are you comfortable with that possibility? Or how do you expect to avoid it? And then just a quick clarification on the Medicare access discussions. What would be upper limit discount you're contemplating be? Would that be in line with the MSP or this would be something in addition to that?
+       [中] 也许是 Metsera 的后续行动、交易结构以及与之相关的风险。您能否帮助我们了解您对构建报价方式的风险的接受度？看起来你很有可能最终会拥有你无法控制的公司 50% 的股份，以防止其他人拥有这些公司的最终利益。那么你为什么对这种可能性感到满意呢？或者你希望如何避免它？然后快速澄清医疗保险准入讨论。您考虑的折扣上限是多少？这是否与 MSP 一致，还是除此之外的其他内容？
+
+  [158] [EN] Jacob Martin Rode:Thank you, Emmanuel. I noted two questions there. On the first one on the Wegovy scriptions, I'll turn it to you, Dave. And on the second one afterwards, on the deal structure, I'll turn to you, Ludovic. But first, over to you, Dave.
+       [中] 雅各布·马丁·罗德：谢谢你，伊曼纽尔。我在那里注意到了两个问题。关于韦戈维铭文的第一个，我会把它交给你，戴夫。之后的第二个问题，关于交易结构，我将转向你，Ludovic。但首先，交给你了，戴夫。
+
+  [159] [EN] David Moore:Yes. Thank you, Emmanuel. As we mentioned earlier, the quality of access remains a focus point and certainly a challenge in the reimbursed channel. Of course, we've got that combined with intense competition. And we also mentioned that the compounding is continuing to increase as well. So that focus and investment in the quality of access, we do think is an important factor with respect to expanding the market. And in addition, you'll continue to see our efforts in expanding the cash channel through more partnerships and certainly having our product offerings available in that channel as well.
+       [中] 大卫·摩尔：是的。谢谢你，伊曼纽尔。正如我们之前提到的，访问质量仍然是一个焦点，当然也是报销渠道中的一个挑战。当然，我们将这一点与激烈的竞争结合在一起。我们还提到复利也在继续增加。因此，我们确实认为，对接入质量的关注和投资是扩大市场的一个重要因素。此外，您将继续看到我们通过更多合作伙伴关系扩大现金渠道的努力，当然也可以在该渠道中提供我们的产品。
+
+  [160] [EN] Jacob Martin Rode:Thank you. And now I'll hand over to you Ludovic.
+       [中] 雅各布·马丁·罗德：谢谢。现在我将把任务交给你，Ludovic。
+
+  [161] [EN] Ludovic Helfgott:Thanks for the question, Emmanuel. Well, I think everything stems from, I guess, what you feel is an excitement for the portfolio of Metsera. We really believe in the assets. We believe in the team. And we believe that the deal structure that we have now, which, by the way, as Karsten said, has been vetted and discussed with external councils and experts. And believe that it's in line with all legal standards, boils down to the quality of the asset and the data that we -- and the confidence we have in the data that we have.
+       [中] Ludovic Helfgott：谢谢你的提问，伊曼纽尔。嗯，我想一切都源于，我猜，你对 Metsera 的投资组合感到兴奋。我们真的相信资产。我们相信团队。我们相信，我们现在拥有的交易结构，顺便说一下，正如卡斯滕所说，已经与外部委员会和专家进行了审查和讨论。并相信它符合所有法律标准，归结为我们的资产和数据的质量以及我们对所拥有数据的信心。
+
+  [162] [EN] So of course, we know when you get into such acquisition that this deal will be reviewed, but we're comfortable that even the 50% of the shares that we would have in our pocket would be actually worth a lot if the product stands out to be the way we think it is, products with an edge, by the way, because as you said, Martin, it's a convention of product. So in all cases, as it boils down to science, we believe that we have a good value proposition. Of course, we would prefer at the end to have that in our portfolio from an operational perspective, but the value there, we believe is really, really high in all scenarios.
+       [中] 当然，我们知道当你进行这样的收购时，这笔交易将会受到审查，但我们很放心，如果产品像我们想象的那样脱颖而出，顺便说一句，具有优势的产品，即使是我们口袋里的 50% 的股份实际上也很有价值，因为正如你所说，马丁，这是产品的惯例。因此，在所有情况下，归结为科学，我们相信我们有一个很好的价值主张。当然，从运营角度来看，我们最终希望将其纳入我们的投资组合中，但我们相信，在所有情况下，其价值都非常非常高。
+
+  [163] [EN] Jacob Martin Rode:Thank you, Ludovic. And now let's turn to the last two questions. For the second last question. Please go ahead, operator.
+       [中] 雅各布·马丁·罗德：谢谢你，卢多维克。现在让我们转向最后两个问题。对于倒数第二个问题。请继续，接线员。
+
+  [164] [EN] Operator:The question comes from the line of Richard Vosser from JPMorgan.
+       [中] 接线员：这个问题来自摩根大通的Richard Vosser。
+
+  [165] [EN] Richard Vosser:First question, Mike, you alluded to more telehealth involvement, particularly in the U.S. I think the prior arrangements, particularly with Hims, have faced challenges given they continue to bulk compound. So there's been some discussion around continuing or new agreements with Hims, but also the wider involvement of the telehealth. So I wondered what was different this time and whether there's any evidence of any increased pressure around from the FDA or legal pressure to remove the compounders and what could change on that front. And then the second question, just you mentioned a couple of times about coverage, maybe even getting a little bit worse in Medicaid and maybe even the commercial payers, the barriers staying high.
+       [中] 理查德·沃瑟：第一个问题，迈克，你提到了更多的远程医疗参与，特别是在美国。我认为之前的安排，特别是与希姆斯的安排，由于它们继续大量复合而面临着挑战。因此，围绕与 Hims 的持续协议或新协议进行了一些讨论，而且还讨论了远程医疗的更广泛参与。所以我想知道这次有什么不同，是否有任何证据表明 FDA 或法律压力增加了移除复合剂的压力，以及这方面可能会发生什么变化。然后是第二个问题，刚才你提到了几次关于保险范围的问题，医疗补助甚至商业付款人的情况可能会变得更糟，障碍仍然很高。
+
+  [166] [EN] Well, in that case, how should we think about the pricing? Normally, we think about increased rebate levels and increased pricing should remove barriers to get more reimbursement. So how should we think about that going into '26?
+       [中] 那么，既然如此，我们应该如何考虑定价呢？通常，我们认为提高回扣水平和提高定价应该可以消除获得更多报销的障碍。那么进入 26 年后我们应该如何看待这一点呢？
+
+  [167] [EN] Jacob Martin Rode:Thanks, Richard. On the first one, I'll turn to you, Mike, on the telehealth.
+       [中] 雅各布·马丁·罗德：谢谢，理查德。关于第一个问题，迈克，我将向您求助有关远程医疗的问题。
+
+  [168] [EN] Maziar Doustdar:Yes. A couple of comments on that, Richard. There's been no increased pressure to answer your question directly. But what we have been quite consistent with regards to the illicit API that is coming from China and being used by compounders, we find -- since these are not FDA approved, their safety is questionable. And as a pharma company, we don't basically like that. That hasn't changed at all. We also have been saying that we need to increase our access and we need to find ways to get to many more patients. The cash channel and eHealth is definitely an attractive way to go about it.
+       [中] 马齐亚尔·杜斯塔：是的。对此有几点评论，理查德。直接回答你的问题并没有增加压力。但我们发现，关于来自中国并被复合商使用的非法原料药的情况一直非常一致——由于这些原料药未经 FDA 批准，其安全性值得怀疑。作为一家制药公司，我们基本上不喜欢这样。这一点都没有改变。我们还一直在说，我们需要增加我们的服务范围，我们需要找到方法来接触更多的患者。现金渠道和电子医疗绝对是一种有吸引力的方式。
+
+  [169] [EN] In that context, we're having dialogue and discussions with multiple players on how we could actually increase our access and then we will see with who we should go into partnership. We've made a number of those partnerships available. So we talked about Costco. We have talked about EMed. We have talked about Walmart. And ongoing dialogues with many, many more are ongoing in pursuit of our market expansion that I spoke to earlier on.
+       [中] 在这种情况下，我们正在与多个参与者就如何真正增加我们的访问权限进行对话和讨论，然后我们将看看我们应该与谁建立合作伙伴关系。我们已经建立了许多这样的合作伙伴关系。所以我们谈论了好市多。我们已经讨论过 EMed。我们已经讨论过沃尔玛。为了实现我之前谈到的市场扩张，我们正在与许多人进行持续的对话。
+
+  [170] [EN] Jacob Martin Rode:Thank you, Mike. That's clear. And for the second one, let's move to you again, Dave, please.
+       [中] 雅各布·马丁·罗德：谢谢你，迈克。很清楚。对于第二个问题，请让我们再次请您发言，戴夫。
+
+  [171] [EN] David Moore:Yes. Thanks very much, Richard. We continue to have dynamics that we've discussed in the past, continued pressure, both in GLP-1 as well as in obesity with respect to price as we look to unlock more volumes. But I think it's -- I do want to reiterate that the quality of access is a clear priority for us. We are working with payers to make sure that the experience is one that patients are able to receive their medicine more seamlessly. That means lower utilization management, right? That means less of a prior authorization criteria. When we say we're investing in quality of access, that's really what we mean. And that's the focused conversation that we're having with payers.
+       [中] 大卫·摩尔：是的。非常感谢，理查德。我们继续保持过去讨论过的动态，即 GLP-1 和肥胖方面价格方面的持续压力，因为我们希望释放更多数量。但我认为，我确实想重申，访问质量显然是我们的首要任务。我们正在与付款人合作，确保患者能够更无缝地获得药物。这意味着利用率管理较低，对吧？这意味着更少的事先授权标准。当我们说我们正在投资于访问质量时，这正是我们的意思。这就是我们与付款人进行的重点对话。
+
+  [172] [EN] In 2026, we don't really expect a large difference in terms of access in the commercial channel. As we mentioned, there may be some in Medicaid. But when we look at the commercial opportunity, I think it is important to note that we haven't been making progress in terms of the access. We continue to believe that the CVS opportunity remains there, and that will -- we will see Wegovy as the exclusive brand at AOM, at CVS in 2026 as well.
+       [中] 到 2026 年，我们并不真正预计商业渠道的访问量会出现很大差异。正如我们提到的，医疗补助中可能有一些。但当我们审视商业机会时，我认为重要的是要注意我们在准入方面尚未取得进展。我们仍然相信 CVS 的机会仍然存在，而且我们将在 2026 年将 Wegovy 视为 AOM 和 CVS 的独家品牌。
+
+  [173] [EN] Jacob Martin Rode:Thanks a lot, Dave. That's clear. And let's move to the final question before I hand over to you, Mike, for closing. So final question, please.
+       [中] 雅各布·马丁·罗德：非常感谢，戴夫。很清楚。在我把问题交给迈克结束之前，让我们讨论最后一个问题。最后一个问题，请。
+
+  [174] [EN] Operator:Your final question today comes from the line of James Quigley from Goldman Sachs.
+       [中] 接线员：您今天的最后一个问题来自高盛的詹姆斯·奎格利。
+
+  [175] [EN] James Quigley:I've got two left, please. So firstly, on REDEFINE 4, how important is this into demonstrating differentiation from a physician and a marketing perspective versus Zepbound? Have you thought any more about how Zepbound could behave in a flexible dosing scenario versus other trials and real-world data? And can you confirm that you still look to launch CagriSema if REDEFINE 4 shows no statistically significant difference? And second one, can you talk through the launch preparations for Wegovy in ex U.S.? I mean you've highlighted in the release and in the comments that you could look to launch in select countries versus previously when it's likely to be mainly focused in the U.S.
+       [中] 詹姆斯·奎格利：我还剩两个。首先，在 REDEFINE 4 上，与 Zepbound 相比，从医生和营销角度展示差异化有多重要？您是否更多地想过 Zepbound 与其他试验和真实世界数据相比在灵活剂量场景中的表现如何？如果 REDEFINE 4 没有显示出统计上的显着差异，您能否确认您仍然希望启动 CagriSema？第二个问题，您能谈谈 Wegovy 在美国以外地区的启动准备工作吗？我的意思是，您在新闻稿和评论中强调，您可能会考虑在选定的国家/地区推出，而之前可能主要集中在美国。
+
+  [176] [EN] So what's happened such that you consider also launching in the ex U.S.? And how do you balance this with U.S. launch processes and pricing, et cetera, as we head into an MFN world?
+       [中] 那么，发生了什么让您考虑在美国以外地区推出业务？当我们进入最惠国待遇世界时，您如何平衡这一点与美国的发布流程和定价等？
+
+  [177] [EN] Jacob Martin Rode:Thanks, James. That's two. One on the REDEFINE 4 and one on the orals sema in IO. But on the REDEFINE one, I'll turn it to you first, Martin.
+       [中] 雅各布·马丁·罗德：谢谢，詹姆斯。那是两个。一份在 REDEFINE 4 上，一份在 IO 中的口腔塞玛上。但关于 REDEFINE 的问题，我会先交给你，马丁。
+
+  [178] [EN] Martin Holst Lange:Yes, REDEFINE 4. As you well know, we've taken some learnings from REDEFINE 1 more specifically that we needed to do a lumber study. So we amended the REDEFINE 4 study. That being said, our base case has always been non-inferiority with an upside of superiority. In the case of non-inferiority on weight loss, we still see a potential for upside on gastrointestinal side effects and tolerability. But also we do believe that the CV benefits that we know from semaglutide could also potentially pan out and will read out from REDEFINE 3, thus clearly differentiate CagriSema vis-a-vis potential competitors. But I do want to iterate, there is still the potential for superiority upside.
+       [中] Martin Holst Lange：是​​的，REDEFINE 4。正如您所知，我们从 REDEFINE 1 中学到了一些更具体的知识，我们需要进行木材研究。因此我们修改了 REDEFINE 4 研究。话虽这么说，我们的基本情况始终是非劣势且具有优势。在减肥的非劣效性的情况下，我们仍然看到胃肠道副作用和耐受性有上升的潜力。但我们也确实相信，我们从 semaglutide 中了解到的 CV 优势也可能会发挥作用，并将从 REDEFINE 3 中读出，从而使 CagriSema 与潜在竞争对手明显区分开来。但我确实想重申，仍然存在优势上升的潜力。
+
+  [179] [EN] But obviously in an amended study, that should be taken with a little bit of a risk.
+       [中] 但显然，在一项修改后的研究中，这应该冒一点风险。
+
+  [180] [EN] Jacob Martin Rode:And let's turn to you, Ludovic, for the second one, please.
+       [中] 雅各布·马丁·罗德（Jacob Martin Rode）：卢多维奇，请让我们请您讲第二个问题。
+
+  [181] [EN] Ludovic Helfgott:Absolutely. So let's take a step back. The real focus and the priority of our Wegovy pill launch is the U.S. and will remain the U.S. in 2026. As you rightly read, we are indeed opening -- we've filed, and we are opening the option to launch in selected markets in the course of 2026, depending, of course, on how things are ramping up, and we are definitely ready to -- in this market to be able to make the -- the best and the most of the Wegovy pill. By the way, we're also very quickly transferring some knowledge from the telehealth channels, for instance, in the U.S. into some higher markets.
+       [中] 卢多维克·赫尔夫戈特：当然。那么让我们退后一步。我们 Wegovy 药丸上市的真正焦点和优先事项是美国，并且到 2026 年仍将在美国。正如您所读的那样，我们确实正在开放——我们已经提交了申请，并且我们正在开放在 2026 年期间在选定市场上市的选择，当然，这取决于事情的进展情况，我们绝对准备好——在这个市场上能够制造出——最好和最多的 Wegovy 药丸。顺便说一句，我们也很快将一些知识从美国的远程医疗渠道转移到一些更高的市场。
+
+  [182] [EN] We are very active right now as we speak in many markets across the world, not just in Europe, but also in Australia, for instance, or in other part of the world where we believe that we really are gaining progress on the telehealth side. So again, we're accelerating our overall experience curve on the telehealth and that will be -- we believe will be proven very helpful at the time we launch the Wegovy pill.
+       [中] 我们现在非常活跃，我们在世界各地的许多市场上发言，不仅在欧洲，而且在澳大利亚，或者在世界其他地区，我们相信我们在远程医疗方面确实取得了进展。因此，我们再次加快了远程医疗的整体经验曲线，我们相信，在我们推出 Wegovy 药丸时，这将被证明非常有帮助。
+
+  [183] [EN] It's also not worthy to say that the IO market are also markets where we have some of the nicest experience in Rybelsus in Europe and elsewhere, which means that we can also leverage our experience in the oral markets that have been successful for Rybelsus to build even quicker position with the Wegovy pill. So priority to the U.S., but fully ready to take on some selected markets in IO when time comes.
+       [中] 也不值得说，IO 市场也是我们在欧洲和其他地方拥有 Rybelsus 一些最好经验的市场，这意味着我们还可以利用我们在 Rybelsus 成功的口服市场中的经验，通过 Wegovy 药丸更快地建立地位。因此优先考虑美国，但时机成熟时，已做好充分准备进入 IO 的某些选定市场。
+
+  [184] [EN] Jacob Martin Rode:Thanks, Ludovic. And with that, let's conclude the Q&A session. Thank you for participating, and please feel free to ask in the Investor Relations for any follow-up questions if that's case. Before we finally round off, I'll just turn it over to you, Mike, for closing.
+       [中] 雅各布·马丁·罗德：谢谢，卢多维克。至此，我们就结束问答环节了。感谢您的参与，如有任何后续问题，请随时在投资者关系中询问。在我们最终结束之前，迈克，我将把它交给你来结束。
+
+  [185] [EN] Maziar Doustdar:Thank you, Jacob. Thank you to everyone for calling in. Before closing, I did want to make a few remarks. Although we have narrowed the full year outlook for this year and see currently competitive headwind, the unmet need is huge. The volume opportunity longer term in our core area is enormous. We are sharpening our focus on diabetes, obesity and associated comorbidities in order to address this unmet need. This is our home turf, and this is for us to drive the commercial execution and raise the innovation bar to treat many more patients and treat them better than ever before, and we will not stop until we do that. Thank you.
+       [中] Maziar Doustdar：谢谢你，雅各布。感谢大家的来电。在结束之前，我确实想说几句话。尽管我们缩小了今年的全年展望，并看到了当前的竞争逆风，但未满足的需求是巨大的。从长远来看，我们核心领域的销量机会是巨大的。我们正在加强对糖尿病、肥胖症和相关合并症的关注，以解决这一未满足的需求。这是我们的主场，我们要推动商业执行并提高创新标准，以治疗更多患者并比以往更好地治疗他们，除非我们做到这一点，否则我们不会停止。谢谢。
+
+  [186] [EN] Operator:Thank you. This concludes today's conference call. Thank you for participating. You may now disconnect.
+       [中] 接线员：谢谢。今天的电话会议到此结束。感谢您的参与。您现在可以断开连接。
+
+  [187] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。
+
+  [188] [EN] The Motley Fool recommends Novo Nordisk. The Motley Fool has adisclosure policy.
+       [中] 《Motley Fool》推荐诺和诺德。Motley Fool 有披露政策。
+
+  [189] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [190] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 190 段中英对照
+======================================================================

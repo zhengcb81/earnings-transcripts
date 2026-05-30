@@ -1,0 +1,254 @@
+======================================================================
+Earnings Call Transcript
+Company: Snowflake (Snowflake)
+Ticker: SNOW
+Quarter: Q4 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/02/25/snowflake-snow-q4-2026-earnings-call-transcript/
+Scraped: 2026-05-30T11:12:28.460659
+Characters: 43200
+======================================================================
+
+Wednesday, February 25, 2026 at 5 p.m. ET
+
+CALL PARTICIPANTS
+
+Chief Executive Officer — Sridhar Ramaswamy
+
+Chief Financial Officer — Brian Robbins
+
+Executive Vice President of Product — Christian Kleinerman
+
+VP, Investor Relations — Catherine McCrekin
+
+Product Revenue-- $1.23 billion, representing 30% year-over-year growth driven by contributions from both core business and AI workloads.
+
+Remaining Performance Obligations-- $9.77 billion, up 42% year over year, with growth acceleration noted for the second consecutive quarter.
+
+Net Revenue Retention Rate-- 125% without decline, indicating sustained customer expansion.
+
+Non-GAAP Operating Margin-- 10.5% for FY 2026, an increase of over 400 basis points from the previous year.
+
+Stock-Based Compensation-- Reduced to 34% of revenue in FY 2026 from 41% in FY 2025, with guidance to fall further to 27% in FY 2027.
+
+Net New Customers-- 2,332 added over the year, including 740 in Q4, the latter up 40% year over year; total customer count surpassed 13,300.
+
+Large Customer Expansion-- 733 customers with trailing twelve-month spend greater than $1 million, up 27% year over year; 56 customers above $10 million, reflecting 56% growth.
+
+AI Product Adoption-- More than 9,100 accounts using AI offerings; Snowflake Intelligence deployed by over 2,500 accounts, almost doubling sequentially from the prior quarter.
+
+FY 2026 Non-GAAP Product Gross Margin-- 75.8%, with FY 2027 guidance at 75%.
+
+FY 2026 Non-GAAP Adjusted Free Cash Flow Margin-- 25.5% achieved, with FY 2027 guidance at 23%, including a 150 basis point headwind due to the Observe acquisition.
+
+Observe Acquisition-- Closed for approximately $600 million in cash and stock; contribution to FY 2027 product revenue growth expected at one percentage point.
+
+Share Repurchase Activity-- $150 million used in Q4 to buy back 668,000 shares at an average price of $225; $1.1 billion remains authorized.
+
+Cash and Investments-- $4.8 billion held at period end, including cash, cash equivalents, short-term, and long-term investments.
+
+Product Innovation-- Over 430 new product capabilities launched during the year, including general availability of Cortex Code, Cortex Code CLI, Snowflake OpenFlow, and Snowflake Postgres.
+
+Key Partnerships-- Expanded partnerships with SAP, Anthropic, OpenAI ($200 million expansion), and Google Cloud, giving customers native access to leading AI models within the platform.
+
+Largest Contract Signed-- Closed deal exceeding $400 million in total contract value, along with seven nine-figure contracts (compared to two in the previous year).
+
+Q1 FY 2027 Guidance-- Product revenue projected between $1.262 billion and $1.267 billion, marking 27% growth; Q1 non-GAAP operating margin guided at 9%.
+
+FY 2027 Guidance-- Product revenue of $5.66 billion forecasted for 27% growth; non-GAAP operating margin guided at 12.5%.
+
+Hiring Outlook-- Headcount growth concentrated in Q1, reflecting the addition of 178 Observe employees; Q4 net headcount adds were 37 after a small reduction-in-force that affected about 200 people.
+
+Snowflake Inc.(SNOW+7.02%)reported accelerated customer and revenue expansion, highlighted by notable milestones in large contract sales and platform adoption. The company advanced its position in enterprise AI through the rapid monetization of Snowflake Intelligence and Cortex Code, accompanied by substantial expansion in partnerships and integrated AI model access. Management guided for continued top-line growth and margin gains, underpinned by recent acquisitions, disciplined operating practices, and observed consumption trends.
+
+CEO Ramaswamy emphasized, "We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows."
+
+40% to 50% higher project margins and compressed delivery cycles have been achieved through internal use of Snowflake Intelligence and Cortex Code.
+
+Management explained that product gross margin pressure stems from newly launched AI products, which currently have lower margin profiles. Margin expansion remains a near-term priority as efficiency improvements are realized.
+
+Integration of Observe is expected to broaden expansion opportunities and unlock additional value in the $50 billion IT operations market.
+
+Guidance methodology remains strictly tied to historical customer behavior. Management noted "a 0.5% deviation" in predictive models as significant, implying refined forecast reliability.
+
+INDUSTRY GLOSSARY
+
+Cortex Code: An AI-powered coding agent within the Snowflake platform designed to accelerate the development and deployment of AI-powered applications and agents.
+
+Snowflake Intelligence: An enterprise AI solution that enables organizations to deploy agentic capabilities, natural language analytics, and workflow automation directly on their data within the Snowflake platform.
+
+OpenFlow: A data ingestion technology within Snowflake that enables streamlined import of structured, unstructured, batch, or streaming data types into the platform.
+
+Observe: A recently acquired observability platform now integrated with Snowflake to provide monitoring and management tools across data and AI workflows.
+
+MCP: Interoperability technology enabling agent-to-agent or agent-to-data platform communications, referenced in relation to Snowflake’s multi-system integration.
+
+Full Conference Call Transcript
+
+Catherine McCrekin:Good afternoon, and thank you for joining us on Snowflake Inc.'s fourth quarter fiscal 2026 earnings call. Joining me on the call today are Sridhar Ramaswamy, our Chief Executive Officer; Brian Robbins, our Chief Financial Officer; and Christian Kleinerman, our Executive Vice President of Product, who will participate in the Q&A session. During today's call, we will review our financial results for the fourth quarter fiscal 2026 and discuss our guidance for the first quarter and full year fiscal 2027. During today's call, we will make forward-looking statements, including statements related to our business operations and financial performance. These statements are subject to risks and uncertainties, which could cause them to differ materially from our actual results.
+
+Information concerning these risks and uncertainties is available in our earnings press release, our most recent Forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements. During today's call, we will also discuss certain non-GAAP financial measures. See our investor presentation for the definitions of the non-GAAP financial measures and a reconciliation of GAAP to non-GAAP measures and business metric definitions, including adoption. The earnings press release and investor presentation are available on our website at snowflake.com. A replay of today's call will also be posted on the website.
+
+With that, I would now like to turn the call over to Sridhar.
+
+Sridhar Ramaswamy:Thank you, Catherine, and thank you all for joining us today. This past year has been transformative for every business. A year ago, we were talking about the promise of AI. Today, the promise is real, and Snowflake Inc. sits at the center of the enterprise AI revolution. Across the market, AI is reshaping the software landscape, redefining categories and competitive dynamics. In our view, this is creating a clear separation between systems that demonstrate intelligence and platforms that can deploy safely and at scale. The winners will be the platforms that combine trusted enterprise data, governed business metrics, secure execution, and broad model choice, and make all of it easy to use.
+
+That is exactly what Snowflake Inc. was built to do. We deliver the data foundation enterprises rely on across cloud and across data types, with the performance, reliability, and operational simplicity required for mission-critical workloads. As AI agents become central to how work gets done, those same capabilities become even more valuable because agents are only as powerful as the data they can access and the governance and security that surround them.
+
+You can see that leadership in what we shipped this year. With Snowflake Intelligence, we brought enterprise-grade agentic capabilities directly to business teams. With the general availability of Cortex Code, we extended that to builders, accelerating the entire data life cycle and helping customers move fast from development to production. Most recently, we expanded Cortex Code CLI to encompass data systems as we work towards simplifying how all of them are used in practice. The general-purpose agent capabilities of Cortex Code CLI combined with our AI-ready data are already driving meaningful operational impact just weeks after launch.
+
+Snowflake Intelligence and Cortex Code are meaningful steps in Snowflake Inc.'s evolution—from the platform where enterprises govern and analyze their data to the platform where they build and run AI-native applications and workflows.
+
+Turning to our results, product revenue in Q4 grew 30% year over year to reach $1.23 billion. Remaining performance obligations totaled $9.77 billion, with year-over-year growth accelerating to 42%. Our net revenue retention was at a healthy 125%. Thanks to AI, we are both scaling revenue and becoming operationally more efficient. Fiscal 2026 non-GAAP operating margin reached 10.5%, expanding more than 400 basis points year over year, reflecting our continued focus on operational rigor. Stock-based compensation declined meaningfully from 41% of revenue in fiscal 2025 to 34% in fiscal 2026, and we expect it to further decrease to 27% of revenue in fiscal 2027.
+
+This year's results are a testament that the AI Data Cloud continues to deliver tremendous value to our more than 13,300 customers across every stage of the data life cycle. Built with deep product cohesion, Snowflake Inc. is easy to use, seamlessly connected for collaboration, and grounded in the security and governance enterprises trust.
+
+As we innovate, we remain maniacally focused on driving great business outcomes for our customers. That focus is why leading organizations continue to choose Snowflake Inc. as the foundation for their data and AI strategy. We added 2,332 net new customers this year, and we are seeing more and more businesses move over to Snowflake Inc. Seagate, for example, is modernizing its data foundation to better support its mission of powering data-driven innovation at global scale. By consolidating a massive data environment on Snowflake Inc., the company is moving away from legacy infrastructure onto a platform built for scalability, reliability, and predictable cost, enabling teams across the business to access high-performance AI-ready analytics and make faster, more informed decisions.
+
+Our core business remains strong, and AI is expanding workloads across our platform. Capital One is a great example of how we are deepening our relationships with key customers. As Capital One scales its AI initiatives, they are leveraging Snowflake Inc. to unify proprietary data, optimize engineering workloads, and deliver AI-driven analytics across the enterprise.
+
+Key to our growth is the strength and momentum around our AI products. This quarter, we delivered the largest sequential increase in accounts using AI, bringing the total to more than 9,100 accounts. And in just three months, Snowflake Intelligence has scaled from a nascent offering to an essential capability for over 2,500 accounts, almost doubling quarter over quarter. For example, Toyota Motor Europe, a global automotive leader, is leveraging Snowflake Intelligence to revolutionize its operations. By enhancing enterprise search with easy-to-use knowledge chatbots and streamlining contract management through Document AI, Toyota has fundamentally shifted its development timelines, reducing AI agent deployment from months to weeks, creating a significant competitive advantage.
+
+And United Rentals, a global leader in equipment rentals, is using Snowflake Intelligence to power a new business intelligence agent that helps teams across more than 1,600 branches get real-time answers from their financial and operational data using natural language. The agent enables faster, more consistent decision-making by frontline managers. United Rentals is also using Snowflake Inc.'s Cortex Code to accelerate the development and testing of additional AI agents, scaling trusted intelligence across the business.
+
+And that is just the start of what Cortex Code can do. It is a truly transformational coding agent that is already helping our 4,400 customers build and scale AI-powered applications and massively accelerating their ability to deploy production-grade AI. The Chief Technology Officer of one of our partners, EvolveCom Consulting, described Cortex Code's impact on their business, saying, quote, “Twenty days, 21,000 operations, or 600 hours of work delivered. That is sixteen work weeks compressed into less than a month. Development cycles that used to require extensive research, trial and error, and debugging now flow naturally to AI-assisted iteration. We are using this capability to accelerate how we bring new workloads onto Snowflake for our customers.” End quote.
+
+Cortex Code meaningfully expands the surface of AI development on our platform and reinforces Snowflake Inc. as the AI foundation.
+
+As we look forward, we continue to see immense opportunity to support enterprises across the data life cycle. We are innovating rapidly. This year, we launched over 430 product capabilities, underscoring the strength of our product velocity. We are broadening how data enters and flows through Snowflake Inc. Snowflake OpenFlow, now generally available, makes it easier than ever to bring in structured, unstructured, batched, or streaming data into the platform. We have also deepened how applications are built on Snowflake Inc.
+
+Now generally available, Snowflake Postgres is a world-class operational database built directly on the Snowflake Inc. platform, enabling developers to build and run production-grade transactional applications with the performance, reliability, and ecosystem of Postgres, fully managed and governed within Snowflake Inc. This transforms Snowflake Inc. from a system you analyze with into a platform that you build on.
+
+And our recent acquisition of Observe, a market-leading observability platform, extends the value that Snowflake Inc. can deliver. By integrating observability directly with data and AI products, we reduce complexity and enable faster, more reliable operations at scale. This expands our opportunity into the $50 billion IT operations market and positions Snowflake Inc. to lead in next-generation AI-powered observability. At the same time, we are strengthening the ecosystem around the platform. Our landmark partnership with SAP is delivering incredible value, helping customers like Xcel Energy unite mission-critical business data across their core systems within our AI Data Cloud. Our deepened partnership with Anthropic is already helping customers like Intercom see significant impact.
+
+Snowflake Inc. provides the secure, governed data foundation that Intercom's AI is built on. By applying direct AI capabilities to this data, including their use of Anthropic’s Claude model, Intercom automates customer support at scale. This allows it to handle significantly higher support volumes with greater consistency and lower operational burden, especially for large, complex customers. We also recently announced a $200 million expanded partnership with OpenAI. It brings OpenAI's models natively into Snowflake Inc. to help our customers innovate faster while keeping their data secure and governed. And through our partnership with Google Cloud, customers now have access to the latest Gemini models natively within Snowflake Inc., further expanding model choice and availability.
+
+As we innovate, we are scaling efficiently. Work is fundamentally changing, and we are leading this transformation both within Snowflake Inc. and across the industry. In many cases, we are creating entirely new AI-native systems built directly on Snowflake Inc. Across our business, Snowflake Intelligence and Cortex Code are already delivering measurable results. Our service delivery team can complete customer projects up to five times faster, improving response accuracy by more than 25%, and compress implementation cycles from days to hours to drive 40% to 50% higher project margins and enabling customers to go live more than 40% faster.
+
+We have seen our site reliability engineering issues that once required hours across multiple engineers now resolved in minutes, dramatically reducing resolution time and further strengthening Snowflake Inc.'s reliability. And we have built agent capabilities that help our sellers prioritize accounts, automate research, and generate personalized outreach, projected to recoup the equivalent of 90 full-time engineers of productivity this year. Our finance team is working on automating travel and expenses analysis, proactively curbing out-of-policy behavior—an initiative that is expected to drive millions in annual savings. And we are seeing this transformation within our customers as well.
+
+They are leveraging agents not just to analyze information, but to automate complex workflows and, in some cases, retiring entire categories of previously used software systems. Take Sanofi, for example. AI-powered workflows built on Snowflake Inc. with partners like Elementum are replacing the traditional software systems used for processes like software license and invoice management. By running these workflows directly in Snowflake Inc., Sanofi is streamlining operations while keeping its data securely within the platform.
+
+This is where the enterprise is heading, and we believe Snowflake Inc. is uniquely positioned to become the control plane for the agentic era. We built the conditions that make agents safe, scalable, and enterprise-ready, covering a single enterprise-wide source of truth; governed metrics and shared business definitions; cross-cloud and cross-domain interoperability; and built-in security, auditability, and governance. Our continued rapid innovation, tight go-to-market alignment, and operational discipline are all in high gear to capture this opportunity, and we see a long runway of durable high growth and continued margin expansion ahead. I will now turn it over to Brian to take us through the financial details.
+
+Brian Robbins:Thank you, Sridhar. Q4 was a strong quarter across revenue, bookings, and margin results. Product revenue grew 30% year over year. Our results were driven by stable growth in our core business and a step up in growth contribution from AI workloads. We saw no decline in our net revenue retention rate, which remains at 125%. Q4 sales execution was outstanding. Remaining performance obligations accelerated for the second consecutive quarter. We signed the largest deal in Snowflake Inc.'s history—greater than $400 million in total contract value—and signed seven 9-figure contracts compared to two in the same period last year. These strong commitments represent Snowflake Inc.'s strategic role in our customers' long-term data and AI strategies.
+
+And we have consistently emphasized durable growth depends on two fundamentals:landing new customers and expanding existing ones. We have delivered on both. We delivered another strong quarter of new customer wins, adding 740 net new customers, up 40% year over year, including 15 Global 2000 organizations. At the same time, we are proving that we can drive meaningful customer expansion. We now have 733 customers spending more than $1 million on a trailing twelve-month basis, growing 27% year over year. And a record number of customers crossed $10 million in trailing twelve-month spend, bringing the total to 56 customers above this $10 million threshold, growing 56% year over year.
+
+Turning to our margin results, FY 2026 non-GAAP product gross margin was 75.8%. We are demonstrating that we can scale while driving efficiency. FY 2026 non-GAAP operating margin was 10.5%, and FY 2026 non-GAAP adjusted free cash flow margin was 25.5%. Earlier this month, we closed the acquisition of Observe, which we acquired for approximately $600 million in a combination of cash and stock. With Observe's offering, we are unlocking new expansion opportunities within our customer base. The impact of the acquisition is reflected in our outlook. In Q4, we used $150 million to repurchase 668,000 shares at a weighted average share price of approximately $225.
+
+We have $1.1 billion remaining on our repurchase authorization and ended the quarter with $4.8 billion in cash, cash equivalents, short-term and long-term investments.
+
+Before moving to our outlook, I would like to share my priorities for FY 2027. First, I see a clear opportunity to drive both growth and operating margin expansion. We are investing in our key growth drivers. As Sridhar relayed, we deployed more than 430 product capabilities to market this year. We will continue to expand operating margins as we drive greater efficiency across the business. Second, it is clear that our go-to-market motion is working. My focus for this next year is on ensuring stability and ongoing excellence. We have established a financial framework to support continued product velocity and sales execution.
+
+Now let us look to our outlook for FY 2027. In Q1, we expect product revenue between $1.262 billion and $1.267 billion, representing 27% year-over-year growth. For FY 2027, we expect product revenue of approximately $5.66 billion, representing 27% year-over-year growth. We expect Observe to contribute approximately one percentage point of product revenue growth in FY 2027. As always, our forecast is built on using existing patterns of consumption. There are no changes to our forecast process or our guidance philosophy. Our outlook is supported by continued strength in our core business and further growth in AI workloads. We expect FY 2027 non-GAAP product gross margin of 75%.
+
+With that, I will pass the call to the operator for Q&A.
+
+Operator:We will now begin the Q&A session. If for any reason you would like to remove your question, please press star followed by 2. Again, to ask a question, press star 1. As a reminder, if you are using a speakerphone, please remember to pick up your handset before asking your question. The first question comes from the line of Sanjit Singh with Morgan Stanley. Please proceed.
+
+Sanjit Singh:Yes, thank you for taking the questions, and congrats on reasserting 30% product revenue growth in Q4. I had two questions, starting with Brian and then hopefully for you, Sridhar. Brian, on the guide for fiscal year 2027, it basically implies sustained growth around 27% throughout the year, and I just want to get your perspective on the durability of that 27% given that it is a consumption model—sort of a sustained growth off of a really good year this year. So just the confidence in that.
+
+Then for Sridhar, as we go into the first full year of Snowflake Intelligence and an expanded product portfolio, I was wondering if you can give us a sense of where we are there in terms of momentum with the areas of the business outside of the core. I think we got an update on the data engineering revenue run rate or growth rate several quarters ago. So once we could get an update on that and where we sort of stand with the AI portfolio exiting this year and going into fiscal year 2027. Thanks.
+
+Brian Robbins:Thanks, Sanjit. I will go first. From a guidance perspective, we guide based on the observed customer behavior up until really the point of earnings. And the guidance, if you sort of double-click into it this year, is really based on the high, stable growth we see in our core business. It is also the growing contribution from AI workloads. Then finally, we called out in the prepared remarks there is one percentage point of growth from our Observe acquisition. I will turn it over to Sridhar for the second part.
+
+Sridhar Ramaswamy:And to just reiterate on top of that, our overall guidance philosophy has not really changed. We continue to be very stable with respect to that. I see products like Snowflake Intelligence, now with 2,500 customers, as a major driver of growth across all aspects of the data life cycle. I think what products like Snowflake Intelligence—and I never tire of showing every single CXO and CEO that I meet Snowflake Intelligence on my phone—the ready access that it offers to critical business information is truly magical.
+
+And that reinforces the need for enterprises to adopt Snowflake Inc. to get their data estates in gear so that they can bring the transformative power of things like Snowflake Intelligence to that data. A really important thing also to remember about Snowflake Intelligence is that it works fine on all open data. You can build an amazing agent using Snowflake Intelligence on data that is sitting in S3 managed by Glue or sitting in other places. Any open data ecosystem is supported by Snowflake Intelligence, and that is really very powerful. But Cortex Code is the real game changer for us because it is a massive accelerant for every part of the data life cycle.
+
+What I mean by that is we can build OpenFlow pipelines to bring in data from complex systems into Snowflake Inc. at a fraction of the time that it used to take before. Similarly, building DBT pipelines to run data engineering on that data or to build dynamic tables or debug performance issues with either of these now is again 10x plus faster. And what is magical about Cortex Code is also the ability to build Snowflake Intelligence agents faster. I think that is the unlock of AI using AI—AI to make things go faster. We see this, as I said, as having transformative effects on our business. I will give you folks an anecdote.
+
+One of our partners wrote to us after using Cortex Code that all this time they had been using shovels to dig, and we just gave them bulldozers.
+
+Unidentified Analyst:Figures look very... First, that—yeah. I have—I think the representative plate as a durable figure deal. Yeah. Just Q4. And just—great. Thanks so much. Sridhar, this one is for you. Just going away from sales kickoff, market under my Gannon's command. What are you going to do differently in the second fiscal 2027? Oh, Mike has had a—Mike has had a year. Great. We have had multiple people on that Christian time and—because he has a lot of these access. We have had multiple people—never felt Cortex Code original change was possible in terms of ease of use. This is done, like, 10... We tell you the number of... We—okay. The world of AI is a big deal.
+
+As you find out, it is a very large market. And particular with agents is a big, big natural extension of our overall role. This is bad. Factors of it, not like 10%, 20%. Factors more efficient. I think those are the kind of customers that are going to benefit. And do you see that as a fiscal year 2027 growth opportunity? And do you see it mainly going through your zero-copy partnerships, or would there be another path?
+
+Sridhar Ramaswamy:Yeah. For the past two years, Christian and I are very proud of the fact that we have executed while feeling confident that another engine can read that data. And what we have done over the past year is use it because, as I said earlier, at the storage level, certainly, people can write SQL and access the data. So we have interop at the JDBC level. And one level above that, we make semantic markup available to class products that lead the way, that are easy to use and set up, and make all of this way, way simpler than what anyone else can do. We do not see any contradiction between the two.
+
+Operator:The next question comes from the line of Koji Lima. How do you think those pockets get better from here?
+
+Brian Robbins:Hey, Koji. This is Brian. There was not any—you know, really point to the business outcomes that we are driving for our customers, and then buying into Snowflake Inc. long term.
+
+Sridhar Ramaswamy:Overall, I have to add that I am incredibly proud of our sales team for delivering both across consumption in terms of—
+
+Koji Lima:Because—current—today versus a year ago. If that has changed at all and—how much more predictable is it today versus a year ago?
+
+Sridhar Ramaswamy:We continue to have among the most sophisticated systems for—and we obviously calibrate ourselves on how well we do. Something like a 0.5% deviation—that is a big deal. That is the level of sophistication that there is. And there is similar methodology that is being applied for contract prediction, the TCV prediction as well. And it is an area where I expect us to get better and better over time. And on the data that we are actively working on, which has a little bit less predictability, is one that goes from use cases to consumption. It is an active topic for us.
+
+It is a little bit of a research project because we are not always privy to what our customers do. But we feel very good overall about our ability to model and be able to see where it goes. Of course, you also have surprises that are not part of your model. Adoption by 2,500 customers—we are happy when things like that happen. But when it comes to the core, we are very, very buttoned up—among the best teams that I have worked with. I have worked with a lot of them at Google and other places. When it comes to predictability of our business, thank you.
+
+Operator:The next question comes from the line of Matt Hedberg with RBC Capital Markets.
+
+Matt Hedberg:Great, thanks for taking my question, guys. Congrats from me as well. You guys are trying to unlock opportunities. You are accelerating at scale through a number of new AI product announcements, and it looks to me like you are starting fiscal 2027 organically a couple of points higher than you did at this point last year. So I guess investors want to know, are AI-related products—is that some or all of the kind of the ups you are starting to see in this model? Because it certainly feels like you guys are well positioned from these trends. I am just wondering, is it starting to inflect in the model?
+
+Sridhar Ramaswamy:So the other side of this is that our model predicts based on observed behavior, and we think that there is a lot of upside. As I said, there is no way that they can take into account the impact of Cortex Code because the historical data simply is not there. We see the things like Cortex Code vividly because we can see how quickly projects finish when they are being done by our services team. We also see when our partners take these products and are able to do truly transformative things. And you can ask me—I am overusing that word.
+
+I find you do a blog post that one of our partners, James Dinkel, wrote, where he said that they were basically moving their business model as a whole from charging for time to offering fixed-fee services. And a lot of that predictability came because they used the code to drive the vast majority of the migration. So we see a lot of upside to where the business can go. And on top of this, part of what we have learned even over the past few weeks with Cortex Code is the impact that it can have on every function within Snowflake Inc.
+
+Our product managers now have their own version of this to be able to look at everything from what are the launches coming out next week to what are the bugs that have been filed against their products. There is even one that wrote a “Christian feedback bot” to give them feedback about how Christian would react to a product proposal. The level of innovation that we are seeing across the company is pretty inspiring, and that gives us a lot of confidence about how we approach the year. Please go ahead.
+
+Matt Hedberg:I was just going to add on to what you guys talked about prior. It looks like gross margins are down about one point this year. I am curious, with all the investments that you are making, do you feel like mid-70s is a kind of stable place for gross margins, especially as we look a couple of years out?
+
+Brian Robbins:Yeah, great question. One of our objectives when we launch new products is really, first and foremost, to build great products. Two, we want to make it easy to use. And three, we want to drive revenue after that. Once we get there, we will look at optimizing the margins for that. We have launched a lot of new AI products. The margin profile for those right now is not as high as the core business. We are offsetting that by finding more efficiencies in the core business. And so that is really the component of that.
+
+We will do what is right to drive growth, and we will balance it all the way down the line at the operating margin level.
+
+Sridhar Ramaswamy:And things like margin improvements are coming both at the gross margin level, but definitely also at the company level. To just tell you folks about a couple of projects that we did that have had a big impact: one of the folks basically optimized auto free pool across all our deployments using AI because they got way better visibility into that data. We have to maintain free pools of compute so that our customers do not have to wait when they want to spin up a warehouse, and somebody found a very clever way to look at the data and to optimize it.
+
+Or we have done a number of things around storage lifecycle policy—what needs to be in nearline storage versus more high-utilization storage and things like that. There are a lot of wins to be had with AI, both above the gross margin line but definitely at the operating margin line as well. It is a matter of prioritizing what you put your time into because the world is so rich with opportunity.
+
+Brian Robbins:And Matt, just to emphasize that point: just in the fourth quarter, we saw a lot of benefit with AI. We had a small reduction in force, and about 200 people in the company were impacted. So if you look at our fourth quarter net adds on a headcount basis, we only added 37 people. So AI has really changed the framework for investing in growth—no longer tied to headcount.
+
+Operator:Thank you. The next question comes from the line of Greg Deal with Jefferies. Please proceed.
+
+Greg Deal:Thanks. All the fast things are falling off on the big AI labs—taking the stack and stuff. I guess when you think about the advantage you have with the platform of having Gemini, OpenAI, and Anthropic available natively, first, do you think your customers understand that yet? And second, are you seeing that show up in demand, given that you have all three of the top supported natively?
+
+Sridhar Ramaswamy:I think, to step back and look at the impact that AI as a whole is having on software—we spend a lot of time looking at this. We live this. And our take is that overall, the winners are going to be the companies that provide that single source of enterprise truth. No AI model is going to help you if there are four sources of that truth. Similarly, having built-in security, auditability, trust, governance, and access—who can access what dataset—is critical. Obviously, you do need the best model, but there are at least three, if not four, best model providers right now, and we work with all of them.
+
+And I think our secret sauce, which has existed since the beginning of the company, is packaging all of this into a cohesive product that is easy to use, and you see this play out with things like Snowflake Intelligence and Cortex Code working together. Snowflake Intelligence is a pretty cool product, but Cortex Code makes it 4 to 10 times faster to be able to deploy those agents.
+
+I think we are really seeing a lot of nice synergies come together as we go into this journey of agentic AI, and it is this combination of capabilities, plus the fact that we have always been trustworthy stewards of all enterprise information, that I think make us a great party for every single enterprise to be working with.
+
+Operator:Thank you. Next question comes from the line of Ryan McQueen with Wells Fargo. Please proceed.
+
+Ryan McQueen:Thanks, thanks for taking the question. Just excited to see the progress around Cortex Code, and it seems like you are combining the best of what AI can do today along with the best of Snowflake Inc., as it makes it a lot easier to build agents on the Snowflake Inc. platform. It seems like there are a lot of different vendors that are trying to be the place for users to build agents. So from a technical perspective, what do you think are some of the advantages that Snowflake Inc. has to be the best place for users to build agents? And then have you seen any increase in query volumes from Cortex Code users today? Thanks.
+
+Sridhar Ramaswamy:Our mission for a number of years has been to be that data platform that makes data easy to get value from. This is what we did when Snowflake Inc. first came out. This is what we have always been doing. In fact, our motto has always been easy, connected, and trusted so that data within an enterprise is easy to use, but also present wherever you need it to be. And it is that quality that gives us an advantage when it comes to creating agents. As I said earlier, we are also believers in interoperability. It is perfectly fine if someone wants an agent and is able to use MCP to call into a Snowflake Intelligence agent.
+
+But I think we are uniquely positioned to be that central place where that 360-degree view is possible for a number of our customers. We are stewards of their most important data—the gold layer, as it is called in analytics. I think that positions us exceptionally well to also be the ones that are providing agents for accessing the data. And we are heavily leaned into technologies like MCP. MCP works both ways. You can use MCP to read from an agent, but we can use MCP to read data from other systems, and we are beginning to see use cases like that come alive as well. And we have done a number of studies.
+
+Snowflake Intelligence absolutely drives more usage and more queries, but we tend to focus on what is the value that we are creating. At this point, I am slightly indifferent about whether we get more Snowflake Intelligence revenue from running a query or from running the model. It is all about creating amazing experiences and making it easy to do so. Christian.
+
+Christian Kleinerman:We definitely see in the telemetry activity on the platform being increased based on the ease of use that both Intelligence and Cortex Code bring.
+
+Operator:Thank you. The next question comes from the line of Alex Duncan with Wolfe Research.
+
+Alex Duncan:Hey guys, thanks for taking the question. Maybe a quick one for you and then a follow-up for Brian. Last quarter, you spoke to how January and February consumption trends would be the most important to determine the fiscal year guide. Maybe just talk specifically about what you saw post-holiday in January and specifically even coming out of February that gave you the confidence on what looks like a stronger guide this time versus last year. And then I have got a quick follow-up for Brian.
+
+Sridhar Ramaswamy:Brian did say earlier that when we guide, we try to take every ounce of data possible into that guide. That is what we have done. And we also clarified that the guidance process is a pretty strict one that focuses on historical information and our ability to reliably predict the future. So in that sense, it is taking everything into account.
+
+And if you were to ask me what is the difference between last year and this year—at the beginning of last year, Snowflake Intelligence was a glimmer in our eye, and one year later, not only did we launch Snowflake Intelligence and get it adopted, we are also at the forefront of how we use agentic AI to massively accelerate how a data platform is being used. I think all of that is going to culminate into how we perform this year. But as far as the guide is concerned, it is very much about using every bit of data that we have until this moment. Brian.
+
+Brian Robbins:One hundred percent correct. What was your second follow-up question?
+
+Alex Duncan:Yeah, I was just going to ask if any update on the Snowflake AI ARR and then the free cash flow margin guide. Obviously digesting the Observe acquisition, maybe just the puts and takes there and how we should think about that trajectory.
+
+Brian Robbins:Yeah, just on free cash flow overall, the reality will follow prior years. We collect the majority of our cash in the fourth quarter. It has been greater than 60% in the fourth quarter for the last two years. Observe—we guided to 23%. Observe was a 150 basis point headwind. That is included in our numbers. The revenue is included, the operating margins included, as well as the free cash flow. And then we just wanted to give guidance that we felt comfortable with, that we can perform against.
+
+Operator:That concludes today's Q&A session. I will now hand the call back over to Sridhar for closing remarks.
+
+Sridhar Ramaswamy:Thank you, everyone. Snowflake Inc. remains at the center of the enterprise AI revolution, and we see significant opportunity ahead. To recap, AI has moved from promise to reality, and Snowflake Inc. is built to win this era by combining trusted enterprise data, governance, metrics, secure execution, and broad model choice so that customers can deploy AI and agents safely at scale. We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows, making it easier for both business users and builders to go from ideas to production. This strategy is working.
+
+Our rapid pace of innovation and strong go-to-market execution are driving continued product revenue growth, and we see a long runway of sustained durable growth ahead.
+
+Operator:Thank you. That concludes today's conference call. You may now disconnect your line.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

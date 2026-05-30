@@ -1,0 +1,1393 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Novo Nordisk (诺和诺德)
+Quarter: Q1 2024
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2024/05/02/novo-nordisk-nvo-q1-2024-earnings-call-transcript/
+Translated: 2026-05-30T16:23:14.466566
+Backend: deepseek
+Paragraphs: 297
+======================================================================
+
+  [  1] [EN] Novo Nordisk(NVO+0.15%)Q1 2024 Earnings CallMay 02, 2024,7:00 a.m. ET
+       [中] Novo Nordisk(NVO+0.15%) 2024年第一季度财报电话会议 2024年5月2日，上午7:00（美国东部时间）
+
+Novo Nordisk(NVO+0.15%)Q1 2024 Earnings CallMay 02, 2024,7:00 a.m. ET
+
+  [  2] [EN] Prepared Remarks
+       [中] 准备好的发言  
+Prepared Remarks
+
+
+  ━━ Questions and Answers ━━
+  ━━ 问题与答案  
+Questions and Answers ━━
+
+
+  ━━ Call Participants ━━
+  ━━ 电话会议参与者
+
+Call Participants ━━
+
+  [  5] [EN] Prepared Remarks:
+       [中] 准备好的发言：
+Prepared Remarks:
+
+  [  6] [EN] Operator
+       [中] 操作员
+Operator
+
+  [  7] [EN] Good day and thank you for standing by. Welcome to the Q1 2024 Novo Nordisk A/S earnings conference call. At this time, all participants are in a listen-only mode. After the speakers' presentation, there will be a question-and-answer session.
+       [中] 大家好，感谢您的耐心等待。欢迎参加诺和诺德（Novo Nordisk A/S）2024年第一季度财报电话会议。目前，所有参会者均处于仅收听模式。发言者演示结束后，将进入问答环节。
+
+Good day and thank you for standing by. Welcome to the Q1 2024 Novo Nordisk A/S earnings conference call. At this time, all participants are in a listen-only mode. After the speakers' presentation, there will be a question-and-answer session.
+
+  [  8] [EN] [Operator instructions] Please be advised that today's conference is being recorded. I would now like to hand the conference over to your speaker today, Daniel Bohsen, CVP, investor relations. Please go ahead, sir.
+       [中] [操作员说明] 请注意，今天的会议正在录音。现在有请今天的发言人，投资者关系副总裁Daniel Bohsen。请开始，先生。
+
+[Operator instructions] Please be advised that today's conference is being recorded. I would now like to hand the conference over to your speaker today, Daniel Bohsen, CVP, investor relations. Please go ahead, sir.
+
+  [  9] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 10] [EN] Thank you. Welcome to Novo Nordisk's earnings call for the first three months of 2024. My name is Daniel Muusmann Bohsen, and I'm the head of investor relations at Novo Nordisk. With me today, I have the CEO of Novo Nordisk, Lars Fruergaard Jorgensen; executive vice president and head of commercial strategy and corporate affairs, Camilla Sylvest; executive vice president and head of North America operations, Doug Langa; executive vice president and head of development, Martin Holst Lange; and finally, chief financial officer, Karsten Munk Knudsen.
+       [中] 谢谢。欢迎参加诺和诺德2024年前三个月的财报电话会议。我是Daniel Muusmann Bohsen，诺和诺德投资者关系负责人。今天与我一同出席的有：诺和诺德CEO Lars Fruergaard Jorgensen，执行副总裁兼商业战略与公司事务负责人Camilla Sylvest，执行副总裁兼北美运营负责人Doug Langa，执行副总裁兼开发负责人Martin Holst Lange，以及首席财务官Karsten Munk Knudsen。
+
+原文：
+Thank you. Welcome to Novo Nordisk's earnings call for the first three months of 2024. My name is Daniel Muusmann Bohsen, and I'm the head of investor relations at Novo Nordisk. With me today, I have the CEO of Novo Nordisk, Lars Fruergaard Jorgensen; executive vice president and head of commercial strategy and corporate affairs, Camilla Sylvest; executive vice president and head of North America operations, Doug Langa; executive vice president and head of development, Martin Holst Lange; and finally, chief financial officer, Karsten Munk Knudsen.
+
+  [ 11] [EN] All speakers will be available for the Q&A session. Today's announcement and the slides for this call are available on our website, novonordisk.com. Please note that this call is being webcast live and a recording will be made available on our website as well. The call is scheduled to last one hour.
+       [中] 所有发言人将出席问答环节。今天的公告以及本次电话会议的幻灯片可在我们的网站novonordisk.com上获取。请注意，本次电话会议正在进行网络直播，录音也将在我们的网站上提供。电话会议计划持续一小时。
+
+All speakers will be available for the Q&A session. Today's announcement and the slides for this call are available on our website, novonordisk.com. Please note that this call is being webcast live and a recording will be made available on our website as well. The call is scheduled to last one hour.
+
+  [ 12] [EN] Please turn to the next slide. The presentation's structure is outlined on Slide 2. Please note that all sales and operating profit growth statement will be at constant exchange rates unless otherwise specified. Please turn to the next slide.
+       [中] 请翻到下一页幻灯片。演示文稿的结构在Slide 2中概述。请注意，除非另有说明，所有销售和营业利润增长报表均基于固定汇率。请翻到下一页幻灯片。
+
+Please turn to the next slide. The presentation's structure is outlined on Slide 2. Please note that all sales and operating profit growth statement will be at constant exchange rates unless otherwise specified. Please turn to the next slide.
+
+  [ 13] [EN] We need to advise you that this call will contain forward-looking statements. These are subject to risks and uncertainties that could cause actual results to differ materially from expectations. For further information on the risk factors, please see the company announcement for the first three months of 2024 and the slides prepared for this presentation. With that, over to you, Lars, for an update on our strategic aspirations.
+       [中] 我们需提醒您，本次电话会议包含前瞻性陈述。这些陈述受风险和不确定性影响，可能导致实际结果与预期存在重大差异。有关风险因素的更多信息，请参阅公司2024年前三个月的公告及本次演示的配套幻灯片。现在有请Lars介绍我们的战略愿景最新进展。  
+原文：We need to advise you that this call will contain forward-looking statements. These are subject to risks and uncertainties that could cause actual results to differ materially from expectations. For further information on the risk factors, please see the company announcement for the first three months of 2024 and the slides prepared for this presentation. With that, over to you, Lars, for an update on our strategic aspirations.
+
+  [ 14] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [ 15] [EN] Thank you, Daniel. Please turn to the next slide. In the first three months, we have delivered 24% sales growth and 30% operating profit growth. Furthermore, we have raised the outlook for the full year.
+       [中] 谢谢，Daniel。请翻到下一张幻灯片。在前三个月，我们实现了24%的销售增长和30%的营业利润增长。此外，我们已上调了全年的展望。
+
+Thank you, Daniel. Please turn to the next slide. In the first three months, we have delivered 24% sales growth and 30% operating profit growth. Furthermore, we have raised the outlook for the full year.
+
+  [ 16] [EN] I would like to start this call by going through the performance highlights across our strategic aspirations before handing over the word to my colleagues. Starting with our focus on purpose and sustainability, we are now serving almost 42 million patients with our diabetes and obesity treatments. Our total carbon emissions rose by 32% as compared to the third quarter of 2023. This was primarily driven by our increased investments in capital expenditure to meet the high demand for our products. Compared to the first quarter of 2019, carbon emissions from operations and transportation decreased by 31%.
+       [中] 我想先简要介绍我们在战略目标方面的业绩亮点，然后再将发言权交给我的同事。首先，在宗旨和可持续性方面，我们目前通过糖尿病和肥胖症治疗（diabetes and obesity treatments）服务近4200万患者。与2023年第三季度相比，我们的总碳排放量增加了32%，这主要是由于我们为满足产品高需求而加大了资本支出投资。与2019年第一季度相比，运营和运输环节的碳排放量减少了31%。
+
+I would like to start this call by going through the performance highlights across our strategic aspirations before handing over the word to my colleagues. Starting with our focus on purpose and sustainability, we are now serving almost 42 million patients with our diabetes and obesity treatments. Our total carbon emissions rose by 32% as compared to the third quarter of 2023. This was primarily driven by our increased investments in capital expenditure to meet the high demand for our products. Compared to the first quarter of 2019, carbon emissions from operations and transportation decreased by 31%.
+
+  [ 17] [EN] To uphold our commitment to being a sustainable employer, we expanded the number of women in senior leadership positions to 41%, compared with 39% in the first quarter of 2023. Within R&D, we are pleased with the successful completion of the FLOW kidney outcomes trial and the approval of the global label expansion in the U.S., based on the SELECT cardiovascular outcomes trial. Martin will come back to this and our overall R & D milestones later. We also announced the agreement to acquire three fill-finish sites sites from Novo Holdings in connection with the transaction where Novo Holdings has agreed to acquire Catalent. This is expected to enable us to reach many more people living with serious chronic diseases. The quarterly sales growth reflects solid commercial execution across operating units.
+       [中] 为履行我们作为可持续发展雇主的承诺，我们将高级领导职位中的女性人数比例扩大至41%，而2023年第一季度为39%。在研发领域，我们对FLOW肾脏结局试验的成功完成以及基于SELECT心血管结局试验在美国获批的全球标签扩展感到高兴。Martin稍后将再次提及这一点以及我们整体的研发里程碑。我们还宣布已达成协议，从Novo Holdings收购三个灌装-封装工厂，这与Novo Holdings同意收购Catalent的交易相关。这预计将使我们能够惠及更多患有严重慢性疾病的人群。季度销售增长反映了各运营单元扎实的商业执行力。
+
+To uphold our commitment to being a sustainable employer, we expanded the number of women in senior leadership positions to 41%, compared with 39% in the first quarter of 2023. Within R&D, we are pleased with the successful completion of the FLOW kidney outcomes trial and the approval of the global label expansion in the U.S., based on the SELECT cardiovascular outcomes trial. Martin will come back to this and our overall R & D milestones later. We also announced the agreement to acquire three fill-finish sites from Novo Holdings in connection with the transaction where Novo Holdings has agreed to acquire Catalent. This is expected to enable us to reach many more people living with serious chronic diseases. The quarterly sales growth reflects solid commercial execution across operating units.
+
+  [ 18] [EN] Both operating units contributed to sales growth driven by demand for our GLP-1 treatments for both diabetes and obesity. Camilla and Doug will go through the details per therapy area later. Karsten will go through the financials, but I'm very pleased with the performance so far this year. Now, I would like to hand the word over to Camilla, who will give us an update on the commercial execution.
+       [中] 两个运营部门均得益于市场对我们针对糖尿病和肥胖症的GLP-1治疗药物的需求，推动了销售增长。Camilla和Doug稍后将按治疗领域介绍细节。Karsten会讲解财务数据，但今年以来的表现让我非常满意。现在，我想把发言权交给Camilla，她将汇报商业执行的最新情况。
+
+Both operating units contributed to sales growth driven by demand for our GLP-1 treatments for both diabetes and obesity. Camilla and Doug will go through the details per therapy area later. Karsten will go through the financials, but I'm very pleased with the performance so far this year. Now, I would like to hand the word over to Camilla, who will give us an update on the commercial execution.
+
+  [ 19] [EN] Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+       [中] Camilla Sylvest——执行副总裁，商业战略与公司事务主管  
+Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+
+  [ 20] [EN] Thank you, Lars, and please turn to the next slide. In the first three months of 2024, our total sales increased by 24%. The sales growth was driven by both operating units with North America operations growing 35% and international operations growing 11%. In the U.S., sales growth was positively impacted by gross-to-net sales adjustments related to prior years. Our GLP-1 sales in diabetes increased 32%, driven by North America operations growing 37% and international operations growing 22%.
+       [中] 谢谢，Lars，请翻到下一页。2024年前三个月，我们的总销售额增长了24%。销售增长由两个运营部门共同推动，其中北美业务增长35%，国际业务增长11%。在美国，销售额增长受到与往年相关的总销售额到净销售额调整的积极影响。我们的GLP-1糖尿病销售额增长了32%，由北美业务增长37%和国际业务增长22%推动。
+
+原文：Thank you, Lars, and please turn to the next slide. In the first three months of 2024, our total sales increased by 24%. The sales growth was driven by both operating units with North America operations growing 35% and international operations growing 11%. In the U.S., sales growth was positively impacted by gross-to-net sales adjustments related to prior years. Our GLP-1 sales in diabetes increased 32%, driven by North America operations growing 37% and international operations growing 22%.
+
+  [ 21] [EN] Insulin sales increased by 9%, driven by North America operations growing 23% and international operations growing 5%. Obesity care sales increased 42% driven by North American operations growing 44% and international operations growing 35%. In both geographies, growth was driven by Wegovy, partly offset by declining Saxenda sales. Doug will talk more about North America obesity performance, but in IO, Wegovy sales exceeded 1 billion Danish kroner in the quarter.
+       [中] 胰岛素销售额增长了9%，得益于北美业务增长23%和国际业务增长5%。肥胖护理销售额增长了42%，得益于北美业务增长44%和国际业务增长35%。在这两个地区，增长均由Wegovy推动，但部分被Saxenda销售额下降所抵消。Doug将详细讨论北美肥胖业务的表现，但在IO，Wegovy本季度销售额超过10亿丹麦克朗。
+
+Insulin sales increased by 9%, driven by North America operations growing 23% and international operations growing 5%. Obesity care sales increased 42% driven by North American operations growing 44% and international operations growing 35%. In both geographies, growth was driven by Wegovy, partly offset by declining Saxenda sales. Doug will talk more about North America obesity performance, but in IO, Wegovy sales exceeded 1 billion Danish kroner in the quarter.
+
+  [ 22] [EN] We continue to roll out Wegovy in a sustainable manner with volume cap launches to balance supply and demand. Rare disease sales decreased by 3% which we'll also speak more to later. Please turn to the next slide. With 24% sales growth in diabetes care, we are growing faster than the total diabetes market. As a result, our global diabetes value market share increased to 34%, which is above our strategic aspiration of reaching one-third of the global diabetes value market in 2025.
+       [中] 我们继续以可持续的方式推广Wegovy，通过限量上市来平衡供需。罕见病业务销售额下降了3%，稍后我们会详细说明。请翻到下一页。糖尿病护理业务销售额增长24%，增速超过整个糖尿病市场。因此，我们在全球糖尿病市场价值份额提升至34%，超过了我们制定的2025年占全球糖尿病价值市场三分之一的战略目标。
+
+原文：
+We continue to roll out Wegovy in a sustainable manner with volume cap launches to balance supply and demand. Rare disease sales decreased by 3% which we'll also speak more to later. Please turn to the next slide. With 24% sales growth in diabetes care, we are growing faster than the total diabetes market. As a result, our global diabetes value market share increased to 34%, which is above our strategic aspiration of reaching one-third of the global diabetes value market in 2025.
+
+  [ 23] [EN] The increase reflects market share gains in both North America operations and international operations. In international operations -- please turn to the next slide. In international operations, diabetes care sales increased by 12% in the first three months of 2024, which was primarily driven by GLP-1 sales growing 22%. Novo Nordisk is the market leader in international operations with a GLP-1 value market share of around 70%. Ozempic continues its GLP-1 market leadership with 47.2% market share. We are so pleased to see Rybelsus increasing its market share to around 15% driven by solid uptake across geographies.
+       [中] 这一增长反映了北美业务和国际业务市场份额的提升。在国际业务方面——请翻到下一页。在国际业务中，2024年前三个月糖尿病护理销售额增长了12%，主要得益于GLP-1销售额增长22%。Novo Nordisk是国际业务中的市场领导者，GLP-1价值市场份额约为70%。Ozempic继续保持GLP-1市场领导地位，市场份额为47.2%。我们很高兴看到Rybelsus的市场份额提升至约15%，这得益于其在各地区的稳健增长。
+
+The increase reflects market share gains in both North America operations and international operations. In international operations -- please turn to the next slide. In international operations, diabetes care sales increased by 12% in the first three months of 2024, which was primarily driven by GLP-1 sales growing 22%. Novo Nordisk is the market leader in international operations with a GLP-1 value market share of around 70%. Ozempic continues its GLP-1 market leadership with 47.2% market share. We are so pleased to see Rybelsus increasing its market share to around 15% driven by solid uptake across geographies.
+
+  [ 24] [EN] And with that, I will hand over the word to Doug.
+       [中] 接下来，我把话交给Doug。
+
+And with that, I will hand over the word to Doug.
+
+  [ 25] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [ 26] [EN] Thank you, Camilla. Please turn to the next slide. Sales in North America is driven by healthy prescription volume growth of the GLP-1 class of around 15% in the first quarter of 2024 compared to the first quarter of 2023. Novo Nordisk is taking market share, meaning we are growing more than the market fueled by our strategic GLP-1 brands of Ozempic and Rybelsus. Measured on total prescriptions, Novo Nordisk continues to be the market leader with around 56% market share.
+       [中] 谢谢，Camilla。请看下一张幻灯片。北美市场的销售增长得益于GLP-1类药物处方量的健康增长，2024年第一季度与2023年第一季度相比增长了约15%。Novo Nordisk正抢占市场份额，也就是说，得益于我们战略性的GLP-1品牌Ozempic和Rybelsus的推动，我们的增长速度超过了市场平均水平。以总处方量衡量，Novo Nordisk仍以约56%的市场份额保持市场领先地位。
+
+原文：
+Thank you, Camilla. Please turn to the next slide. Sales in North America is driven by healthy prescription volume growth of the GLP-1 class of around 15% in the first quarter of 2024 compared to the first quarter of 2023. Novo Nordisk is taking market share, meaning we are growing more than the market fueled by our strategic GLP-1 brands of Ozempic and Rybelsus. Measured on total prescriptions, Novo Nordisk continues to be the market leader with around 56% market share.
+
+  [ 27] [EN] Sales growth of Ozempic was negatively impacted by periodic supply constraints in the beginning of the first quarter. Please go to the next slide. To safeguard continuity of care for Wegovy, we reduced the release of lower dose strengths in May of 2023, which continued throughout the remainder of last year. In the beginning of this year, we gradually started increasing the supply of the lower dose strengths. I am pleased to see that this has been reflected in prescriptions, and we are now seeing more than 27,000 new-to-brand prescriptions and approaching the peak total prescriptions seen last year. Wegovy still has broad market access with more than 50 million covered lives, and importantly, around 10 million vulnerable patients have access to Wegovy via Medicaid in more than 15 states. Following an expanding market access and our focus on reaching more patients, Wegovy net prices declined in the first quarter.
+       [中] Ozempic的销售增长在第一季度初期因周期性供应限制而受到负面影响。请翻到下一页。为确保Wegovy的治疗连续性，我们于2023年5月减少了低剂量强度的出货，这一措施持续到去年年底。今年年初，我们逐步开始增加低剂量强度的供应。我很高兴看到这已经在处方量上有所体现，目前我们每周新增品牌处方超过27,000份，接近去年峰值总处方量。Wegovy仍拥有广泛的市场覆盖，覆盖超过5000万参保人群，重要的是，超过15个州约1000万弱势患者可通过Medicaid获得Wegovy。随着市场准入的扩大以及我们致力于覆盖更多患者，Wegovy的净价格在第一季度有所下降。
+
+Sales growth of Ozempic was negatively impacted by periodic supply constraints in the beginning of the first quarter. Please go to the next slide. To safeguard continuity of care for Wegovy, we reduced the release of lower dose strengths in May of 2023, which continued throughout the remainder of last year. In the beginning of this year, we gradually started increasing the supply of the lower dose strengths. I am pleased to see that this has been reflected in prescriptions, and we are now seeing more than 27,000 new-to-brand prescriptions and approaching the peak total prescriptions seen last year. Wegovy still has broad market access with more than 50 million covered lives, and importantly, around 10 million vulnerable patients have access to Wegovy via Medicaid in more than 15 states. Following an expanding market access and our focus on reaching more patients, Wegovy net prices declined in the first quarter.
+
+  [ 28] [EN] While we continue to gradually increase the overall supply throughout the rest of 2024, our primary focus remains on ensuring continuity of care for patients who have already initiated treatment. Next slide, please. Our rare disease sales decreased by 3%. Sales in international operations declined by 18%. This was partly offset by a 20% sales increase in North America operations, reflecting the launch of Sogroya and positive gross-to-net adjustments related to prior years in the U.S.
+       [中] 我们继续在2024年剩余时间内逐步增加整体供应，但主要关注点仍然是确保已开始治疗的患者护理的连续性。请翻到下一张幻灯片。我们的罕见病销售额下降了3%。国际业务销售额下降了18%。这部分被北美业务销售额增长20%所抵消，这反映了Sogroya的上市以及美国与前几年相关的正向毛净调整。
+
+While we continue to gradually increase the overall supply throughout the rest of 2024, our primary focus remains on ensuring continuity of care for patients who have already initiated treatment. Next slide, please. Our rare disease sales decreased by 3%. Sales in international operations declined by 18%. This was partly offset by a 20% sales increase in North America operations, reflecting the launch of Sogroya and positive gross-to-net adjustments related to prior years in the U.S.
+
+  [ 29] [EN] Sales of red blood disorders decreased by 4% driven by NovoSeven and hemophilia A products, partly countered by increased hemophilia B sales. Sales of rare endocrine disorder products increased by 1%. We are working on reestablishing full supply of rare endocrine disorder products following a reduction of manufacturing output in 2022 and 2023. Now, with that, over to you, Martin, for an update on R&D.
+       [中] 红细胞疾病销售额下降4%，主要由于NovoSeven和血友病A产品，部分被血友病B产品销售额增长所抵消。罕见内分泌疾病产品销售额增长1%。由于2022年和2023年生产产量减少，我们正在努力恢复罕见内分泌疾病产品的全面供应。现在，接下来请Martin介绍研发进展。
+
+Sales of red blood disorders decreased by 4% driven by NovoSeven and hemophilia A products, partly countered by increased hemophilia B sales. Sales of rare endocrine disorder products increased by 1%. We are working on reestablishing full supply of rare endocrine disorder products following a reduction of manufacturing output in 2022 and 2023. Now, with that, over to you, Martin, for an update on R&D.
+
+  [ 30] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [ 31] [EN] Thank you, Doug. Please turn to the next slide. In March, we announced that the FDA has approved a label expansion for Wegovy with the indication of reducing risk of major adverse cardiovascular events, abbreviated MACE. MACE includes cardiovascular death, nonfatal heart attack, and nonfatal stroke in adults with either obesity -- or sorry, overweight or obesity and established cardiovascular disease. The approval is based on the SELECT cardiovascular outcomes trial, which demonstrated for the primary endpoint that semaglutide 2.4-milligram reduced the risk of MACE by 20% compared to placebo when added to standard of care.
+       [中] 谢谢，Doug。请翻到下一页幻灯片。今年3月，我们宣布FDA已批准Wegovy的标签扩展，新增适应症为降低主要不良心血管事件（简称MACE）的风险。MACE包括心血管死亡、非致命性心肌梗死和非致命性卒中，适用于患有肥胖症——抱歉，超重或肥胖且伴有确诊心血管疾病的成人。该批准基于SELECT心血管结局试验，该试验证实主要终点方面，在标准治疗基础上，semaglutide 2.4毫克相比安慰剂可将MACE风险降低20%。
+
+原文：
+Thank you, Doug. Please turn to the next slide. In March, we announced that the FDA has approved a label expansion for Wegovy with the indication of reducing risk of major adverse cardiovascular events, abbreviated MACE. MACE includes cardiovascular death, nonfatal heart attack, and nonfatal stroke in adults with either obesity -- or sorry, overweight or obesity and established cardiovascular disease. The approval is based on the SELECT cardiovascular outcomes trial, which demonstrated for the primary endpoint that semaglutide 2.4-milligram reduced the risk of MACE by 20% compared to placebo when added to standard of care.
+
+  [ 32] [EN] In addition to the cardiovascular indication, the label also is updated to include that risk reduction in MACE was achieved regardless of baseline age, sex, race, ethnicity, body mass index, and level of renal function impairment. Cardiovascular death superiority was not confirmed and thus the testing hierarchy was stopped. However, the label update does include data on the numerical risk reduction in cardiovascular death by 15% and a statistically significant risk reduction of deaths from any cause by 19%, both compared to placebo. In the clinical pharmacological section, the label now also describes that the exact mechanism of cardiovascular risk reduction has not been established, reflecting that the beneficial CV effects of semaglutide is not associated with weight loss alone. The approval of the Wegovy label expansion for the indication of reducing MACE in the U.S.
+       [中] 除了心血管适应症外，标签还更新为：无论基线年龄、性别、种族、民族、体重指数和肾功能损伤水平如何，均实现了MACE风险降低。心血管死亡优势未得到确认，因此检验层级被停止。然而，标签更新确实包含了与安慰剂相比，心血管死亡风险数值降低15%以及全因死亡风险统计学显著降低19%的数据。在临床药理学部分，标签现在也描述了心血管风险降低的确切机制尚未确定，这反映了semaglutide有益的心血管效应并不仅仅与体重减轻有关。Wegovy标签扩展用于降低MACE适应症在美国获得批准。
+
+原文：
+In addition to the cardiovascular indication, the label also is updated to include that risk reduction in MACE was achieved regardless of baseline age, sex, race, ethnicity, body mass index, and level of renal function impairment. Cardiovascular death superiority was not confirmed and thus the testing hierarchy was stopped. However, the label update does include data on the numerical risk reduction in cardiovascular death by 15% and a statistically significant risk reduction of deaths from any cause by 19%, both compared to placebo. In the clinical pharmacological section, the label now also describes that the exact mechanism of cardiovascular risk reduction has not been established, reflecting that the beneficial CV effects of semaglutide is not associated with weight loss alone. The approval of the Wegovy label expansion for the indication of reducing MACE in the U.S.
+
+  [ 33] [EN] is an important milestone for people living with obesity and cardiovascular disease. The SELECT data demonstrates that semaglutide 2.4 milligram has the potential to prolong lives by addressing some of the leading causes of preventable deaths by, for example, reducing the risk of cardiovascular events. Next slide, please. In March of 2024, Novo Nordisk acquired Cardior Pharmaceuticals. The agreement includes Cardior's lead compound CDR132L currently in phase 2 clinical development for treatment of heart failure. CDR132L is a synthetic antisense oligonucleotide and is a disease-modifying therapy designed to halt or partially reverse cellular pathology in the heart by targeting microRNA-132.
+       [中] 对于肥胖和心血管疾病患者来说，这是一个重要的里程碑。SELECT数据表明，semaglutide 2.4毫克有可能通过解决一些可预防性死亡的主要原因（例如降低心血管事件风险）来延长寿命。请翻到下一张幻灯片。2024年3月，Novo Nordisk收购了Cardior Pharmaceuticals。该协议包括Cardior的主要化合物CDR132L，该化合物目前处于治疗心力衰竭的2期临床开发阶段。CDR132L是一种合成反义寡核苷酸，是一种疾病修饰疗法，旨在通过靶向microRNA-132来阻止或部分逆转心脏细胞病理。
+
+原文：
+is an important milestone for people living with obesity and cardiovascular disease. The SELECT data demonstrates that semaglutide 2.4 milligram has the potential to prolong lives by addressing some of the leading causes of preventable deaths by, for example, reducing the risk of cardiovascular events. Next slide, please. In March of 2024, Novo Nordisk acquired Cardior Pharmaceuticals. The agreement includes Cardior's lead compound CDR132L currently in phase 2 clinical development for treatment of heart failure. CDR132L is a synthetic antisense oligonucleotide and is a disease-modifying therapy designed to halt or partially reverse cellular pathology in the heart by targeting microRNA-132.
+
+  [ 34] [EN] With its distinct mode of action, CDR132L has the potential to become a first-in-class therapy for long-lasting improvements of heart function. A second phase 2 trial is planned and will investigate CDR132L in a broader chronic heart failure population with left ventricular hypertrophy. This acquisition is in line with our strategic aspiration of establishing a presence in cardiovascular disease and emerging therapy areas. Next slide, please. As we shift our focus to the upcoming R&D milestones, there are many exciting approvals, trial initiations, and trial completions to watch out for. Allow me to go through a few key milestones from the first quarter of '24 and touch upon a few upcoming highlights later in '24.
+       [中] 凭借其独特的作用机制，CDR132L有潜力成为首款能够持久改善心脏功能的疗法。第二项2期试验已规划，将在更广泛的伴有左心室肥厚的慢性心力衰竭人群中研究CDR132L。此次收购符合我们在心血管疾病及新兴治疗领域建立布局的战略愿景。请翻到下一页幻灯片。当我们把注意力转向即将到来的研发里程碑时，有许多令人兴奋的批准、试验启动和试验完成值得关注。请允许我回顾一下'24年第一季度的几个关键里程碑，并简要提及'24年晚些时候的几个即将到来的亮点。
+
+With its distinct mode of action, CDR132L has the potential to become a first-in-class therapy for long-lasting improvements of heart function. A second phase 2 trial is planned and will investigate CDR132L in a broader chronic heart failure population with left ventricular hypertrophy. This acquisition is in line with our strategic aspiration of establishing a presence in cardiovascular disease and emerging therapy areas. Next slide, please. As we shift our focus to the upcoming R&D milestones, there are many exciting approvals, trial initiations, and trial completions to watch out for. Allow me to go through a few key milestones from the first quarter of '24 and touch upon a few upcoming highlights later in '24.
+
+  [ 35] [EN] Within diabetes, insulin icodec under the brand name of Awiqli was recommended for approval for the treatment of diabetes by the European regulatory authorities. We anticipate a final decision from the European Commission within a couple of months, making an exciting milestone for the world's first once-weekly basal insulin. Of note, an FDA advisory committee meeting for insulin icodec has been announced to discuss the new drug application. The meeting will focus on the risk-benefit profile of icodec in the treatment of type 1 diabetes and is scheduled from May 24th, in due time prior to the action date in July. Awiqli is currently approved in both Canada and Switzerland. Further, in diabetes, COMBINE 2, a phase 3 trial with IcoSema, was successfully completed.
+       [中] 在糖尿病领域，Awiqli品牌名下的insulin icodec（胰岛素icodec）已被欧洲监管机构推荐批准用于治疗糖尿病。我们预计欧盟委员会将在几个月内做出最终决定，这将成为全球首个每周一次基础胰岛素的激动人心里程碑。值得注意的是，FDA已宣布召开针对insulin icodec的咨询委员会会议，讨论其新药申请。会议将重点讨论icodec在治疗1型糖尿病中的风险获益概况，计划于5月24日开始，在7月行动日期之前适时举行。Awiqli目前已在加拿大和瑞士获批。此外，在糖尿病领域，针对IcoSema的3期临床试验COMBINE 2已成功完成。
+
+Within diabetes, insulin icodec under the brand name of Awiqli was recommended for approval for the treatment of diabetes by the European regulatory authorities. We anticipate a final decision from the European Commission within a couple of months, making an exciting milestone for the world's first once-weekly basal insulin. Of note, an FDA advisory committee meeting for insulin icodec has been announced to discuss the new drug application. The meeting will focus on the risk-benefit profile of icodec in the treatment of type 1 diabetes and is scheduled from May 24th, in due time prior to the action date in July. Awiqli is currently approved in both Canada and Switzerland. Further, in diabetes, COMBINE 2, a phase 3 trial with IcoSema, was successfully completed.
+
+  [ 36] [EN] The primary endpoint was met with IcoSema demonstrating superior reduction in A1C compared to once weekly semaglutide 1.0 milligram in people with type 2 diabetes inadequately controlled on GLP-1 treatment and in need of treatment intensification. From an overall A1C baseline of 8% once weekly IcoSema achieved an estimated reduction in A1C of 1.35 percentage points compared to 0.9 percentage points for semaglutide, 1.0 milligram. IcoSema appeared to have a safe and well-tolerated profile and shows the potential to set a new benchmark for once-weekly treatment of type 2 diabetes. We expect results from COMBINE 1 in the second quarter of '24. Also, in diabetes, we have successfully completed the FLOW kidney outcomes trial with once-weekly injectable semaglutide 1.0 milligram. The trial achieved its primary endpoint by demonstrating a statistically significant and superior reduction in kidney disease progression, as well as cardiovascular and kidney death, by 24% for people treated with 1.0 milligram compared to placebo. In March, the FLOW data were submitted as a label expansion application to the U.S.
+       [中] 主要终点已达到：与每周一次的semaglutide 1.0毫克相比，IcoSema在A1C降低方面表现出更优效果，适用于接受GLP-1治疗但血糖控制不佳且需要强化治疗的2型糖尿病患者。从总体A1C基线8%开始，每周一次的IcoSema使A1C估计降低1.35个百分点，而semaglutide 1.0毫克为0.9个百分点。IcoSema显示出安全且耐受性良好的特征，并有潜力为每周一次治疗2型糖尿病树立新标杆。我们预计将在2024年第二季度获得COMBINE 1试验的结果。此外，在糖尿病领域，我们已成功完成了每周一次注射用semaglutide 1.0毫克的FLOW肾脏结局试验。该试验达到了主要终点，与安慰剂相比，使用1.0毫克semaglutide治疗的患者在肾脏疾病进展以及心血管和肾脏死亡方面表现出统计学显著且更优的降低，降幅达24%。3月，FLOW数据已作为标签扩展申请提交至美国。
+
+The primary endpoint was met with IcoSema demonstrating superior reduction in A1C compared to once weekly semaglutide 1.0 milligram in people with type 2 diabetes inadequately controlled on GLP-1 treatment and in need of treatment intensification. From an overall A1C baseline of 8% once weekly IcoSema achieved an estimated reduction in A1C of 1.35 percentage points compared to 0.9 percentage points for semaglutide, 1.0 milligram. IcoSema appeared to have a safe and well-tolerated profile and shows the potential to set a new benchmark for once-weekly treatment of type 2 diabetes. We expect results from COMBINE 1 in the second quarter of '24. Also, in diabetes, we have successfully completed the FLOW kidney outcomes trial with once-weekly injectable semaglutide 1.0 milligram. The trial achieved its primary endpoint by demonstrating a statistically significant and superior reduction in kidney disease progression, as well as cardiovascular and kidney death, by 24% for people treated with 1.0 milligram compared to placebo. In March, the FLOW data were submitted as a label expansion application to the U.S.
+
+  [ 37] [EN] FDA. Submission to the European regulatory authorities is expected in the second half of '24. The full results will be shared at the European Renal Association Congress later this month. We've also successfully completed an exploratory phase 2 trial with higher doses of once-weekly subcutaneous semaglutide. The trial investigated efficacy and tolerability of eight and 16-milligram semaglutide in people with type 2 diabetes.
+       [中] FDA。预计在2024年下半年向欧洲监管机构提交。完整结果将于本月晚些时候在欧洲肾脏协会大会上公布。我们还成功完成了一项探索性2期试验，采用更高剂量的每周一次皮下注射semaglutide。该试验研究了8毫克和16毫克semaglutide在2型糖尿病患者中的疗效和耐受性。
+
+FDA. Submission to the European regulatory authorities is expected in the second half of '24. The full results will be shared at the European Renal Association Congress later this month. We've also successfully completed an exploratory phase 2 trial with higher doses of once-weekly subcutaneous semaglutide. The trial investigated efficacy and tolerability of eight and 16-milligram semaglutide in people with type 2 diabetes.
+
+  [ 38] [EN] In the trial, both response on weight loss was observed, and the higher doses of semaglutide appear to have a safe and well-tolerated profile in line with previous semaglutide trials. Semaglutide in higher doses in diabetes are now being evaluated for further clinical development. Moving to obesity care, in the first quarter, we've already covered the Wegovy label expansion for approval for cardiovascular risk reduction in the U.S. In the first quarter, the STEP HFpEF trials were submitted to U.S. FDA and granted priority review.
+       [中] 在试验中，观察到体重减轻方面的应答，更高剂量的semaglutide似乎具有良好的安全性和耐受性，与之前的semaglutide试验一致。目前正在评估更高剂量的semaglutide用于糖尿病的进一步临床开发。在肥胖治疗方面，第一季度我们已经介绍了Wegovy标签扩展在美国获批用于降低心血管风险。第一季度，STEP HFpEF试验已提交至美国FDA并获得优先审评资格。
+
+In the trial, both response on weight loss was observed, and the higher doses of semaglutide appear to have a safe and well-tolerated profile in line with previous semaglutide trials. Semaglutide in higher doses in diabetes are now being evaluated for further clinical development. Moving to obesity care, in the first quarter, we've already covered the Wegovy label expansion for approval for cardiovascular risk reduction in the U.S. In the first quarter, the STEP HFpEF trials were submitted to U.S. FDA and granted priority review.
+
+  [ 39] [EN] The FDA also announced that an advisory committee is to be convened in the second half of 2024 to discuss the application. In rare disease, we are excited about the expected readout of Mim8 phase 3 in the second quarter of '24. Mim8 is a novel next-generation Factor VIII mimetic bispecific antibody with potential for improved patient outcomes and reduce patient burden in treatment of people with hemophilia A. Looking ahead to the second half of '24, there are several events of note within diabetes. This includes the readouts of STRIDE and the SOUL trials, as well as phase 2 for monlunabant and the initiation of phase 2 trial for amycretin. Within obesity, we look forward to the readout of the first pivotal trial in CagriSema.
+       [中] 美国食品药品监督管理局还宣布，将在2024年下半年召开咨询委员会讨论该申请。在罕见病领域，我们对Mim8在2024年第二季度即将公布的3期临床数据感到兴奋。Mim8是一种新型下一代因子VIII模拟双特异性抗体，有望改善血友病A患者的治疗效果并减轻治疗负担。展望2024年下半年，糖尿病领域有多个值得关注的事件，包括STRIDE和SOUL试验的数据读出，以及monlunabant的2期临床和amycretin的2期临床启动。在肥胖症领域，我们期待CagriSema首个关键试验的数据读出。
+
+The FDA also announced that an advisory committee is to be convened in the second half of 2024 to discuss the application. In rare disease, we are excited about the expected readout of Mim8 phase 3 in the second quarter of '24. Mim8 is a novel next-generation Factor VIII mimetic bispecific antibody with potential for improved patient outcomes and reduce patient burden in treatment of people with hemophilia A. Looking ahead to the second half of '24, there are several events of note within diabetes. This includes the readouts of STRIDE and the SOUL trials, as well as phase 2 for monlunabant and the initiation of phase 2 trial for amycretin. Within obesity, we look forward to the readout of the first pivotal trial in CagriSema.
+
+  [ 40] [EN] Lastly, within cardiovascular and emerging therapy areas, we look forward to the readout of the phase 3 ESSENCE trial within MASH. With that, over to you, Karsten.
+       [中] 最后，在心血管和新兴治疗领域，我们期待MASH领域内的3期ESSENCE试验的数据读出。接下来，有请Karsten。
+
+Lastly, within cardiovascular and emerging therapy areas, we look forward to the readout of the phase 3 ESSENCE trial within MASH. With that, over to you, Karsten.
+
+  [ 41] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [ 42] [EN] Thank you, Martin. Please turn to the next slide. In Q1 2024, our sales grew by 22% in Danish kroner and 24% at constant exchange rates, driven by both operating units. In the U.S., sales growth was positively impacted by gross to net sales adjustments related to prior year.
+       [中] 谢谢，Martin。请翻到下一页。2024年第一季度，我们的销售额以丹麦克朗计算增长了22%，按固定汇率计算增长了24%，这两个增长均由两个运营部门推动。在美国，销售额增长受到与上年相关的毛销售额至净销售额调整的积极影响。
+
+原文：
+Thank you, Martin. Please turn to the next slide. In Q1 2024, our sales grew by 22% in Danish kroner and 24% at constant exchange rates, driven by both operating units. In the U.S., sales growth was positively impacted by gross to net sales adjustments related to prior year.
+
+  [ 43] [EN] The gross margin increased to 84.8% compared to 84.7% in Q1 2023, reflecting a positive price impact due to gross to net sales adjustments in the U.S., a positive product mix due to increased sales of GLP-1-based products. This is partially countered by costs related to ongoing capacity expansions and a negative currency impact. Sales and distribution costs increased by 7% in Danish kroner and by 8% at constant exchange rates, around 20% as a percentage of sales. In North America operations, costs are driven by promotional activities related to Wegovy, and in international operations, the increase is related to promotional activities for Rybelsus as well as obesity care market development activities. Research and development costs increased by 28% measured both in Danish kroner and at constant exchange rates, amounting to around 13% of sales.
+       [中] 毛利率上升至84.8%，而2023年第一季度为84.7%，这反映了美国因毛收入与净销售额调整带来的积极价格影响，以及基于GLP-1的产品销量增加带来的积极产品组合影响。这部分被与持续产能扩张相关的成本和负面汇率影响所抵消。销售和分销成本以丹麦克朗计算增长7%，按固定汇率计算增长8%，约占销售额的20%。在北美业务中，成本由与Wegovy相关的促销活动驱动；在国际业务中，成本增长与Rybelsus的促销活动以及肥胖护理市场开发活动相关。研发成本以丹麦克朗和固定汇率计算均增长28%，约占销售额的13%。
+
+The gross margin increased to 84.8% compared to 84.7% in Q1 2023, reflecting a positive price impact due to gross to net sales adjustments in the U.S., a positive product mix due to increased sales of GLP-1-based products. This is partially countered by costs related to ongoing capacity expansions and a negative currency impact. Sales and distribution costs increased by 7% in Danish kroner and by 8% at constant exchange rates, around 20% as a percentage of sales. In North America operations, costs are driven by promotional activities related to Wegovy, and in international operations, the increase is related to promotional activities for Rybelsus as well as obesity care market development activities. Research and development costs increased by 28% measured both in Danish kroner and at constant exchange rates, amounting to around 13% of sales.
+
+  [ 44] [EN] Cost increases reflect late-stage clinical trial activity and increased early research activities compared to Q1 2023. Administration costs increased by 8% measured in Danish kroner and by 9% at constant exchange rates. Operating profit increased by 27% measured in Danish kroner and by 30% at constant exchange rates, reflecting the sales growth. Net financial items showed a net gain of 72 million Danish kroner, compared to a net loss of 270 million Danish kroner last year. The effective tax rate was 20.4% in the first three months of 2024, compared to 19.9% in the first three months of 2023.
+       [中] 成本增加反映了与2023年第一季度相比，晚期临床试验活动和早期研究活动的增加。以丹麦克朗计，行政成本增加了8%，按固定汇率计算增加了9%。以丹麦克朗计，营业利润增加了27%，按固定汇率计算增加了30%，反映了销售增长。净财务项目显示净收益7200万丹麦克朗，而去年为净亏损2.7亿丹麦克朗。2024年前三个月的有效税率为20.4%，而2023年前三个月为19.9%。
+
+Cost increases reflect late-stage clinical trial activity and increased early research activities compared to Q1 2023. Administration costs increased by 8% measured in Danish kroner and by 9% at constant exchange rates. Operating profit increased by 27% measured in Danish kroner and by 30% at constant exchange rates, reflecting the sales growth. Net financial items showed a net gain of 72 million Danish kroner, compared to a net loss of 270 million Danish kroner last year. The effective tax rate was 20.4% in the first three months of 2024, compared to 19.9% in the first three months of 2023.
+
+  [ 45] [EN] Net profit increased by 28%, and diluted earnings per share increased by 29% to 5.68 Danish kroner. Free cash flow realized in the first quarter of 2024 was 5 billion Danish kroner, compared with 24.8 billion in the first three months of 2023. The lower free cash flow reflects phasing of rebates related to lower U.S. gross sales in the first quarter of 2024 compared to the fourth quarter of 2023. This is combined with reduced insulin list prices, higher taxes paid, and increasing capital expenditure toward additional manufacturing capacity. This is partially countered by increased net profits.
+       [中] 净利润增长28%，稀释每股收益增长29%至5.68 Danish kroner。2024年第一季度实现的自由现金流为5 billion Danish kroner，而2023年前三个月为24.8 billion。较低的现金流反映了与2023年第四季度相比，2024年第一季度美国总销售额下降相关的退税阶段性变化，再加上胰岛素标价降低、缴税增加以及为扩大产能而增加的资本支出，这部分被净利润增长所抵消。
+
+Net profit increased by 28%, and diluted earnings per share increased by 29% to 5.68 Danish kroner. Free cash flow realized in the first quarter of 2024 was 5 billion Danish kroner, compared with 24.8 billion in the first three months of 2023. The lower free cash flow reflects phasing of rebates related to lower U.S. gross sales in the first quarter of 2024 compared to the fourth quarter of 2023. This is combined with reduced insulin list prices, higher taxes paid, and increasing capital expenditure toward additional manufacturing capacity. This is partially countered by increased net profits.
+
+  [ 46] [EN] Capital expenditure for property, plant, and equipment was 8.5 billion Danish kroner, compared with 4.7 billion in 2023, primarily reflecting investments in additional capacity for API production and fill-finish capacity for both current and future injectable and oral products. In February 2024, we announced an agreement to acquire three fill-finish sites from Novo Holdings in connection with the transaction where Novo Holdings has agreed to acquire Catalent, a global contract development and manufacturing organization. The fulfillment of various customary closing conditions is progressing, and Novo Nordisk still expects that the acquisition will be completed toward the end of 2024. Please go to the next slide. We continued the growth momentum in 2024 and has increased our sales growth to between 19 and 27% at constant exchange rates. This is based on several assumptions as described in the company announcements.
+       [中] 物业、厂房及设备的资本支出为85亿丹麦克朗，而2023年为47亿丹麦克朗，这主要反映了对API产能的额外投资，以及为当前和未来的注射及口服产品扩充灌装/封装产能。2024年2月，我们宣布达成协议，从Novo Holdings收购三个灌装/封装基地，该交易与Novo Holdings同意收购全球合同开发与制造组织Catalent的事项相关联。目前各项常规交割条件的满足正在推进中，诺和诺德仍预计该收购将于2024年底前完成。请翻到下一页。我们在2024年保持了增长势头，按固定汇率计算，销售额增长率已提升至19%至27%。这基于公司公告中所述的若干假设。
+
+原文：
+Capital expenditure for property, plant, and equipment was 8.5 billion Danish kroner, compared with 4.7 billion in 2023, primarily reflecting investments in additional capacity for API production and fill-finish capacity for both current and future injectable and oral products. In February 2024, we announced an agreement to acquire three fill-finish sites from Novo Holdings in connection with the transaction where Novo Holdings has agreed to acquire Catalent, a global contract development and manufacturing organization. The fulfillment of various customary closing conditions is progressing, and Novo Nordisk still expects that the acquisition will be completed toward the end of 2024. Please go to the next slide. We continued the growth momentum in 2024 and has increased our sales growth to between 19 and 27% at constant exchange rates. This is based on several assumptions as described in the company announcements.
+
+  [ 47] [EN] Of note, the updated sales outlook at constant exchange rates reflect growth to net sales adjustment related to prior years in the U.S. in the first quarter. The guidance reflects expectations for sales growth in both North America operations and international operations, mainly driven by volume growth of GLP-1-based treatments for obesity and diabetes care. With the expectation of continued volume growth and capacity limitations, the outlook also reflects expected continued periodic supply constraints and related drug shortage notifications across a number of products and geographies. Novo Nordisk is investing in internal and external capacity to increase supply for both short and long term. Operating profit growth is now expected to be between 22 and 30% at constant exchange rates.
+       [中] 值得注意的是，以固定汇率计算的最新销售展望反映了第一季度美国地区以往年度净销售额调整带来的增长。该指引反映了对北美业务和国际业务销售增长的预期，主要受基于GLP-1的肥胖症和糖尿病治疗药物销量增长的推动。随着销量持续增长和产能受限的预期，该展望也反映了预期中多个产品和地区将出现持续的周期性供应限制及相关药物短缺通知。Novo Nordisk正在投资内部和外部产能，以增加短期和长期供应。目前预计营业利润增长在固定汇率下介于22%至30%之间。
+
+原文：
+Of note, the updated sales outlook at constant exchange rates reflect growth to net sales adjustment related to prior years in the U.S. in the first quarter. The guidance reflects expectations for sales growth in both North America operations and international operations, mainly driven by volume growth of GLP-1-based treatments for obesity and diabetes care. With the expectation of continued volume growth and capacity limitations, the outlook also reflects expected continued periodic supply constraints and related drug shortage notifications across a number of products and geographies. Novo Nordisk is investing in internal and external capacity to increase supply for both short and long term. Operating profit growth is now expected to be between 22 and 30% at constant exchange rates.
+
+  [ 48] [EN] The increased expectation for operating profit growth is reflecting the increased sales outlook, partially countered by an expected loss on other operating income and expenses. Capital expenditure is still expected to be around 45 billion Danish kroner in 2024, reflecting the expansion of the supply chain, including the previously communicated expansions of manufacturing facilities in Denmark and France. The free cash flow is now expected to be between 57 million and 67 billion Danish kroner. The updated cash flow expectation reflects changes to gross to net sales estimates and related cash flow impacts, as well as business development activities including the planned acquisition of Cardior. That covers the outlook for 2024. Now, back to you, Lars.
+       [中] 对运营利润增长的预期上升，反映了销售前景的改善，但部分被其他营业收支的预期亏损所抵消。2024年的资本支出预计仍约为450亿丹麦克朗，这体现了供应链的扩张，包括此前公布的丹麦和法国制造设施的扩建。自由现金流目前预计在5700万至670亿丹麦克朗之间。调整后的现金流预期反映了对总销售额及净销售额估计值的修正及其相关现金流影响，以及业务发展活动（包括计划收购Cardior）。以上是2024年的展望。现在交回给你，Lars。
+
+原文：
+The increased expectation for operating profit growth is reflecting the increased sales outlook, partially countered by an expected loss on other operating income and expenses. Capital expenditure is still expected to be around 45 billion Danish kroner in 2024, reflecting the expansion of the supply chain, including the previously communicated expansions of manufacturing facilities in Denmark and France. The free cash flow is now expected to be between 57 million and 67 billion Danish kroner. The updated cash flow expectation reflects changes to gross to net sales estimates and related cash flow impacts, as well as business development activities including the planned acquisition of Cardior. That covers the outlook for 2024. Now, back to you, Lars.
+
+  [ 49] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [ 50] [EN] Thank you, Karsten. Please turn to the final slide. We are pleased with the sales growth in the first three months of 2024 driven by increased demand for our GLP-1-based diabetes and obesity treatments. More patients benefit from our innovative treatments, and the agreement to acquire the three Catalent manufacturing sites will enable us to serve significantly more people living with diabetes and obesity in the future. Within R&D, we are pleased with the positive results from the kidney outcomes trial with SELECT and the label expansion for cardiovascular disease risk reduction for Wegovy in the U.S.
+       [中] 谢谢，Karsten。请翻到最后一页。我们对2024年前三个月的销售增长感到满意，这得益于市场对我们基于GLP-1的糖尿病和肥胖症治疗药物需求的增加。更多患者受益于我们的创新疗法，而收购三家Catalent生产工厂的协议将使我们未来能够为更多糖尿病和肥胖症患者提供服务。在研发方面，我们对SELECT肾脏结局试验的积极结果以及Wegovy在美国获批扩展用于降低心血管疾病风险的标签感到欣慰。
+
+原文：Thank you, Karsten. Please turn to the final slide. We are pleased with the sales growth in the first three months of 2024 driven by increased demand for our GLP-1-based diabetes and obesity treatments. More patients benefit from our innovative treatments, and the agreement to acquire the three Catalent manufacturing sites will enable us to serve significantly more people living with diabetes and obesity in the future. Within R&D, we are pleased with the positive results from the kidney outcomes trial with SELECT and the label expansion for cardiovascular disease risk reduction for Wegovy in the U.S.
+
+  [ 51] [EN] With that, back to Daniel.
+       [中] 那么，回到Daniel。
+
+With that, back to Daniel.
+
+  [ 52] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 53] [EN] Thank you, Lars. Next slide, please. With that, we are now ready for the Q&A session. I kindly ask all participants to limit her or himself to one or maximum two questions including any sub-questions.
+       [中] 谢谢，Lars。请翻到下一张幻灯片。至此，我们现在进入问答环节。恳请各位参与者将提问限制在一到两个问题以内，含任何子问题。
+
+Thank you, Lars. Next slide, please. With that, we are now ready for the Q&A session. I kindly ask all participants to limit her or himself to one or maximum two questions including any sub-questions.
+
+  [ 54] [EN] Operator, we are now ready to take the first question.
+       [中] 接线员，我们现在准备接受第一个问题。
+Operator, we are now ready to take the first question.
+
+
+  ━━ Questions & Answers: ━━
+  ━━ 问题与解答：
+Questions & Answers: ━━
+
+  [ 56] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 57] [EN] Thank you. [Operator instructions] We will now go to your first question and your first question, one moment, please. And your first question comes from the line of Michael Nedelcovych from TD Cowen. Please go ahead.
+       [中] 感谢。[操作员指令] 我们现在进入第一个问题，您的第一个问题，请稍等。您的第一个问题来自TD Cowen的Michael Nedelcovych。请讲。
+
+Thank you. [Operator instructions] We will now go to your first question and your first question, one moment, please. And your first question comes from the line of Michael Nedelcovych from TD Cowen. Please go ahead.
+
+  [ 58] [EN] Mike Nedelcovych--TD Cowen -- Analyst
+       [中] Mike Nedelcovych -- TD Cowen -- 分析师
+Mike Nedelcovych--TD Cowen -- Analyst
+
+  [ 59] [EN] Thank you for the questions. I have two. The first is on the guidance range. In every year going back to 2017, the guidance range has been between 3% and 6% and often narrowed in the first quarter.
+       [中] 谢谢提问。我有两个问题。第一个是关于指引区间。从2017年以来的每一年，指引区间都在3%到6%之间，并且常常在第一季度收窄。
+
+Thank you for the questions. I have two. The first is on the guidance range. In every year going back to 2017, the guidance range has been between 3% and 6% and often narrowed in the first quarter.
+
+  [ 60] [EN] The fact that this year's guidance range spans 8% is understandable given supply uncertainties, but one might have imagined that management might have some additional clarity by now and possibly have narrowed the range. Of course, this implies risk both to the downside and to the upside, but it's hard to interpret persistent uncertainty as a good thing. So, to what specifically do you attribute that uncertainty? And then, my second question has to do with high-dose injectable semaglutide. As you noted, the phase 2 trial incorporated a 16-milligram dose which we understood to be a dose intended to find a weight loss plateau in order to make sure no efficacy was being left on the table.
+       [中] 鉴于供应不确定性，今年业绩指引范围跨度达8%是可以理解的，但人们本以为管理层现在应已有更清晰的判断，并可能已收窄该范围。当然，这意味着下行和上行风险并存，但持续的不确定性很难被视作利好。那么，您认为这种不确定性具体源于什么？此外，我的第二个问题与高剂量注射用semaglutide有关。正如您所言，二期试验中纳入了16毫克剂量，我们理解这一剂量旨在找到减重平台期，以确保疗效未被遗漏。
+
+原文：
+The fact that this year's guidance range spans 8% is understandable given supply uncertainties, but one might have imagined that management might have some additional clarity by now and possibly have narrowed the range. Of course, this implies risk both to the downside and to the upside, but it's hard to interpret persistent uncertainty as a good thing. So, to what specifically do you attribute that uncertainty? And then, my second question has to do with high-dose injectable semaglutide. As you noted, the phase 2 trial incorporated a 16-milligram dose which we understood to be a dose intended to find a weight loss plateau in order to make sure no efficacy was being left on the table.
+
+  [ 61] [EN] You note that the weight loss was dose responsive, but did you find that plateau? And can you give us any sense how much additional weight loss was gained at eight and 16 milligrams of semaglutide? And you also noted that higher doses are now being evaluated for further clinical development, but of course, phase 2 trials at a 7.2-milligram dose are already nearing completion. So, are you contemplating additional trials at even higher doses? Thank you.
+       [中] 你提到减重效果呈剂量依赖性，但你们是否观察到了平台期？此外，能否透露8毫克和16毫克semaglutide带来的额外减重效果？你还提到更高剂量正在评估以推进临床开发，但7.2毫克剂量的2期试验已接近完成。那么，你们是否在考虑更高剂量的额外试验？谢谢。
+
+原文：
+You note that the weight loss was dose responsive, but did you find that plateau? And can you give us any sense how much additional weight loss was gained at eight and 16 milligrams of semaglutide? And you also noted that higher doses are now being evaluated for further clinical development, but of course, phase 2 trials at a 7.2-milligram dose are already nearing completion. So, are you contemplating additional trials at even higher doses? Thank you.
+
+  [ 62] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 63] [EN] Thank you for the questions, Mike, and thanks for being up early in the morning. Karsten, the first one, guidance range for you. And afterwards, you, Martin, on the semaglutide trial.
+       [中] 感谢你的提问，Mike，也谢谢你一早起来。Karsten，第一个是给你的指导范围。之后，Martin，再请你回答关于semaglutide试验的问题。
+
+Thank you for the questions, Mike, and thanks for being up early in the morning. Karsten, the first one, guidance range for you. And afterwards, you, Martin, on the semaglutide trial.
+
+  [ 64] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [ 65] [EN] Good morning, Michael. So, thank you for looking up our historic ranges. And of course, we do that also when we're assessing. I think it's important to note that as we've seen over the past year or two, then the run rate we have in terms of very high growth level and volatility has caused us to be a little bit more cautious in terms of guidance ranges also linked to the very strict regulations we have here as a listed company in Denmark around how to navigate that. So, I would say there's no additional signals to the guidance range for the first quarter.
+       [中] 早上好，Michael。感谢您查阅我们的历史区间。当然，我们在评估时也会这么做。我认为需要指出的是，正如我们在过去一两年中所见，我们因极高增长水平和波动性而设定的运行速率，使得我们在指导区间上更加谨慎，这也与我们在丹麦作为上市公司所遵循的严格监管规定有关，这些规定指导我们如何应对这种情况。因此，我要说的是，第一季度的指导区间并没有额外的信号。
+
+Good morning, Michael. So, thank you for looking up our historic ranges. And of course, we do that also when we're assessing. I think it's important to note that as we've seen over the past year or two, then the run rate we have in terms of very high growth level and volatility has caused us to be a little bit more cautious in terms of guidance ranges also linked to the very strict regulations we have here as a listed company in Denmark around how to navigate that. So, I would say there's no additional signals to the guidance range for the first quarter.
+
+  [ 66] [EN] We are on our base plan in terms of running our business. And there are no major changes to risks either, I would say, favorably or negatively. We are on track and we like what we see.
+       [中] 在运营业务方面，我们正在执行基础计划。而且风险方面也没有重大变化，我认为无论是利好还是利空。我们进展顺利，并对现状感到满意。
+
+We are on our base plan in terms of running our business. And there are no major changes to risks either, I would say, favorably or negatively. We are on track and we like what we see.
+
+  [ 67] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 68] [EN] Thank you, Karsten. Martin, over to you.
+       [中] 谢谢你，Karsten。Martin，交给你了。
+
+Thank you, Karsten. Martin, over to you.
+
+  [ 69] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [ 70] [EN] Yeah. Thank you very much for the question. So, I will -- I'll not comment on the actual data. So, we'll disclose them at a later time point.
+       [中] 是的。非常感谢你的提问。那么，我不会——我不会对实际数据发表评论。我们会在稍后的时间点披露这些数据。
+
+原文：
+Yeah. Thank you very much for the question. So, I will -- I'll not comment on the actual data. So, we'll disclose them at a later time point.
+
+  [ 71] [EN] So, these are -- we -- the actual weight loss observed, that will be disclosed later on. I specifically talked about diabetes when we talked about evaluating further development. You're absolutely right, in obesity, we're currently conducting a phase 3 trial. And what we can say at this point is that the data that we've seen from diabetes, securing that we remain confident also on the higher doses in the obesity space.
+       [中] 所以，这些是——我们——实际观察到的体重减轻数据，将在稍后披露。在讨论评估进一步开发时，我特别谈到了糖尿病。你说得对，在肥胖方面，我们目前正在进行一项phase 3试验。目前可以说的是，我们从糖尿病中看到的数据，确保我们对肥胖领域的更高剂量也保持信心。
+
+So, these are -- we -- the actual weight loss observed, that will be disclosed later on. I specifically talked about diabetes when we talked about evaluating further development. You're absolutely right, in obesity, we're currently conducting a phase 3 trial. And what we can say at this point is that the data that we've seen from diabetes, securing that we remain confident also on the higher doses in the obesity space.
+
+  [ 72] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 73] [EN] Thank you, Martin, and thank you, Mike, for the questions. We are ready for the next question, please.
+       [中] 谢谢，Martin，也谢谢，Mike，你们的提问。我们准备好回答下一个问题了，请提问。
+
+Thank you, Martin, and thank you, Mike, for the questions. We are ready for the next question, please.
+
+  [ 74] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 75] [EN] Thank you. I will now go to the next question. And your next question comes from the line of Richard Vosser from J.P. Morgan.
+       [中] 谢谢。我现在进入下一个问题。你的下一个问题来自J.P. Morgan的Richard Vosser。
+
+Thank you. I will now go to the next question. And your next question comes from the line of Richard Vosser from J.P. Morgan.
+
+  [ 76] [EN] Please go ahead.
+       [中] 请继续。
+Please go ahead.
+
+  [ 77] [EN] Richard Vosser--JPMorgan Chase and Company -- Analyst
+       [中] Richard Vosser——摩根大通公司——分析师  
+Richard Vosser--JPMorgan Chase and Company -- Analyst
+
+  [ 78] [EN] Hi, thanks for taking my questions. Two, please. First one, just on supply progression in the U.S. and ex-US for Wegovy and Ozempic.
+       [中] 嗨，感谢回答我的问题。两个问题。第一个是关于Wegovy和Ozempic在美国和美国以外的供应进展。
+
+Hi, thanks for taking my questions. Two, please. First one, just on supply progression in the U.S. and ex-US for Wegovy and Ozempic.
+
+  [ 79] [EN] I mean we've seen very good uptake of the starter doses in the U.S. with a substantial ramp. Should we anticipate a continued gradual ramp of those doses throughout this year? Is that how we should think about it? Just some more color there on supply. And particularly, also, U.S., I think it was quite weak this quarter.
+       [中] 我的意思是，我们在美国看到了初始剂量的良好接受度，并且有显著的增长。我们是否应该预期今年这些剂量会持续逐步增长？这是我们应该考虑的方式吗？希望就供应方面提供更多细节。特别是，美国本季度似乎相当疲软。
+
+原文：
+I mean we've seen very good uptake of the starter doses in the U.S. with a substantial ramp. Should we anticipate a continued gradual ramp of those doses throughout this year? Is that how we should think about it? Just some more color there on supply. And particularly, also, U.S., I think it was quite weak this quarter.
+
+  [ 80] [EN] Can that be turned around, particularly in China and some other areas? And then, just second question, on Mim8, lots of discussion by this, including some of your competitors going into new administration profiles for their products. Perhaps you could remind us a little bit more detail, Martin, of the target product profile, so we can put those -- that into perspective with the tweaks that HEMLIBRA are making when we see them. Thanks very much.
+       [中] 这种情况能否逆转，尤其是在中国和其他一些地区？然后，第二个问题，关于Mim8，有很多讨论，包括你们的一些竞争对手正在为他们的产品引入新的给药方案。或许，Martin，你可以再提醒我们一下目标产品概况的更多细节，这样我们就可以在看到HEMLIBRA所做的调整时，将其纳入考量。非常感谢。
+
+Can that be turned around, particularly in China and some other areas? And then, just second question, on Mim8, lots of discussion by this, including some of your competitors going into new administration profiles for their products. Perhaps you could remind us a little bit more detail, Martin, of the target product profile, so we can put those -- that into perspective with the tweaks that HEMLIBRA are making when we see them. Thanks very much.
+
+  [ 81] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 82] [EN] Thank you, Richard. So, Karsten, you start with the supply, and we'll then go to Martin again like before.
+       [中] 谢谢，Richard。那么，Karsten，你先从供应开始，然后我们像之前一样再请Martin发言。
+
+Thank you, Richard. So, Karsten, you start with the supply, and we'll then go to Martin again like before.
+
+  [ 83] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [ 84] [EN] Yeah, so, on supply and specifically on Wegovy, then it's a pleasure to report that from a starting point, around 5,000 NBRx weekly in the U.S. on Wegovy entering this year, now, we are in excess of 25,000. So more than 5x compared to where we started this year. And clearly, that is a sign of of supply chain operating and running and building inventories and supplying the market because our strategy is to supply starter doses to patients who are then -- who should then be able to titrate up through the dose regime.
+       [中] 是的，关于供应情况，特别是Wegovy方面，我很高兴地报告：从年初美国Wegovy每周约5,000 NBRx的起点，现在我们已超过25,000，是年初的5倍以上。这清楚地表明供应链正在高效运转、建立库存并供应市场，因为我们的策略是为患者提供起始剂量，以便他们能够逐步向上调整剂量方案。
+
+Yeah, so, on supply and specifically on Wegovy, then it's a pleasure to report that from a starting point, around 5,000 NBRx weekly in the U.S. on Wegovy entering this year, now, we are in excess of 25,000. So more than 5x compared to where we started this year. And clearly, that is a sign of of supply chain operating and running and building inventories and supplying the market because our strategy is to supply starter doses to patients who are then -- who should then be able to titrate up through the dose regime.
+
+  [ 85] [EN] So, on that front, that is -- you should see that as confidence in scaling. We're not guiding for the full year specifically on NBRx. I think generally speaking, guiding on NBRx is a tricky discipline. But I would say that, implicitly, in our guidance for the full year, when you look at the midpoint compared to first-quarter performance, then that uptake or that acceleration in growth is -- is driven by continued Wegovy expansion in the U.S. And there, you should see -- look at the TRx ramp over the year but also continued launches in -- volume cap launches in IO.
+       [中] 因此，在这方面，您应将其视为对规模扩张的信心。我们并未针对全年NBRx给出具体指引。总体而言，我认为给出NBRx指引是一门棘手的学问。但我想说，当您将全年指引的中点与第一季度表现进行比较时，其中隐含的增长加速或提升是由Wegovy在美国的持续扩张所驱动的。而在那里，您应看到——关注全年的TRx增长曲线，以及IO市场中持续推出的限量推出。
+
+So, on that front, that is -- you should see that as confidence in scaling. We're not guiding for the full year specifically on NBRx. I think generally speaking, guiding on NBRx is a tricky discipline. But I would say that, implicitly, in our guidance for the full year, when you look at the midpoint compared to first-quarter performance, then that uptake or that acceleration in growth is -- is driven by continued Wegovy expansion in the U.S. And there, you should see -- look at the TRx ramp over the year but also continued launches in -- volume cap launches in IO.
+
+  [ 86] [EN] So, Wegovy is key to growth acceleration for the remainder of the year.
+       [中] 所以，Wegovy是今年剩余时间加速增长的关键。
+
+So, Wegovy is key to growth acceleration for the remainder of the year.
+
+  [ 87] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 88] [EN] Thank you, Karsten. Martin, on Mim8.
+       [中] 谢谢，Karsten。Martin，关于Mim8。
+
+Thank you, Karsten. Martin, on Mim8.
+
+  [ 89] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [ 90] [EN] Yeah, thanks very much, Richard. And you're absolutely right, we are only a few weeks away from the readout of Mim8. So, that's going to be exciting. What our target profile is reflecting is obviously, as we discussed, an unsurpassed efficacy.
+       [中] 好的，非常感谢，Richard。你说得完全正确，我们距离Mim8的数据读出只有几周时间了，这将会非常令人兴奋。正如我们讨论过的，我们的目标特征显然反映了无与伦比的疗效。
+
+原文：
+Yeah, thanks very much, Richard. And you're absolutely right, we are only a few weeks away from the readout of Mim8. So, that's going to be exciting. What our target profile is reflecting is obviously, as we discussed, an unsurpassed efficacy.
+
+  [ 91] [EN] Primary endpoint is annual bleeding rate. And looking at the median, we expect more than 50% of people having no bleeds, the APR will be zero. So, we had to look at the proportion of patients with no bleeds throughout a year, and that's where we will see Mim8 potentially having a very competitive profile. We expect to see an attractive safety profile, and then we expect to be able to demonstrate that Mim8, regardless of dose, will have a true monthly profile, which obviously gives a great convenience benefit for patients. At the same time, Mim8 will be delivered in an easy-to-use, very intuitive device, and with an injection volume that is pain-free.
+       [中] 主要终点是年出血率。从平均值来看，我们预计超过50%的患者不会出现出血，APR将为零。因此，我们需要关注一整年内无出血患者的比例，而这正是Mim8可能展现出极具竞争力优势的方面。我们预计其安全性特征将具有吸引力，同时希望证明无论剂量如何，Mim8都能实现真正的月给药方案，这显然能为患者带来极大的便利性优势。此外，Mim8将通过一款易于使用、非常直观的装置给药，且注射量无痛感。
+
+Primary endpoint is annual bleeding rate. And looking at the median, we expect more than 50% of people having no bleeds, the APR will be zero. So, we had to look at the proportion of patients with no bleeds throughout a year, and that's where we will see Mim8 potentially having a very competitive profile. We expect to see an attractive safety profile, and then we expect to be able to demonstrate that Mim8, regardless of dose, will have a true monthly profile, which obviously gives a great convenience benefit for patients. At the same time, Mim8 will be delivered in an easy-to-use, very intuitive device, and with an injection volume that is pain-free.
+
+  [ 92] [EN] So, potential upsides on efficacy, good safety profile, and a clear convenience, and injection pain upside.
+       [中] 因此，在疗效、良好的安全性、显著的便利性以及注射疼痛方面具有潜在优势。  
+原文：So, potential upsides on efficacy, good safety profile, and a clear convenience, and injection pain upside.
+
+  [ 93] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [ 94] [EN] Thank you, Martin. Thank you, Richard, for the question. We are ready to take the next question, please.
+       [中] 谢谢，Martin。谢谢，Richard，感谢你的问题。我们准备好接受下一个问题了，请继续。
+
+Thank you, Martin. Thank you, Richard, for the question. We are ready to take the next question, please.
+
+  [ 95] [EN] Operator
+       [中] 操作员
+Operator
+
+  [ 96] [EN] Thank you. We will now go to your next question. One moment, please. Your next question comes from the line of Louise Chen from Cantor.
+       [中] 谢谢。我们现在进入您的下一个问题。请稍等。您的下一个问题来自Cantor的Louise Chen。
+
+Thank you. We will now go to your next question. One moment, please. Your next question comes from the line of Louise Chen from Cantor.
+
+  [ 97] [EN] Please go ahead.
+       [中] 请继续。
+Please go ahead.
+
+  [ 98] [EN] Louise Chen--Cantor Fitzgerald -- Analyst
+       [中] Louise Chen--Cantor Fitzgerald -- 分析师
+
+Louise Chen--Cantor Fitzgerald -- Analyst
+
+  [ 99] [EN] OK, thank you for taking my question. I just wanted to ask you, for SELECT, has the approval actually helped you gain better coverage of semaglutide with your payers? And then, secondly, on your ESSENCE MASH data, we've received a lot of questions on that, and curious what you feel would be a good outcome to give you confidence that you have a commercially competitive drug. And prior, you had said it was end of the year for readout, but now it reads that it's coming out in second half '24. I didn't know if there was an acceleration of the timeline.
+       [中] 好的，谢谢您回答我的问题。我想问一下，关于SELECT研究，该药物的获批是否确实帮助您在与支付方谈判中获得了更好的semaglutide覆盖范围？其次，关于你们的ESSENCE MASH数据，我们收到了很多相关的问题，很好奇您认为什么样的结果才足以让您确信这是一款具有商业竞争力的药物。此前您曾说过数据将在年底公布，但现在显示是2024年下半年公布。我想知道时间表是否提前了。
+
+OK, thank you for taking my question. I just wanted to ask you, for SELECT, has the approval actually helped you gain better coverage of semaglutide with your payers? And then, secondly, on your ESSENCE MASH data, we've received a lot of questions on that, and curious what you feel would be a good outcome to give you confidence that you have a commercially competitive drug. And prior, you had said it was end of the year for readout, but now it reads that it's coming out in second half '24. I didn't know if there was an acceleration of the timeline.
+
+  [100] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [101] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [102] [EN] Thank you, Louise. Doug, SELECT and the implications for the U.S. market.
+       [中] 谢谢你，Louise。Doug，SELECT以及对美国市场的影响。
+
+Thank you, Louise. Doug, SELECT and the implications for the U.S. market.
+
+  [103] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [104] [EN] Yep, thank you, Louise. And maybe as a starting point, it's probably good to remind you that, currently, we have over 50 million people that we're covering living with obesity. Now, there's still room to grow, and certainly, that's our ambition. But we're pleased with the level of access today.
+       [中] 是的，谢谢你，Louise。也许作为开场，最好提醒您，目前我们覆盖了超过5000万肥胖症患者。现在仍有增长空间，当然，这是我们的雄心。但我们对目前的覆盖水平感到满意。
+
+Yep, thank you, Louise. And maybe as a starting point, it's probably good to remind you that, currently, we have over 50 million people that we're covering living with obesity. Now, there's still room to grow, and certainly, that's our ambition. But we're pleased with the level of access today.
+
+  [105] [EN] And again, I think it's also important that, as you know, in March, Wegovy was -- the label was expanded based on the SELECT data trial and to become the only, I repeat, the only AOM with proven CV benefit. And so, you know, we've already seen an impact of the label update with CMS allowing for reimbursement in Medicare Part D for AOMs with a CV indication. So, we're pleased with that. Now, there's still some work to do with planned sponsors on the exact criteria of reimbursement. And so, we think the uptake will be gradual, a couple of million today. But overall, we're pleased with the level of access, and we think we're going to take advantage of SELECT moving forward.
+       [中] 此外，我认为同样重要的是，如你所知，今年3月，Wegovy的说明书基于SELECT数据试验进行了扩展，使其成为唯一——我重申，唯一——被证实具有心血管获益的抗肥胖药物（AOM）。所以，我们已经看到了说明书更新带来的影响，CMS已允许将具有心血管适应症的AOM纳入Medicare Part D的报销范围。对此我们感到满意。当然，目前仍需与计划中的赞助方就报销的具体标准进行进一步协商。因此，我们认为市场接纳将是逐步的，目前约有数百万患者可及。但总体而言，我们对目前的覆盖水平感到满意，并认为我们将利用SELECT的成果向前推进。
+
+原文：
+And again, I think it's also important that, as you know, in March, Wegovy was -- the label was expanded based on the SELECT data trial and to become the only, I repeat, the only AOM with proven CV benefit. And so, you know, we've already seen an impact of the label update with CMS allowing for reimbursement in Medicare Part D for AOMs with a CV indication. So, we're pleased with that. Now, there's still some work to do with planned sponsors on the exact criteria of reimbursement. And so, we think the uptake will be gradual, a couple of million today. But overall, we're pleased with the level of access, and we think we're going to take advantage of SELECT moving forward.
+
+  [106] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [107] [EN] Thank you, Doug. Martin, on MASH.
+       [中] 谢谢，Doug。Martin，关于MASH的事。
+
+Thank you, Doug. Martin, on MASH.
+
+  [108] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [109] [EN] Yeah. Thank you very much. So, as a reminder, the ESSENCE trial is in two parts. First 800 patients treated for 72 weeks will be -- which will be the regulatory trial.
+       [中] 是的，非常感谢。所以，提醒一下，ESSENCE试验分为两部分。前800名患者接受72周治疗，这将作为监管试验。
+
+Yeah. Thank you very much. So, as a reminder, the ESSENCE trial is in two parts. First 800 patients treated for 72 weeks will be -- which will be the regulatory trial.
+
+  [110] [EN] And the primary endpoint is liver biopsy assessment of steatosis and fibrosis. And what we hope to see is basically what we saw in our pretty large phase 2 trial, where we saw a significant and clinically relevant improvement in steatosis and also clinically relevant improvement in fibrosis. If we see the same level in phase 3, we would be looking at a very attractive profile. This is also what allowed the FDA to grant us Breakthrough designation based on the phase 2 data. And then, in addition, we are extending the study to an additional couple of hundred patients, where we will continue treatment to look for heart outcomes.
+       [中] 主要终点是通过肝活检评估脂肪变性和纤维化。我们希望看到的结果基本上与我们在规模相当大的2期试验中观察到的相似，即脂肪变性有显著且具有临床意义的改善，同时纤维化也有临床意义的改善。如果在3期试验中看到同样水平的疗效，那么我们得到的数据将非常有吸引力。这也是FDA基于2期数据授予我们Breakthrough designation的原因。此外，我们正在将研究扩展到另外几百名患者，继续治疗以观察心脏结局。
+
+原文：And the primary endpoint is liver biopsy assessment of steatosis and fibrosis. And what we hope to see is basically what we saw in our pretty large phase 2 trial, where we saw a significant and clinically relevant improvement in steatosis and also clinically relevant improvement in fibrosis. If we see the same level in phase 3, we would be looking at a very attractive profile. This is also what allowed the FDA to grant us Breakthrough designation based on the phase 2 data. And then, in addition, we are extending the study to an additional couple of hundred patients, where we will continue treatment to look for heart outcomes.
+
+  [111] [EN] So, basically, both liver-related and also cardiovascular heart outcomes, also to cater to the broader -- both clinical, but as well as payer discussions.
+       [中] 所以，基本上，既包括肝脏相关结局，也包括心血管心脏结局，同时也是为了迎合更广泛的——既包括临床讨论，也包括支付方讨论。
+
+So, basically, both liver-related and also cardiovascular heart outcomes, also to cater to the broader -- both clinical, but as well as payer discussions.
+
+  [112] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [113] [EN] Thank you, Martin. We are now ready for the next question.
+       [中] 谢谢你，Martin。我们现在准备回答下一个问题。
+
+Thank you, Martin. We are now ready for the next question.
+
+  [114] [EN] Operator
+       [中] 操作员
+Operator
+
+  [115] [EN] Thank you. We will now go to the next question. And your next question comes from the line of Evan Seigerman from BMO Capital Markets. Please go ahead.
+       [中] 谢谢。我们现在进入下一个问题。你的下一个问题来自BMO Capital Markets的Evan Seigerman。请继续。
+
+Thank you. We will now go to the next question. And your next question comes from the line of Evan Seigerman from BMO Capital Markets. Please go ahead.
+
+  [116] [EN] Evan Seigerman--BMO Capital Markets -- Analyst
+       [中] 埃文·塞格曼--BMO资本市场--分析师  
+Evan Seigerman--BMO Capital Markets -- Analyst
+
+  [117] [EN] Hi, all. Thank you so much for taking my question, and congrats on all the progress. Maybe walk me through some of the expected pricing dynamics for Wegovy in the United States. And I'm asking this in the context of, you know, why are you necessarily giving price given that, you know, supply is constrained and the demand is so high? Maybe walk me through how you're thinking about how this will evolve over the next few quarters.
+       [中] 大家好。非常感谢你们回答我的问题，也恭喜你们取得的进展。能否介绍一下Wegovy在美国的预期定价动态？我之所以问这个问题，是因为在供应受限而需求如此高涨的情况下，你们为何一定要给出定价？请谈谈你们如何看待未来几个季度这一情况的变化。
+
+原文：Hi, all. Thank you so much for taking my question, and congrats on all the progress. Maybe walk me through some of the expected pricing dynamics for Wegovy in the United States. And I'm asking this in the context of, you know, why are you necessarily giving price given that, you know, supply is constrained and the demand is so high? Maybe walk me through how you're thinking about how this will evolve over the next few quarters.
+
+  [118] [EN] Thank you so much.
+       [中] 非常感谢。
+Thank you so much.
+
+  [119] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [120] [EN] Thank you, Evan. So, Lars, will you give that a go?
+       [中] 谢谢，Evan。那么，Lars，你愿意试试吗？
+
+Thank you, Evan. So, Lars, will you give that a go?
+
+  [121] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [122] [EN] Yeah, so thank you for that question. So, we strongly believe in the value of our GLP-1 products and we just booked -- spoken about some of the very nice outcomes data that we have achieved. So, we have a situation where we are greatly increasing access to more and more channels of the market, which comes, some of those, with a lower price. So, it's really a sign of us reaching more and more patients and also some of the more vulnerable patients that's impacting the pricing dynamics. We see an overall stable competitive environment, and with the volume opportunity we have at hand, that, you know, significantly outweighed what we see in terms of lower price points in some of these additional channels. So, strong belief in the value of our products but also a wish to treat more and more patients, and some of those come at a slightly lower price point than what we launched at initially.
+       [中] 好的，感谢您的提问。我们坚信GLP-1产品的价值，刚刚也提到了一些非常出色的疗效数据。如今我们正大幅增加市场渠道的覆盖范围，其中部分渠道的定价较低。这实际上反映了我们正在触达更多患者，包括一些较为脆弱的群体，这也影响了定价动态。我们看到整体竞争环境保持稳定，而手头的销量机会远超部分新增渠道中较低定价带来的影响。因此，我们既坚信产品的价值，也希望治疗更多患者——其中一些患者的用药价格会略低于初始上市时的定价。
+
+原文：
+Yeah, so thank you for that question. So, we strongly believe in the value of our GLP-1 products and we just booked -- spoken about some of the very nice outcomes data that we have achieved. So, we have a situation where we are greatly increasing access to more and more channels of the market, which comes, some of those, with a lower price. So, it's really a sign of us reaching more and more patients and also some of the more vulnerable patients that's impacting the pricing dynamics. We see an overall stable competitive environment, and with the volume opportunity we have at hand, that, you know, significantly outweighed what we see in terms of lower price points in some of these additional channels. So, strong belief in the value of our products but also a wish to treat more and more patients, and some of those come at a slightly lower price point than what we launched at initially.
+
+  [123] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [124] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [125] [EN] Thank you, Lars. Thank you, Evan, for the question. We're ready for the next question.
+       [中] 谢谢，Lars。谢谢，Evan，你的提问。我们准备好回答下一个问题了。
+
+原文：Thank you, Lars. Thank you, Evan, for the question. We're ready for the next question.
+
+  [126] [EN] Operator
+       [中] 操作员
+Operator
+
+  [127] [EN] Thank you. We'll now go to the next question. And your next question comes from the line of Sachin Jain from Bank of America. Please go ahead.
+       [中] 谢谢。我们现在进入下一个问题。你的下一个问题来自美国银行的Sachin Jain。请开始。
+
+Thank you. We'll now go to the next question. And your next question comes from the line of Sachin Jain from Bank of America. Please go ahead.
+
+  [128] [EN] Sachin Jain--Bank of America Merrill Lynch -- Analyst
+       [中] Sachin Jain——美银美林——分析师
+
+Sachin Jain--Bank of America Merrill Lynch -- Analyst
+
+  [129] [EN] Hi, Sachin Jain, Bank of America. Two for Martin, if I may. Firstly, back on Mim8 and the zero-bleed rate you referenced, Martin. I think at the CMD, you referenced the 70% zero-bleed rate post-hoc analysis.
+       [中] 嗨，Sachin Jain，美银美林。如果可以的话，有两个问题问Martin。首先，回到Mim8和你提到的零出血率，Martin。我记得在CMD上，你提到了70%零出血率的事后分析。
+
+Hi, Sachin Jain, Bank of America. Two for Martin, if I may. Firstly, back on Mim8 and the zero-bleed rate you referenced, Martin. I think at the CMD, you referenced the 70% zero-bleed rate post-hoc analysis.
+
+  [130] [EN] I think HEMLIBRA'S got about 50% zero bleeds on the label, but Roche quote 80 to 90% in real life. So, given the sort of various benchmarks, just what the zero-bleed rate for you as an absolute number confirms a superior profile versus HEMLIBRA, with the caveat of cross-trial comparisons. The second question is on Amycretin. And maybe I misunderstood and perhaps I didn't hear your commentary correctly.
+       [中] 我认为HEMLIBRA在标签上显示约50%的零出血率，但Roche引用现实世界中80%到90%的数据。因此，考虑到各种基准，作为绝对数字的零出血率证实了相较于HEMLIBRA的优越性，但需注意这是跨试验比较。第二个问题关于Amycretin。也许我误解了，或者我没有正确听到你的评论。
+
+I think HEMLIBRA'S got about 50% zero bleeds on the label, but Roche quote 80 to 90% in real life. So, given the sort of various benchmarks, just what the zero-bleed rate for you as an absolute number confirms a superior profile versus HEMLIBRA, with the caveat of cross-trial comparisons. The second question is on Amycretin. And maybe I misunderstood and perhaps I didn't hear your commentary correctly.
+
+  [131] [EN] You've referenced a phase 2 start toward the end of this year. Fom the CMD, I thought you were waiting the subcut data early next year and the diabetes data next year before potential phase 3 start. Did I misunderstand that at the CMD or something changed since then? Thank you.
+       [中] 您提到将在今年年底启动二期试验。根据CMD上的信息，我以为你们会等待明年初的皮下注射数据以及明年的糖尿病数据，之后再决定是否启动三期试验。是我误解了CMD上的内容，还是情况发生了变化？谢谢。
+
+原文：
+You've referenced a phase 2 start toward the end of this year. Fom the CMD, I thought you were waiting the subcut data early next year and the diabetes data next year before potential phase 3 start. Did I misunderstand that at the CMD or something changed since then? Thank you.
+
+  [132] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [133] [EN] So, thank you, Sachin. Two for you, Martin, first on Mim8 and then on Amycretin timelines.
+       [中] 所以，谢谢你，Sachin。两个问题给你，Martin，首先是关于Mim8，然后是Amycretin的时间线。
+
+So, thank you, Sachin. Two for you, Martin, first on Mim8 and then on Amycretin timelines.
+
+  [134] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [135] [EN] Yeah, thank you very much, Sachin. So, first of all, on Mim8, obviously, I can only compare the regulatory data and what is in the label. And I think you're right, what we've seen so far in our clinical trials is slightly in excess of 70% of patients with no bleeds, which obviously, if that is also confirmed in phase 3, will be a very competitive profile. So, this is what we are looking for.
+       [中] 好的，非常感谢你，Sachin。首先，关于Mim8，显然我只能对比监管数据以及标签上的信息。我认为你说得对，目前我们在临床试验中看到的数据显示，略超过70%的患者没有出现出血情况，如果这一结果在3期试验中也能得到证实，那将是一个非常具有竞争力的特征。这就是我们所期望的。
+
+原文：Yeah, thank you very much, Sachin. So, first of all, on Mim8, obviously, I can only compare the regulatory data and what is in the label. And I think you're right, what we've seen so far in our clinical trials is slightly in excess of 70% of patients with no bleeds, which obviously, if that is also confirmed in phase 3, will be a very competitive profile. So, this is what we are looking for.
+
+  [136] [EN] And then, again, you had to compare likes to likes, so the regulatory studies. On Amycretin, I don't think you misunderstood anything. We, for better or worse, have to focus, from a regulatory perspective, on obesity and diabetes as two distinct entities. And for obesity, we are currently in the process of finalizing the subcutaneous phase 2 and then we'll look at how to further progress Amycretin in obesity. For type 2 diabetes, we are currently in the process of conducting a phase 2 study to understand the potential of Amycretin in type 2 diabetes.
+       [中] 此外，你还必须进行同类比较，因此开展了监管研究。关于Amycretin，我认为你没有误解任何内容。无论好坏，从监管角度来看，我们必须将肥胖症和2型糖尿病视为两个不同的实体来重点关注。针对肥胖症，我们目前正在完成皮下注射二期临床试验的收尾工作，随后将研究如何进一步推进Amycretin在肥胖症领域的进展。至于2型糖尿病，我们目前正在开展二期临床研究，以评估Amycretin在该领域的潜力。
+
+And then, again, you had to compare likes to likes, so the regulatory studies. On Amycretin, I don't think you misunderstood anything. We, for better or worse, have to focus, from a regulatory perspective, on obesity and diabetes as two distinct entities. And for obesity, we are currently in the process of finalizing the subcutaneous phase 2 and then we'll look at how to further progress Amycretin in obesity. For type 2 diabetes, we are currently in the process of conducting a phase 2 study to understand the potential of Amycretin in type 2 diabetes.
+
+  [137] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [138] [EN] Thank you, Martin. Thank you, Sachin. We are ready for the next question.
+       [中] 谢谢您，Martin。谢谢您，Sachin。我们准备好回答下一个问题了。
+
+Thank you, Martin. Thank you, Sachin. We are ready for the next question.
+
+  [139] [EN] Operator
+       [中] 操作员
+Operator
+
+  [140] [EN] Thank you. We will now go to the next question. And your next question comes from the line of Peter Verdult from Citi. Please go ahead.
+       [中] 谢谢。我们现在进入下一个问题。你的下一个问题来自Citi的Peter Verdult。请继续。
+
+Thank you. We will now go to the next question. And your next question comes from the line of Peter Verdult from Citi. Please go ahead.
+
+  [141] [EN] Pete Verdult--Citi -- Analyst
+       [中] Pete Verdult——Citi——分析师
+
+Pete Verdult--Citi -- Analyst
+
+  [142] [EN] Pete Verdult from Citi. Just two questions. Favorite topic for you, both supply and pricing. Sorry to test your patience, but starting with Karsten, you've consistently stated that scaling supply is management's No.
+       [中] 来自花旗的Pete Verdult。只有两个问题。你最喜欢的话题，供应和定价。抱歉考验你的耐心，但先从Karsten开始，你一直表示扩大供应是管理层的No.
+
+Pete Verdult from Citi. Just two questions. Favorite topic for you, both supply and pricing. Sorry to test your patience, but starting with Karsten, you've consistently stated that scaling supply is management's No.
+
+  [143] [EN] 1 priority. With that in mind, can we peek a little bit more beyond 2024. When we think about you opening the taps and quadrupling starter doses for Wegovy, is that a nod to supply capacities in '25 being a multiple of 2024? I realize I'm pushing my luck here, but some sense would be helpful. And then, just for Lars or Camilla, I mean we're seeing with FLOW and SELECT and HFpEF the data to support increasing use of sema continues to grow.
+       [中] 首要任务。考虑到这一点，我们能否稍微展望一下2024年之后的情况？当您提到开放供应并将Wegovy的起始剂量翻两番时，这是否暗示2025年的产能将是2024年的数倍？我知道我可能问得有点过分，但一些线索会很有帮助。然后，对于Lars或Camilla，我们看到来自FLOW、SELECT和HFpEF的数据支持sema使用增加的趋势仍在继续。
+
+1 priority. With that in mind, can we peek a little bit more beyond 2024. When we think about you opening the taps and quadrupling starter doses for Wegovy, is that a nod to supply capacities in '25 being a multiple of 2024? I realize I'm pushing my luck here, but some sense would be helpful. And then, just for Lars or Camilla, I mean we're seeing with FLOW and SELECT and HFpEF the data to support increasing use of sema continues to grow.
+
+  [144] [EN] But we are also now seeing the backlash, political heat in the U.S., Danish authorities wanting to stamp Ozempic not as SGLT-2, you know, lowering the price of Ozempic 30% in Denmark. So, the question is just to sort of follow-on from the previous one. I'm not interested in pricing for the next few quarters, but you know, how do you think about just the dynamics going forward as people try and manage their budgets? I mean, the demand is clearly there. It is a case where you -- we should expect a step-up in pricing erosion.
+       [中] 但我们如今也看到了后果：美国政治压力，丹麦当局希望将Ozempic归为而非SGLT-2类药物，在丹麦将Ozempic降价30%。所以，这个问题算是承接上一个。我不关心未来几个季度的定价，但您如何看待随着人们试图管理预算，未来这种动态的变化？我是说，需求显然存在。这是一个我们应预期定价侵蚀加剧的情况。
+
+But we are also now seeing the backlash, political heat in the U.S., Danish authorities wanting to stamp Ozempic not as SGLT-2, you know, lowering the price of Ozempic 30% in Denmark. So, the question is just to sort of follow-on from the previous one. I'm not interested in pricing for the next few quarters, but you know, how do you think about just the dynamics going forward as people try and manage their budgets? I mean, the demand is clearly there. It is a case where you -- we should expect a step-up in pricing erosion.
+
+  [145] [EN] But put simply, the volume opportunity is so great that any pricing concerns get fully offset. I just want to understand how you are thinking about that dynamic. Thank you.
+       [中] 但简单来说，销量机会如此之大，以至于任何定价方面的担忧都被完全抵消了。我只是想了解您如何看待这一动态。谢谢。  
+But put simply, the volume opportunity is so great that any pricing concerns get fully offset. I just want to understand how you are thinking about that dynamic. Thank you.
+
+  [146] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [147] [EN] Thanks, Pete. So, first, Karsten, Pete pushing his luck on supply in the coming years.
+       [中] 谢谢，Pete。那么，首先，Karsten，Pete在未来的供应问题上有点得寸进尺。
+
+Thanks, Pete. So, first, Karsten, Pete pushing his luck on supply in the coming years.
+
+  [148] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [149] [EN] Yeah, so guiding for supply in 2025 at the Q1 call 2024 I think is -- is stretching it a bit. So, let me give you a couple of boundaries. So, from a fill-finish point of view, then we continue to scale the single-dose platform that we have launched in the U.S. So, that is ongoing and something we're driving each and every day.
+       [中] 是的，所以在2024年第一季度电话会议上给出2025年的供应指引，我认为这有点牵强。那么，让我给你几个边界条件。从灌装完成的角度来看，我们继续扩大在美国推出的单剂量平台规模。所以这项工作正在进行中，我们每天都在推进。
+
+原文：
+Yeah, so guiding for supply in 2025 at the Q1 call 2024 I think is -- is stretching it a bit. So, let me give you a couple of boundaries. So, from a fill-finish point of view, then we continue to scale the single-dose platform that we have launched in the U.S. So, that is ongoing and something we're driving each and every day.
+
+  [150] [EN] So, of course, we'll continue to scale that. And then, on top of that, which we're also saying today that as of now, we have launched in nine countries, beyond the U.S., Wegovy. So, the ramp-up of U.S. is -- will also be taking pace over this year but also into next year. So, net net, yes, there will be a good ramp into 2025.
+       [中] 当然，我们会继续扩大规模。除此之外，今天我们也在宣布，截至目前，我们已在包括美国之外的九个国家推出了Wegovy。因此，美国市场的加速推进将在今年以及明年逐步展开。总的来说，是的，到2025年将会有良好的增长势头。
+
+So, of course, we'll continue to scale that. And then, on top of that, which we're also saying today that as of now, we have launched in nine countries, beyond the U.S., Wegovy. So, the ramp-up of U.S. is -- will also be taking pace over this year but also into next year. So, net net, yes, there will be a good ramp into 2025.
+
+  [151] [EN] The exact amount and the effect on Nord, we'll have to get back to you on that one at a later point in time.
+       [中] 具体金额及对Nord的影响，我们稍后回复您。
+
+The exact amount and the effect on Nord, we'll have to get back to you on that one at a later point in time.
+
+  [152] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [153] [EN] Thank you, Karsten. Lars?
+       [中] 谢谢，Karsten。Lars？
+Thank you, Karsten. Lars?
+
+  [154] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [155] [EN] Yeah, thanks, Pete, for the question on how we see the pricing dynamics. I would say when we launched semaglutide both in type 2 diabetes and in obesity, it was into an established price point in the market. And we launched that at similar pricing as prior generations despite the fact of a significantly better clinical profile. And obviously, that was an attractive value proposition, and that has led to significant volume growth because of the benefits. And right now, we have a situation where you can say both that volume is, to some degree, putting a strain on healthcare systems.
+       [中] 
+
+  [156] [EN] But at the same time, we are just starting to unfold the full value of of patients being on this treatment. And these same healthcare systems are significantly burdened by chronic diseases and many of them linked to the exact diseases we are trying here -- which we're treating here. So, I think I'm optimistic about how we can communicate the value to healthcare systems of these interventions. I'm very optimistic about the underlying, say, willingness among both patients and physicians to use these medicines. And then, of course, we see very different markets. In the U.S., we see, typically year over year, a slight erosion in net price.
+       [中] 但与此同时，我们才刚刚开始展现患者接受这种治疗的全面价值。这些相同的医疗体系正承受着慢性疾病的沉重负担，而其中许多疾病恰恰与我们在这里试图治疗的疾病相关。所以，我认为我对如何向医疗体系传达这些干预措施的价值感到乐观。我对患者和医生使用这些药物的潜在意愿非常乐观。当然，我们也看到了截然不同的市场。在美国，我们通常看到净价格逐年略有下降。
+
+But at the same time, we are just starting to unfold the full value of of patients being on this treatment. And these same healthcare systems are significantly burdened by chronic diseases and many of them linked to the exact diseases we are trying here -- which we're treating here. So, I think I'm optimistic about how we can communicate the value to healthcare systems of these interventions. I'm very optimistic about the underlying, say, willingness among both patients and physicians to use these medicines. And then, of course, we see very different markets. In the U.S., we see, typically year over year, a slight erosion in net price.
+
+  [157] [EN] In other markets, it's more of a stable nature and you have sometimes one-offs. So, in that overall equation, I'm actually very confident that we can manage to articulate the value of medicines at a price point that's also understood by the healthcare systems. And with the continued volume opportunity, this turns into a very attractive commercial model. Thank you.
+       [中] 在其他市场，情况更为稳定，有时会出现一次性事件。因此，在整体考量中，我实际上非常有信心，我们能够以医疗系统也能理解的价格点来清晰阐述药品的价值。并且随着持续的数量机会，这会变成一个非常有吸引力的商业模式。谢谢。
+
+In other markets, it's more of a stable nature and you have sometimes one-offs. So, in that overall equation, I'm actually very confident that we can manage to articulate the value of medicines at a price point that's also understood by the healthcare systems. And with the continued volume opportunity, this turns into a very attractive commercial model. Thank you.
+
+  [158] [EN] Pete Verdult--Citi -- Analyst
+       [中] Pete Verdult——Citi——分析师
+
+Pete Verdult--Citi -- Analyst
+
+  [159] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [160] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [161] [EN] Thank you, Lars, and thanks, Pete, for the questions. We are ready for the next question.
+       [中] 谢谢，Lars，也谢谢Pete提出这些问题。我们已经准备好回答下一个问题了。
+
+Thank you, Lars, and thanks, Pete, for the questions. We are ready for the next question.
+
+  [162] [EN] Operator
+       [中] 操作员
+Operator
+
+  [163] [EN] Thank you. We will now go to your next question. One moment, please. And your next question comes from the line of Simon Baker from Redburn Atlantic.
+       [中] 谢谢。我们现在进入下一个问题。请稍等。下一个问题来自Redburn Atlantic的Simon Baker。
+
+Thank you. We will now go to your next question. One moment, please. And your next question comes from the line of Simon Baker from Redburn Atlantic.
+
+  [164] [EN] Please go ahead.
+       [中] 请继续。
+Please go ahead.
+
+  [165] [EN] Simon Baker--Redburn Atlantic -- Analyst
+       [中] Simon Baker--Redburn Atlantic -- 分析师
+
+Simon Baker--Redburn Atlantic -- Analyst
+
+  [166] [EN] Thank you for taking my questions. Firstly, another one on pricing, if I may. Lars, you indicated that the pricing impact that you've seen in Q1 is effectively channel mix. I just wonder if you could confirm that and apportion the amount of pricing that is down to channel mix and how much is down to pricing reductions within specific channels.
+       [中] 谢谢您回答我的问题。首先，如果可以的话，我再问一个关于定价的问题。Lars，您指出第一季度看到的定价影响实际上是渠道组合所致。我想确认一下，并请您将定价下降中归因于渠道组合的部分和归因于特定渠道内降价的部分进行划分。
+
+Thank you for taking my questions. Firstly, another one on pricing, if I may. Lars, you indicated that the pricing impact that you've seen in Q1 is effectively channel mix. I just wonder if you could confirm that and apportion the amount of pricing that is down to channel mix and how much is down to pricing reductions within specific channels.
+
+  [167] [EN] And then, the second question on a completely different subject, I just wonder if you could give us any commentary on the FTC's recent challenge to Orange Book patent listing, of which you were one of the named companies. Any idea on the timeline over which this will play out? Thanks so much.
+       [中] 然后，第二个问题涉及一个完全不同的话题，我想知道您能否就FTC近期对Orange Book专利列表提出的质疑发表评论，您的公司是被点名的公司之一。您对这件事的解决时间表有什么看法吗？非常感谢。  
+原文：And then, the second question on a completely different subject, I just wonder if you could give us any commentary on the FTC's recent challenge to Orange Book patent listing, of which you were one of the named companies. Any idea on the timeline over which this will play out? Thanks so much.
+
+  [168] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [169] [EN] Good. Thank you, Simon. So, Karsten, I think I'll give both of them to you. The first, the pricing in Q1, and then the second, FTC challenge of patents.
+       [中] 好的。谢谢你，Simon。那么，Karsten，我想把这两个问题都交给你。第一个是第一季度的定价，第二个是联邦贸易委员会（FTC）对专利的挑战。
+
+Good. Thank you, Simon. So, Karsten, I think I'll give both of them to you. The first, the pricing in Q1, and then the second, FTC challenge of patents.
+
+  [170] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [171] [EN] Yeah, Simon, thanks for these questions. So, as we've been out saying early on, then one should always be careful of of overinterpreting pricing in individual quarters. So, to be more specific then, the -- then on Ozempic, like for like, we do see continued reduction in price. And then, yes, we have some growth to net benefit in the first quarter.
+       [中] 是的，Simon，感谢你的提问。正如我们早些时候提到的，大家始终应谨慎解读单个季度的定价趋势。具体而言，就Ozempic而言，按可比口径计算，我们确实看到价格持续下降。当然，第一季度净收益确实有所增长。
+
+原文：
+Yeah, Simon, thanks for these questions. So, as we've been out saying early on, then one should always be careful of of overinterpreting pricing in individual quarters. So, to be more specific then, the -- then on Ozempic, like for like, we do see continued reduction in price. And then, yes, we have some growth to net benefit in the first quarter.
+
+  [172] [EN] But over the full year, you should, like for like, see a net price reduction, for example, in the U.S. And the same goes for Wegovy, back to the volume opportunity. But net net, given increasing volume and competition, net pricing, like for like, will be down in the US. And then, as to the FTC letter on patents, I believe that was the question?
+       [中] 但在整个年度内，你会看到，例如在美国，同比净价格下降。Wegovy也是如此，回到销量机会上。但归根结底，鉴于销量和竞争的增加，美国的同比净定价将会下降。至于FTC关于专利的信函，我认为这就是问题所在？
+But over the full year, you should, like for like, see a net price reduction, for example, in the U.S. And the same goes for Wegovy, back to the volume opportunity. But net net, given increasing volume and competition, net pricing, like for like, will be down in the US. And then, as to the FTC letter on patents, I believe that was the question?
+
+  [173] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [174] [EN] That was the question, yes.
+       [中] 就是这个问题，是的。
+
+That was the question, yes.
+
+  [175] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [176] [EN] So, the FTC question on the patents, it's important to note, first of all, the patents in question are related to Ozempic, Victoza, and Saxenda. But we're talking about device patents, first of all, and we're talking about patents that are valid and granted by the U.S. Patent Office. The question is all about whether they should be listed in the Orange Book or not. And of course, when we listed the patents, we carefully assessed whether we are following the appropriate protocol per FDA and sought guidance and feedback on that.
+       [中] 因此，关于FTC对专利的提问，首先需要指出，这些专利涉及Ozempic、Victoza和Saxenda。但我们要讨论的是设备专利，且这些专利是美国专利局授权且有效的。核心问题在于它们是否应被列入Orange Book。当然，我们在列明这些专利时，仔细评估了是否遵循FDA的适当规程，并就此寻求了指导与反馈。
+
+原文：
+So, the FTC question on the patents, it's important to note, first of all, the patents in question are related to Ozempic, Victoza, and Saxenda. But we're talking about device patents, first of all, and we're talking about patents that are valid and granted by the U.S. Patent Office. The question is all about whether they should be listed in the Orange Book or not. And of course, when we listed the patents, we carefully assessed whether we are following the appropriate protocol per FDA and sought guidance and feedback on that.
+
+  [177] [EN] So, overall, we believe that what we have done is appropriate, but of course, we'll follow the regulations as issued by the FDA.
+       [中] 因此，总体而言，我们认为我们所做的是恰当的，但当然，我们会遵循FDA发布的法规。
+
+So, overall, we believe that what we have done is appropriate, but of course, we'll follow the regulations as issued by the FDA.
+
+  [178] [EN] Simon Baker--Redburn Atlantic -- Analyst
+       [中] Simon Baker--Redburn Atlantic -- 分析师
+
+Simon Baker--Redburn Atlantic -- Analyst
+
+  [179] [EN] Great. Thanks so much.
+       [中] 太好了。非常感谢。
+
+Great. Thanks so much.
+
+  [180] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [181] [EN] Thanks, Karsten. Thank you, Simon, and we are ready for the next question, please.
+       [中] 谢谢，Karsten。谢谢你，Simon，我们准备好下一个问题了。
+
+Thanks, Karsten. Thank you, Simon, and we are ready for the next question, please.
+
+  [182] [EN] Operator
+       [中] 操作员
+Operator
+
+  [183] [EN] Thank you. We will now go to the next question. One moment, please. And your next question comes from the line of Florent Cespedes from Bernstein.
+       [中] 谢谢。我们现在进入下一个问题。请稍等。下一个问题来自Bernstein的Florent Cespedes。
+
+Thank you. We will now go to the next question. One moment, please. And your next question comes from the line of Florent Cespedes from Bernstein.
+
+  [184] [EN] Please go ahead.
+       [中] 请继续。
+Please go ahead.
+
+  [185] [EN] Florent Cespedes--AllianceBernstein -- Analyst
+       [中] Florent Cespedes -- AllianceBernstein -- 分析师
+Florent Cespedes--AllianceBernstein -- Analyst
+
+  [186] [EN] Good afternoon. Thank you very much for taking my questions. Two quick ones. The first, on obesity in Europe, could you give us an update on the situation in Europe for Wegovy and the discussions with the payers if they are waiting for SELECT data approval on the label, so some color on this front would be great.
+       [中] 下午好。非常感谢您回答我的问题。有两个简短的问题。第一个，关于欧洲的肥胖症问题，您能否提供Wegovy在欧洲的最新情况，以及与支付方讨论的进展，他们是否在等待SELECT数据获批纳入标签？希望您能在这方面提供一些信息。
+
+Good afternoon. Thank you very much for taking my questions. Two quick ones. The first, on obesity in Europe, could you give us an update on the situation in Europe for Wegovy and the discussions with the payers if they are waiting for SELECT data approval on the label, so some color on this front would be great.
+
+  [187] [EN] My second question for Karsten. On sales and distribution, could you give us some color on how you see this line going forward as it was much lower than expected this quarter? Apparently, it's related to the fact that you have less promotion efforts, so some colors would be great. Thank you.
+       [中] 我的第二个问题是给Karsten的。关于销售和分销，您能否给我们介绍一下您如何看待这条业务线未来的发展？因为本季度该业务线远低于预期。显然，这与你们促销力度减少有关，所以希望了解更多情况。谢谢。
+
+My second question for Karsten. On sales and distribution, could you give us some color on how you see this line going forward as it was much lower than expected this quarter? Apparently, it's related to the fact that you have less promotion efforts, so some colors would be great. Thank you.
+
+  [188] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [189] [EN] Thank you, Florent. Camilla, the first question to you, Wegovy outside the U.S.
+       [中] 谢谢你，Florent。Camilla，第一个问题给你，Wegovy在U.S.以外。
+
+Thank you, Florent. Camilla, the first question to you, Wegovy outside the U.S.
+
+  [190] [EN] Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+       [中] Camilla Sylvest——执行副总裁，商业战略与公司事务主管  
+Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+
+  [191] [EN] Yeah, yeah, and you also asked specifically about whether they are waiting for SELECT. Of course, we are initially waiting for the regulatory decision on the SELECT, which we expect in the second half of this year. Having said that, there is of course a keen interest in this set of data, but already now we do have reimbursement in a number of countries outside the U.S. So, UK, Scotland, Canada -- sorry, Japan and also Switzerland. So, we are seeing a very positive interest in Wegovy and, of course, also in the SELECT data that shows a strong cost effectiveness.
+       [中] 是的，你具体也问过他们是否在等待SELECT的结果。当然，我们首先等待的是监管机构对SELECT的审批决定，预计将在今年下半年公布。话虽如此，市场对这一数据自然兴趣浓厚，但截至目前，我们在美国以外的多个国家已经获得了报销资格，例如英国、苏格兰、加拿大——抱歉，还有日本和瑞士。因此，我们看到市场对Wegovy有非常积极的兴趣，当然也包括SELECT数据所显示的强大成本效益。
+
+Yeah, yeah, and you also asked specifically about whether they are waiting for SELECT. Of course, we are initially waiting for the regulatory decision on the SELECT, which we expect in the second half of this year. Having said that, there is of course a keen interest in this set of data, but already now we do have reimbursement in a number of countries outside the U.S. So, UK, Scotland, Canada -- sorry, Japan and also Switzerland. So, we are seeing a very positive interest in Wegovy and, of course, also in the SELECT data that shows a strong cost effectiveness.
+
+  [192] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [193] [EN] Thank you, Camilla. Karsten, on S&D cost development.
+       [中] 谢谢，Camilla。Karsten，关于S&D成本发展。
+
+Thank you, Camilla. Karsten, on S&D cost development.
+
+  [194] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [195] [EN] Commercial investments, so coming back to our recent capital markets day and our strategic resource allocation, then what what I was discussing there was our intent to allocate substantial resources toward innovation, i.e. R&D, so having an increasing R&D ratio, i.e. investments that are growing faster than sales, and our commercial investments growing at a slower pace than sales. And that is exactly what you're seeing this quarter and also what you should expect to be seeing this year that commercial investments are growing slower than sales. We have the majority of our commercial infrastructure in place across our therapeutic categories.
+       [中] 商业投资，回到我们最近的资本市场日与战略资源分配，我当时讨论的是我们打算将大量资源分配给创新，即研发，因此研发比率不断提高，也就是说研发投资的增速快于销售，而我们的商业投资增长速度慢于销售。这正是你们在本季度所看到的，也是你们今年应该会看到的：商业投资增速低于销售。我们在各个治疗类别中已经建立了大部分商业基础设施。
+
+Commercial investments, so coming back to our recent capital markets day and our strategic resource allocation, then what what I was discussing there was our intent to allocate substantial resources toward innovation, i.e. R&D, so having an increasing R&D ratio, i.e. investments that are growing faster than sales, and our commercial investments growing at a slower pace than sales. And that is exactly what you're seeing this quarter and also what you should expect to be seeing this year that commercial investments are growing slower than sales. We have the majority of our commercial infrastructure in place across our therapeutic categories.
+
+  [196] [EN] So, what we are pursuing are really targeted investments. I would say a lot of focus on obesity market development and building the obesity market. And then, we also have some early investments in some of our newer therapy areas. So, building some infrastructure on the cardiovascular side. So, that are really the main focus areas on commercial investments.
+       [中] 所以，我们正在追求的是真正有针对性的投资。我想说，很多重点都放在肥胖症市场的发展和建设上。然后，我们也在一些较新的治疗领域进行了一些早期投资。例如，在心血管领域建设一些基础设施。这些确实是商业投资的主要重点领域。
+
+原文：So, what we are pursuing are really targeted investments. I would say a lot of focus on obesity market development and building the obesity market. And then, we also have some early investments in some of our newer therapy areas. So, building some infrastructure on the cardiovascular side. So, that are really the main focus areas on commercial investments.
+
+  [197] [EN] Florent Cespedes--AllianceBernstein -- Analyst
+       [中] Florent Cespedes -- AllianceBernstein -- 分析师
+Florent Cespedes--AllianceBernstein -- Analyst
+
+  [198] [EN] OK, thank you very much. Very clear.
+       [中] 好的，非常感谢。非常清楚。
+
+OK, thank you very much. Very clear.
+
+  [199] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [200] [EN] And we are ready for the next question, please.
+       [中] 我们已准备好回答下一个问题，请提问。
+
+And we are ready for the next question, please.
+
+  [201] [EN] Operator
+       [中] 操作员
+Operator
+
+  [202] [EN] Thank you. Your next question comes from the line of Mark Purcell from Morgan Stanley. Please go ahead.
+       [中] 谢谢。下一个问题来自摩根士丹利的Mark Purcell。请开始。
+
+Thank you. Your next question comes from the line of Mark Purcell from Morgan Stanley. Please go ahead.
+
+  [203] [EN] Mark Purcell--Morgan Stanley -- Analyst
+       [中] Mark Purcell--摩根士丹利--分析师  
+Mark Purcell--Morgan Stanley -- Analyst
+
+  [204] [EN] Yeah, thank you very much for taking my questions. I have two. The first one is just going back to the Wegovy U.S. starting dose.
+       [中] 好的，非常感谢您回答我的问题。我有两个问题。第一个是关于Wegovy美国起始剂量的。
+
+Yeah, thank you very much for taking my questions. I have two. The first one is just going back to the Wegovy U.S. starting dose.
+
+  [205] [EN] The pace of growth at the moment seems to be increasing a bit. It's about 10% week over week, now up to 33,000, 0.25-milligram doses per week. Should we assume that this sort of increase will continue to be steady, or is there going to be a slowdown in that 10% growth week over week? And your confidence in converting to the higher doses would be helpful. And then, the second question is on the CagriSema dual-chamber device.
+       [中] 目前增长步伐似乎略有加快。每周环比增长约10%，现已达到每周33,000剂，每剂0.25毫克。我们是否应假设这种增长将持续稳定，还是每周10%的环比增长将会放缓？同时，您对转换至更高剂量的信心也将有助于判断。其次，第二个问题是关于CagriSema双腔装置。
+
+The pace of growth at the moment seems to be increasing a bit. It's about 10% week over week, now up to 33,000, 0.25-milligram doses per week. Should we assume that this sort of increase will continue to be steady, or is there going to be a slowdown in that 10% growth week over week? And your confidence in converting to the higher doses would be helpful. And then, the second question is on the CagriSema dual-chamber device.
+
+  [206] [EN] I wonder if you could help us understand some of the properties of this device in terms of whether it's connected and the importance in terms of patient compliance potentially from it being a connected device. The launch preparedness and indications of the code formulation of CagriSema, what does that mean for the dual-chamber device? Thank you.
+       [中] 我想请问您能否帮助我们理解该设备的一些特性，比如它是否具备连接功能，以及作为连接设备对患者依从性的潜在重要性。此外，CagriSema代码配方的上市准备和适应症，对双腔设备意味着什么？谢谢。
+
+原文：I wonder if you could help us understand some of the properties of this device in terms of whether it's connected and the importance in terms of patient compliance potentially from it being a connected device. The launch preparedness and indications of the code formulation of CagriSema, what does that mean for the dual-chamber device? Thank you.
+
+  [207] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [208] [EN] Good. So, the first question, over to you, Doug, for the commercial dynamics right now with Wegovy in the U.S.
+       [中] 好的。那么第一个问题，Doug，请你谈谈目前Wegovy在美国的商业动态。
+
+Good. So, the first question, over to you, Doug, for the commercial dynamics right now with Wegovy in the U.S.
+
+  [209] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [210] [EN] Yeah, thanks, Mark. I mean we're certainly pleased with the last couple of weeks of NBRx, as I stated in the beginning, over 27,000 and reaching all-time high with TRx. But remember, as I talked about quarter over quarter, our key focus remains the safeguarding of patient continuity of care, and we manage that supply dynamically to do that. So, we're going to continue to gradually scale efforts, and we're going to do that throughout the remainder of this year. And certainly, we're happy and pleased with what we're seeing now, and we're very pleased with SELECT and what we're going to be able to do moving forward.
+       [中] 好的，谢谢Mark。正如我一开始所说，我们对过去几周NBRx的表现感到满意，处方量（TRx）超过27,000并创下历史新高。但请记住，正如我谈到的季度环比情况，我们的关键仍然是保障患者护理的连续性，并动态管理供应以实现这一目标。因此，我们将继续逐步扩大努力，并在今年剩余时间里持续推进。当然，我们很高兴看到目前取得的成果，也对SELECT以及我们未来能够实现的目标感到非常满意。
+
+Yeah, thanks, Mark. I mean we're certainly pleased with the last couple of weeks of NBRx, as I stated in the beginning, over 27,000 and reaching all-time high with TRx. But remember, as I talked about quarter over quarter, our key focus remains the safeguarding of patient continuity of care, and we manage that supply dynamically to do that. So, we're going to continue to gradually scale efforts, and we're going to do that throughout the remainder of this year. And certainly, we're happy and pleased with what we're seeing now, and we're very pleased with SELECT and what we're going to be able to do moving forward.
+
+  [211] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [212] [EN] Good. Thank you, Doug. Martin, CagriSema device and connectivity.
+       [中] 好的。谢谢你，Doug。Martin，CagriSema设备和连接性。
+
+Good. Thank you, Doug. Martin, CagriSema device and connectivity.
+
+  [213] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [214] [EN] Yeah. So, very briefly, the CagriSema device, as you say, it is a dual-chamber device as the two drugs can currently not be co-formulated. And it's a single-dose device, very simple to use. So, basically, you should compare that to the device of Wegovy --currently no connectivity embedded in that device.
+       [中] 是的。简而言之，正如你所说，CagriSema设备是一种双腔设备，因为这两种药物目前无法共同配制。它是一种单次剂量设备，使用非常简单。所以，基本上，你应该将其与Wegovy的设备进行比较——目前该设备中未嵌入任何连接功能。
+
+Yeah. So, very briefly, the CagriSema device, as you say, it is a dual-chamber device as the two drugs can currently not be co-formulated. And it's a single-dose device, very simple to use. So, basically, you should compare that to the device of Wegovy --currently no connectivity embedded in that device.
+
+  [215] [EN] And on the question on co-formulation, obviously, with the dual-chamber device, that's not our normal platform. The co-formulation will allow us more flexibility in that we can then deliver CagriSema in more versions. One could potentially be in FlexTouch, thereby, from a supply perspective, allowing us more flexibility.
+       [中] 关于联合制剂的问题，显然，采用双腔装置并不是我们常规的平台。联合制剂将为我们提供更大的灵活性，使我们能够以更多版本交付CagriSema。其中一个版本可能采用FlexTouch，从而在供应方面为我们提供更大的灵活性。
+
+And on the question on co-formulation, obviously, with the dual-chamber device, that's not our normal platform. The co-formulation will allow us more flexibility in that we can then deliver CagriSema in more versions. One could potentially be in FlexTouch, thereby, from a supply perspective, allowing us more flexibility.
+
+  [216] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [217] [EN] Thank you, Martin. Thanks for the question. We are ready for the next.
+       [中] 谢谢，Martin。谢谢你的提问。我们准备好回答下一个问题了。
+
+Thank you, Martin. Thanks for the question. We are ready for the next.
+
+  [218] [EN] Operator
+       [中] 操作员
+Operator
+
+  [219] [EN] Thank you. We will now take your next question. And your next question comes from the line of Harry Sephton from UBS. Please go ahead.
+       [中] 
+
+  [220] [EN] Harry Sephton--UBS -- Analyst
+       [中] Harry Sephton——UBS——分析师
+
+Harry Sephton--UBS -- Analyst
+
+  [221] [EN] Brilliant. Thank you very much for taking my questions. Two, please. So, on the first question is whether you saw any material impact to your first-quarter volumes in the U.S.
+       [中] 很好。非常感谢你回答我的问题。两个问题，请。第一个问题是，你是否看到美国第一季度的业务量受到了任何实质性影响。
+
+Brilliant. Thank you very much for taking my questions. Two, please. So, on the first question is whether you saw any material impact to your first-quarter volumes in the U.S.
+
+  [222] [EN] from the cyberattack on UnitedHealth's Change payments platform that may have restricted some patients access to copay support and, as a result, could have contributed to some weakness on volumes beyond just the supply constraints. And then, my second question is, you've talked about the fact that the ex-U.S. obesity market could be predominantly self-pay in the future. How do you view the potential opportunity for the U.S.
+       [中] 来自针对UnitedHealth的Change支付平台的网络攻击，这可能限制了部分患者获得共付援助的途径，进而导致除供应限制之外的一些业务量疲软。然后，我的第二个问题是，你提到未来美国以外的肥胖市场可能主要以自费为主。你如何看待美国市场的潜在机会？
+
+原文：
+from the cyberattack on UnitedHealth's Change payments platform that may have restricted some patients access to copay support and, as a result, could have contributed to some weakness on volumes beyond just the supply constraints. And then, my second question is, you've talked about the fact that the ex-U.S. obesity market could be predominantly self-pay in the future. How do you view the potential opportunity for the U.S.
+
+  [223] [EN] market to move more toward self-pay, and what are your ambitions there? Thank you.
+       [中] 市场进一步转向自费支付，您在这方面有什么目标？谢谢。
+
+market to move more toward self-pay, and what are your ambitions there? Thank you.
+
+  [224] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [225] [EN] Thank you, Harry. Doug, two for you. First, on cyberattack impact -- potential impact in the first quarter, and then second, do you see a self-pay market in the U.S.
+       [中] 谢谢，Harry。Doug，有两个问题。第一，关于网络攻击的影响——对第一季度的潜在影响；第二，你认为美国存在自费市场吗？
+
+Thank you, Harry. Doug, two for you. First, on cyberattack impact -- potential impact in the first quarter, and then second, do you see a self-pay market in the U.S.
+
+  [226] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [227] [EN] Yeah, thanks, Mark -- or excuse me, thanks, Harry. Nothing material. It doesn't explain the volumes. Just maybe to give you a little context there, again, remember, speaking to Ozempic, you know, we saw a 50% -- over a 50% growth rate in the quarter.
+       [中] 是的，谢谢，Mark——或者抱歉，谢谢，Harry。没什么实质性内容。这并不能解释交易量。只是也许给你一点背景，再次提醒，谈到Ozempic，你知道，我们看到了50%——超过50%的季度增长率。
+
+Yeah, thanks, Mark -- or excuse me, thanks, Harry. Nothing material. It doesn't explain the volumes. Just maybe to give you a little context there, again, remember, speaking to Ozempic, you know, we saw a 50% -- over a 50% growth rate in the quarter.
+
+  [228] [EN] We continued to gain market share, which is important, and we're clearly the market share leader. But we did see some impacts in the quarter, periodic supply constraints, and they were primarily in the early part of the year. Remember, we have a larger base. Last year, the volume growth was 50%.
+       [中] 我们继续扩大市场份额，这很重要，我们显然是市场份额的领导者。但我们在本季度确实看到了一些影响，周期性的供应限制，主要发生在年初。请记住，我们的基数更大。去年，销量增长了50%。
+
+We continued to gain market share, which is important, and we're clearly the market share leader. But we did see some impacts in the quarter, periodic supply constraints, and they were primarily in the early part of the year. Remember, we have a larger base. Last year, the volume growth was 50%.
+
+  [229] [EN] And we do see some continuation of utilization management. So, those would be more in line with what impacted some of the volumes. In terms of self-pay, the way I would characterize that is we're always looking at opportunities to bring more patients to our products, and that could be an option. So, we evaluate everything moving forward.
+       [中] 我们确实看到利用率管理仍在继续。因此，这些更符合影响部分销量的因素。关于自费支付，我的描述是，我们一直在寻找机会将更多患者带到我们的产品中，这可能是一种选择。因此，我们会评估未来的一切。
+
+And we do see some continuation of utilization management. So, those would be more in line with what impacted some of the volumes. In terms of self-pay, the way I would characterize that is we're always looking at opportunities to bring more patients to our products, and that could be an option. So, we evaluate everything moving forward.
+
+  [230] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [231] [EN] Thank you, Doug. And specifically, also the cyberattack, did you see any impact from that in the first quarter?
+       [中] 谢谢，Doug。具体来说，那起网络攻击，你在第一季度看到任何影响了吗？
+
+Thank you, Doug. And specifically, also the cyberattack, did you see any impact from that in the first quarter?
+
+  [232] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [233] [EN] Yeah, nothing material, and that wouldn't explain the volumes, so.
+       [中] 是的，没有什么实质性内容，而且那也无法解释成交量，所以。
+Yeah, nothing material, and that wouldn't explain the volumes, so.
+
+  [234] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [235] [EN] Thank you, Doug, and thank you, Harry. We're ready for the next question.
+       [中] 谢谢，Doug，也谢谢你，Harry。我们准备好回答下一个问题了。
+
+Thank you, Doug, and thank you, Harry. We're ready for the next question.
+
+  [236] [EN] Operator
+       [中] 操作员
+Operator
+
+  [237] [EN] Thank you. We will now take your next question. And your next question is from Richard Parkes. Please go ahead.
+       [中] 谢谢。我们现在接受下一个问题。下一个问题来自Richard Parkes。请讲。
+
+Thank you. We will now take your next question. And your next question is from Richard Parkes. Please go ahead.
+
+  [238] [EN] Richard Parkes--Exane BNP Paribas -- Analyst
+       [中] Richard Parkes--Exane BNP Paribas -- 分析师  
+Richard Parkes--Exane BNP Paribas -- Analyst
+
+  [239] [EN] Yeah, thanks for taking my questions. So, yeah, just two questions. Firstly, on Monlunabant, the phase 2 data, I'm just wondering if there's going to be anything you can generate from that phase 2 trial to give some comfort on the risk of psychiatric side effects, given the class, i.e., any data on confirmation the drug doesn't cross the blood-brain barrier to a material degree, or should we just expect standard sort of phase 2 readout? And then, secondly, just sort of playing devil's advocate on the commentary around value to healthcare systems from Wegovy, obviously, some of the arguments for that are based on stay time in the SELECT study of 3.5 years. But what we're seeing in the real world at the moment is less than 12 months in terms of median duration.
+       [中] 好的，感谢您回答我的问题。我有两个问题。首先，关于Monlunabant的2期数据，我想知道，考虑到这类药物的特性，你们是否能从该2期试验中得出一些信息，来减轻对精神科副作用风险的担忧——比如是否有任何数据证实该药物不会以实质性程度穿过血脑屏障？或者我们是否应该预期标准的2期试验结果？其次，我想唱个反调，关于Wegovy对医疗系统价值的评论，显然，部分论据基于SELECT研究中3.5年的用药时间。但我们在现实中观察到，中位用药时长不足12个月。
+
+Yeah, thanks for taking my questions. So, yeah, just two questions. Firstly, on Monlunabant, the phase 2 data, I'm just wondering if there's going to be anything you can generate from that phase 2 trial to give some comfort on the risk of psychiatric side effects, given the class, i.e., any data on confirmation the drug doesn't cross the blood-brain barrier to a material degree, or should we just expect standard sort of phase 2 readout? And then, secondly, just sort of playing devil's advocate on the commentary around value to healthcare systems from Wegovy, obviously, some of the arguments for that are based on stay time in the SELECT study of 3.5 years. But what we're seeing in the real world at the moment is less than 12 months in terms of median duration.
+
+  [240] [EN] So, from the payers' perspective, there's a risk that they get all of the upfront cost without generating savings if they can't keep patients on drugs. So, I'm just wondering, is that a pushback that you often get, and how do you address that in your discussions with payers? Thank you.
+       [中] 因此，从支付方的角度来看，存在一个风险：如果无法让患者持续用药，他们可能承担了所有前期成本却未能产生节约。所以我很好奇，这是否是您经常遇到的阻力，在与支付方讨论时又是如何应对的？谢谢。
+
+原文：So, from the payers' perspective, there's a risk that they get all of the upfront cost without generating savings if they can't keep patients on drugs. So, I'm just wondering, is that a pushback that you often get, and how do you address that in your discussions with payers? Thank you.
+
+  [241] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [242] [EN] Thank you, Richard. So, Martin, first -- the first one to you. And Lars, I'll give the second one to you.
+       [中] 谢谢你，Richard。那么，Martin，首先——第一个问题给你。然后Lars，第二个问题我给你。
+
+Thank you, Richard. So, Martin, first -- the first one to you. And Lars, I'll give the second one to you.
+
+  [243] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [244] [EN] Yeah, thank you very much. So, I think you're right, we're quite excited about Monlunabant and the potential because we've seen potential for substantial weight loss with a scalable oral, and that is of course very exciting. However, we have to rule out potential safety issues. The ongoing phase 2 trial will give us a good readout on the efficacy, and it will also give us a reasonable readout of the safety profile of Monlunabant.
+       [中] 是的，非常感谢。所以，我认为你说得对，我们对Monlunabant及其潜力感到非常兴奋，因为我们看到了通过可扩展的口服药物实现显著减重的潜力，这当然非常令人振奋。然而，我们必须排除潜在的安全问题。正在进行的phase 2试验将为我们提供良好的疗效数据，同时也会让我们对Monlunabant的安全性有合理的了解。
+
+原文：
+Yeah, thank you very much. So, I think you're right, we're quite excited about Monlunabant and the potential because we've seen potential for substantial weight loss with a scalable oral, and that is of course very exciting. However, we have to rule out potential safety issues. The ongoing phase 2 trial will give us a good readout on the efficacy, and it will also give us a reasonable readout of the safety profile of Monlunabant.
+
+  [245] [EN] However, to fully de-risk this, we intend to investigate this, as we already announced, in a somewhat larger study to secure that both obviously our efficacy, but certainly also our safety assessment of this is right. So, you'll get a good first readout from the ongoing phase 2 trial, but you'll see even more for -- from the next.
+       [中] 然而，为了完全降低这一风险，我们打算按照已宣布的计划，在稍大规模的研究中对此进行调查，以确保我们的疗效以及安全性评估都是正确的。因此，您将从正在进行的2期试验中获得良好的初步读数，但您将从下一项试验中看到更多信息。
+
+原文：However, to fully de-risk this, we intend to investigate this, as we already announced, in a somewhat larger study to secure that both obviously our efficacy, but certainly also our safety assessment of this is right. So, you'll get a good first readout from the ongoing phase 2 trial, but you'll see even more for -- from the next.
+
+  [246] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [247] [EN] Yeah, thank you. So, fair challenge on the stay time. It's still a early days. We are pleased with the stay time we see, but I think it's also fair to say that we have not had, say, a sustainable market presence to really be able to tell what will the stay time be.
+       [中] 好，谢谢。关于停留时间，这是一个合理的挑战。现在仍处于早期阶段。我们对目前看到的停留时间感到满意，但我想同样可以说，我们还没有一个可持续的市场存在，从而真正能够判断未来的停留时间会是多少。
+
+Yeah, thank you. So, fair challenge on the stay time. It's still a early days. We are pleased with the stay time we see, but I think it's also fair to say that we have not had, say, a sustainable market presence to really be able to tell what will the stay time be.
+
+  [248] [EN] And I think it's also a dynamic situation in terms of understanding what is obesity and what is the value of treating obesity. So, we believe, over time, that we will see, say, enough patients getting to a doable weight loss that will also translate into real health benefits. But of course, it takes time to establish those data, and we have simply not been in the market long enough to document that. So -- but I think it will be possible to do that. Thank you.
+       [中] 我认为，在理解什么是肥胖以及治疗肥胖的价值方面，这也是一个动态变化的过程。因此，我们相信，随着时间的推移，我们将看到足够多的患者实现可行的减重效果，这也会转化为真正的健康益处。但当然，建立这些数据需要时间，而我们进入市场的时间还不够长，无法记录这些数据。所以——但我认为这是有可能做到的。谢谢。
+
+原文：
+And I think it's also a dynamic situation in terms of understanding what is obesity and what is the value of treating obesity. So, we believe, over time, that we will see, say, enough patients getting to a doable weight loss that will also translate into real health benefits. But of course, it takes time to establish those data, and we have simply not been in the market long enough to document that. So -- but I think it will be possible to do that. Thank you.
+
+  [249] [EN] Richard Parkes--Exane BNP Paribas -- Analyst
+       [中] Richard Parkes--Exane BNP Paribas -- 分析师  
+Richard Parkes--Exane BNP Paribas -- Analyst
+
+  [250] [EN] Thank you.
+       [中] 谢谢。
+Thank you.
+
+  [251] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [252] [EN] Thank you. Thank you, Richard, for the questions. We have time for one final brief question.
+       [中] 谢谢。谢谢你，Richard，提出的问题。我们还有一个最后的简短问题的时间。
+
+Thank you. Thank you, Richard, for the questions. We have time for one final brief question.
+
+  [253] [EN] Operator
+       [中] 操作员
+Operator
+
+  [254] [EN] Thank you. We will now take your final question. One moment, please. And your final question comes from the line of Michael Novod from Nordea.
+       [中] 谢谢。我们现在将接受您的最后一个问题。请稍等。您的最后一个问题来自Nordea的Michael Novod。
+
+原文：
+Thank you. We will now take your final question. One moment, please. And your final question comes from the line of Michael Novod from Nordea.
+
+  [255] [EN] Please go ahead.
+       [中] 请继续。
+Please go ahead.
+
+  [256] [EN] Michael Novod--Nordea Markets -- Analyst
+       [中] Michael Novod——Nordea Markets——分析师
+
+Michael Novod--Nordea Markets -- Analyst
+
+  [257] [EN] Thank you very much. Michael from Nordea. So, going back to the CMS guidance and some of the access you are you are getting, can you comment on how many of the insurance companies are following CMS guidance? And also, in that connection, how do you see then the potential progress for the TROA in the U.S.? Could something happen in 2024 or 2025?
+       [中] 非常感谢。Nordea的Michael。回到CMS指南以及你们获得的一些权限，能否评论一下有多少保险公司正在遵循CMS指南？另外，就此而言，你如何看待美国TROA的潜在进展？是否可能在2024或2025年发生些什么？
+
+Thank you very much. Michael from Nordea. So, going back to the CMS guidance and some of the access you are you are getting, can you comment on how many of the insurance companies are following CMS guidance? And also, in that connection, how do you see then the potential progress for the TROA in the U.S.? Could something happen in 2024 or 2025?
+
+  [258] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [259] [EN] Thank you, Michael. Doug, over to you for the last answer.
+       [中] 谢谢你，Michael。Doug，轮到你来回答最后一个问题。  
+Thank you, Michael. Doug, over to you for the last answer.
+
+  [260] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [261] [EN] Thank you, Michael. So, we're seeing a couple of million, you could say at around 4 million lives today that we're seeing as a result of the impact of the label update with CMS allowing for reimbursement in Medicare Part D. And again, this is going to be gradual, right? There's still some work to do, as I mentioned earlier, with planned sponsors to the exact criteria of reimbursement. So, it's going to be gradual, but we certainly see this as a very positive step in the right direction. And, you know, it's certainly encouraging.
+       [中] 感谢，Michael。因此，我们看到有数百万——可以说大约有400万生命今天受到影响，这是标签更新带来的结果，CMS允许在Medicare Part D中报销。再次强调，这将是一个渐进的过程，对吧？正如我之前提到的，还需要与计划赞助商就报销的具体标准进行一些工作。所以，这将是渐进的，但我们肯定认为这是朝着正确方向迈出的非常积极的一步。而且，你知道，这无疑是令人鼓舞的。
+
+Thank you, Michael. So, we're seeing a couple of million, you could say at around 4 million lives today that we're seeing as a result of the impact of the label update with CMS allowing for reimbursement in Medicare Part D. And again, this is going to be gradual, right? There's still some work to do, as I mentioned earlier, with planned sponsors to the exact criteria of reimbursement. So, it's going to be gradual, but we certainly see this as a very positive step in the right direction. And, you know, it's certainly encouraging.
+
+  [262] [EN] Now, as far as TROA, again, as I've said many quarters, we're not going to -- I'm not going to get into the predicting game, but again, we think it's just a matter of time. Certainly, there's support on both sides. So, we still think it's just a matter of time. So, we're positive.
+       [中] 关于TROA，正如我多个季度以来一直说的，我们不会——我不会参与预测游戏，但再次强调，我们认为这只是时间问题。当然，双方都有支持。所以，我们仍然认为这只是时间问题。因此，我们是乐观的。
+
+原文：Now, as far as TROA, again, as I've said many quarters, we're not going to -- I'm not going to get into the predicting game, but again, we think it's just a matter of time. Certainly, there's support on both sides. So, we still think it's just a matter of time. So, we're positive.
+
+  [263] [EN] I just -- I can't give you an indication as to when, but we're hard at work there as well.
+       [中] 我只是——我无法给你一个时间指示，但我们也在努力推进。  
+I just -- I can't give you an indication as to when, but we're hard at work there as well.
+
+  [264] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [265] [EN] Thank you, Doug. Thank you, Michael. And this concludes the Q&A session for this earnings call. Thank you for participating and please feel free to contact Investor relations, as always, regarding any follow-up questions you might have.
+       [中] 谢谢，Doug。谢谢，Michael。本次财报电话会议的问答环节到此结束。感谢大家的参与，如果有任何后续问题，请随时联系投资者关系部门，一如既往。
+
+Thank you, Doug. Thank you, Michael. And this concludes the Q&A session for this earnings call. Thank you for participating and please feel free to contact Investor relations, as always, regarding any follow-up questions you might have.
+
+  [266] [EN] Before we close the call, I would like to hand over to you, Lars, for the final remarks.
+       [中] 在结束通话之前，我想把时间交给你，Lars，来做最后的总结。
+
+Before we close the call, I would like to hand over to you, Lars, for the final remarks.
+
+  [267] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [268] [EN] Yeah, thank you, Daniel, and thank you, all, for joining us today. So, I hope it comes across that we're very pleased with the momentum of our business right now as evidenced by the sales performance in the first three months and not least the development in script for both Ozempic and Wegovy in the U.S., really proving that we are on track of scaling supplies here during the year, but also our commitment to scale supply significantly for the coming years to treat even more patients. We're also excited about our pipeline progress and what we have coming up in terms of Mim8 and CagriSema. And on a final note, I would like to thank you, Daniel.
+       [中] 好的，谢谢你，Daniel，也感谢各位今天的参与。我想大家能感受到，我们对当前业务的势头非常满意，这从前三个月的销售表现中可见一斑，尤其是Ozempic和Wegovy在美国的处方量增长，这确实证明了我们今年正在按计划扩大供应，同时也表明我们致力于在未来几年大幅提升供应能力，以治疗更多患者。我们对管线进展同样感到兴奋，特别是Mim8和CagriSema的后续开发。最后，我想感谢你，Daniel。
+
+Yeah, thank you, Daniel, and thank you, all, for joining us today. So, I hope it comes across that we're very pleased with the momentum of our business right now as evidenced by the sales performance in the first three months and not least the development in script for both Ozempic and Wegovy in the U.S., really proving that we are on track of scaling supplies here during the year, but also our commitment to scale supply significantly for the coming years to treat even more patients. We're also excited about our pipeline progress and what we have coming up in terms of Mim8 and CagriSema. And on a final note, I would like to thank you, Daniel.
+
+  [269] [EN] This was the last quarter with you at the helm as IR head. Thank you for your leadership and the best of luck with your continued career in Novo Nordisk. This will close the call. Thank you, all.
+       [中] 这是您担任投资者关系主管的最后一个季度。感谢您的领导，并祝您在Novo Nordisk的职业生涯一帆风顺。本次电话会议到此结束。谢谢大家。
+
+原文：This was the last quarter with you at the helm as IR head. Thank you for your leadership and the best of luck with your continued career in Novo Nordisk. This will close the call. Thank you, all.
+
+  [270] [EN] Operator
+       [中] 操作员
+Operator
+
+  [271] [EN] [Operator signoff]
+       [中] [操作员签退]  
+[Operator signoff]
+
+  [272] [EN] Duration: 0 minutes
+       [中] 持续时间：0分钟  
+Duration: 0 minutes
+
+
+  ━━ Call participants: ━━
+  ━━ 通话参与者：
+Call participants: ━━
+
+  [274] [EN] Daniel Bohsen--Head of Investor Relations
+       [中] Daniel Bohsen——投资者关系主管  
+Daniel Bohsen--Head of Investor Relations
+
+  [275] [EN] Lars Fruergaard Jorgensen--President and Chief Executive Officer
+       [中] 
+
+  [276] [EN] Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+       [中] Camilla Sylvest——执行副总裁，商业战略与公司事务主管  
+Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+
+  [277] [EN] Doug Langa--Executive Vice President, Head of North America Operations
+       [中] Doug Langa——执行副总裁，北美运营主管  
+Doug Langa--Executive Vice President, Head of North America Operations
+
+  [278] [EN] Martin Lange--Executive Vice President, Head of Development
+       [中] Martin Lange——执行副总裁，开发主管  
+Martin Lange--Executive Vice President, Head of Development
+
+  [279] [EN] Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+       [中] Karsten Munk Knudsen——执行副总裁、首席财务官
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+  [280] [EN] Mike Nedelcovych--TD Cowen -- Analyst
+       [中] Mike Nedelcovych -- TD Cowen -- 分析师
+Mike Nedelcovych--TD Cowen -- Analyst
+
+  [281] [EN] Richard Vosser--JPMorgan Chase and Company -- Analyst
+       [中] Richard Vosser——摩根大通公司——分析师  
+Richard Vosser--JPMorgan Chase and Company -- Analyst
+
+  [282] [EN] Louise Chen--Cantor Fitzgerald -- Analyst
+       [中] Louise Chen--Cantor Fitzgerald -- 分析师
+
+Louise Chen--Cantor Fitzgerald -- Analyst
+
+  [283] [EN] Evan Seigerman--BMO Capital Markets -- Analyst
+       [中] 埃文·塞格曼--BMO资本市场--分析师  
+Evan Seigerman--BMO Capital Markets -- Analyst
+
+  [284] [EN] Sachin Jain--Bank of America Merrill Lynch -- Analyst
+       [中] Sachin Jain——美银美林——分析师
+
+Sachin Jain--Bank of America Merrill Lynch -- Analyst
+
+  [285] [EN] Pete Verdult--Citi -- Analyst
+       [中] Pete Verdult——Citi——分析师
+
+Pete Verdult--Citi -- Analyst
+
+  [286] [EN] Simon Baker--Redburn Atlantic -- Analyst
+       [中] Simon Baker--Redburn Atlantic -- 分析师
+
+Simon Baker--Redburn Atlantic -- Analyst
+
+  [287] [EN] Florent Cespedes--AllianceBernstein -- Analyst
+       [中] Florent Cespedes -- AllianceBernstein -- 分析师
+Florent Cespedes--AllianceBernstein -- Analyst
+
+  [288] [EN] Mark Purcell--Morgan Stanley -- Analyst
+       [中] Mark Purcell--摩根士丹利--分析师  
+Mark Purcell--Morgan Stanley -- Analyst
+
+  [289] [EN] Harry Sephton--UBS -- Analyst
+       [中] Harry Sephton——UBS——分析师
+
+Harry Sephton--UBS -- Analyst
+
+  [290] [EN] Richard Parkes--Exane BNP Paribas -- Analyst
+       [中] Richard Parkes--Exane BNP Paribas -- 分析师  
+Richard Parkes--Exane BNP Paribas -- Analyst
+
+  [291] [EN] Michael Novod--Nordea Markets -- Analyst
+       [中] Michael Novod——Nordea Markets——分析师
+
+Michael Novod--Nordea Markets -- Analyst
+
+  [292] [EN] More NVO analysis
+       [中] 更多关于诺和诺德(NVO)的分析  
+More NVO analysis
+
+  [293] [EN] All earnings call transcripts
+       [中] 
+
+  [294] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为The Motley Fool制作的本次电话会议的记录。尽管我们努力做到最好，但此记录中可能存在错误、遗漏或不准确之处。与我们的所有文章一样，The Motley Fool不对您使用此内容承担任何责任，我们强烈建议您自行研究，包括亲自收听电话会议并阅读公司的SEC文件。详情请参阅我们的Terms and Conditions，包括强制性的大写责任免责声明。
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+  [295] [EN] The Motley Fool recommends Novo Nordisk. The Motley Fool has adisclosure policy.
+       [中] 《Motley Fool》推荐诺和诺德。Motley Fool 有披露政策。
+
+  [296] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [297] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 297 段中英对照
+======================================================================

@@ -1,0 +1,452 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: TAL Education (好未来)
+Quarter: Q2 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q2-2026-earnings-call-transcript/
+Translated: 2026-05-30T17:33:32.154691
+Backend: deepseek
+Paragraphs: 90
+======================================================================
+
+  [  1] [EN] Thursday, October 30, 2025 at 8 a.m. ET
+       [中] 美国东部时间2025年10月30日星期四上午8点  
+Thursday, October 30, 2025 at 8 a.m. ET
+
+
+  ━━ CALL PARTICIPANTS ━━
+  ━━ 致电参与者 ━━
+
+  👤 Chief Executive Officer — Zhuangzhuang Peng
+     首席执行官 — Zhuangzhuang Peng
+Chief Executive Officer — Zhuangzhuang Peng
+
+  👤 Chief Financial Officer — Jackson Ding
+     首席财务官 — Jackson Ding
+
+
+  ━━ Net Revenues-- $861.4 million, up 39.1% year over year in U.S. dollar terms and 38.1% in RMB terms. ━━
+  ━━ 净收入——8.614亿美元，按美元计算同比增长39.1%，按人民币计算同比增长38.1%。
+
+Net Revenues-- $861.4 million, up 39.1% year over year in U.S. dollar terms and 38.1% in RMB terms. ━━
+
+
+  ━━ Gross Profit-- $491.0 million, a 40.8% increase year over year; gross margin expanded to 57.0% from 56.3%. ━━
+  ━━ 毛利润——4.91亿美元，同比增长40.8%；毛利率从56.3%扩大至57.0%。
+
+Gross Profit-- $491.0 million, a 40.8% increase year over year; gross margin expanded to 57.0% from 56.3%. ━━
+
+  [  7] [EN] Non-GAAP Net Income Attributable to TAL-- $135.8 million, up from $74.3 million year over year.
+       [中] 归属于TAL的非GAAP净利润——1.358亿美元，同比增长自7430万美元。
+
+Non-GAAP Net Income Attributable to TAL-- $135.8 million, up from $74.3 million year over year.
+
+  [  8] [EN] Non-GAAP Income from Operations-- $107.8 million, rising from $64.5 million year over year.
+       [中] Non-GAAP营业利润——$107.8 million，同比从$64.5 million增长。
+
+Non-GAAP Income from Operations-- $107.8 million, rising from $64.5 million year over year.
+
+  [  9] [EN] Share-Based Compensation Expense-- $11.8 million, down 30.5% year over year.
+       [中] 股份薪酬费用——1180万美元，同比下降30.5%。
+
+Share-Based Compensation Expense-- $11.8 million, down 30.5% year over year.
+
+  [ 10] [EN] Selling and Marketing Expenses-- $267.3 million, a 46.9% increase; non-GAAP selling and marketing expenses represented 30.7% of net revenues, up from 28.7%.
+       [中] 销售和营销费用——2.673亿美元，增长46.9%；非GAAP销售和营销费用占净收入的30.7%，高于之前的28.7%。
+
+Selling and Marketing Expenses-- $267.3 million, a 46.9% increase; non-GAAP selling and marketing expenses represented 30.7% of net revenues, up from 28.7%.
+
+  [ 11] [EN] General and Administrative Expenses (Non-GAAP)-- $120.8 million, up 11.5%; as a percentage of revenue, declined to 14.0% from 17.5%.
+       [中] 一般及行政费用（Non-GAAP）——1.208亿美元，增长11.5%；占收入百分比从17.5%下降至14.0%。
+
+General and Administrative Expenses (Non-GAAP)-- $120.8 million, up 11.5%; as a percentage of revenue, declined to 14.0% from 17.5%.
+
+  [ 12] [EN] Peiyou Small Class Enrichment Program-- Year-over-year revenue growth aligned with learning center expansion; moderate increase in the number of offline learning centers reported.
+       [中] Peiyou Small Class Enrichment Program——营收同比增长与学习中心扩张一致；线下学习中心数量温和增长。
+
+Peiyou Small Class Enrichment Program-- Year-over-year revenue growth aligned with learning center expansion; moderate increase in the number of offline learning centers reported.
+
+  [ 13] [EN] Learning Device Revenue-- Growth observed both year over year and sequentially, with sales volume up but blended average selling price (ASP) declining below RMB 4,000 due to product mix.
+       [中] 学习设备收入——同比和环比均实现增长，销量上升，但由于产品组合变化，混合平均售价（ASP）降至人民币4,000元以下。
+
+Learning Device Revenue-- Growth observed both year over year and sequentially, with sales volume up but blended average selling price (ASP) declining below RMB 4,000 due to product mix.
+
+  [ 14] [EN] User Engagement for Learning Devices-- Average weekly active rate for devices around 80%, with daily usage per active device exceeding one hour.
+       [中] 学习设备的用户参与度——设备周活跃率平均约为80%，每台活跃设备的日使用时长超过一小时。
+
+User Engagement for Learning Devices-- Average weekly active rate for devices around 80%, with daily usage per active device exceeding one hour.
+
+  [ 15] [EN] AI Think 101 Recognition-- Earned industry's top Level 4 rating from the China Academy of Information and Communications Technology in August 2025.
+       [中] AI Think 101 认证——2025年8月获得中国信息通信研究院颁发的行业最高Level 4评级。
+
+AI Think 101 Recognition-- Earned industry's top Level 4 rating from the China Academy of Information and Communications Technology in August 2025.
+
+
+  ━━ Operating Cash Flow-- Net cash used in operating activities was $58.1 million. ━━
+  ━━ 经营活动现金流——经营活动使用的净现金为$58.1百万。
+
+Operating Cash Flow-- Net cash used in operating activities was $58.1 million. ━━
+
+  [ 17] [EN] Liquidity Position-- Held $1,542.2 million in cash and cash equivalents, $1,706.6 million in short-term investments, and $239.2 million in restricted cash as of August 31, 2025.
+       [中] 流动性状况——截至2025年8月31日，持有$1,542.2 million现金及现金等价物、$1,706.6 million短期投资和$239.2 million受限现金。
+
+Liquidity Position-- Held $1,542.2 million in cash and cash equivalents, $1,706.6 million in short-term investments, and $239.2 million in restricted cash as of August 31, 2025.
+
+  [ 18] [EN] Share Repurchase Activity-- Repurchased approximately 4.2 million shares between July 31 and October 29, 2025, for $134.7 million; new $600 million program authorized in July 2025.
+       [中] 股票回购活动——在2025年7月31日至10月29日期间回购约420万股，总金额1.347亿美元；2025年7月授权新的6亿美元回购计划。
+
+Share Repurchase Activity-- Repurchased approximately 4.2 million shares between July 31 and October 29, 2025, for $134.7 million; new $600 million program authorized in July 2025.
+
+  [ 19] [EN] Deferred Revenue-- $822.7 million as of the end of the quarter.
+       [中] 递延收入——截至季度末为8.227亿美元。
+
+Deferred Revenue-- $822.7 million as of the end of the quarter.
+
+  [ 20] [EN] Peiyou Summer ASP-- Average selling price for summer classes remained stable compared to prior year.
+       [中] Peiyou暑期ASP——暑期班的平均售价与去年相比保持稳定。
+
+Peiyou Summer ASP-- Average selling price for summer classes remained stable compared to prior year.
+
+  [ 21] [EN] Management explicitly cited, "limited visibility in our financial performance due to seasonal demand shifts, competitive pressures, and deliberate resource reallocation," which may result in short-term fluctuations.
+       [中] 管理层明确提到，“由于季节性需求变化、竞争压力以及审慎的资源重新分配，我们对财务业绩的可见度有限”，这可能导致短期波动。
+
+Management explicitly cited, "limited visibility in our financial performance due to seasonal demand shifts, competitive pressures, and deliberate resource reallocation," which may result in short-term fluctuations.
+
+  [ 22] [EN] Non-GAAP selling and marketing expenses as a percentage of revenue increased, "from 28.7% to 30.7%," indicating rising customer acquisition or promotional costs.
+       [中] 非GAAP销售和营销费用占收入的比例上升，"from 28.7% to 30.7%"，表明客户获取或促销成本增加。
+
+原文：Non-GAAP selling and marketing expenses as a percentage of revenue increased, "from 28.7% to 30.7%," indicating rising customer acquisition or promotional costs.
+
+  [ 23] [EN] Learning device segment continues to report adjusted operating losses, and management stated, "the timeline to achieve profitability of the learning device business remains uncertain."
+       [中] 学习设备部门继续报告调整后的经营亏损，管理层表示，"学习设备业务实现盈利的时间表仍不确定。"
+Learning device segment continues to report adjusted operating losses, and management stated, "the timeline to achieve profitability of the learning device business remains uncertain."
+
+  [ 24] [EN] Fiscal third quarter is described by management as, "generally not a peak season for enrichment learning demand, so we may experience fluctuations in our business performance due to seasonal factors."
+       [中] 管理层将第三财季描述为“通常不是补习学习需求旺季，因此我们可能会因季节性因素而经历业务表现的波动”。
+
+Fiscal third quarter is described by management as, "generally not a peak season for enrichment learning demand, so we may experience fluctuations in our business performance due to seasonal factors."
+
+  [ 25] [EN] TAL Education Group(TAL0.51%)reported double-digit, year-over-year revenue and profit growth, highlighting robust top-line expansion and improvement in non-GAAP profitability. Revenue acceleration was attributed to increased enrollments in Peiyou programs and expansion of learning device offerings, although blended ASP for devices declined due to a shift in product mix. Management disclosed active product innovation in both enrichment learning and hardware, as well as industry recognition for its AI-powered teaching devices. Cash deployment priorities included a new $600 million share repurchase program, with $134.7 million already utilized in the current quarter.
+       [中] TAL Education Group(TAL0.51%)报告了两位数的同比收入和利润增长，凸显了强劲的营收扩张以及非GAAP盈利能力的改善。营收加速增长归因于培优课程入学人数的增加和学习设备产品线的扩展，尽管由于产品组合调整，设备的混合平均售价有所下降。管理层披露了在丰富学习内容和硬件方面积极的产品创新，以及其AI驱动的教学设备获得了行业认可。现金部署优先事项包括一项新的6亿美元股票回购计划，其中本季度已使用了1.347亿美元。
+
+原文：
+TAL Education Group(TAL0.51%)reported double-digit, year-over-year revenue and profit growth, highlighting robust top-line expansion and improvement in non-GAAP profitability. Revenue acceleration was attributed to increased enrollments in Peiyou programs and expansion of learning device offerings, although blended ASP for devices declined due to a shift in product mix. Management disclosed active product innovation in both enrichment learning and hardware, as well as industry recognition for its AI-powered teaching devices. Cash deployment priorities included a new $600 million share repurchase program, with $134.7 million already utilized in the current quarter.
+
+  [ 26] [EN] While Peiyou enrichment growth is expected to decelerate going forward, management will emphasize quality and sustainability over pure scale in network expansion.
+       [中] 虽然Peiyou enrichment的增长预计未来将放缓，但管理层在网络扩张中将强调质量和可持续性，而非单纯追求规模。
+
+While Peiyou enrichment growth is expected to decelerate going forward, management will emphasize quality and sustainability over pure scale in network expansion.
+
+  [ 27] [EN] Operating leverage was mixed, as higher non-GAAP marketing expense ratios offset improved general and administrative cost ratios.
+       [中] 经营杠杆表现不一，因为较高的非GAAP营销费用比率抵消了改善的一般和行政成本比率。
+Operating leverage was mixed, as higher non-GAAP marketing expense ratios offset improved general and administrative cost ratios.
+
+  [ 28] [EN] Management does not anticipate maintaining Q2-level profitability in subsequent quarters due to seasonality and ongoing investments.
+       [中] 管理层预计，由于季节性和持续投资，后续季度无法维持Q2水平的盈利能力。
+
+Management does not anticipate maintaining Q2-level profitability in subsequent quarters due to seasonality and ongoing investments.
+
+  [ 29] [EN] Persistent adjusted operating losses in the learning devices business reflect a strategic focus on long-term market share over near-term margins.
+       [中] 学习设备业务的持续调整后运营亏损反映了公司专注于长期市场份额而非短期利润的战略重点。
+
+Persistent adjusted operating losses in the learning devices business reflect a strategic focus on long-term market share over near-term margins.
+
+  [ 30] [EN] INDUSTRY GLOSSARY
+       [中] 行业术语
+
+  [ 31] [EN] Peiyou: TAL's branded small-class, offline enrichment tutoring programs primarily serving K-12 students in China.
+       [中] Peiyou: TAL旗下品牌小班、线下培优辅导项目，主要服务中国K-12学生。  
+Peiyou: TAL's branded small-class, offline enrichment tutoring programs primarily serving K-12 students in China.
+
+  [ 32] [EN] Blended ASP: The weighted average selling price across all models, reflecting sales mix changes within the product segment.
+       [中] 混合ASP：所有型号的加权平均销售价格，反映产品细分内部销售组合的变化。
+Blended ASP: The weighted average selling price across all models, reflecting sales mix changes within the product segment.
+
+  [ 33] [EN] AI Think 101: TAL’s in-device, AI-powered, step-by-step tutoring companion launched in June 2025.
+       [中] AI Think 101: TAL的设备内、AI驱动的、逐步辅导伙伴，于2025年6月推出。
+
+AI Think 101: TAL’s in-device, AI-powered, step-by-step tutoring companion launched in June 2025.
+
+  [ 34] [EN] Deferred Revenue: Payments received by TAL for services to be delivered in future periods, primarily stemming from prepaid class enrollments.
+       [中] 递延收入：TAL收到的用于未来期间提供服务的款项，主要来自预付费课程报名。
+
+Deferred Revenue: Payments received by TAL for services to be delivered in future periods, primarily stemming from prepaid class enrollments.
+
+  [ 35] [EN] BOM (Bill of Materials) Cost Ratio: The proportion of a device’s selling price attributable to the direct cost of materials used in manufacturing.
+       [中] BOM (Bill of Materials) 成本比率：设备销售价格中，用于制造的直接材料成本所占的比例。
+
+BOM (Bill of Materials) Cost Ratio: The proportion of a device’s selling price attributable to the direct cost of materials used in manufacturing.
+
+  [ 36] [EN] Full Conference Call Transcript
+       [中] 完整的电话会议记录
+
+  [ 37] [EN] Zhuangzhuang Peng:Thank you, Fang, and thank all of you for participating in today's conference call. Over the past years, our focus has been on driving the holistic development of our students. We have consistently invested in products and service enhancements to deliver a quality learning experience while integrating cutting-edge technologies to fuel innovation and advanced learning models. These initiatives have built a solid foundation for our long-term sustainable growth. While we are encouraged by this momentum, we recognize the dynamic and competitive landscape. The learning devices market faces escalating competition, and AI-driven learning products continue to reshape education at an unprecedented pace.
+       [中] 谢谢方，也谢谢大家参加今天的电话会议。过去几年，我们的重点一直是推动学生的全面发展。我们持续投资于产品和服务改进，以提供高质量的学习体验，同时整合尖端技术来推动创新和先进的学习模式。这些举措为我们的长期可持续增长奠定了坚实基础。虽然这一势头令我们备受鼓舞，但我们认识到行业竞争激烈且格局多变。学习设备市场的竞争日益激烈，人工智能驱动的学习产品正在以前所未有的速度重塑教育。
+
+Zhuangzhuang Peng:Thank you, Fang, and thank all of you for participating in today's conference call. Over the past years, our focus has been on driving the holistic development of our students. We have consistently invested in products and service enhancements to deliver a quality learning experience while integrating cutting-edge technologies to fuel innovation and advanced learning models. These initiatives have built a solid foundation for our long-term sustainable growth. While we are encouraged by this momentum, we recognize the dynamic and competitive landscape. The learning devices market faces escalating competition, and AI-driven learning products continue to reshape education at an unprecedented pace.
+
+  [ 38] [EN] In navigating these opportunities, we embrace a long-term approach aimed at fortifying our competitive moats and ensuring sustained value creation for both our users and the society. Building our business is analogous to nurturing a tree. It demands patience, long-term commitment, and careful cultivation. Because some of our strategic initiatives are still in early stages, they require ongoing investment. Consequently, we may face occasional variability and limited visibility in our financial performance due to seasonal demand shifts, competitive pressures, and deliberate resource reallocation. While these factors may cause short-term fluctuations, we remain focused on building the long-term capabilities needed to seize the opportunities in the market. I will now provide detailed updates, starting with our second quarter FY 2026 performance.
+       [中] 在把握这些机遇的过程中，我们秉持长期主义，致力于加固竞争壁垒，确保为我们的用户和社会持续创造价值。经营企业如同培育树木，需要耐心、长期投入与悉心栽培。由于部分战略举措仍处于早期阶段，需要持续投资，因此我们可能会因季节性需求变化、竞争压力以及主动的资源重新配置，面临财务业绩偶有波动、可预见性有限的情况。尽管这些因素可能引发短期波动，但我们始终专注于建设抓住市场机遇所需的长期能力。接下来，我将从2026财年第二季度业绩开始，提供详细更新。
+
+In navigating these opportunities, we embrace a long-term approach aimed at fortifying our competitive moats and ensuring sustained value creation for both our users and the society. Building our business is analogous to nurturing a tree. It demands patience, long-term commitment, and careful cultivation. Because some of our strategic initiatives are still in early stages, they require ongoing investment. Consequently, we may face occasional variability and limited visibility in our financial performance due to seasonal demand shifts, competitive pressures, and deliberate resource reallocation. While these factors may cause short-term fluctuations, we remain focused on building the long-term capabilities needed to seize the opportunities in the market. I will now provide detailed updates, starting with our second quarter FY 2026 performance.
+
+  [ 39] [EN] Our learning services achieved growth this quarter with both our off-line Peiyou programs and online enrichment offerings increasing year-over-year. This underscores our commitment to providing quality learning experiences while expanding our operational capacity. We are continuing to take a disciplined approach in managing our Peiyou learning center network, focusing on long-term sustainability. We evaluate factors such as local market demand, user acceptance of our products, and our operational capabilities and efficiency to ensure service quality. The effectiveness of this approach is reflected in the positive user feedback and key operating metrics such as retention rates. For online enrichment learning, we continuously optimize our services and expand our offerings by launching new programs tailored to diverse user groups.
+       [中] 我们的学习服务在本季度实现增长，线下培优项目和线上增值课程均同比提升。这体现了我们在扩大运营能力的同时，致力于提供高质量学习体验的承诺。我们将继续以严谨态度管理培优学习中心网络，聚焦长期可持续发展。我们评估本地市场需求、用户对产品的接受度以及运营能力与效率等因素，以确保服务质量。这一策略的有效性体现在积极的用户反馈以及留存率等关键运营指标上。对于线上增值学习，我们持续优化服务，并通过推出针对不同用户群体量身定制的新课程来扩展产品线。
+
+Our learning services achieved growth this quarter with both our off-line Peiyou programs and online enrichment offerings increasing year-over-year. This underscores our commitment to providing quality learning experiences while expanding our operational capacity. We are continuing to take a disciplined approach in managing our Peiyou learning center network, focusing on long-term sustainability. We evaluate factors such as local market demand, user acceptance of our products, and our operational capabilities and efficiency to ensure service quality. The effectiveness of this approach is reflected in the positive user feedback and key operating metrics such as retention rates. For online enrichment learning, we continuously optimize our services and expand our offerings by launching new programs tailored to diverse user groups.
+
+  [ 40] [EN] These initiatives aim to provide engaging and interactive experiences, improve learning outcomes, and ultimately create value for our users. At the same time, we've embraced a technology-focused approach to adapt to the evolving market landscape of the online learning sector. Guided by our strategic objectives, we've continued to integrate updated features like interactive sessions, personalized guidance, and real-time feedback to improve user engagement. These enhancements have made the learning experience more immersive and effective. The positive feedback we've received from both students and parents has underscored the value of our technology-focused approach. Alongside our learning, we are advancing our content solutions. Learning devices are a key component of the strategy, offering potential for integrating AI technology into education.
+       [中] 这些举措旨在提供引人入胜的互动体验，改善学习成果，并最终为我们的用户创造价值。同时，我们采用了技术导向的方法，以适应在线学习领域不断变化的市场格局。在战略目标的指导下，我们持续整合互动课程、个性化指导和实时反馈等更新功能，以提高用户参与度。这些改进使学习体验更加沉浸和高效。来自学生和家长的积极反馈也凸显了我们技术导向方法的价值。在学习方面，我们也在推进内容解决方案。学习设备是该战略的关键组成部分，为将AI技术融入教育提供了潜力。
+
+These initiatives aim to provide engaging and interactive experiences, improve learning outcomes, and ultimately create value for our users. At the same time, we've embraced a technology-focused approach to adapt to the evolving market landscape of the online learning sector. Guided by our strategic objectives, we've continued to integrate updated features like interactive sessions, personalized guidance, and real-time feedback to improve user engagement. These enhancements have made the learning experience more immersive and effective. The positive feedback we've received from both students and parents has underscored the value of our technology-focused approach. Alongside our learning, we are advancing our content solutions. Learning devices are a key component of the strategy, offering potential for integrating AI technology into education.
+
+  [ 41] [EN] Enhancing product capabilities is essential for developing this business. In response to a fast-changing and highly competitive market, we're continuously refining our product design, innovating functionality, and expanding our offerings. We're also dynamically adjusting our business strategies to maintain agile and well-positioned in the sector. Several months ago, we expanded our product portfolio by launching 3 new models of learning devices. This expansion has allowed us to reach a broader user base while delivering tailored solutions to meet their individual needs. Building on these efforts and strategies, this quarter, our learning device business grew its revenue on both a year-over-year and a sequential basis.
+       [中] 提升产品能力对于发展这项业务至关重要。面对快速变化且竞争激烈的市场，我们不断优化产品设计、创新功能、拓宽产品线，同时动态调整业务策略，以保持在该领域的灵活性和竞争优势。几个月前，我们通过推出3款新型学习设备扩大了产品组合，这使我们能够触达更广泛的用户群体，并为他们提供个性化解决方案。基于这些努力和策略，本季度我们的学习设备业务实现了收入同比增长和环比增长。
+
+Enhancing product capabilities is essential for developing this business. In response to a fast-changing and highly competitive market, we're continuously refining our product design, innovating functionality, and expanding our offerings. We're also dynamically adjusting our business strategies to maintain agile and well-positioned in the sector. Several months ago, we expanded our product portfolio by launching 3 new models of learning devices. This expansion has allowed us to reach a broader user base while delivering tailored solutions to meet their individual needs. Building on these efforts and strategies, this quarter, our learning device business grew its revenue on both a year-over-year and a sequential basis.
+
+  [ 42] [EN] By helping students learn well in class, practice well after class, and read well beyond class, our learning devices aim to motivate students to unlock their learning potential while fostering holistic development. Our content solutions have evolved into a diversified portfolio that encompasses learning devices, print and digital books and other content-based physical products and digital resources. This integrated ecosystem reflects our core mission of bringing quality learning resources to a wider audience, overcoming geographical and temporal limitations and narrowing the gap in access to education. Our ultimate goal is to empower learners to achieve their personal development objectives. So, with that overview, I'd like to turn to our financial performance for the quarter.
+       [中] 我们的学习设备旨在帮助学生在课堂上有效学习、课后充分练习、课外广泛阅读，从而激励他们释放学习潜能，同时促进全面发展。我们的内容解决方案已发展成一个多元化的产品组合，涵盖学习设备、纸质与数字书籍及其他基于内容的实体产品和数字资源。这一综合性生态系统体现了我们的核心使命：让优质学习资源惠及更广泛的人群，克服地域和时间限制，缩小教育获取差距。我们的最终目标是赋能学习者实现个人发展目标。那么，在概述之后，我想转向本季度的财务表现。
+
+By helping students learn well in class, practice well after class, and read well beyond class, our learning devices aim to motivate students to unlock their learning potential while fostering holistic development. Our content solutions have evolved into a diversified portfolio that encompasses learning devices, print and digital books and other content-based physical products and digital resources. This integrated ecosystem reflects our core mission of bringing quality learning resources to a wider audience, overcoming geographical and temporal limitations and narrowing the gap in access to education. Our ultimate goal is to empower learners to achieve their personal development objectives. So, with that overview, I'd like to turn to our financial performance for the quarter.
+
+  [ 43] [EN] Our net revenues were USD 861.4 million or RMB 6,180.4 million for the quarter, representing year-over-year increases of 39.1% and 38.1% in U.S. dollar and RMB terms, respectively. Our non-GAAP income from operations and non-GAAP net income attributable to TAL for the quarter were USD 107.8 million and USD 135.8 million, respectively. Now I'll hand the call over to Jackson, who will provide an update on the operational advancements we made in our core businesses. He will also review our financial performance for the second fiscal quarter. Jackson, over to you.
+       [中] 本季度净收入为8.614亿美元，即61.804亿元人民币，按美元和人民币计算分别同比增长39.1%和38.1%。本季度非GAAP运营收入和非GAAP归属于TAL的净利润分别为1.078亿美元和1.358亿美元。现在我将电话交给Jackson，他将介绍我们在核心业务上取得的运营进展，并回顾第二财季的财务表现。Jackson，交给你了。
+
+Our net revenues were USD 861.4 million or RMB 6,180.4 million for the quarter, representing year-over-year increases of 39.1% and 38.1% in U.S. dollar and RMB terms, respectively. Our non-GAAP income from operations and non-GAAP net income attributable to TAL for the quarter were USD 107.8 million and USD 135.8 million, respectively. Now I'll hand the call over to Jackson, who will provide an update on the operational advancements we made in our core businesses. He will also review our financial performance for the second fiscal quarter. Jackson, over to you.
+
+  [ 44] [EN] Jackson Ding:Thank you, Alex. I'm pleased to share some details on progress we made in the second fiscal quarter across our core businesses. Please note that all financial data for the quarter are unaudited. During the second fiscal quarter, Peiyou small class enrichment programs continued its development path. Its year-over-year growth was fueled by higher enrollments, which were supported by the continued expansion of our offline learning center network. In terms of learning center expansion, we have maintained a dynamic and methodical approach. We struck a balance that allowed us to meet the demand during the summer vacation period while maintaining teaching quality, business sustainability and operational efficiency.
+       [中] Jackson Ding：谢谢，Alex。我很高兴与大家分享我们在第二财季核心业务上取得的进展细节。请注意，本季度所有财务数据均未经审计。第二财季期间，Peiyou小班培优项目持续其发展路径。其同比增长得益于更高的入学人数，而这又得益于我们线下学习中心网络的持续扩张。在学习中心扩张方面，我们保持了动态且有条不紊的策略。我们找到了平衡点，既能满足暑假期间的需求，又能保障教学质量、业务可持续性和运营效率。
+
+原文：
+Jackson Ding:Thank you, Alex. I'm pleased to share some details on progress we made in the second fiscal quarter across our core businesses. Please note that all financial data for the quarter are unaudited. During the second fiscal quarter, Peiyou small class enrichment programs continued its development path. Its year-over-year growth was fueled by higher enrollments, which were supported by the continued expansion of our offline learning center network. In terms of learning center expansion, we have maintained a dynamic and methodical approach. We struck a balance that allowed us to meet the demand during the summer vacation period while maintaining teaching quality, business sustainability and operational efficiency.
+
+  [ 45] [EN] By prioritizing the overall health of the business, Peiyou small class maintained its steady performance. As Alex mentioned, we're adopting a technology-driven approach to enhance our online enrichment learning programs. Our main goal is to boost user motivation, deepen engagement and improve the overall learning experience by integrating smart interactive features tailored to online learning habits. To that end, we have introduced a series of new initiatives that integrate technology into our in-class and out-class learning. For instance, we have created immersive online classrooms with role playing experiences in which students can take on roles such as class helper or subject representative. By empowering students with classroom management responsibilities, their engagement and interaction within the classroom have improved.
+       [中] 通过优先考虑业务的整体健康，Peiyou small class保持了稳定的表现。正如Alex所言，我们正在采用技术驱动的方法提升在线培优课程项目。主要目标是通过整合针对在线学习习惯定制的智能互动功能，提高用户动机、加深参与度并改善整体学习体验。为此，我们推出了一系列新举措，将技术融入课内课外学习。例如，我们创建了具有角色扮演体验的沉浸式在线教室，学生可以担任班级助手或学科代表等角色。通过赋予学生课堂管理职责，他们在课堂内的参与度和互动性得到了提升。
+
+原文：
+By prioritizing the overall health of the business, Peiyou small class maintained its steady performance. As Alex mentioned, we're adopting a technology-driven approach to enhance our online enrichment learning programs. Our main goal is to boost user motivation, deepen engagement and improve the overall learning experience by integrating smart interactive features tailored to online learning habits. To that end, we have introduced a series of new initiatives that integrate technology into our in-class and out-class learning. For instance, we have created immersive online classrooms with role playing experiences in which students can take on roles such as class helper or subject representative. By empowering students with classroom management responsibilities, their engagement and interaction within the classroom have improved.
+
+  [ 46] [EN] In some of our humanities programs, we have used AI to bring to life over 100 historical authors, enabling students to interact with AI-powered versions of these figures. This allows students to gain a deeper understanding of the authors historical backgrounds and literacy contributions. We have also created AI-powered companion cartoons to assist with ad class exercises, making the learning process a more enjoyable experience. These initiatives have all been well received by our users. Looking ahead, we'll continue to enhance engagement tools and invest in content, products and services to meet the evolving needs of online learning. Next, I'd like to talk about our learning device business.
+       [中] 在我们的一些人文学科项目中，我们利用AI将超过100位历史作者栩栩如生地呈现出来，使学生能够与这些人物的AI版本进行互动。这让学生更深入地了解这些作者的历史背景和文学贡献。我们还创建了AI辅助的卡通伙伴，用于协助课堂练习，使学习过程更加愉快。这些举措都受到了用户的好评。展望未来，我们将继续增强互动工具，并在内容、产品和服务上加大投入，以满足在线学习不断演变的需求。接下来，我想谈谈我们的学习设备业务。
+
+In some of our humanities programs, we have used AI to bring to life over 100 historical authors, enabling students to interact with AI-powered versions of these figures. This allows students to gain a deeper understanding of the authors historical backgrounds and literacy contributions. We have also created AI-powered companion cartoons to assist with ad class exercises, making the learning process a more enjoyable experience. These initiatives have all been well received by our users. Looking ahead, we'll continue to enhance engagement tools and invest in content, products and services to meet the evolving needs of online learning. Next, I'd like to talk about our learning device business.
+
+  [ 47] [EN] Our goal is to empower users on their self-learning journeys by offering a wide selection of products with advanced smart features and comprehensive learning resources. To meet our users' diverse needs, we have expanded our product portfolio, introducing new models at various price points since 2023 that have gained market traction. This quarter, our learning devices delivered revenue and sales volume growth on both a year-over-year and a sequential basis. In June 2025, we officially launched AI Think 101, an interactive step-by-step tutoring AI companion for our learning devices that enables a seamless interaction between the screen-based and paper-based learning experience.
+       [中] 我们的目标是通过提供品类丰富的产品、先进的智能功能以及全面的学习资源，助力用户的自主学习之旅。为了满足用户的多样化需求，我们自2023年以来持续扩充产品组合，推出了多个价格区间的新型号，并已获得市场认可。本季度，我们的学习设备在收入和销量上均实现了同比与环比增长。2025年6月，我们正式推出了AI Think 101，这是一款为学习设备打造的交互式分步辅导AI伙伴，能够实现屏幕学习与纸笔学习体验的无缝衔接。
+
+Our goal is to empower users on their self-learning journeys by offering a wide selection of products with advanced smart features and comprehensive learning resources. To meet our users' diverse needs, we have expanded our product portfolio, introducing new models at various price points since 2023 that have gained market traction. This quarter, our learning devices delivered revenue and sales volume growth on both a year-over-year and a sequential basis. In June 2025, we officially launched AI Think 101, an interactive step-by-step tutoring AI companion for our learning devices that enables a seamless interaction between the screen-based and paper-based learning experience.
+
+  [ 48] [EN] Supported by an advanced camera system and AI technology, it is able to recognize questions, evaluate answers and dynamically adjust explanations in a timely manner to help students master problem-solving methods and provide support in various learning scenarios. Since its launch, learning device models equipped with AI Think 101 have been well received by users. In August 2025, the China Academy of Information and Communications Technology evaluated educational AI agents and awarded AI Thinking 101, the industry's highest rating Level 4. This recognition further established its position as an innovator of educational agents. Our continued focus on improving product capabilities has contributed to progress in our learning device business.
+       [中] 在先进的摄像系统与AI技术支持下，它能够识别问题、评估答案并及时动态调整讲解内容，帮助学生掌握解题方法，并在多种学习场景中提供支持。自推出以来，搭载AI Think 101的学习设备机型广受用户好评。2025年8月，中国信息通信研究院（China Academy of Information and Communications Technology）对教育AI agents进行评估，授予AI Thinking 101行业最高评级Level 4。这一认可进一步确立了其作为教育agent创新者的地位。我们持续聚焦产品能力提升，推动学习设备业务取得进展。
+
+Supported by an advanced camera system and AI technology, it is able to recognize questions, evaluate answers and dynamically adjust explanations in a timely manner to help students master problem-solving methods and provide support in various learning scenarios. Since its launch, learning device models equipped with AI Think 101 have been well received by users. In August 2025, the China Academy of Information and Communications Technology evaluated educational AI agents and awarded AI Thinking 101, the industry's highest rating Level 4. This recognition further established its position as an innovator of educational agents. Our continued focus on improving product capabilities has contributed to progress in our learning device business.
+
+  [ 49] [EN] As our product portfolios and user base have expanded, key engagement metrics such as weekly active rates and average weekly usage time have remained stable and healthy. This quarter, the average weekly active rate amongst all learning device users was approximately 80% and average daily usage time per active device exceeded an hour. The above concludes the operational update. Now I'd like to walk you through our key financial results for the second fiscal quarter. Our net revenues were USD 861.4 million or RMB 680.4 million, an increase of 39.1% and 38.1% year-over-year in U.S. dollar and RMB terms, respectively.
+       [中] 随着我们的产品组合和用户群的扩大，周活跃率及平均每周使用时间等关键互动指标保持稳定健康。本季度，所有学习设备用户的平均周活跃率约为80%，每台活跃设备的日均使用时间超过一小时。以上是运营情况更新。接下来我将为您介绍第二财季的主要财务业绩。我们的净收入为8.614亿美元或6.804亿元人民币，按美元和人民币计算分别同比增长39.1%和38.1%。
+
+As our product portfolios and user base have expanded, key engagement metrics such as weekly active rates and average weekly usage time have remained stable and healthy. This quarter, the average weekly active rate amongst all learning device users was approximately 80% and average daily usage time per active device exceeded an hour. The above concludes the operational update. Now I'd like to walk you through our key financial results for the second fiscal quarter. Our net revenues were USD 861.4 million or RMB 680.4 million, an increase of 39.1% and 38.1% year-over-year in U.S. dollar and RMB terms, respectively.
+
+  [ 50] [EN] Cost of revenues increased by 36.8% to USD 370.3 million from USD 270.6 million in the second quarter of fiscal year 2025. Non-GAAP cost of revenues, which excludes share-based compensation expenses, increased by 37.6% to USD 369.8 million from USD 268.8 million in the second quarter of fiscal year 2025. Gross profit increased in the second quarter of fiscal 2026, rising by 40.8% year-over-year to USD 491.0 million from USD 348.7 million for the same period last year. Gross margin increased to 57.0% from 56.3% for the same period last year. Selling and marketing expenses for the quarter were USD 267.3 million, representing an increase of 46.9% from USD 181.9 million for the same period last year.
+       [中] 收入成本同比增长36.8%，从2025财年第二季度的2.706亿美元增至3.703亿美元。非GAAP收入成本（剔除股权激励费用）同比增长37.6%，从2025财年第二季度的2.688亿美元增至3.698亿美元。2026财年第二季度毛利润同比增长40.8%，从去年同期的3.487亿美元增至4.910亿美元。毛利率从去年同期的56.3%提升至57.0%。本季度销售和营销费用为2.673亿美元，较去年同期的1.819亿美元增长46.9%。
+
+Cost of revenues increased by 36.8% to USD 370.3 million from USD 270.6 million in the second quarter of fiscal year 2025. Non-GAAP cost of revenues, which excludes share-based compensation expenses, increased by 37.6% to USD 369.8 million from USD 268.8 million in the second quarter of fiscal year 2025. Gross profit increased in the second quarter of fiscal 2026, rising by 40.8% year-over-year to USD 491.0 million from USD 348.7 million for the same period last year. Gross margin increased to 57.0% from 56.3% for the same period last year. Selling and marketing expenses for the quarter were USD 267.3 million, representing an increase of 46.9% from USD 181.9 million for the same period last year.
+
+  [ 51] [EN] Non-GAAP selling and marketing expenses, which excludes share-based compensation expenses, increased by 48.6% to USD 264.4 million from USD 177.9 million for the same period last year. Non-GAAP selling and marketing expenses as a percentage of total net revenues increased from 28.7% to 30.7% year-over-year. General and administrative expenses increased by 8% to USD 129.1 million from USD 119.5 million in the same period of last year. Non-GAAP general and administrative expenses, which excludes share-based compensation costs, increased by 11.5% year-over-year to USD 120.8 million from USD 108.3 million for the same period of last year. Non-GAAP general and administrative expenses as a percentage of total net revenues decreased from 17.5% to 14.0% year-over-year.
+       [中] 非GAAP销售和市场费用（不包括股权激励费用）同比增长48.6%，从去年同期的1.779亿美元增至2.644亿美元。非GAAP销售和市场费用占总净收入的百分比从28.7%同比上升至30.7%。一般及行政费用同比增长8%，从去年同期的1.195亿美元增至1.291亿美元。非GAAP一般及行政费用（不包括股权激励成本）同比增长11.5%，从去年同期的1.083亿美元增至1.208亿美元。非GAAP一般及行政费用占总净收入的百分比从17.5%同比下降至14.0%。
+
+原文：
+Non-GAAP selling and marketing expenses, which excludes share-based compensation expenses, increased by 48.6% to USD 264.4 million from USD 177.9 million for the same period last year. Non-GAAP selling and marketing expenses as a percentage of total net revenues increased from 28.7% to 30.7% year-over-year. General and administrative expenses increased by 8% to USD 129.1 million from USD 119.5 million in the same period of last year. Non-GAAP general and administrative expenses, which excludes share-based compensation costs, increased by 11.5% year-over-year to USD 120.8 million from USD 108.3 million for the same period of last year. Non-GAAP general and administrative expenses as a percentage of total net revenues decreased from 17.5% to 14.0% year-over-year.
+
+  [ 52] [EN] Total share-based compensation expenses allocated to related operating costs and expenses decreased by 30.5% to USD 11.8 million in the second quarter of fiscal year 2026 from USD 16.9 million in the same period of last year. Income from operations was USD 96.1 million in the second quarter of fiscal year 2026 compared with an income from operations of USD 47.6 million in the same period last year. Non-GAAP income from operations, which excludes share-based compensation expenses, was USD 107.8 million compared with a non-GAAP income from operations of USD 64.5 million in the same period last year.
+       [中] 在2026财年第二季度，计入相关运营成本和费用的总股权激励支出从去年同期的1690万美元下降30.5%至1180万美元。2026财年第二季度运营收入为9610万美元，而去年同期运营收入为4760万美元。剔除股权激励支出的非GAAP运营收入为1.078亿美元，而去年同期非GAAP运营收入为6450万美元。
+
+Total share-based compensation expenses allocated to related operating costs and expenses decreased by 30.5% to USD 11.8 million in the second quarter of fiscal year 2026 from USD 16.9 million in the same period of last year. Income from operations was USD 96.1 million in the second quarter of fiscal year 2026 compared with an income from operations of USD 47.6 million in the same period last year. Non-GAAP income from operations, which excludes share-based compensation expenses, was USD 107.8 million compared with a non-GAAP income from operations of USD 64.5 million in the same period last year.
+
+  [ 53] [EN] Net income attributable to TAL was USD 124.1 million in the second quarter of fiscal year 2026 compared to net income attributable to TAL of USD 57.4 million in the same period last year. Non-GAAP net income attributable to TAL, which excludes share-based compensation expenses, was USD 135.8 million compared to a non-GAAP net income attributable to TAL of USD 74.3 million in the same period last year. Moving on to our balance sheet. As of August 31, 2025, we had USD 1,542.2 million in cash and cash equivalents, USD 1,706.6 million in short-term investments and USD 239.2 million in current and noncurrent restricted cash.
+       [中] TAL在2026财年第二季度归属于TAL的净利润为1.241亿美元，而去年同期归属于TAL的净利润为5740万美元。非GAAP口径下（剔除股权激励费用），归属于TAL的净利润为1.358亿美元，去年同期非GAAP归属于TAL的净利润为7430万美元。接下来看我们的资产负债表。截至2025年8月31日，我们拥有现金及现金等价物15.422亿美元，短期投资17.066亿美元，以及流动及非流动受限现金2.392亿美元。
+
+Net income attributable to TAL was USD 124.1 million in the second quarter of fiscal year 2026 compared to net income attributable to TAL of USD 57.4 million in the same period last year. Non-GAAP net income attributable to TAL, which excludes share-based compensation expenses, was USD 135.8 million compared to a non-GAAP net income attributable to TAL of USD 74.3 million in the same period last year. Moving on to our balance sheet. As of August 31, 2025, we had USD 1,542.2 million in cash and cash equivalents, USD 1,706.6 million in short-term investments and USD 239.2 million in current and noncurrent restricted cash.
+
+  [ 54] [EN] Our deferred revenue balance was USD 822.7 million as of the end of second fiscal quarter. Now turning to our cash flow statement. Net cash used in operating activities for the second quarter of fiscal year 2026 was USD 58.1 million. Finally, I would like to briefly address our share repurchase program. In July 2025, the company's Board of Directors authorized a new share repurchase program. Under the program, the company may spend up to approximately USD 600 million to purchase its common shares over the next 12 months. Between July 31 and October 29, 2025, the company has repurchased approximately 4.2 million common shares at an aggregate consideration of approximately USD 134.7 million. That concludes the financial section.
+       [中] 截至第二财季末，我们的递延收入余额为8.227亿美元。接下来看现金流量表。2026财年第二季度，经营活动所用净现金为5810万美元。最后，我想简要说明一下我们的股票回购计划。2025年7月，公司董事会批准了一项新的股票回购计划。根据该计划，公司可在未来12个月内最多花费约6亿美元购买其普通股。在2025年7月31日至10月29日期间，公司已回购约420万股普通股，总对价约为1.347亿美元。财务部分到此结束。
+
+Our deferred revenue balance was USD 822.7 million as of the end of second fiscal quarter. Now turning to our cash flow statement. Net cash used in operating activities for the second quarter of fiscal year 2026 was USD 58.1 million. Finally, I would like to briefly address our share repurchase program. In July 2025, the company's Board of Directors authorized a new share repurchase program. Under the program, the company may spend up to approximately USD 600 million to purchase its common shares over the next 12 months. Between July 31 and October 29, 2025, the company has repurchased approximately 4.2 million common shares at an aggregate consideration of approximately USD 134.7 million. That concludes the financial section.
+
+  [ 55] [EN] I will now hand the call back to Alex to briefly update you on our business outlook and strategic priorities. Alex, please go ahead.
+       [中] 我现在将电话交回给Alex，请他简要介绍我们的业务展望和战略重点。Alex，请继续。
+
+I will now hand the call back to Alex to briefly update you on our business outlook and strategic priorities. Alex, please go ahead.
+
+  [ 56] [EN] Zhuangzhuang Peng:Thanks, Jackson. I'd like to share some thoughts on our outlook for the company's future development. The fiscal third quarter is generally not a peak season for enrichment learning demand, so we may experience fluctuations in our business performance due to seasonal factors. Nevertheless, we remain dedicated to driving sustainable long-term growth across all our business lines. Looking ahead, we'll continue to enhance our products and services to support students' holistic development. Our goal is to serve a broader user base while adhering to the quality standards for both our enrichment learning programs and content solutions. To achieve this, we are making continued investments in content and technology.
+       [中] 庄庄鹏：谢谢，Jackson。我想就我们对公司未来发展的展望分享一些看法。第三财季通常不是素养学习需求的旺季，因此我们可能会因季节性因素而经历业务表现波动。尽管如此，我们仍致力于推动所有业务线的可持续长期增长。展望未来，我们将继续优化产品和服务，以支持学生的全面发展。我们的目标是在坚持素养学习项目及内容解决方案质量标准的同时，服务更广泛的用户群体。为此，我们持续在内容和技术领域进行投资。
+
+原文：
+Zhuangzhuang Peng:Thanks, Jackson. I'd like to share some thoughts on our outlook for the company's future development. The fiscal third quarter is generally not a peak season for enrichment learning demand, so we may experience fluctuations in our business performance due to seasonal factors. Nevertheless, we remain dedicated to driving sustainable long-term growth across all our business lines. Looking ahead, we'll continue to enhance our products and services to support students' holistic development. Our goal is to serve a broader user base while adhering to the quality standards for both our enrichment learning programs and content solutions. To achieve this, we are making continued investments in content and technology.
+
+  [ 57] [EN] This investment will fuel innovation and position us to meet the evolving needs of our users in the long-term. In addition, we are committed to exploring and building diverse sales channels to drive growth in our core business. In today's highly connected world, integrating online and offline user engagement is more crucial than ever. Offline touch points remain essential for fostering meaningful interactions with users. While we have established offline communication in learning services, newer areas such as the learning device business are still in the nascent stages. It is, therefore, essential that we strengthen our go-to-market capabilities in this area, which will take time and continued investment.
+       [中] 这笔投资将推动创新，使我们能够长期满足用户不断变化的需求。此外，我们致力于探索和建立多元化的销售渠道，以推动核心业务的增长。在当今高度互联的世界中，整合线上与线下的用户互动比以往任何时候都更为关键。线下触点对于与用户建立有意义的互动仍然至关重要。虽然我们已经在学习服务中建立了线下沟通，但learning device business等较新的领域仍处于初期阶段。因此，我们必须加强在这一领域的市场进入能力，这需要时间和持续的投资。
+
+This investment will fuel innovation and position us to meet the evolving needs of our users in the long-term. In addition, we are committed to exploring and building diverse sales channels to drive growth in our core business. In today's highly connected world, integrating online and offline user engagement is more crucial than ever. Offline touch points remain essential for fostering meaningful interactions with users. While we have established offline communication in learning services, newer areas such as the learning device business are still in the nascent stages. It is, therefore, essential that we strengthen our go-to-market capabilities in this area, which will take time and continued investment.
+
+  [ 58] [EN] Regarding our future financial performance outlook, as we've emphasized in recent quarters, our primary objective remains achieving sustainable long-term growth rather than focusing solely on short-term financial results. Accordingly, we will continue prioritizing resource allocation to critical areas aligned with our long-term strategic goals. We're committed to exploring expansion and innovation opportunities within our core businesses to enhance our competitiveness. To execute these strategies effectively, we will maintain flexibility in resource allocation, carefully considering factors such as business dynamics, product cycles, market conditions, seasonality, and organizational capabilities. These adjustments may result in financial performance fluctuations, with some peers exceeding or falling short of market expectations.
+       [中] 关于我们未来的财务业绩展望，正如我们在最近几个季度中所强调的，我们的首要目标仍然是实现可持续的长期增长，而非仅仅关注短期财务成果。因此，我们将继续优先将资源配置到与长期战略目标一致的关键领域。我们致力于在核心业务中探索扩张与创新机会，以提升竞争力。为有效执行这些战略，我们将保持资源配置的灵活性，并仔细考虑业务动态、产品周期、市场条件、季节性和组织能力等因素。这些调整可能导致财务业绩波动，某些同行可能超出或不及市场预期。
+
+Regarding our future financial performance outlook, as we've emphasized in recent quarters, our primary objective remains achieving sustainable long-term growth rather than focusing solely on short-term financial results. Accordingly, we will continue prioritizing resource allocation to critical areas aligned with our long-term strategic goals. We're committed to exploring expansion and innovation opportunities within our core businesses to enhance our competitiveness. To execute these strategies effectively, we will maintain flexibility in resource allocation, carefully considering factors such as business dynamics, product cycles, market conditions, seasonality, and organizational capabilities. These adjustments may result in financial performance fluctuations, with some peers exceeding or falling short of market expectations.
+
+  [ 59] [EN] Indeed, in recent quarters, we have experienced margin compression as we seed the new initiatives and scale emerging opportunities. Conversely, we've also seen periods of outperformance as these investments matured. This variability underscores our intentional focus on sustainable growth over short-term optimization while also reflecting limited visibility into near-term financial performance. Despite these dynamics, our commitment to long-term growth remains unwavering, particularly in the K-12 learning sector. Our ultimate goal is to deliver transformative learning solutions that empower students in their holistic development. So that concludes my prepared remarks. Operator, I think we're now ready to open the call for questions.
+       [中] 的确，在最近几个季度，我们在播种新举措和扩大新兴机遇的过程中经历了利润率压缩。反之，随着这些投资的成熟，我们也曾出现表现优异的时期。这种波动性凸显了我们有意专注于可持续增长而非短期优化，同时也反映出对近期财务业绩的可见性有限。尽管存在这些动态，我们对长期增长的承诺依然坚定不移，尤其是在K-12学习领域。我们的最终目标是提供变革性的学习解决方案，赋能学生全面发展。以上是我准备的开场发言。接线员，我想我们现在可以开始提问环节了。
+
+Indeed, in recent quarters, we have experienced margin compression as we seed the new initiatives and scale emerging opportunities. Conversely, we've also seen periods of outperformance as these investments matured. This variability underscores our intentional focus on sustainable growth over short-term optimization while also reflecting limited visibility into near-term financial performance. Despite these dynamics, our commitment to long-term growth remains unwavering, particularly in the K-12 learning sector. Our ultimate goal is to deliver transformative learning solutions that empower students in their holistic development. So that concludes my prepared remarks. Operator, I think we're now ready to open the call for questions.
+
+  [ 60] [EN] Operator:[Operator Instructions]We will now take our first question from the line of Timothy Zhao from Goldman Sachs.
+       [中] 操作员：[Operator Instructions]我们现在将接受来自高盛（Goldman Sachs）的Timothy Zhao提出的第一个问题。  
+原文：Operator:[Operator Instructions]We will now take our first question from the line of Timothy Zhao from Goldman Sachs.
+
+  [ 61] [EN] Timothy Zhao:My question is regarding the Peiyou offline enrichment business. Just wondering if management can share with us some updates on the market dynamics and also the competitive landscape for this business. And also, could you offer some color on the second quarter performance, and also the expansion in the offline learning centers and offline business? So, for example, have you offered any discounts or promotions during the summer? And also looking ahead, just wondering if you can provide us with a growth outlook for the overall enrichment business for the offline business.
+       [中] Timothy Zhao:我的问题是关于Peiyou线下培优业务。我想知道管理层能否与我们分享一些关于市场动态和该业务竞争格局的最新情况。另外，您能否提供一些关于第二季度业绩以及线下学习中心和线下业务扩张的详细信息？例如，夏季是否有提供任何折扣或促销活动？展望未来，您能否为我们提供整体培优业务以及线下业务的增长前景？
+
+Timothy Zhao:My question is regarding the Peiyou offline enrichment business. Just wondering if management can share with us some updates on the market dynamics and also the competitive landscape for this business. And also, could you offer some color on the second quarter performance, and also the expansion in the offline learning centers and offline business? So, for example, have you offered any discounts or promotions during the summer? And also looking ahead, just wondering if you can provide us with a growth outlook for the overall enrichment business for the offline business.
+
+  [ 62] [EN] Zhuangzhuang Peng:Thanks, Timothy. This is Alex. Let me take this one on. It's a multipart question. So, let me try to unpack that and address each component of that question, right? So, first of all, in the offline Peiyou market, we've really observed steady growth in our Peiyou enrichment programs. I think that mirrors learners' increasing interest in them. As with any market during its development, competition is inevitable. The offline small class enrichment learning market, if we define it like that, offline small class enrichment learning market, really, it's notably more fragmented than many other consumer or services markets, making it somewhat challenging to accurately assess the total market size and demand.
+       [中] 感谢提问，Timothy。我是Alex，我来回答这个问题。这是一个多部分问题，所以我来逐一拆解并回应每个部分。首先，在培优线下市场，我们确实观察到培优拓展课程稳定增长。我认为这反映了学习者对这些课程日益增长的兴趣。如同任何发展中的市场，竞争不可避免。如果我们这样定义的话，线下的精品小班培优市场实际上比许多其他消费或服务市场要更加分散，因此要准确评估整体市场规模和需求颇具挑战。
+
+原文：
+Zhuangzhuang Peng:Thanks, Timothy. This is Alex. Let me take this one on. It's a multipart question. So, let me try to unpack that and address each component of that question, right? So, first of all, in the offline Peiyou market, we've really observed steady growth in our Peiyou enrichment programs. I think that mirrors learners' increasing interest in them. As with any market during its development, competition is inevitable. The offline small class enrichment learning market, if we define it like that, offline small class enrichment learning market, really, it's notably more fragmented than many other consumer or services markets, making it somewhat challenging to accurately assess the total market size and demand.
+
+  [ 63] [EN] So, to remain competitive in this fragmented landscape, the key really lies in developing high-quality products and services, which are supported by solid performance metrics. While we continue to monitor the broader trends and dynamics of the enrichment learning market, our primary focus really remains on strengthening our product capabilities to better meet the needs of learners and deliver long-term value. So, with regard to our performance in the second quarter, revenue for Peiyou offline enrichment programs has grown largely in line with our learning center footprint. For network expansion, we maintain the same operational approach as before.
+       [中] 因此，在这个分散的市场格局中保持竞争力的关键在于开发高质量的产品和服务，并以稳健的业绩指标为支撑。尽管我们持续关注培优学习市场的整体趋势与动态，但主要精力仍放在强化产品能力上，以更好地满足学习者需求并创造长期价值。关于第二季度的业绩，培优线下培优项目的收入增长基本与学习中心布局同步。在网络扩张方面，我们保持与以往相同的运营策略。
+
+原文：
+So, to remain competitive in this fragmented landscape, the key really lies in developing high-quality products and services, which are supported by solid performance metrics. While we continue to monitor the broader trends and dynamics of the enrichment learning market, our primary focus really remains on strengthening our product capabilities to better meet the needs of learners and deliver long-term value. So, with regard to our performance in the second quarter, revenue for Peiyou offline enrichment programs has grown largely in line with our learning center footprint. For network expansion, we maintain the same operational approach as before.
+
+  [ 64] [EN] I think as I mentioned during the prepared remarks, we evaluated several key factors such as our organizational capability and efficiency, regional market demand, and user acceptance of our products. This quarter, we saw a moderate increase in offline enrichment learning centers. Given our disciplined approach to expansion, I think we are satisfied really with the overall health of the business. Regarding summer class pricing, the ASP of our summer courses remained stable really compared with the same period last year. And lastly, I think you asked for the outlook. So, looking ahead, we'll continue to prioritize sustainability and healthy growth over scale in our approach to expanding offline learning centers.
+       [中] 我认为，正如我在准备发言中提到的，我们评估了几个关键因素，比如我们的组织能力和效率、区域市场需求以及用户对我们产品的接受度。本季度，我们的线下拓展学习中心数量温和增长。鉴于我们严谨的扩张方式，我认为我们对业务的整体健康状况感到满意。关于暑期课程定价，我们暑期课程的平均售价与去年同期相比保持稳定。最后，我想你问到了展望。因此，展望未来，在拓展线下学习中心方面，我们将继续优先考虑可持续性和健康增长，而非规模。
+
+原文：
+I think as I mentioned during the prepared remarks, we evaluated several key factors such as our organizational capability and efficiency, regional market demand, and user acceptance of our products. This quarter, we saw a moderate increase in offline enrichment learning centers. Given our disciplined approach to expansion, I think we are satisfied really with the overall health of the business. Regarding summer class pricing, the ASP of our summer courses remained stable really compared with the same period last year. And lastly, I think you asked for the outlook. So, looking ahead, we'll continue to prioritize sustainability and healthy growth over scale in our approach to expanding offline learning centers.
+
+  [ 65] [EN] As we open new centers, maintaining consistent service quality and efficiency is really critical. Given that scaling requires broader service coverage while upholding high-quality service, we expect Peiyou's year-over-year revenue growth to gradually taper off. So, Timothy, I hope that answered your question.
+       [中] 在我们开设新中心的过程中，保持一贯的服务质量和效率至关重要。由于规模化扩张需要在维持高品质服务的同时扩大服务覆盖面，我们预计Peiyou的同比营收增长将逐步放缓。所以，Timothy，希望这回答了你的问题。
+
+As we open new centers, maintaining consistent service quality and efficiency is really critical. Given that scaling requires broader service coverage while upholding high-quality service, we expect Peiyou's year-over-year revenue growth to gradually taper off. So, Timothy, I hope that answered your question.
+
+  [ 66] [EN] Timothy Zhao:Congrats on the very solid results this quarter.
+       [中] Timothy Zhao:祝贺你本季度非常稳健的业绩。
+Timothy Zhao:Congrats on the very solid results this quarter.
+
+  [ 67] [EN] Operator:We'll take our next question from the line of Felix Liu from UBS.
+       [中] 接线员：下面我们有请来自UBS的Felix Liu提问。
+Operator:We'll take our next question from the line of Felix Liu from UBS.
+
+  [ 68] [EN] Felix Liu:Congratulations on the very strong quarter. I have a few questions on the learning device business. Can management share some color on the business performance, especially on the sales volume and pricing for the devices? For your newly launched products, what are the user feedback so far and the product's overall performance? On the P&L side of this segment, are there notable differences in margins across various pricing points? And looking ahead, how does management see the competition landscape for learning devices?
+       [中] Felix Liu：祝贺你们取得了非常强劲的季度业绩。关于学习设备业务，我有几个问题。管理层能否分享一下该业务的业绩表现，尤其是设备的销售量和定价情况？对于你们新推出的产品，目前的用户反馈和整体表现如何？在该板块的损益表方面，不同定价区间的利润率是否有显著差异？展望未来，管理层如何看待学习设备的竞争格局？
+
+Felix Liu:Congratulations on the very strong quarter. I have a few questions on the learning device business. Can management share some color on the business performance, especially on the sales volume and pricing for the devices? For your newly launched products, what are the user feedback so far and the product's overall performance? On the P&L side of this segment, are there notable differences in margins across various pricing points? And looking ahead, how does management see the competition landscape for learning devices?
+
+  [ 69] [EN] Zhuangzhuang Peng:Thanks, Felix. This is Alex again. Let me take on this. So, let's start with the performance of our learning devices business in the past quarter, right? So, for the past quarter, sales volumes increased year-over-year and quarter-over-quarter, I think primarily due to our product and channel efforts. On the other hand, we do note that the blended ASP declined both sequentially and year-over-year, mainly due to changes in the product mix, right? So let me add some color to this. In May, so a few months ago, we launched3 new models, the P4, the S4 and the T4, right? So, these target different price tiers. These products were well received, driving year-on-year sales growth.
+       [中] 庄庄彭：谢谢，Felix。我是Alex，我来回答。那么，我们先谈谈学习设备业务上个季度的表现。上个季度，销量同比增长且环比增长，我认为主要归功于我们的产品和渠道努力。另一方面，我们注意到综合平均售价（blended ASP）环比和同比均有所下降，这主要是由于产品组合的变化。我来补充一些细节。几个月前，也就是五月份，我们推出了3款新机型：P4、S4和T4。这些产品针对不同的价格档次，市场反应良好，推动了销售同比增长。
+
+原文：
+Zhuangzhuang Peng:Thanks, Felix. This is Alex again. Let me take on this. So, let's start with the performance of our learning devices business in the past quarter, right? So, for the past quarter, sales volumes increased year-over-year and quarter-over-quarter, I think primarily due to our product and channel efforts. On the other hand, we do note that the blended ASP declined both sequentially and year-over-year, mainly due to changes in the product mix, right? So let me add some color to this. In May, so a few months ago, we launched3 new models, the P4, the S4 and the T4, right? So, these target different price tiers. These products were well received, driving year-on-year sales growth.
+
+  [ 70] [EN] The sequential growth also benefited from Q2 seasonal strength. In terms of ASP, the blended ASP declined below RMB 4,000, and that really reflects the shift in the product mix. So, from a financial perspective, the BOM, the bill of materials cost ratios for our learning devices across different price points, I think that really remained stable in Q2. At the P&L level, our learning devices still incurred an adjusted operating loss. We'll continue to allocate resources to this line of business as ensuring our long-term competitiveness remains a key priority, right? So quarterly bottom line fluctuations are expected given market dynamics, given competition and the resource allocation point that I've been making.
+       [中] 环比增长也受益于第二季度的季节性强势。在平均售价方面，综合平均售价降至4,000元人民币以下，这确实反映了产品组合的转变。因此，从财务角度来看，我们学习设备在不同价位上的物料成本比率，我认为在第二季度保持稳定。在损益层面，我们的学习设备仍然出现了调整后的运营亏损。我们将继续向这一业务线分配资源，因为确保长期竞争力仍是关键优先事项，对吧？因此，考虑到市场动态、竞争以及我一再提到的资源分配点，季度利润底线波动是预期之中的。
+
+The sequential growth also benefited from Q2 seasonal strength. In terms of ASP, the blended ASP declined below RMB 4,000, and that really reflects the shift in the product mix. So, from a financial perspective, the BOM, the bill of materials cost ratios for our learning devices across different price points, I think that really remained stable in Q2. At the P&L level, our learning devices still incurred an adjusted operating loss. We'll continue to allocate resources to this line of business as ensuring our long-term competitiveness remains a key priority, right? So quarterly bottom line fluctuations are expected given market dynamics, given competition and the resource allocation point that I've been making.
+
+  [ 71] [EN] So, this focus, I'd like to add, is really critical in today's competitive smart education hardware landscape. You see major players continue to launch compelling learning tablet products. In addition, AI-driven learning products are reshaping education at an unprecedented pace. While we leverage our K-12 focused high-quality content, and continuously enhance product excellence and AI capabilities, really building hardware expertise and channels expertise, those require foundational level efforts, right? So rather than prioritizing short-term profitability, we remain like really focused on key areas that drive long-term competitiveness, things like user feedback, market share, brand influence and broader user engagement. We think the strategy really ensures a solid foundation for sustainable long-term growth.
+       [中] 所以，我想补充的是，这种专注在当前竞争激烈的智能教育硬件领域至关重要。大玩家们持续推出有吸引力的学习平板产品。此外，AI驱动的学习产品正以前所未有的速度重塑教育。在我们利用K-12优质内容、不断提升产品卓越性和AI能力的同时，真正构建硬件专长和渠道专长需要从基础层面下功夫，对吧？因此，相比优先追求短期盈利，我们依然聚焦于用户反馈、市场份额、品牌影响力和更广泛的用户参与这些驱动长期竞争力的关键领域。我们认为这一战略将为可持续的长期增长奠定坚实基础。
+
+So, this focus, I'd like to add, is really critical in today's competitive smart education hardware landscape. You see major players continue to launch compelling learning tablet products. In addition, AI-driven learning products are reshaping education at an unprecedented pace. While we leverage our K-12 focused high-quality content, and continuously enhance product excellence and AI capabilities, really building hardware expertise and channels expertise, those require foundational level efforts, right? So rather than prioritizing short-term profitability, we remain like really focused on key areas that drive long-term competitiveness, things like user feedback, market share, brand influence and broader user engagement. We think the strategy really ensures a solid foundation for sustainable long-term growth.
+
+  [ 72] [EN] Based on our content solutions, including learning devices, books and other early initiatives, we'll continue to invest so that more students can access affordable, high-quality learning content and tools. Our goal really is to leverage technological innovation and quality content to reach a broader audience and provide meaningful value to society. So, Felix, I hope that answers your question.
+       [中] 基于我们的内容解决方案，包括学习设备、书籍及其他早期项目，我们将持续投入，让更多学生能够获得价格合理且优质的学习内容与工具。我们的目标是通过技术创新和优质内容，触达更广泛的受众，并为社会创造切实的价值。所以，Felix，希望这回答了你的问题。
+
+Based on our content solutions, including learning devices, books and other early initiatives, we'll continue to invest so that more students can access affordable, high-quality learning content and tools. Our goal really is to leverage technological innovation and quality content to reach a broader audience and provide meaningful value to society. So, Felix, I hope that answers your question.
+
+  [ 73] [EN] Operator:The next question comes from the line of Liping Zhao from CICC.
+       [中] 接线员：下一个问题来自中金公司的Liping Zhao。
+
+Operator:The next question comes from the line of Liping Zhao from CICC.
+
+  [ 74] [EN] Liping Zhao:Regarding your Q2 financial performance, I'm wondering, could you please provide a breakdown of top line growth and bottom line performance across different business lines? And how do we think about the trend for these business lines, for example, in Q3 or the second half of this fiscal year?
+       [中] Liping Zhao: 关于你们第二季度的财务表现，我想知道，能否请你按不同业务线分解一下营收增长和利润表现？我们如何看待这些业务线的趋势，例如在第三季度或本财年下半年？
+
+Liping Zhao:Regarding your Q2 financial performance, I'm wondering, could you please provide a breakdown of top line growth and bottom line performance across different business lines? And how do we think about the trend for these business lines, for example, in Q3 or the second half of this fiscal year?
+
+  [ 75] [EN] Jackson Ding:Thank you, Liping. This is Jackson. Let me take this one. Let me start with the top line and then move on to the bottom line. So, on the top line, we expect year-over-year revenue growth of Peiyou small class to gradually taper off. This moderation really reflects a more normalized growth rate and will result in a measured pace of capacity expansion. As for learning devices, the business achieved year-over-year and quarter-over-quarter growth in Q2. However, please note that this business is still in its early stage. It is essential for fostering meaningful customer engagement, expanding our user base and encouraging broader adoption.
+       [中] Jackson Ding:谢谢，李平。我是Jackson。我来回答这个问题。先从营收方面说起，然后再谈利润。在营收方面，我们预计培优小班（Peiyou small class）的同比增长将逐步放缓。这种放缓实际上反映了更常态化的增长率，并会导致产能扩张的速度更加稳健。至于学习设备（learning devices），该业务在第二季度实现了同比和环比的增长。但请注意，该业务仍处于早期阶段。它对于促进有意义的客户互动、扩大用户群以及鼓励更广泛的采用至关重要。
+
+原文：
+Jackson Ding:Thank you, Liping. This is Jackson. Let me take this one. Let me start with the top line and then move on to the bottom line. So, on the top line, we expect year-over-year revenue growth of Peiyou small class to gradually taper off. This moderation really reflects a more normalized growth rate and will result in a measured pace of capacity expansion. As for learning devices, the business achieved year-over-year and quarter-over-quarter growth in Q2. However, please note that this business is still in its early stage. It is essential for fostering meaningful customer engagement, expanding our user base and encouraging broader adoption.
+
+  [ 76] [EN] We remain committed to driving business development, though performance may fluctuate due to market conditions, product cycles, seasonality and amongst other factors. From a broader perspective, we believe the company's growth and development depending on the value it creates for its users and the society as a whole. This principle underpins every aspect of our business, big and small. We view revenue growth at the company and industry levels as a result of continuous innovation, greater organizational capabilities and stronger operational execution. Now let's turn to the bottom line. As previously noted, we have established a presence across multiple business lines, including various learning -- enrichment learning programs, learning devices and other content solutions businesses.
+       [中] 我们始终致力于推动业务发展，尽管业绩可能因市场状况、产品周期、季节性及其他因素而出现波动。从更宏观的视角来看，我们认为公司的增长与发展取决于其为用户和整个社会创造的价值。这一原则贯穿于我们业务的方方面面，无论大小。我们视公司及行业层面的收入增长为持续创新、组织能力提升和运营执行力强化的结果。现在，让我们聚焦利润。如前所述，我们已在多条业务线布局，包括各类学习——拓展学习项目、学习设备及其他内容解决方案业务。
+
+We remain committed to driving business development, though performance may fluctuate due to market conditions, product cycles, seasonality and amongst other factors. From a broader perspective, we believe the company's growth and development depending on the value it creates for its users and the society as a whole. This principle underpins every aspect of our business, big and small. We view revenue growth at the company and industry levels as a result of continuous innovation, greater organizational capabilities and stronger operational execution. Now let's turn to the bottom line. As previously noted, we have established a presence across multiple business lines, including various learning -- enrichment learning programs, learning devices and other content solutions businesses.
+
+  [ 77] [EN] Notably, these businesses are at different stages of development, each with distinct priorities. On one hand, our Peiyou small class enrichment learning business has reached a more mature stage, delivering relatively stable profit margins. On the other hand, regarding our new initiatives such as learning devices, as we mentioned earlier that we prioritize long-term competitiveness over short-term profitability with a focus on operational metrics such as user feedback, market share, brand influence and broader user reach. At this stage, the timeline to achieve profitability of the learning device business remains uncertain. We will continue to invest in this area through new product launches, content enrichment, developing AI-powered experiences and making ongoing optimizations to drive performance improvements.
+       [中] 值得注意的是，这些业务处于不同的发展阶段，各有不同的优先事项。一方面，我们的Peiyou小班培优学习业务已进入较为成熟的阶段，贡献了相对稳定的利润率。另一方面，关于学习设备等新业务，正如我们此前所述，我们优先考虑长期竞争力而非短期盈利能力，重点关注用户反馈、市场份额、品牌影响力和更广泛的用户触达等运营指标。当前阶段，学习设备业务实现盈利的时间表仍不确定。我们将继续通过推出新产品、丰富内容、开发AI驱动体验以及持续优化来推动业绩提升。
+
+Notably, these businesses are at different stages of development, each with distinct priorities. On one hand, our Peiyou small class enrichment learning business has reached a more mature stage, delivering relatively stable profit margins. On the other hand, regarding our new initiatives such as learning devices, as we mentioned earlier that we prioritize long-term competitiveness over short-term profitability with a focus on operational metrics such as user feedback, market share, brand influence and broader user reach. At this stage, the timeline to achieve profitability of the learning device business remains uncertain. We will continue to invest in this area through new product launches, content enrichment, developing AI-powered experiences and making ongoing optimizations to drive performance improvements.
+
+  [ 78] [EN] Therefore, the company's overall margin profile reflects the mix of mature and emerging businesses, making it challenging to generalizing future margin trends. I would also like to mention that Q2 is typically a peak season for us in terms of profitability, and we should not expect this level of profit margins in the next couple of quarters to come. Liping, I hope that answers your question.
+       [中] 因此，公司的整体利润率状况反映了成熟业务与新兴业务的混合，这使得预测未来利润率趋势具有挑战性。另外我想指出，第二季度通常是我们盈利能力的高峰期，不应预期未来几个季度能维持这样的利润率水平。Liping，希望这回答了你的问题。
+
+Therefore, the company's overall margin profile reflects the mix of mature and emerging businesses, making it challenging to generalizing future margin trends. I would also like to mention that Q2 is typically a peak season for us in terms of profitability, and we should not expect this level of profit margins in the next couple of quarters to come. Liping, I hope that answers your question.
+
+  [ 79] [EN] Operator:Our next question comes from the line of Elsie Sheng from CLSA.
+       [中] 接线员：我们的下一个问题来自CLSA的Elsie Sheng。
+Operator:Our next question comes from the line of Elsie Sheng from CLSA.
+
+  [ 80] [EN] Yiran Sheng:Congratulations on the strong results. My question is on the plan of allocation in cash because we noted that following the launch of the new share repurchase plan, you have repurchased about 4.2 million common shares. So, could you provide an outlook on the pace of share repurchase for the rest of the year?
+       [中] Yiran Sheng:祝贺你们取得了强劲的业绩。我的问题是关于现金分配计划，因为我们注意到，在新的股票回购计划启动后，你们已经回购了大约4.2 million普通股。那么，能否提供今年剩余时间内股票回购步伐的展望？
+
+Yiran Sheng:Congratulations on the strong results. My question is on the plan of allocation in cash because we noted that following the launch of the new share repurchase plan, you have repurchased about 4.2 million common shares. So, could you provide an outlook on the pace of share repurchase for the rest of the year?
+
+  [ 81] [EN] Jackson Ding:Thank you, Elsie. This is Jackson. I'll take this one. Let me share some updates on our capital allocation plans. As of August 31, 2025, the company held approximately USD 3.5 billion in cash and cash equivalents, short-term investments and restricted cash. We have always taken a prudent and balanced approach to capital allocation. We carefully evaluate potential uses of cash, striving to strike the balance between short-term needs and long-term development. Regarding shareholder returns, we launched our first USD 1 billion share repurchase program in April 2021, later extending it through 2025. In July 2025, that program was nearly completed, and we announced a new USD 600 million repurchase program.
+       [中] Jackson Ding：谢谢你，Elsie。我是Jackson。我来回答这个问题。我来分享一下关于我们资本配置计划的一些最新情况。截至2025年8月31日，公司持有约35亿美元现金及现金等价物、短期投资和受限现金。我们一直采取审慎且平衡的资本配置策略，仔细评估现金的潜在用途，力求在短期需求与长期发展之间取得平衡。在股东回报方面，我们于2021年4月启动了首个10亿美元股票回购计划，后来将其延长至2025年。2025年7月，该计划已基本完成，我们宣布了一项新的6亿美元回购计划。
+
+Jackson Ding:Thank you, Elsie. This is Jackson. I'll take this one. Let me share some updates on our capital allocation plans. As of August 31, 2025, the company held approximately USD 3.5 billion in cash and cash equivalents, short-term investments and restricted cash. We have always taken a prudent and balanced approach to capital allocation. We carefully evaluate potential uses of cash, striving to strike the balance between short-term needs and long-term development. Regarding shareholder returns, we launched our first USD 1 billion share repurchase program in April 2021, later extending it through 2025. In July 2025, that program was nearly completed, and we announced a new USD 600 million repurchase program.
+
+  [ 82] [EN] Between July 31st and October 29, 2025, the company has repurchased 4.2 million common shares for a total consideration of USD 134.7 million. We will continue to execute the program in line with market conditions and may or may not utilize the full authorization over the next 12 months. Looking ahead, we take a long-term perspective, we're making strategic investments to promote sustainable and healthy growth. We'll maintain steady investments in content, learning devices and other new initiatives as we believe these efforts will create long-term value for shareholders. Backed by our cash position, we're confident in our ability to fund business expansion while delivering returns to shareholders.
+       [中] 在2025年7月31日至10月29日期间，公司以总计1.347亿美元回购了420万股普通股。我们将继续根据市场状况执行该计划，并可能在未来12个月内使用或完全不使用全部授权。展望未来，我们秉持长期视角，正进行战略性投资以促进可持续健康发展。我们将在内容、学习设备及其他新举措方面保持稳定投入，相信这些努力将为股东创造长期价值。凭借我们的现金储备，我们有信心在向股东回报的同时为业务扩张提供资金。
+
+Between July 31st and October 29, 2025, the company has repurchased 4.2 million common shares for a total consideration of USD 134.7 million. We will continue to execute the program in line with market conditions and may or may not utilize the full authorization over the next 12 months. Looking ahead, we take a long-term perspective, we're making strategic investments to promote sustainable and healthy growth. We'll maintain steady investments in content, learning devices and other new initiatives as we believe these efforts will create long-term value for shareholders. Backed by our cash position, we're confident in our ability to fund business expansion while delivering returns to shareholders.
+
+  [ 83] [EN] As we drive business development, we will also remain attentive to shareholder interests. The specific level of shareholder returns will be comprehensively evaluated and periodically adjusted, taking into account dynamic factors such as market conditions, investment opportunities, business outlook and capital allocation priorities. We will provide timely and appropriate disclosures to ensure investors are well informed on this matter. Elsie, I hope that answers your question.
+       [中] 在推动业务发展的同时，我们也将持续关注股东利益。具体的股东回报水平将根据市场状况、投资机会、业务前景及资本配置优先次序等动态因素进行综合评估并定期调整。我们将及时、适当地进行披露，确保投资者充分了解相关信息。Elsie，希望这回答了您的问题。
+
+As we drive business development, we will also remain attentive to shareholder interests. The specific level of shareholder returns will be comprehensively evaluated and periodically adjusted, taking into account dynamic factors such as market conditions, investment opportunities, business outlook and capital allocation priorities. We will provide timely and appropriate disclosures to ensure investors are well informed on this matter. Elsie, I hope that answers your question.
+
+  [ 84] [EN] Operator:We have reached the end of the question-and-answer session. Thank you all very much for your questions. I'll now turn the conference back to the management team for closing comments.
+       [中] 接线员：我们已经到了问答环节的尾声。非常感谢大家的提问。现在我将把会议交还给管理团队进行闭幕致辞。
+
+Operator:We have reached the end of the question-and-answer session. Thank you all very much for your questions. I'll now turn the conference back to the management team for closing comments.
+
+  [ 85] [EN] Zhuangzhuang Peng:So again, thanks to everyone for joining us today, and we look forward to seeing you all next quarter. Thanks. Bye-bye.
+       [中] Zhuangzhuang Peng:再次感谢大家今天的参与，我们期待下个季度与各位再见。谢谢，再见。
+
+Zhuangzhuang Peng:So again, thanks to everyone for joining us today, and we look forward to seeing you all next quarter. Thanks. Bye-bye.
+
+  [ 86] [EN] Operator:Thank you for your participation in today's conference. This does conclude the program. You may now disconnect your lines.
+       [中] 接线员：感谢您参加今天的会议。本次会议到此结束。您现在可以挂断线路。
+
+Operator:Thank you for your participation in today's conference. This does conclude the program. You may now disconnect your lines.
+
+  [ 87] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。
+
+  [ 88] [EN] The Motley Fool has no position in any of the stocks mentioned. The Motley Fool has adisclosure policy.
+       [中] Motley Fool 没有持有上述任何股票的头寸。Motley Fool 有披露政策。
+
+  [ 89] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [ 90] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 90 段中英对照
+======================================================================

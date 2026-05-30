@@ -1,0 +1,532 @@
+======================================================================
+Earnings Call Transcript
+Company: MongoDB (MongoDB)
+Ticker: MDB
+Quarter: Q1 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2024/05/31/mongodb-mdb-q1-2025-earnings-call-transcript/
+Scraped: 2026-05-30T14:53:03.299972
+Characters: 64977
+======================================================================
+
+MongoDB(MDB+2.97%)Q1 2025 Earnings CallMay 30, 2024,5:00 p.m. ET
+
+Prepared Remarks
+
+Questions and Answers
+
+Call Participants
+
+Prepared Remarks:
+
+Operator
+
+Good day, and thank you for standing by. Welcome to MongoDB's first quarter fiscal year 2025 earnings call. [Operator instructions] Please be advised that today's conference is being recorded. I would now like to hand the conference over to your speaker today, Brian Denyeau from ICR.
+
+Please go ahead.
+
+Brian Denyeau--Investor Relations
+
+Thank you, Victor. Good afternoon, and thank you for joining us today to review MongoDB's first quarter fiscal 2025 financial results, which we announced in our press release issued after the close of the market today. Joining me on the call today are Dev Ittycheria, president and CEO of MongoDB; and Michael Gordon, MongoDB's COO and CFO. During this call, we will make forward-looking statements, including statements related to our market and future growth opportunities.
+
+Our expectations for the macroeconomic environment in fiscal 2025 and the impact of AI, the benefits of our product platform, our competitive landscape, customer behaviors, our financial guidance and our planned investments and growth opportunities. These statements are subject to a variety of risks and uncertainties, including the results of operation and financial conditions that could cause actual results to differ materially from our expectations. For a discussion of material risks and uncertainties that could affect our actual results, please refer to the risk factors described in our annual report on Form 10-K for the period ended January 31, 2024, that was filed with the SEC on March 15, 2024. Any forward-looking statements made on this call reflect our views only as of today and we undertake no obligation to update them, except as required by law.
+
+Additionally, we will discuss non-GAAP financial measures on this conference call. Please refer to the tables in our earnings release on the Investor Relations portion of our website. For a reconciliation of these measures to the most directly comparable GAAP financial measures. With that, I'd like to turn the call over to Dev.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Thanks, Brian, and thank you to everyone for joining us today. Before we dive into the quarterly results, I'd like to take a step back and remind everyone of MongoDB's foundational and durable technology advantage. MongoDB was built on the novel approach of using documents rather than tables to organize and work with data. This not only unleash developer productivity by aligning to the way developers think and code but also made it far easier to work with large volumes and variety of data.
+
+This approach has been incredibly well suited as application development has evolved over time. Most notably with the shift to building apps in the cloud. We believe these advantages will enable a similar dynamic as AI matures in its S-curve adoption cycle and customers build ad production applications at scale. Now let's review our first quarter results before sharing a broader company update.
+
+Starting with the first quarter, we generated revenue of $451 million, a 22% year-over-year increase and above the high end of our guidance. Atlas revenue grew 32% year-over-year, representing 70% of revenue. We generated non-GAAP operating income of $33 million for a 7% non-GAAP operating margin and we ended the quarter with over 49,200 customers. Let me go into our quarterly results in a bit more detail.
+
+First, Atlas consumption growth was below our expectations in the first quarter. We saw less seasonal improvement than expected and this dynamic was true with customers across tenure, industry, size and geography. We believe this indicates a more challenging macro environment than expected at the beginning of the year. A new dynamic we saw in Q1 was the growth rate of more recently acquired workloads started to slow down earlier than expected.
+
+While the macro environment had an impact, we also believe this is partly due to the go-to-market changes we instituted last year. We have fine-tuned our process and incentive structures to make sure the field is focused on winning workloads with higher growth potential. Second, our new business performance in Q1 wasn't up to our standards. Operationally, we got off to a slow start in the quarter.
+
+And while we mostly caught up on new business as the quarter went on, we didn't quite get there in the end. Importantly, our win rates remain strong and as we look out to the rest of the year, we are confident in our ability to continue winning new business. Finally, retention rates remained strong in Q1, reinforcing the quality of our products and the mission criticality of our platform. As we look to the rest of the year, we will remain focused on workload acquisition across existing and new customers.
+
+Moreover, we will prioritize three key areas we expect to see the strongest growth and returns over the long term. First, we will increase our investments in the enterprise channel. As we have seen with our strategic account program, incremental investments in large accounts have disproportionate returns in terms of workload acquisition and subsequent account growth. Simply put, we see the best returns at the high end of the market, so we'll increase our level of investment there.
+
+Second, we are more optimistic about the opt-in to accelerate legacy app modernization using AI. This is a large segment of the market that has historically been hard to penetrate. We recently completed the first two GenAI-powered modernization pilots, demonstrating we can use AI to meaningfully reduce the time, cost and risk of modernizing legacy relational applications. In particular, we see that AI can significantly help with analyzing existing code, converting existing code and building unit and functional tests.
+
+Based on our results from our early pilots, we believe that we may be able to reduce the effort needed for app modernization by approximately 50%. We have a growing list of customers across different industries and geos, who want to participate in this program. Consequently, we will be increasing our level of investment in this area. Third, although still early in terms of customers building production-ready AI apps, we want to capitalize on our inherent technical advantages to become a key component of the emerging AI tech stack.
+
+Customers tell us that our document-based architecture is a powerful differentiator in an AI world, the most powerful use cases rely on data of different types and structures such as text, image, audio and video. The flexibility required to handle a variety of different data structures is fundamentally at odds with legacy databases that rely on rigid schemes, which is what makes MongoDB's document model such a good fit for these AI workloads. Recognizing there are other critical elements of the AI tech stack, we are leveraging partners to build an ecosystem that will make it easier for customers to build AI-powered applications. Earlier this month, we launched the MongoDB AI application Program, or MAP, a first-of-its-kind collaboration that brings together all three hyperscalers, foundation model providers, generative AI frameworks, orchestration tools and industry-leading consultancies.
+
+With MAP, MongoDB offers customers reference architectures for different AI use cases, prebuilt integrations and expert professional services to help customers get started quickly. Today, we are announcing that Accenture is the first global systems integrator to join MAP and that it will establish a center of excellence focused on MongoDB projects. We will continue to expand the program through additional partnerships and deeper technical integrations. We are excited to pursue these significant growth opportunities.
+
+While the timing of when these drivers will impact our results will vary, we are confident that they will support higher growth rates over our business over time -- for business over time. Underpinning our success to date and our future growth avenues is our product leadership. Earlier this month at our New York user conference, we announced a number of innovations to address important customer needs. We introduced MongoDB 8.0, which will deliver up to a 60% performance improvement over our last release, while also materially enhancing our shorting functionality.
+
+This will allow our customers to build highly per-formant, scalable and resilient applications. We announced that it will bring full text search and vector search to our community server offering, showcasing our commitment to open source and bringing our run-anywhere strategy to the age of AI. Finally, we unveiled the general availability of Atlas stream processing demonstrating our commitment to expanding the capabilities of our developer data platform and ensuring that MongoDB is the best platform to build real-time highly distributed applications across a broad range of industries. Now I'd like to spend a few minutes reviewing the adoption trends of MongoDB across our customer base.
+
+Customers across industries around the world are running mission-critical projects on MonoDB Atlas. Leveraging the full power of our developer data platform, including Michelin, Meltwater and Toyota Connected. Toyota connected and independent Toyota company focused on innovation, AI, data science and connected intelligence services migrated to MongoDB Atlas after experiencing reliability issues with the original legacy database system. The team selected MongoDB Atlas for its ease of deployment, reliability and multi-cloud and multi-region capabilities.
+
+Toyota Connected now uses Atlas for over 150 micro-services. Their solution benefits from 99.99% uptime with Atlas as a platform for all data, including mission-critical vehicle telematics and location data needed for emergency response services. MongoDB's to connector's database of choice for all future services as explore vector and AI capabilities, knowing they'll get the reliability and scalability they need to meet customer needs. Tonga, Morgan Star, and Saga are turning to MongoDB to modernize applications.
+
+MongoDB Atlas serves as the back end for Sega Europe's customer portal platforms. The video game and entertainment company uses data in the customer portals to track and analyze customer churn along with users' gaming cadence and geographic location. When Amazon DynamoDB wasn't providing the necessary flexibility or ability to handle complex queries, they migrated to MongoDB to better manage the variation of schemas within customers' records. Within two weeks, they had a prototype for a fully functioned database, and the Sega team can now analyze extensive data to inform product development and keep customers engaged.
+
+Enterprise and stars use MongoDB to deliver the next wave of AI-powered applications to the customers, including ACI Worldwide, DevRev and Novo Nordisk. By harnessing GenAI with MongoDB Atlas Vector search, Novo Nordisk, one of the world's leading healthcare companies is dramatically accelerating how quickly can get new medicines approved and delivered to patients. The team responsible for producing clinical study report turn to Atlas when the original relational database wasn't capable of handling complex data and lack the flexibility needed to keep up with the rapid feature development. Now with GenAI and the MongoDB Atlas platform, Novo Nordisk gets the mission-critical assurances that needs to run highly regulated applications, enabling them to generate complete reports in 10 minutes rather than 12 weeks.
+
+In summary, our performance in Q1 was mixed. While Q1 has implications for our financial results for the rest of fiscal '25, which Michael will cover, the 10 of our customer conversations, especially in the enterprise segment has never been stronger. Our customers recognize that modernizing legacy applications is no longer optional in the age of AI. And are preparing for a multiyear journey to accomplish that goal.
+
+They see MongoDB as a key partner in that journey. We are well-positioned to be a key beneficiary as organizations embed AI into the next generation of software applications that transform their business. With that, here's Michael.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Thanks, Dave. I'll begin with a detailed review of our first quarter results and then finish with our outlook for the second quarter and full fiscal year 2025. First, I'll start with our first quarter results. Total revenue in the quarter was $450.6 million, up 22% year over year and above the high end of our guidance.
+
+Shifting to our product mix. Let's start with Atlas. Atlas grew 32% in the quarter, compared to the previous year and now represents 70% of total revenue, compared to 65% in the first quarter of fiscal 2024 and 68% last quarter. We recognize Atlas revenue primarily based on customer consumption of our platform, and that consumption is closely related to end-user activity of the application.
+
+In addition, as we communicated last quarter, Q1 was the first quarter we saw the expected significant decline in revenue from unused Atlas commitments, making this quarter a tough comparison, both sequentially and year over year. Let me provide some additional context on Atlas consumption in the quarter. Following our guide in March, week-over-week consumption growth was below our expectations. Consumption improved compared to Q4 but was below the seasonal strength we saw in Q1 of last year.
+
+As Dave mentioned in his remarks, we saw a smaller-than-expected improvement across all customers, regardless of industry, geography or tenure, indicating that we are operating in a softer macro environment. In addition, we observed a smaller contribution from recently acquired workloads. While we acquired a record volume of workloads last year and those cohorts initially performed in line with our expectations, we are now seeing those cohorts grow more slowly than expected. Having analyzed the data, we believe that in the process of winning increased workload volumes, we unintentionally lost some focus on workload growth potential, and we've made adjustments in our processes and incentives to strike a better balance.
+
+Turning to non-Atlas revenue, EA came in modestly ahead of our expectations in the quarter as we continue to have success selling incremental workloads into our existing EA customer base. EA revenues declined sequentially as expected since EA is primarily an upselling motion into existing customers. And in Q1, we have a seasonally lower EA renewal base. In addition, despite the outperformance, it's worth noting that revenue contribution from multiyear EA contracts in the quarter was lower than expected, reflecting the current macro environment.
+
+Turning to customer growth. During the first quarter, we grew our customer base by approximately 1,400 customers sequentially, bringing our total customer count to over 49,200, which is up from over 43,100 in the year-ago period. Of our total customer count, over 7,100 are direct sales customers, which compares to over 6,700 in the year-ago period. The growth in our total customer count is being driven primarily by Atlas, which had over 47,700 customers at the end of the quarter, compared to over 41,600 customers in the year-ago period.
+
+It's important to keep in mind that the growth in our Atlas customer count reflects new customers to MongoDB in addition to existing EA customers adding incremental Atlas workloads. Moving to ARR. We had another quarter with our net ARR expansion rate above 120%. We ended the quarter with 2,137 customers with at least $100,000 in ARR and annualized MRR, which is up from 1,761 in the year-ago period.
+
+Moving down the income statement, I'll be discussing our results on a non-GAAP basis, unless otherwise noted. Gross profit in the first quarter was $337.8 million, representing a gross margin of 75%. Which is down from 76% in the year-ago period. Our year-over-year margin decline is primarily driven by Atlas growing as a percent of the overall business.
+
+Our income from operations was $32.8 million or a 7% operating margin for the first quarter, compared to a 12% margin in the year-ago period. The primary reason for a more favorable operating income results versus guidance is our revenue outperformance. Net income in the first quarter was $42.7 million or $0.51 per share based on 83.2 million diluted weighted average shares outstanding. This compares to a net income of $45.3 million or $0.56 per share on 81.5 million diluted weighted average shares outstanding in the year-ago period.
+
+Turning to the balance sheet and cash flow. We ended the first quarter with $2.1 billion in cash, cash equivalents, short-term investments and restricted cash. Operating cash flow in the first quarter was $63.6 million, driven by seasonal strength in collections. After taking into consideration approximately $2.6 million in capital expenditures and principal repayments of finance lease liabilities, free cash flow was $61 million in the quarter.
+
+This compares to free cash flow of $51.8 million in the first quarter of fiscal 2024. I'd now like to turn to our outlook for the second quarter and full fiscal year 2025. For the second quarter, we expect revenue to be in the range of $460 million to $464 million. We expect non-GAAP income from operations to be in the range of $35 million to $38 million.
+
+And non-GAAP net income per share to be in the range of $0.46 to $0.49 based on 84.6 million estimated diluted weighted average shares outstanding. For the full fiscal year 2025, we expect revenue to be in the range of $1.88 billion to $1.9 billion; non-GAAP income from operations to be in the range of $168 million to $183 million, and non-GAAP net income per share to be in the range of $2.15 to $2.30 based on 84.5 million estimated diluted weighted average shares outstanding. Note that the non-GAAP net income per share guidance for the second quarter and full fiscal year 2025 include the non-GAAP tax provision of approximately 20%. I'll now provide some more context around our guidance, starting with the full year.
+
+First, as a reminder, our fiscal '25 Atlas revenue growth rate will be impacted by the absence of over $40 million in revenue related to unused customer commitments. Second, we had expected Atlas consumption growth to be stable in fiscal '25 relative to fiscal '24. But after a weaker-than-expected Q1, we now expect Atlas consumption growth to slow down this year. The slowdown is driven by the more pronounced macro impact we are seeing on our existing workloads, recent cohorts in particular.
+
+In addition, starting Q2 Atlas ARR is also lower in part because of the smaller-than-expected new business cohort in Q1. Third, we previously expected non-Atlas revenues to be modestly down in fiscal '25. As a reminder, in fiscal '24, we recognized approximately $40 million more in multiyear license revenue than we did in fiscal '23, making for a difficult compare this year. We had expected fiscal '25 multiyear license revenue contribution to be more in line with fiscal '23.
+
+However, in Q1, despite the EA outperformance, we saw a lower-than-expected contribution from multiyear deals, a pipeline of multiyear deals for the rest of the year is currently lower given the macro environment. Consequently, we now expect non-Atlas revenue to be down mid-single digits for the year. Finally, we expect a 9% operating margin at the midpoint of our guidance. We continue -- we will continue investing to capture our long-term opportunity, focusing that investment on the strategic priorities at development.
+
+Turning to our Q2 guidance, a few things to keep in mind. First, we expect Atlas revenue growth to slow on a year-over-year basis, due in part to the lower-than-expected consumption growth trends and the lower starting Q2 ARR. Second, we expect to see a sequential decline in non-Atlas revenues. On a year-over-year basis, non-Atlas revenue will be materially down due to an especially difficult area.
+
+As last year's Q2 included term license contribution from a number of multiyear license deals. Most notably the expansion of our partnership with Alibaba. To summarize, our Q1 results will impact our growth rate for this year. However, we do not believe that our fiscal '25 growth is an indication of our long-term potential.
+
+We have a small share in one of the largest and fastest-growing markets in all of software. The secular tailwinds at our back are only getting stronger in the age of AI, and we're excited about the future. We'll continue investing judiciously and focusing on our execution to capture this long-term opportunity. With that we'd like to open it up to questions.
+
+Operator?
+
+Questions & Answers:
+
+Operator
+
+[Operator instructions] Our first question will come from the line of Sanjit Singh from Morgan Stanley. Your line is open.
+
+Sanjit Singh--Morgan Stanley -- Analyst
+
+Yeah, thanks for taking the question. Dev, I wanted to start with just some of the reasons behind the slowdown and the slow start to the year. Heard you on the evidence for this being more macro-related, but just wanted to sort of take a pause and get a sense of how Mongo is performing relative to other players in the ecosystem. Obviously, the hyperscalers did quite well.
+
+I think Azure talked about xAI. They saw workload growth improving. So I wanted to get a sense if there's any potential that the hyperscalers are taking more share of wallet, maybe because they're working more closely with like the model providers and, you know, they get more database attached, whether it's a Cosmos DB or anything on the AWS side, deals that you may not even see. And that's maybe taking more sort of share of the budget from the opportunity set for Mongo.
+
+I was wondering if that has come up at all in your conversations with the sales team.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. So we did see a macro impact because we essentially saw the impact across size, industry, geo, and tenure. But what I'll say in contrast to the hyperscalers, like we believe the bulk of their growth across all three hyperscalers was really spent on reselling GPU capacity because there's a lot of demand for training models. We don't see a lot of, at least today, a lot of AI apps in production.
+
+We see a lot of experimentation but we're not seeing AI apps in production at scale. And so, I think that's the delta between the results that the hyperscalers produced versus what we are seeing in our business. Our relationship with our hyperscalers is actually very strong. We partner very closely with AWS, Azure, and GCP in the field.
+
+And in fact, they're coming to us to partner on deals more frequently than we've seen in the past. And our win rates, frankly, are very high. So we don't see any issues where we're losing deals to any particular vendor, whether they're a hyperscaler or small independent company. And so, from that point of view, we think this is more macro related and the trend of a lot of people investing in the GPU infrastructure layer, as well as training of models.
+
+Sanjit Singh--Morgan Stanley -- Analyst
+
+Understood. And then, just one quick follow-up on the sales side. You mentioned that sort of the recently acquired workloads were not growing as fast as expected. And you seem to point that as related to some sales execution opportunities.
+
+Could you unpack that for us as to like why that may be an issue? What's a customer sort of on board the new workload? What's the sort of you know responsibility of sales to grow that? I would imagine that once you stand up that work case it's sort of driven by the nature of the application. So I just want to understand the new workload [Inaudible].
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. I just want to -- I think there's actually two separate issues. One is we're talking -- when we talk about workloads slowing down or growing more slowly, we're talking about the workloads predominantly from last year and before. We had a record workload volume last year and we purposely designed our incentive system to reduce the friction to acquire workloads and that actually worked really well.
+
+What we're seeing is that now as we're starting to hit the one-year mark for the first workloads required last Q1 that they're growing more slowly. So we're changing and fine-tuning some of the incentives to ensure that our salespeople and our teams focus on higher quality workloads that have higher growth potential. So that's one point. In terms of new business, we did have a slow start to the year.
+
+As you know, we really focused on acquiring new workloads and measuring workloads all last year. So it took some time for us to analyze that workload data. And that then delayed how we organized from an org structure, our territory, and ultimately finalizing quotas. And so, we did almost catch up by the end of the quarter, but not fully.
+
+But I want to be clear, we remain very confident in our ability to win new business, and our win rates remain strong.
+
+Sanjit Singh--Morgan Stanley -- Analyst
+
+Understood. Thank you so much, Dev.
+
+Operator
+
+Thank you. One moment for our next question. And our next question comes from the line of Raimo Lenschow from Barclays. Your line is open.
+
+Raimo Lenschow--Barclays -- Analyst
+
+Hey, thank you. Can I stay on that subject base a little bit? So if you think about there's some of the stuff you just talked about is kind of in your own control and then there's macro. Like if you think about like what was the more important driver here, the macro side or the side that kind of you influence? Can you speak to that, like that we try to understand that better? And when did macro show up for you as well, during the quarter?
+
+Dev Ittycheria--President and Chief Executive Officer
+
+I would say, obviously, you know, based on expectations, the macro was -- the consumption was worse than we had expected when we guided at the end of Q4, based on our Q4 results. And the reason we firmly believe there's a macro impact is because we saw that slowdown happen across different sides of customers, across different industries, across different geos, and also across the tenure of our customers. There's also, the usage growth was definitely slower compared to a year-ago period. So that's what gives us a belief that this was a macro issue.
+
+And then, the new business issue was really, as I said, we almost caught up, but it was really operationally getting our organization in place and quotas in place. And we definitely learned from that, and we have changed our planning process so that we don't repeat the same mistake again. But that was the execution issue that I would say that we went through in Q1 with a slower start to the year.
+
+Raimo Lenschow--Barclays -- Analyst
+
+Yeah. OK. Perfect. Thank you.
+
+And then, Michael, if you think about the year from an opex perspective, obviously your revenue is coming down a little bit. Like, how do you think about the investment cadence now? I mean, one way is to think like revenue's coming down, so I need to do something about the cost. The other thing is there's a big AI opportunity, so I need to keep investing. Where are you coming out there? What's your kind of puts and takes while you think about through that?
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Sure. Yeah. And obviously all this thinking is embedded in the guide. And so, what the guide reflects is if you think about sort of the remainder of the year, a similar amount of investment.
+
+And I think to your point, we're very much running the business for the long-term. And even if there are, if we have a reduced revenue outlook compared to where we were 90 days ago, none of that changes the long-term opportunity for us. And so, we want to continue to make sure that we're investing for that long-term opportunity. Dev also highlighted three specific areas that are particularly high value.
+
+And so, what we'll do to spend within that or to live within that existing kind of target spend envelope is we prioritize those three things that Dev said to make sure that what we're investing in are the things that are most likely to move the needle and support long-term growth.
+
+Raimo Lenschow--Barclays -- Analyst
+
+OK. Perfect. Thank you.
+
+Operator
+
+Thank you. One moment for our next question. Our next question comes from Brad Reback from Stifel. Your line is open.
+
+Brad Reback--Stifel Financial Corp. -- Analyst
+
+Great. Thanks very much. So just following up on that last question, a couple of years ago when things slowed, you dramatically slowed down sales hiring and maybe got a little behind from your commentary last year. Should we take it to -- should we take what we're hearing today lead us to believe that even while there's a softer macro out there you're still going to fairly aggressively invest on the sales and marketing side to keep capacity growing?
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. What I would say is our investment model is going to be consistent. We did pause hiring last year, and so we want to make sure that we continue to grow our productive capacity consistently. We're going after a very large market.
+
+We have low share, but we also have to win business workload by workload, which is harder than more of a top-down centralized sale. And so, what we're also doing is focusing on also increasing the productivity of those teams by getting more better and more efficient at workload by workload, focusing on the higher end of the market. And also trying to sell more top-down using the whole focus around modernizing legacy applications, as well as AI, which obviously is getting a lot of senior level attention. So we definitely believe the long term growth prospects are strong.
+
+And so that's why we want to continue to invest in building out sales capacity.
+
+Brad Reback--Stifel Financial Corp. -- Analyst
+
+Great. And on the volume versus potential of deals we'll say or workloads as you talked about last year a lot of volume maybe the potential wasn't as high for those workloads to grow. Can you give us a sense of the types of workloads that weren't growing as fast or what gives you confidence that you've really identified those types of workloads that can get you back to high potential? Thanks.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. I mean, the initial workloads actually grew in-line with what we were expecting, but then they started growing more slowly, and we really noticed that this quarter. I would say, while it's not easy to identify, especially new workloads, what's going to take off versus what's going to be more of a slower growth workload because sometimes even customers don't know. What we have done is changed incentive systems a bit to emphasize more quality of workloads in the sales comp plans.
+
+So by definition, they're very incentivized to really push for the higher growth workloads and they can get not perfect data but a lot better data by working more closely with customers to understand which are more of the critical workloads versus more the tertiary workloads.
+
+Brad Reback--Stifel Financial Corp. -- Analyst
+
+Got it. Thanks very much.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+And maybe Brad just to sort of connect the dots, just to make sure that everyone's following, is that as we successfully got more volume, right, because we've got low share in this big market, one of the things that we did that helped us do that is reduce friction upfront. An unintended consequence of reducing friction is you actually have less information about everything, right, so as your sales rep, you're trying to prioritize your time. That was an unintended consequence, so what Dev's talking about will help address that.
+
+Brad Reback--Stifel Financial Corp. -- Analyst
+
+Perfect. Appreciate it.
+
+Operator
+
+Thank you. One moment for our next question. And our next question will come from the line of Kash Rangan from Goldman Sachs. Your line is open.
+
+Kash Rangan--Goldman Sachs -- Analyst
+
+Hi. Thank you very much. Dev, you've been through multiple cycles before. This time it's application software, databases, it doesn't matter.
+
+The weakness seems to be prevalent. As you take a step back, what do you think is really going on? And then, one for you, Michael. How did consumption trends pan out throughout the quarter and the month of May? What do they look like? Thank you so much.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yes. So Kash, you're right. I have been through multiple cycles. I think the one thing I would say is with every cycle, when you go back all the way to the mainframe, to client server, to the internet, and now cloud and mobile, the cost of building applications went down.
+
+So you saw an explosion of more apps and consequently more data. And I think with AI, you're going to see a step-fold increase in the number of apps and the number of -- amount of software that's being built to run businesses, etc. But that's going to take some time. As with any new adoption cycle, the adoption happens to what people commonly refer to as S-curves.
+
+And I think we're going through one of those S-curves when I see the macro environment. Partly it's related to this technology transition, but partly it's also related that the macro environment is not great. But we feel we're really well-positioned. The document model is truly the best way to work with a variety of different data.
+
+In fact, one customer told us if he had to build a database, it would be designed exactly like MongoDB. And so, for this new AI era, and so we feel really good about our position. And we have lots of partners in this endeavor. And we have a large market that we're going after.
+
+So we feel really bullish about the long-term growth opportunity for the business.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+And Kash, just on your question about kind of consumption through the quarter, obviously when we guided in March, we knew what February was, so there's no sort of source of variance there. And typically, so what that sort of means is that March and April is where we were expecting to see additional kind of that seasonal rebound that we've talked about. We didn't see that as strongly. March and April consumption trends were consistent with February.
+
+Normally they are healthier. And so that's sort of the first piece of it. And then, secondly to your question around May, May was also consistent indicating sort of stability. May is typically in-line.
+
+I guess, the other thing that I would say, just for those who follow the story closely, is you will know or recall that Q2 as a quarter is generally a seasonally lower quarter relative to Q1, but that tends to happen after May. And so, May being in-line with what we saw and being consistent with what we saw in Q1 would be the typical pattern, and that's what we saw showing that sort of consistency. So hopefully that helps.
+
+Operator
+
+All right, Thank you. One moment for our next question. And our next question will come from the line of Karl Keirstead from UBS. Your line is open.
+
+Karl Keirstead--UBS -- Analyst
+
+Well, thank you. Maybe I'll direct these to Dev. Dev, I know it's hard to get into the heads of your customers and understand their behavior, but I guess the spirit of this question is when you say macro, what do you mean exactly? What are the customers telling you is the root cause? Is it a sensitivity to rates or consumer end-market weakness? Are you able to pinpoint what it is? And then, maybe part two, one easy alternative explanation to macro is that AI has become such a big issue for CIOs and boardrooms that it might be crowding out other spend. Do you feel like there's any credence to that thesis? Thank you for both, Dev.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. So thanks for the question, Karl. So what we talk about in macro, remember, ultimately we're a database or a data platform and the usage of our platform is directly or very tightly correlated to the performance of the end-customer's business. If they're selling 100 widgets a week and all of a sudden now they're selling 80 widgets a week, that will mean that they're using the database less intensely.
+
+So when we see broad-based slowdown across different customer cohorts of different sizes, across different industries and across different geos, that strikes us as pretty much a macro issue. And so that's why, based on -- and we have close to 50,000 customers, so we have a pretty good feel for what's happening right now. And that's why we feel that there's definitely a macro element to it. With regards to the second part of your question is AI essentially crowding out new business.
+
+We definitely think that that's plausible. We definitely see development teams experimenting on AI projects. The technology's changing very, very quickly. But that being said, we don't see that as a reason for us to not hit our new business targets.
+
+And as I said, even though we started slow, we almost caught up at the end of this quarter, and we feel really good about our new business opportunity for the rest of this year. So I don't want to use that as an excuse for us not meeting our new business targets.
+
+Kash Rangan--Goldman Sachs -- Analyst
+
+OK. Got it. Helpful, thank you.
+
+Operator
+
+Thank you. One moment for our next question. Our next question will come from a line of Brad Sills from Bank of America. Your line is open.
+
+Brad Sills--Bank of America Merrill Lynch -- Analyst
+
+Oh, great. Thank you so much. I guess maybe just a follow up to that last question there, Dev. It sounds like you are starting to see some improvement here, perhaps in pipeline, if I'm hearing you properly, since you've kind of gotten things back on track here with regards to some of the planning that's out of the way.
+
+Is that a fair assessment? In other words, do you feel like your pipeline coverage is now improving as potentially, you know, assigned for some improvement later in the year?
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. When characterizes improving, I think we all -- we felt good about our pipeline. We just got to us off to a slow start for the quarter and so that -- that was the point that I think the nuance that we're trying to communicate and that we do feel good about the new business opportunity for the rest of this year. And when I talk to our sales leadership team there, they feel really good, the win rates seem very high, our competitiveness against different types of competitors is strong, so our new business opportunity is strong.
+
+I wouldn't say it's suddenly improved, it's just that we got off to a slow start of Q1.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Yeah. And Brad, I would just broadly say, this is very consistent with how we've talked about the business for the last couple of years now in terms of thinking about new business and expansion or consumption of existing workloads and that the macro impact, which obviously, even if it's getting more sensitive, isn't a brand new topic or isn't a brand new discussion. From a new business standpoint, we've been able to execute well, against that, but it does affect the underlying usage of applications, so kind of those underlying read-writes that drive, you know, consumption. And so that's really the same dynamic that's being out here.
+
+The operational stuff and the slow start at the beginning that we kicked off is just trying to put the Q1 lighter new business quarter into context and is a nuance that's meant to help understand. It's not some fundamental different shift about the macroeconomic environment. We've been able to continue to execute well from that standpoint from go-to-market and everything else perspective. So just to try and connect the dots for those who are listening and have kind of seen the longitudinal story here.
+
+Brad Sills--Bank of America Merrill Lynch -- Analyst
+
+Understood. Thank you so much. And one more, if I may please, just do you feel like you have identified what those higher quality workloads are? Just curious what, what in your view those are? Is it just larger, more tenured customers that tend to have, bigger data sets that the – so you can address or is there something more to what that higher workload definition is, the higher quality workload? Thank you.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. I mean, it really depends on the -- if it's a new workload or existing workload. So if it's a new workload, it's hard to suss out exactly how quickly that workload is going to grow. But what we've changed is in our incentive mechanisms that there's more balance to quality in terms of size versus just pure volume.
+
+Again, I just want to remind people we had record workload volumes last year, which so the intent of our strategy actually worked well because we really reduced the amount of friction in terms of acquiring new workloads. Just now that we're seeing, you know, starting to see one-year data, we just made fine-tuned some of our incentives to just make sure there's a little bit more balance on rewarding people for the size of workload, not just the volume.
+
+Brad Sills--Bank of America Merrill Lynch -- Analyst
+
+Understood. Thanks, Dev. Thanks, Michael.
+
+Operator
+
+One moment for our next question. Our next question will come from the line of Tyler Radke from Citi. Your line is open.
+
+Tyler Radke--Citi -- Analyst
+
+Yeah. Thanks for taking the question. Just to follow up on in terms of the consumption weakness that you saw in the quarter, I guess could you help us understand is this more driven by kind of the end applications being less usage? Do you think that this is specific optimizations that customers are putting in place or maybe it's just slower pace of application modernization across those customer bases given the tight budget environment. If you could just kind of pinpoint where you're seeing that consumption expansion office the most.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. So when we talk about consumption weakness, it is in our view the end applications usage slowing down which is in some ways a proxy for our end customers' businesses slowing down. And it's not new business because this is consumption of existing workloads. And you have to remember, we never saw really optimization as a major dynamic in our business last year.
+
+So it wasn't a headwind last year, so it's not really a tailwind this year. And so that is not a major dynamic in our business relative to other consumption oriented businesses that obviously you track.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Yeah. And Tyler, I think we said this in the prepared remarks, but again, just to make sure that we hit this point. If you think about the slower growth in Atlas consumption that we saw, we talked about how, if you look on a year-over-year basis, the underlying usage, right, think like, you know, reads and writes, that grew more slowly this year as well. And as we've talked about, there tends to be a tight linkage between those two, given sort of the way that our value proposition works.
+
+Tyler Radke--Citi -- Analyst
+
+OK. Helpful. Michael, you know, on the guidance here, obviously, I'm sure you don't like lowering guidance, but considering you did it here and hopefully this is the last time this year, can you just remind us what you're assuming from a consumption pattern? I know you said that this year is obviously starting off slower than you expected and kind of behind seasonal trend versus last year. What are you doing from an adjustment perspective? Are you taking kind of a worst case scenario? Are you looking back, maybe a couple years back when consumption trends were even worse just help us understand what's embedded and what level of conservatism you're applying? Thank you.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Yes, I'm happy to help you walk through. Obviously, we went through the fiscal 2025 guide in a fair amount of detail when we guided back in March, and so maybe I'll kind of call out the things that have changed since then in terms of our understanding, obviously first and foremost the Q1 results, being the biggest piece. So as we've talked about, consumption and consumption growth and consumption growth trends tend to be the biggest near-term factor when you look out at the business. So we saw those lower, as we mentioned, in March and April than what we expected.
+
+May, as I mentioned, is consistent with that, and so we've assumed that same level persists throughout the year. So we haven't assumed a recovery, and nor have we assumed a deterioration. I think the other thing within Atlas that's important to keep in mind, as you think through kind of the impacts, are in part because of that lower expansion in Q1 and then also the smaller new business cohort within Atlas in Q1. The starting Q2 ARR is lower, and that compounds over the course of the year, right? So we spent a bunch of time last year talking about how Q1 was a particularly strong quarter.
+
+And given the math of compounding, that wound up being the gift that kept giving throughout the year from an absolute revenue number perspective, even if we saw different consumption trends, that will work the same way this year, but sort of in reverse, right? With the softer growth in Q1, that will compound, as you think about it, relative to your full year guide. And so that's baked in to the [Inaudible] equation. And the third thing that I call out is I referenced EA. EA did have a stronger Q1 and outperformed relative to our expectations.
+
+But despite that outperformance, we actually saw fewer multi-year deals and in the current macro environment, we look out, we think there's reason to believe that Q1 wasn't a fluke and that will be a headwind. And so, when you think about the 606 dynamics associated with enterprise advance, we factored that into account as well. And so, those are really the three key things that make up the inputs into the fiscal 2025 updated guide.
+
+Tyler Radke--Citi -- Analyst
+
+Thank you.
+
+Operator
+
+Thank you. One moment for our next question. And our next question will come from Mike Cikos from Needham. Your line is open.
+
+Mike Cikos--Needham and Company -- Analyst
+
+Thanks for taking the questions, guys. I have two, and I'll start with the first one here just to be clear, but I want to make sure I'm interpreting this properly. On the slower growth from those newly acquired workloads last year, is the takeaway that the sales team wasn't necessarily acquiring the quote-unquote right type of workload because MongoDB sounds like it had over-indexed toward focusing on the volume of these newly acquired workloads over quality? Is that a fair characterization or takeaway from what we're hearing today?
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Potentially, I mean, I would say that we obviously have learned a lot. And so, we really indexed on volume because as in past years, when you have a portfolio of workloads, you're not sure which workload's going to take off. And that's been the growth driver of our business. I'll just remind you, five years ago, we were one-tenth of the size of our business today.
+
+So that's, you know, our strategy has been to acquire workloads as quick as possible, and we want to make it even easier for customers to -- for us to win workloads, the customers could use our platform. It's just that as we see, the growth rates of the workloads that are more recently acquired, they seem to be growing a little slower than we expected. And so, we're just making some refinements. I don't want to suggest that this is some major pivot or kind of change in direction.
+
+It's just some refinements in terms of our incentive system to reward salespeople for workloads that grow even -- that grow fast. And so, and that's -- we think that's the appropriate response here.
+
+Mike Cikos--Needham and Company -- Analyst
+
+Got it. And I think my follow-up, again, I'm trying to get this from the outside in, but I'd appreciate any color. Like, understand the refinement here on looking at those workloads to grow faster, but I think Michael had made the earlier point as well that because of this go-to-market effort you almost by default have less visibility into that customer because you have reduced the friction to adopt. So can you help me think about how you guys are refining that focus on acquiring those right workloads, just given that reduced visibility we had?
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Well, I think it's really tied to the three priorities we outlined. So one, we're devoting more resources to the enterprise segment of the market. Well, we've seen great success there. We have lots of customers who spend eight figures with us.
+
+We have lots of customers who spend seven figures with us. And we just see the returns on that segment be very, very strong. So we're obviously focused on that segment of the market. We talked about this focus on this kind of segment of the market that's been historically sort to hard to crack.
+
+These legacy workloads run mission critical portions of these large businesses. But frankly, some of those developers have retired or left. And people are scared to make change because the time and the risk and the cost to do so can be quite difficult and risky. And so, essentially, by using AI, we've done some pilots, we can dramatically reduce the cost and time to make these migrations happen.
+
+So that's generating a lot of interest and for customers, they're feeling a lot of pressure because the cost of bearing those legacy applications is very high. There's increasing regulatory and compliance pressures to upgrade those applications. Some of these technologies are end of life-ing, so they have a compelling reason to take action. And they want to also essentially position these apps to be AI enabled.
+
+And they can't do that with the legacy architectures that they have. So there's a whole set of reasons that these customers are interested in kind of migrating. And those workloads are definitely by definition bigger. And then, as I said, the third category is all about positioning ourselves for the coming set of AI apps that will come to production.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+But the other thing, Mike, just not to get lost in the details, but I wouldn't quite use the word visibility, but I do think if you think about it this way, if you're going through the process of negotiating a commitment with a customer, you're going to get an enormous amount of information from that customer about the workload and about everything else, and so when you're moving in a frictionless manner to get more workloads, you won't get all of that information. It's still possible with intent and purpose and incentives to get some of that information and getting that little bit of relevant information is dramatically different than getting a commitment, right? And so that's the balance that we're trying to strike and that we're continuing to iterate as we learn here.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Yeah. And I also just want to add, it's not that we're anti-commitments, but we want the customer to feel like, OK, I see enough volume either through this one workload or through the multitude of workloads they have to make a bigger commitment. And it's a much more natural conversation than trying to prematurely force a commitment when the customer themselves may not know how quickly that workload is going to grow. And so, consequently, we'll struggle to figure out what kind of commitment they want to sign up for.
+
+Mike Cikos--Needham and Company -- Analyst
+
+Got it. Thank you for polishing it up, Mike. I really appreciate all the detail. Thank you.
+
+Operator
+
+Thank you. [Operator instructions] One moment for our next question. Our next question will come from Brent Bracelin from Piper Sandler. Your line is open.
+
+Brent Bracelin--Piper Sandler -- Analyst
+
+Thank you. Good afternoon. Michael, wanted to go back to the slow start to new business. How much of that was internal versus a change in the external selling environment that created the slow start, be it lengthening sales cycles, longer close times, just trying to think through the internal or external factor there.
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Internal.
+
+Brent Bracelin--Piper Sandler -- Analyst
+
+OK. Very clear. That's helpful color. And then, Dev, for you, as we think about the business, what we're seeing a slowdown across the broader application software space, it does feel like there's a AI crowding out effect here temporarily, but as we think about the next year and what you can control to drive maybe an acceleration the business a year from now? What are the things you're focused on repositioning this company for improving growth next year?
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. So you know, again, just to go back, I mean, we're going after a very large market. We have low share, but we have to acquire business workload by workload, which is harder than, say, getting a broad-based decision, the company to standardize the technology across the enterprise. The base is growing, but it is slowing over time.
+
+And the key to us then is the pace of workload acquisition. So one thing that we're doing is, as I said earlier, is that we are growing our productive capacity and trying to do that consistently. We did pause last year, but we're investing this year. We're also trying to increase the productivity of that sales organization by getting better and more efficient at increasing the pace at which we can acquire workloads.
+
+Posting on the large segment or the large enterprise segment will help that. We also are trying to sell more top down. The whole focus on legacy app modernization is really elevating our conversations with senior level customers. Because they are in such pain right now that they want to talk to us and they're quite excited about the results that we've produced in some of these pilots.
+
+And we're talking to customers who are interested in really engaging with us in the program. And then, obviously, AI is also top of mind for senior level executives and we're using that as a way to also sell more top down. So those are the things that we're focused on, you know, in terms of how we continue to drive the long-term growth of the business. And as I said, we feel really good about the long-term prospects.
+
+Operator
+
+Thank you. One moment for our next question. Our next question will come from William Power from Baird. Your line is open.
+
+William Power--Robert W. Baird and Company -- Analyst
+
+OK. Great. Thanks for taking the question. Maybe a slightly different tact.
+
+I guess, Dev, coming out of MongoDB Local in New York, you had a bunch of new product announcements. So it'd be great to kind of hear what customers were most excited about, where the conversations were focused, the meetings there. And I guess, secondly, I guess I'd be curious, just as you were talking to customers, kind of what their view was toward macro, versus investments because it sounds like a lot of the macro you're seeing on the consumption side and the underlying workloads, but I guess I'm curious kind of from a top-down level kind of what their views or conversations were around, macro versus investing in new technologies.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah, so in terms of new products, obviously, the way we introduce new products is we first kind of do a beta rollout, get some early pilot customers, and then do more of a controlled introduction before you go to general availability. And so, for our stream processing product, we already had a number of customers, actually in the hundreds of customers who were testing and giving us feedback. The receptivity was very positive and the interest rate is very high because when you think about being able to process data in motion, most of that data is JSON based. It's obviously core to who we are as a platform and so it's well-suited as a kind of a something that should be part of the MongoDB platform.
+
+And so that receptivity was quite high. Obviously 8.0, we've announced, but we have not really, it will be generally available later this year. But we have lots of customers, we have some of the most demanding and sophisticated customers who are pushing our platform. We by definition are much more performant and scalable than most of the platforms out there.
+
+So by definition, we have customers who really push the envelope and they're really excited by the fact about the performance gains that we're delivering because that will only help them in terms of what they want to do. And then, in terms of the new products that we are in terms of full text search and vector search that we're introducing to the community. They're really excited because in many places for our prospects, that's where they start. They start with a community version before they say move to Atlas or move to EA.
+
+And so, by basically allowing them to start using these new products when they're in the early prototyping and development phase of their project is actually in that goodness for them because then they can kind of start using all their products right from the gate versus having to start and then add on these other products later. So from that point of view, the sentiment and the positive is very high. With regards to the macro environment, I would say two things. One, at the high-end of the market, there's no question that customers are very cost conscious.
+
+And so, I think that's playing out just because everyone's kind of watching their pennies. And so, we like the fact that we're very, on a price performance basis, a very attractive platform. But there's no question that customers are mindful about costs in this new kind of macroeconomic era. And then, on the lower end of the channel, it's also not a shock to say that obviously smaller customers are having more difficulty raising capital and consequently they have to be also more judicious about how they spend money and that also obviously factors in terms of how much they can spend on their own, internal technology stack.
+
+William Power--Robert W. Baird and Company -- Analyst
+
+That's helpful. Thank you.
+
+Operator
+
+Thank you. One moment for our final question. And our last question will come from Patrick Colville from Scotiabank. Your line is open.
+
+Joe Vandrick--Scotiabank -- Analyst
+
+Hi, this is Joe Vandrick on for Patrick Colville. So it seems like excitement on application modernization has kicked up a little bit, and it's now a key focus. So I'm curious, how are you defining and tracking success with the relational migrator product?
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. So for those of you who may not know the full story, let me explain. So we have an existing relational migrator product that allows people to essentially migrate data from legacy relational databases and does the schema mapping for them. The one thing it does not do, which is the most cumbersome and tedious part of the migration, is to auto-generate or build application code.
+
+So when you go from a relational app to an app built in MongoDB, you still have to essentially rewrite the application code. And for many customers, that was the inhibitor for them to migrate more apps because that takes a lot of time and a lot of labor resources. So our app monetization effort is all about, or using AI is all about now solving the third leg of that stool, which is being able to reduce the time and cost and effort of rewriting the app code, all the way from analyzing existing code, converting that code to new code, and then also building the test suites, both unit tests and functional tests, to be able to make sure the new app is obviously operating and functioning the way it should be. And so, those parts of the equation is what we are excited about because now AI can really help reduce the cost and complexity of rewriting app code.
+
+And that's why customers are getting more excited, because the lower you reduce the cost for that migration or the switching cost, the more apps you can then, by definition, migrate. And so that is something that we are very excited about. I will caution you that it's early days. You should not expect some inflection in the business because of this.
+
+But we're really excited about the opportunity, and we're also really excited about the fact that it gives us access to very senior decision makers because they by definition can make decisions quickly around what to do and what not to do.
+
+Joe Vandrick--Scotiabank -- Analyst
+
+Got it. And one more if I could get it in total customer count continues to grow out of at a pretty decent pace and so does the customer account you know over a hundred thousand customers but it looks like the direct sales customer count growth has tapered-off a little bit. Could you talk through if that's just a function of going after more strategic customers or if it is maybe something else? Thanks.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Yeah. I mean, we're definitely interested in continuing to acquire customers. Obviously, we have a lot of our existing customers are still vastly under-penetrated in, So our biggest growth opportunities in the near-term are actually winning more workloads in our existing customer accounts. And as I mentioned, we have lots of eight figure customers and lots of seven figure customers along with the six figure customers.
+
+So we know that once you get in and we can kind of win a lot more business in those accounts. But we do have teams focused on acquiring new logos. That obviously is a longer sales cycle, but it's something that we do care about, especially at the higher end where there's still lots of enterprise logos where we are, they're not yet MongoDB customers, and we are definitely focused on making sure we crack into those accounts.
+
+Operator
+
+Thank you. And with that, I'll turn it back over to our CEO, Dev, for closing remarks.
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Well, I want to thank everyone for joining us today. Just to kind of summarize the call, we are tempering our outlook for the rest of this year due to a more challenging macro environment. We are focusing more resources on the high end of the market, accelerating legacy app modernization using AI, and cementing our position as the platform of choice for next generation AI applications. And we'll invest judiciously in these priorities through the rest of this year.
+
+We also remain confident in our foundational and durable technology advantage, which has been well suited as application development has evolved over time. And we believe this advantage will remain as customers build AI production apps at scale. Thank you for joining us and we'll talk to you soon. Take care.
+
+Operator
+
+[Operator signoff]
+
+Duration: 0 minutes
+
+Call participants:
+
+Brian Denyeau--Investor Relations
+
+Dev Ittycheria--President and Chief Executive Officer
+
+Michael Gordon--Chief Operating Officer and Chief Financial Officer
+
+Sanjit Singh--Morgan Stanley -- Analyst
+
+Raimo Lenschow--Barclays -- Analyst
+
+Brad Reback--Stifel Financial Corp. -- Analyst
+
+Kash Rangan--Goldman Sachs -- Analyst
+
+Karl Keirstead--UBS -- Analyst
+
+Brad Sills--Bank of America Merrill Lynch -- Analyst
+
+Tyler Radke--Citi -- Analyst
+
+Mike Cikos--Needham and Company -- Analyst
+
+Brent Bracelin--Piper Sandler -- Analyst
+
+William Power--Robert W. Baird and Company -- Analyst
+
+Joe Vandrick--Scotiabank -- Analyst
+
+More MDB analysis
+
+All earnings call transcripts
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has positions in and recommends MongoDB. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

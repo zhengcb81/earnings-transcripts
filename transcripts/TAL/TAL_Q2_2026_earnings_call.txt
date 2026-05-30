@@ -1,0 +1,190 @@
+======================================================================
+Earnings Call Transcript
+Company: TAL Education (好未来)
+Ticker: TAL
+Quarter: Q2 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q2-2026-earnings-call-transcript/
+Scraped: 2026-05-30T17:28:06.110244
+Characters: 34548
+======================================================================
+
+Thursday, October 30, 2025 at 8 a.m. ET
+
+CALL PARTICIPANTS
+
+Chief Executive Officer — Zhuangzhuang Peng
+
+Chief Financial Officer — Jackson Ding
+
+Net Revenues-- $861.4 million, up 39.1% year over year in U.S. dollar terms and 38.1% in RMB terms.
+
+Gross Profit-- $491.0 million, a 40.8% increase year over year; gross margin expanded to 57.0% from 56.3%.
+
+Non-GAAP Net Income Attributable to TAL-- $135.8 million, up from $74.3 million year over year.
+
+Non-GAAP Income from Operations-- $107.8 million, rising from $64.5 million year over year.
+
+Share-Based Compensation Expense-- $11.8 million, down 30.5% year over year.
+
+Selling and Marketing Expenses-- $267.3 million, a 46.9% increase; non-GAAP selling and marketing expenses represented 30.7% of net revenues, up from 28.7%.
+
+General and Administrative Expenses (Non-GAAP)-- $120.8 million, up 11.5%; as a percentage of revenue, declined to 14.0% from 17.5%.
+
+Peiyou Small Class Enrichment Program-- Year-over-year revenue growth aligned with learning center expansion; moderate increase in the number of offline learning centers reported.
+
+Learning Device Revenue-- Growth observed both year over year and sequentially, with sales volume up but blended average selling price (ASP) declining below RMB 4,000 due to product mix.
+
+User Engagement for Learning Devices-- Average weekly active rate for devices around 80%, with daily usage per active device exceeding one hour.
+
+AI Think 101 Recognition-- Earned industry's top Level 4 rating from the China Academy of Information and Communications Technology in August 2025.
+
+Operating Cash Flow-- Net cash used in operating activities was $58.1 million.
+
+Liquidity Position-- Held $1,542.2 million in cash and cash equivalents, $1,706.6 million in short-term investments, and $239.2 million in restricted cash as of August 31, 2025.
+
+Share Repurchase Activity-- Repurchased approximately 4.2 million shares between July 31 and October 29, 2025, for $134.7 million; new $600 million program authorized in July 2025.
+
+Deferred Revenue-- $822.7 million as of the end of the quarter.
+
+Peiyou Summer ASP-- Average selling price for summer classes remained stable compared to prior year.
+
+Management explicitly cited, "limited visibility in our financial performance due to seasonal demand shifts, competitive pressures, and deliberate resource reallocation," which may result in short-term fluctuations.
+
+Non-GAAP selling and marketing expenses as a percentage of revenue increased, "from 28.7% to 30.7%," indicating rising customer acquisition or promotional costs.
+
+Learning device segment continues to report adjusted operating losses, and management stated, "the timeline to achieve profitability of the learning device business remains uncertain."
+
+Fiscal third quarter is described by management as, "generally not a peak season for enrichment learning demand, so we may experience fluctuations in our business performance due to seasonal factors."
+
+TAL Education Group(TAL0.51%)reported double-digit, year-over-year revenue and profit growth, highlighting robust top-line expansion and improvement in non-GAAP profitability. Revenue acceleration was attributed to increased enrollments in Peiyou programs and expansion of learning device offerings, although blended ASP for devices declined due to a shift in product mix. Management disclosed active product innovation in both enrichment learning and hardware, as well as industry recognition for its AI-powered teaching devices. Cash deployment priorities included a new $600 million share repurchase program, with $134.7 million already utilized in the current quarter.
+
+While Peiyou enrichment growth is expected to decelerate going forward, management will emphasize quality and sustainability over pure scale in network expansion.
+
+Operating leverage was mixed, as higher non-GAAP marketing expense ratios offset improved general and administrative cost ratios.
+
+Management does not anticipate maintaining Q2-level profitability in subsequent quarters due to seasonality and ongoing investments.
+
+Persistent adjusted operating losses in the learning devices business reflect a strategic focus on long-term market share over near-term margins.
+
+INDUSTRY GLOSSARY
+
+Peiyou: TAL's branded small-class, offline enrichment tutoring programs primarily serving K-12 students in China.
+
+Blended ASP: The weighted average selling price across all models, reflecting sales mix changes within the product segment.
+
+AI Think 101: TAL’s in-device, AI-powered, step-by-step tutoring companion launched in June 2025.
+
+Deferred Revenue: Payments received by TAL for services to be delivered in future periods, primarily stemming from prepaid class enrollments.
+
+BOM (Bill of Materials) Cost Ratio: The proportion of a device’s selling price attributable to the direct cost of materials used in manufacturing.
+
+Full Conference Call Transcript
+
+Zhuangzhuang Peng:Thank you, Fang, and thank all of you for participating in today's conference call. Over the past years, our focus has been on driving the holistic development of our students. We have consistently invested in products and service enhancements to deliver a quality learning experience while integrating cutting-edge technologies to fuel innovation and advanced learning models. These initiatives have built a solid foundation for our long-term sustainable growth. While we are encouraged by this momentum, we recognize the dynamic and competitive landscape. The learning devices market faces escalating competition, and AI-driven learning products continue to reshape education at an unprecedented pace.
+
+In navigating these opportunities, we embrace a long-term approach aimed at fortifying our competitive moats and ensuring sustained value creation for both our users and the society. Building our business is analogous to nurturing a tree. It demands patience, long-term commitment, and careful cultivation. Because some of our strategic initiatives are still in early stages, they require ongoing investment. Consequently, we may face occasional variability and limited visibility in our financial performance due to seasonal demand shifts, competitive pressures, and deliberate resource reallocation. While these factors may cause short-term fluctuations, we remain focused on building the long-term capabilities needed to seize the opportunities in the market. I will now provide detailed updates, starting with our second quarter FY 2026 performance.
+
+Our learning services achieved growth this quarter with both our off-line Peiyou programs and online enrichment offerings increasing year-over-year. This underscores our commitment to providing quality learning experiences while expanding our operational capacity. We are continuing to take a disciplined approach in managing our Peiyou learning center network, focusing on long-term sustainability. We evaluate factors such as local market demand, user acceptance of our products, and our operational capabilities and efficiency to ensure service quality. The effectiveness of this approach is reflected in the positive user feedback and key operating metrics such as retention rates. For online enrichment learning, we continuously optimize our services and expand our offerings by launching new programs tailored to diverse user groups.
+
+These initiatives aim to provide engaging and interactive experiences, improve learning outcomes, and ultimately create value for our users. At the same time, we've embraced a technology-focused approach to adapt to the evolving market landscape of the online learning sector. Guided by our strategic objectives, we've continued to integrate updated features like interactive sessions, personalized guidance, and real-time feedback to improve user engagement. These enhancements have made the learning experience more immersive and effective. The positive feedback we've received from both students and parents has underscored the value of our technology-focused approach. Alongside our learning, we are advancing our content solutions. Learning devices are a key component of the strategy, offering potential for integrating AI technology into education.
+
+Enhancing product capabilities is essential for developing this business. In response to a fast-changing and highly competitive market, we're continuously refining our product design, innovating functionality, and expanding our offerings. We're also dynamically adjusting our business strategies to maintain agile and well-positioned in the sector. Several months ago, we expanded our product portfolio by launching 3 new models of learning devices. This expansion has allowed us to reach a broader user base while delivering tailored solutions to meet their individual needs. Building on these efforts and strategies, this quarter, our learning device business grew its revenue on both a year-over-year and a sequential basis.
+
+By helping students learn well in class, practice well after class, and read well beyond class, our learning devices aim to motivate students to unlock their learning potential while fostering holistic development. Our content solutions have evolved into a diversified portfolio that encompasses learning devices, print and digital books and other content-based physical products and digital resources. This integrated ecosystem reflects our core mission of bringing quality learning resources to a wider audience, overcoming geographical and temporal limitations and narrowing the gap in access to education. Our ultimate goal is to empower learners to achieve their personal development objectives. So, with that overview, I'd like to turn to our financial performance for the quarter.
+
+Our net revenues were USD 861.4 million or RMB 6,180.4 million for the quarter, representing year-over-year increases of 39.1% and 38.1% in U.S. dollar and RMB terms, respectively. Our non-GAAP income from operations and non-GAAP net income attributable to TAL for the quarter were USD 107.8 million and USD 135.8 million, respectively. Now I'll hand the call over to Jackson, who will provide an update on the operational advancements we made in our core businesses. He will also review our financial performance for the second fiscal quarter. Jackson, over to you.
+
+Jackson Ding:Thank you, Alex. I'm pleased to share some details on progress we made in the second fiscal quarter across our core businesses. Please note that all financial data for the quarter are unaudited. During the second fiscal quarter, Peiyou small class enrichment programs continued its development path. Its year-over-year growth was fueled by higher enrollments, which were supported by the continued expansion of our offline learning center network. In terms of learning center expansion, we have maintained a dynamic and methodical approach. We struck a balance that allowed us to meet the demand during the summer vacation period while maintaining teaching quality, business sustainability and operational efficiency.
+
+By prioritizing the overall health of the business, Peiyou small class maintained its steady performance. As Alex mentioned, we're adopting a technology-driven approach to enhance our online enrichment learning programs. Our main goal is to boost user motivation, deepen engagement and improve the overall learning experience by integrating smart interactive features tailored to online learning habits. To that end, we have introduced a series of new initiatives that integrate technology into our in-class and out-class learning. For instance, we have created immersive online classrooms with role playing experiences in which students can take on roles such as class helper or subject representative. By empowering students with classroom management responsibilities, their engagement and interaction within the classroom have improved.
+
+In some of our humanities programs, we have used AI to bring to life over 100 historical authors, enabling students to interact with AI-powered versions of these figures. This allows students to gain a deeper understanding of the authors historical backgrounds and literacy contributions. We have also created AI-powered companion cartoons to assist with ad class exercises, making the learning process a more enjoyable experience. These initiatives have all been well received by our users. Looking ahead, we'll continue to enhance engagement tools and invest in content, products and services to meet the evolving needs of online learning. Next, I'd like to talk about our learning device business.
+
+Our goal is to empower users on their self-learning journeys by offering a wide selection of products with advanced smart features and comprehensive learning resources. To meet our users' diverse needs, we have expanded our product portfolio, introducing new models at various price points since 2023 that have gained market traction. This quarter, our learning devices delivered revenue and sales volume growth on both a year-over-year and a sequential basis. In June 2025, we officially launched AI Think 101, an interactive step-by-step tutoring AI companion for our learning devices that enables a seamless interaction between the screen-based and paper-based learning experience.
+
+Supported by an advanced camera system and AI technology, it is able to recognize questions, evaluate answers and dynamically adjust explanations in a timely manner to help students master problem-solving methods and provide support in various learning scenarios. Since its launch, learning device models equipped with AI Think 101 have been well received by users. In August 2025, the China Academy of Information and Communications Technology evaluated educational AI agents and awarded AI Thinking 101, the industry's highest rating Level 4. This recognition further established its position as an innovator of educational agents. Our continued focus on improving product capabilities has contributed to progress in our learning device business.
+
+As our product portfolios and user base have expanded, key engagement metrics such as weekly active rates and average weekly usage time have remained stable and healthy. This quarter, the average weekly active rate amongst all learning device users was approximately 80% and average daily usage time per active device exceeded an hour. The above concludes the operational update. Now I'd like to walk you through our key financial results for the second fiscal quarter. Our net revenues were USD 861.4 million or RMB 680.4 million, an increase of 39.1% and 38.1% year-over-year in U.S. dollar and RMB terms, respectively.
+
+Cost of revenues increased by 36.8% to USD 370.3 million from USD 270.6 million in the second quarter of fiscal year 2025. Non-GAAP cost of revenues, which excludes share-based compensation expenses, increased by 37.6% to USD 369.8 million from USD 268.8 million in the second quarter of fiscal year 2025. Gross profit increased in the second quarter of fiscal 2026, rising by 40.8% year-over-year to USD 491.0 million from USD 348.7 million for the same period last year. Gross margin increased to 57.0% from 56.3% for the same period last year. Selling and marketing expenses for the quarter were USD 267.3 million, representing an increase of 46.9% from USD 181.9 million for the same period last year.
+
+Non-GAAP selling and marketing expenses, which excludes share-based compensation expenses, increased by 48.6% to USD 264.4 million from USD 177.9 million for the same period last year. Non-GAAP selling and marketing expenses as a percentage of total net revenues increased from 28.7% to 30.7% year-over-year. General and administrative expenses increased by 8% to USD 129.1 million from USD 119.5 million in the same period of last year. Non-GAAP general and administrative expenses, which excludes share-based compensation costs, increased by 11.5% year-over-year to USD 120.8 million from USD 108.3 million for the same period of last year. Non-GAAP general and administrative expenses as a percentage of total net revenues decreased from 17.5% to 14.0% year-over-year.
+
+Total share-based compensation expenses allocated to related operating costs and expenses decreased by 30.5% to USD 11.8 million in the second quarter of fiscal year 2026 from USD 16.9 million in the same period of last year. Income from operations was USD 96.1 million in the second quarter of fiscal year 2026 compared with an income from operations of USD 47.6 million in the same period last year. Non-GAAP income from operations, which excludes share-based compensation expenses, was USD 107.8 million compared with a non-GAAP income from operations of USD 64.5 million in the same period last year.
+
+Net income attributable to TAL was USD 124.1 million in the second quarter of fiscal year 2026 compared to net income attributable to TAL of USD 57.4 million in the same period last year. Non-GAAP net income attributable to TAL, which excludes share-based compensation expenses, was USD 135.8 million compared to a non-GAAP net income attributable to TAL of USD 74.3 million in the same period last year. Moving on to our balance sheet. As of August 31, 2025, we had USD 1,542.2 million in cash and cash equivalents, USD 1,706.6 million in short-term investments and USD 239.2 million in current and noncurrent restricted cash.
+
+Our deferred revenue balance was USD 822.7 million as of the end of second fiscal quarter. Now turning to our cash flow statement. Net cash used in operating activities for the second quarter of fiscal year 2026 was USD 58.1 million. Finally, I would like to briefly address our share repurchase program. In July 2025, the company's Board of Directors authorized a new share repurchase program. Under the program, the company may spend up to approximately USD 600 million to purchase its common shares over the next 12 months. Between July 31 and October 29, 2025, the company has repurchased approximately 4.2 million common shares at an aggregate consideration of approximately USD 134.7 million. That concludes the financial section.
+
+I will now hand the call back to Alex to briefly update you on our business outlook and strategic priorities. Alex, please go ahead.
+
+Zhuangzhuang Peng:Thanks, Jackson. I'd like to share some thoughts on our outlook for the company's future development. The fiscal third quarter is generally not a peak season for enrichment learning demand, so we may experience fluctuations in our business performance due to seasonal factors. Nevertheless, we remain dedicated to driving sustainable long-term growth across all our business lines. Looking ahead, we'll continue to enhance our products and services to support students' holistic development. Our goal is to serve a broader user base while adhering to the quality standards for both our enrichment learning programs and content solutions. To achieve this, we are making continued investments in content and technology.
+
+This investment will fuel innovation and position us to meet the evolving needs of our users in the long-term. In addition, we are committed to exploring and building diverse sales channels to drive growth in our core business. In today's highly connected world, integrating online and offline user engagement is more crucial than ever. Offline touch points remain essential for fostering meaningful interactions with users. While we have established offline communication in learning services, newer areas such as the learning device business are still in the nascent stages. It is, therefore, essential that we strengthen our go-to-market capabilities in this area, which will take time and continued investment.
+
+Regarding our future financial performance outlook, as we've emphasized in recent quarters, our primary objective remains achieving sustainable long-term growth rather than focusing solely on short-term financial results. Accordingly, we will continue prioritizing resource allocation to critical areas aligned with our long-term strategic goals. We're committed to exploring expansion and innovation opportunities within our core businesses to enhance our competitiveness. To execute these strategies effectively, we will maintain flexibility in resource allocation, carefully considering factors such as business dynamics, product cycles, market conditions, seasonality, and organizational capabilities. These adjustments may result in financial performance fluctuations, with some peers exceeding or falling short of market expectations.
+
+Indeed, in recent quarters, we have experienced margin compression as we seed the new initiatives and scale emerging opportunities. Conversely, we've also seen periods of outperformance as these investments matured. This variability underscores our intentional focus on sustainable growth over short-term optimization while also reflecting limited visibility into near-term financial performance. Despite these dynamics, our commitment to long-term growth remains unwavering, particularly in the K-12 learning sector. Our ultimate goal is to deliver transformative learning solutions that empower students in their holistic development. So that concludes my prepared remarks. Operator, I think we're now ready to open the call for questions.
+
+Operator:[Operator Instructions]We will now take our first question from the line of Timothy Zhao from Goldman Sachs.
+
+Timothy Zhao:My question is regarding the Peiyou offline enrichment business. Just wondering if management can share with us some updates on the market dynamics and also the competitive landscape for this business. And also, could you offer some color on the second quarter performance, and also the expansion in the offline learning centers and offline business? So, for example, have you offered any discounts or promotions during the summer? And also looking ahead, just wondering if you can provide us with a growth outlook for the overall enrichment business for the offline business.
+
+Zhuangzhuang Peng:Thanks, Timothy. This is Alex. Let me take this one on. It's a multipart question. So, let me try to unpack that and address each component of that question, right? So, first of all, in the offline Peiyou market, we've really observed steady growth in our Peiyou enrichment programs. I think that mirrors learners' increasing interest in them. As with any market during its development, competition is inevitable. The offline small class enrichment learning market, if we define it like that, offline small class enrichment learning market, really, it's notably more fragmented than many other consumer or services markets, making it somewhat challenging to accurately assess the total market size and demand.
+
+So, to remain competitive in this fragmented landscape, the key really lies in developing high-quality products and services, which are supported by solid performance metrics. While we continue to monitor the broader trends and dynamics of the enrichment learning market, our primary focus really remains on strengthening our product capabilities to better meet the needs of learners and deliver long-term value. So, with regard to our performance in the second quarter, revenue for Peiyou offline enrichment programs has grown largely in line with our learning center footprint. For network expansion, we maintain the same operational approach as before.
+
+I think as I mentioned during the prepared remarks, we evaluated several key factors such as our organizational capability and efficiency, regional market demand, and user acceptance of our products. This quarter, we saw a moderate increase in offline enrichment learning centers. Given our disciplined approach to expansion, I think we are satisfied really with the overall health of the business. Regarding summer class pricing, the ASP of our summer courses remained stable really compared with the same period last year. And lastly, I think you asked for the outlook. So, looking ahead, we'll continue to prioritize sustainability and healthy growth over scale in our approach to expanding offline learning centers.
+
+As we open new centers, maintaining consistent service quality and efficiency is really critical. Given that scaling requires broader service coverage while upholding high-quality service, we expect Peiyou's year-over-year revenue growth to gradually taper off. So, Timothy, I hope that answered your question.
+
+Timothy Zhao:Congrats on the very solid results this quarter.
+
+Operator:We'll take our next question from the line of Felix Liu from UBS.
+
+Felix Liu:Congratulations on the very strong quarter. I have a few questions on the learning device business. Can management share some color on the business performance, especially on the sales volume and pricing for the devices? For your newly launched products, what are the user feedback so far and the product's overall performance? On the P&L side of this segment, are there notable differences in margins across various pricing points? And looking ahead, how does management see the competition landscape for learning devices?
+
+Zhuangzhuang Peng:Thanks, Felix. This is Alex again. Let me take on this. So, let's start with the performance of our learning devices business in the past quarter, right? So, for the past quarter, sales volumes increased year-over-year and quarter-over-quarter, I think primarily due to our product and channel efforts. On the other hand, we do note that the blended ASP declined both sequentially and year-over-year, mainly due to changes in the product mix, right? So let me add some color to this. In May, so a few months ago, we launched3 new models, the P4, the S4 and the T4, right? So, these target different price tiers. These products were well received, driving year-on-year sales growth.
+
+The sequential growth also benefited from Q2 seasonal strength. In terms of ASP, the blended ASP declined below RMB 4,000, and that really reflects the shift in the product mix. So, from a financial perspective, the BOM, the bill of materials cost ratios for our learning devices across different price points, I think that really remained stable in Q2. At the P&L level, our learning devices still incurred an adjusted operating loss. We'll continue to allocate resources to this line of business as ensuring our long-term competitiveness remains a key priority, right? So quarterly bottom line fluctuations are expected given market dynamics, given competition and the resource allocation point that I've been making.
+
+So, this focus, I'd like to add, is really critical in today's competitive smart education hardware landscape. You see major players continue to launch compelling learning tablet products. In addition, AI-driven learning products are reshaping education at an unprecedented pace. While we leverage our K-12 focused high-quality content, and continuously enhance product excellence and AI capabilities, really building hardware expertise and channels expertise, those require foundational level efforts, right? So rather than prioritizing short-term profitability, we remain like really focused on key areas that drive long-term competitiveness, things like user feedback, market share, brand influence and broader user engagement. We think the strategy really ensures a solid foundation for sustainable long-term growth.
+
+Based on our content solutions, including learning devices, books and other early initiatives, we'll continue to invest so that more students can access affordable, high-quality learning content and tools. Our goal really is to leverage technological innovation and quality content to reach a broader audience and provide meaningful value to society. So, Felix, I hope that answers your question.
+
+Operator:The next question comes from the line of Liping Zhao from CICC.
+
+Liping Zhao:Regarding your Q2 financial performance, I'm wondering, could you please provide a breakdown of top line growth and bottom line performance across different business lines? And how do we think about the trend for these business lines, for example, in Q3 or the second half of this fiscal year?
+
+Jackson Ding:Thank you, Liping. This is Jackson. Let me take this one. Let me start with the top line and then move on to the bottom line. So, on the top line, we expect year-over-year revenue growth of Peiyou small class to gradually taper off. This moderation really reflects a more normalized growth rate and will result in a measured pace of capacity expansion. As for learning devices, the business achieved year-over-year and quarter-over-quarter growth in Q2. However, please note that this business is still in its early stage. It is essential for fostering meaningful customer engagement, expanding our user base and encouraging broader adoption.
+
+We remain committed to driving business development, though performance may fluctuate due to market conditions, product cycles, seasonality and amongst other factors. From a broader perspective, we believe the company's growth and development depending on the value it creates for its users and the society as a whole. This principle underpins every aspect of our business, big and small. We view revenue growth at the company and industry levels as a result of continuous innovation, greater organizational capabilities and stronger operational execution. Now let's turn to the bottom line. As previously noted, we have established a presence across multiple business lines, including various learning -- enrichment learning programs, learning devices and other content solutions businesses.
+
+Notably, these businesses are at different stages of development, each with distinct priorities. On one hand, our Peiyou small class enrichment learning business has reached a more mature stage, delivering relatively stable profit margins. On the other hand, regarding our new initiatives such as learning devices, as we mentioned earlier that we prioritize long-term competitiveness over short-term profitability with a focus on operational metrics such as user feedback, market share, brand influence and broader user reach. At this stage, the timeline to achieve profitability of the learning device business remains uncertain. We will continue to invest in this area through new product launches, content enrichment, developing AI-powered experiences and making ongoing optimizations to drive performance improvements.
+
+Therefore, the company's overall margin profile reflects the mix of mature and emerging businesses, making it challenging to generalizing future margin trends. I would also like to mention that Q2 is typically a peak season for us in terms of profitability, and we should not expect this level of profit margins in the next couple of quarters to come. Liping, I hope that answers your question.
+
+Operator:Our next question comes from the line of Elsie Sheng from CLSA.
+
+Yiran Sheng:Congratulations on the strong results. My question is on the plan of allocation in cash because we noted that following the launch of the new share repurchase plan, you have repurchased about 4.2 million common shares. So, could you provide an outlook on the pace of share repurchase for the rest of the year?
+
+Jackson Ding:Thank you, Elsie. This is Jackson. I'll take this one. Let me share some updates on our capital allocation plans. As of August 31, 2025, the company held approximately USD 3.5 billion in cash and cash equivalents, short-term investments and restricted cash. We have always taken a prudent and balanced approach to capital allocation. We carefully evaluate potential uses of cash, striving to strike the balance between short-term needs and long-term development. Regarding shareholder returns, we launched our first USD 1 billion share repurchase program in April 2021, later extending it through 2025. In July 2025, that program was nearly completed, and we announced a new USD 600 million repurchase program.
+
+Between July 31st and October 29, 2025, the company has repurchased 4.2 million common shares for a total consideration of USD 134.7 million. We will continue to execute the program in line with market conditions and may or may not utilize the full authorization over the next 12 months. Looking ahead, we take a long-term perspective, we're making strategic investments to promote sustainable and healthy growth. We'll maintain steady investments in content, learning devices and other new initiatives as we believe these efforts will create long-term value for shareholders. Backed by our cash position, we're confident in our ability to fund business expansion while delivering returns to shareholders.
+
+As we drive business development, we will also remain attentive to shareholder interests. The specific level of shareholder returns will be comprehensively evaluated and periodically adjusted, taking into account dynamic factors such as market conditions, investment opportunities, business outlook and capital allocation priorities. We will provide timely and appropriate disclosures to ensure investors are well informed on this matter. Elsie, I hope that answers your question.
+
+Operator:We have reached the end of the question-and-answer session. Thank you all very much for your questions. I'll now turn the conference back to the management team for closing comments.
+
+Zhuangzhuang Peng:So again, thanks to everyone for joining us today, and we look forward to seeing you all next quarter. Thanks. Bye-bye.
+
+Operator:Thank you for your participation in today's conference. This does conclude the program. You may now disconnect your lines.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has no position in any of the stocks mentioned. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

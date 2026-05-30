@@ -1,0 +1,604 @@
+======================================================================
+Earnings Call Transcript
+Company: Novo Nordisk (诺和诺德)
+Ticker: NVO
+Quarter: Q1 2024
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2024/05/02/novo-nordisk-nvo-q1-2024-earnings-call-transcript/
+Scraped: 2026-05-30T15:53:30.564879
+Characters: 59768
+======================================================================
+
+Novo Nordisk(NVO+0.15%)Q1 2024 Earnings CallMay 02, 2024,7:00 a.m. ET
+
+Prepared Remarks
+
+Questions and Answers
+
+Call Participants
+
+Prepared Remarks:
+
+Operator
+
+Good day and thank you for standing by. Welcome to the Q1 2024 Novo Nordisk A/S earnings conference call. At this time, all participants are in a listen-only mode. After the speakers' presentation, there will be a question-and-answer session.
+
+[Operator instructions] Please be advised that today's conference is being recorded. I would now like to hand the conference over to your speaker today, Daniel Bohsen, CVP, investor relations. Please go ahead, sir.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you. Welcome to Novo Nordisk's earnings call for the first three months of 2024. My name is Daniel Muusmann Bohsen, and I'm the head of investor relations at Novo Nordisk. With me today, I have the CEO of Novo Nordisk, Lars Fruergaard Jorgensen; executive vice president and head of commercial strategy and corporate affairs, Camilla Sylvest; executive vice president and head of North America operations, Doug Langa; executive vice president and head of development, Martin Holst Lange; and finally, chief financial officer, Karsten Munk Knudsen.
+
+All speakers will be available for the Q&A session. Today's announcement and the slides for this call are available on our website, novonordisk.com. Please note that this call is being webcast live and a recording will be made available on our website as well. The call is scheduled to last one hour.
+
+Please turn to the next slide. The presentation's structure is outlined on Slide 2. Please note that all sales and operating profit growth statement will be at constant exchange rates unless otherwise specified. Please turn to the next slide.
+
+We need to advise you that this call will contain forward-looking statements. These are subject to risks and uncertainties that could cause actual results to differ materially from expectations. For further information on the risk factors, please see the company announcement for the first three months of 2024 and the slides prepared for this presentation. With that, over to you, Lars, for an update on our strategic aspirations.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Thank you, Daniel. Please turn to the next slide. In the first three months, we have delivered 24% sales growth and 30% operating profit growth. Furthermore, we have raised the outlook for the full year.
+
+I would like to start this call by going through the performance highlights across our strategic aspirations before handing over the word to my colleagues. Starting with our focus on purpose and sustainability, we are now serving almost 42 million patients with our diabetes and obesity treatments. Our total carbon emissions rose by 32% as compared to the third quarter of 2023. This was primarily driven by our increased investments in capital expenditure to meet the high demand for our products. Compared to the first quarter of 2019, carbon emissions from operations and transportation decreased by 31%.
+
+To uphold our commitment to being a sustainable employer, we expanded the number of women in senior leadership positions to 41%, compared with 39% in the first quarter of 2023. Within R&D, we are pleased with the successful completion of the FLOW kidney outcomes trial and the approval of the global label expansion in the U.S., based on the SELECT cardiovascular outcomes trial. Martin will come back to this and our overall R & D milestones later. We also announced the agreement to acquire three fill-finish sites sites from Novo Holdings in connection with the transaction where Novo Holdings has agreed to acquire Catalent. This is expected to enable us to reach many more people living with serious chronic diseases. The quarterly sales growth reflects solid commercial execution across operating units.
+
+Both operating units contributed to sales growth driven by demand for our GLP-1 treatments for both diabetes and obesity. Camilla and Doug will go through the details per therapy area later. Karsten will go through the financials, but I'm very pleased with the performance so far this year. Now, I would like to hand the word over to Camilla, who will give us an update on the commercial execution.
+
+Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+
+Thank you, Lars, and please turn to the next slide. In the first three months of 2024, our total sales increased by 24%. The sales growth was driven by both operating units with North America operations growing 35% and international operations growing 11%. In the U.S., sales growth was positively impacted by gross-to-net sales adjustments related to prior years. Our GLP-1 sales in diabetes increased 32%, driven by North America operations growing 37% and international operations growing 22%.
+
+Insulin sales increased by 9%, driven by North America operations growing 23% and international operations growing 5%. Obesity care sales increased 42% driven by North American operations growing 44% and international operations growing 35%. In both geographies, growth was driven by Wegovy, partly offset by declining Saxenda sales. Doug will talk more about North America obesity performance, but in IO, Wegovy sales exceeded 1 billion Danish kroner in the quarter.
+
+We continue to roll out Wegovy in a sustainable manner with volume cap launches to balance supply and demand. Rare disease sales decreased by 3% which we'll also speak more to later. Please turn to the next slide. With 24% sales growth in diabetes care, we are growing faster than the total diabetes market. As a result, our global diabetes value market share increased to 34%, which is above our strategic aspiration of reaching one-third of the global diabetes value market in 2025.
+
+The increase reflects market share gains in both North America operations and international operations. In international operations -- please turn to the next slide. In international operations, diabetes care sales increased by 12% in the first three months of 2024, which was primarily driven by GLP-1 sales growing 22%. Novo Nordisk is the market leader in international operations with a GLP-1 value market share of around 70%. Ozempic continues its GLP-1 market leadership with 47.2% market share. We are so pleased to see Rybelsus increasing its market share to around 15% driven by solid uptake across geographies.
+
+And with that, I will hand over the word to Doug.
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Thank you, Camilla. Please turn to the next slide. Sales in North America is driven by healthy prescription volume growth of the GLP-1 class of around 15% in the first quarter of 2024 compared to the first quarter of 2023. Novo Nordisk is taking market share, meaning we are growing more than the market fueled by our strategic GLP-1 brands of Ozempic and Rybelsus. Measured on total prescriptions, Novo Nordisk continues to be the market leader with around 56% market share.
+
+Sales growth of Ozempic was negatively impacted by periodic supply constraints in the beginning of the first quarter. Please go to the next slide. To safeguard continuity of care for Wegovy, we reduced the release of lower dose strengths in May of 2023, which continued throughout the remainder of last year. In the beginning of this year, we gradually started increasing the supply of the lower dose strengths. I am pleased to see that this has been reflected in prescriptions, and we are now seeing more than 27,000 new-to-brand prescriptions and approaching the peak total prescriptions seen last year. Wegovy still has broad market access with more than 50 million covered lives, and importantly, around 10 million vulnerable patients have access to Wegovy via Medicaid in more than 15 states. Following an expanding market access and our focus on reaching more patients, Wegovy net prices declined in the first quarter.
+
+While we continue to gradually increase the overall supply throughout the rest of 2024, our primary focus remains on ensuring continuity of care for patients who have already initiated treatment. Next slide, please. Our rare disease sales decreased by 3%. Sales in international operations declined by 18%. This was partly offset by a 20% sales increase in North America operations, reflecting the launch of Sogroya and positive gross-to-net adjustments related to prior years in the U.S.
+
+Sales of red blood disorders decreased by 4% driven by NovoSeven and hemophilia A products, partly countered by increased hemophilia B sales. Sales of rare endocrine disorder products increased by 1%. We are working on reestablishing full supply of rare endocrine disorder products following a reduction of manufacturing output in 2022 and 2023. Now, with that, over to you, Martin, for an update on R&D.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Thank you, Doug. Please turn to the next slide. In March, we announced that the FDA has approved a label expansion for Wegovy with the indication of reducing risk of major adverse cardiovascular events, abbreviated MACE. MACE includes cardiovascular death, nonfatal heart attack, and nonfatal stroke in adults with either obesity -- or sorry, overweight or obesity and established cardiovascular disease. The approval is based on the SELECT cardiovascular outcomes trial, which demonstrated for the primary endpoint that semaglutide 2.4-milligram reduced the risk of MACE by 20% compared to placebo when added to standard of care.
+
+In addition to the cardiovascular indication, the label also is updated to include that risk reduction in MACE was achieved regardless of baseline age, sex, race, ethnicity, body mass index, and level of renal function impairment. Cardiovascular death superiority was not confirmed and thus the testing hierarchy was stopped. However, the label update does include data on the numerical risk reduction in cardiovascular death by 15% and a statistically significant risk reduction of deaths from any cause by 19%, both compared to placebo. In the clinical pharmacological section, the label now also describes that the exact mechanism of cardiovascular risk reduction has not been established, reflecting that the beneficial CV effects of semaglutide is not associated with weight loss alone. The approval of the Wegovy label expansion for the indication of reducing MACE in the U.S.
+
+is an important milestone for people living with obesity and cardiovascular disease. The SELECT data demonstrates that semaglutide 2.4 milligram has the potential to prolong lives by addressing some of the leading causes of preventable deaths by, for example, reducing the risk of cardiovascular events. Next slide, please. In March of 2024, Novo Nordisk acquired Cardior Pharmaceuticals. The agreement includes Cardior's lead compound CDR132L currently in phase 2 clinical development for treatment of heart failure. CDR132L is a synthetic antisense oligonucleotide and is a disease-modifying therapy designed to halt or partially reverse cellular pathology in the heart by targeting microRNA-132.
+
+With its distinct mode of action, CDR132L has the potential to become a first-in-class therapy for long-lasting improvements of heart function. A second phase 2 trial is planned and will investigate CDR132L in a broader chronic heart failure population with left ventricular hypertrophy. This acquisition is in line with our strategic aspiration of establishing a presence in cardiovascular disease and emerging therapy areas. Next slide, please. As we shift our focus to the upcoming R&D milestones, there are many exciting approvals, trial initiations, and trial completions to watch out for. Allow me to go through a few key milestones from the first quarter of '24 and touch upon a few upcoming highlights later in '24.
+
+Within diabetes, insulin icodec under the brand name of Awiqli was recommended for approval for the treatment of diabetes by the European regulatory authorities. We anticipate a final decision from the European Commission within a couple of months, making an exciting milestone for the world's first once-weekly basal insulin. Of note, an FDA advisory committee meeting for insulin icodec has been announced to discuss the new drug application. The meeting will focus on the risk-benefit profile of icodec in the treatment of type 1 diabetes and is scheduled from May 24th, in due time prior to the action date in July. Awiqli is currently approved in both Canada and Switzerland. Further, in diabetes, COMBINE 2, a phase 3 trial with IcoSema, was successfully completed.
+
+The primary endpoint was met with IcoSema demonstrating superior reduction in A1C compared to once weekly semaglutide 1.0 milligram in people with type 2 diabetes inadequately controlled on GLP-1 treatment and in need of treatment intensification. From an overall A1C baseline of 8% once weekly IcoSema achieved an estimated reduction in A1C of 1.35 percentage points compared to 0.9 percentage points for semaglutide, 1.0 milligram. IcoSema appeared to have a safe and well-tolerated profile and shows the potential to set a new benchmark for once-weekly treatment of type 2 diabetes. We expect results from COMBINE 1 in the second quarter of '24. Also, in diabetes, we have successfully completed the FLOW kidney outcomes trial with once-weekly injectable semaglutide 1.0 milligram. The trial achieved its primary endpoint by demonstrating a statistically significant and superior reduction in kidney disease progression, as well as cardiovascular and kidney death, by 24% for people treated with 1.0 milligram compared to placebo. In March, the FLOW data were submitted as a label expansion application to the U.S.
+
+FDA. Submission to the European regulatory authorities is expected in the second half of '24. The full results will be shared at the European Renal Association Congress later this month. We've also successfully completed an exploratory phase 2 trial with higher doses of once-weekly subcutaneous semaglutide. The trial investigated efficacy and tolerability of eight and 16-milligram semaglutide in people with type 2 diabetes.
+
+In the trial, both response on weight loss was observed, and the higher doses of semaglutide appear to have a safe and well-tolerated profile in line with previous semaglutide trials. Semaglutide in higher doses in diabetes are now being evaluated for further clinical development. Moving to obesity care, in the first quarter, we've already covered the Wegovy label expansion for approval for cardiovascular risk reduction in the U.S. In the first quarter, the STEP HFpEF trials were submitted to U.S. FDA and granted priority review.
+
+The FDA also announced that an advisory committee is to be convened in the second half of 2024 to discuss the application. In rare disease, we are excited about the expected readout of Mim8 phase 3 in the second quarter of '24. Mim8 is a novel next-generation Factor VIII mimetic bispecific antibody with potential for improved patient outcomes and reduce patient burden in treatment of people with hemophilia A. Looking ahead to the second half of '24, there are several events of note within diabetes. This includes the readouts of STRIDE and the SOUL trials, as well as phase 2 for monlunabant and the initiation of phase 2 trial for amycretin. Within obesity, we look forward to the readout of the first pivotal trial in CagriSema.
+
+Lastly, within cardiovascular and emerging therapy areas, we look forward to the readout of the phase 3 ESSENCE trial within MASH. With that, over to you, Karsten.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Thank you, Martin. Please turn to the next slide. In Q1 2024, our sales grew by 22% in Danish kroner and 24% at constant exchange rates, driven by both operating units. In the U.S., sales growth was positively impacted by gross to net sales adjustments related to prior year.
+
+The gross margin increased to 84.8% compared to 84.7% in Q1 2023, reflecting a positive price impact due to gross to net sales adjustments in the U.S., a positive product mix due to increased sales of GLP-1-based products. This is partially countered by costs related to ongoing capacity expansions and a negative currency impact. Sales and distribution costs increased by 7% in Danish kroner and by 8% at constant exchange rates, around 20% as a percentage of sales. In North America operations, costs are driven by promotional activities related to Wegovy, and in international operations, the increase is related to promotional activities for Rybelsus as well as obesity care market development activities. Research and development costs increased by 28% measured both in Danish kroner and at constant exchange rates, amounting to around 13% of sales.
+
+Cost increases reflect late-stage clinical trial activity and increased early research activities compared to Q1 2023. Administration costs increased by 8% measured in Danish kroner and by 9% at constant exchange rates. Operating profit increased by 27% measured in Danish kroner and by 30% at constant exchange rates, reflecting the sales growth. Net financial items showed a net gain of 72 million Danish kroner, compared to a net loss of 270 million Danish kroner last year. The effective tax rate was 20.4% in the first three months of 2024, compared to 19.9% in the first three months of 2023.
+
+Net profit increased by 28%, and diluted earnings per share increased by 29% to 5.68 Danish kroner. Free cash flow realized in the first quarter of 2024 was 5 billion Danish kroner, compared with 24.8 billion in the first three months of 2023. The lower free cash flow reflects phasing of rebates related to lower U.S. gross sales in the first quarter of 2024 compared to the fourth quarter of 2023. This is combined with reduced insulin list prices, higher taxes paid, and increasing capital expenditure toward additional manufacturing capacity. This is partially countered by increased net profits.
+
+Capital expenditure for property, plant, and equipment was 8.5 billion Danish kroner, compared with 4.7 billion in 2023, primarily reflecting investments in additional capacity for API production and fill-finish capacity for both current and future injectable and oral products. In February 2024, we announced an agreement to acquire three fill-finish sites from Novo Holdings in connection with the transaction where Novo Holdings has agreed to acquire Catalent, a global contract development and manufacturing organization. The fulfillment of various customary closing conditions is progressing, and Novo Nordisk still expects that the acquisition will be completed toward the end of 2024. Please go to the next slide. We continued the growth momentum in 2024 and has increased our sales growth to between 19 and 27% at constant exchange rates. This is based on several assumptions as described in the company announcements.
+
+Of note, the updated sales outlook at constant exchange rates reflect growth to net sales adjustment related to prior years in the U.S. in the first quarter. The guidance reflects expectations for sales growth in both North America operations and international operations, mainly driven by volume growth of GLP-1-based treatments for obesity and diabetes care. With the expectation of continued volume growth and capacity limitations, the outlook also reflects expected continued periodic supply constraints and related drug shortage notifications across a number of products and geographies. Novo Nordisk is investing in internal and external capacity to increase supply for both short and long term. Operating profit growth is now expected to be between 22 and 30% at constant exchange rates.
+
+The increased expectation for operating profit growth is reflecting the increased sales outlook, partially countered by an expected loss on other operating income and expenses. Capital expenditure is still expected to be around 45 billion Danish kroner in 2024, reflecting the expansion of the supply chain, including the previously communicated expansions of manufacturing facilities in Denmark and France. The free cash flow is now expected to be between 57 million and 67 billion Danish kroner. The updated cash flow expectation reflects changes to gross to net sales estimates and related cash flow impacts, as well as business development activities including the planned acquisition of Cardior. That covers the outlook for 2024. Now, back to you, Lars.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Thank you, Karsten. Please turn to the final slide. We are pleased with the sales growth in the first three months of 2024 driven by increased demand for our GLP-1-based diabetes and obesity treatments. More patients benefit from our innovative treatments, and the agreement to acquire the three Catalent manufacturing sites will enable us to serve significantly more people living with diabetes and obesity in the future. Within R&D, we are pleased with the positive results from the kidney outcomes trial with SELECT and the label expansion for cardiovascular disease risk reduction for Wegovy in the U.S.
+
+With that, back to Daniel.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Lars. Next slide, please. With that, we are now ready for the Q&A session. I kindly ask all participants to limit her or himself to one or maximum two questions including any sub-questions.
+
+Operator, we are now ready to take the first question.
+
+Questions & Answers:
+
+Operator
+
+Thank you. [Operator instructions] We will now go to your first question and your first question, one moment, please. And your first question comes from the line of Michael Nedelcovych from TD Cowen. Please go ahead.
+
+Mike Nedelcovych--TD Cowen -- Analyst
+
+Thank you for the questions. I have two. The first is on the guidance range. In every year going back to 2017, the guidance range has been between 3% and 6% and often narrowed in the first quarter.
+
+The fact that this year's guidance range spans 8% is understandable given supply uncertainties, but one might have imagined that management might have some additional clarity by now and possibly have narrowed the range. Of course, this implies risk both to the downside and to the upside, but it's hard to interpret persistent uncertainty as a good thing. So, to what specifically do you attribute that uncertainty? And then, my second question has to do with high-dose injectable semaglutide. As you noted, the phase 2 trial incorporated a 16-milligram dose which we understood to be a dose intended to find a weight loss plateau in order to make sure no efficacy was being left on the table.
+
+You note that the weight loss was dose responsive, but did you find that plateau? And can you give us any sense how much additional weight loss was gained at eight and 16 milligrams of semaglutide? And you also noted that higher doses are now being evaluated for further clinical development, but of course, phase 2 trials at a 7.2-milligram dose are already nearing completion. So, are you contemplating additional trials at even higher doses? Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you for the questions, Mike, and thanks for being up early in the morning. Karsten, the first one, guidance range for you. And afterwards, you, Martin, on the semaglutide trial.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Good morning, Michael. So, thank you for looking up our historic ranges. And of course, we do that also when we're assessing. I think it's important to note that as we've seen over the past year or two, then the run rate we have in terms of very high growth level and volatility has caused us to be a little bit more cautious in terms of guidance ranges also linked to the very strict regulations we have here as a listed company in Denmark around how to navigate that. So, I would say there's no additional signals to the guidance range for the first quarter.
+
+We are on our base plan in terms of running our business. And there are no major changes to risks either, I would say, favorably or negatively. We are on track and we like what we see.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Karsten. Martin, over to you.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Yeah. Thank you very much for the question. So, I will -- I'll not comment on the actual data. So, we'll disclose them at a later time point.
+
+So, these are -- we -- the actual weight loss observed, that will be disclosed later on. I specifically talked about diabetes when we talked about evaluating further development. You're absolutely right, in obesity, we're currently conducting a phase 3 trial. And what we can say at this point is that the data that we've seen from diabetes, securing that we remain confident also on the higher doses in the obesity space.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Martin, and thank you, Mike, for the questions. We are ready for the next question, please.
+
+Operator
+
+Thank you. I will now go to the next question. And your next question comes from the line of Richard Vosser from J.P. Morgan.
+
+Please go ahead.
+
+Richard Vosser--JPMorgan Chase and Company -- Analyst
+
+Hi, thanks for taking my questions. Two, please. First one, just on supply progression in the U.S. and ex-US for Wegovy and Ozempic.
+
+I mean we've seen very good uptake of the starter doses in the U.S. with a substantial ramp. Should we anticipate a continued gradual ramp of those doses throughout this year? Is that how we should think about it? Just some more color there on supply. And particularly, also, U.S., I think it was quite weak this quarter.
+
+Can that be turned around, particularly in China and some other areas? And then, just second question, on Mim8, lots of discussion by this, including some of your competitors going into new administration profiles for their products. Perhaps you could remind us a little bit more detail, Martin, of the target product profile, so we can put those -- that into perspective with the tweaks that HEMLIBRA are making when we see them. Thanks very much.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Richard. So, Karsten, you start with the supply, and we'll then go to Martin again like before.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Yeah, so, on supply and specifically on Wegovy, then it's a pleasure to report that from a starting point, around 5,000 NBRx weekly in the U.S. on Wegovy entering this year, now, we are in excess of 25,000. So more than 5x compared to where we started this year. And clearly, that is a sign of of supply chain operating and running and building inventories and supplying the market because our strategy is to supply starter doses to patients who are then -- who should then be able to titrate up through the dose regime.
+
+So, on that front, that is -- you should see that as confidence in scaling. We're not guiding for the full year specifically on NBRx. I think generally speaking, guiding on NBRx is a tricky discipline. But I would say that, implicitly, in our guidance for the full year, when you look at the midpoint compared to first-quarter performance, then that uptake or that acceleration in growth is -- is driven by continued Wegovy expansion in the U.S. And there, you should see -- look at the TRx ramp over the year but also continued launches in -- volume cap launches in IO.
+
+So, Wegovy is key to growth acceleration for the remainder of the year.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Karsten. Martin, on Mim8.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Yeah, thanks very much, Richard. And you're absolutely right, we are only a few weeks away from the readout of Mim8. So, that's going to be exciting. What our target profile is reflecting is obviously, as we discussed, an unsurpassed efficacy.
+
+Primary endpoint is annual bleeding rate. And looking at the median, we expect more than 50% of people having no bleeds, the APR will be zero. So, we had to look at the proportion of patients with no bleeds throughout a year, and that's where we will see Mim8 potentially having a very competitive profile. We expect to see an attractive safety profile, and then we expect to be able to demonstrate that Mim8, regardless of dose, will have a true monthly profile, which obviously gives a great convenience benefit for patients. At the same time, Mim8 will be delivered in an easy-to-use, very intuitive device, and with an injection volume that is pain-free.
+
+So, potential upsides on efficacy, good safety profile, and a clear convenience, and injection pain upside.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Martin. Thank you, Richard, for the question. We are ready to take the next question, please.
+
+Operator
+
+Thank you. We will now go to your next question. One moment, please. Your next question comes from the line of Louise Chen from Cantor.
+
+Please go ahead.
+
+Louise Chen--Cantor Fitzgerald -- Analyst
+
+OK, thank you for taking my question. I just wanted to ask you, for SELECT, has the approval actually helped you gain better coverage of semaglutide with your payers? And then, secondly, on your ESSENCE MASH data, we've received a lot of questions on that, and curious what you feel would be a good outcome to give you confidence that you have a commercially competitive drug. And prior, you had said it was end of the year for readout, but now it reads that it's coming out in second half '24. I didn't know if there was an acceleration of the timeline.
+
+Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Louise. Doug, SELECT and the implications for the U.S. market.
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Yep, thank you, Louise. And maybe as a starting point, it's probably good to remind you that, currently, we have over 50 million people that we're covering living with obesity. Now, there's still room to grow, and certainly, that's our ambition. But we're pleased with the level of access today.
+
+And again, I think it's also important that, as you know, in March, Wegovy was -- the label was expanded based on the SELECT data trial and to become the only, I repeat, the only AOM with proven CV benefit. And so, you know, we've already seen an impact of the label update with CMS allowing for reimbursement in Medicare Part D for AOMs with a CV indication. So, we're pleased with that. Now, there's still some work to do with planned sponsors on the exact criteria of reimbursement. And so, we think the uptake will be gradual, a couple of million today. But overall, we're pleased with the level of access, and we think we're going to take advantage of SELECT moving forward.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Doug. Martin, on MASH.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Yeah. Thank you very much. So, as a reminder, the ESSENCE trial is in two parts. First 800 patients treated for 72 weeks will be -- which will be the regulatory trial.
+
+And the primary endpoint is liver biopsy assessment of steatosis and fibrosis. And what we hope to see is basically what we saw in our pretty large phase 2 trial, where we saw a significant and clinically relevant improvement in steatosis and also clinically relevant improvement in fibrosis. If we see the same level in phase 3, we would be looking at a very attractive profile. This is also what allowed the FDA to grant us Breakthrough designation based on the phase 2 data. And then, in addition, we are extending the study to an additional couple of hundred patients, where we will continue treatment to look for heart outcomes.
+
+So, basically, both liver-related and also cardiovascular heart outcomes, also to cater to the broader -- both clinical, but as well as payer discussions.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Martin. We are now ready for the next question.
+
+Operator
+
+Thank you. We will now go to the next question. And your next question comes from the line of Evan Seigerman from BMO Capital Markets. Please go ahead.
+
+Evan Seigerman--BMO Capital Markets -- Analyst
+
+Hi, all. Thank you so much for taking my question, and congrats on all the progress. Maybe walk me through some of the expected pricing dynamics for Wegovy in the United States. And I'm asking this in the context of, you know, why are you necessarily giving price given that, you know, supply is constrained and the demand is so high? Maybe walk me through how you're thinking about how this will evolve over the next few quarters.
+
+Thank you so much.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Evan. So, Lars, will you give that a go?
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Yeah, so thank you for that question. So, we strongly believe in the value of our GLP-1 products and we just booked -- spoken about some of the very nice outcomes data that we have achieved. So, we have a situation where we are greatly increasing access to more and more channels of the market, which comes, some of those, with a lower price. So, it's really a sign of us reaching more and more patients and also some of the more vulnerable patients that's impacting the pricing dynamics. We see an overall stable competitive environment, and with the volume opportunity we have at hand, that, you know, significantly outweighed what we see in terms of lower price points in some of these additional channels. So, strong belief in the value of our products but also a wish to treat more and more patients, and some of those come at a slightly lower price point than what we launched at initially.
+
+Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Lars. Thank you, Evan, for the question. We're ready for the next question.
+
+Operator
+
+Thank you. We'll now go to the next question. And your next question comes from the line of Sachin Jain from Bank of America. Please go ahead.
+
+Sachin Jain--Bank of America Merrill Lynch -- Analyst
+
+Hi, Sachin Jain, Bank of America. Two for Martin, if I may. Firstly, back on Mim8 and the zero-bleed rate you referenced, Martin. I think at the CMD, you referenced the 70% zero-bleed rate post-hoc analysis.
+
+I think HEMLIBRA'S got about 50% zero bleeds on the label, but Roche quote 80 to 90% in real life. So, given the sort of various benchmarks, just what the zero-bleed rate for you as an absolute number confirms a superior profile versus HEMLIBRA, with the caveat of cross-trial comparisons. The second question is on Amycretin. And maybe I misunderstood and perhaps I didn't hear your commentary correctly.
+
+You've referenced a phase 2 start toward the end of this year. Fom the CMD, I thought you were waiting the subcut data early next year and the diabetes data next year before potential phase 3 start. Did I misunderstand that at the CMD or something changed since then? Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+So, thank you, Sachin. Two for you, Martin, first on Mim8 and then on Amycretin timelines.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Yeah, thank you very much, Sachin. So, first of all, on Mim8, obviously, I can only compare the regulatory data and what is in the label. And I think you're right, what we've seen so far in our clinical trials is slightly in excess of 70% of patients with no bleeds, which obviously, if that is also confirmed in phase 3, will be a very competitive profile. So, this is what we are looking for.
+
+And then, again, you had to compare likes to likes, so the regulatory studies. On Amycretin, I don't think you misunderstood anything. We, for better or worse, have to focus, from a regulatory perspective, on obesity and diabetes as two distinct entities. And for obesity, we are currently in the process of finalizing the subcutaneous phase 2 and then we'll look at how to further progress Amycretin in obesity. For type 2 diabetes, we are currently in the process of conducting a phase 2 study to understand the potential of Amycretin in type 2 diabetes.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Martin. Thank you, Sachin. We are ready for the next question.
+
+Operator
+
+Thank you. We will now go to the next question. And your next question comes from the line of Peter Verdult from Citi. Please go ahead.
+
+Pete Verdult--Citi -- Analyst
+
+Pete Verdult from Citi. Just two questions. Favorite topic for you, both supply and pricing. Sorry to test your patience, but starting with Karsten, you've consistently stated that scaling supply is management's No.
+
+1 priority. With that in mind, can we peek a little bit more beyond 2024. When we think about you opening the taps and quadrupling starter doses for Wegovy, is that a nod to supply capacities in '25 being a multiple of 2024? I realize I'm pushing my luck here, but some sense would be helpful. And then, just for Lars or Camilla, I mean we're seeing with FLOW and SELECT and HFpEF the data to support increasing use of sema continues to grow.
+
+But we are also now seeing the backlash, political heat in the U.S., Danish authorities wanting to stamp Ozempic not as SGLT-2, you know, lowering the price of Ozempic 30% in Denmark. So, the question is just to sort of follow-on from the previous one. I'm not interested in pricing for the next few quarters, but you know, how do you think about just the dynamics going forward as people try and manage their budgets? I mean, the demand is clearly there. It is a case where you -- we should expect a step-up in pricing erosion.
+
+But put simply, the volume opportunity is so great that any pricing concerns get fully offset. I just want to understand how you are thinking about that dynamic. Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thanks, Pete. So, first, Karsten, Pete pushing his luck on supply in the coming years.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Yeah, so guiding for supply in 2025 at the Q1 call 2024 I think is -- is stretching it a bit. So, let me give you a couple of boundaries. So, from a fill-finish point of view, then we continue to scale the single-dose platform that we have launched in the U.S. So, that is ongoing and something we're driving each and every day.
+
+So, of course, we'll continue to scale that. And then, on top of that, which we're also saying today that as of now, we have launched in nine countries, beyond the U.S., Wegovy. So, the ramp-up of U.S. is -- will also be taking pace over this year but also into next year. So, net net, yes, there will be a good ramp into 2025.
+
+The exact amount and the effect on Nord, we'll have to get back to you on that one at a later point in time.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Karsten. Lars?
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Yeah, thanks, Pete, for the question on how we see the pricing dynamics. I would say when we launched semaglutide both in type 2 diabetes and in obesity, it was into an established price point in the market. And we launched that at similar pricing as prior generations despite the fact of a significantly better clinical profile. And obviously, that was an attractive value proposition, and that has led to significant volume growth because of the benefits. And right now, we have a situation where you can say both that volume is, to some degree, putting a strain on healthcare systems.
+
+But at the same time, we are just starting to unfold the full value of of patients being on this treatment. And these same healthcare systems are significantly burdened by chronic diseases and many of them linked to the exact diseases we are trying here -- which we're treating here. So, I think I'm optimistic about how we can communicate the value to healthcare systems of these interventions. I'm very optimistic about the underlying, say, willingness among both patients and physicians to use these medicines. And then, of course, we see very different markets. In the U.S., we see, typically year over year, a slight erosion in net price.
+
+In other markets, it's more of a stable nature and you have sometimes one-offs. So, in that overall equation, I'm actually very confident that we can manage to articulate the value of medicines at a price point that's also understood by the healthcare systems. And with the continued volume opportunity, this turns into a very attractive commercial model. Thank you.
+
+Pete Verdult--Citi -- Analyst
+
+Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Lars, and thanks, Pete, for the questions. We are ready for the next question.
+
+Operator
+
+Thank you. We will now go to your next question. One moment, please. And your next question comes from the line of Simon Baker from Redburn Atlantic.
+
+Please go ahead.
+
+Simon Baker--Redburn Atlantic -- Analyst
+
+Thank you for taking my questions. Firstly, another one on pricing, if I may. Lars, you indicated that the pricing impact that you've seen in Q1 is effectively channel mix. I just wonder if you could confirm that and apportion the amount of pricing that is down to channel mix and how much is down to pricing reductions within specific channels.
+
+And then, the second question on a completely different subject, I just wonder if you could give us any commentary on the FTC's recent challenge to Orange Book patent listing, of which you were one of the named companies. Any idea on the timeline over which this will play out? Thanks so much.
+
+Daniel Bohsen--Head of Investor Relations
+
+Good. Thank you, Simon. So, Karsten, I think I'll give both of them to you. The first, the pricing in Q1, and then the second, FTC challenge of patents.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Yeah, Simon, thanks for these questions. So, as we've been out saying early on, then one should always be careful of of overinterpreting pricing in individual quarters. So, to be more specific then, the -- then on Ozempic, like for like, we do see continued reduction in price. And then, yes, we have some growth to net benefit in the first quarter.
+
+But over the full year, you should, like for like, see a net price reduction, for example, in the U.S. And the same goes for Wegovy, back to the volume opportunity. But net net, given increasing volume and competition, net pricing, like for like, will be down in the US. And then, as to the FTC letter on patents, I believe that was the question?
+
+Daniel Bohsen--Head of Investor Relations
+
+That was the question, yes.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+So, the FTC question on the patents, it's important to note, first of all, the patents in question are related to Ozempic, Victoza, and Saxenda. But we're talking about device patents, first of all, and we're talking about patents that are valid and granted by the U.S. Patent Office. The question is all about whether they should be listed in the Orange Book or not. And of course, when we listed the patents, we carefully assessed whether we are following the appropriate protocol per FDA and sought guidance and feedback on that.
+
+So, overall, we believe that what we have done is appropriate, but of course, we'll follow the regulations as issued by the FDA.
+
+Simon Baker--Redburn Atlantic -- Analyst
+
+Great. Thanks so much.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thanks, Karsten. Thank you, Simon, and we are ready for the next question, please.
+
+Operator
+
+Thank you. We will now go to the next question. One moment, please. And your next question comes from the line of Florent Cespedes from Bernstein.
+
+Please go ahead.
+
+Florent Cespedes--AllianceBernstein -- Analyst
+
+Good afternoon. Thank you very much for taking my questions. Two quick ones. The first, on obesity in Europe, could you give us an update on the situation in Europe for Wegovy and the discussions with the payers if they are waiting for SELECT data approval on the label, so some color on this front would be great.
+
+My second question for Karsten. On sales and distribution, could you give us some color on how you see this line going forward as it was much lower than expected this quarter? Apparently, it's related to the fact that you have less promotion efforts, so some colors would be great. Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Florent. Camilla, the first question to you, Wegovy outside the U.S.
+
+Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+
+Yeah, yeah, and you also asked specifically about whether they are waiting for SELECT. Of course, we are initially waiting for the regulatory decision on the SELECT, which we expect in the second half of this year. Having said that, there is of course a keen interest in this set of data, but already now we do have reimbursement in a number of countries outside the U.S. So, UK, Scotland, Canada -- sorry, Japan and also Switzerland. So, we are seeing a very positive interest in Wegovy and, of course, also in the SELECT data that shows a strong cost effectiveness.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Camilla. Karsten, on S&D cost development.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Commercial investments, so coming back to our recent capital markets day and our strategic resource allocation, then what what I was discussing there was our intent to allocate substantial resources toward innovation, i.e. R&D, so having an increasing R&D ratio, i.e. investments that are growing faster than sales, and our commercial investments growing at a slower pace than sales. And that is exactly what you're seeing this quarter and also what you should expect to be seeing this year that commercial investments are growing slower than sales. We have the majority of our commercial infrastructure in place across our therapeutic categories.
+
+So, what we are pursuing are really targeted investments. I would say a lot of focus on obesity market development and building the obesity market. And then, we also have some early investments in some of our newer therapy areas. So, building some infrastructure on the cardiovascular side. So, that are really the main focus areas on commercial investments.
+
+Florent Cespedes--AllianceBernstein -- Analyst
+
+OK, thank you very much. Very clear.
+
+Daniel Bohsen--Head of Investor Relations
+
+And we are ready for the next question, please.
+
+Operator
+
+Thank you. Your next question comes from the line of Mark Purcell from Morgan Stanley. Please go ahead.
+
+Mark Purcell--Morgan Stanley -- Analyst
+
+Yeah, thank you very much for taking my questions. I have two. The first one is just going back to the Wegovy U.S. starting dose.
+
+The pace of growth at the moment seems to be increasing a bit. It's about 10% week over week, now up to 33,000, 0.25-milligram doses per week. Should we assume that this sort of increase will continue to be steady, or is there going to be a slowdown in that 10% growth week over week? And your confidence in converting to the higher doses would be helpful. And then, the second question is on the CagriSema dual-chamber device.
+
+I wonder if you could help us understand some of the properties of this device in terms of whether it's connected and the importance in terms of patient compliance potentially from it being a connected device. The launch preparedness and indications of the code formulation of CagriSema, what does that mean for the dual-chamber device? Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Good. So, the first question, over to you, Doug, for the commercial dynamics right now with Wegovy in the U.S.
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Yeah, thanks, Mark. I mean we're certainly pleased with the last couple of weeks of NBRx, as I stated in the beginning, over 27,000 and reaching all-time high with TRx. But remember, as I talked about quarter over quarter, our key focus remains the safeguarding of patient continuity of care, and we manage that supply dynamically to do that. So, we're going to continue to gradually scale efforts, and we're going to do that throughout the remainder of this year. And certainly, we're happy and pleased with what we're seeing now, and we're very pleased with SELECT and what we're going to be able to do moving forward.
+
+Daniel Bohsen--Head of Investor Relations
+
+Good. Thank you, Doug. Martin, CagriSema device and connectivity.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Yeah. So, very briefly, the CagriSema device, as you say, it is a dual-chamber device as the two drugs can currently not be co-formulated. And it's a single-dose device, very simple to use. So, basically, you should compare that to the device of Wegovy --currently no connectivity embedded in that device.
+
+And on the question on co-formulation, obviously, with the dual-chamber device, that's not our normal platform. The co-formulation will allow us more flexibility in that we can then deliver CagriSema in more versions. One could potentially be in FlexTouch, thereby, from a supply perspective, allowing us more flexibility.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Martin. Thanks for the question. We are ready for the next.
+
+Operator
+
+Thank you. We will now take your next question. And your next question comes from the line of Harry Sephton from UBS. Please go ahead.
+
+Harry Sephton--UBS -- Analyst
+
+Brilliant. Thank you very much for taking my questions. Two, please. So, on the first question is whether you saw any material impact to your first-quarter volumes in the U.S.
+
+from the cyberattack on UnitedHealth's Change payments platform that may have restricted some patients access to copay support and, as a result, could have contributed to some weakness on volumes beyond just the supply constraints. And then, my second question is, you've talked about the fact that the ex-U.S. obesity market could be predominantly self-pay in the future. How do you view the potential opportunity for the U.S.
+
+market to move more toward self-pay, and what are your ambitions there? Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Harry. Doug, two for you. First, on cyberattack impact -- potential impact in the first quarter, and then second, do you see a self-pay market in the U.S.
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Yeah, thanks, Mark -- or excuse me, thanks, Harry. Nothing material. It doesn't explain the volumes. Just maybe to give you a little context there, again, remember, speaking to Ozempic, you know, we saw a 50% -- over a 50% growth rate in the quarter.
+
+We continued to gain market share, which is important, and we're clearly the market share leader. But we did see some impacts in the quarter, periodic supply constraints, and they were primarily in the early part of the year. Remember, we have a larger base. Last year, the volume growth was 50%.
+
+And we do see some continuation of utilization management. So, those would be more in line with what impacted some of the volumes. In terms of self-pay, the way I would characterize that is we're always looking at opportunities to bring more patients to our products, and that could be an option. So, we evaluate everything moving forward.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Doug. And specifically, also the cyberattack, did you see any impact from that in the first quarter?
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Yeah, nothing material, and that wouldn't explain the volumes, so.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Doug, and thank you, Harry. We're ready for the next question.
+
+Operator
+
+Thank you. We will now take your next question. And your next question is from Richard Parkes. Please go ahead.
+
+Richard Parkes--Exane BNP Paribas -- Analyst
+
+Yeah, thanks for taking my questions. So, yeah, just two questions. Firstly, on Monlunabant, the phase 2 data, I'm just wondering if there's going to be anything you can generate from that phase 2 trial to give some comfort on the risk of psychiatric side effects, given the class, i.e., any data on confirmation the drug doesn't cross the blood-brain barrier to a material degree, or should we just expect standard sort of phase 2 readout? And then, secondly, just sort of playing devil's advocate on the commentary around value to healthcare systems from Wegovy, obviously, some of the arguments for that are based on stay time in the SELECT study of 3.5 years. But what we're seeing in the real world at the moment is less than 12 months in terms of median duration.
+
+So, from the payers' perspective, there's a risk that they get all of the upfront cost without generating savings if they can't keep patients on drugs. So, I'm just wondering, is that a pushback that you often get, and how do you address that in your discussions with payers? Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Richard. So, Martin, first -- the first one to you. And Lars, I'll give the second one to you.
+
+Martin Lange--Executive Vice President, Head of Development
+
+Yeah, thank you very much. So, I think you're right, we're quite excited about Monlunabant and the potential because we've seen potential for substantial weight loss with a scalable oral, and that is of course very exciting. However, we have to rule out potential safety issues. The ongoing phase 2 trial will give us a good readout on the efficacy, and it will also give us a reasonable readout of the safety profile of Monlunabant.
+
+However, to fully de-risk this, we intend to investigate this, as we already announced, in a somewhat larger study to secure that both obviously our efficacy, but certainly also our safety assessment of this is right. So, you'll get a good first readout from the ongoing phase 2 trial, but you'll see even more for -- from the next.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Yeah, thank you. So, fair challenge on the stay time. It's still a early days. We are pleased with the stay time we see, but I think it's also fair to say that we have not had, say, a sustainable market presence to really be able to tell what will the stay time be.
+
+And I think it's also a dynamic situation in terms of understanding what is obesity and what is the value of treating obesity. So, we believe, over time, that we will see, say, enough patients getting to a doable weight loss that will also translate into real health benefits. But of course, it takes time to establish those data, and we have simply not been in the market long enough to document that. So -- but I think it will be possible to do that. Thank you.
+
+Richard Parkes--Exane BNP Paribas -- Analyst
+
+Thank you.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you. Thank you, Richard, for the questions. We have time for one final brief question.
+
+Operator
+
+Thank you. We will now take your final question. One moment, please. And your final question comes from the line of Michael Novod from Nordea.
+
+Please go ahead.
+
+Michael Novod--Nordea Markets -- Analyst
+
+Thank you very much. Michael from Nordea. So, going back to the CMS guidance and some of the access you are you are getting, can you comment on how many of the insurance companies are following CMS guidance? And also, in that connection, how do you see then the potential progress for the TROA in the U.S.? Could something happen in 2024 or 2025?
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Michael. Doug, over to you for the last answer.
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Thank you, Michael. So, we're seeing a couple of million, you could say at around 4 million lives today that we're seeing as a result of the impact of the label update with CMS allowing for reimbursement in Medicare Part D. And again, this is going to be gradual, right? There's still some work to do, as I mentioned earlier, with planned sponsors to the exact criteria of reimbursement. So, it's going to be gradual, but we certainly see this as a very positive step in the right direction. And, you know, it's certainly encouraging.
+
+Now, as far as TROA, again, as I've said many quarters, we're not going to -- I'm not going to get into the predicting game, but again, we think it's just a matter of time. Certainly, there's support on both sides. So, we still think it's just a matter of time. So, we're positive.
+
+I just -- I can't give you an indication as to when, but we're hard at work there as well.
+
+Daniel Bohsen--Head of Investor Relations
+
+Thank you, Doug. Thank you, Michael. And this concludes the Q&A session for this earnings call. Thank you for participating and please feel free to contact Investor relations, as always, regarding any follow-up questions you might have.
+
+Before we close the call, I would like to hand over to you, Lars, for the final remarks.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Yeah, thank you, Daniel, and thank you, all, for joining us today. So, I hope it comes across that we're very pleased with the momentum of our business right now as evidenced by the sales performance in the first three months and not least the development in script for both Ozempic and Wegovy in the U.S., really proving that we are on track of scaling supplies here during the year, but also our commitment to scale supply significantly for the coming years to treat even more patients. We're also excited about our pipeline progress and what we have coming up in terms of Mim8 and CagriSema. And on a final note, I would like to thank you, Daniel.
+
+This was the last quarter with you at the helm as IR head. Thank you for your leadership and the best of luck with your continued career in Novo Nordisk. This will close the call. Thank you, all.
+
+Operator
+
+[Operator signoff]
+
+Duration: 0 minutes
+
+Call participants:
+
+Daniel Bohsen--Head of Investor Relations
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Camilla Sylvest--Executive Vice President, Head of Commercial Strategy and Corporate Affairs
+
+Doug Langa--Executive Vice President, Head of North America Operations
+
+Martin Lange--Executive Vice President, Head of Development
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Mike Nedelcovych--TD Cowen -- Analyst
+
+Richard Vosser--JPMorgan Chase and Company -- Analyst
+
+Louise Chen--Cantor Fitzgerald -- Analyst
+
+Evan Seigerman--BMO Capital Markets -- Analyst
+
+Sachin Jain--Bank of America Merrill Lynch -- Analyst
+
+Pete Verdult--Citi -- Analyst
+
+Simon Baker--Redburn Atlantic -- Analyst
+
+Florent Cespedes--AllianceBernstein -- Analyst
+
+Mark Purcell--Morgan Stanley -- Analyst
+
+Harry Sephton--UBS -- Analyst
+
+Richard Parkes--Exane BNP Paribas -- Analyst
+
+Michael Novod--Nordea Markets -- Analyst
+
+More NVO analysis
+
+All earnings call transcripts
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool recommends Novo Nordisk. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

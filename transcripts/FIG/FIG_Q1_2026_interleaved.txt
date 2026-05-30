@@ -1,0 +1,383 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Figma (Figma)
+Quarter: Q1 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/05/15/figma-fig-q1-2026-earnings-call-transcript/
+Translated: 2026-05-29T23:29:45.832020
+Backend: google
+Paragraphs: 122
+======================================================================
+
+  [  1] [EN] Thursday, May 14, 2026 at 5 p.m. ET
+       [中] 2026 年 5 月 14 日星期四下午 5 点ET
+
+
+  ━━ Call participants ━━
+  ━━ 呼叫参与者 ━━
+
+  👤 Chief Executive Officer — Dylan Field
+     首席执行官 — 迪伦·菲尔德
+
+  👤 Chief Financial Officer — Praveer Melwani
+     首席财务官 — Praveer Melwani
+
+
+  ━━ Revenue-- $333 million, up 46% year over year, with growth accelerating for two consecutive quarters. ━━
+  ━━ 收入——3.33亿美元，同比增长46%，增长连续两个季度加速。 ━━
+
+  [  6] [EN] Net dollar retention rate-- Reached 139%, a 3 percentage point increase from the prior quarter, the highest in over two years.
+       [中] 净美元留存率——达到139%，较上季度提高3个百分点，为两年多来最高。
+
+  [  7] [EN] International revenue growth-- International business revenue grew 48% year over year, outpacing overall company growth.
+       [中] 国际收入增长——国际业务收入同比增长 48%，超过公司整体增长。
+
+
+  ━━ Operating margin-- Non-GAAP operating margin stood at 16%, with operating income of $52 million. ━━
+  ━━ 营业利润率——非 GAAP 营业利润率为 16%，营业收入为 5200 万美元。 ━━
+
+  [  9] [EN] Free cash flow-- $89 million in free cash flow and a margin of 27%; Q1 margin was reduced by a $56 million annual bonus payout, which had a 17 percentage point impact.
+       [中] 自由现金流——自由现金流8900万美元，利润率为27%；第一季度利润率因年度奖金支付 5600 万美元而减少，影响达 17 个百分点。
+
+  [ 10] [EN] Paid customer base-- Expanded to approximately 690,000, increasing 54% year over year.
+       [中] 付费客户群扩大至约 69 万，同比增长 54%。
+
+  [ 11] [EN] Large customer segments-- Paid customers with more than $10,000 in ARR grew 37%, while those over $100,000 grew 48%, both reflecting acceleration.
+       [中] 大客户群体——ARR 超过 10,000 美元的付费客户增长了 37%，而 ARR 超过 100,000 美元的付费客户增长了 48%，两者均反映出加速增长。
+
+  [ 12] [EN] AI credit monetization-- AI credit monetization began March 18; over 75% of Org and Enterprise plan users who exceeded previous limits continued to consume credits, and more than 95% of those users remained active by end of April.
+       [中] AI信用变现——AI信用变现于3月18日开始；超过 75% 的超过先前限制的组织和企业计划用户继续消耗积分，并且到 4 月底，其中超过 95% 的用户仍然活跃。
+
+  [ 13] [EN] AI-driven usage and expansion-- Among customers with more than $100,000 in ARR, weekly usage of Make reached 60%, up from just over 50% last quarter.
+       [中] AI 驱动的使用和扩展——在 ARR 超过 100,000 美元的客户中，Make 的每周使用率达到 60%，高于上季度的 50% 多一点。
+
+  [ 14] [EN] MCP adoption-- Customers with more than $100,000 in ARR that used MCP grew full seats approximately 70% faster over the quarter than those not using MCP.
+       [中] MCP 的采用——使用 MCP 的 ARR 超过 100,000 美元的客户在本季度的满员增长速度比不使用 MCP 的客户快约 70%。
+
+  [ 15] [EN] Guidance update-- Full-year revenue guidance was raised by $55 million to a range of $1.422 billion-$1.428 billion, implying 35% growth at midpoint; non-GAAP operating income guidance raised by $25 million to $125 million-$135 million.
+       [中] 指导更新——全年收入指导上调 5500 万美元，达到 14.22 亿美元至 14.28 亿美元的范围，意味着中点增长 35%；非 GAAP 营业收入指导上调 2500 万美元，达到 1.25 亿至 1.35 亿美元。
+
+  [ 16] [EN] Cash position-- Ended the quarter with $1.6 billion in cash, cash equivalents, and marketable securities.
+       [中] 现金状况——本季度末现金、现金等价物和有价证券为 16 亿美元。
+
+  [ 17] [EN] Product metrics-- In Q1, 60% of Figma’s largest customers used Make weekly, and over 80% of Make users on Full Seats continued using Figma Design.
+       [中] 产品指标——在第一季度，Figma 最大的客户中有 60% 每周使用 Make，并且 Full Seats 上超过 80% 的 Make 用户继续使用 Figma Design。
+
+  [ 18] [EN] AI-driven Pro team conversions-- Pro team conversions to paid plans increased over 150% year over year, led by adoption of AI capabilities.
+       [中] AI 驱动的专业团队转化率——在 AI 功能的采用的带动下，专业团队向付费计划的转化率同比增长了 150% 以上。
+
+  [ 19] [EN] Figma(FIG+9.19%)reported accelerating revenue growth, significant expansion in its paid customer base, and early success in monetizing AI features across its platform. New credit monetization initiatives are showing strong engagement, particularly among enterprise and organizational users who continue to purchase additional credits after enforcement. The company emphasized unique competitive positioning through platform differentiation and ongoing product expansions, while its raised full-year guidance reflects confidence in broad-based seat growth, retention, and continued AI-driven upsell. Figma’s updated bonus accrual structure will continue to impact quarterly free cash flow margins moving forward.
+       [中] Figma（FIG+9.19%）报告称，收入增长加速，付费客户群显着扩大，并且在整个平台的人工智能功能货币化方面取得了早期成功。新的信用货币化举措显示出强烈的参与度，特别是在企业和组织用户中，他们在实施后继续购买额外的信用。该公司强调通过平台差异化和持续的产品扩张来实现独特的竞争定位，而其上调的全年指引反映了对广泛的席位增长、保留和持续的人工智能驱动的追加销售的信心。Figma 更新的奖金应计结构将继续影响未来的季度自由现金流利润率。
+
+  [ 20] [EN] A major international hyperscaler unified over 35,000 paid seats under a single agreement, representing one of the largest deals in company history.
+       [中] 一家大型国际超大规模企业在一份协议下统一了 35,000 多个付费席位，这是公司历史上最大的交易之一。
+
+  [ 21] [EN] Field said, "Adoption of Weave at NBBJ is expected to triple in the next 3 months," highlighting growing traction with AI-enabled products beyond traditional software design.
+       [中] Field 表示，“NBBJ 对 Weave 的采用预计在未来 3 个月内将增加两倍”，这突显了人工智能产品超越传统软件设计的吸引力日益增长。
+
+  [ 22] [EN] Melwani noted, "Pro teams that purchase AI credit add-ons had more seats per team and an average annualized spend of over 3x than that of teams that haven't purchased add-ons."
+       [中] Melwani 指出，“购买 AI 积分附加组件的职业团队每支团队拥有更多席位，平均年支出是未购买附加组件的团队的 3 倍以上。”
+
+  [ 23] [EN] The launch of full seat AI credit limits now ties revenue directly to increasing AI usage on the platform, establishing a new monetization milestone.
+       [中] 现在，全席位人工智能信用额度的推出将收入与平台上人工智能使用的增加直接挂钩，建立了新的货币化里程碑。
+
+  [ 24] [EN] Industry glossary
+       [中] 行业术语
+
+  [ 25] [EN] Make: Figma’s AI-powered collaborative design tool enabling code, prototyping, and workflow automation within the platform.
+       [中] Make：Figma 的人工智能协作设计工具，可在平台内实现代码、原型设计和工作流程自动化。
+
+  [ 26] [EN] MCP: Multi-Context Platform, Figma’s architecture that allows AI agents and developers to interact directly with design files and workflows.
+       [中] MCP：多上下文平台，Figma 的架构，允许 AI 代理和开发人员直接与设计文件和工作流程交互。
+
+  [ 27] [EN] AI credit monetization: Revenue model where users consume prepaid units (“credits”) for AI-powered features, introducing usage-based billing for advanced capabilities.
+       [中] AI 信用货币化：用户为 AI 支持的功能消耗预付费单位（“信用”）的收入模型，引入基于使用情况的高级功能计费。
+
+  [ 28] [EN] Full Seat: Highest license tier in Figma, providing comprehensive access to all features including AI tools, prototyping, and admin controls.
+       [中] Full Seat：Figma 的最高许可级别，提供对所有功能的全面访问，包括 AI 工具、原型设计和管理控制。
+
+  [ 29] [EN] Full Conference Call Transcript
+       [中] 完整的电话会议记录
+
+  [ 30] [EN] Dylan Field:Hello, everyone, and thank you for joining. I'm looking forward to sharing the results of another incredible quarter at Figma. First though, let me tell you how I'm thinking about the opportunity ahead. Anyone building software today knows that we are living through an extraordinary time because with AI, what used to take months can now ship in sometimes an afternoon. Code is more plentiful, easier to write and the distance between an idea and its implementation is collapsing. You've heard me say it many times in the past. When execution is cheap, design and creativity are the edge. And now it's not only me saying it, the entire world sees it too.
+       [中] Dylan Field：大家好，感谢大家的加入。我期待着分享 Figma 另一个令人难以置信的季度的成果。首先，让我告诉你我是如何看待未来的机会的。今天任何构建软件的人都知道，我们正在经历一个非凡的时期，因为有了人工智能，过去需要几个月的时间现在有时只需一个下午就能交付。代码更加丰富，更容易编写，想法与其实现之间的距离正在缩小。你过去已经听我说过很多次了。当执行成本较低时，设计和创造力就是优势。现在不仅是我这么说，全世界都看到了。
+
+  [ 31] [EN] The bottleneck has shifted away from can we build it and toward can we imagine something that's worth building. More design tools are launching, more people are creating, more software is now being built than ever before. And in this world where bits are abundant, what's scarce is human creativity, actual point of view, care and craft and judgment. This is what makes a product, a company, a campaign cut through the noise. Designers, builders and creatives, they all need tools that let them explore without limits and express their vision exactly as they imagined it. And that is what Figma has always been built for. Our Q1 numbers reflect this momentum. Here are a few highlights.
+       [中] 瓶颈已经从我们能否建造它转向我们能否想象出值得建造的东西。更多的设计工具正在推出，更多的人正在创造，现在正在构建比以往更多的软件。而在这个比特丰富的世界里，稀缺的是人类的创造力、实际的观点、关怀、工艺和判断力。这就是让产品、公司、活动脱颖而出的原因。设计师、建造者和创意人员，他们都需要工具来让他们不受限制地探索并准确地表达他们的愿景。这就是 Figma 的初衷。我们第一季度的数据反映了这种势头。以下是一些亮点。
+
+  [ 32] [EN] In Q1 2026, revenue grew 46% year-over-year to $333 million, accelerating from 40% last quarter and 38% in Q3. Growth came from across our business, seat expansion, retention, enterprise adoption, new users and of course, AI through Figma Weave, our broader AI capabilities and early traction from AI credit monetization, which started on March 18. Net dollar retention rate also increased to 139%, our highest rate in over 2 years. This is up 3 percentage points from last quarter. We also continued to generate strong cash flow. Non-GAAP operating margin was 16% in the quarter. Free cash flow was 27%, and we ended Q1 with $1.6 billion in cash, cash equivalents and marketable securities.
+       [中] 2026 年第一季度，收入同比增长 46% 至 3.33 亿美元，增速高于上季度的 40% 和第三季度的 38%。增长来自于我们的业务、席位扩张、保留、企业采用、新用户，当然还有 Figma Weave 的人工智能、我们更广泛的人工智能能力以及 3 月 18 日开始的人工智能信贷货币化的早期推动力。净美元保留率也增加至 139%，这是我们两年多来的最高水平。这比上季度上升了 3 个百分点。我们还继续产生强劲的现金流。本季度非 GAAP 营业利润率为 16%。自由现金流为 27%，第一季度末我们拥有 16 亿美元的现金、现金等价物和有价证券。
+
+  [ 33] [EN] Thank you to the Figma team for your focus and for your execution. I'm also especially proud of how our team is adapting to new ways of working with AI during this time of exponential change. The momentum we've built gives us the confidence to raise our revenue and non-GAAP operating profit guidance for the year. Praveer will share more details on that in just a moment. But the story of our quarter, of course, goes far beyond the numbers. We're seeing our customers go bigger and deeper with Figma. So let me share a few examples. First, Google. Google is a longtime Figma customer. Many of their most iconic products have been designed and built on our platform.
+       [中] 感谢 Figma 团队的专注和执行力。我还对我们的团队如何在这个指数级变化的时期适应人工智能的新工作方式感到特别自豪。我们所建立的势头使我们有信心提高今年的收入和非公认会计原则营业利润指导。普拉维尔稍后将分享更多细节。当然，我们这个季度的故事远远超出了数字。我们看到我们的客户通过 Figma 变得越来越大、越来越深入。让我分享几个例子。首先是谷歌。谷歌是 Figma 的长期客户。他们的许多最具标志性的产品都是在我们的平台上设计和制造的。
+
+  [ 34] [EN] As they build the next generation of AI native products, they're doubling down on Figma. The team designing agenetic Gemini experiences for millions of enterprise customers uses Figma end-to-end as their single source of truth from the earliest concept work all the way through to shipping. In their words, they can only "get to a level of detail that we want in Figma, that's not possible with vibe coding." Lufthansa is another example of a customer going deeper with Figma to drive real innovation. Their Lido navigation product design team used Figma Make to prototype Lido mPilot, an integrated iOS charting app that streamlines flight navigation for commercial pilots.
+       [中] 当他们构建下一代 AI 原生产品时，他们在 Figma 上加倍投入。为数百万企业客户设计遗传 Gemini 体验的团队使用 Figma 端到端作为他们从最早的概念工作一直到交付的唯一事实来源。用他们的话说，他们只能“在Figma 中达到我们想要的细节水平，而这通过vibe 编码是不可能的”。汉莎航空是客户深入使用 Figma 推动真正创新的另一个例子。他们的 Lido 导航产品设计团队使用 Figma Make 制作了 Lido mPilot 原型，这是一款集成的 iOS 图表应用程序，可简化商业飞行员的飞行导航。
+
+  [ 35] [EN] They did it with a level of fidelity that goes well beyond traditional prototypes, though. By connecting Figma make to their in-house API, the team could prototype dynamic, interactive map features. That way pilots could test real gestures before any production code was written. As they put it, pilots could really imagine what we were trying to show them. We validated our concepts before touching implementation. That's the goal of every product team, and we actually did it. Teams aren't just going deeper at Figma. We're seeing broader adoption across the organization as well. Rocket Mortgage, for example, serves 1 in 6 American homeowners, unifying multiple brands and technology stacks into a single homeownership platform.
+       [中] 不过，他们的保真度远远超出了传统原型。通过将 Figma make 连接到他们的内部 API，团队可以制作动态、交互式地图功能的原型。这样飞行员就可以在编写任何生产代码之前测试真实的手势。正如他们所说，飞行员确实可以想象我们想要向他们展示的内容。在实施之前，我们验证了我们的概念。这是每个产品团队的目标，我们也确实做到了。团队不仅仅在 Figma 上更深入。我们也看到了整个组织更广泛的采用。例如，Rocket Mortgage 为六分之一的美国房主提供服务，将多个品牌和技术堆栈统一到一个购房平台中。
+
+  [ 36] [EN] To help scale that vision, the team built their design system directly into Figma Make as a shared template infrastructure for their entire org, accelerating adoption well beyond the design team. As design engineering lead, Will Hobick, describes it: "We're seeing adoption across the organization. Teams across Rocket are now using Figma Make to rapidly build dashboards, craft presentations and explore new customer experiences, all built on top of our shared design system and brand foundations." Design Director, Emily Strobl, had this to say on why it's resonating. "We've all experienced AI tools that just don't quite hit the mark or reflect our brand standards.
+       [中] 为了帮助扩展这一愿景，该团队将其设计系统直接构建到 Figma Make 中，作为整个组织的共享模板基础设施，从而加速了设计团队之外的采用。正如设计工程主管 Will Hobick 所描述的：“我们看到整个组织都在采用 Figma Make。Rocket 的团队现在正在使用 Figma Make 来快速构建仪表板、制作演示文稿并探索新的客户体验，所有这些都建立在我们共享的设计系统和品牌基础之上。”设计总监艾米丽·斯特罗布尔 (Emily Strobl) 谈到了它为何能引起共鸣。“我们都经历过人工智能工具，但它们并没有完全达到目标或反映我们的品牌标准。
+
+  [ 37] [EN] Embedding our design system into Figma Make has fundamentally changed that." In some cases, expansion goes even further beyond product development altogether. At NBBJ, one of the world's leaning architecture firms, Figma Weave, formerly known as Weavy, is changing how they win business. NBBJ's architects are subject matter experts in the industries that they design for. Their work is about understanding how a space needs to function, not just how it looks. So pitching a client used to mean commissioning photo realistic renders from an external studio. And that process took days and returned only 1 or 2 versions with little room for refinement. And now architects at NBBJ can just do it themselves.
+       [中] 将我们的设计系统嵌入 Figma Make 中，从根本上改变了这一点。”在某些情况下，扩张甚至超出了产品开发的范围。在世界领先的建筑公司之一 NBBJ，Figma Weave（以前称为 Weavy）正在改变他们赢得业务的方式。NBBJ 的建筑师是他们设计的行业的主题专家。他们的工作是了解空间需要如何运作，而不仅仅是它的外观。因此，向客户推销过去意味着委托照片逼真的渲染这个过程花了几天时间，只返回了 1 或 2 个版本，几乎没有改进的空间，而现在 NBBJ 的建筑师可以自己完成。
+
+  [ 38] [EN] Figma Weave lets them translate their 3D models into precise, photorealistic renderings. They're able to generate and refine in real time, pushing until the result meets the exact bar that their work demands, dialing in time-of-day lighting, grounding a design in actual urban context, and getting the materiality just right. Figures placed at human scale make a ceiling height or entry sequence immediately legible to clients. The result is a faster pitch, a stronger presentation in full creative control from start to finish. Adoption of Weave at NBBJ is expected to triple in the next 3 months. Across these customers and countless others, Figma remains the place where teams with the highest bar come to do their best work.
+       [中] Figma Weave 可让他们将 3D 模型转化为精确、逼真的渲染效果。他们能够实时生成和完善，直到结果满足其工作要求的精确标准，拨动一天中的时间照明，将设计立足于实际的城市环境，并获得恰到好处的物质性。按照人体比例放置的人物使天花板高度或进入顺序对客户来说立即清晰可见。其结果是，从开始到结束，在完全创意控制下，更快的推介、更强有力的演示。NBBJ 预计未来 3 个月内 Weave 的采用率将增加两倍。在这些客户和无数其他客户中，Figma 仍然是具有最高标准的团队发挥最佳工作成果的地方。
+
+  [ 39] [EN] Teams that know that creativity and craft are what we'll set them apart, they need tools that can match that ambition. Tools that let them explore freely and expressed their vision without limits. That's who Figma is built for. Our platform is where creativity lives and compounds, where teams can move quickly on their first idea and push further, questioning, refining, iterating with the best of AI, code and direct manipulation until the work is unmistakably theirs. We see this in how our customers actually work. As of Q1, around 60% of our largest customers used Figma Make on a weekly basis.
+       [中] 团队知道创造力和工艺是我们使他们与众不同的关键，​​他们需要能够满足这一雄心的工具。让他们自由探索并不受限制地表达自己愿景的工具。Figma 就是为这些人而设计的。我们的平台是创造力得以生存和复合的地方，团队可以快速实现他们的第一个想法，并进一步推进、质疑、完善、迭代最好的人工智能、代码和直接操作，直到工作毫无疑问地属于他们。我们从客户的实际工作方式中看到了这一点。截至第一季度，大约 60% 的最大客户每周都会使用 Figma Make。
+
+  [ 40] [EN] And over 80% of Make users on Full Seats continued using Figma Design for visual editing and broader exploration alongside Make. We love seeing how the ambition of our users and our community is always growing, and we are moving faster than ever to meet it. In the last few months, we shipped major updates to Figma Make that let users bring their own context into every prompt and give them more control over every decision as they build. We introduced new MCP capabilities that let agents read and write directly to Figma files so that teams can stay in control. In Q1, MCP weekly active users in Design grew 5x quarter-over-quarter.
+       [中] Full Seats 上超过 80% 的 Make 用户继续使用 Figma Design 与 Make 一起进行可视化编辑和更广泛的探索。我们很高兴看到我们的用户和社区的雄心壮志不断增长，并且我们正在比以往更快地实现这一目标。在过去的几个月里，我们对 Figma Make 进行了重大更新，让用户可以将自己的上下文带入每个提示中，并让他们在构建时更好地控制每个决策。我们引入了新的 MCP 功能，让代理可以直接读取和写入 Figma 文件，以便团队能够保持控制。第一季度，MCP 设计领域的每周活跃用户环比增长了 5 倍。
+
+  [ 41] [EN] And we shipped updates to Figma Weave, including a timeline editor for refining AI-generated video. Figma Make has driven the most AI usage so far, but MCP, Figma Weave and our AI assistant, which is currently in Alpha are meaningfully expanding the surface for AI consumption in Figma. All of this builds on what has made Figma the choice for the world's best teams building the world's best software. First, a performant enterprise-grade multiplayer canvas and platform, where humans and agents can work side by side with no silos, no handoffs, just the best ideas rising to the top. Second, deep product context that makes AI actually useful.
+       [中] 我们还发布了 Figma Weave 的更新，包括用于优化 AI 生成视频的时间线编辑器。到目前为止，Figma Make 推动了大部分人工智能的使用，但 MCP、Figma Weave 和我们目前处于 Alpha 阶段的人工智能助手正在有意义地扩大 Figma 中人工智能使用的范围。所有这一切都建立在使 Figma 成为世界上最好的团队构建世界上最好的软件的选择之上的基础上。首先，一个高性能的企业级多人游戏画布和平台，人类和代理可以并肩工作，没有孤岛，没有交接，只有最好的想法上升到顶部。其次，深入的产品背景使人工智能真正有用。
+
+  [ 42] [EN] The institutional taste, the historical decisions, the accumulated understanding of how your product should work and feel. And third, full creative control, the ability to prompt, code and manipulate visually all in one place, unlocking the full power of AI without giving up intent or the full range of what you can imagine. Because in a world of abundant software, all of this together is what it takes to build products that stand out. And the companies that figure out how to harness human creativity alongside AI, those companies will define what the next era of software and creativity looks like. having spent over a decade building for the most creative community on the Internet, this is our moment.
+       [中] 机构品味、历史决策、对产品应该如何工作和感觉的累积理解。第三，完全的创造性控制，即在一个地方进行提示、编码和视觉操作的能力，释放人工智能的全部力量，而不放弃意图或你能想象的全部范围。因为在软件丰富的世界中，所有这些加在一起就是构建脱颖而出的产品所需要的。那些弄清楚如何与人工智能一起利用人类创造力的公司将定义软件和创造力的下一个时代。我们花了十多年的时间打造互联网上最具创意的社区，现在是我们的时刻。
+
+  [ 43] [EN] I cannot wait for you all to see what we're shipping over the next weeks and months, including at Config, our annual user conference in June. With that, I'll pass it to Praveer.
+       [中] 我迫不及待地想让大家看到我们在接下来的几周和几个月内将推出的产品，包括在 6 月份举行的年度用户大会 Config 上。这样，我会将其传递给普拉维尔。
+
+  [ 44] [EN] Praveer Melwani:Thanks, Dylan. Dylan shared some of the headlines and why we believe Figma is outperforming. I'll share a bit more detail on what we're seeing in our outlook for the rest of the year. AI continues to be an incredible tailwind for our business. Total revenue in the first quarter was $333 million, representing 46% year-over-year growth and exceeding the high end of our guidance. This marks our second consecutive quarter of acceleration in our year-over-year revenue growth. Our outperformance resulted from stronger-than-expected seat expansion across entire organizations driven by design's growing importance and adoption of our AI products, including Figma Make, MCP and Figma Weave. Our international business also contributed to our results with revenue growing 48% year-over-year.
+       [中] 普拉维尔·梅尔瓦尼：谢谢，迪伦。Dylan 分享了一些头条新闻以及我们认为 Figma 表现出色的原因。我将分享更多关于我们对今年剩余时间的展望的细节。人工智能仍然是我们业务的令人难以置信的推动力。第一季度总收入为 3.33 亿美元，同比增长 46%，超过了我们指导的上限。这标志着我们的收入同比增长连续第二个季度加速。我们的优异表现源于整个组织的席位扩张强于预期，这是由于设计日益重要以及我们的人工智能产品（包括 Figma Make、MCP 和 Figma Weave）的采用所推动的。我们的国际业务也为我们的业绩做出了贡献，收入同比增长 48%。
+
+  [ 45] [EN] We also saw increased demand for our governance plus add-on and advisory services. Our Q1 results are a testament to the team's relentless work building, shipping, iterating and listening to feedback from our customers. Retention and expansion metrics continued to strengthen in Q1. Our net dollar retention rate for paid customers spending more than $10,000 in ARR reached 139%, up 3 percentage points from the prior quarter and our highest level in over 2 years. Our outperformance in NDR was driven by strength in seat expansion and growth in our non-seat-based offerings, including AI add-ons. We also saw acceleration in our customer cohorts.
+       [中] 我们还看到对我们的治理以及附加服务和咨询服务的需求不断增加。我们第一季度的结果证明了团队不懈的工作构建、交付、迭代和倾听客户的反馈。第一季度的保留和扩张指标继续加强。我们的 ARR 支出超过 10,000 美元的付费客户的净美元留存率达到 139%，比上一季度上升 3 个百分点，是两年多来的最高水平。我们在 NDR 上的出色表现是由于席位扩张的实力以及非席位产品（包括人工智能附加组件）的增长所推动的。我们还看到客户群体的增长。
+
+  [ 46] [EN] Paid customers spending more than $10,000 in ARR grew 37% year-over-year in Q1, a 5 percentage point acceleration relative to Q4 last year. Paid customers spending more than $100,000 in ARR, grew 48% year-over-year in Q1, a 2 percentage point acceleration relative to Q4 of last year. And our overall customer base grew to approximately 690,000 paid customers from approximately 450,000 in Q1 of last year, growing 54% year-over-year. As AI gets better, Figma is accelerating and customer usage and workflows on our platform are deepening. Our platform and AI products drove faster growth for both new customer acquisition and expansion within existing accounts. Across all tiers, we're seeing customers grow seats and expand into new functions and teams.
+       [中] 第一季度，ARR 支出超过 10,000 美元的付费客户同比增长 37%，较去年第四季度增长 5 个百分点。第一季度 ARR 支出超过 10 万美元的付费客户同比增长 48%，比去年第四季度增长 2 个百分点。我们的整体客户群从去年第一季度的约 45 万增加到约 69 万付费客户，同比增长 54%。随着人工智能变得越来越好，Figma 正在加速发展，我们平台上的客户使用和工作流程也在不断深化。我们的平台和人工智能产品推动了新客户获取和现有账户扩张的更快增长。在所有层级中，我们看到客户数量不断增加，并扩展到新的职能和团队。
+
+  [ 47] [EN] Within our larger enterprise customers, approximately 60% of customers with more than $100,000 in ARR were using Make weekly in Q1, up from over 50% just last quarter. In the long tail, we're also seeing continued acceleration in adoption of our AI features with new Pro team conversions which we view as a leading indicator for future growth up over 150% compared to Q1 of last year, demonstrating our ability to both expand TAM and convert existing users to paid plans.
+       [中] 在我们的大型企业客户中，大约 60% 的 ARR 超过 100,000 美元的客户在第一季度使用每周制作，高于上个季度的 50% 以上。从长尾来看，我们还看到随着新的专业团队转换，我们的人工智能功能的采用持续加速，我们认为这是未来增长的领先指标，与去年第一季度相比，增长超过 150%，这表明我们有能力扩展 TAM 并将现有用户转换为付费计划。
+
+  [ 48] [EN] A few of our notable customer wins from the last quarter include one of the world's largest hyperscalers running thousands of product and engineering teams across dozens of business units, unified its fragmented Figma usage across the enterprise into a single agreement with over 35,000 paid seats, one of the largest deals in Figma's history. A top global media and entertainment company that started with organic Make usage ended up with a full company-wide rollout. As teams adopted Make, every developer upgraded to a full seat. That growth happened organically, driven by how the product is actually being used, not by a top-down mandate. We also saw some incredible wins in Q1 internationally.
+       [中] 上季度我们赢得的一些著名客户包括全球最大的超大规模企业之一，该企业在数十个业务部门运营着数千名产品和工程团队，将整个企业分散的 Figma 使用情况统一为一份拥有超过 35,000 个付费席位的单一协议，这是 Figma 历史上最大的交易之一。一家全球顶级媒体和娱乐公司从有机使用 Make 开始，最终在全公司范围内全面推广。当团队采用 Make 时，每个开发人员都升级为完整席位。这种增长是有机发生的，是由产品的实际使用方式驱动的，而不是由自上而下的命令驱动的。我们在第一季度还看到了国际上一些令人难以置信的胜利。
+
+  [ 49] [EN] In India, one of the country's largest IT services firms signed our largest ever deal in the region, consolidating design and engineering teams on to Figma. And in Europe, one of the world's largest industrial automation companies with over half of its R&D workforce focused on digital development, more than doubled their dev seats on platform. Engineers at the company now outnumber designers on Figma, the team is now leaning into Figma's MCP to connect design directly into their development environment. The themes across our customers are clear. They're deepening their usage of our products, expanding their seats with Figma and finding even more value in their user experiences with AI products.
+       [中] 在印度，该国最大的 IT 服务公司之一签署了该地区有史以来最大的一笔交易，将设计和工程团队整合到 Figma 上。在欧洲，世界上最大的工业自动化公司之一，其一半以上的研发人员专注于数字开发，其平台上的开发席位增加了一倍多。该公司的工程师数量现在超过了 Figma 上的设计师，该团队现在倾向于使用 Figma 的 MCP 将设计直接连接到他们的开发环境中。我们客户的主题很明确。他们正在加深对我们产品的使用，通过Figma扩大他们的席位，并在人工智能产品的用户体验中发现更多价值。
+
+  [ 50] [EN] In fact, in Q1, over 60% of paid customers with more than $10,000 in ARR added full seats compared to their prior renewal, consistent with what we observed last year and at equivalent expansion rates. I want to take a minute to highlight the strong early signal we are seeing on AI credit monetization. We are at an exciting inflection point. On March 18, we began implementing AI credit limits for all of our seats and have been very encouraged by the usage trends we've seen since then.
+       [中] 事实上，在第一季度，与之前的续订相比，超过 60% 的 ARR 超过 10,000 美元的付费客户增加了完整席位，这与我们去年观察到的情况一致，且扩张率相当。我想花一点时间强调一下我们在人工智能信贷货币化方面看到的强烈的早期信号。我们正处于一个激动人心的转折点。3 月 18 日，我们开始对所有席位实施人工智能信用限额，自那时以来我们所看到的使用趋势让我们深受鼓舞。
+
+  [ 51] [EN] As of the end of April, over 75% of users on our Org and Enterprise plans who were previously over their credit limit continued to use credits and over 95% of those same users remain active on the platform. Early enterprise customers who have committed are doing so at scale. For example, one of the world's largest enterprise technology companies in the middle of a company-wide push to become an AI-native organization after standardizing on Make, they are now purchasing additional credits to expand AI capabilities across product, engineering and PM teams spanning 7 business units.
+       [中] 截至 4 月底，我们的组织和企业计划中超过 75% 的先前超出信用额度的用户继续使用信用额度，并且其中超过 95% 的用户仍然活跃在平台上。早期做出承诺的企业客户正在大规模地这样做。例如，全球最大的企业技术公司之一在 Make 标准化后，正在全公司范围内推动成为 AI 原生组织，他们现在正在购买额外的积分，以扩展跨 7 个业务部门的产品、工程和 PM 团队的 AI 能力。
+
+  [ 52] [EN] One of the world's largest professional services firms expanded their Figma investment after a company-wide Figma AI training drove a step change in adoption and embedded AI capabilities at the center of how they design, prototype and deliver client work across every major industry. Additionally, as of the end of Q1, Pro teams that purchase AI credit add-ons had more seats per team and an average annualized spend of over 3x than that of teams that haven't purchased add-ons. Importantly, the surface area for credit consumption continues to expand.
+       [中] 全球最大的专业服务公司之一扩大了对 Figma 的投资，此前全公司范围内的 Figma AI 培训推动了各主要行业的采用和嵌入式 AI 功能的采用和嵌入式 AI 功能的逐步改变，这些功能是他们在各个主要行业中设计、原型设计和交付客户工作的方式。此外，截至第一季度末，购买 AI 积分附加组件的职业团队每支团队的席位数更多，平均年化支出是未购买附加组件的团队的 3 倍以上。重要的是，信贷消费面持续扩大。
+
+  [ 53] [EN] While today's credit usage is driven by products like Figma Make and our advanced image editing features, new capabilities currently in our early access program like our AI assistant, which enables new AI native creative workflows directly in the Figma Design canvas are expected to begin drawing on credits in the near future as well. Our MCP enables developers and AI agents to build and interact with Figma directly within their workflows. We are seeing more teams convert to paid plans and upgrade seat types to access higher rate limits for our MCP.
+       [中] 虽然今天的积分使用是由 Figma Make 等产品和我们的高级图像编辑功能推动的，但目前我们的早期访问计划中的新功能（例如我们的 AI 助手）预计也将在不久的将来开始在 Figma Design 画布中直接使用新的 AI 原生创意工作流程。我们的 MCP 使开发人员和 AI 代理能够直接在其工作流程中构建 Figma 并与之交互。我们看到越来越多的团队转换为付费计划并升级座位类型，以获得更高的 MCP 费率限制。
+
+  [ 54] [EN] Among customers with more than $100,000 in ARR, those that were using our MCP grew full seats approximately 70% faster over the quarter than customers who are not using our MCP server. We expect this to evolve into a usage-based offering, but is currently available for free during the beta period. Q2 will be our first full quarter of credit monetization. We have been investing in more features to improve the customer experience including expanded admin controls, pay-as-you-go for Pro customers and more flexible contracting structures for enterprises. Our goal remains the same for our monetization model to support adoption rather than constrain it. Lots more to come here in the quarters ahead.
+       [中] 在 ARR 超过 100,000 美元的客户中，使用我们的 MCP 的客户在本季度的满员增长速度比不使用我们的 MCP 服务器的客户快约 70%。我们预计这将发展成为基于使用的产品，但目前在测试期间免费提供。第二季度将是我们信贷货币化的第一个完整季度。我们一直在投资更多功能来改善客户体验，包括扩展管理控制、针对专业客户的即用即付以及针对企业的更灵活的合同结构。我们的盈利模式目标保持不变，即支持采用而不是限制采用。未来几个季度还会有更多的事情发生。
+
+  [ 55] [EN] Now turning to some key income statement results. Unless otherwise noted, all metrics are non-GAAP. We've provided a reconciliation of GAAP to non-GAAP financials in our earnings release which is posted to our website. Gross profit in Q1 was $275 million, representing a gross margin of 82%. During the quarter, we saw a broader and deeper adoption of our AI features with our users benefiting from access to higher capability models, which in turn increased engagement and improved retention. With full seat AI credit limits now live, growing AI usage and adoption now translates into revenue, a key monetization milestone.
+       [中] 现在转向一些关键的损益表结果。除非另有说明，所有指标均为非公认会计准则。我们在发布到我们网站上的收益报告中提供了 GAAP 与非 GAAP 财务数据的调节表。第一季度毛利润为2.75亿美元，毛利率为82%。在本季度，我们看到我们的人工智能功能得到了更广泛、更深入的采用，我们的用户受益于访问更高功能的模型，这反过来又增加了参与度并提高了保留率。随着全席位人工智能信用限额现已生效，不断增长的人工智能使用和采用现在转化为收入，这是一个关键的货币化里程碑。
+
+  [ 56] [EN] We expect to continue to capture efficiency gains where available and have a clear set of levers to manage inference costs as adoption scales. This includes routing queries across models based on task complexity and leveraging our model-agnostic architecture to optimize across providers. We are also investing in first-party models trained on Figma's design corpus to improve performance on design specific tasks while reducing cost. As we've reaccelerated our business, we've also delivered $52 million in operating income, representing an operating margin of 16%. Across the business, we've taken a first principles approach to rebuilding how we work across engineering, go-to-market and operations with AI tooling at the center.
+       [中] 我们希望继续在可行的情况下获得效率提升，并拥有一套明确的杠杆来随着采用规模的扩大来管理推理成本。这包括根据任务复杂性跨模型路由查询，以及利用我们与模型无关的架构来跨提供商进行优化。我们还投资在 Figma 设计语料库上训练的第一方模型，以提高设计特定任务的性能，同时降低成本。随着我们业务的重新加速，我们还实现了 5200 万美元的营业收入，营业利润率为 16%。在整个业务中，我们采取了首要原则方法来重建我们以人工智能工具为中心的工程、上市和运营工作方式。
+
+  [ 57] [EN] It's been energizing to see the creativity of our team in tangible wins and productivity across the board. We continue to evaluate our hiring needs to make sure we're operating efficiently. We believe the future calls for flatter organizational structures and more smaller, high agency teams that can move even faster, which gives us more capacity to invest and retool how we work. Our Q1 free cash flow was $89 million, representing a free cash flow margin of 27%. We ended the quarter with $1.6 billion in cash, cash equivalents and marketable securities.
+       [中] 看到我们团队在切实的胜利和全面生产力方面的创造力，真是令人振奋。我们将继续评估我们的招聘需求，以确保我们高效运营。我们相信，未来需要更扁平的组织结构和规模更小、行动速度更快的高级代理团队，这使我们有更多的能力进行投资和重组我们的工作方式。我们第一季度的自由现金流为 8900 万美元，自由现金流利润率为 27%。本季度结束时，我们拥有 16 亿美元的现金、现金等价物和有价证券。
+
+  [ 58] [EN] As we previewed, we introduced an annual corporate bonus program in 2025, which was accrued for during 2025 and paid out for the first time in Q1 this year. This was a $56 million cash outflow and had a 17 percentage point impact on our Q1 free cash flow margin. Going forward, we expect to continue to accrue for the annual bonus each quarter and pay out in Q1 of each year. We remain confident in the long-term cash-generating profile of the business. We also remain committed to managing dilution responsibly.
+       [中] 正如我们所预见的，我们在 2025 年推出了年度企业奖金计划，该计划在 2025 年期间计提，并在今年第一季度首次支付。这是 5600 万美元的现金流出，对我们第一季度的自由现金流利润率产生了 17 个百分点的影响。展望未来，我们预计将继续每个季度累积年度奖金，并在每年第一季度支付。我们对该业务的长期现金产生能力仍然充满信心。我们还继续致力于负责任地管理稀释。
+
+  [ 59] [EN] As our pre-IPO equity grants amortize, we expect that strong revenue growth, disciplined hiring and expanding operating leverage from AI will continue to drive improvement in stock-based compensation as a percentage of revenue. Now turning to our outlook. A reminder on our guidance philosophy. We're providing a snapshot of our current view of the business based on recent trends. We include what we have a high degree of confidence in and where our visibility is more limited we look to observe sustained trends in the data before we fully incorporate the benefit in our guidance. For the second quarter of 2026, we expect revenue in the range of $348 million to $350 million implying 40% year-over-year growth at the midpoint.
+       [中] 随着我们的首次公开募股前股权赠款摊销，我们预计强劲的收入增长、严格的招聘和人工智能带来的不断扩大的运营杠杆将继续推动股票薪酬占收入百分比的提高。现在转向我们的展望。提醒我们的指导理念。我们根据最近的趋势提供我们当前对业务的看法的快照。我们将我们高度信任的内容纳入其中，而在我们的可见性较为有限的情况下，我们希望观察数据的持续趋势，然后再将其优势完全纳入我们的指导中。对于 2026 年第二季度，我们预计收入在 3.48 亿美元至 3.5 亿美元之间，这意味着中点同比增长 40%。
+
+  [ 60] [EN] For the full year, we expect revenue in the range of $1.422 billion, to $1.428 billion, implying 35% growth at the midpoint and a raise of $55 million relative to our prior outlook. Our raise for the full year is driven by 3 things: first, increased paid conversion across our customer base, fueled by the depth and breadth of AI across our platform; second, sustained broad-based seat expansion across every tier with teams and organizations opting for more dev and full seats to access our AI products and credits; and third, outperformance versus our expectations across credit utilization, retention and add-on purchases since implementing credit limits.
+       [中] 我们预计全年收入在 14.22 亿美元至 14.28 亿美元之间，这意味着中间值增长 35%，比我们之前的预期增加 5500 万美元。我们全年的加薪是由三件事驱动的：首先，在整个平台人工智能的深度和广度的推动下，我们客户群的付费转化率有所提高；其次，在各个层级持续广泛的席位扩展，团队和组织选择更多的开发人员和完整席位来访问我们的人工智能产品和积分；第三，自实施信贷限额以来，信贷利用率、保留率和附加购买方面的表现超出了我们的预期。
+
+  [ 61] [EN] On operating income for the full year, we expect non-GAAP operating income in the range of $125 million to $135 million, representing a non-GAAP operating margin of 9% at the midpoint. This represents a raise of $25 million relative to our prior outlook. Our increase in operating income is driven by our revenue increase for the full year, operational efficiencies and continued optimizations we have made in our AI implementations. Additionally, while we are not issuing quarterly operating income guidance, we would note that Q2 operating income and free cash flow are historically impacted by Config, our annual user conference. We anticipate a similar effect in 2026. In closing, Q1 was an exceptional quarter across multiple dimensions.
+       [中] 就全年营业收入而言，我们预计非 GAAP 营业收入在 1.25 亿美元至 1.35 亿美元之间，即非 GAAP 营业利润率中点为 9%。与我们之前的预期相比，这意味着增加了 2500 万美元。我们营业收入的增长是由全年收入增长、运营效率以及我们在人工智能实施中所做的持续优化推动的。此外，虽然我们没有发布季度营业收入指引，但我们注意到，第二季度的营业收入和自由现金流历来受到我们的年度用户大会 Config 的影响。我们预计 2026 年也会出现类似的影响。总而言之，第一季度在多个方面都是一个出色的季度。
+
+  [ 62] [EN] Year-over-year revenue growth has now accelerated for 2 consecutive quarters. Net dollar retention rate reached its highest level in over 2 years, and the early signs from AI credit monetization give us tremendous confidence in the road ahead. As Dylan shared, design has never mattered more and Figma is built for this moment. With that, I'll hand it over to the operator for Q&A.
+       [中] 收入同比增长现已连续两个季度加速。净美元留存率达到两年多以来的最高水平，人工智能信贷货币化的早期迹象让我们对未来的道路充满信心。正如 Dylan 分享的那样，设计从未如此重要，Figma 就是为这一刻而打造的。这样，我会将其交给接线员进行问答。
+
+  [ 63] [EN] Operator:[Operator Instructions]We will take the first question from Michael Turrin, Wells Fargo.
+       [中] 接线员：[接线员指示]我们将回答富国银行 Michael Turrin 提出的第一个问题。
+
+  [ 64] [EN] Richard Poland:This is Richard Poland on for Michael Turrin. So first one for me is just with respect to the AI credit monetization. I know it's been only 2 weeks in the quarter and I think somewhere around 6 to 8 weeks since that officially went through. But how should we think about that starting to ramp and show up in the model into the Q2 and second half?
+       [中] 理查德·波兰：我是迈克尔·特林的理查德·波兰。所以对我来说第一个就是关于人工智能信用货币化。我知道本季度才过去 2 周，我认为自正式实施以来大约有 6 到 8 周。但我们应该如何看待这种情况开始加速并出现在第二季度和下半年的模型中？
+
+  [ 65] [EN] Dylan Field:Yes. I appreciate the question here. So I think as where we stand, we're ahead of our expectations, and it's giving us confidence in the raise -- in our ability to raise our guide for the full year. We felt the momentum across big and small. Our paid customer base grew 54% year-over-year with the long tail of Pro teams there -- Pro team conversions rather, up over 150% in Q1 compared to the same quarter last year.
+       [中] 迪伦·菲尔德：是的。我很欣赏这里的问题。因此，我认为就我们目前的情况而言，我们超出了我们的预期，这让我们对加薪充满信心——我们有能力提高全年指南。我们感受到了大大小小的势头。我们的付费客户群同比增长了 54%，其中专业团队的长尾效应——更确切地说，是专业团队的转化率，与去年同期相比，第一季度增长了 150% 以上。
+
+  [ 66] [EN] In Q1, we're now up to approximately 60% of our customers over $100,000 in ARR using Make weekly and actually have seen over 75% of our org and enterprise users who were previously over the limit prior to credit enforcement continue to consume credits in April. And so as we sit here at the end of Q1, teams that are purchasing AI credit add-ons on Pro have an average ARR of over 3x more than teams that had not purchased add-ons. And the part I'm candidly most excited about is all the amazing work that our team has still coming, which will increase the surface area for teams and organizations to experience the magic of our AI features.
+       [中] 在第一季度，我们现在有大约 60% 的客户使用每周 Make，ARR 超过 100,000 美元，实际上我们已经看到超过 75% 的组织和企业用户（在信用执行之前超过了限额）在 4 月份继续消耗信用。因此，当我们在第一季度末坐在这里时，在 Pro 上购买 AI 积分附加组件的团队的平均 ARR 比未购买附加组件的团队高出 3 倍以上。坦率地说，我最兴奋的部分是我们团队即将完成的所有令人惊叹的工作，这将增加团队和组织体验我们人工智能功能魔力的表面积。
+
+  [ 67] [EN] So when you think about the rest of the year for us, we very much believe that we've got a tailwind here from our credit monetization. And it's both going to be through the consumption that teams are actually seeing while also helping us drive continued seat upgrades on -- help us drive continued to seat upgrades for users and teams in the months ahead.
+       [中] 因此，当你考虑今年剩下的时间时，我们非常相信我们的信贷货币化将带来顺风。这既是通过团队实际看到的消费，同时也帮助我们推动持续的座位升级——帮助我们在未来几个月推动用户和团队的持续座位升级。
+
+  [ 68] [EN] Praveer Melwani:I'll also add that we're excited about the different surfaces that you'll see AI consumed on. For example, Weave is something that we're very excited about, and we really believe in the paradigm of node-base editing and the ways that you can create workflows where agents and models are working on the same canvas and you can move between the outputs of the various surfaces.
+       [中] Praveer Melwani：我还要补充一点，我们对人工智能在不同表面上的消耗感到兴奋。例如，Weave 是我们非常兴奋的东西，我们真的相信基于节点的编辑范例以及创建工作流程的方法，其中代理和模型在同一画布上工作，并且您可以在各个表面的输出之间移动。
+
+  [ 69] [EN] Operator:Your next question is Arjun Bhatia from William Blair.
+       [中] 接线员：您的下一个问题是来自威廉·布莱尔的阿琼·巴蒂亚。
+
+  [ 70] [EN] Arjun Bhatia:Congrats on a great start to the year. Dylan, maybe I'm curious for you. It's been almost a year now or maybe we're a few months away since Make has been in GA. And I'm wondering what sort of change or evolution you've seen in the way customers and users are using Make. And it sounds like in your prepared remarks, you mentioned some enhancements that you had made around context and MCP. So I'd be curious how those new capabilities are resonating with customers and maybe enhancing the value of that solution.
+       [中] Arjun Bhatia：祝贺今年取得了良好的开端。迪伦，也许我对你很好奇。自 Make 正式发布到现在已经快一年了，或者可能还有几个月的时间。我想知道您在客户和用户使用 Make 的方式中看到了什么样的变化或演变。听起来您在准备好的发言中提到了围绕上下文和 MCP 所做的一些增强。因此，我很好奇这些新功能如何引起客户的共鸣，并可能提高该解决方案的价值。
+
+  [ 71] [EN] Dylan Field:Absolutely. And thank you for the question. And I think it's definitely the case that we'll continue to see, just like we've seen in the last year, paradigms evolve and expectations of our users evolve. Like we said in the prepared remarks, our users are incredibly ambitious. And we always intend to meet their ambition to make it so they can take full advantage of the Figma platform to create what's in their head. And when it comes to Make, we've been really impressed by the way that our users have stretched the platform to create everything from tools to prototypes to beautiful website designs to actual ship software.
+       [中] 迪伦·菲尔德：当然。谢谢你的提问。我认为我们肯定会继续看到这种情况，就像我们去年看到的那样，范式不断发展，用户的期望不断发展。正如我们在准备好的发言中所说，我们的用户雄心勃勃。我们始终致力于满足他们的雄心壮志，以便他们能够充分利用 Figma 平台来创造他们的想法。说到 Make，我们的用户扩展平台来创建从工具到原型到漂亮的网站设计到实际船舶软件的所有内容的方式给我们留下了深刻的印象。
+
+  [ 72] [EN] And some of them have just really done an incredible job of leveraging the platform to its fullest capabilities. And at the same time, we believe there's so much more that we can bring to Make. And as we do the look back, some of the early technical decisions that we made did constrain us in ways that are obvious in hindsight, but we were not obvious then. We've corrected those. If you haven't tried Make recently, please try it again. It is already so much better. And in the weeks and months to come, I think you'll be amazed by the progress and so please check it out.
+       [中] 他们中的一些人在充分利用该平台的功能方面确实做了令人难以置信的工作。与此同时，我们相信我们可以为 Make 带来更多东西。当我们回顾过去时，我们做出的一些早期技术决策确实以事后看来明显的方式限制了我们，但当时我们并不明显。我们已经纠正了这些问题。如果您最近没有尝试过 Make，请再试一次。已经好多了。在接下来的几周和几个月里，我想您会对所取得的进展感到惊讶，所以请检查一下。
+
+  [ 73] [EN] Operator:Up next is Keith Weiss from Morgan Stanley.
+       [中] 接线员：下一位是来自摩根士丹利的 Keith Weiss。
+
+  [ 74] [EN] Keith Weiss:Congratulations on a really awesome start to the year, both in terms of what we're seeing in the customer base growth as well as your ability to monetize against that. Dylan, kind of digging into that sort of exponential change that you're talking about and the improvements that you're seeing in Make. I think the question a lot of us have is how these pricing models and the value proposition is going to evolve as we understand how customers are utilizing the tooling, whether it be Make or an MCP server or whatnot.
+       [中] Keith Weiss：祝贺您今年取得了非常出色的开局，无论是在我们所看到的客户群增长方面，还是在您的盈利能力方面。Dylan，深入研究了您所谈论的那种指数级变化以及您在 Make 中看到的改进。我认为我们很多人都面临的问题是，当我们了解客户如何使用工具（无论是 Make 还是 MCP 服务器或其他工具）时，这些定价模型和价值主张将如何演变。
+
+  [ 75] [EN] Any initial kind of learnings that you could talk to us about in terms of how well the pricing model today is capturing that value proposition and how it might evolve going forward? And then for Praveer, we saw some degradation in gross margins as AI picked up. You talked about monetization starting to kick in against some of that usage. Is there any kind of guardrails you could give us on where gross margins may be going forward? Like do you have any indication of what type of gross margin business is like AI activity is?
+       [中] 您可以与我们讨论一下目前的定价模型在多大程度上体现了该价值主张以及它未来可能如何演变？然后，对于 Praveer 来说，随着人工智能的兴起，我们看到毛利率有所下降。您谈到货币化开始对某些用途产生影响。您是否可以为我们提供任何有关毛利率未来发展的护栏？您是否有任何迹象表明人工智能活动属于哪种类型的毛利率业务？
+
+  [ 76] [EN] And anything that could help us understand sort of the lower limits or whatnot of where those gross margins may come as AI becomes a bigger and bigger component of what you guys are serving your customers?
+       [中] 随着人工智能成为你们为客户提供的服务中越来越重要的组成部分，有什么可以帮助我们了解毛利率的下限或类似情况吗？
+
+  [ 77] [EN] Dylan Field:Thank you for the question. I would say that, first of all, I firmly believe, as I've talked with customers that the value prop and how it relates to pricing, what matters most is that we are providing the most value that we can to our customers, and we're solving their problems. And in this era, at least of where we're at with AI and pricing, that is what customers are looking for first and foremost. How it evolves going forward, I think we might see change where people become more discriminating on how much they're spending on tokens. And in fact, I think we're already seeing that with some of our customers.
+       [中] 迪伦·菲尔德：谢谢你的提问。我想说，首先，我坚信，正如我与客户讨论的那样，价值支柱及其与定价的关系，最重要的是我们正在为客户提供最大的价值，并且我们正在解决他们的问题。在这个时代，至少在人工智能和定价方面，这是客户首先寻求的。未来如何发展，我认为我们可能会看到变化，人们对在代币上花费的金额变得更加挑剔。事实上，我认为我们已经在一些客户身上看到了这一点。
+
+  [ 78] [EN] If the first chapter was, oh, gosh, we have to use AI and the second chapter was, okay, leader boards for token usage. Well, the third chapter seems to be, let's put some limits on this because this is real spend. And some of the things we're doing around MCP, for example, and Code Connect actually do translate to more efficiency for our customers. And of course, we'll try to make sure that as we think about Make and other aspects of our platform that we're striking the right balance on efficiencies that our customers can use our product. I'll pass to Praveer to answer the rest of the question.
+       [中] 如果第一章是，哦，天哪，我们必须使用人工智能，那么第二章是，好吧，代币使用排行榜。嗯，第三章似乎是，让我们对此进行一些限制，因为这是真正的支出。例如，我们围绕 MCP 和 Code Connect 所做的一些事情实际上确实为我们的客户带来了更高的效率。当然，我们将尽力确保在考虑 Make 和平台的其他方面时，我们在客户使用我们产品的效率上取得适当的平衡。我将请普拉维尔回答剩下的问题。
+
+  [ 79] [EN] Praveer Melwani:Yes. I appreciate the question, Keith. I think the spirit and sentiment that we get from customers is that they're looking to have more control. They want to have the ability to have governance on who gets access to what set of credits across teams, which we're really fast to address. And we've expanded admin controls. We've been exploring pay-as-you-go models for our Pro customers and more flexible contracting structures generally for enterprises. But to the broader question, I think we're seeing really encouraging signals and signs and early results on our AI monetization and we've got a number of early champions that are looking to continue to invest and work with us here.
+       [中] 普拉维尔·梅尔瓦尼：是的。我很欣赏这个问题，基思。我认为我们从客户那里得到的精神和情感是他们希望拥有更多的控制权。他们希望能够对团队中谁可以访问哪些积分集进行管理，我们很快就能解决这个问题。我们还扩大了管理控制。我们一直在为专业客户探索即用即付模式，并为企业探索更灵活的合同结构。但对于更广泛的问题，我认为我们在人工智能货币化方面看到了真正令人鼓舞的信号和迹象以及早期成果，我们有许多早期的冠军希望继续在这里投资并与我们合作。
+
+  [ 80] [EN] And then to the spirit of your question on gross margin, I think in large part, it's hard to predict with precision where things will ultimately land. We've been completely focused around optimizing gross profit dollars. With full seat AI credit limits now live, any growing AI usage and adoption now translates into revenue, a much more natural offset to the growing use and customer value we're providing. In Q4, we previously demonstrated an ability to drive efficiency while also continuing to drive adoption and use. And our expectation is that we'll continue to have levers to pull in the future.
+       [中] 然后，就你关于毛利率的问题的精神而言，我认为在很大程度上，很难准确预测事情最终会发生什么。我们完全专注于优化毛利润。随着全席位人工智能信用限额现已生效，任何不断增长的人工智能使用和采用现在都会转化为收入，这是对我们提供的不断增长的使用和客户价值的更自然的抵消。在第四季度，我们之前展示了提高效率的能力，同时继续推动采用和使用。我们的期望是，我们将在未来继续拥有拉动的杠杆。
+
+  [ 81] [EN] That includes things like routing queries across models based on task complexity, leveraging our model-agnostic architecture to optimize across providers and investing in first-party models trained on Figma's design corpus to improve performance on design-specific tasks while reducing cost. But the core focus for us right now, drive growth, ubiquity of our solutions, and we have every intention to ship and ship extremely quickly.
+       [中] 其中包括根据任务复杂性跨模型路由查询、利用我们与模型无关的架构跨提供商进行优化以及投资在 Figma 设计语料库上训练的第一方模型，以提高特定设计任务的性能，同时降低成本。但我们现在的核心关注点是推动我们解决方案的增长和普及，我们完全打算以极快的速度发货。
+
+  [ 82] [EN] Operator:Gabriela Borges from Goldman Sachs has the next question.
+       [中] 接线员：高盛的 Gabriela Borges 有下一个问题。
+
+  [ 83] [EN] Gabriela Borges:Dylan, I really appreciated your case study in the prepared remarks on Google's usage. I'd love for you to talk a little bit about some of these new tools that are coming out from the LLM providers like Google Stitch and code design. I'm curious how you think about the impact those tools will have on the industry. And it sounds like there may be some underappreciated synergies between how Figma could potentially work with those tools as part of a bigger design cycle. So I would love to hear your thoughts broadly on that.
+       [中] 加布里埃拉·博尔赫斯：迪伦，我真的很欣赏你在准备好的关于谷歌使用的评论中的案例研究。我希望您能谈谈一些来自 LLM 提供商（例如 Google Stitch 和代码设计）的新工具。我很好奇您如何看待这些工具将对行业产生的影响。作为更大设计周期的一部分，Figma 与这些工具的潜在协同作用听起来可能存在一些未被充分认识的协同作用。所以我很想听听您对此的广泛想法。
+
+  [ 84] [EN] Dylan Field:Absolutely, and thank you for the question. Well, I mean, first off, I just think that this is such an extraordinary time to build and as code becomes more commoditized and easier to write, design is clearly the layer above code and visual thinkers outnumber those who are comfortable in a terminal or an IDE. And so we expect this space to continue to heat up and to be the battleground for how software gets built. We also expect that tools around visual communication and creative design for purposes of marketing and advertising are going to be essential for breaking through the noise in a very crowded information environment online.
+       [中] Dylan Field：当然，谢谢你的提问。嗯，我的意思是，首先，我只是认为这是一个非凡的构建时机，随着代码变得更加商品化并且更容易编写，设计显然是代码之上的一层，而视觉思考者的数量超过了那些熟悉终端或 IDE 的人。因此，我们预计这个领域将继续升温，并成为软件构建方式的战场。我们还预计，用于营销和广告目的的视觉传达和创意设计工具对于在非常拥挤的在线信息环境中突破噪音至关重要。
+
+  [ 85] [EN] And I think that's why we're going to see more and more tools come out. And to your point, many of them will be tools that we can integrate with and will actually be complementary and something that we can work with in our ecosystem. Others will be more direct competitors. And so we, I think, try to understand that context by direct communication and conversation whenever possible and by having close relationships with our partners.
+       [中] 我认为这就是为什么我们会看到越来越多的工具问世。就您而言，其中许多将是我们可以集成的工具，并且实际上是互补的，并且是我们可以在我们的生态系统中使用的工具。其他人将是更直接的竞争对手。因此，我认为，我们会尽可能通过直接沟通和对话以及与合作伙伴建立密切关系来理解这种背景。
+
+  [ 86] [EN] And I think that overall, we have to focus on what we know best, which is for 14 years now almost, we've been deeply in the details of designers, designer workflows, and we have a team that is just absolutely incredible that cares so much about craft, about quality and about designing products with a strong point of view. And we're shipping faster than ever right now. So as I said in my remarks, I think that's what's going to take to win in this era along with that partnership and making sure that we're working with our ecosystem.
+       [中] 我认为总的来说，我们必须专注于我们最了解的事情，差不多 14 年来，我们一直深入了解设计师、设计师工作流程的细节，我们拥有一支绝对令人难以置信的团队，非常关心工艺、质量以及以强烈的观点设计产品。我们现在的发货速度比以往任何时候都快。正如我在发言中所说，我认为这就是在这个时代取得胜利所需要的，以及这种伙伴关系，并确保我们正在与我们的生态系统合作。
+
+  [ 87] [EN] Operator:Your next question is from Alex Zukin from Wolfe Research.
+       [中] 接线员：您的下一个问题来自 Wolfe Research 的 Alex Zukin。
+
+  [ 88] [EN] Aleksandr Zukin:I guess maybe first, this was your largest beat being public. And I appreciate that you guys had some really stellar new customer additions and a couple of really inspired key metrics. But maybe like what surprised you the most in the quarter that drove the outsized beat? And then Praveer, maybe just, again, the quality of the beat is so high. I think it would be really helpful if you could help maybe set some guardrails around the low end of where -- how should we think about gross margins, particularly exiting the year? Like is this something that stays above 80% because of all the commentary and technical innovations that you guys are doing?
+       [中] Aleksandr Zukin：我想也许首先，这是你公开亮相时最大的打击。我很感激你们增加了一些非常出色的新客户和一些非常有启发性的关键指标。但也许就像在这个季度中最让你惊讶的事情推动了巨大的节奏？然后普拉维尔，也许只是，再次，节拍的质量是如此之高。我认为，如果您能帮助在低端设置一些护栏，那将会非常有帮助——我们应该如何考虑毛利率，特别是今年的毛利率？是不是因为你们所做的所有评论和技术创新，这个比例才保持在 80% 以上？
+
+  [ 89] [EN] Or do we pierce that 80% level at some point?
+       [中] 或者我们会在某个时候突破 80% 的水平吗？
+
+  [ 90] [EN] Praveer Melwani:Yes. Maybe I'll take the spirit of the last part of your question there on gross margin. Like I was sharing with Keith, our focus right now is to drive gross profit dollars and really focus on growth. And so that is the key metric for us versus thinking that there's a specific floor that we want peers through. We want to make sure that we're driving ubiquity of our solutions. We're investing and investing deeply, and we feel like we have the best product and team behind -- team that's working behind it in order for us to win.
+       [中] 普拉维尔·梅尔瓦尼：是的。也许我会采纳你问题最后一部分关于毛利率的精神。就像我与基思分享的那样，我们现在的重点是提高毛利润并真正专注于增长。因此，这是我们的关键指标，而不是认为我们希望同行通过特定的楼层。我们希望确保我们的解决方案得到普及。我们正在不断地深入投资，我们感觉我们背后有最好的产品和团队——他们在背后努力，让我们获胜。
+
+  [ 91] [EN] And then I think in the spirit of your first question, the beat and the core makeup of the quarter for us came from all different directions. Our product portfolio today looks extremely different than a year ago. And with each new surface and feature that we've introduced, we've made it that much more compelling to hold a paid seat. It's a consistent trend we've seen with users upgrading the full seats for access to higher rate limits on our MCP or access to products like Make.
+       [中] 然后我认为本着你第一个问题的精神，我们本季度的节奏和核心构成来自各个不同的方向。今天我们的产品组合看起来与一年前截然不同。随着我们推出的每一个新界面和功能，我们都让付费座位变得更加有吸引力。这是我们看到的一致趋势，用户升级完整席位以获得更高的 MCP 速率限制或访问 Make 等产品。
+
+  [ 92] [EN] And so when you put that all together, all the components that helped us orchestrate a strength in our net dollar retention rate, TAM expansion, seat expansion, product expansion, tier expansion as well as pricing, we're all kind of kicking into high gear there. And you called it out there on Q1, we saw paid customer count growth overall, up 54% year-over-year, 10,000-plus customer cohort growth continued to signal strength and showcasing that they're continuing to add full seats across their teams at renewals. Our international business is humming. We're deepening our investments in some of -- in stuff like our Governance+ add-on as well as advisory services.
+       [中] 因此，当你把所有这些放在一起时，所有帮助我们在净美元保留率、TAM 扩张、席位扩张、产品扩张、层级扩张以及定价方面取得优势的组成部分，我们都在加速前进。您在第一季度就指出了这一点，我们看到付费客户数量总体增长，同比增长 54%，超过 10,000 名客户群的增长继续表明了实力，并表明他们在续订时继续在团队中增加完整席位。我们的国际业务蓬勃发展。我们正在深化对某些方面的投资，例如我们的治理+附加服务以及咨询服务。
+
+  [ 93] [EN] And it's early, but we are obviously seeing strong signal on AI monetization start to kick in. So as our pricing tailwinds from last year start to wane, we really get the benefit of some of these newer levers, and I'm excited about what the teams got cooking because I think it gives us confidence in the rest of the year here.
+       [中] 现在还为时过早，但我们显然看到人工智能货币化的强烈信号开始显现。因此，随着去年的定价顺风开始减弱，我们确实从这些新杠杆中受益，我对团队的成果感到兴奋，因为我认为这让我们对今年剩余时间充满信心。
+
+  [ 94] [EN] Dylan Field:I'll just add on to the first part of the question around that floor. Well, plus one what Praveer said and also just stress that we always are working to be extremely rigorous about our short-term and long-term thinking. I think there are many aspects around delivering and playing for the big prizes when it comes to these new markets around AI where short-term thinking might create spend, but it's only -- you only engage in that if you believe in the long-term TAM and profile of the business that you're entering. And so we will continue to like apply that thinking and framework to the decisions we make and be very selective about the opportunities we go after.
+       [中] Dylan Field：我将补充该楼层问题的第一部分。好吧，再加上普拉维尔所说的，并强调我们始终致力于极其严格地对待我们的短期和长期思维。我认为，当涉及到这些围绕人工智能的新市场时，短期思维可能会创造支出，但只有当你相信长期 TAM 和你所进入的业务概况时，你才会参与其中。因此，我们将继续将这种思维和框架应用到我们做出的决策中，并对我们所追求的机会非常有选择性。
+
+  [ 95] [EN] Operator:The next question is Billy Fitzsimmons from Piper Sandler.
+       [中] 接线员：下一个问题是 Piper Sandler 的 Billy Fitzsimmons。
+
+  [ 96] [EN] William Fitzsimmons:So Dylan, maybe for you. I want to expand on one of the earlier questions on kind of the evolving competitive landscape. I guess since last quarter, one of the cloud hyperscalers announced a seemingly similar product to make at the end of the first quarter. And then one of the frontier labs subsequently announced a design tool. And it feels like there's both coopetition with those vendors. But given kind of competition and how rapidly things are moving come up in investor conversations, first, Dylan, I know you just reported really strong growth, and there are a few application software companies in that ballpark. But just help investors think about Figma's differentiation in kind of this rapidly changing landscape.
+       [中] 威廉·菲茨西蒙斯：迪伦，也许适合你。我想扩展一下之前关于不断变化的竞争格局的问题之一。我想从上个季度开始，一家云超大规模企业宣布了一款看似相似的产品，并将在第一季度末生产。然后其中一个前沿实验室随后宣布了一种设计工具。感觉就像是与这些供应商存在着合作。但考虑到投资者对话中的竞争以及事情发展的速度，首先，迪伦，我知道你刚刚报告了非常强劲的增长，并且有一些应用软件公司在这个范围内。但只是帮助投资者思考 Figma 在这种快速变化的环境中的差异化。
+
+  [ 97] [EN] I know you've talked about that before. And then second, anything from a numbers perspective in the second quarter, either from top of funnel, new logo usage standpoint, that investors should be aware of that suggests a change in competition. It really doesn't seem like it based on the strong guide for 40% growth, but anything worth calling out?
+       [中] 我知道你之前已经谈过这个问题了。其次，从第二季度的数字角度来看，无论是从漏斗顶部还是新徽标使用的角度来看，投资者都应该意识到这表明竞争发生了变化。看起来确实不像40%增长的强有力指导，但有什么值得指出的吗？
+
+  [ 98] [EN] Dylan Field:Yes. Thanks for the question. Obviously, this is a call about the first quarter, not the second quarter, so we'll stick to first quarter. And in terms of the competition or perceived competition, again, I think you have to look at each player individually. To speak directly, I'm very, very thankful for our partnership with Google. And we are big fans of the Gemini series of models. And we think that they're doing a lot of really interesting work, and there's a lot of opportunity to collaborate. And their labs product is not something that we're seen us gain the way of that nor do we see the effect as far as I can tell in a substantial way.
+       [中] 迪伦·菲尔德：是的。谢谢你的提问。显然，这是关于第一季度的电话，而不是第二季度，所以我们将坚持第一季度。就竞争或感知竞争而言，我认为你必须单独看待每个玩家。直接地说，我非常非常感谢我们与谷歌的合作。我们是 Gemini 系列型号的忠实粉丝。我们认为他们正在做很多非常有趣的工作，并且有很多合作的机会。他们的实验室产品并不是我们所看到的，我们也没有看到这种效果，据我所知，我们也没有看到实质性的效果。
+
+  [ 99] [EN] I think when it comes to Anthropic, obviously, we can't dismiss them. And I said that earlier, I'll say it again. They have the ability to train in first-party models and couple those with their own products if they choose to. And so we have to pay attention to that. And also, they're doing a lot of things, and we'll see what remains their focus. In terms of differentiators, I think there are many, a few that I'll mention today. Performant multiplayer canvas, I think, is something that people underestimate how hard it is to get those mechanics right and to really execute with quality on.
+       [中] 我认为当谈到人类时，显然我们不能忽视他们。我之前说过，我会再说一遍。他们有能力在第一方模型中进行培训，并根据需要将这些模型与自己的产品结合起来。所以我们必须注意这一点。而且，他们正在做很多事情，我们将看看他们的重点是什么。就差异化而言，我认为今天我要提到的有很多。我认为，人们低估了高性能多人游戏画布的难度，要让这些机制正确并真正以质量执行。
+
+  [100] [EN] This is something that has been a deep area of expertise for us for years. And I think there's a misconception that it only pertains to design. It pertains to many representations, including design, but also can pertain to code in the future. Deep product context, I think, is another main differentiator that we have in terms of the context we can build from workflows, but also the context that our team has on serving our users.
+       [中] 多年来，这一直是我们的深厚专业知识领域。我认为这是一种误解，认为它只与设计有关。它涉及许多表示，包括设计，但也可能涉及未来的代码。我认为，深入的产品背景是我们可以从工作流程构建的背景以及我们的团队为用户提供服务的背景方面的另一个主要区别。
+
+  [101] [EN] And finally, this ability to bring the best of AI and design and code and freeform direct manipulation together, all in one place, in one platform, that is what I think will ultimately create flow for people doing design work and serving their users. And I believe it will be our ultimate differentiator is the ability to go between these modalities rapidly.
+       [中] 最后，这种将人工智能、设计、代码和自由形式直接操作的精华结合在一起的能力，全部集中在一个地方、一个平台上，我认为这最终将为从事设计工作和服务用户的人们创造流程。我相信，我们最终的区别在于能够在这些模式之间快速切换。
+
+  [102] [EN] Praveer Melwani:Yes. And just to be explicitly clear there, we're confident in our guide for Q2. The numbers that we reported this quarter and the strength that we've shown in NDR and make usage for our largest customers growing from 50% as of the end of Q4 up to 60% as of the end of Q1. Pro team conversions up 150% year-over-year over the course of the quarter. The bottom line is customers are going bigger. They're going broader with Figma than ever before. You heard about Google, Lufthansa, Rocket Mortgage and countless others. And we're moving fast. And we have every history here of showing that we can meet the moment, and we're going to continue to out-execute there.
+       [中] 普拉维尔·梅尔瓦尼：是的。需要明确的是，我们对第二季度的指南充满信心。我们本季度报告的数字以及我们在 NDR 中展示的实力，以及我们最大客户的使用率从第四季度末的 50% 增长到第一季度末的 60%。本季度专业团队的转化率同比增长 150%。底线是客户规模正在扩大。Figma 的应用范围比以往任何时候都更广泛。您听说过 Google、汉莎航空、Rocket Mortgage 以及无数其他公司。我们正在快速行动。我们这里的每一个历史都表明我们可以迎接这个时刻，并且我们将继续在那里执行。
+
+  [103] [EN] Operator:Next up from Stifel is Parker Lane.
+       [中] 接线员：Stifel 的下一个路口是 Parker Lane。
+
+  [104] [EN] J. Lane:If you look at the last few months since the enforcement of the credit limits here, I was wondering if you could talk about the split of those customers who have exceeded their limits buying more credits versus upgrading into full seats. And as you look out to '26 and these tools continue to improve, do you expect that split to be roughly similar? Or do you think there's going to be more of a likelihood that people choose one path or the other here?
+       [中] J. Lane：如果您看看自实施信用限额以来的最后几个月，我想知道您是否可以谈谈那些超出限额的客户购买更多信用与升级到满座的情况。当您展望 26 年并且这些工具不断改进时，您是否认为这种划分会大致相似？或者你认为人们更有可能选择其中一条路？
+
+  [105] [EN] Praveer Melwani:I think customers are going to get both, right? It's a little bit too early to comment on the long-term mix, but we expect consumption to be an upside driver for the year. Our goal remains the same over here for our monetization model to support adoption rather than constrain it. And as we reinvest in the business, there's an opportunity for us to encourage use of our new products and features as we roll them out. And we get excited about the opportunity for our customers, for our users to experience all the magic of the products and features that we've got coming. So we've got an opportunity to both go deep with organizations as well as broad.
+       [中] Praveer Melwani：我认为客户会两者兼得，对吗？现在对长期组合发表评论还为时过早，但我们预计消费将成为今年的上行驱动力。我们的目标仍然是相同的，即我们的货币化模型是支持采用而不是限制它。当我们对业务进行再投资时，我们有机会在推出新产品和功能时鼓励使用它们。我们对我们的客户和用户有机会体验我们即将推出的产品和功能的所有魔力感到兴奋。因此，我们有机会深入并广泛地了解组织。
+
+  [106] [EN] As we go deep, we'll drive more consumption, cross-platform use. purchases of add-ons like our Governance+ and advisory services. And then going broad, we'll license more of the team. And as they go broad in that way, they'll be able to unlock more features and use and potentially drive more consumption as well. And so we've got early signal right now, but we've been very excited by the usage trends we've been seeing since implementing credit limits on March 18 there. And I'd just remind you that as of the end of April, the majority of -- or rather 75% of the organ enterprise users who were previously over their credit limits, they continue to consume credits.
+       [中] 随着我们的深入，我们将推动更多的消费和跨平台使用。购买附加服务，例如我们的 Governance+ 和咨询服务。然后，我们将向更广泛的团队授予更多许可。随着他们以这种方式扩大范围，他们将能够解锁更多功能和使用，并有可能推动更多消费。因此，我们现在已经得到了早期信号，但我们对自 3 月 18 日实施信用限额以来所看到的使用趋势感到非常兴奋。我想提醒大家的是，截至4月底，大部分——或者说75%的器官企业用户，在之前已经超过信用额度的情况下，仍然在继续消费信用。
+
+  [107] [EN] They continue to consume credits over the month of April. And so when you think about it, the right model here is the one that meets the needs for our customers. And today, we believe that it's -- we're going to consistently see a mix of the 2 models, both seats as well as AI consumption.
+       [中] 他们在四月份继续消耗积分。因此，当您仔细考虑时，就会发现正确的模型就是满足客户需求的模型。今天，我们相信，我们将持续看到这两种模型的混合，包括座椅和人工智能消耗。
+
+  [108] [EN] Dylan Field:And in terms of the product aspect of your question around when does a user choose inference versus when do they choose doing direct editing. This is something that I believe we really need to bring together and make -- it's a flexible approach where customers can choose the right thing at the right time, the right tool at the right time. And the more we can do that, the more customers can save on inference should they need to and also they can get the benefits of AI when that is applicable. There are some workflows in Figma Design that are 10 or 100x faster than AI.
+       [中] Dylan Field：就您的问题的产品方面而言，用户何时选择推理，何时选择直接编辑。我认为这是我们真正需要团结起来并做出的事情——这是一种灵活的方法，客户可以在正确的时间选择正确的东西，在正确的时间选择正确的工具。我们做得越多，客户就越能在需要时节省推理时间，并且在适用时获得人工智能的好处。Figma Design 中的一些工作流程比 AI 快 10 倍或 100 倍。
+
+  [109] [EN] There are some workflows with AI that are way faster than if you're going to do it manually and really try to do like some bulk editing task. As we move to a world where Assistant expands in the alpha and ultimately comes out of alpha, more of our customers will be able to get those benefits in Figma as well.
+       [中] 有些人工智能工作流程比手动执行要快得多，并且真正尝试执行某些批量编辑任务。当我们进入一个 Assistant 在 Alpha 版中扩展并最终走出 Alpha 的世界时，我们更多的客户也将能够在 Figma 中获得这些好处。
+
+  [110] [EN] Operator:Nick Altmann from BTIG has the next question.
+       [中] 接线员：来自 BTIG 的 Nick Altmann 有下一个问题。
+
+  [111] [EN] Nicholas Altmann:Awesome. I kind of had a higher-level question, but this notion of code to canvas or canvas to code, it creates a bidirectional or maybe a round-trip workflow. And so Dylan, can you just talk about what you're hearing or what you're seeing from customers in regards to this workflow change? And then the follow-up is you've talked about how design being the differentiator gets accentuated in this new era. So if we look out over the next couple of years, like how much do you think your customers will adopt more of a code-to-canvas workflow approach? And does that potentially foster more users to adopt full seats rather than dev seats or collab seats?
+       [中] 尼古拉斯·阿尔特曼：太棒了。我有一个更高级别的问题，但是这种代码到画布或画布到代码的概念，它创建了一个双向或可能是往返工作流程。Dylan，您能谈谈您从客户那里听到或看到的关于此工作流程变化的情况吗？接下来，您谈到了设计作为差异化因素如何在这个新时代得到强调。因此，如果我们展望未来几年，您认为您的客户会在多大程度上采用“代码到画布”工作流程方法？这是否有可能促使更多用户采用完整席位，而不是开发席位或协作席位？
+
+  [112] [EN] Dylan Field:Absolutely. Thank you for the question. I would say that First of all, just to frame up where I see us in the time line right now, we're in the early innings still of the product interfaces around models and inference. And so I don't think that anyone would tell you that an IDE or a terminal is where people are going to gravitate towards long term, if given the choice. It is instead, I think, the way that they can access these workflows today.
+       [中] 迪伦·菲尔德：当然。谢谢你的提问。我想说，首先，只是为了框架一下我现在在时间线上看到的位置，我们仍处于围绕模型和推理的产品界面的早期阶段。因此，我认为没有人会告诉您，如果可以选择的话，人们会长期倾向于使用 IDE 或终端。我认为，这才是他们现在访问这些工作流程的方式。
+
+  [113] [EN] And as that abstraction barrier goes up and they can instead access AI workflows, model capabilities through richer interfaces that are more accustomed to the task that they're trying to complete, I believe very strongly customer workflows will shift in that direction. That said, it's where we're at today. And whether you're building an IDE, you're building in a terminal or you're building in Figma, we -- or you're doing both and going back and forth, it's really important to help our customers connect those dots and make sure that they're efficient with their token spend, but also the time that they spend translating between these surfaces. And that's why we do that.
+       [中] 随着抽象障碍的上升，他们可以通过更丰富的界面访问人工智能工作流程和模型功能，这些界面更习惯于他们试图完成的任务，我坚信客户工作流程将朝这个方向转变。这就是说，这就是我们今天所处的位置。无论您是在构建 IDE、在终端中构建还是在 Figma 中构建，我们——或者您同时进行这两种操作并反复进行，帮助我们的客户将这些点连接起来并确保他们高效地使用代币支出以及在这些界面之间进行转换所花费的时间非常重要。这就是我们这样做的原因。
+
+  [114] [EN] And we've been glad to see the usage of use Figma on the right side from models to and code to the canvas. And also on the MCP side, you heard it earlier, that's growing tremendously and people are getting real value out of that in terms of implementing designs and doing that in a much faster way, and there's still so much more we can do there. So we're excited about the round trip and has applications on our platform, too, even within the walls of Figma.
+       [中] 我们很高兴看到 Figma 的使用在右侧从模型到画布以及代码到画布。而且在 MCP 方面，您之前也听说过，它的增长速度非常快，人们在实现设计和以更快的方式实现设计方面从中获得了真正的价值，而且我们在这方面还有很多事情可以做。因此，我们对往返感到兴奋，并且在我们的平台上也有应用程序，甚至在 Figma 的围墙内。
+
+  [115] [EN] Operator:And everyone, at this time, there are no further questions. I'll hand back to our speakers for any additional or closing remarks.
+       [中] 接线员：各位，目前没有其他问题了。我将把任何补充或结束语交还给我们的发言人。
+
+  [116] [EN] Praveer Melwani:Thank you all for joining. We are exceptionally proud of the quarter, and we look forward to speaking to you guys soon.
+       [中] Praveer Melwani：感谢大家的加入。我们对本季度感到非常自豪，并期待很快与你们交谈。
+
+  [117] [EN] Dylan Field:I'll also just finish off by thanking the team. Our team has been doing an incredible job executing with such strength and working extremely hard to meet the moment, and we have so much gratitude for everything they're doing, and I'm excited to see -- excited for all of you to see some of the stuff that we're working on in the weeks and months ahead. Tune to Config, our annual user conference in June and excited for you to see what we're shipping there and also to hear your feedback. Thank you.
+       [中] Dylan Field：最后我还要感谢团队。我们的团队一直在以如此强大的力量执行着令人难以置信的工作，并极其努力地迎接这一时刻，我们非常感谢他们所做的一切，我很高兴看到——很高兴你们所有人看到我们在未来几周和几个月内正在做的一些事情。请收看我们六月份的年度用户大会 Config，很高兴您能看到我们在那里发布的内容并听到您的反馈。谢谢。
+
+  [118] [EN] Operator:Once again, everyone, that does conclude today's conference. We would like to thank you all for your participation. You may now disconnect.
+       [中] 接线员：各位，今天的会议到此结束。我们衷心感谢大家的参与。您现在可以断开连接。
+
+  [119] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。
+
+  [120] [EN] The Motley Fool has positions in and recommends Figma. The Motley Fool has adisclosure policy.
+       [中] The Motley Fool has positions in and recommends Figma.Motley Fool 有披露政策。
+
+  [121] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [122] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 122 段中英对照
+======================================================================

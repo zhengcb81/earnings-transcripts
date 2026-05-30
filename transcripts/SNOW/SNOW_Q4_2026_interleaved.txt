@@ -1,0 +1,604 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Snowflake (Snowflake)
+Quarter: Q4 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/02/25/snowflake-snow-q4-2026-earnings-call-transcript/
+Translated: 2026-05-30T11:18:36.383488
+Backend: deepseek
+Paragraphs: 122
+======================================================================
+
+  [  1] [EN] Wednesday, February 25, 2026 at 5 p.m. ET
+       [中] 2026年2月25日星期三下午5点ET  
+原文：Wednesday, February 25, 2026 at 5 p.m. ET
+
+
+  ━━ CALL PARTICIPANTS ━━
+  ━━ 致电参与者 ━━
+
+  👤 Chief Executive Officer — Sridhar Ramaswamy
+     首席执行官 — 斯里达尔·拉马斯瓦米
+
+  👤 Chief Financial Officer — Brian Robbins
+     首席财务官 — Brian Robbins
+
+Chief Financial Officer — Brian Robbins
+
+  👤 Executive Vice President of Product — Christian Kleinerman
+     产品执行副总裁 — Christian Kleinerman  
+原文：Executive Vice President of Product — Christian Kleinerman
+
+  👤 VP, Investor Relations — Catherine McCrekin
+     投资者关系副总裁 — Catherine McCrekin  
+VP, Investor Relations — Catherine McCrekin
+
+  [  7] [EN] Product Revenue-- $1.23 billion, representing 30% year-over-year growth driven by contributions from both core business and AI workloads.
+       [中] 产品收入——12.3亿美元，同比增长30%，得益于核心业务和AI工作负载的贡献。  
+Product Revenue-- $1.23 billion, representing 30% year-over-year growth driven by contributions from both core business and AI workloads.
+
+  [  8] [EN] Remaining Performance Obligations-- $9.77 billion, up 42% year over year, with growth acceleration noted for the second consecutive quarter.
+       [中] 剩余履约义务-- $9.77 billion，同比增长42%，连续第二个季度增长加速。
+原文：Remaining Performance Obligations-- $9.77 billion, up 42% year over year, with growth acceleration noted for the second consecutive quarter.
+
+
+  ━━ Net Revenue Retention Rate-- 125% without decline, indicating sustained customer expansion. ━━
+  ━━ 净收入留存率--125%无下降，表明客户持续扩张。
+Net Revenue Retention Rate-- 125% without decline, indicating sustained customer expansion. ━━
+
+  [ 10] [EN] Non-GAAP Operating Margin-- 10.5% for FY 2026, an increase of over 400 basis points from the previous year.
+       [中] 非GAAP运营利润率——2026财年为10.5%，较上年增长超过400个基点。
+
+Non-GAAP Operating Margin-- 10.5% for FY 2026, an increase of over 400 basis points from the previous year.
+
+  [ 11] [EN] Stock-Based Compensation-- Reduced to 34% of revenue in FY 2026 from 41% in FY 2025, with guidance to fall further to 27% in FY 2027.
+       [中] 基于股票的薪酬——从2025财年占收入的41%降至2026财年的34%，并预期在2027财年进一步降至27%。
+
+Stock-Based Compensation-- Reduced to 34% of revenue in FY 2026 from 41% in FY 2025, with guidance to fall further to 27% in FY 2027.
+
+  [ 12] [EN] Net New Customers-- 2,332 added over the year, including 740 in Q4, the latter up 40% year over year; total customer count surpassed 13,300.
+       [中] 净新增客户——年度内增加2,332个，其中第四季度增加740个，后者同比增长40%；客户总数超过13,300。
+
+Net New Customers-- 2,332 added over the year, including 740 in Q4, the latter up 40% year over year; total customer count surpassed 13,300.
+
+  [ 13] [EN] Large Customer Expansion-- 733 customers with trailing twelve-month spend greater than $1 million, up 27% year over year; 56 customers above $10 million, reflecting 56% growth.
+       [中] 大客户扩展——过去12个月消费超过100万美元的客户有733个，同比增长27%；超过1000万美元的客户有56个，增长56%。
+
+Large Customer Expansion-- 733 customers with trailing twelve-month spend greater than $1 million, up 27% year over year; 56 customers above $10 million, reflecting 56% growth.
+
+  [ 14] [EN] AI Product Adoption-- More than 9,100 accounts using AI offerings; Snowflake Intelligence deployed by over 2,500 accounts, almost doubling sequentially from the prior quarter.
+       [中] AI产品采用——超过9,100个账户在使用AI产品；Snowflake Intelligence已在超过2,500个账户中部署，环比几乎翻倍。
+
+AI Product Adoption-- More than 9,100 accounts using AI offerings; Snowflake Intelligence deployed by over 2,500 accounts, almost doubling sequentially from the prior quarter.
+
+  [ 15] [EN] FY 2026 Non-GAAP Product Gross Margin-- 75.8%, with FY 2027 guidance at 75%.
+       [中] 2026财年Non-GAAP产品毛利率——75.8%，2027财年指引为75%。
+
+FY 2026 Non-GAAP Product Gross Margin-- 75.8%, with FY 2027 guidance at 75%.
+
+  [ 16] [EN] FY 2026 Non-GAAP Adjusted Free Cash Flow Margin-- 25.5% achieved, with FY 2027 guidance at 23%, including a 150 basis point headwind due to the Observe acquisition.
+       [中] FY 2026 Non-GAAP调整后自由现金流利润率——已实现25.5%，FY 2027指引为23%，其中包括因收购Observe造成的150个基点的逆风。
+
+FY 2026 Non-GAAP Adjusted Free Cash Flow Margin-- 25.5% achieved, with FY 2027 guidance at 23%, including a 150 basis point headwind due to the Observe acquisition.
+
+  [ 17] [EN] Observe Acquisition-- Closed for approximately $600 million in cash and stock; contribution to FY 2027 product revenue growth expected at one percentage point.
+       [中] Observe收购交易——以大约6亿美元现金和股票完成；预计对2027财年产品收入增长的贡献为一个百分点。
+
+Observe Acquisition-- Closed for approximately $600 million in cash and stock; contribution to FY 2027 product revenue growth expected at one percentage point.
+
+  [ 18] [EN] Share Repurchase Activity-- $150 million used in Q4 to buy back 668,000 shares at an average price of $225; $1.1 billion remains authorized.
+       [中] 股票回购活动——第四季度使用了1.5亿美元回购668,000股，均价225美元；仍有11亿美元授权额度。
+Share Repurchase Activity-- $150 million used in Q4 to buy back 668,000 shares at an average price of $225; $1.1 billion remains authorized.
+
+  [ 19] [EN] Cash and Investments-- $4.8 billion held at period end, including cash, cash equivalents, short-term, and long-term investments.
+       [中] 现金和投资——期末持有$4.8 billion，包括现金、现金等价物、短期和长期投资。
+
+Cash and Investments-- $4.8 billion held at period end, including cash, cash equivalents, short-term, and long-term investments.
+
+  [ 20] [EN] Product Innovation-- Over 430 new product capabilities launched during the year, including general availability of Cortex Code, Cortex Code CLI, Snowflake OpenFlow, and Snowflake Postgres.
+       [中] 产品创新——年内发布了超过430项新产品功能，包括Cortex Code、Cortex Code CLI、Snowflake OpenFlow和Snowflake Postgres的正式推出。
+
+Product Innovation-- Over 430 new product capabilities launched during the year, including general availability of Cortex Code, Cortex Code CLI, Snowflake OpenFlow, and Snowflake Postgres.
+
+  [ 21] [EN] Key Partnerships-- Expanded partnerships with SAP, Anthropic, OpenAI ($200 million expansion), and Google Cloud, giving customers native access to leading AI models within the platform.
+       [中] 关键合作伙伴关系——扩大了与SAP、Anthropic、OpenAI（2亿美元扩展）和Google Cloud的合作，使客户能够在平台内原生访问领先的人工智能模型。
+
+Key Partnerships-- Expanded partnerships with SAP, Anthropic, OpenAI ($200 million expansion), and Google Cloud, giving customers native access to leading AI models within the platform.
+
+  [ 22] [EN] Largest Contract Signed-- Closed deal exceeding $400 million in total contract value, along with seven nine-figure contracts (compared to two in the previous year).
+       [中] 已签署最大合同——总合同价值超过4亿美元的成交交易，以及七个九位数合同（上一年为两个）。
+
+Largest Contract Signed-- Closed deal exceeding $400 million in total contract value, along with seven nine-figure contracts (compared to two in the previous year).
+
+  [ 23] [EN] Q1 FY 2027 Guidance-- Product revenue projected between $1.262 billion and $1.267 billion, marking 27% growth; Q1 non-GAAP operating margin guided at 9%.
+       [中] 2027财年第一季度指引——产品收入预计在$1.262 billion至$1.267 billion之间，增长27%；第一季度非GAAP营业利润率指引为9%。
+
+Q1 FY 2027 Guidance-- Product revenue projected between $1.262 billion and $1.267 billion, marking 27% growth; Q1 non-GAAP operating margin guided at 9%.
+
+  [ 24] [EN] FY 2027 Guidance-- Product revenue of $5.66 billion forecasted for 27% growth; non-GAAP operating margin guided at 12.5%.
+       [中] 2027财年指引——产品收入预计56.6亿美元，增长27%；非GAAP营业利润率指引为12.5%。
+
+FY 2027 Guidance-- Product revenue of $5.66 billion forecasted for 27% growth; non-GAAP operating margin guided at 12.5%.
+
+  [ 25] [EN] Hiring Outlook-- Headcount growth concentrated in Q1, reflecting the addition of 178 Observe employees; Q4 net headcount adds were 37 after a small reduction-in-force that affected about 200 people.
+       [中] 招聘展望——员工人数增长集中在第一季度，反映了增加了178名Observe员工；第四季度净增员工数为37人，此前进行了一次影响约200人的小幅裁员。
+
+Hiring Outlook-- Headcount growth concentrated in Q1, reflecting the addition of 178 Observe employees; Q4 net headcount adds were 37 after a small reduction-in-force that affected about 200 people.
+
+  [ 26] [EN] Snowflake Inc.(SNOW+7.02%)reported accelerated customer and revenue expansion, highlighted by notable milestones in large contract sales and platform adoption. The company advanced its position in enterprise AI through the rapid monetization of Snowflake Intelligence and Cortex Code, accompanied by substantial expansion in partnerships and integrated AI model access. Management guided for continued top-line growth and margin gains, underpinned by recent acquisitions, disciplined operating practices, and observed consumption trends.
+       [中] Snowflake Inc.(SNOW+7.02%)报告客户和收入加速增长，突出表现在大额合同销售和平台采用方面的重要里程碑。该公司通过Snowflake Intelligence和Cortex Code的快速商业化，提升了在企业AI领域的地位，同时伴随着合作伙伴关系和集成AI模型访问的显著扩展。管理层预计，在近期收购、严格运营实践和观察到的消费趋势支持下，营收和利润率将持续增长。
+
+Snowflake Inc.(SNOW+7.02%)reported accelerated customer and revenue expansion, highlighted by notable milestones in large contract sales and platform adoption. The company advanced its position in enterprise AI through the rapid monetization of Snowflake Intelligence and Cortex Code, accompanied by substantial expansion in partnerships and integrated AI model access. Management guided for continued top-line growth and margin gains, underpinned by recent acquisitions, disciplined operating practices, and observed consumption trends.
+
+  [ 27] [EN] CEO Ramaswamy emphasized, "We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows."
+       [中] CEO Ramaswamy强调说："我们正迅速从治理和分析数据的平台，转变为一个让客户构建和运行AI原生应用与工作流的平台。"
+
+CEO Ramaswamy emphasized, "We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows."
+
+  [ 28] [EN] 40% to 50% higher project margins and compressed delivery cycles have been achieved through internal use of Snowflake Intelligence and Cortex Code.
+       [中] 通过内部使用Snowflake Intelligence和Cortex Code，项目利润率提高了40%至50%，交付周期也得以压缩。  
+40% to 50% higher project margins and compressed delivery cycles have been achieved through internal use of Snowflake Intelligence and Cortex Code.
+
+  [ 29] [EN] Management explained that product gross margin pressure stems from newly launched AI products, which currently have lower margin profiles. Margin expansion remains a near-term priority as efficiency improvements are realized.
+       [中] 管理层解释说，产品毛利率压力源于新推出的AI产品，这些产品目前的利润率较低。随着效率提升的实现，扩大利润率仍是近期优先事项。
+
+Management explained that product gross margin pressure stems from newly launched AI products, which currently have lower margin profiles. Margin expansion remains a near-term priority as efficiency improvements are realized.
+
+  [ 30] [EN] Integration of Observe is expected to broaden expansion opportunities and unlock additional value in the $50 billion IT operations market.
+       [中] 整合Observe预计将拓宽扩张机会，并在500亿美元的IT运维市场中释放额外价值。
+
+Integration of Observe is expected to broaden expansion opportunities and unlock additional value in the $50 billion IT operations market.
+
+  [ 31] [EN] Guidance methodology remains strictly tied to historical customer behavior. Management noted "a 0.5% deviation" in predictive models as significant, implying refined forecast reliability.
+       [中] 指导方法仍然严格与历史客户行为挂钩。管理层指出预测模型中"0.5%的偏差"是显著的，这意味着预测可靠性得到了改善。
+
+Guidance methodology remains strictly tied to historical customer behavior. Management noted "a 0.5% deviation" in predictive models as significant, implying refined forecast reliability.
+
+  [ 32] [EN] INDUSTRY GLOSSARY
+       [中] 行业术语
+
+  [ 33] [EN] Cortex Code: An AI-powered coding agent within the Snowflake platform designed to accelerate the development and deployment of AI-powered applications and agents.
+       [中] Cortex Code: 一个基于AI的编码代理，位于Snowflake平台内，旨在加速AI驱动的应用和代理的开发与部署。
+
+Cortex Code: An AI-powered coding agent within the Snowflake platform designed to accelerate the development and deployment of AI-powered applications and agents.
+
+  [ 34] [EN] Snowflake Intelligence: An enterprise AI solution that enables organizations to deploy agentic capabilities, natural language analytics, and workflow automation directly on their data within the Snowflake platform.
+       [中] Snowflake Intelligence: 一种企业级AI解决方案，使组织能够在Snowflake平台上的数据上直接部署代理能力、自然语言分析和工作流自动化。
+
+Snowflake Intelligence: An enterprise AI solution that enables organizations to deploy agentic capabilities, natural language analytics, and workflow automation directly on their data within the Snowflake platform.
+
+  [ 35] [EN] OpenFlow: A data ingestion technology within Snowflake that enables streamlined import of structured, unstructured, batch, or streaming data types into the platform.
+       [中] OpenFlow：Snowflake内部的一种数据摄取技术，能够将结构化、非结构化、批处理或流式数据类型顺畅地导入平台。
+
+原文：OpenFlow: A data ingestion technology within Snowflake that enables streamlined import of structured, unstructured, batch, or streaming data types into the platform.
+
+  [ 36] [EN] Observe: A recently acquired observability platform now integrated with Snowflake to provide monitoring and management tools across data and AI workflows.
+       [中] Observe: 一个最近被收购的可观测性平台，现已与Snowflake集成，提供跨数据和AI工作流的监控与管理工具。
+
+原文：Observe: A recently acquired observability platform now integrated with Snowflake to provide monitoring and management tools across data and AI workflows.
+
+  [ 37] [EN] MCP: Interoperability technology enabling agent-to-agent or agent-to-data platform communications, referenced in relation to Snowflake’s multi-system integration.
+       [中] MCP：互操作性技术，支持代理到代理或代理到数据平台通信，涉及Snowflake的多系统集成。
+
+MCP: Interoperability technology enabling agent-to-agent or agent-to-data platform communications, referenced in relation to Snowflake’s multi-system integration.
+
+  [ 38] [EN] Full Conference Call Transcript
+       [中] 完整的电话会议记录
+
+  [ 39] [EN] Catherine McCrekin:Good afternoon, and thank you for joining us on Snowflake Inc.'s fourth quarter fiscal 2026 earnings call. Joining me on the call today are Sridhar Ramaswamy, our Chief Executive Officer; Brian Robbins, our Chief Financial Officer; and Christian Kleinerman, our Executive Vice President of Product, who will participate in the Q&A session. During today's call, we will review our financial results for the fourth quarter fiscal 2026 and discuss our guidance for the first quarter and full year fiscal 2027. During today's call, we will make forward-looking statements, including statements related to our business operations and financial performance. These statements are subject to risks and uncertainties, which could cause them to differ materially from our actual results.
+       [中] 下午好，感谢各位参加Snowflake Inc.2026财年第四季度财报电话会议。今天与我一同出席的有首席执行官Sridhar Ramaswamy；首席财务官Brian Robbins；以及产品执行副总裁Christian Kleinerman，他将参与问答环节。在今天的电话会议中，我们将回顾2026财年第四季度的财务业绩，并讨论2027财年第一季度及全年的业绩指引。此外，我们还将作出前瞻性陈述，包括与业务运营及财务表现相关的陈述。这些陈述存在风险与不确定性，可能致使实际结果与陈述内容存在重大差异。
+
+Good afternoon, and thank you for joining us on Snowflake Inc.'s fourth quarter fiscal 2026 earnings call. Joining me on the call today are Sridhar Ramaswamy, our Chief Executive Officer; Brian Robbins, our Chief Financial Officer; and Christian Kleinerman, our Executive Vice President of Product, who will participate in the Q&A session. During today's call, we will review our financial results for the fourth quarter fiscal 2026 and discuss our guidance for the first quarter and full year fiscal 2027. During today's call, we will make forward-looking statements, including statements related to our business operations and financial performance. These statements are subject to risks and uncertainties, which could cause them to differ materially from our actual results.
+
+  [ 40] [EN] Information concerning these risks and uncertainties is available in our earnings press release, our most recent Forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements. During today's call, we will also discuss certain non-GAAP financial measures. See our investor presentation for the definitions of the non-GAAP financial measures and a reconciliation of GAAP to non-GAAP measures and business metric definitions, including adoption. The earnings press release and investor presentation are available on our website at snowflake.com. A replay of today's call will also be posted on the website.
+       [中] 有关这些风险与不确定性的信息，请参见我们的财报新闻稿、最新提交的Forms 10-K和10-Q以及其它提交给SEC的报告。所有陈述均基于截至今日我们掌握的信息作出。除法律要求外，我们无义务更新任何此类陈述。在今天的电话会议中，我们还将讨论某些非GAAP财务指标。关于非GAAP财务指标的定义、GAAP与非GAAP指标的调整以及业务指标定义（包括adoption），请参阅我们的投资者演示文稿。财报新闻稿和投资者演示文稿可在我们的网站snowflake.com上获取。今天的电话会议回放也将发布在该网站上。
+
+Information concerning these risks and uncertainties is available in our earnings press release, our most recent Forms 10-K and 10-Q, and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements. During today's call, we will also discuss certain non-GAAP financial measures. See our investor presentation for the definitions of the non-GAAP financial measures and a reconciliation of GAAP to non-GAAP measures and business metric definitions, including adoption. The earnings press release and investor presentation are available on our website at snowflake.com. A replay of today's call will also be posted on the website.
+
+  [ 41] [EN] With that, I would now like to turn the call over to Sridhar.
+       [中] 说完这些，我现在想把电话转给Sridhar。
+
+With that, I would now like to turn the call over to Sridhar.
+
+  [ 42] [EN] Sridhar Ramaswamy:Thank you, Catherine, and thank you all for joining us today. This past year has been transformative for every business. A year ago, we were talking about the promise of AI. Today, the promise is real, and Snowflake Inc. sits at the center of the enterprise AI revolution. Across the market, AI is reshaping the software landscape, redefining categories and competitive dynamics. In our view, this is creating a clear separation between systems that demonstrate intelligence and platforms that can deploy safely and at scale. The winners will be the platforms that combine trusted enterprise data, governed business metrics, secure execution, and broad model choice, and make all of it easy to use.
+       [中] Sridhar Ramaswamy：谢谢你，Catherine，也感谢大家今天加入我们。过去一年对每个企业来说都是变革性的一年。一年前，我们还在谈论AI的前景。如今，这一前景已成为现实，而Snowflake Inc.正处于企业AI革命的核心。在整个市场中，AI正在重塑软件格局，重新定义类别和竞争动态。在我们看来，这正在清晰区分出展现智能的系统与能够安全、大规模部署的平台。胜出者将是那些结合可信企业数据、受治理的业务指标、安全执行以及广泛模型选择，并且让这一切易于使用的平台。
+
+Sridhar Ramaswamy:Thank you, Catherine, and thank you all for joining us today. This past year has been transformative for every business. A year ago, we were talking about the promise of AI. Today, the promise is real, and Snowflake Inc. sits at the center of the enterprise AI revolution. Across the market, AI is reshaping the software landscape, redefining categories and competitive dynamics. In our view, this is creating a clear separation between systems that demonstrate intelligence and platforms that can deploy safely and at scale. The winners will be the platforms that combine trusted enterprise data, governed business metrics, secure execution, and broad model choice, and make all of it easy to use.
+
+  [ 43] [EN] That is exactly what Snowflake Inc. was built to do. We deliver the data foundation enterprises rely on across cloud and across data types, with the performance, reliability, and operational simplicity required for mission-critical workloads. As AI agents become central to how work gets done, those same capabilities become even more valuable because agents are only as powerful as the data they can access and the governance and security that surround them.
+       [中] 这正是Snowflake Inc.的创立初衷。我们提供企业信赖的数据基础，跨云、跨数据类型，具备关键任务负载所需的性能、可靠性和运维简洁性。随着AI agents成为工作方式的核心，这些能力变得更具价值——因为agent的强大程度完全取决于其可访问的数据以及围绕这些数据的治理与安全。
+
+原文：That is exactly what Snowflake Inc. was built to do. We deliver the data foundation enterprises rely on across cloud and across data types, with the performance, reliability, and operational simplicity required for mission-critical workloads. As AI agents become central to how work gets done, those same capabilities become even more valuable because agents are only as powerful as the data they can access and the governance and security that surround them.
+
+  [ 44] [EN] You can see that leadership in what we shipped this year. With Snowflake Intelligence, we brought enterprise-grade agentic capabilities directly to business teams. With the general availability of Cortex Code, we extended that to builders, accelerating the entire data life cycle and helping customers move fast from development to production. Most recently, we expanded Cortex Code CLI to encompass data systems as we work towards simplifying how all of them are used in practice. The general-purpose agent capabilities of Cortex Code CLI combined with our AI-ready data are already driving meaningful operational impact just weeks after launch.
+       [中] 你们可以在我们今年发布的产品中看到这种领导力。通过Snowflake Intelligence，我们直接将企业级的智能体能力交到了业务团队手中。随着Cortex Code的全面上市，我们将其扩展到了构建者群体，加速了整个数据生命周期，帮助客户快速从开发阶段进入生产阶段。最近，我们进一步扩展了Cortex Code CLI，使其涵盖数据系统，旨在简化所有这些系统在实际使用中的操作。Cortex Code CLI的通用智能体能力加上我们具备AI就绪能力的数据，在发布仅数周后就已经带来了可观的运营成效。
+
+You can see that leadership in what we shipped this year. With Snowflake Intelligence, we brought enterprise-grade agentic capabilities directly to business teams. With the general availability of Cortex Code, we extended that to builders, accelerating the entire data life cycle and helping customers move fast from development to production. Most recently, we expanded Cortex Code CLI to encompass data systems as we work towards simplifying how all of them are used in practice. The general-purpose agent capabilities of Cortex Code CLI combined with our AI-ready data are already driving meaningful operational impact just weeks after launch.
+
+  [ 45] [EN] Snowflake Intelligence and Cortex Code are meaningful steps in Snowflake Inc.'s evolution—from the platform where enterprises govern and analyze their data to the platform where they build and run AI-native applications and workflows.
+       [中] Snowflake Intelligence和Cortex Code是Snowflake Inc.演变过程中的重要步骤——从企业管理与分析数据的平台，到构建与运行AI原生应用程序与工作流的平台。
+
+Snowflake Intelligence and Cortex Code are meaningful steps in Snowflake Inc.'s evolution—from the platform where enterprises govern and analyze their data to the platform where they build and run AI-native applications and workflows.
+
+  [ 46] [EN] Turning to our results, product revenue in Q4 grew 30% year over year to reach $1.23 billion. Remaining performance obligations totaled $9.77 billion, with year-over-year growth accelerating to 42%. Our net revenue retention was at a healthy 125%. Thanks to AI, we are both scaling revenue and becoming operationally more efficient. Fiscal 2026 non-GAAP operating margin reached 10.5%, expanding more than 400 basis points year over year, reflecting our continued focus on operational rigor. Stock-based compensation declined meaningfully from 41% of revenue in fiscal 2025 to 34% in fiscal 2026, and we expect it to further decrease to 27% of revenue in fiscal 2027.
+       [中] 转向我们的业绩，第四季度产品收入同比增长30%，达到12.3亿美元。剩余履约义务总额为97.7亿美元，同比增长加速至42%。我们的净收入留存率保持在健康的125%。得益于AI，我们既在扩大收入，也在提升运营效率。2026财年非GAAP营业利润率达到10.5%，同比扩大超过400个基点，反映了我们对运营严谨性的持续关注。股票薪酬从2025财年占收入的41%显著下降至2026财年的34%，我们预计在2027财年将进一步下降至占收入的27%。
+
+Turning to our results, product revenue in Q4 grew 30% year over year to reach $1.23 billion. Remaining performance obligations totaled $9.77 billion, with year-over-year growth accelerating to 42%. Our net revenue retention was at a healthy 125%. Thanks to AI, we are both scaling revenue and becoming operationally more efficient. Fiscal 2026 non-GAAP operating margin reached 10.5%, expanding more than 400 basis points year over year, reflecting our continued focus on operational rigor. Stock-based compensation declined meaningfully from 41% of revenue in fiscal 2025 to 34% in fiscal 2026, and we expect it to further decrease to 27% of revenue in fiscal 2027.
+
+  [ 47] [EN] This year's results are a testament that the AI Data Cloud continues to deliver tremendous value to our more than 13,300 customers across every stage of the data life cycle. Built with deep product cohesion, Snowflake Inc. is easy to use, seamlessly connected for collaboration, and grounded in the security and governance enterprises trust.
+       [中] 今年的结果证明，AI Data Cloud 持续为我们超过13,300名客户在数据生命周期的每个阶段带来巨大价值。Snowflake Inc. 凭借深度的产品凝聚力，易于使用，无缝连接实现协作，并建立在企业信任的安全和治理基础上。
+
+This year's results are a testament that the AI Data Cloud continues to deliver tremendous value to our more than 13,300 customers across every stage of the data life cycle. Built with deep product cohesion, Snowflake Inc. is easy to use, seamlessly connected for collaboration, and grounded in the security and governance enterprises trust.
+
+  [ 48] [EN] As we innovate, we remain maniacally focused on driving great business outcomes for our customers. That focus is why leading organizations continue to choose Snowflake Inc. as the foundation for their data and AI strategy. We added 2,332 net new customers this year, and we are seeing more and more businesses move over to Snowflake Inc. Seagate, for example, is modernizing its data foundation to better support its mission of powering data-driven innovation at global scale. By consolidating a massive data environment on Snowflake Inc., the company is moving away from legacy infrastructure onto a platform built for scalability, reliability, and predictable cost, enabling teams across the business to access high-performance AI-ready analytics and make faster, more informed decisions.
+       [中] 在创新过程中，我们始终专注于为客户带来卓越业务成果。正是这份专注，让领先企业持续选择Snowflake Inc.作为其数据和AI战略的基础。今年我们新增了2,332个净客户，且看到越来越多企业迁移至Snowflake Inc.。例如，Seagate正在现代化其数据基础，以更好地支持其推动全球范围内数据驱动创新的使命。通过将庞大的数据环境整合至Snowflake Inc.，该公司正从传统基础设施迁移至一个专为可扩展性、可靠性和可预测成本而构建的平台，使业务各部门能够访问高性能、可支持AI的分析工具，从而做出更快速、更明智的决策。
+
+原文：
+As we innovate, we remain maniacally focused on driving great business outcomes for our customers. That focus is why leading organizations continue to choose Snowflake Inc. as the foundation for their data and AI strategy. We added 2,332 net new customers this year, and we are seeing more and more businesses move over to Snowflake Inc. Seagate, for example, is modernizing its data foundation to better support its mission of powering data-driven innovation at global scale. By consolidating a massive data environment on Snowflake Inc., the company is moving away from legacy infrastructure onto a platform built for scalability, reliability, and predictable cost, enabling teams across the business to access high-performance AI-ready analytics and make faster, more informed decisions.
+
+  [ 49] [EN] Our core business remains strong, and AI is expanding workloads across our platform. Capital One is a great example of how we are deepening our relationships with key customers. As Capital One scales its AI initiatives, they are leveraging Snowflake Inc. to unify proprietary data, optimize engineering workloads, and deliver AI-driven analytics across the enterprise.
+       [中] 我们的核心业务依然强劲，人工智能正在扩展我们平台上的工作负载。Capital One 是一个很好的例子，展示了我们如何深化与关键客户的关系。随着 Capital One 扩展其人工智能计划，他们正在利用 Snowflake Inc. 统一专有数据、优化工程工作负载，并在整个企业内提供人工智能驱动的分析。
+
+Our core business remains strong, and AI is expanding workloads across our platform. Capital One is a great example of how we are deepening our relationships with key customers. As Capital One scales its AI initiatives, they are leveraging Snowflake Inc. to unify proprietary data, optimize engineering workloads, and deliver AI-driven analytics across the enterprise.
+
+  [ 50] [EN] Key to our growth is the strength and momentum around our AI products. This quarter, we delivered the largest sequential increase in accounts using AI, bringing the total to more than 9,100 accounts. And in just three months, Snowflake Intelligence has scaled from a nascent offering to an essential capability for over 2,500 accounts, almost doubling quarter over quarter. For example, Toyota Motor Europe, a global automotive leader, is leveraging Snowflake Intelligence to revolutionize its operations. By enhancing enterprise search with easy-to-use knowledge chatbots and streamlining contract management through Document AI, Toyota has fundamentally shifted its development timelines, reducing AI agent deployment from months to weeks, creating a significant competitive advantage.
+       [中] 我们增长的关键在于AI产品的实力和势头。本季度，我们实现了使用AI的账户数最大环比增长，总数超过9,100个账户。仅三个月内，Snowflake Intelligence就从一项新兴产品发展为超过2,500个账户的核心能力，环比几乎翻倍。例如，全球汽车行业领导者Toyota Motor Europe正利用Snowflake Intelligence革新其运营。通过易于使用的知识聊天机器人增强企业搜索，并通过Document AI简化合同管理，Toyota从根本上改变了开发时间线，将AI智能体部署从数月缩短至数周，创造了显著的竞争优势。
+
+Key to our growth is the strength and momentum around our AI products. This quarter, we delivered the largest sequential increase in accounts using AI, bringing the total to more than 9,100 accounts. And in just three months, Snowflake Intelligence has scaled from a nascent offering to an essential capability for over 2,500 accounts, almost doubling quarter over quarter. For example, Toyota Motor Europe, a global automotive leader, is leveraging Snowflake Intelligence to revolutionize its operations. By enhancing enterprise search with easy-to-use knowledge chatbots and streamlining contract management through Document AI, Toyota has fundamentally shifted its development timelines, reducing AI agent deployment from months to weeks, creating a significant competitive advantage.
+
+  [ 51] [EN] And United Rentals, a global leader in equipment rentals, is using Snowflake Intelligence to power a new business intelligence agent that helps teams across more than 1,600 branches get real-time answers from their financial and operational data using natural language. The agent enables faster, more consistent decision-making by frontline managers. United Rentals is also using Snowflake Inc.'s Cortex Code to accelerate the development and testing of additional AI agents, scaling trusted intelligence across the business.
+       [中] 全球设备租赁领导者United Rentals正在使用Snowflake Intelligence驱动一个新的商业智能代理，该代理帮助遍布1,600多个分支机构的团队通过自然语言从财务和运营数据中获取实时答案。该代理使得一线管理者能够更快、更一致地做出决策。United Rentals还使用Snowflake Inc.的Cortex Code来加速其他AI代理的开发和测试，从而在整个业务中扩展可信智能。
+
+原文：
+And United Rentals, a global leader in equipment rentals, is using Snowflake Intelligence to power a new business intelligence agent that helps teams across more than 1,600 branches get real-time answers from their financial and operational data using natural language. The agent enables faster, more consistent decision-making by frontline managers. United Rentals is also using Snowflake Inc.'s Cortex Code to accelerate the development and testing of additional AI agents, scaling trusted intelligence across the business.
+
+  [ 52] [EN] And that is just the start of what Cortex Code can do. It is a truly transformational coding agent that is already helping our 4,400 customers build and scale AI-powered applications and massively accelerating their ability to deploy production-grade AI. The Chief Technology Officer of one of our partners, EvolveCom Consulting, described Cortex Code's impact on their business, saying, quote, “Twenty days, 21,000 operations, or 600 hours of work delivered. That is sixteen work weeks compressed into less than a month. Development cycles that used to require extensive research, trial and error, and debugging now flow naturally to AI-assisted iteration. We are using this capability to accelerate how we bring new workloads onto Snowflake for our customers.” End quote.
+       [中] 而这仅仅是Cortex Code能力的开始。它是一款真正具有变革性的编程代理，已帮助我们的4,400名客户构建和扩展AI驱动应用，并大幅加速他们部署生产级AI的能力。我们的合作伙伴之一EvolveCom Consulting的首席技术官在描述Cortex Code对其业务的影响时表示：“20天，21,000次操作，或600小时的工作量。相当于将16个工作周压缩到不到一个月。过去需要大量研究、试错和调试的开发周期，如今自然而然地转向了AI辅助迭代。我们正利用这一能力加速为我们的客户在Snowflake上部署新的工作负载。”
+
+And that is just the start of what Cortex Code can do. It is a truly transformational coding agent that is already helping our 4,400 customers build and scale AI-powered applications and massively accelerating their ability to deploy production-grade AI. The Chief Technology Officer of one of our partners, EvolveCom Consulting, described Cortex Code's impact on their business, saying, quote, “Twenty days, 21,000 operations, or 600 hours of work delivered. That is sixteen work weeks compressed into less than a month. Development cycles that used to require extensive research, trial and error, and debugging now flow naturally to AI-assisted iteration. We are using this capability to accelerate how we bring new workloads onto Snowflake for our customers.” End quote.
+
+  [ 53] [EN] Cortex Code meaningfully expands the surface of AI development on our platform and reinforces Snowflake Inc. as the AI foundation.
+       [中] Cortex Code显著扩展了我们平台上AI开发的范围，并巩固了Snowflake Inc.作为AI基础的地位。
+
+Cortex Code meaningfully expands the surface of AI development on our platform and reinforces Snowflake Inc. as the AI foundation.
+
+  [ 54] [EN] As we look forward, we continue to see immense opportunity to support enterprises across the data life cycle. We are innovating rapidly. This year, we launched over 430 product capabilities, underscoring the strength of our product velocity. We are broadening how data enters and flows through Snowflake Inc. Snowflake OpenFlow, now generally available, makes it easier than ever to bring in structured, unstructured, batched, or streaming data into the platform. We have also deepened how applications are built on Snowflake Inc.
+       [中] 展望未来，我们持续看到在支持企业数据全生命周期方面的巨大机遇。我们正在快速创新。今年，我们推出了超过430项产品功能，彰显了强劲的产品迭代速度。我们正不断拓展数据进入及在Snowflake Inc.中流动的方式。现已全面上线的Snowflake OpenFlow，使得将结构化、非结构化、批量或流式数据导入平台比以往任何时候都更加便捷。同时，我们还深化了在Snowflake Inc.上构建应用程序的能力。
+
+As we look forward, we continue to see immense opportunity to support enterprises across the data life cycle. We are innovating rapidly. This year, we launched over 430 product capabilities, underscoring the strength of our product velocity. We are broadening how data enters and flows through Snowflake Inc. Snowflake OpenFlow, now generally available, makes it easier than ever to bring in structured, unstructured, batched, or streaming data into the platform. We have also deepened how applications are built on Snowflake Inc.
+
+  [ 55] [EN] Now generally available, Snowflake Postgres is a world-class operational database built directly on the Snowflake Inc. platform, enabling developers to build and run production-grade transactional applications with the performance, reliability, and ecosystem of Postgres, fully managed and governed within Snowflake Inc. This transforms Snowflake Inc. from a system you analyze with into a platform that you build on.
+       [中] 现在正式推出，Snowflake Postgres 是一款世界级的运营数据库，直接构建在 Snowflake Inc. 平台之上，使开发者能够利用 Postgres 的性能、可靠性和生态系统，构建并运行生产级交易应用程序，完全在 Snowflake Inc. 内部进行管理和治理。这使 Snowflake Inc. 从一个用于分析的系统转变为一个用于构建的平台。
+
+Now generally available, Snowflake Postgres is a world-class operational database built directly on the Snowflake Inc. platform, enabling developers to build and run production-grade transactional applications with the performance, reliability, and ecosystem of Postgres, fully managed and governed within Snowflake Inc. This transforms Snowflake Inc. from a system you analyze with into a platform that you build on.
+
+  [ 56] [EN] And our recent acquisition of Observe, a market-leading observability platform, extends the value that Snowflake Inc. can deliver. By integrating observability directly with data and AI products, we reduce complexity and enable faster, more reliable operations at scale. This expands our opportunity into the $50 billion IT operations market and positions Snowflake Inc. to lead in next-generation AI-powered observability. At the same time, we are strengthening the ecosystem around the platform. Our landmark partnership with SAP is delivering incredible value, helping customers like Xcel Energy unite mission-critical business data across their core systems within our AI Data Cloud. Our deepened partnership with Anthropic is already helping customers like Intercom see significant impact.
+       [中] 我们近期收购的市场领先可观测性平台Observe，扩展了Snowflake Inc.能够交付的价值。通过将可观测性与数据和AI产品直接集成，我们降低了复杂性，实现了更快、更可靠的大规模运营。这使我们的机会扩展至500亿美元的IT运营市场，并让Snowflake Inc.在下一代AI驱动的可观测性领域占据领先地位。同时，我们也在加强围绕该平台的生态系统。我们与SAP的里程碑式合作正在创造非凡价值，帮助Xcel Energy等客户在其核心系统中将关键业务数据统一到我们的AI Data Cloud中。我们与Anthropic的深化合作已帮助Intercom等客户看到显著成效。
+
+And our recent acquisition of Observe, a market-leading observability platform, extends the value that Snowflake Inc. can deliver. By integrating observability directly with data and AI products, we reduce complexity and enable faster, more reliable operations at scale. This expands our opportunity into the $50 billion IT operations market and positions Snowflake Inc. to lead in next-generation AI-powered observability. At the same time, we are strengthening the ecosystem around the platform. Our landmark partnership with SAP is delivering incredible value, helping customers like Xcel Energy unite mission-critical business data across their core systems within our AI Data Cloud. Our deepened partnership with Anthropic is already helping customers like Intercom see significant impact.
+
+  [ 57] [EN] Snowflake Inc. provides the secure, governed data foundation that Intercom's AI is built on. By applying direct AI capabilities to this data, including their use of Anthropic’s Claude model, Intercom automates customer support at scale. This allows it to handle significantly higher support volumes with greater consistency and lower operational burden, especially for large, complex customers. We also recently announced a $200 million expanded partnership with OpenAI. It brings OpenAI's models natively into Snowflake Inc. to help our customers innovate faster while keeping their data secure and governed. And through our partnership with Google Cloud, customers now have access to the latest Gemini models natively within Snowflake Inc., further expanding model choice and availability.
+       [中] Snowflake Inc. 为 Intercom 的 AI 提供了安全且受管控的数据基础。通过将直接 AI 能力应用于这些数据（包括使用 Anthropic 的 Claude 模型），Intercom 实现了大规模客户支持的自动化。这使得它能够以更高的一致性处理显著增加的工单量，并降低运营负担，尤其适用于大型复杂客户。我们还最近宣布了与 OpenAI 的 2 亿美元扩展合作。该合作将 OpenAI 的模型原生集成到 Snowflake Inc. 中，帮助客户在保持数据安全和受管控的同时加快创新。通过与 Google Cloud 的合作，客户现在可以在 Snowflake Inc. 中原生访问最新的 Gemini 模型，进一步扩展了模型的选择和可用性。
+
+Snowflake Inc. provides the secure, governed data foundation that Intercom's AI is built on. By applying direct AI capabilities to this data, including their use of Anthropic’s Claude model, Intercom automates customer support at scale. This allows it to handle significantly higher support volumes with greater consistency and lower operational burden, especially for large, complex customers. We also recently announced a $200 million expanded partnership with OpenAI. It brings OpenAI's models natively into Snowflake Inc. to help our customers innovate faster while keeping their data secure and governed. And through our partnership with Google Cloud, customers now have access to the latest Gemini models natively within Snowflake Inc., further expanding model choice and availability.
+
+  [ 58] [EN] As we innovate, we are scaling efficiently. Work is fundamentally changing, and we are leading this transformation both within Snowflake Inc. and across the industry. In many cases, we are creating entirely new AI-native systems built directly on Snowflake Inc. Across our business, Snowflake Intelligence and Cortex Code are already delivering measurable results. Our service delivery team can complete customer projects up to five times faster, improving response accuracy by more than 25%, and compress implementation cycles from days to hours to drive 40% to 50% higher project margins and enabling customers to go live more than 40% faster.
+       [中] 在创新过程中，我们正高效扩大规模。工作方式正在发生根本性变革，而我们在Snowflake Inc.内部及整个行业都引领着这一转型。在许多情况下，我们正在直接基于Snowflake Inc.构建全新的AI原生系统。在整个业务中，Snowflake Intelligence和Cortex Code已经带来可量化的成果。我们的服务交付团队完成客户项目的速度最高可提升五倍，响应准确率提高超过25%，并将实施周期从数天压缩至数小时，从而推动项目利润率提升40%至50%，同时帮助客户上线速度加快超过40%。
+
+As we innovate, we are scaling efficiently. Work is fundamentally changing, and we are leading this transformation both within Snowflake Inc. and across the industry. In many cases, we are creating entirely new AI-native systems built directly on Snowflake Inc. Across our business, Snowflake Intelligence and Cortex Code are already delivering measurable results. Our service delivery team can complete customer projects up to five times faster, improving response accuracy by more than 25%, and compress implementation cycles from days to hours to drive 40% to 50% higher project margins and enabling customers to go live more than 40% faster.
+
+  [ 59] [EN] We have seen our site reliability engineering issues that once required hours across multiple engineers now resolved in minutes, dramatically reducing resolution time and further strengthening Snowflake Inc.'s reliability. And we have built agent capabilities that help our sellers prioritize accounts, automate research, and generate personalized outreach, projected to recoup the equivalent of 90 full-time engineers of productivity this year. Our finance team is working on automating travel and expenses analysis, proactively curbing out-of-policy behavior—an initiative that is expected to drive millions in annual savings. And we are seeing this transformation within our customers as well.
+       [中] 我们目睹了网站可靠性工程问题——过去需要多名工程师耗时数小时，如今几分钟内即可解决，大幅缩短了解决时间，并进一步增强了Snowflake Inc.的可靠性。我们还构建了智能代理功能，帮助销售人员优先处理账户、自动化研究并生成个性化外联，预计今年可收回相当于90名全职工程师的生产力。我们的财务团队正致力于自动化差旅和费用分析，主动遏制违规行为——这一举措预计每年可节省millions美元。我们在客户中也看到了这一转型。
+
+We have seen our site reliability engineering issues that once required hours across multiple engineers now resolved in minutes, dramatically reducing resolution time and further strengthening Snowflake Inc.'s reliability. And we have built agent capabilities that help our sellers prioritize accounts, automate research, and generate personalized outreach, projected to recoup the equivalent of 90 full-time engineers of productivity this year. Our finance team is working on automating travel and expenses analysis, proactively curbing out-of-policy behavior—an initiative that is expected to drive millions in annual savings. And we are seeing this transformation within our customers as well.
+
+  [ 60] [EN] They are leveraging agents not just to analyze information, but to automate complex workflows and, in some cases, retiring entire categories of previously used software systems. Take Sanofi, for example. AI-powered workflows built on Snowflake Inc. with partners like Elementum are replacing the traditional software systems used for processes like software license and invoice management. By running these workflows directly in Snowflake Inc., Sanofi is streamlining operations while keeping its data securely within the platform.
+       [中] 他们利用代理不仅分析信息，还自动化复杂工作流程，并在某些情况下淘汰了此前使用的整个软件系统类别。以Sanofi为例。基于Snowflake Inc.与Elementum等合作伙伴构建的AI驱动工作流程，正在取代传统软件系统，这些系统曾用于软件授权和发票管理等流程。通过直接在Snowflake Inc.中运行这些工作流程，Sanofi在精简运营的同时，将数据安全地保留在平台内。
+
+They are leveraging agents not just to analyze information, but to automate complex workflows and, in some cases, retiring entire categories of previously used software systems. Take Sanofi, for example. AI-powered workflows built on Snowflake Inc. with partners like Elementum are replacing the traditional software systems used for processes like software license and invoice management. By running these workflows directly in Snowflake Inc., Sanofi is streamlining operations while keeping its data securely within the platform.
+
+  [ 61] [EN] This is where the enterprise is heading, and we believe Snowflake Inc. is uniquely positioned to become the control plane for the agentic era. We built the conditions that make agents safe, scalable, and enterprise-ready, covering a single enterprise-wide source of truth; governed metrics and shared business definitions; cross-cloud and cross-domain interoperability; and built-in security, auditability, and governance. Our continued rapid innovation, tight go-to-market alignment, and operational discipline are all in high gear to capture this opportunity, and we see a long runway of durable high growth and continued margin expansion ahead. I will now turn it over to Brian to take us through the financial details.
+       [中] 这就是企业的发展方向，我们相信Snowflake Inc.在成为代理时代的控制面板方面具有独特优势。我们创造了让代理变得安全、可扩展且适合企业级应用的条件，涵盖单一企业级事实来源；受治理的指标和共享业务定义；跨云和跨域互操作性；以及内置的安全性、可审计性和治理能力。我们持续快速的创新、紧密的市场策略协同以及运营纪律都全速运转以抓住这一机会，我们看到了长期可持续高增长和利润率持续扩张的前景。现在我将把发言权交给Brian，由他介绍财务细节。
+
+This is where the enterprise is heading, and we believe Snowflake Inc. is uniquely positioned to become the control plane for the agentic era. We built the conditions that make agents safe, scalable, and enterprise-ready, covering a single enterprise-wide source of truth; governed metrics and shared business definitions; cross-cloud and cross-domain interoperability; and built-in security, auditability, and governance. Our continued rapid innovation, tight go-to-market alignment, and operational discipline are all in high gear to capture this opportunity, and we see a long runway of durable high growth and continued margin expansion ahead. I will now turn it over to Brian to take us through the financial details.
+
+  [ 62] [EN] Brian Robbins:Thank you, Sridhar. Q4 was a strong quarter across revenue, bookings, and margin results. Product revenue grew 30% year over year. Our results were driven by stable growth in our core business and a step up in growth contribution from AI workloads. We saw no decline in our net revenue retention rate, which remains at 125%. Q4 sales execution was outstanding. Remaining performance obligations accelerated for the second consecutive quarter. We signed the largest deal in Snowflake Inc.'s history—greater than $400 million in total contract value—and signed seven 9-figure contracts compared to two in the same period last year. These strong commitments represent Snowflake Inc.'s strategic role in our customers' long-term data and AI strategies.
+       [中] Brian Robbins：谢谢，Sridhar。第四季度在收入、订单和利润率方面表现强劲。产品收入同比增长30%。我们的业绩得益于核心业务的稳定增长以及AI工作负载增长贡献的提升。我们的净收入留存率没有下降，仍保持在125%。第四季度的销售执行非常出色。剩余履约义务连续第二个季度加速增长。我们签署了Snowflake Inc.历史上最大的合同——总合同价值超过4亿美元——并签署了7个九位数合同，而去年同期只有2个。这些强有力的承诺体现了Snowflake Inc.在客户长期数据和AI战略中的战略角色。
+
+原文：
+Brian Robbins:Thank you, Sridhar. Q4 was a strong quarter across revenue, bookings, and margin results. Product revenue grew 30% year over year. Our results were driven by stable growth in our core business and a step up in growth contribution from AI workloads. We saw no decline in our net revenue retention rate, which remains at 125%. Q4 sales execution was outstanding. Remaining performance obligations accelerated for the second consecutive quarter. We signed the largest deal in Snowflake Inc.'s history—greater than $400 million in total contract value—and signed seven 9-figure contracts compared to two in the same period last year. These strong commitments represent Snowflake Inc.'s strategic role in our customers' long-term data and AI strategies.
+
+  [ 63] [EN] And we have consistently emphasized durable growth depends on two fundamentals:landing new customers and expanding existing ones. We have delivered on both. We delivered another strong quarter of new customer wins, adding 740 net new customers, up 40% year over year, including 15 Global 2000 organizations. At the same time, we are proving that we can drive meaningful customer expansion. We now have 733 customers spending more than $1 million on a trailing twelve-month basis, growing 27% year over year. And a record number of customers crossed $10 million in trailing twelve-month spend, bringing the total to 56 customers above this $10 million threshold, growing 56% year over year.
+       [中] 我们始终强调，持久增长取决于两个基本要素：获取新客户和扩展现有客户。在这两方面我们都取得了成果。本季度新客户获取再次表现强劲，新增740个净新客户，同比增长40%，其中包括15家Global 2000企业。与此同时，我们也在证明能够有效推动客户规模扩展。目前已有733个客户在过去十二个月的支出超过100万美元，同比增长27%。而过去十二个月支出超过1000万美元的客户数量也创下纪录，达到56个客户突破这一门槛，同比增长56%。
+
+And we have consistently emphasized durable growth depends on two fundamentals:landing new customers and expanding existing ones. We have delivered on both. We delivered another strong quarter of new customer wins, adding 740 net new customers, up 40% year over year, including 15 Global 2000 organizations. At the same time, we are proving that we can drive meaningful customer expansion. We now have 733 customers spending more than $1 million on a trailing twelve-month basis, growing 27% year over year. And a record number of customers crossed $10 million in trailing twelve-month spend, bringing the total to 56 customers above this $10 million threshold, growing 56% year over year.
+
+  [ 64] [EN] Turning to our margin results, FY 2026 non-GAAP product gross margin was 75.8%. We are demonstrating that we can scale while driving efficiency. FY 2026 non-GAAP operating margin was 10.5%, and FY 2026 non-GAAP adjusted free cash flow margin was 25.5%. Earlier this month, we closed the acquisition of Observe, which we acquired for approximately $600 million in a combination of cash and stock. With Observe's offering, we are unlocking new expansion opportunities within our customer base. The impact of the acquisition is reflected in our outlook. In Q4, we used $150 million to repurchase 668,000 shares at a weighted average share price of approximately $225.
+       [中] 关于我们的利润率业绩，2026财年非GAAP产品毛利率为75.8%。我们证明了能够在提升效率的同时实现规模化。2026财年非GAAP营业利润率为10.5%，2026财年非GAAP调整后自由现金流利润率为25.5%。本月早些时候，我们完成了对Observe的收购，收购对价约为6亿美元，以现金和股票组合方式支付。借助Observe的产品，我们正在客户群中解锁新的扩展机会。此次收购的影响已反映在我们的前景展望中。第四季度，我们使用了1.5亿美元回购了66.8万股，加权平均股价约为225美元。
+
+Turning to our margin results, FY 2026 non-GAAP product gross margin was 75.8%. We are demonstrating that we can scale while driving efficiency. FY 2026 non-GAAP operating margin was 10.5%, and FY 2026 non-GAAP adjusted free cash flow margin was 25.5%. Earlier this month, we closed the acquisition of Observe, which we acquired for approximately $600 million in a combination of cash and stock. With Observe's offering, we are unlocking new expansion opportunities within our customer base. The impact of the acquisition is reflected in our outlook. In Q4, we used $150 million to repurchase 668,000 shares at a weighted average share price of approximately $225.
+
+  [ 65] [EN] We have $1.1 billion remaining on our repurchase authorization and ended the quarter with $4.8 billion in cash, cash equivalents, short-term and long-term investments.
+       [中] 我们的回购授权还剩$1.1 billion，本季度末持有现金、现金等价物、短期和长期投资共计$4.8 billion。
+
+We have $1.1 billion remaining on our repurchase authorization and ended the quarter with $4.8 billion in cash, cash equivalents, short-term and long-term investments.
+
+  [ 66] [EN] Before moving to our outlook, I would like to share my priorities for FY 2027. First, I see a clear opportunity to drive both growth and operating margin expansion. We are investing in our key growth drivers. As Sridhar relayed, we deployed more than 430 product capabilities to market this year. We will continue to expand operating margins as we drive greater efficiency across the business. Second, it is clear that our go-to-market motion is working. My focus for this next year is on ensuring stability and ongoing excellence. We have established a financial framework to support continued product velocity and sales execution.
+       [中] 在进入我们的展望之前，我想分享一下我对FY 2027的优先事项。首先，我看到了一个明确的机会，可以同时推动增长和运营利润率扩张。我们正在投资于关键的增长驱动因素。正如Sridhar所说，今年我们向市场推出了超过430项产品能力。随着我们在整个业务中提高效率，我们将继续扩大运营利润率。其次，很明显，我们的市场推广策略正在发挥作用。我明年的重点是确保稳定和持续的卓越表现。我们已经建立了一个财务框架，以支持持续的产品速度和销售执行。
+
+Before moving to our outlook, I would like to share my priorities for FY 2027. First, I see a clear opportunity to drive both growth and operating margin expansion. We are investing in our key growth drivers. As Sridhar relayed, we deployed more than 430 product capabilities to market this year. We will continue to expand operating margins as we drive greater efficiency across the business. Second, it is clear that our go-to-market motion is working. My focus for this next year is on ensuring stability and ongoing excellence. We have established a financial framework to support continued product velocity and sales execution.
+
+  [ 67] [EN] Now let us look to our outlook for FY 2027. In Q1, we expect product revenue between $1.262 billion and $1.267 billion, representing 27% year-over-year growth. For FY 2027, we expect product revenue of approximately $5.66 billion, representing 27% year-over-year growth. We expect Observe to contribute approximately one percentage point of product revenue growth in FY 2027. As always, our forecast is built on using existing patterns of consumption. There are no changes to our forecast process or our guidance philosophy. Our outlook is supported by continued strength in our core business and further growth in AI workloads. We expect FY 2027 non-GAAP product gross margin of 75%.
+       [中] 现在来看我们对2027财年的展望。第一季度，我们预计产品收入在12.62亿至12.67亿美元之间，同比增长27%。2027财年全年，我们预计产品收入约为56.6亿美元，同比增长27%。我们预计Observe将在2027财年为产品收入增长贡献约1个百分点。一如既往，我们的预测基于现有的消费模式。预测流程或指引理念没有变化。我们的展望得到了核心业务持续强劲以及AI工作负载进一步增长的支持。我们预计2027财年非GAAP产品毛利率为75%。
+
+Now let us look to our outlook for FY 2027. In Q1, we expect product revenue between $1.262 billion and $1.267 billion, representing 27% year-over-year growth. For FY 2027, we expect product revenue of approximately $5.66 billion, representing 27% year-over-year growth. We expect Observe to contribute approximately one percentage point of product revenue growth in FY 2027. As always, our forecast is built on using existing patterns of consumption. There are no changes to our forecast process or our guidance philosophy. Our outlook is supported by continued strength in our core business and further growth in AI workloads. We expect FY 2027 non-GAAP product gross margin of 75%.
+
+  [ 68] [EN] With that, I will pass the call to the operator for Q&A.
+       [中] 这样，我将把电话转给接线员进行问答环节。
+
+With that, I will pass the call to the operator for Q&A.
+
+  [ 69] [EN] Operator:We will now begin the Q&A session. If for any reason you would like to remove your question, please press star followed by 2. Again, to ask a question, press star 1. As a reminder, if you are using a speakerphone, please remember to pick up your handset before asking your question. The first question comes from the line of Sanjit Singh with Morgan Stanley. Please proceed.
+       [中] 接线员：现在开始问答环节。如果因任何原因想取消提问，请按星号键再按2。再次提醒，如需提问请按星号键再按1。若使用免提功能，请提问前拿起话筒。第一个问题来自摩根士丹利的Sanjit Singh。请提问。
+
+Operator:We will now begin the Q&A session. If for any reason you would like to remove your question, please press star followed by 2. Again, to ask a question, press star 1. As a reminder, if you are using a speakerphone, please remember to pick up your handset before asking your question. The first question comes from the line of Sanjit Singh with Morgan Stanley. Please proceed.
+
+  [ 70] [EN] Sanjit Singh:Yes, thank you for taking the questions, and congrats on reasserting 30% product revenue growth in Q4. I had two questions, starting with Brian and then hopefully for you, Sridhar. Brian, on the guide for fiscal year 2027, it basically implies sustained growth around 27% throughout the year, and I just want to get your perspective on the durability of that 27% given that it is a consumption model—sort of a sustained growth off of a really good year this year. So just the confidence in that.
+       [中] Sanjit Singh:是的，感谢您回答问题，并祝贺在Q4重新实现30%的产品收入增长。我有两个问题，先从Brian开始，然后希望Sridhar也能回答。Brian，关于2027财年的指引，它基本上暗示全年持续增长约27%，我只想听听您对这个27%的持久性的看法，考虑到这是一种消费模式——在今年的好年景基础上持续增长。所以想了解信心程度。
+
+Sanjit Singh:Yes, thank you for taking the questions, and congrats on reasserting 30% product revenue growth in Q4. I had two questions, starting with Brian and then hopefully for you, Sridhar. Brian, on the guide for fiscal year 2027, it basically implies sustained growth around 27% throughout the year, and I just want to get your perspective on the durability of that 27% given that it is a consumption model—sort of a sustained growth off of a really good year this year. So just the confidence in that.
+
+  [ 71] [EN] Then for Sridhar, as we go into the first full year of Snowflake Intelligence and an expanded product portfolio, I was wondering if you can give us a sense of where we are there in terms of momentum with the areas of the business outside of the core. I think we got an update on the data engineering revenue run rate or growth rate several quarters ago. So once we could get an update on that and where we sort of stand with the AI portfolio exiting this year and going into fiscal year 2027. Thanks.
+       [中] 那么对于Sridhar，随着我们进入Snowflake Intelligence的第一个完整年度以及产品组合的扩展，我想知道您能否介绍一下我们在核心业务之外的领域目前的发展势头。我记得几个季度前我们曾获得数据工程收入运行率或增长率的更新。因此，希望能再次了解这方面的最新情况，以及今年到2027财年结束时，我们在AI产品组合方面的进展。谢谢。
+
+Then for Sridhar, as we go into the first full year of Snowflake Intelligence and an expanded product portfolio, I was wondering if you can give us a sense of where we are there in terms of momentum with the areas of the business outside of the core. I think we got an update on the data engineering revenue run rate or growth rate several quarters ago. So once we could get an update on that and where we sort of stand with the AI portfolio exiting this year and going into fiscal year 2027. Thanks.
+
+  [ 72] [EN] Brian Robbins:Thanks, Sanjit. I will go first. From a guidance perspective, we guide based on the observed customer behavior up until really the point of earnings. And the guidance, if you sort of double-click into it this year, is really based on the high, stable growth we see in our core business. It is also the growing contribution from AI workloads. Then finally, we called out in the prepared remarks there is one percentage point of growth from our Observe acquisition. I will turn it over to Sridhar for the second part.
+       [中] Brian Robbins: 谢谢，Sanjit。我先开始。从业绩指引的角度看，我们基于直至财报前实际观察到的客户行为来制定指引。今年的指引，如果仔细看的话，主要基于我们核心业务所呈现的高位稳定增长，以及AI工作负载带来的贡献增长。最后，我们在开场陈述中提到，来自我们收购的Observe业务贡献了一个百分点的增长。下面请Sridhar谈第二部分。  
+Brian Robbins:Thanks, Sanjit. I will go first. From a guidance perspective, we guide based on the observed customer behavior up until really the point of earnings. And the guidance, if you sort of double-click into it this year, is really based on the high, stable growth we see in our core business. It is also the growing contribution from AI workloads. Then finally, we called out in the prepared remarks there is one percentage point of growth from our Observe acquisition. I will turn it over to Sridhar for the second part.
+
+  [ 73] [EN] Sridhar Ramaswamy:And to just reiterate on top of that, our overall guidance philosophy has not really changed. We continue to be very stable with respect to that. I see products like Snowflake Intelligence, now with 2,500 customers, as a major driver of growth across all aspects of the data life cycle. I think what products like Snowflake Intelligence—and I never tire of showing every single CXO and CEO that I meet Snowflake Intelligence on my phone—the ready access that it offers to critical business information is truly magical.
+       [中] Sridhar Ramaswamy：在此之上重申一下，我们的整体指导方针并未真正改变。我们在这方面继续保持非常稳定。像Snowflake Intelligence这样的产品，目前已有2,500家客户，我认为它是数据生命周期各个方面增长的主要驱动力。我认为像Snowflake Intelligence这样的产品——我从不厌倦向我遇到的每一位CXO和CEO展示我手机上的Snowflake Intelligence——它提供的对关键业务信息的便捷访问，确实堪称神奇。
+
+Sridhar Ramaswamy:And to just reiterate on top of that, our overall guidance philosophy has not really changed. We continue to be very stable with respect to that. I see products like Snowflake Intelligence, now with 2,500 customers, as a major driver of growth across all aspects of the data life cycle. I think what products like Snowflake Intelligence—and I never tire of showing every single CXO and CEO that I meet Snowflake Intelligence on my phone—the ready access that it offers to critical business information is truly magical.
+
+  [ 74] [EN] And that reinforces the need for enterprises to adopt Snowflake Inc. to get their data estates in gear so that they can bring the transformative power of things like Snowflake Intelligence to that data. A really important thing also to remember about Snowflake Intelligence is that it works fine on all open data. You can build an amazing agent using Snowflake Intelligence on data that is sitting in S3 managed by Glue or sitting in other places. Any open data ecosystem is supported by Snowflake Intelligence, and that is really very powerful. But Cortex Code is the real game changer for us because it is a massive accelerant for every part of the data life cycle.
+       [中] 这也进一步凸显了企业采用Snowflake Inc.来整理其数据资产的需求，这样才能将Snowflake Intelligence等工具的变革性力量应用于这些数据。关于Snowflake Intelligence，还有一个需要牢记的重要特点：它能够完美处理所有开放数据。你可以利用Snowflake Intelligence在由Glue管理的S3或其他位置的数据上构建出色的智能代理。任何开放数据生态系统都受到Snowflake Intelligence的支持，这一点非常强大。但Cortex Code才是真正的游戏规则改变者，因为它极大地加速了数据生命周期的每个环节。
+
+And that reinforces the need for enterprises to adopt Snowflake Inc. to get their data estates in gear so that they can bring the transformative power of things like Snowflake Intelligence to that data. A really important thing also to remember about Snowflake Intelligence is that it works fine on all open data. You can build an amazing agent using Snowflake Intelligence on data that is sitting in S3 managed by Glue or sitting in other places. Any open data ecosystem is supported by Snowflake Intelligence, and that is really very powerful. But Cortex Code is the real game changer for us because it is a massive accelerant for every part of the data life cycle.
+
+  [ 75] [EN] What I mean by that is we can build OpenFlow pipelines to bring in data from complex systems into Snowflake Inc. at a fraction of the time that it used to take before. Similarly, building DBT pipelines to run data engineering on that data or to build dynamic tables or debug performance issues with either of these now is again 10x plus faster. And what is magical about Cortex Code is also the ability to build Snowflake Intelligence agents faster. I think that is the unlock of AI using AI—AI to make things go faster. We see this, as I said, as having transformative effects on our business. I will give you folks an anecdote.
+       [中] 我的意思是，我们可以构建OpenFlow管道，从复杂系统中将数据导入Snowflake Inc.，所需时间仅为过去的几分之一。同样，构建DBT管道来对这些数据进行数据工程，或构建动态表，或调试其中任一系统的性能问题，现在速度也快了10倍以上。而Cortex Code的神奇之处还在于，它能更快地构建Snowflake Intelligence agents。我认为这就是利用AI解锁AI的关键——用AI来加速一切。正如我所说，我们认为这将对我们的业务产生变革性的影响。我给大家讲个小故事。
+
+What I mean by that is we can build OpenFlow pipelines to bring in data from complex systems into Snowflake Inc. at a fraction of the time that it used to take before. Similarly, building DBT pipelines to run data engineering on that data or to build dynamic tables or debug performance issues with either of these now is again 10x plus faster. And what is magical about Cortex Code is also the ability to build Snowflake Intelligence agents faster. I think that is the unlock of AI using AI—AI to make things go faster. We see this, as I said, as having transformative effects on our business. I will give you folks an anecdote.
+
+  [ 76] [EN] One of our partners wrote to us after using Cortex Code that all this time they had been using shovels to dig, and we just gave them bulldozers.
+       [中] 我们的一位合作伙伴在使用Cortex Code后写信给我们说，一直以来他们都在用铲子挖，而我们现在给了他们推土机。
+
+One of our partners wrote to us after using Cortex Code that all this time they had been using shovels to dig, and we just gave them bulldozers.
+
+  [ 77] [EN] Unidentified Analyst:Figures look very... First, that—yeah. I have—I think the representative plate as a durable figure deal. Yeah. Just Q4. And just—great. Thanks so much. Sridhar, this one is for you. Just going away from sales kickoff, market under my Gannon's command. What are you going to do differently in the second fiscal 2027? Oh, Mike has had a—Mike has had a year. Great. We have had multiple people on that Christian time and—because he has a lot of these access. We have had multiple people—never felt Cortex Code original change was possible in terms of ease of use. This is done, like, 10... We tell you the number of... We—okay. The world of AI is a big deal.
+       [中] 未具名分析师：数据看起来非常不错……首先，嗯，是的。我认为代表性板块是一个耐用品数据。对，就是第四季度。很好，非常感谢。Sridhar，这个问题是问你的。不谈销售启动会，我在Gannon的领导下负责市场。在2027财年第二季度，你会采取哪些不同做法？哦，Mike已经——Mike已经经历了一年。很好。我们在Christian时段有多人参与——因为他有很多访问权限。我们有多人——从未觉得Cortex Code在易用性方面可以实现根本性改变。这已经完成，大概10……我们告诉你数量……我们——好吧。AI世界是一件大事。
+
+Unidentified Analyst:Figures look very... First, that—yeah. I have—I think the representative plate as a durable figure deal. Yeah. Just Q4. And just—great. Thanks so much. Sridhar, this one is for you. Just going away from sales kickoff, market under my Gannon's command. What are you going to do differently in the second fiscal 2027? Oh, Mike has had a—Mike has had a year. Great. We have had multiple people on that Christian time and—because he has a lot of these access. We have had multiple people—never felt Cortex Code original change was possible in terms of ease of use. This is done, like, 10... We tell you the number of... We—okay. The world of AI is a big deal.
+
+  [ 78] [EN] As you find out, it is a very large market. And particular with agents is a big, big natural extension of our overall role. This is bad. Factors of it, not like 10%, 20%. Factors more efficient. I think those are the kind of customers that are going to benefit. And do you see that as a fiscal year 2027 growth opportunity? And do you see it mainly going through your zero-copy partnerships, or would there be another path?
+       [中] 如你所发现，这是一个非常庞大的市场。尤其是代理商，是我们整体角色的一个非常非常自然的延伸。这是个坏消息。其中的因素不是10%、20%的提升，而是效率更高。我认为那些才是会受益的客户。那么，你是否将其视为2027财年的增长机会？你主要认为它会通过你们的zero-copy partnerships来实现，还是另有途径？
+
+As you find out, it is a very large market. And particular with agents is a big, big natural extension of our overall role. This is bad. Factors of it, not like 10%, 20%. Factors more efficient. I think those are the kind of customers that are going to benefit. And do you see that as a fiscal year 2027 growth opportunity? And do you see it mainly going through your zero-copy partnerships, or would there be another path?
+
+  [ 79] [EN] Sridhar Ramaswamy:Yeah. For the past two years, Christian and I are very proud of the fact that we have executed while feeling confident that another engine can read that data. And what we have done over the past year is use it because, as I said earlier, at the storage level, certainly, people can write SQL and access the data. So we have interop at the JDBC level. And one level above that, we make semantic markup available to class products that lead the way, that are easy to use and set up, and make all of this way, way simpler than what anyone else can do. We do not see any contradiction between the two.
+       [中] Sridhar Ramaswamy：是的。过去两年，Christian和我都为我们在确信另一引擎能读取数据的同时仍能顺利执行这一点感到自豪。而过去一年我们所做的是去利用这一点，因为正如我之前所说，在存储层面，人们当然可以写SQL并访问数据。所以我们在JDBC层面实现了互操作。再往上一层，我们为那些易于使用和设置、能引领市场的class产品提供语义标记，使这一切变得比其他人能做到的简单得多。我们不认为这两者之间存在任何矛盾。
+
+Sridhar Ramaswamy:Yeah. For the past two years, Christian and I are very proud of the fact that we have executed while feeling confident that another engine can read that data. And what we have done over the past year is use it because, as I said earlier, at the storage level, certainly, people can write SQL and access the data. So we have interop at the JDBC level. And one level above that, we make semantic markup available to class products that lead the way, that are easy to use and set up, and make all of this way, way simpler than what anyone else can do. We do not see any contradiction between the two.
+
+  [ 80] [EN] Operator:The next question comes from the line of Koji Lima. How do you think those pockets get better from here?
+       [中] Operator：下一个问题来自Koji Lima。你认为这些口袋从此刻开始如何变得更好？
+
+Operator:The next question comes from the line of Koji Lima. How do you think those pockets get better from here?
+
+  [ 81] [EN] Brian Robbins:Hey, Koji. This is Brian. There was not any—you know, really point to the business outcomes that we are driving for our customers, and then buying into Snowflake Inc. long term.
+       [中] Brian Robbins:嘿，Koji。我是Brian。其实没什么——你知道的，真正指向的是我们为客户带来的业务成果，然后长期看好Snowflake Inc.。
+
+原文：
+Brian Robbins:Hey, Koji. This is Brian. There was not any—you know, really point to the business outcomes that we are driving for our customers, and then buying into Snowflake Inc. long term.
+
+  [ 82] [EN] Sridhar Ramaswamy:Overall, I have to add that I am incredibly proud of our sales team for delivering both across consumption in terms of—
+       [中] Sridhar Ramaswamy：总的来说，我必须补充一点，我为我们的销售团队在消费领域的交付成果感到无比自豪。
+
+Sridhar Ramaswamy:Overall, I have to add that I am incredibly proud of our sales team for delivering both across consumption in terms of—
+
+  [ 83] [EN] Koji Lima:Because—current—today versus a year ago. If that has changed at all and—how much more predictable is it today versus a year ago?
+       [中] Koji Lima:因为——当前——今天与一年前相比。如果情况有任何变化，那么——今天比一年前可预测性高了多少？
+
+Koji Lima:Because—current—today versus a year ago. If that has changed at all and—how much more predictable is it today versus a year ago?
+
+  [ 84] [EN] Sridhar Ramaswamy:We continue to have among the most sophisticated systems for—and we obviously calibrate ourselves on how well we do. Something like a 0.5% deviation—that is a big deal. That is the level of sophistication that there is. And there is similar methodology that is being applied for contract prediction, the TCV prediction as well. And it is an area where I expect us to get better and better over time. And on the data that we are actively working on, which has a little bit less predictability, is one that goes from use cases to consumption. It is an active topic for us.
+       [中] 我们继续拥有最复杂的系统——我们显然会根据自身表现来校准。像0.5%的偏差——那已经是很大的问题了。这就是我们系统的精密程度。类似的预估方法也在被用于合同预测和TCV预测。这是一个我期待我们随着时间的推移会变得越来越好的领域。而在我们目前正在积极处理的数据上，其可预测性略低，是从用例到消费的转化。这是我们正在积极讨论的主题。
+
+Sridhar Ramaswamy:We continue to have among the most sophisticated systems for—and we obviously calibrate ourselves on how well we do. Something like a 0.5% deviation—that is a big deal. That is the level of sophistication that there is. And there is similar methodology that is being applied for contract prediction, the TCV prediction as well. And it is an area where I expect us to get better and better over time. And on the data that we are actively working on, which has a little bit less predictability, is one that goes from use cases to consumption. It is an active topic for us.
+
+  [ 85] [EN] It is a little bit of a research project because we are not always privy to what our customers do. But we feel very good overall about our ability to model and be able to see where it goes. Of course, you also have surprises that are not part of your model. Adoption by 2,500 customers—we are happy when things like that happen. But when it comes to the core, we are very, very buttoned up—among the best teams that I have worked with. I have worked with a lot of them at Google and other places. When it comes to predictability of our business, thank you.
+       [中] 这有点像一个研究项目，因为我们并不总是了解客户的所作所为。但总体来说，我们对自身的建模能力以及预测走向的能力感到非常满意。当然，也会出现模型未涵盖的意外情况。被2,500家客户采用——发生这样的事情我们很高兴。但谈到核心业务，我们非常、非常严谨——这是我共事过的最优秀的团队之一。我曾在Google和其他地方与其中许多人共事过。至于我们业务的可预测性，谢谢。
+
+It is a little bit of a research project because we are not always privy to what our customers do. But we feel very good overall about our ability to model and be able to see where it goes. Of course, you also have surprises that are not part of your model. Adoption by 2,500 customers—we are happy when things like that happen. But when it comes to the core, we are very, very buttoned up—among the best teams that I have worked with. I have worked with a lot of them at Google and other places. When it comes to predictability of our business, thank you.
+
+  [ 86] [EN] Operator:The next question comes from the line of Matt Hedberg with RBC Capital Markets.
+       [中] 接线员：下一个问题来自RBC Capital Markets的Matt Hedberg。
+
+Operator:The next question comes from the line of Matt Hedberg with RBC Capital Markets.
+
+  [ 87] [EN] Matt Hedberg:Great, thanks for taking my question, guys. Congrats from me as well. You guys are trying to unlock opportunities. You are accelerating at scale through a number of new AI product announcements, and it looks to me like you are starting fiscal 2027 organically a couple of points higher than you did at this point last year. So I guess investors want to know, are AI-related products—is that some or all of the kind of the ups you are starting to see in this model? Because it certainly feels like you guys are well positioned from these trends. I am just wondering, is it starting to inflect in the model?
+       [中] Matt Hedberg：太好了，感谢你们回答我的问题。也祝贺你们。你们正在努力解锁机会。通过一系列新AI产品公告，你们在规模上加速推进，在我看来，你们在2027财年开局的有机增长率比去年同期高出几个百分点。所以我想投资者想知道，AI相关产品——是你们在这个模型中开始看到的增长的一部分还是全部？因为确实感觉你们在这些趋势中处于有利位置。我只是好奇，它是否开始在这个模型中显现拐点？
+
+Matt Hedberg:Great, thanks for taking my question, guys. Congrats from me as well. You guys are trying to unlock opportunities. You are accelerating at scale through a number of new AI product announcements, and it looks to me like you are starting fiscal 2027 organically a couple of points higher than you did at this point last year. So I guess investors want to know, are AI-related products—is that some or all of the kind of the ups you are starting to see in this model? Because it certainly feels like you guys are well positioned from these trends. I am just wondering, is it starting to inflect in the model?
+
+  [ 88] [EN] Sridhar Ramaswamy:So the other side of this is that our model predicts based on observed behavior, and we think that there is a lot of upside. As I said, there is no way that they can take into account the impact of Cortex Code because the historical data simply is not there. We see the things like Cortex Code vividly because we can see how quickly projects finish when they are being done by our services team. We also see when our partners take these products and are able to do truly transformative things. And you can ask me—I am overusing that word.
+       [中] Sridhar Ramaswamy：所以另一方面，我们的模型是基于观察到的行为进行预测的，我们认为这其中存在很大的上升空间。正如我所说，他们没有办法考虑到Cortex Code的影响，因为历史数据根本不存在。而我们能清晰地看到Cortex Code这样的产品带来的效果，因为我们能看到当我们的服务团队使用这些产品时，项目完成得有多快。我们也看到合作伙伴使用这些产品后，能够实现真正变革性的成果。你可以问我——我这个词用得太频繁了。
+
+原文：
+Sridhar Ramaswamy:So the other side of this is that our model predicts based on observed behavior, and we think that there is a lot of upside. As I said, there is no way that they can take into account the impact of Cortex Code because the historical data simply is not there. We see the things like Cortex Code vividly because we can see how quickly projects finish when they are being done by our services team. We also see when our partners take these products and are able to do truly transformative things. And you can ask me—I am overusing that word.
+
+  [ 89] [EN] I find you do a blog post that one of our partners, James Dinkel, wrote, where he said that they were basically moving their business model as a whole from charging for time to offering fixed-fee services. And a lot of that predictability came because they used the code to drive the vast majority of the migration. So we see a lot of upside to where the business can go. And on top of this, part of what we have learned even over the past few weeks with Cortex Code is the impact that it can have on every function within Snowflake Inc.
+       [中] 我发现你们有一位合作伙伴James Dinkel写了一篇博客，其中提到他们基本上在将整个商业模式从按时间收费转向提供固定费用服务。这种可预测性很大程度上来自于他们利用代码驱动了绝大部分迁移工作。因此，我们看到了这项业务巨大的增长潜力。除此之外，我们在过去几周通过Cortex Code还了解到，它能对Snowflake Inc.内部的每个职能部门产生深远影响。
+
+I find you do a blog post that one of our partners, James Dinkel, wrote, where he said that they were basically moving their business model as a whole from charging for time to offering fixed-fee services. And a lot of that predictability came because they used the code to drive the vast majority of the migration. So we see a lot of upside to where the business can go. And on top of this, part of what we have learned even over the past few weeks with Cortex Code is the impact that it can have on every function within Snowflake Inc.
+
+  [ 90] [EN] Our product managers now have their own version of this to be able to look at everything from what are the launches coming out next week to what are the bugs that have been filed against their products. There is even one that wrote a “Christian feedback bot” to give them feedback about how Christian would react to a product proposal. The level of innovation that we are seeing across the company is pretty inspiring, and that gives us a lot of confidence about how we approach the year. Please go ahead.
+       [中] 我们的产品经理现在有了自己的版本，可以查看从下周即将发布的新品到针对其产品提交的漏洞等所有信息。甚至有人编写了一个"Christian反馈机器人"，用来获取Christian对产品提案反应的建议。我们在整个公司看到的创新水平相当鼓舞人心，这也让我们对如何迎接新的一年充满信心。请继续。
+
+Our product managers now have their own version of this to be able to look at everything from what are the launches coming out next week to what are the bugs that have been filed against their products. There is even one that wrote a "Christian feedback bot" to give them feedback about how Christian would react to a product proposal. The level of innovation that we are seeing across the company is pretty inspiring, and that gives us a lot of confidence about how we approach the year. Please go ahead.
+
+  [ 91] [EN] Matt Hedberg:I was just going to add on to what you guys talked about prior. It looks like gross margins are down about one point this year. I am curious, with all the investments that you are making, do you feel like mid-70s is a kind of stable place for gross margins, especially as we look a couple of years out?
+       [中] Matt Hedberg: 我想补充你们之前讨论的内容。今年毛利率似乎下降了约一个百分点。我很好奇，考虑到你们正在进行的所有投资，你们是否认为75%左右是毛利率的稳定水平，尤其是展望未来几年时？
+
+Matt Hedberg:I was just going to add on to what you guys talked about prior. It looks like gross margins are down about one point this year. I am curious, with all the investments that you are making, do you feel like mid-70s is a kind of stable place for gross margins, especially as we look a couple of years out?
+
+  [ 92] [EN] Brian Robbins:Yeah, great question. One of our objectives when we launch new products is really, first and foremost, to build great products. Two, we want to make it easy to use. And three, we want to drive revenue after that. Once we get there, we will look at optimizing the margins for that. We have launched a lot of new AI products. The margin profile for those right now is not as high as the core business. We are offsetting that by finding more efficiencies in the core business. And so that is really the component of that.
+       [中] Brian Robbins: 好问题。我们推出新产品时的目标，首先也是最首要的是打造优秀的产品。第二是让产品易于使用。第三，在此之后推动收入增长。一旦达到这个目标，我们会考虑优化利润率。我们已经推出了很多新的人工智能产品。目前这些产品的利润率状况不如核心业务高。我们通过提高核心业务的效率来弥补这一点。这就是其中的关键所在。
+
+Brian Robbins:Yeah, great question. One of our objectives when we launch new products is really, first and foremost, to build great products. Two, we want to make it easy to use. And three, we want to drive revenue after that. Once we get there, we will look at optimizing the margins for that. We have launched a lot of new AI products. The margin profile for those right now is not as high as the core business. We are offsetting that by finding more efficiencies in the core business. And so that is really the component of that.
+
+  [ 93] [EN] We will do what is right to drive growth, and we will balance it all the way down the line at the operating margin level.
+       [中] 我们将采取正确的措施推动增长，并始终在营业利润率层面保持平衡。  
+原文：We will do what is right to drive growth, and we will balance it all the way down the line at the operating margin level.
+
+  [ 94] [EN] Sridhar Ramaswamy:And things like margin improvements are coming both at the gross margin level, but definitely also at the company level. To just tell you folks about a couple of projects that we did that have had a big impact: one of the folks basically optimized auto free pool across all our deployments using AI because they got way better visibility into that data. We have to maintain free pools of compute so that our customers do not have to wait when they want to spin up a warehouse, and somebody found a very clever way to look at the data and to optimize it.
+       [中] Sridhar Ramaswamy：利润率提升体现在毛利润层面，但毫无疑问也在公司整体层面。给大家举几个我们实施并产生重大影响的项目：其中一位同事基本利用AI优化了我们所有部署中的自动空闲池，因为他们能更清晰地洞察这些数据。我们必须维持计算资源的空闲池，这样客户在启动仓库时无需等待，而有人找到了一种非常巧妙的方法来查看数据并进行优化。
+
+原文：
+Sridhar Ramaswamy:And things like margin improvements are coming both at the gross margin level, but definitely also at the company level. To just tell you folks about a couple of projects that we did that have had a big impact: one of the folks basically optimized auto free pool across all our deployments using AI because they got way better visibility into that data. We have to maintain free pools of compute so that our customers do not have to wait when they want to spin up a warehouse, and somebody found a very clever way to look at the data and to optimize it.
+
+  [ 95] [EN] Or we have done a number of things around storage lifecycle policy—what needs to be in nearline storage versus more high-utilization storage and things like that. There are a lot of wins to be had with AI, both above the gross margin line but definitely at the operating margin line as well. It is a matter of prioritizing what you put your time into because the world is so rich with opportunity.
+       [中] 我们在存储生命周期策略方面也做了许多工作——比如哪些内容应该放入近线存储，哪些需要更高效利用的存储等等。人工智能在毛利率方面，当然更是在营业利润率方面，都能带来诸多收益。关键在于该如何优先分配你的时间，因为这个世界充满机遇。
+
+Or we have done a number of things around storage lifecycle policy—what needs to be in nearline storage versus more high-utilization storage and things like that. There are a lot of wins to be had with AI, both above the gross margin line but definitely at the operating margin line as well. It is a matter of prioritizing what you put your time into because the world is so rich with opportunity.
+
+  [ 96] [EN] Brian Robbins:And Matt, just to emphasize that point: just in the fourth quarter, we saw a lot of benefit with AI. We had a small reduction in force, and about 200 people in the company were impacted. So if you look at our fourth quarter net adds on a headcount basis, we only added 37 people. So AI has really changed the framework for investing in growth—no longer tied to headcount.
+       [中] Brian Robbins：马特，我想强调一点：仅仅在第四季度，我们就从AI中获益良多。我们进行了一小部分裁员，公司约200人受到影响。因此，从员工人数来看，第四季度净增员工仅37人。所以，AI确实改变了增长投资的框架——不再与员工人数挂钩。
+
+Brian Robbins:And Matt, just to emphasize that point: just in the fourth quarter, we saw a lot of benefit with AI. We had a small reduction in force, and about 200 people in the company were impacted. So if you look at our fourth quarter net adds on a headcount basis, we only added 37 people. So AI has really changed the framework for investing in growth—no longer tied to headcount.
+
+  [ 97] [EN] Operator:Thank you. The next question comes from the line of Greg Deal with Jefferies. Please proceed.
+       [中] 接线员：谢谢。下一位提问来自Jefferies的Greg Deal。请继续。  
+Operator:Thank you. The next question comes from the line of Greg Deal with Jefferies. Please proceed.
+
+  [ 98] [EN] Greg Deal:Thanks. All the fast things are falling off on the big AI labs—taking the stack and stuff. I guess when you think about the advantage you have with the platform of having Gemini, OpenAI, and Anthropic available natively, first, do you think your customers understand that yet? And second, are you seeing that show up in demand, given that you have all three of the top supported natively?
+       [中] Greg Deal: 谢谢。所有快速发展的部分正在从大型AI实验室中消失——比如技术栈之类的。我想，当你考虑到你拥有的平台优势，即原生集成了Gemini、OpenAI和Anthropic时，首先，你认为你的客户是否已经意识到这一点？其次，鉴于你原生支持了这三个顶尖模型，你是否看到这体现在需求上？
+
+Greg Deal:Thanks. All the fast things are falling off on the big AI labs—taking the stack and stuff. I guess when you think about the advantage you have with the platform of having Gemini, OpenAI, and Anthropic available natively, first, do you think your customers understand that yet? And second, are you seeing that show up in demand, given that you have all three of the top supported natively?
+
+  [ 99] [EN] Sridhar Ramaswamy:I think, to step back and look at the impact that AI as a whole is having on software—we spend a lot of time looking at this. We live this. And our take is that overall, the winners are going to be the companies that provide that single source of enterprise truth. No AI model is going to help you if there are four sources of that truth. Similarly, having built-in security, auditability, trust, governance, and access—who can access what dataset—is critical. Obviously, you do need the best model, but there are at least three, if not four, best model providers right now, and we work with all of them.
+       [中] Sridhar Ramaswamy: 我认为，退一步来看人工智能整体对软件产生的影响——我们花了大量时间研究这一点。我们亲身经历着这一切。我们的看法是，总体而言，赢家将是那些提供企业单一事实来源的公司。如果存在四个事实来源，任何AI模型都无法帮助你。同样，内置安全性、可审计性、信任、治理和访问控制——谁可以访问哪些数据集——也至关重要。显然，你确实需要最好的模型，但目前至少有三位（如果不是四位）最好的模型提供商，而且我们与所有这些提供商都有合作。
+
+Sridhar Ramaswamy:I think, to step back and look at the impact that AI as a whole is having on software—we spend a lot of time looking at this. We live this. And our take is that overall, the winners are going to be the companies that provide that single source of enterprise truth. No AI model is going to help you if there are four sources of that truth. Similarly, having built-in security, auditability, trust, governance, and access—who can access what dataset—is critical. Obviously, you do need the best model, but there are at least three, if not four, best model providers right now, and we work with all of them.
+
+  [100] [EN] And I think our secret sauce, which has existed since the beginning of the company, is packaging all of this into a cohesive product that is easy to use, and you see this play out with things like Snowflake Intelligence and Cortex Code working together. Snowflake Intelligence is a pretty cool product, but Cortex Code makes it 4 to 10 times faster to be able to deploy those agents.
+       [中] 我认为我们的秘诀——自公司成立以来就一直存在——就是将这一切整合成一个连贯的、易于使用的产品，你可以看到这一点体现在 Snowflake Intelligence 和 Cortex Code 的协同工作中。Snowflake Intelligence 是一个相当酷的产品，但 Cortex Code 使其部署这些 agent 的速度提高了 4 到 10 倍。
+
+And I think our secret sauce, which has existed since the beginning of the company, is packaging all of this into a cohesive product that is easy to use, and you see this play out with things like Snowflake Intelligence and Cortex Code working together. Snowflake Intelligence is a pretty cool product, but Cortex Code makes it 4 to 10 times faster to be able to deploy those agents.
+
+  [101] [EN] I think we are really seeing a lot of nice synergies come together as we go into this journey of agentic AI, and it is this combination of capabilities, plus the fact that we have always been trustworthy stewards of all enterprise information, that I think make us a great party for every single enterprise to be working with.
+       [中] 我认为，随着我们迈入自主AI（agentic AI）的征程，许多出色的协同效应正在汇聚融合。正是这种能力组合，加上我们始终作为所有企业信息值得信赖的管理者，使得我们成为每一家企业都理想的合作伙伴。  
+原文：I think we are really seeing a lot of nice synergies come together as we go into this journey of agentic AI, and it is this combination of capabilities, plus the fact that we have always been trustworthy stewards of all enterprise information, that I think make us a great party for every single enterprise to be working with.
+
+  [102] [EN] Operator:Thank you. Next question comes from the line of Ryan McQueen with Wells Fargo. Please proceed.
+       [中] 接线员：谢谢。下一位提问来自Wells Fargo的Ryan McQueen。请继续。
+
+Operator:Thank you. Next question comes from the line of Ryan McQueen with Wells Fargo. Please proceed.
+
+  [103] [EN] Ryan McQueen:Thanks, thanks for taking the question. Just excited to see the progress around Cortex Code, and it seems like you are combining the best of what AI can do today along with the best of Snowflake Inc., as it makes it a lot easier to build agents on the Snowflake Inc. platform. It seems like there are a lot of different vendors that are trying to be the place for users to build agents. So from a technical perspective, what do you think are some of the advantages that Snowflake Inc. has to be the best place for users to build agents? And then have you seen any increase in query volumes from Cortex Code users today? Thanks.
+       [中] Ryan McQueen: 谢谢，感谢您回答这个问题。看到Cortex Code的进展非常令人兴奋，它似乎结合了当前AI最优秀的能力以及Snowflake Inc.的优势，让在Snowflake Inc.平台上构建智能体变得更加容易。似乎有很多不同的供应商都试图成为用户构建智能体的首选平台。那么从技术角度来看，您认为Snowflake Inc.作为用户构建智能体的最佳平台有哪些优势？另外，您是否看到Cortex Code用户的查询量有所增加？谢谢。
+
+Ryan McQueen:Thanks, thanks for taking the question. Just excited to see the progress around Cortex Code, and it seems like you are combining the best of what AI can do today along with the best of Snowflake Inc., as it makes it a lot easier to build agents on the Snowflake Inc. platform. It seems like there are a lot of different vendors that are trying to be the place for users to build agents. So from a technical perspective, what do you think are some of the advantages that Snowflake Inc. has to be the best place for users to build agents? And then have you seen any increase in query volumes from Cortex Code users today? Thanks.
+
+  [104] [EN] Sridhar Ramaswamy:Our mission for a number of years has been to be that data platform that makes data easy to get value from. This is what we did when Snowflake Inc. first came out. This is what we have always been doing. In fact, our motto has always been easy, connected, and trusted so that data within an enterprise is easy to use, but also present wherever you need it to be. And it is that quality that gives us an advantage when it comes to creating agents. As I said earlier, we are also believers in interoperability. It is perfectly fine if someone wants an agent and is able to use MCP to call into a Snowflake Intelligence agent.
+       [中] Sridhar Ramaswamy：多年来，我们的使命一直是成为那个让数据易于获取价值的数据平台。这正是Snowflake Inc. 刚成立时我们所做的，也是我们一直以来的工作。事实上，我们的座右铭始终是“简单、互联、可信”，让企业中的数据易于使用，同时也可出现在任何你需要的地方。正是这种特质，让我们在创建智能代理时具有优势。正如我之前所说，我们也坚信互操作性。如果有人想要一个智能代理，并且能够使用MCP调用Snowflake Intelligence智能代理，那完全没问题。
+
+Sridhar Ramaswamy:Our mission for a number of years has been to be that data platform that makes data easy to get value from. This is what we did when Snowflake Inc. first came out. This is what we have always been doing. In fact, our motto has always been easy, connected, and trusted so that data within an enterprise is easy to use, but also present wherever you need it to be. And it is that quality that gives us an advantage when it comes to creating agents. As I said earlier, we are also believers in interoperability. It is perfectly fine if someone wants an agent and is able to use MCP to call into a Snowflake Intelligence agent.
+
+  [105] [EN] But I think we are uniquely positioned to be that central place where that 360-degree view is possible for a number of our customers. We are stewards of their most important data—the gold layer, as it is called in analytics. I think that positions us exceptionally well to also be the ones that are providing agents for accessing the data. And we are heavily leaned into technologies like MCP. MCP works both ways. You can use MCP to read from an agent, but we can use MCP to read data from other systems, and we are beginning to see use cases like that come alive as well. And we have done a number of studies.
+       [中] 但我认为我们处于独特的位置，能够成为那个核心枢纽，为众多客户提供360度全景视图。我们是他们最重要数据的守护者——即分析领域所谓的"gold layer"。这使我们在提供数据访问代理方面也处于极为有利的位置。我们深度押注于MCP等技术。MCP是双向的。你可以使用MCP从某个代理读取数据，而我们也能用MCP从其他系统读取数据，我们开始看到这类应用场景逐步落地。此外，我们已经进行了多项研究。
+
+But I think we are uniquely positioned to be that central place where that 360-degree view is possible for a number of our customers. We are stewards of their most important data—the gold layer, as it is called in analytics. I think that positions us exceptionally well to also be the ones that are providing agents for accessing the data. And we are heavily leaned into technologies like MCP. MCP works both ways. You can use MCP to read from an agent, but we can use MCP to read data from other systems, and we are beginning to see use cases like that come alive as well. And we have done a number of studies.
+
+  [106] [EN] Snowflake Intelligence absolutely drives more usage and more queries, but we tend to focus on what is the value that we are creating. At this point, I am slightly indifferent about whether we get more Snowflake Intelligence revenue from running a query or from running the model. It is all about creating amazing experiences and making it easy to do so. Christian.
+       [中] Snowflake Intelligence无疑会推动更多使用和更多查询，但我们更关注的是我们所创造的价值。目前，我对于通过运行查询还是运行模型来获得更多Snowflake Intelligence收入并不太在意。关键在于创造卓越的体验，并让这一过程变得简单。Christian。
+
+Snowflake Intelligence absolutely drives more usage and more queries, but we tend to focus on what is the value that we are creating. At this point, I am slightly indifferent about whether we get more Snowflake Intelligence revenue from running a query or from running the model. It is all about creating amazing experiences and making it easy to do so. Christian.
+
+  [107] [EN] Christian Kleinerman:We definitely see in the telemetry activity on the platform being increased based on the ease of use that both Intelligence and Cortex Code bring.
+       [中] Christian Kleinerman: 我们确实看到平台上的遥测活动因为Intelligence和Cortex Code带来的易用性而增加。
+
+Christian Kleinerman:We definitely see in the telemetry activity on the platform being increased based on the ease of use that both Intelligence and Cortex Code bring.
+
+  [108] [EN] Operator:Thank you. The next question comes from the line of Alex Duncan with Wolfe Research.
+       [中] 接线员：谢谢。下一个问题来自Wolfe Research的Alex Duncan。
+
+Operator:Thank you. The next question comes from the line of Alex Duncan with Wolfe Research.
+
+  [109] [EN] Alex Duncan:Hey guys, thanks for taking the question. Maybe a quick one for you and then a follow-up for Brian. Last quarter, you spoke to how January and February consumption trends would be the most important to determine the fiscal year guide. Maybe just talk specifically about what you saw post-holiday in January and specifically even coming out of February that gave you the confidence on what looks like a stronger guide this time versus last year. And then I have got a quick follow-up for Brian.
+       [中] Alex Duncan: 嘿，伙计们，感谢回答我的问题。可能先问一个简短的问题，然后有一个后续问题给Brian。上个季度，你谈到1月和2月的消费趋势对于确定财年指引最为重要。或许具体谈谈你看到的假期后的1月情况，特别是2月的情况，这些给了你信心，使得这次指引看起来比去年更强劲。然后我有一个快速的后续问题给Brian。
+
+原文：
+Alex Duncan:Hey guys, thanks for taking the question. Maybe a quick one for you and then a follow-up for Brian. Last quarter, you spoke to how January and February consumption trends would be the most important to determine the fiscal year guide. Maybe just talk specifically about what you saw post-holiday in January and specifically even coming out of February that gave you the confidence on what looks like a stronger guide this time versus last year. And then I have got a quick follow-up for Brian.
+
+  [110] [EN] Sridhar Ramaswamy:Brian did say earlier that when we guide, we try to take every ounce of data possible into that guide. That is what we have done. And we also clarified that the guidance process is a pretty strict one that focuses on historical information and our ability to reliably predict the future. So in that sense, it is taking everything into account.
+       [中] Sridhar Ramaswamy:Brian之前确实说过，当我们给出指引时，我们会尽可能利用每一丝数据来制定指引。我们就是这样做的。我们还澄清过，指引流程非常严格，侧重于历史信息以及我们可靠预测未来的能力。因此从这个意义上说，它考虑到了所有因素。
+
+Sridhar Ramaswamy:Brian did say earlier that when we guide, we try to take every ounce of data possible into that guide. That is what we have done. And we also clarified that the guidance process is a pretty strict one that focuses on historical information and our ability to reliably predict the future. So in that sense, it is taking everything into account.
+
+  [111] [EN] And if you were to ask me what is the difference between last year and this year—at the beginning of last year, Snowflake Intelligence was a glimmer in our eye, and one year later, not only did we launch Snowflake Intelligence and get it adopted, we are also at the forefront of how we use agentic AI to massively accelerate how a data platform is being used. I think all of that is going to culminate into how we perform this year. But as far as the guide is concerned, it is very much about using every bit of data that we have until this moment. Brian.
+       [中] 如果你问我去年和今年有什么不同——去年年初，Snowflake Intelligence还只是一个雏形，而一年后，我们不仅推出了Snowflake Intelligence并获得了采用，还在如何使用代理型AI（agentic AI）大幅加速数据平台的使用方面走在前列。我认为所有这些都将汇聚成我们今年的表现。但就指引而言，很大程度上是关于充分利用截至当前我们拥有的每一比特数据。Brian。
+
+And if you were to ask me what is the difference between last year and this year—at the beginning of last year, Snowflake Intelligence was a glimmer in our eye, and one year later, not only did we launch Snowflake Intelligence and get it adopted, we are also at the forefront of how we use agentic AI to massively accelerate how a data platform is being used. I think all of that is going to culminate into how we perform this year. But as far as the guide is concerned, it is very much about using every bit of data that we have until this moment. Brian.
+
+  [112] [EN] Brian Robbins:One hundred percent correct. What was your second follow-up question?
+       [中] Brian Robbins：完全正确。你的第二个追问是什么？
+
+Brian Robbins:One hundred percent correct. What was your second follow-up question?
+
+  [113] [EN] Alex Duncan:Yeah, I was just going to ask if any update on the Snowflake AI ARR and then the free cash flow margin guide. Obviously digesting the Observe acquisition, maybe just the puts and takes there and how we should think about that trajectory.
+       [中] Alex Duncan: 对，我就是想问一下Snowflake AI ARR是否有更新，还有自由现金流利润率指引。显然正在消化Observe收购案，也许可以谈谈其中的利弊，以及我们应如何看待这一轨迹。
+
+Alex Duncan:Yeah, I was just going to ask if any update on the Snowflake AI ARR and then the free cash flow margin guide. Obviously digesting the Observe acquisition, maybe just the puts and takes there and how we should think about that trajectory.
+
+  [114] [EN] Brian Robbins:Yeah, just on free cash flow overall, the reality will follow prior years. We collect the majority of our cash in the fourth quarter. It has been greater than 60% in the fourth quarter for the last two years. Observe—we guided to 23%. Observe was a 150 basis point headwind. That is included in our numbers. The revenue is included, the operating margins included, as well as the free cash flow. And then we just wanted to give guidance that we felt comfortable with, that we can perform against.
+       [中] Brian Robbins：是的，就整体自由现金流而言，实际情况将遵循往年的模式。我们大部分现金都在第四季度收回。过去两年，第四季度收回的现金占比超过60%。请注意——我们给出的指引是23%。Observe造成了150个基点的逆风影响。这已包含在我们的数据中。收入、营业利润率以及自由现金流都已包含在内。我们只是想给出一个我们有信心实现、并且能够达成的指引。
+
+Brian Robbins:Yeah, just on free cash flow overall, the reality will follow prior years. We collect the majority of our cash in the fourth quarter. It has been greater than 60% in the fourth quarter for the last two years. Observe—we guided to 23%. Observe was a 150 basis point headwind. That is included in our numbers. The revenue is included, the operating margins included, as well as the free cash flow. And then we just wanted to give guidance that we felt comfortable with, that we can perform against.
+
+  [115] [EN] Operator:That concludes today's Q&A session. I will now hand the call back over to Sridhar for closing remarks.
+       [中] 话务员：今天的问答环节到此结束。现在我将把电话交回给Sridhar做结束语。
+
+Operator:That concludes today's Q&A session. I will now hand the call back over to Sridhar for closing remarks.
+
+  [116] [EN] Sridhar Ramaswamy:Thank you, everyone. Snowflake Inc. remains at the center of the enterprise AI revolution, and we see significant opportunity ahead. To recap, AI has moved from promise to reality, and Snowflake Inc. is built to win this era by combining trusted enterprise data, governance, metrics, secure execution, and broad model choice so that customers can deploy AI and agents safely at scale. We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows, making it easier for both business users and builders to go from ideas to production. This strategy is working.
+       [中] 谢谢大家。Snowflake Inc.仍处于企业AI革命的核心，我们看到未来有巨大的机遇。回顾来看，AI已从承诺变为现实，而Snowflake Inc.正是为赢得这个时代而构建的，它结合了值得信赖的企业数据、治理、指标、安全执行以及广泛的模型选择，使客户能够安全地大规模部署AI和智能体。我们正迅速从治理和分析数据的平台，转变为客户构建和运行AI原生应用与工作流的平台，让业务用户和开发者都能更轻松地将创意转化为实际生产。这一战略正在奏效。
+
+Sridhar Ramaswamy:Thank you, everyone. Snowflake Inc. remains at the center of the enterprise AI revolution, and we see significant opportunity ahead. To recap, AI has moved from promise to reality, and Snowflake Inc. is built to win this era by combining trusted enterprise data, governance, metrics, secure execution, and broad model choice so that customers can deploy AI and agents safely at scale. We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows, making it easier for both business users and builders to go from ideas to production. This strategy is working.
+
+  [117] [EN] Our rapid pace of innovation and strong go-to-market execution are driving continued product revenue growth, and we see a long runway of sustained durable growth ahead.
+       [中] 我们快速的创新步伐和强大的市场执行能力正在推动产品收入持续增长，我们预计未来将有长期可持续的增长空间。
+
+原文：Our rapid pace of innovation and strong go-to-market execution are driving continued product revenue growth, and we see a long runway of sustained durable growth ahead.
+
+  [118] [EN] Operator:Thank you. That concludes today's conference call. You may now disconnect your line.
+       [中] Operator: 谢谢。今天的电话会议到此结束。您现在可以挂断电话了。  
+Operator: Thank you. That concludes today's conference call. You may now disconnect your line.
+
+  [119] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。
+
+  [120] [EN] The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.
+       [中] Motley Fool 对 Snowflake 持仓并推荐。Motley Fool 有披露政策。
+
+  [121] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [122] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 122 段中英对照
+======================================================================

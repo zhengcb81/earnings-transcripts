@@ -223,6 +223,16 @@ def translate_transcript(filepath: Path, cache: dict, backend) -> Path:
     out_path = filepath.parent / filepath.name.replace("_earnings_call", "_bilingual").replace(".txt", ".json")
     out_path.write_text(json.dumps(bilingual_data, ensure_ascii=False, indent=1), encoding="utf-8")
     log.info(f"  Saved: {out_path.name} ({len(pairs)} pairs)")
+
+    # Generate interleaved txt
+    try:
+        from make_interleaved import make_interleaved
+        txt_path = make_interleaved(out_path)
+        if txt_path:
+            log.info(f"  Interleaved: {txt_path.name}")
+    except Exception as e:
+        log.warning(f"  Interleaved failed: {e}")
+
     return out_path
 
 

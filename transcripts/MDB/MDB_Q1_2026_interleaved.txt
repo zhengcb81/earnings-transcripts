@@ -1,0 +1,861 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: MongoDB (MongoDB)
+Quarter: Q1 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2025/06/04/mongodb-mdb-q1-2026-earnings-call-transcript/
+Translated: 2026-05-30T14:25:58.807770
+Backend: deepseek
+Paragraphs: 173
+======================================================================
+
+  [  1] [EN] Wednesday, June 4, 2025 at 5 p.m. ET
+       [中] 美国东部时间2025年6月4日星期三下午5点  
+Wednesday, June 4, 2025 at 5 p.m. ET
+
+
+  ━━ CALL PARTICIPANTS ━━
+  ━━ 致电参与者 ━━
+
+  👤 President and Chief Executive Officer — Dev Ittycheria
+     总裁兼首席执行官 — Dev Ittycheria
+
+President and Chief Executive Officer — Dev Ittycheria
+
+  👤 Chief Financial Officer — Mike Cikos
+     首席财务官 — Mike Cikos
+
+Chief Financial Officer — Mike Cikos
+
+  👤 Vice President, Digital and Growth Marketing (now CMO) — May Petri
+     副总裁，数字与增长营销（现任首席营销官）— May Petri
+
+Vice President, Digital and Growth Marketing (now CMO) — May Petri
+
+  [  6] [EN] Total Revenue: $549 million for Q1 FY2026, representing 22% year-over-year growth and exceeding the high end of guidance.
+       [中] 总收入：$549 million for Q1 FY2026，同比增长22%，超出指引上限。  
+Total Revenue: $549 million for Q1 FY2026, representing 22% year-over-year growth and exceeding the high end of guidance.
+
+  [  7] [EN] Atlas Revenue: Grew 26% year-over-year in Q1 FY2026 and comprised 72% of total revenue; compared to 70% in the prior-year period and 71% last quarter.
+       [中] Atlas Revenue：2026财年第一季度同比增长26%，占总收入的72%；去年同期为70%，上一季度为71%。
+
+Atlas Revenue: Grew 26% year-over-year in Q1 FY2026 and comprised 72% of total revenue; compared to 70% in the prior-year period and 71% last quarter.
+
+  [  8] [EN] Non-GAAP Operating Income: $87 million non-GAAP operating income for Q1 FY2026, resulting in a 16% non-GAAP operating margin, up from 7% in the year-ago period.
+       [中] 非GAAP营业利润：2026财年第一季度非GAAP营业利润为$87 million，非GAAP营业利润率为16%，高于去年同期的7%。
+
+Non-GAAP Operating Income: $87 million non-GAAP operating income for Q1 FY2026, resulting in a 16% non-GAAP operating margin, up from 7% in the year-ago period.
+
+  [  9] [EN] Customer Growth: Net additions of approximately 2,600 sequentially in Q1 FY2026, ending with more than 57,100 customers versus over 49,200 a year ago; the highest net adds in over six years.
+       [中] 客户增长：2026财年第一季度净增约2,600名客户，环比增长，客户总数超过57,100名，去年同期超过49,200名；创六年来最高净增纪录。
+
+Customer Growth: Net additions of approximately 2,600 sequentially in Q1 FY2026, ending with more than 57,100 customers versus over 49,200 a year ago; the highest net adds in over six years.
+
+  [ 10] [EN] Atlas Customer Base: Over 55,800 customers as of Q1 FY2026, an increase from more than 47,700 the prior year.
+       [中] Atlas客户基础：截至2026财年第一季度，客户超过55,800名，较上年度的超过47,700名有所增加。
+
+Atlas Customer Base: Over 55,800 customers as of Q1 FY2026, an increase from more than 47,700 the prior year.
+
+  [ 11] [EN] Direct Sales Customers: Over 7,500, relatively flat sequentially but up 5% year-over-year.
+       [中] 直接销售客户：超过7,500个，环比相对持平，但同比增长5%。
+
+Direct Sales Customers: Over 7,500, relatively flat sequentially but up 5% year-over-year.
+
+
+  ━━ Net ARR Expansion Rate: Approximately 119%, consistent with recent quarters. ━━
+  ━━ 净ARR扩展率：约为119%，与近几个季度持平。
+
+Net ARR Expansion Rate: Approximately 119%, consistent with recent quarters. ━━
+
+  [ 13] [EN] Customers with $100,000+ in ARR: 2,506 customers with at least $100,000 in ARR, reflecting 17% growth versus the year-ago period.
+       [中] 年经常性收入（ARR）超过10万美元的客户：有2,506个客户的年经常性收入至少为10万美元，同比增长17%。
+
+Customers with $100,000+ in ARR: 2,506 customers with at least $100,000 in ARR, reflecting 17% growth versus the year-ago period.
+
+  [ 14] [EN] Gross Profit and Margin: $407 million at 74% gross margin in the first quarter, compared to 75% in the year-ago period. Atlas growth and Voyage acquisition noted as margin drivers.
+       [中] 毛利润和毛利率：第一季度毛利润4.07亿美元，毛利率74%，去年同期为75%。Atlas增长和Voyage收购被列为毛利率驱动因素。
+
+Gross Profit and Margin: $407 million at 74% gross margin in the first quarter, compared to 75% in the year-ago period. Atlas growth and Voyage acquisition noted as margin drivers.
+
+  [ 15] [EN] Net Income: $86 million, or $1.00 per diluted share on 86 million shares, compared to $43 million, or $0.51 per share on 83 million diluted shares outstanding for Q1 FY2025.
+       [中] 净利润：8600万美元，按8600万股计算每股摊薄收益为1.00美元，而2025财年第一季度净利润为4300万美元，按8300万股稀释后流通股计算每股收益为0.51美元。
+
+Net Income: $86 million, or $1.00 per diluted share on 86 million shares, compared to $43 million, or $0.51 per share on 83 million diluted shares outstanding for Q1 FY2025.
+
+  [ 16] [EN] Operating Cash Flow / Free Cash Flow: $110 million and $106 million, respectively, up from $64 million and $61 million in Q1 FY2025.
+       [中] 经营活动现金流/自由现金流：分别为1.1亿美元和1.06亿美元，高于2025财年第一季度的6400万美元和6100万美元。
+
+Operating Cash Flow / Free Cash Flow: $110 million and $106 million, respectively, up from $64 million and $61 million in Q1 FY2025.
+
+  [ 17] [EN] Cash Position: $2.5 billion in cash, cash equivalents, short-term investments, and restricted cash.
+       [中] 现金头寸：$2.5 billion 现金、现金等价物、短期投资和受限现金。
+Cash Position: $2.5 billion in cash, cash equivalents, short-term investments, and restricted cash.
+
+  [ 18] [EN] Q2 Revenue Guidance: Projected non-GAAP revenue between $548 million and $553 million, with non-GAAP operating income expected between $55 million and $59 million.
+       [中] 第二季度收入指引：预计non-GAAP收入在$548 million至$553 million之间，non-GAAP营业收入预计在$55 million至$59 million之间。
+
+Q2 Revenue Guidance: Projected non-GAAP revenue between $548 million and $553 million, with non-GAAP operating income expected between $55 million and $59 million.
+
+  [ 19] [EN] Q2 Non-GAAP EPS Guidance: $0.62 to $0.66 per share, based on 87.5 million diluted shares.
+       [中] 第二季度非GAAP每股收益指引：每股$0.62至$0.66，基于8750万稀释股份。
+原文：Q2 Non-GAAP EPS Guidance: $0.62 to $0.66 per share, based on 87.5 million diluted shares.
+
+  [ 20] [EN] Full-Year Revenue Guidance: Raised to $2.25 billion to $2.29 billion, an increase of $10 million over prior guidance.
+       [中] 全年营收指引：上调至$2.25 billion到$2.29 billion，较此前指引增加$10 million。
+Full-Year Revenue Guidance: Raised to $2.25 billion to $2.29 billion, an increase of $10 million over prior guidance.
+
+  [ 21] [EN] Full-Year Operating Margin Guidance: Increased by 200 basis points to a midpoint of 12%, up from 10% initially.
+       [中] 全年营业利润率指引：上调200个基点至中间值12%，高于最初的10%。
+
+Full-Year Operating Margin Guidance: Increased by 200 basis points to a midpoint of 12%, up from 10% initially.
+
+  [ 22] [EN] Full-Year Non-GAAP Operating Income Guidance: Now expected to be $267 million to $287 million, $57 million above prior guidance.
+       [中] 全年Non-GAAP营业利润指引：现在预计为2.67亿至2.87亿美元，较此前指引增加5700万美元。
+
+Full-Year Non-GAAP Operating Income Guidance: Now expected to be $267 million to $287 million, $57 million above prior guidance.
+
+  [ 23] [EN] Share Repurchase Program: Expanded by $800 million, totaling $1 billion after including the previous $200 million authorization; no shares repurchased in Q1 due to CFO search, with activity expected to start in Q2.
+       [中] 股票回购计划：增加8亿美元，加上此前授权的2亿美元，总额达到10亿美元；由于CFO的选拔，第一季度未进行回购，预计第二季度开始活动。
+
+原文：
+Share Repurchase Program: Expanded by $800 million, totaling $1 billion after including the previous $200 million authorization; no shares repurchased in Q1 due to CFO search, with activity expected to start in Q2.
+
+  [ 24] [EN] Non-Atlas Subscription Revenue: Expected to decline in the high single digits; an approximate $50 million headwind from multiyear license revenue anticipated, impacting mainly the second half.
+       [中] Non-Atlas订阅收入：预计将下降高个位数百分比；约5000万美元的多年度许可收入逆风，主要影响下半年。
+
+原文：
+Non-Atlas Subscription Revenue: Expected to decline in the high single digits; an approximate $50 million headwind from multiyear license revenue anticipated, impacting mainly the second half.
+
+  [ 25] [EN] Atlas Consumption Trends: Good growth in February and March, softer in April due to macro volatility, and a strong rebound in May; this monthly pattern factored into full-year guidance.
+       [中] Atlas消费趋势：2月和3月增长良好，4月因宏观波动有所放缓，5月强劲反弹；这一月度模式已纳入全年指引。
+
+原文：
+Atlas Consumption Trends: Good growth in February and March, softer in April due to macro volatility, and a strong rebound in May; this monthly pattern factored into full-year guidance.
+
+  [ 26] [EN] Self-Serve Channel Performance: Noted as particularly strong, anchoring long-term growth momentum.
+       [中] 自助服务渠道表现：被认为特别强劲，奠定了长期增长动力。
+Self-Serve Channel Performance: Noted as particularly strong, anchoring long-term growth momentum.
+
+  [ 27] [EN] AI Capabilities & Voyage AI Integration: Integration of Voyage’s 3.5 embeddings release reduced storage costs by over 80% and is reported to meaningfully outperform competing embedding models.
+       [中] AI能力与Voyage AI集成：集成Voyage的3.5 embeddings版本降低了超过80%的存储成本，据报道其性能显著优于竞争嵌入模型。
+
+AI Capabilities & Voyage AI Integration: Integration of Voyage’s 3.5 embeddings release reduced storage costs by over 80% and is reported to meaningfully outperform competing embedding models.
+
+  [ 28] [EN] Application Modernization: Hired a new leader with nearly 30 years' experience to oversee modernization initiatives; investing in tools to automate legacy app migration.
+       [中] 应用现代化：聘请了一位拥有近30年经验的新领导者来监督现代化计划；投资工具以实现遗留应用迁移自动化。
+
+原文：Application Modernization: Hired a new leader with nearly 30 years' experience to oversee modernization initiatives; investing in tools to automate legacy app migration.
+
+  [ 29] [EN] Atlas Customer Additions: Growth reflects both new MongoDB, Inc. customers and existing Enterprise Advanced customers expanding onto Atlas.
+       [中] Atlas客户增长：增长反映了新MongoDB, Inc.客户以及现有Enterprise Advanced客户向Atlas的扩展。
+Atlas Customer Additions: Growth reflects both new MongoDB, Inc. customers and existing Enterprise Advanced customers expanding onto Atlas.
+
+  [ 30] [EN] MongoDB, Inc.(MDB+2.97%)raised both revenue and non-GAAP operating margin guidance, reflecting management’s increased confidence supported by solid Q1 results and improved cash flow. The company delivered strong sequential and year-over-year customer growth, including the highest quarterly net customer additions in over six years, with particularly notable performance in the self-serve segment. The expanded $1 billion share repurchase authorization signals a strong capital position. Strategic integration of Voyage AI and ongoing investment in application modernization demonstrate active execution on long-term growth initiatives. Rapid uptake of new product releases, along with high customer retention rates and robust large enterprise engagement, point to continued momentum across both developer and enterprise channels.
+       [中] MongoDB, Inc.(MDB+2.97%)上调了营收和非GAAP运营利润率指引，反映出管理层信心增强，这得益于稳健的第一季度业绩和改善的现金流。公司实现了强劲的环比和同比增长客户数，包括超过六年来最高的季度净新增客户数，其中自助服务板块表现尤为突出。扩大至10亿美元的股票回购授权表明公司资本实力雄厚。对Voyage AI的战略整合以及对应用现代化的持续投资，体现了公司在长期增长举措上的积极执行。新产品的快速采用，加上高客户留存率和强劲的大型企业参与度，表明开发者和企业渠道均保持持续增长势头。
+
+MongoDB, Inc.(MDB+2.97%)raised both revenue and non-GAAP operating margin guidance, reflecting management’s increased confidence supported by solid Q1 results and improved cash flow. The company delivered strong sequential and year-over-year customer growth, including the highest quarterly net customer additions in over six years, with particularly notable performance in the self-serve segment. The expanded $1 billion share repurchase authorization signals a strong capital position. Strategic integration of Voyage AI and ongoing investment in application modernization demonstrate active execution on long-term growth initiatives. Rapid uptake of new product releases, along with high customer retention rates and robust large enterprise engagement, point to continued momentum across both developer and enterprise channels.
+
+  [ 31] [EN] CEO Ittycheria said, "customers and developers are voting with their feet to really adopt MongoDB, Inc," referencing customer growth spanning cloud-native, distributed, and AI-driven application use cases.
+       [中] CEO Ittycheria表示，“客户和开发者正用脚投票，真正地采用MongoDB, Inc”，这指的是客户增长覆盖了云原生、分布式和AI驱动的应用场景。
+
+CEO Ittycheria said, "customers and developers are voting with their feet to really adopt MongoDB, Inc," referencing customer growth spanning cloud-native, distributed, and AI-driven application use cases.
+
+  [ 32] [EN] CFO Cikos said, "we are raising our expectations for revenue based on our strong start to the year." directly confirming guidance changes.
+       [中] CFO Cikos表示：“基于我们今年的强劲开局，我们正在提高对收入的预期。”直接确认了指引调整。
+
+CFO Cikos said, "we are raising our expectations for revenue based on our strong start to the year." directly confirming guidance changes.
+
+  [ 33] [EN] Management attributed the slight year-over-year gross margin decrease to Atlas revenue mix and the recently closed Voyage acquisition, explicitly noting these factors in the margin results.
+       [中] 管理层将毛利率同比下降轻微归因于Atlas的收入构成以及最近完成的Voyage收购，并在毛利率结果中明确指出这些因素。
+
+Management attributed the slight year-over-year gross margin decrease to Atlas revenue mix and the recently closed Voyage acquisition, explicitly noting these factors in the margin results.
+
+  [ 34] [EN] The board did not repurchase shares in Q1 due to timing of the CFO transition, but reiterated intent to meaningfully deploy the authorized buyback program starting in Q2.
+       [中] 董事会因CFO过渡的时机未在第一季度回购股票，但重申了从第二季度开始有意义地实施授权回购计划的意图。
+
+The board did not repurchase shares in Q1 due to timing of the CFO transition, but reiterated intent to meaningfully deploy the authorized buyback program starting in Q2.
+
+  [ 35] [EN] Management stated that, for non-Atlas subscription revenue, We continue to expect it will be down in the high single digits. with an explicit approximately $50 million license headwind flagged as impacting the second half.
+       [中] 管理层表示，对于非Atlas订阅收入，我们仍预计将出现高个位数百分比的下滑，其中明确指出的约5000万美元的许可收入逆风将影响下半年。
+
+原文：
+Management stated that, for non-Atlas subscription revenue, We continue to expect it will be down in the high single digits. with an explicit approximately $50 million license headwind flagged as impacting the second half.
+
+  [ 36] [EN] Executive leadership emphasized that although large enterprise penetration is strong, the major opportunity now lies in expanding workloads within existing Fortune 100 and Fortune 500 accounts.
+       [中] 高管层强调，尽管大型企业的渗透率已经很高，但当前的主要机会在于扩大现有Fortune 100和Fortune 500客户中的工作负载。
+
+Executive leadership emphasized that although large enterprise penetration is strong, the major opportunity now lies in expanding workloads within existing Fortune 100 and Fortune 500 accounts.
+
+  [ 37] [EN] The company highlighted the differentiated combination of operational, vector, and search features as a value driver for enterprise and AI workloads as customers choose consolidated platforms over "bolting on" capabilities.
+       [中] 该公司强调了运营、向量和搜索功能的差异化组合，将其作为企业和AI工作负载的价值驱动力，因为客户更倾向于选择整合平台，而非“附加”功能。
+
+原文：The company highlighted the differentiated combination of operational, vector, and search features as a value driver for enterprise and AI workloads as customers choose consolidated platforms over "bolting on" capabilities.
+
+  [ 38] [EN] INDUSTRY GLOSSARY
+       [中] 行业术语
+
+  [ 39] [EN] Atlas: MongoDB, Inc.’s multi-cloud, fully managed database-as-a-service platform, central to both growth and reported metrics.
+       [中] Atlas：MongoDB, Inc. 的多云、完全托管的数据库即服务平台，对增长和报告指标都至关重要。  
+Atlas: MongoDB, Inc.’s multi-cloud, fully managed database-as-a-service platform, central to both growth and reported metrics.
+
+  [ 40] [EN] Enterprise Advanced (EA): MongoDB, Inc.’s commercial on-premises or hybrid database solution, often referenced in non-Atlas results.
+       [中] Enterprise Advanced (EA)：MongoDB, Inc. 的商业本地部署或混合数据库解决方案，通常在非Atlas结果中被提及。
+
+Enterprise Advanced (EA): MongoDB, Inc.’s commercial on-premises or hybrid database solution, often referenced in non-Atlas results.
+
+  [ 41] [EN] ARR (Annual Recurring Revenue): Metric for normalized, recurring subscription revenue; relevant for customer expansion and $100,000+ customer counts.
+       [中] ARR (Annual Recurring Revenue)：用于标准化、经常性订阅收入的指标；与客户扩张及$100,000+客户数量相关。  
+ARR (Annual Recurring Revenue): Metric for normalized, recurring subscription revenue; relevant for customer expansion and $100,000+ customer counts.
+
+  [ 42] [EN] Embedding: AI-related vector representations of data that provide context and improve large language model outputs, as emphasized in Voyage AI integration.
+       [中] 嵌入：与AI相关的数据向量表示，用于提供上下文并改进大语言模型输出，正如Voyage AI集成中所强调的。
+
+Embedding: AI-related vector representations of data that provide context and improve large language model outputs, as emphasized in Voyage AI integration.
+
+  [ 43] [EN] Full Conference Call Transcript
+       [中] 完整的电话会议记录
+
+  [ 44] [EN] Operator:Good day, and thank you for standing by. Welcome to the MongoDB, Inc.'s Q1 FY2026 Earnings Conference Call. At this time, all participants are in listen-only mode. Please be advised that today's conference is being recorded. After the speakers' presentation, there will be a question and answer session. To withdraw your question, please press star one again. I would now like to hand the conference over to your speaker today, Brian Denyeau from ICR.
+       [中] 操作员：大家好，感谢您的等待。欢迎参加MongoDB, Inc.的2026财年第一季度财报电话会议。目前，所有参与者都处于只听模式。请注意，今天的会议正在录音。演讲者发言结束后，将进行问答环节。要取消提问，请再次按星号键1。现在，我想把会议交给今天的发言人，来自ICR的Brian Denyeau。
+
+Operator:Good day, and thank you for standing by. Welcome to the MongoDB, Inc.'s Q1 FY2026 Earnings Conference Call. At this time, all participants are in listen-only mode. Please be advised that today's conference is being recorded. After the speakers' presentation, there will be a question and answer session. To withdraw your question, please press star one again. I would now like to hand the conference over to your speaker today, Brian Denyeau from ICR.
+
+  [ 45] [EN] Brian Denyeau:Thank you, Josh. Good afternoon, and thank you for joining us today to review MongoDB, Inc.'s first quarter fiscal 2026 financial results, which we announced in our press release issued after the close of market today. Joining me on the call today are Dev Ittycheria, President and CEO of MongoDB, Inc., and Mike Cikos, CFO of MongoDB, Inc.
+       [中] Brian Denyeau：谢谢，Josh。下午好，感谢大家今天加入我们，回顾MongoDB, Inc. 2026财年第一季度的财务业绩，我们在今天市场收盘后发布的新闻稿中公布了这些业绩。今天与我一同参加电话会议的是MongoDB, Inc.总裁兼首席执行官Dev Ittycheria，以及MongoDB, Inc.首席财务官Mike Cikos。
+
+Brian Denyeau:Thank you, Josh. Good afternoon, and thank you for joining us today to review MongoDB, Inc.'s first quarter fiscal 2026 financial results, which we announced in our press release issued after the close of market today. Joining me on the call today are Dev Ittycheria, President and CEO of MongoDB, Inc., and Mike Cikos, CFO of MongoDB, Inc.
+
+  [ 46] [EN] During this call, we will make forward-looking statements, including statements related to our market future growth opportunities, our opportunity to win new business, our expectations regarding Atlas consumption growth, the impact of non-Atlas business and multi-year license revenue, the long-term opportunity of AI, the opportunity of application modernization, our expectations regarding our win rates and sales force productivity, our financial guidance, and underlying assumptions, and our planned share repurchases and investments in growth opportunities in AI. These statements are subject to a variety of risks and uncertainties, including the results of operations and financial condition, which may cause actual results to differ materially from our expectations.
+       [中] 在本次电话会议中，我们将发表前瞻性陈述，包括与市场未来增长机遇、赢取新业务的机遇、对Atlas消费增长的预期、非Atlas业务和多年度许可收入的影响、AI的长期机遇、应用现代化的机遇、对中标率和销售团队生产力的预期、我们的财务指引及基本假设，以及计划中的股票回购和对AI增长机会的投资等相关陈述。这些陈述面临各种风险和不确定性，包括经营业绩和财务状况，可能导致实际结果与我们的预期存在重大差异。
+
+原文：
+During this call, we will make forward-looking statements, including statements related to our market future growth opportunities, our opportunity to win new business, our expectations regarding Atlas consumption growth, the impact of non-Atlas business and multi-year license revenue, the long-term opportunity of AI, the opportunity of application modernization, our expectations regarding our win rates and sales force productivity, our financial guidance, and underlying assumptions, and our planned share repurchases and investments in growth opportunities in AI. These statements are subject to a variety of risks and uncertainties, including the results of operations and financial condition, which may cause actual results to differ materially from our expectations.
+
+  [ 47] [EN] For a discussion of material risks and uncertainties that could affect our actual results, please refer to the risks described in our annual report on Form 10-K for the year ended January 31, 2025, filed with the SEC on March 20, 2025. Any forward-looking statements made on this call reflect our views only as of today, and we undertake no obligation to update them except as required by law. Additionally, we will discuss non-GAAP financial measures in this conference call. Please refer to tables in our earnings release on the Investor Relations portion of our website for a reconciliation of these measures to the most directly comparable GAAP financial measure.
+       [中] 关于可能影响我们实际结果的重大风险和不确定性的讨论，请参阅我们于2025年3月20日向SEC提交的截至2025年1月31日的10-K表格年度报告中描述的风险。本次电话会议中所作的任何前瞻性声明仅反映我们截至今日的观点，除非法律要求，我们没有义务更新这些声明。此外，我们将在本次电话会议中讨论非GAAP财务指标。请访问我们网站投资者关系部分的收益新闻稿中的表格，了解这些指标与最直接可比的GAAP财务指标的对账情况。
+
+For a discussion of material risks and uncertainties that could affect our actual results, please refer to the risks described in our annual report on Form 10-K for the year ended January 31, 2025, filed with the SEC on March 20, 2025. Any forward-looking statements made on this call reflect our views only as of today, and we undertake no obligation to update them except as required by law. Additionally, we will discuss non-GAAP financial measures in this conference call. Please refer to tables in our earnings release on the Investor Relations portion of our website for a reconciliation of these measures to the most directly comparable GAAP financial measure.
+
+  [ 48] [EN] With that, I'd like to turn the call over to Dev.
+       [中] 至此，我想把电话转给Dev。  
+With that, I'd like to turn the call over to Dev.
+
+  [ 49] [EN] Dev Ittycheria:Thank you, Brian, and thank you to everyone joining us today. I'm pleased to report that we got off to a strong start in fiscal 2026, as we executed well against our large market opportunity. Let's begin by reviewing our first quarter results before giving you a broader company update. We generated revenue of $549 million, a 22% year-over-year increase and above the high end of our guidance. Atlas revenue grew 26% year-over-year, representing 72% of revenue. We generated non-GAAP operating income of $87 million for a 16% non-GAAP operating margin, and we ended the quarter with over 57,100 customers. Overall, we posted a strong Q1 despite a dynamic and fast-changing macro environment.
+       [中] Dev Ittycheria：谢谢Brian，也感谢今天在座的各位。我很高兴向大家报告，我们在2026财年取得了强劲开局，因为我们在巨大的市场机遇中执行良好。首先，回顾第一季度业绩，然后进行更广泛的公司更新。我们实现营收5.49亿美元，同比增长22%，高于我们指引的高端。Atlas营收同比增长26%，占总营收的72%。我们实现了8700万美元的非GAAP营业利润，非GAAP营业利润率16%，季度末客户数超过57,100家。总体而言，尽管宏观环境动态多变，我们依然交出了强劲的第一季度成绩单。
+
+Dev Ittycheria:Thank you, Brian, and thank you to everyone joining us today. I'm pleased to report that we got off to a strong start in fiscal 2026, as we executed well against our large market opportunity. Let's begin by reviewing our first quarter results before giving you a broader company update. We generated revenue of $549 million, a 22% year-over-year increase and above the high end of our guidance. Atlas revenue grew 26% year-over-year, representing 72% of revenue. We generated non-GAAP operating income of $87 million for a 16% non-GAAP operating margin, and we ended the quarter with over 57,100 customers. Overall, we posted a strong Q1 despite a dynamic and fast-changing macro environment.
+
+  [ 50] [EN] We had a solid new business quarter, and we are beginning to see the benefit of our decision to focus our resources on the high end of the market, where we have the largest opportunity. Atlas consumption this quarter played out in line with our expectations. Mike will discuss consumption trends in more detail and our expectations for the remainder of the year. Our total customer net adds are the highest in over six years, reflecting the continued strong adoption of MongoDB, Inc. across a wide range of industries and use cases.
+       [中] 我们迎来了一个扎实的新业务季度，并且开始看到将资源聚焦于市场高端决策的成效——这是我们最大的机会所在。本季度Atlas的消费情况符合预期。Mike将更详细地讨论消费趋势以及我们对今年剩余时间的预期。我们的总客户净增数创下六年多来的最高水平，这反映出MongoDB, Inc.在广泛行业和用例中持续获得强劲采用。
+
+原文：
+We had a solid new business quarter, and we are beginning to see the benefit of our decision to focus our resources on the high end of the market, where we have the largest opportunity. Atlas consumption this quarter played out in line with our expectations. Mike will discuss consumption trends in more detail and our expectations for the remainder of the year. Our total customer net adds are the highest in over six years, reflecting the continued strong adoption of MongoDB, Inc. across a wide range of industries and use cases.
+
+  [ 51] [EN] Self-serve customer additions were particularly strong this quarter, reinforcing MongoDB, Inc.'s position as the go-to platform for developers building the next generation of applications, including many focused on AI. While these accounts typically start small, the self-serve channel is a powerful engine for long-term growth. Finally, retention rates remained strong in Q1, demonstrating the quality of our product and the mission-criticality of our platform. We are pleased with our Q1 performance. As I said before, companies leverage software to execute their business strategy, drive differentiation, and improve operational efficiency. As the operational database that is the core of software applications, MongoDB, Inc. is undeniably a must-have component of the tech stack. We continue to make progress toward our goal of becoming the standard platform for enterprises and the default for developers building new applications. At the heart of this momentum is MongoDB, Inc.'s modern architecture, which delivers real and measurable advantages for the types of applications being built today:cloud-native, distributed, real-time, and the AI-powered applications of tomorrow. MongoDB, Inc.'s document model and the associated platform enable developers to more easily represent the messiness of real-world data, which includes understanding relationships between structured and unstructured data, and managing data that is constantly evolving and changing. This fundamental architectural advantage provides customers greater flexibility, faster time to market, and the ability to scale without rearchitecting. These capabilities are why customers continue to develop more and more mission-critical workloads on MongoDB, Inc., illustrated by our strong customer additions this quarter. As AI redefines how applications are built and how businesses operate, MongoDB, Inc. is exceptionally well-positioned. Real-world AI applications require high-quality, context-rich, and often unstructured data to deliver trustworthy outputs.
+       [中] 本季度自助服务客户增长尤为强劲，进一步巩固了MongoDB, Inc.作为开发者构建下一代应用程序（包括众多聚焦AI的应用）首选平台的地位。尽管这些客户通常起步规模较小，但自助服务渠道是实现长期增长的强大引擎。最后，第一季度的留存率依然保持强劲，这证明了我们产品的质量以及我们平台的关键任务属性。我们对第一季度的表现感到满意。正如我之前所说，企业利用软件来执行其业务战略、推动差异化并提升运营效率。作为软件应用程序核心的运营数据库，MongoDB, Inc.无疑是技术栈中不可或缺的组成部分。我们正朝着成为企业标准平台以及开发者构建新应用默认选择的目标持续迈进。这一势头的核心在于MongoDB, Inc.的现代架构，它为当今正在构建的应用类型——云原生、分布式、实时以及未来由AI驱动的应用——提供了真实且可衡量的优势。MongoDB, Inc.的文档模型及相关平台使开发者能够更轻松地呈现现实世界数据的复杂性，包括理解结构化与非结构化数据之间的关系，以及管理不断演变和变化的数据。这一基础架构优势为客户提供了更大的灵活性、更快的上市时间，以及无需重新架构即可扩展的能力。正是这些能力促使客户持续在MongoDB, Inc.上开发越来越多关键任务型工作负载，本季度强劲的新客户增长也印证了这一点。随着AI重新定义应用的构建方式以及企业的运营模式，MongoDB, Inc.已具备卓越的先发优势。现实世界的AI应用需要高质量、丰富上下文且通常为非结构化的数据，才能交付值得信赖的输出。
+
+Self-serve customer additions were particularly strong this quarter, reinforcing MongoDB, Inc.'s position as the go-to platform for developers building the next generation of applications, including many focused on AI. While these accounts typically start small, the self-serve channel is a powerful engine for long-term growth. Finally, retention rates remained strong in Q1, demonstrating the quality of our product and the mission-criticality of our platform. We are pleased with our Q1 performance. As I said before, companies leverage software to execute their business strategy, drive differentiation, and improve operational efficiency. As the operational database that is the core of software applications, MongoDB, Inc. is undeniably a must-have component of the tech stack. We continue to make progress toward our goal of becoming the standard platform for enterprises and the default for developers building new applications. At the heart of this momentum is MongoDB, Inc.'s modern architecture, which delivers real and measurable advantages for the types of applications being built today:cloud-native, distributed, real-time, and the AI-powered applications of tomorrow. MongoDB, Inc.'s document model and the associated platform enable developers to more easily represent the messiness of real-world data, which includes understanding relationships between structured and unstructured data, and managing data that is constantly evolving and changing. This fundamental architectural advantage provides customers greater flexibility, faster time to market, and the ability to scale without rearchitecting. These capabilities are why customers continue to develop more and more mission-critical workloads on MongoDB, Inc., illustrated by our strong customer additions this quarter. As AI redefines how applications are built and how businesses operate, MongoDB, Inc. is exceptionally well-positioned. Real-world AI applications require high-quality, context-rich, and often unstructured data to deliver trustworthy outputs.
+
+  [ 52] [EN] We continually hear from large enterprises that high accuracy is a critical requirement to drive wide-scale adoption of AI. Our recent acquisition of Voyage AI enhances our ability to serve this need.
+       [中] 我们不断听到大型企业表示，高精度是推动AI广泛采用的关键需求。我们近期收购的Voyage AI增强了满足这一需求的能力。
+
+We continually hear from large enterprises that high accuracy is a critical requirement to drive wide-scale adoption of AI. Our recent acquisition of Voyage AI enhances our ability to serve this need.
+
+  [ 53] [EN] Embeddings are the bridge between a large language model and a customer's private data. Voyage's leading embedding and re-ranking models allow customers to feed precise and relevant context into LLMs, significantly improving the accuracy and reliability of the output of AI applications. By producing the most contextually rich, domain-optimized embeddings, MongoDB, Inc. sits at a gateway of meaning in an AI system. With the release of Voyage 3.5, we've taken another step forward, meaningfully outperforming the next best embedding models while reducing storage costs by more than 80%. This makes it not only powerful but also cost-effective at scale. So what does this all mean? MongoDB, Inc. now brings together three things that modern AI-powered applications need:real-time data, powerful search, and smart retrieval. By combining these into one platform, we make it dramatically easier for developers to build intelligent, responsive apps without stitching together multiple systems. In their desire to keep up with evolving customer needs, some vendors are retrofitting their products, such as adding JSON or vector support as afterthoughts, which are superficial and brittle. This is a tacit admission that MongoDB, Inc.'s approach of using JSON, the document model, is the best way to model real-world data. These features may check the box, but they fall apart in production, leading to performance bottlenecks, operational headaches, and spiraling infrastructure costs. Fundamentally, these vendors are constrained by the relational underpinnings.
+       [中] 嵌入模型是连接大型语言模型与客户私有数据的桥梁。Voyage领先的嵌入和重排序模型让客户能够将精准且相关的上下文输入到LLM中，显著提升了AI应用输出的准确性和可靠性。通过生成上下文最丰富、领域最优化的嵌入向量，MongoDB, Inc.在AI系统中占据了意义理解的关键位置。随着Voyage 3.5的发布，我们又向前迈进了一步，在显著优于其他最佳嵌入模型的同时，将存储成本降低了80%以上。这不仅使其性能强大，而且在规模化应用中极具成本效益。那么这一切意味着什么？MongoDB, Inc.如今汇集了现代AI应用所需的三大要素：实时数据、强大搜索和智能检索。通过将这些功能整合到一个平台，我们极大简化了开发者构建智能、响应式应用的流程，无需拼接多个系统。一些供应商为了迎合不断变化的客户需求，正在对其产品进行改造，例如事后追加JSON或向量支持，这些做法流于表面且脆弱不堪。这实际上默认了MongoDB, Inc.采用JSON文档模型的方式才是对现实世界数据进行建模的最佳途径。这些功能或许能勉强应付，但在生产环境中会崩溃，导致性能瓶颈、运维难题以及不断攀升的基础设施成本。从根本上说，这些供应商受到了关系型底层架构的制约。
+
+Embeddings are the bridge between a large language model and a customer's private data. Voyage's leading embedding and re-ranking models allow customers to feed precise and relevant context into LLMs, significantly improving the accuracy and reliability of the output of AI applications. By producing the most contextually rich, domain-optimized embeddings, MongoDB, Inc. sits at a gateway of meaning in an AI system. With the release of Voyage 3.5, we've taken another step forward, meaningfully outperforming the next best embedding models while reducing storage costs by more than 80%. This makes it not only powerful but also cost-effective at scale. So what does this all mean? MongoDB, Inc. now brings together three things that modern AI-powered applications need:real-time data, powerful search, and smart retrieval. By combining these into one platform, we make it dramatically easier for developers to build intelligent, responsive apps without stitching together multiple systems. In their desire to keep up with evolving customer needs, some vendors are retrofitting their products, such as adding JSON or vector support as afterthoughts, which are superficial and brittle. This is a tacit admission that MongoDB, Inc.'s approach of using JSON, the document model, is the best way to model real-world data. These features may check the box, but they fall apart in production, leading to performance bottlenecks, operational headaches, and spiraling infrastructure costs. Fundamentally, these vendors are constrained by the relational underpinnings.
+
+  [ 54] [EN] It is important to understand that superficial compatibility with modern data types is not the same as deeply integrated, production-grade functionality. MongoDB, Inc., by contrast, was purpose-built to address these needs natively. We see this dynamic in our customer base every day. To bring this to life with an example, Zepto, an India-based quick commerce platform with $1.5 billion in annual sales, migrated to MongoDB, Inc. from Postgres after experiencing scalability challenges. Zepto offers users a choice of over 15,000 products with a promise of ten-minute delivery and has grown rapidly since its founding in July 2021, recording 20% month-over-month growth.
+       [中] 需要明白的是，与现代数据类型的表面兼容性，并不等同于深度集成的、生产级的功能。相比之下，MongoDB, Inc. 从设计之初就原生地满足了这些需求。我们每天都能在客户群体中看到这种动态。举个例子，印度即时电商平台Zepto（年销售额15亿美元）在遇到可扩展性挑战后，从Postgres迁移到了MongoDB, Inc.。Zepto为用户提供超过15,000种商品的选择，并承诺十分钟内送达，自2021年7月成立以来快速增长，月增长率达20%。
+
+It is important to understand that superficial compatibility with modern data types is not the same as deeply integrated, production-grade functionality. MongoDB, Inc., by contrast, was purpose-built to address these needs natively. We see this dynamic in our customer base every day. To bring this to life with an example, Zepto, an India-based quick commerce platform with $1.5 billion in annual sales, migrated to MongoDB, Inc. from Postgres after experiencing scalability challenges. Zepto offers users a choice of over 15,000 products with a promise of ten-minute delivery and has grown rapidly since its founding in July 2021, recording 20% month-over-month growth.
+
+  [ 55] [EN] After this rapid growth, Zepto faced performance issues with previous infrastructure powered by Postgres and Redis clusters that could no longer scale. By migrating to MongoDB Atlas, Zepto overcame these challenges through built-in features like in-memory caching, sharding, and real-time analytics. This transition enabled them to reduce latency by 40%, handle six times more traffic, and improve page load times by 14%, directly enhancing customer experience and enabling their fast growth. As we look ahead, we're confident MongoDB, Inc.'s combination of architectural advantage, enterprise trust, and broad developer adoption positions us to lead in both the current wave of digital transformation and the next wave powered by AI.
+       [中] 在经历了快速增长后，Zepto此前基于Postgres和Redis集群的基础设施面临性能问题，无法继续扩展。通过迁移至MongoDB Atlas，Zepto利用其内置功能（如内存缓存、分片和实时分析）克服了这些挑战。这一转变使其延迟降低了40%，处理流量增加了六倍，页面加载时间改善了14%，直接提升了客户体验，并助力其快速成长。展望未来，我们相信MongoDB, Inc.凭借架构优势、企业信任和广泛的开发者采纳，将引领当前数字化转型浪潮以及由AI驱动的下一波浪潮。
+
+原文：After this rapid growth, Zepto faced performance issues with previous infrastructure powered by Postgres and Redis clusters that could no longer scale. By migrating to MongoDB Atlas, Zepto overcame these challenges through built-in features like in-memory caching, sharding, and real-time analytics. This transition enabled them to reduce latency by 40%, handle six times more traffic, and improve page load times by 14%, directly enhancing customer experience and enabling their fast growth. As we look ahead, we're confident MongoDB, Inc.'s combination of architectural advantage, enterprise trust, and broad developer adoption positions us to lead in both the current wave of digital transformation and the next wave powered by AI.
+
+  [ 56] [EN] We also remain focused on our other strategic priorities we've discussed in previous quarters: moving upmarket and modernizing legacy apps. We're seeing good progress on these initiatives, which will fuel growth into fiscal 2027 and beyond. This quarter, we hired a new leader who has nearly 30 years of experience in technology transformation at leading systems integrators to lead our application modernization program. We continue to see significant demand to modernize legacy applications, and we're making great progress on tooling to automate this effort to standardize and prioritize this offering. While we continue to invest in the long term, we are also sharpening our focus on operating efficiency.
+       [中] 我们将继续关注此前几个季度讨论过的其他战略重点：向上拓展市场以及实现传统应用现代化。这些举措已取得良好进展，有望推动2027财年及之后的增长。本季度，我们聘请了一位在领先系统集成商拥有近30年技术转型经验的新负责人，领导应用现代化项目。传统应用现代化的需求依然旺盛，我们在工具开发方面也取得了重大进展，旨在实现该流程的自动化，从而标准化并优先化相关产品。在持续进行长期投入的同时，我们也在进一步聚焦运营效率。
+
+原文：We also remain focused on our other strategic priorities we've discussed in previous quarters: moving upmarket and modernizing legacy apps. We're seeing good progress on these initiatives, which will fuel growth into fiscal 2027 and beyond. This quarter, we hired a new leader who has nearly 30 years of experience in technology transformation at leading systems integrators to lead our application modernization program. We continue to see significant demand to modernize legacy applications, and we're making great progress on tooling to automate this effort to standardize and prioritize this offering. While we continue to invest in the long term, we are also sharpening our focus on operating efficiency.
+
+  [ 57] [EN] We view this as healthy discipline, regularly reassessing the return on our spend, identifying what's working and what's not, and reallocating resources to high-conviction areas and improving profitability. To help usher in our next stage of growth, I'm delighted to introduce two new leaders to the executive team. Mike Cikos, our new CFO, joins us from NetApp, where he had served in the same role for the past five years. Mike is a seven-time CFO with over 30 years of experience in technology and software and has a proven track record of driving profitable growth. We have also promoted May Petrie to be our new CMO.
+       [中] 我们认为这是良好的纪律，定期重新评估支出回报，识别有效和无效之处，重新分配资源到高确信领域并提升盈利能力。为迎接下一阶段增长，我很高兴向执行团队介绍两位新领导。新任首席财务官Mike Cikos来自NetApp，他在那里担任同一职务已有五年。Mike拥有七次担任CFO的经验，在技术和软件领域有超过三十年从业经历，并在推动盈利增长方面有可靠记录。我们还晋升了May Petrie为新的首席营销官。
+
+原文：
+We view this as healthy discipline, regularly reassessing the return on our spend, identifying what's working and what's not, and reallocating resources to high-conviction areas and improving profitability. To help usher in our next stage of growth, I'm delighted to introduce two new leaders to the executive team. Mike Cikos, our new CFO, joins us from NetApp, where he had served in the same role for the past five years. Mike is a seven-time CFO with over 30 years of experience in technology and software and has a proven track record of driving profitable growth. We have also promoted May Petrie to be our new CMO.
+
+  [ 58] [EN] May joined MongoDB, Inc. in early 2022 as VP of digital and growth marketing and brings the right mix of enterprise experience and results orientation to lead our marketing organization.
+       [中] May于2022年初加入MongoDB, Inc.，担任数字营销与增长营销副总裁（VP of digital and growth marketing），她带来了企业经验与结果导向的完美结合，领导我们的营销组织。
+
+原文：May joined MongoDB, Inc. in early 2022 as VP of digital and growth marketing and brings the right mix of enterprise experience and results orientation to lead our marketing organization.
+
+  [ 59] [EN] Now I'd like to spend a few minutes reviewing the adoption trends of MongoDB, Inc. in our customer base. Customers across industries and around the world are running mission-critical projects in Atlas, leveraging the full power of our platform, including the European Commission, Lenovo, Nokia Networks, and CSX. CSX, a leading US railroad transportation company, migrated its mission-critical railroad transportation operations portal, which is responsible for real-time monitoring and alerts across 21,000 miles of track and ensuring uninterrupted 24/7 availability, onto MongoDB Atlas. CSX can now dynamically scale workloads and optimize database management. With this modernization, CSX is positioned to achieve greater operational performance while driving long-term sustainable growth.
+       [中] 现在我想花几分钟时间回顾一下MongoDB, Inc.在我们客户群中的采用趋势。来自全球各行各业（包括欧盟委员会、Lenovo、Nokia Networks和CSX）的客户都在Atlas中运行关键任务项目，充分利用我们平台的全部功能。美国领先的铁路运输公司CSX将其关键任务铁路运输运营门户迁移到了MongoDB Atlas。该门户负责实时监控和警报，覆盖21,000英里铁轨，并确保全天候无中断运行。CSX现在可以动态扩展工作负载并优化数据库管理。通过这一现代化改造，CSX有望实现更高的运营绩效，同时推动长期可持续增长。
+
+Now I'd like to spend a few minutes reviewing the adoption trends of MongoDB, Inc. in our customer base. Customers across industries and around the world are running mission-critical projects in Atlas, leveraging the full power of our platform, including the European Commission, Lenovo, Nokia Networks, and CSX. CSX, a leading US railroad transportation company, migrated its mission-critical railroad transportation operations portal, which is responsible for real-time monitoring and alerts across 21,000 miles of track and ensuring uninterrupted 24/7 availability, onto MongoDB Atlas. CSX can now dynamically scale workloads and optimize database management. With this modernization, CSX is positioned to achieve greater operational performance while driving long-term sustainable growth.
+
+  [ 60] [EN] Startups and mature companies are using MongoDB, Inc. to help deliver the next wave of AI-powered applications to their customers, including Cursor, Helion, Vonage, The Financial Times, and LGU Plus. LGU Plus, a South Korean mobile network operator owned by the LG Corporation, built its agent assist AI solution on MongoDB Atlas, which supports thousands of agents in accessing information and delivering accurate responses to customers quickly. They use MongoDB Atlas Vector Search to enable real-time AI capabilities, such as identifying customer intent and providing guidelines on how to respond to inquiries. The solution has significantly enhanced customer experiences and decreased the average processing time per call.
+       [中] 初创公司和成熟企业正使用MongoDB, Inc.，为客户打造下一波AI驱动应用，包括Cursor、Helion、Vonage、The Financial Times及LGU Plus。LGU Plus是LG Corporation旗下韩国移动网络运营商，其在MongoDB Atlas上构建了智能助手AI解决方案，支持数千名座席快速访问信息并向客户提供精准回复。他们利用MongoDB Atlas Vector Search实现实时AI能力，例如识别客户意图并提供应答指南。该方案显著提升了客户体验，并将单次通话平均处理时间缩短。
+
+Startups and mature companies are using MongoDB, Inc. to help deliver the next wave of AI-powered applications to their customers, including Cursor, Helion, Vonage, The Financial Times, and LGU Plus. LGU Plus, a South Korean mobile network operator owned by the LG Corporation, built its agent assist AI solution on MongoDB Atlas, which supports thousands of agents in accessing information and delivering accurate responses to customers quickly. They use MongoDB Atlas Vector Search to enable real-time AI capabilities, such as identifying customer intent and providing guidelines on how to respond to inquiries. The solution has significantly enhanced customer experiences and decreased the average processing time per call.
+
+  [ 61] [EN] Mike Cikos:Thank you, Dev, for that great introduction. I am thrilled to join MongoDB, Inc. at such an exciting moment in its growth journey. The company's incredible track record of product innovation and established leadership position in one of the largest, most strategic markets in software provides significant growth drivers that we expect to benefit our business for years to come. The opportunity to join a company of the caliber of MongoDB, Inc. was incredibly compelling. I would like to thank Dev and the entire board for giving me this opportunity. I am extremely excited and look forward to working alongside the talented team to create long-term value for our customers, shareholders, and employees.
+       [中] Mike Cikos：谢谢Dev精彩的介绍。能在MongoDB, Inc.成长历程中如此激动人心的时刻加入，我倍感振奋。公司卓越的产品创新记录以及在软件行业最大、最具战略意义的市场之一中确立的领导地位，提供了强劲的增长动力，我们预计这将使我们的业务在未来多年受益。加入像MongoDB, Inc.这样优秀公司的机会极具吸引力。我要感谢Dev及整个董事会给予我这个机会。我无比激动，期待与才华横溢的团队合作，为我们的客户、股东和员工创造长期价值。
+
+Mike Cikos:Thank you, Dev, for that great introduction. I am thrilled to join MongoDB, Inc. at such an exciting moment in its growth journey. The company's incredible track record of product innovation and established leadership position in one of the largest, most strategic markets in software provides significant growth drivers that we expect to benefit our business for years to come. The opportunity to join a company of the caliber of MongoDB, Inc. was incredibly compelling. I would like to thank Dev and the entire board for giving me this opportunity. I am extremely excited and look forward to working alongside the talented team to create long-term value for our customers, shareholders, and employees.
+
+  [ 62] [EN] Driving profitable growth with operational excellence and discipline is a priority for the whole leadership team. With that said, let's move on to the financial results.
+       [中] 通过卓越运营和纪律推动盈利增长是整个领导团队的优先事项。话虽如此，接下来让我们关注财务业绩。
+
+Driving profitable growth with operational excellence and discipline is a priority for the whole leadership team. With that said, let's move on to the financial results.
+
+  [ 63] [EN] I'll begin with a detailed review of our first quarter results and then finish with our outlook for the second quarter and fiscal year 2026. I will be discussing our results on a non-GAAP basis unless otherwise noted. In the first quarter, total revenue was $549 million, up 22% year-over-year and above the high end of our guidance. Shifting to product mix, Atlas grew 26% in the quarter compared to the year-ago period and now represents 72% of total revenue. This compares to 70% in the first quarter of fiscal 2025 and 71% last quarter. Let me provide some context on Atlas consumption in the quarter. In Q1, consumption growth was in line with our expectations.
+       [中] 我将首先详细回顾第一季度的业绩，然后阐述对第二季度和2026财年的展望。除非另有说明，我将以非GAAP口径讨论我们的业绩。第一季度，总收入为5.49亿美元，同比增长22%，高于我们指引的上限。从产品组合来看，Atlas在当季同比增长26%，目前占总收入的72%。相比之下，2025财年第一季度这一比例为70%，上一季度为71%。我来谈谈第一季度Atlas的消耗情况。第一季度，消耗增长符合我们的预期。  
+I'll begin with a detailed review of our first quarter results and then finish with our outlook for the second quarter and fiscal year 2026. I will be discussing our results on a non-GAAP basis unless otherwise noted. In the first quarter, total revenue was $549 million, up 22% year-over-year and above the high end of our guidance. Shifting to product mix, Atlas grew 26% in the quarter compared to the year-ago period and now represents 72% of total revenue. This compares to 70% in the first quarter of fiscal 2025 and 71% last quarter. Let me provide some context on Atlas consumption in the quarter. In Q1, consumption growth was in line with our expectations.
+
+  [ 64] [EN] Given the unique macroeconomic backdrop, I will provide some detail on the month-over-month trends, but please note that I do not expect to give this level of detail going forward. Specifically, we saw good consumption growth in February and March, some softness in April as macroeconomic volatility increased, followed by a healthy rebound in May. Turning to Non-Atlas, revenue came in ahead of our expectations as we continue to have success selling incremental workloads into our existing EA customer base. Turning to customer growth, during the first quarter, we grew our customer base by approximately 2,600 sequentially, bringing our total customer count over 57,100, which is up from over 49,200 in the year-ago period.
+       [中] 鉴于独特的宏观经济背景，我将提供一些关于月度趋势的详细信息，但请注意，未来我预计不会给出如此详细的数据。具体来说，我们在2月和3月看到了良好的消费增长，4月因宏观经济波动加剧而略现疲软，随后在5月出现健康反弹。转向Non-Atlas业务，其营收超出我们的预期，因为我们继续成功地向现有EA客户群销售增量工作负载。再看客户增长，第一季度我们的客户数量环比增加了约2,600家，使客户总数超过57,100家，而去年同期为超过49,200家。
+
+Given the unique macroeconomic backdrop, I will provide some detail on the month-over-month trends, but please note that I do not expect to give this level of detail going forward. Specifically, we saw good consumption growth in February and March, some softness in April as macroeconomic volatility increased, followed by a healthy rebound in May. Turning to Non-Atlas, revenue came in ahead of our expectations as we continue to have success selling incremental workloads into our existing EA customer base. Turning to customer growth, during the first quarter, we grew our customer base by approximately 2,600 sequentially, bringing our total customer count over 57,100, which is up from over 49,200 in the year-ago period.
+
+  [ 65] [EN] The growth in our total customer count is being driven primarily by Atlas, which had over 55,800 customers at the end of the quarter, compared to over 47,700 in the year-ago period. It is important to keep in mind that the growth in our Atlas customer count reflects new customers to MongoDB, Inc. in addition to existing EA customers deploying workloads on Atlas for the first time. Of our total customer count, over 7,500 are direct sales customers, relatively flat to last quarter, and up 5% year-over-year. These metrics are largely due to our decision to reallocate a portion of our go-to-market resources from the mid-market to the enterprise channel starting in the second half of last year.
+       [中] 我们总客户数的增长主要由Atlas驱动，该产品在本季度末拥有超过55,800名客户，而去年同期超过47,700名。需要注意的是，Atlas客户数的增长不仅包括MongoDB, Inc.的新客户，还包括首次在Atlas上部署工作负载的现有EA客户。在我们的总客户数中，超过7,500名是直销客户，与上季度相比基本持平，同比增長5%。这些指标很大程度上得益于我们自去年下半年开始将部分市场推广资源从中端市场重新分配给企业渠道的决定。
+
+原文：
+The growth in our total customer count is being driven primarily by Atlas, which had over 55,800 customers at the end of the quarter, compared to over 47,700 in the year-ago period. It is important to keep in mind that the growth in our Atlas customer count reflects new customers to MongoDB, Inc. in addition to existing EA customers deploying workloads on Atlas for the first time. Of our total customer count, over 7,500 are direct sales customers, relatively flat to last quarter, and up 5% year-over-year. These metrics are largely due to our decision to reallocate a portion of our go-to-market resources from the mid-market to the enterprise channel starting in the second half of last year.
+
+  [ 66] [EN] We expect this dynamic will continue going forward as we capture more mid-market customers with our self-serve motion. In Q1, our net ARR expansion rate was approximately 119%, which is consistent with recent quarters. We ended the quarter with 2,506 customers with at least $100,000 in ARR, a 17% growth versus the year-ago period. Moving down the income statement, gross profit in the first quarter was $407 million, representing a gross margin of 74%, which is down from 75% in the year-ago period. Our year-over-year gross margin decline is primarily driven by Atlas growing and the impact of the Voyage acquisition.
+       [中] 我们预计这一趋势将持续下去，因为我们通过自助服务模式吸引了更多中端市场客户。第一季度，我们的净ARR扩张率约为119%，与近几个季度持平。本季度末，我们拥有2,506个ARR至少为10万美元的客户，同比增长17%。往下看利润表，第一季度毛利润为4.07亿美元，毛利率为74%，低于去年同期的75%。毛利率同比下降主要是由于Atlas的增长以及Voyage收购的影响。
+
+We expect this dynamic will continue going forward as we capture more mid-market customers with our self-serve motion. In Q1, our net ARR expansion rate was approximately 119%, which is consistent with recent quarters. We ended the quarter with 2,506 customers with at least $100,000 in ARR, a 17% growth versus the year-ago period. Moving down the income statement, gross profit in the first quarter was $407 million, representing a gross margin of 74%, which is down from 75% in the year-ago period. Our year-over-year gross margin decline is primarily driven by Atlas growing and the impact of the Voyage acquisition.
+
+  [ 67] [EN] Our income from operations was $87 million for a 16% operating margin, which compared to a 7% operating margin in the year-ago period. We are very pleased with our stronger-than-expected operating margin results, which benefited from our revenue outperformance as well as the timing of expenses, particularly slower-than-planned headcount additions.
+       [中] 我们的运营收入为8700万美元，运营利润率达到16%，而去年同期的运营利润率为7%。我们对运营利润率超预期的表现感到非常满意，这得益于我们收入的超预期表现以及费用支出的时间安排，尤其是员工人数增长慢于计划。
+
+Our income from operations was $87 million for a 16% operating margin, which compared to a 7% operating margin in the year-ago period. We are very pleased with our stronger-than-expected operating margin results, which benefited from our revenue outperformance as well as the timing of expenses, particularly slower-than-planned headcount additions.
+
+  [ 68] [EN] Net income in the first quarter was $86 million or $1.00 per share based on 86 million diluted shares outstanding. This compares to a net income of $43 million or $0.51 per share on 83 million diluted shares outstanding in the year-ago period. Turning to the balance sheet and cash flow, we ended the quarter with $2.5 billion in cash, cash equivalents, short-term investments, and restricted cash. Operating cash flow was $110 million, and free cash flow was $106 million in the first quarter, which compares to $64 million and $61 million, respectively, in the year-ago period. The strong start for cash flow in fiscal 2026 was driven primarily by strong operating profit results and higher cash collections.
+       [中] 第一季度的净收入为8600万美元，基于8600万稀释流通股，每股收益1.00美元。相比之下，上年同期净收入为4300万美元，基于8300万稀释流通股，每股收益0.51美元。转到资产负债表和现金流，本季度末我们持有25亿美元现金、现金等价物、短期投资和受限现金。第一季度的经营现金流为1.1亿美元，自由现金流为1.06亿美元，而上年同期分别为6400万美元和6100万美元。2026财年现金流强劲开局，主要得益于强劲的营业利润业绩和更高的现金收款。
+
+Net income in the first quarter was $86 million or $1.00 per share based on 86 million diluted shares outstanding. This compares to a net income of $43 million or $0.51 per share on 83 million diluted shares outstanding in the year-ago period. Turning to the balance sheet and cash flow, we ended the quarter with $2.5 billion in cash, cash equivalents, short-term investments, and restricted cash. Operating cash flow was $110 million, and free cash flow was $106 million in the first quarter, which compares to $64 million and $61 million, respectively, in the year-ago period. The strong start for cash flow in fiscal 2026 was driven primarily by strong operating profit results and higher cash collections.
+
+  [ 69] [EN] Before turning to our outlook in greater detail, I would like to share the key points driving how we are looking at the rest of fiscal year 2026. Number one, we are raising our expectations for revenue based on our strong start to the year. Number two, we are increasing our operating margin guidance by 200 basis points, reflecting an increased focus on margin improvement. And number three, we are announcing a significant expansion to our share repurchase program. I would like to take a minute to provide some color on the share repurchases.
+       [中] 在详细讨论展望之前，我想先分享我们如何看待2026财年剩余时间的几个关键驱动因素。第一，基于本财年的强劲开局，我们上调了营收预期。第二，我们将运营利润率指引提高200个基点，反映出对利润率提升的更高关注。第三，我们宣布大幅扩大股票回购计划。我想花一点时间对股票回购进行一些说明。
+
+Before turning to our outlook in greater detail, I would like to share the key points driving how we are looking at the rest of fiscal year 2026. Number one, we are raising our expectations for revenue based on our strong start to the year. Number two, we are increasing our operating margin guidance by 200 basis points, reflecting an increased focus on margin improvement. And number three, we are announcing a significant expansion to our share repurchase program. I would like to take a minute to provide some color on the share repurchases.
+
+  [ 70] [EN] Today, we are pleased to announce that our Board of Directors has authorized an increase to our share repurchase program, under which we may repurchase up to an additional $800 million of our common stock. Please note this authorization is in addition to the $200 million buyback the board authorized last quarter to offset the dilutive impact of the Voyage AI acquisition, bringing the total authorization to $1 billion. This decision reflects our confidence in the long-term potential of our business and underscores our commitment to delivering value to our shareholders while maintaining a flexible capital structure.
+       [中] 今天，我们很高兴地宣布，我们的董事会已授权扩大我们的股票回购计划，根据该计划，我们最多可以额外回购8亿美元的普通股。请注意，此次授权是在上季度董事会授权的2亿美元回购基础上增加的，用于抵消收购Voyage AI的稀释影响，使总授权达到10亿美元。这一决定反映了我们对业务长期潜力的信心，并强调了我们在保持灵活资本结构的同时为股东创造价值的承诺。
+
+Today, we are pleased to announce that our Board of Directors has authorized an increase to our share repurchase program, under which we may repurchase up to an additional $800 million of our common stock. Please note this authorization is in addition to the $200 million buyback the board authorized last quarter to offset the dilutive impact of the Voyage AI acquisition, bringing the total authorization to $1 billion. This decision reflects our confidence in the long-term potential of our business and underscores our commitment to delivering value to our shareholders while maintaining a flexible capital structure.
+
+  [ 71] [EN] I would note that we did not repurchase any shares in Q1 as the CFO search process prevented us from initiating the repurchase program. It is our intention to begin repurchasing shares in Q2. Now moving on to our full-year guidance. I'd like to provide some incremental comments on our expectations. First, as we discussed, we had a strong start to the year and feel good about our ability to drive continued revenue and profitability growth even with a more uncertain macroeconomic environment. We are raising our full-year revenue guidance by $10 million, which reflects the continued confidence in Atlas while incorporating some timing differences in our EA business. Second, our expectations for non-Atlas subscription revenue have not changed.
+       [中] 我要指出，第一季度我们没有回购任何股票，因为首席财务官（CFO）的遴选流程使我们无法启动回购计划。我们打算在第二季度开始回购股票。接下来，谈谈我们的全年展望。我想对我们的预期提供一些补充说明。首先，正如我们之前讨论的，今年开局强劲，即使宏观经济环境更加不确定，我们仍对推动持续的收入和利润增长能力感到乐观。我们将全年收入指引上调1000万美元，这体现了对Atlas的持续信心，同时也纳入了EA业务中的一些时间差异。其次，我们对非Atlas订阅收入的预期没有改变。
+
+I would note that we did not repurchase any shares in Q1 as the CFO search process prevented us from initiating the repurchase program. It is our intention to begin repurchasing shares in Q2. Now moving on to our full-year guidance. I'd like to provide some incremental comments on our expectations. First, as we discussed, we had a strong start to the year and feel good about our ability to drive continued revenue and profitability growth even with a more uncertain macroeconomic environment. We are raising our full-year revenue guidance by $10 million, which reflects the continued confidence in Atlas while incorporating some timing differences in our EA business. Second, our expectations for non-Atlas subscription revenue have not changed.
+
+  [ 72] [EN] We continue to expect it will be down in the high single digits for the year, though we will continue to expect non-Atlas ARR will grow year-over-year. As a reminder, we expect an approximately $50 million headwind from multiyear license revenue in fiscal year 2026, primarily impacting the second half of the year. Finally, we are raising our expectations for operating margin to 12% at the midpoint, up from 10% in our initial fiscal year guidance. We remain committed to a balanced investment approach that supports our key long-term growth initiatives.
+       [中] 我们仍预计今年将下降高个位数，不过我们继续预计非Atlas的ARR将实现同比增长。提醒一下，我们预计2026财年多年期许可收入将带来约5000万美元的不利影响，主要影响下半年。最后，我们将营业利润率预期中点从最初财年指引的10%上调至12%。我们仍致力于采取平衡的投资方式，以支持关键长期增长举措。
+
+We continue to expect it will be down in the high single digits for the year, though we will continue to expect non-Atlas ARR will grow year-over-year. As a reminder, we expect an approximately $50 million headwind from multiyear license revenue in fiscal year 2026, primarily impacting the second half of the year. Finally, we are raising our expectations for operating margin to 12% at the midpoint, up from 10% in our initial fiscal year guidance. We remain committed to a balanced investment approach that supports our key long-term growth initiatives.
+
+  [ 73] [EN] As CFO, one of my key priorities will be working closely with leaders across the business to identify ways to both reallocate existing spend to higher ROI opportunities and be more disciplined about incremental spending. We are focused on running an efficient, scalable business that supports growth in revenue and profitability to drive long-term shareholder value. Moving on to our Q2 guidance, a few things to keep in mind. First, I want to remind you that Q2 has three more days than Q1, which is a sequential tailwind for Q2 Atlas revenue. Second, we expect to see a high single-digit year-over-year decline in the non-Atlas business after a stronger-than-expected Q1.
+       [中] 
+
+  [ 74] [EN] And third, we expect operating margin will be lower than in Q1 as we have invested in targeted areas to drive growth. In addition, the expected sequential decline in non-Atlas revenue will be a headwind to profit in Q2. With that context, I will now turn to our outlook for the second quarter. For the second quarter, we expect revenue to be in the range of $548 to $553 million. We expect non-GAAP income from operations to be in the range of $55 to $59 million and non-GAAP net income per share to be in the range of $0.62 to $0.66 based on 87.5 million estimated diluted shares outstanding.
+       [中] 第三，我们预计营业利润率将低于第一季度，因为我们在目标领域进行了投资以推动增长。此外，非Atlas收入的预期环比下降将对第二季度的利润构成压力。在此背景下，我将转向第二季度的展望。对于第二季度，我们预计收入将在5.48亿至5.53亿美元之间。我们预计非GAAP运营收入在5500万至5900万美元之间，基于8750万预计稀释流通股，非GAAP每股净收益在0.62至0.66美元之间。
+
+And third, we expect operating margin will be lower than in Q1 as we have invested in targeted areas to drive growth. In addition, the expected sequential decline in non-Atlas revenue will be a headwind to profit in Q2. With that context, I will now turn to our outlook for the second quarter. For the second quarter, we expect revenue to be in the range of $548 to $553 million. We expect non-GAAP income from operations to be in the range of $55 to $59 million and non-GAAP net income per share to be in the range of $0.62 to $0.66 based on 87.5 million estimated diluted shares outstanding.
+
+  [ 75] [EN] For fiscal year 2026, we now expect revenue to be in the range of $2.25 to $2.29 billion, an increase of $10 million from our prior guide. We are raising our non-GAAP income from operations expectations by $57 million and are now targeting a range of $267 million to $287 million and non-GAAP net income per share to be in the range of $2.94 to $3.12 based on 87.6 million estimated diluted shares outstanding. Note that the non-GAAP net income per share guidance for the second quarter and fiscal year 2026 assumes a non-GAAP tax provision of approximately 20%. To summarize, MongoDB, Inc. delivered strong first-quarter results.
+       [中] 对于2026财年，我们目前预计营收在22.5亿至22.9亿美元之间，比之前的指引增加1000万美元。我们将非GAAP营业利润预期提高5700万美元，目前目标区间为2.67亿至2.87亿美元，非GAAP每股净收益基于约8760万稀释流通股计算，目标区间为2.94至3.12美元。请注意，第二季度和2026财年的非GAAP每股净收益指引假设非GAAP税率约为20%。总结而言，MongoDB, Inc.第一季度业绩表现强劲。
+
+For fiscal year 2026, we now expect revenue to be in the range of $2.25 to $2.29 billion, an increase of $10 million from our prior guide. We are raising our non-GAAP income from operations expectations by $57 million and are now targeting a range of $267 million to $287 million and non-GAAP net income per share to be in the range of $2.94 to $3.12 based on 87.6 million estimated diluted shares outstanding. Note that the non-GAAP net income per share guidance for the second quarter and fiscal year 2026 assumes a non-GAAP tax provision of approximately 20%. To summarize, MongoDB, Inc. delivered strong first-quarter results.
+
+  [ 76] [EN] We are pleased with our ability to drive growth across the business and increase our operating profitability expectations. We have a small share in one of the largest and fastest-growing markets in all of software, with a number of secular tailwinds at our back. We remain incredibly excited about the opportunity ahead and will continue to invest responsibly to drive long-term shareholder value. With that, Josh, we'd like to open it up for questions.
+       [中] 我们很高兴能够在全业务范围内推动增长，并提高我们的运营盈利预期。我们在整个软件行业中规模最大、增长最快的市场之一占据着较小的份额，并且背后还有一系列长期利好因素。我们对未来的机遇依然充满期待，并将继续负责任地投资，以推动长期股东价值。那么，Josh，我们欢迎提问。
+
+原文：We are pleased with our ability to drive growth across the business and increase our operating profitability expectations. We have a small share in one of the largest and fastest-growing markets in all of software, with a number of secular tailwinds at our back. We remain incredibly excited about the opportunity ahead and will continue to invest responsibly to drive long-term shareholder value. With that, Josh, we'd like to open it up for questions.
+
+  [ 77] [EN] Operator:Thank you. One on your telephone and wait for your name to be announced. Moment for questions. Our first question comes from Sanjit Singh.
+       [中] 话务员：谢谢。请保持电话通畅，等待您的名字被宣布。提问环节请稍候。我们的第一个问题来自Sanjit Singh。
+
+Operator:Thank you. One on your telephone and wait for your name to be announced. Moment for questions. Our first question comes from Sanjit Singh.
+
+  [ 78] [EN] Sanjit Singh:Yeah. Thank you for taking the question and congrats on the strong Q1 and really nice to see the Atlas growth accelerating on a date suggested basis and on a reported basis as well. Dev, I had a question for you and then I had a question for Mike as well. Dev, to start, when we think about what's driving Atlas growth, can you frame it in terms of the type of applications that are being built? In your script, you sort of distinguished cloud-native, distributed real-time today versus, you know, the AI apps for tomorrow.
+       [中] Sanjit Singh：是的。感谢您接受提问，祝贺第一季度业绩强劲，非常高兴看到Atlas在日基准和报告基准上的增长都在加速。Dev，我有个问题想问您，然后还有个问题想问Mike。Dev，首先，当我们思考推动Atlas增长的因素时，能否从正在构建的应用类型角度来阐述？在您的发言中，您似乎区分了当今基于云原生、分布式实时的应用，以及未来的人工智能应用。
+
+Sanjit Singh:Yeah. Thank you for taking the question and congrats on the strong Q1 and really nice to see the Atlas growth accelerating on a date suggested basis and on a reported basis as well. Dev, I had a question for you and then I had a question for Mike as well. Dev, to start, when we think about what's driving Atlas growth, can you frame it in terms of the type of applications that are being built? In your script, you sort of distinguished cloud-native, distributed real-time today versus, you know, the AI apps for tomorrow.
+
+  [ 79] [EN] And so I just love to get a sense of the nature and style of applications that are being built on MongoDB, Inc. that's driving this accelerated growth?
+       [中] 
+
+  [ 80] [EN] Dev Ittycheria:Yes. So Sanjit, thanks for the question. What I would say is that we still talk to customers who have very near-term needs for running their business. Building new applications to drive operational efficiency, building new products and services through software to take advantage of new revenue opportunities, and to continue to drive more innovation in their business. I think what people find attractive about MongoDB, Inc. is that you really can use it for a wide variety of use cases. You can support very transactional intensive use cases. You can support more modern use cases, things like IoT, streaming, and so on and so forth. AI.
+       [中] Dev Ittycheria：是的。那么Sanjit，谢谢你的提问。我想说的是，我们仍在与那些有近期业务运营需求的客户沟通。他们希望通过构建新应用来提升运营效率，通过软件打造新产品和服务以抓住新的收入机会，并在业务中持续推动更多创新。我认为人们之所以对MongoDB, Inc.感兴趣，是因为它确实可以用于多种用例。你可以支持非常高频的交易型用例，也可以支持更现代的用例，比如物联网、流媒体等等，还有人工智能。
+
+Dev Ittycheria:Yes. So Sanjit, thanks for the question. What I would say is that we still talk to customers who have very near-term needs for running their business. Building new applications to drive operational efficiency, building new products and services through software to take advantage of new revenue opportunities, and to continue to drive more innovation in their business. I think what people find attractive about MongoDB, Inc. is that you really can use it for a wide variety of use cases. You can support very transactional intensive use cases. You can support more modern use cases, things like IoT, streaming, and so on and so forth. AI.
+
+  [ 81] [EN] As well as being able to also support some of these more modern use cases. And the fact that you can do this all in one platform where you don't have to stitch together multiple tools, that the underlying architecture is designed to really help you model the real world to be able to handle complex nested and evolving data to be able to scale elastically, to be able to run these applications on any cloud across clouds, or on-prem. Just makes MongoDB, Inc. a very attractive solution. And we feel really good about the fact that we add a lot of customers.
+       [中] 除了支持这些更现代化的应用场景之外，你还能在一个统一的平台上完成所有操作，无需拼接多种工具。其底层架构专为帮助用户真实建模而设计，能够处理复杂嵌套和不断演变的数据，实现弹性扩展，并能在任何云平台、跨云环境或本地部署中运行这些应用。这使得MongoDB, Inc.成为一个极具吸引力的解决方案。我们对于能够不断吸引大量客户这一点感到非常满意。
+
+原文：
+As well as being able to also support some of these more modern use cases. And the fact that you can do this all in one platform where you don't have to stitch together multiple tools, that the underlying architecture is designed to really help you model the real world to be able to handle complex nested and evolving data to be able to scale elastically, to be able to run these applications on any cloud across clouds, or on-prem. Just makes MongoDB, Inc. a very attractive solution. And we feel really good about the fact that we add a lot of customers.
+
+  [ 82] [EN] So what it really shows is that customers and developers are voting with their feet to really adopt MongoDB, Inc.
+       [中] 所以这真正表明的是，客户和开发者正在用行动投票，真正采用MongoDB, Inc。
+
+So what it really shows is that customers and developers are voting with their feet to really adopt MongoDB, Inc.
+
+  [ 83] [EN] Sanjit Singh:Awesome. And then, Mike, for you, congratulations on the CFO role. I would love to get just your sense of the opportunity ahead from you. And mostly I want to get a sense of how you're thinking about, on a first principles basis, how you plan to sort of manage and message the metrics and the numbers. You're a long-time, highly experienced CFO. This is your seventh stint. But this is a consumption model, right, which has more variable components. So I'd love to see how you're thinking about that as you take on the role from a growth perspective, but also from an operational discipline perspective.
+       [中] Sanjit Singh：太棒了。接下来，Mike，祝贺你担任CFO一职。我想听听你对未来机遇的看法，更想了解你如何从基本原理出发，计划管理和传达各项指标与数据。你是一位经验丰富的资深CFO，这已经是你的第七次担任CFO了。但这次是消费模式，对吧，其中包含更多可变因素。所以我想知道，你在接手这个职位时，如何从增长角度以及运营纪律角度来思考这个问题。
+
+Sanjit Singh:Awesome. And then, Mike, for you, congratulations on the CFO role. I would love to get just your sense of the opportunity ahead from you. And mostly I want to get a sense of how you're thinking about, on a first principles basis, how you plan to sort of manage and message the metrics and the numbers. You're a long-time, highly experienced CFO. This is your seventh stint. But this is a consumption model, right, which has more variable components. So I'd love to see how you're thinking about that as you take on the role from a growth perspective, but also from an operational discipline perspective.
+
+  [ 84] [EN] Mike Cikos:Yeah. So thank you for the question, Sanjit. It's actually a very interesting one. So I think the company does a wonderful job actually on the metrics that they give. We had experience in a consumption business at my last role as well. In going through all the data and meeting with the team and the fire hose, it has been my onboarding. We have a lot of data. I think that the metrics that we talk to investors about are very relevant. In terms of consumption, in terms of customer growth. So at this point, again, it's a non-excuse. It's just a fact. Eight days in, I would say, not a lot of change there.
+       [中] Mike Cikos:是的。谢谢你的提问，Sanjit。这其实是个很有意思的问题。我认为公司在他们提供的指标方面做得非常出色。我在上一家公司也有消费业务的经历。在梳理所有数据、与团队开会以及应对海量信息的过程中，这已经成为我入职的一部分。我们拥有大量数据。我认为我们向投资者提及的指标非常相关——无论是消费情况还是客户增长。所以目前来看，我再说一次，这不是借口，而是事实。入职八天，我可以说，这方面没有太大变化。
+
+Mike Cikos:Yeah. So thank you for the question, Sanjit. It's actually a very interesting one. So I think the company does a wonderful job actually on the metrics that they give. We had experience in a consumption business at my last role as well. In going through all the data and meeting with the team and the fire hose, it has been my onboarding. We have a lot of data. I think that the metrics that we talk to investors about are very relevant. In terms of consumption, in terms of customer growth. So at this point, again, it's a non-excuse. It's just a fact. Eight days in, I would say, not a lot of change there.
+
+  [ 85] [EN] I do think that we will spend a lot more time going forward on a couple of things. One is just the capital structure, the cash flow generation of the business, as well as the operating margin improvements. And this will certainly change. I would also underline, hey, come in September to the dot local event. That will give us that will give me at least another quarter to under my belt. We'll talk a little bit more about what you can expect from MongoDB, Inc. going forward.
+       [中] 我确实认为我们未来会花更多时间在几个方面：一是资本结构、业务的现金流生成，以及运营利润率的改善。这肯定会发生变化。我还要强调，嘿，九月来参加dot local活动吧。那将让我们——至少让我自己——再积累一个季度的经验。届时我们会更详细地讨论你对MongoDB, Inc.未来的预期。
+
+原文：I do think that we will spend a lot more time going forward on a couple of things. One is just the capital structure, the cash flow generation of the business, as well as the operating margin improvements. And this will certainly change. I would also underline, hey, come in September to the dot local event. That will give us that will give me at least another quarter to under my belt. We'll talk a little bit more about what you can expect from MongoDB, Inc. going forward.
+
+  [ 86] [EN] Sanjit Singh:Makes total sense. Congratulations again. Thank you.
+       [中] Sanjit Singh:完全有道理。再次祝贺。谢谢。
+
+Sanjit Singh:Makes total sense. Congratulations again. Thank you.
+
+  [ 87] [EN] Operator:Our next question comes from Raimo Lenschow with Barclays. You may proceed.
+       [中] 操作员：我们的下一个问题来自巴克莱银行的Raimo Lenschow。请继续。  
+Operator:Our next question comes from Raimo Lenschow with Barclays. You may proceed.
+
+  [ 88] [EN] Raimo Lenschow:Hey. Perfect. Thank you. I have two quick questions. One for Dev, one for Mike. Dev, if you look this week at we saw Snowflake kind of move and make the move towards Postgres. We saw Databricks kind of doing something there. Can you kind of frame that? Because, obviously, like, from the outset, it looks like, you know, there's like a big embrace going on, but like, maybe contrast and a little bit, like, you know, where you fit in and where some of those moves could fit in. And that's my first question.
+       [中] Raimo Lenschow：嘿，完美。谢谢。我有两个简短的问题，一个问Dev，一个问Mike。Dev，你这周看到Snowflake转向Postgres，而Databricks也在做类似的事情。你能分析一下这个情况吗？显然，从表面上看，这似乎是一种大力拥抱的趋势，但或许可以对比一下，你处于什么位置，以及这些动向可能如何契合。这是第一个问题。
+
+原文：
+
+Raimo Lenschow:Hey. Perfect. Thank you. I have two quick questions. One for Dev, one for Mike. Dev, if you look this week at we saw Snowflake kind of move and make the move towards Postgres. We saw Databricks kind of doing something there. Can you kind of frame that? Because, obviously, like, from the outset, it looks like, you know, there's like a big embrace going on, but like, maybe contrast and a little bit, like, you know, where you fit in and where some of those moves could fit in. And that's my first question.
+
+  [ 89] [EN] And then for Mike, like, I know you have only had eight days, but when you did your due diligence looking at the company and also looking at this strong performance on the profitability in Q1, like, how do you think about this business? Because that's one of the things that people would have kind of talked with the previous team about is the profitability level of this and if there's something inherent there or if there's something just that can be done about that. Thank you.
+       [中] 然后对于Mike，我知道你只上任了8天，但当你尽职调查这家公司并看到第一季度盈利能力的强劲表现时，你怎么看待这项业务？因为这是人们之前与前任团队讨论过的点之一，即该业务的盈利水平，以及这其中是否存在某些固有因素，或者是否有办法可以改善。谢谢。
+
+And then for Mike, like, I know you have only had eight days, but when you did your due diligence looking at the company and also looking at this strong performance on the profitability in Q1, like, how do you think about this business? Because that's one of the things that people would have kind of talked with the previous team about is the profitability level of this and if there's something inherent there or if there's something just that can be done about that. Thank you.
+
+  [ 90] [EN] Dev Ittycheria:Thanks, Raimo. To your first question, I think the moves by both Databricks and Snowflake, I think validate one thing, that OLTP or the operational data store is the strategic high ground, especially for AI. That's where inference happens. Inference is the big market. That's where everyone wants to go. And you need to have an operational data store to do that. And I think the other thing it points out is building an organic OLTP store is really hard, especially when you need to meet the requirements of enterprise scale, availability, resiliency, and security. And both organizations had signaled that they were working on organic approaches.
+       [中] Dev Ittycheria：谢谢，Raimo。关于你的第一个问题，我认为Databricks和Snowflake的举措证实了一件事：OLTP或操作型数据存储是战略制高点，尤其是对AI而言。推理发生在那里，推理是巨大的市场，每个人都想进入。你需要一个操作型数据存储来实现这一点。我认为这还表明，构建原生的OLTP存储非常困难，尤其是在满足企业级规模、可用性、弹性及安全性要求时。两家公司都曾表示他们正在尝试原生方法。
+
+原文：
+Dev Ittycheria:Thanks, Raimo. To your first question, I think the moves by both Databricks and Snowflake, I think validate one thing, that OLTP or the operational data store is the strategic high ground, especially for AI. That's where inference happens. Inference is the big market. That's where everyone wants to go. And you need to have an operational data store to do that. And I think the other thing it points out is building an organic OLTP store is really hard, especially when you need to meet the requirements of enterprise scale, availability, resiliency, and security. And both organizations had signaled that they were working on organic approaches.
+
+  [ 91] [EN] You know, Snowflake talked about Inostor, Databricks had talked about their own organic efforts. And it's clear that they couldn't make it happen. So this is not an easy task. The second point I'd make is that, you know, just because they're buying small Postgres companies, I think you know and Neon, I would say, was in the video coding space. And I would say, Crunchy Data is a small relational company based in South Carolina. I would say that it's not clear to me why the world needs a fifteenth or sixteenth Postgres derivative database. I think we'll find that out.
+       [中] 你知道，Snowflake提到过Inostor，Databricks也讨论过他们的自主研发努力。显然，他们没能成功。所以这不是一件容易的事。我要说的第二点是，仅仅因为他们收购了一些小型Postgres公司——我认为Neon之前是做视频编码领域的，而Crunchy Data是南卡罗来纳州一家小型关系型数据库公司——我不太明白为什么世界需要第十五个或第十六个Postgres衍生数据库。我觉得我们会找到答案的。
+
+You know, Snowflake talked about Inostor, Databricks had talked about their own organic efforts. And it's clear that they couldn't make it happen. So this is not an easy task. The second point I'd make is that, you know, just because they're buying small Postgres companies, I think you know and Neon, I would say, was in the video coding space. And I would say, Crunchy Data is a small relational company based in South Carolina. I would say that it's not clear to me why the world needs a fifteenth or sixteenth Postgres derivative database. I think we'll find that out.
+
+  [ 92] [EN] And I think there's also some noise about how Neon is, you know, 80% of its instances are provisioned via code. I should point out that nearly 80% of MongoDB, Inc. instances on Atlas are provisioned via code. And so, you know, we do that to help our customers provision and scale, you know, clusters very, very quickly. And so the real advantage is architecture. And we believe that, you know, the fact that Postgres and other relational platforms are now adding JSON is a tacit admission that the core tabular architecture just doesn't get the job done in the world of AI.
+       [中] 而且我认为还有一些关于Neon的声音，说其80%的实例是通过代码配置的。我要指出，MongoDB, Inc.在Atlas上的实例中也有近80%是通过代码配置的。所以，我们这样做是为了帮助客户非常快速地配置和扩展集群。真正的优势在于架构。我们相信，Postgres和其他关系型平台现在添加JSON的事实，是一种默认承认：在AI领域，核心的表格型架构根本无法胜任。
+
+原文：And I think there's also some noise about how Neon is, you know, 80% of its instances are provisioned via code. I should point out that nearly 80% of MongoDB, Inc. instances on Atlas are provisioned via code. And so, you know, we do that to help our customers provision and scale, you know, clusters very, very quickly. And so the real advantage is architecture. And we believe that, you know, the fact that Postgres and other relational platforms are now adding JSON is a tacit admission that the core tabular architecture just doesn't get the job done in the world of AI.
+
+  [ 93] [EN] Developers need to be able to model the real-world data, which is complex, messy, nested, which means it has highly interdependent relationships, and is constantly evolving and changing. And then when you look at, you know, the fact that they've bolted on these capabilities, you know, if you add a document size greater than two kilobytes, it's going to deliver a very poor performance. And so the superficial compatibility does not mean it's native, does not mean it's production-grade, does not mean it's designed for enterprises. And so if the competition is now, who's going to compete for these complex AI workloads? We welcome that challenge because architecturally, we think we have a huge advantage.
+       [中] 开发者需要能够建模现实世界的数据，这些数据复杂、混乱、嵌套，意味着它们具有高度相互依赖的关系，并且不断演变和变化。然后，当你看到他们强行附加这些功能时，比如如果添加一个大于两KB的文档，性能会非常差。因此，表面上的兼容性并不意味着它是原生的，也不意味着它是生产级的，更不意味着它是为企业设计的。如果现在的竞争是谁能应对这些复杂的AI工作负载？我们欢迎这个挑战，因为从架构上看，我们认为自己拥有巨大优势。
+
+Developers need to be able to model the real-world data, which is complex, messy, nested, which means it has highly interdependent relationships, and is constantly evolving and changing. And then when you look at, you know, the fact that they've bolted on these capabilities, you know, if you add a document size greater than two kilobytes, it's going to deliver a very poor performance. And so the superficial compatibility does not mean it's native, does not mean it's production-grade, does not mean it's designed for enterprises. And so if the competition is now, who's going to compete for these complex AI workloads? We welcome that challenge because architecturally, we think we have a huge advantage.
+
+  [ 94] [EN] Mike Cikos:So hey, Raimo. It's Mike. So thanks for the question. I would highlight kind of four areas when I did the diligence on MongoDB, Inc. And I can say in the first eight days, nothing has changed my mind on any of these. First of all, hey, there are few companies that are greater than $2 billion of revenue where their main business is growing 20% plus. The total business growing double-digit with 70% plus gross margin. So stop there. That's a scaled business that has a lot of leverage built in. So the four things I looked at are already had the scale from an international and from a product perspective.
+       [中] Mike Cikos: 嘿，Raimo。我是Mike。谢谢你的提问。我在对MongoDB, Inc.进行尽职调查时，主要关注了四个方面。而我可以告诉你，在最初的八天里，我的看法没有任何改变。首先，嘿，营收超过20亿美元、主营业务增长20%以上的公司寥寥无几。整体业务实现两位数增长，毛利率超过70%。先说到这儿。这是一家规模化运营且具备强大杠杆效应的公司。所以我关注的四个方面是：它已经在国际和产品层面实现了规模化。
+
+Mike Cikos:So hey, Raimo. It's Mike. So thanks for the question. I would highlight kind of four areas when I did the diligence on MongoDB, Inc. And I can say in the first eight days, nothing has changed my mind on any of these. First of all, hey, there are few companies that are greater than $2 billion of revenue where their main business is growing 20% plus. The total business growing double-digit with 70% plus gross margin. So stop there. That's a scaled business that has a lot of leverage built in. So the four things I looked at are already had the scale from an international and from a product perspective.
+
+  [ 95] [EN] And the main business now is growing very is 72% growing very quickly. Number two is this is a business model that has leverage. Because you can bring additional revenue in, it's going to come through the gross margin line at high margins. That leaves a ton of room for investing in the business. But also candidly for driving more efficiency as well. And that was the third piece. When you look at it and nothing against the company as it sits today, as we grow, I'm completely confident we can continue to invest in the business, but become more efficient.
+       [中] 目前主营业务增长非常快，达到72%。第二，这是一个具有杠杆效应的商业模式。因为你可以带来额外收入，这些收入将直接以高毛利率的形式体现在利润线上。这为业务投资留下了巨大空间，同时也坦率地说，为提升效率创造了条件。而这就是第三点。当你审视现状，我并非否定公司当前的表现，但随着我们的发展，我完全有信心能够持续投资业务，同时变得更加高效。
+
+原文：
+And the main business now is growing very is 72% growing very quickly. Number two is this is a business model that has leverage. Because you can bring additional revenue in, it's going to come through the gross margin line at high margins. That leaves a ton of room for investing in the business. But also candidly for driving more efficiency as well. And that was the third piece. When you look at it and nothing against the company as it sits today, as we grow, I'm completely confident we can continue to invest in the business, but become more efficient.
+
+  [ 96] [EN] And then the fourth part was, hey, it's really nice to come to a business that has a super clean balance sheet and a bunch of cash on there as well. That leaves a bunch of flexibility going forward. So all of that, I looked down and said, wow, what a great opportunity. And then, of course, I looked at where you folks were valuing the business, and I said, wow. That's a really good opportunity.
+       [中] 然后第四点是，嘿，能遇到一家资产负债表超级干净、账上还有大量现金的企业，真是太好了。这为未来留下了很大的灵活性。所以综合所有这些，我低头一看，心想，哇，多好的机会。当然，接着我又看了你们大家给这家企业的估值，我心想，哇。这真是个绝佳的机会。
+
+And then the fourth part was, hey, it's really nice to come to a business that has a super clean balance sheet and a bunch of cash on there as well. That leaves a bunch of flexibility going forward. So all of that, I looked down and said, wow, what a great opportunity. And then, of course, I looked at where you folks were valuing the business, and I said, wow. That's a really good opportunity.
+
+  [ 97] [EN] Raimo Lenschow:Perfect. Very clear. Thank you.
+       [中] Raimo Lenschow：完美。非常清楚。谢谢你。
+
+Raimo Lenschow:Perfect. Very clear. Thank you.
+
+  [ 98] [EN] Operator:Our next question comes from Jason Ader with William Blair. You may proceed.
+       [中] 接线员：我们的下个问题来自William Blair的Jason Ader。请继续。
+
+Operator:Our next question comes from Jason Ader with William Blair. You may proceed.
+
+  [ 99] [EN] Jason Ader:Yeah. Thank you. Sorry to beat the Postgres horse here, Dev. But my question is, you know, a key part of the bull narrative for MongoDB, Inc. has been that document databases would steadily take share from relational and then MongoDB, Inc. would become the default general-purpose database for modern apps. I guess my question is, does the rising popularity of Postgres among developers and the strong ecosystem it has, you know, as we see from stuff like Databricks did and what the cloud guys are doing, does that suggest that relational just may have greater long-term relevance than initially anticipated?
+       [中] Jason Ader：是的，谢谢。抱歉又提Postgres这个老话题，Dev。但我的问题是，MongoDB, Inc.看涨叙事的一个关键部分在于，文档数据库会稳步从关系型数据库手中夺取份额，然后MongoDB, Inc.会成为现代应用的默认通用数据库。我想问的是，Postgres在开发者中日益增长的人气及其强大的生态系统——正如我们从Databricks和云厂商的动作中所看到的——是否意味着关系型数据库的长期相关性可能比最初预期的更强？
+
+Jason Ader:Yeah. Thank you. Sorry to beat the Postgres horse here, Dev. But my question is, you know, a key part of the bull narrative for MongoDB, Inc. has been that document databases would steadily take share from relational and then MongoDB, Inc. would become the default general-purpose database for modern apps. I guess my question is, does the rising popularity of Postgres among developers and the strong ecosystem it has, you know, as we see from stuff like Databricks did and what the cloud guys are doing, does that suggest that relational just may have greater long-term relevance than initially anticipated?
+
+  [100] [EN] Dev Ittycheria:Yeah. Jason, thanks for the question. And I think I want to clarify some of these misconceptions that are out there. You know, one is that this is a big market. You know, it's a $100 billion plus market, so there can be multiple winners. Second, the Postgres popularity is really a function of the consolidation of the SQL. People are leaving Oracle, leaving SQL Server, leaving MySQL, and going to Postgres. I think the third thing that I should mention is that Postgres does have this veneer of being an open, you know, open source, open standard, not owned by any one vendor. But literally every vendor, including the hyperscalers, have their own version of Postgres.
+       [中] Dev Ittycheria:是的。Jason，谢谢你的提问。我想澄清一些存在的误解。第一，这是一个巨大的市场。你知道，这是一个超过1000亿美元的市场，所以可以有多个赢家。第二，Postgres的流行实际上是SQL整合的结果。人们正在离开Oracle、离开SQL Server、离开MySQL，转向Postgres。第三点我想提的是，Postgres确实有一种开放的表象——开源、开放标准，不被任何一家供应商所拥有。但实际上，每个供应商，包括超大规模云服务商，都有自己的Postgres版本。
+
+Dev Ittycheria:Yeah. Jason, thanks for the question. And I think I want to clarify some of these misconceptions that are out there. You know, one is that this is a big market. You know, it's a $100 billion plus market, so there can be multiple winners. Second, the Postgres popularity is really a function of the consolidation of the SQL. People are leaving Oracle, leaving SQL Server, leaving MySQL, and going to Postgres. I think the third thing that I should mention is that Postgres does have this veneer of being an open, you know, open source, open standard, not owned by any one vendor. But literally every vendor, including the hyperscalers, have their own version of Postgres.
+
+  [101] [EN] They build proprietary extensions, and other capabilities actually make it very difficult to go from one version of Postgres to another version of Postgres. With MongoDB, Inc., you can actually run any workload on any cloud across clouds, and on-prem without changing a line of code. And last, I would say, architecturally, we are far better optimized for this new world of complex, you know, modern applications, especially in the world of AI. JSON was designed to really address the needs of this modern world, how data is very messy, it's very interdependent, it changes often, there's no predictability in the format, there's no uniformity on the structure. And MongoDB, Inc. is designed to handle that world.
+       [中] 他们构建了专有扩展及其他功能，使得从一版Postgres迁移到另一版Postgres变得非常困难。而使用MongoDB, Inc.，你可以在任何云、跨云及本地环境中运行任意工作负载，无需修改一行代码。最后，我想说，从架构上看，我们针对这个复杂、现代应用的新世界——尤其是在AI领域——做了更优的优化。JSON正是为满足这个现代世界的需求而设计的，数据非常杂乱、高度相互依赖、频繁变化、格式不可预测、结构不统一。而MongoDB, Inc.正是为处理这样的世界而生。
+
+They build proprietary extensions, and other capabilities actually make it very difficult to go from one version of Postgres to another version of Postgres. With MongoDB, Inc., you can actually run any workload on any cloud across clouds, and on-prem without changing a line of code. And last, I would say, architecturally, we are far better optimized for this new world of complex, you know, modern applications, especially in the world of AI. JSON was designed to really address the needs of this modern world, how data is very messy, it's very interdependent, it changes often, there's no predictability in the format, there's no uniformity on the structure. And MongoDB, Inc. is designed to handle that world.
+
+  [102] [EN] And when relational databases start trying to mimic our features, what does that tell you? It tells you that their existing architecture is not designed for this world. Now there's no question when the technology has been available for 40, 50 years, there's a large group of people who understand that technology. But we feel we're well-positioned. We have more work to do, but we feel like we're well-positioned to be a winner in this next wave of applications that are being built. And we feel confident about our position.
+       [中] 当关系型数据库开始试图模仿我们的特性时，这说明了什么？这说明它们现有的架构并非为这个时代而设计。毫无疑问，这项技术已经存在了40、50年，有很多人了解这项技术。但我们认为我们处于有利位置。我们还有很多工作要做，但我们有信心成为正在构建的下一波应用浪潮中的赢家。我们对自身定位充满信心。
+
+And when relational databases start trying to mimic our features, what does that tell you? It tells you that their existing architecture is not designed for this world. Now there's no question when the technology has been available for 40, 50 years, there's a large group of people who understand that technology. But we feel we're well-positioned. We have more work to do, but we feel like we're well-positioned to be a winner in this next wave of applications that are being built. And we feel confident about our position.
+
+  [103] [EN] Jason Ader:One quick follow-up to that, Dev. Thank you for that answer. Should we be thinking about then, I don't know, over the next five plus years or something, that the two big winners in the database market in terms of architecture will be Postgres for the relational crowd and MongoDB, Inc. for the non-relational crowd? Is that how we should be thinking about it? Is that how you're thinking about it?
+       [中] Jason Ader: 对此有一个快速的跟进，Dev。谢谢你的回答。那么我们应该考虑，在未来的五年或更长时间里，数据库市场中在架构方面的两大赢家将是Postgres用于关系型人群，以及MongoDB, Inc.用于非关系型人群吗？我们应该这样考虑吗？你是这样考虑的吗？
+
+Jason Ader:One quick follow-up to that, Dev. Thank you for that answer. Should we be thinking about then, I don't know, over the next five plus years or something, that the two big winners in the database market in terms of architecture will be Postgres for the relational crowd and MongoDB, Inc. for the non-relational crowd? Is that how we should be thinking about it? Is that how you're thinking about it?
+
+  [104] [EN] Dev Ittycheria:Yeah. I would say, I definitely think that there will be multiple winners. This is not a zero-sum game. I also believe that, you know, the other point I want to clarify is a lot of people compare MongoDB, Inc. to Postgres, and that's actually a false comparison. By us embedding, you know, keyword search, us embedding a native vector search, by us embedding models, you're really comparing MongoDB, Inc. to Postgres plus Elastic plus Pinecone plus something like Cohere. So the value for customers is that they don't have to stitch all these capabilities together. They get all these capabilities in a very elegant, natively built way. That allows them to move fast.
+       [中] Dev Ittycheria: 是的。我确实认为会有多个赢家。这并非零和游戏。另外，我想澄清的一点是，很多人将MongoDB, Inc.与Postgres比较，这实际上是个错误的对比。通过我们嵌入关键词搜索、原生向量搜索以及模型，你们实际上是在将MongoDB, Inc.与Postgres加上Elastic加上Pinecone再加上类似Cohere的产品进行比较。因此对客户而言，价值在于他们无需自行拼凑所有这些功能，而是能以非常优雅、原生构建的方式获得全部能力，这让他们能够快速行动。
+
+Dev Ittycheria:Yeah. I would say, I definitely think that there will be multiple winners. This is not a zero-sum game. I also believe that, you know, the other point I want to clarify is a lot of people compare MongoDB, Inc. to Postgres, and that's actually a false comparison. By us embedding, you know, keyword search, us embedding a native vector search, by us embedding models, you're really comparing MongoDB, Inc. to Postgres plus Elastic plus Pinecone plus something like Cohere. So the value for customers is that they don't have to stitch all these capabilities together. They get all these capabilities in a very elegant, natively built way. That allows them to move fast.
+
+  [105] [EN] It's not a very complex architecture, and it's much more cost-effective. And so but I do think there will be multiple winners. And for people who want to stay on relational, you know, Postgres is a very viable option. But we think that we have a big option in front of us.
+       [中] 这不是一个非常复杂的架构，而且成本效益高得多。所以但我确实认为会有多个赢家。对于想要继续使用关系型数据库的人来说，你知道，Postgres是一个非常可行的选择。但我们认为我们面前有一个很大的选择。
+
+It's not a very complex architecture, and it's much more cost-effective. And so but I do think there will be multiple winners. And for people who want to stay on relational, you know, Postgres is a very viable option. But we think that we have a big option in front of us.
+
+  [106] [EN] Jason Ader:Thank you.
+       [中] 谢谢。
+Jason Ader:Thank you.
+
+  [107] [EN] Operator:Our next question comes from Kash Rangan with Goldman Sachs. You may proceed.
+       [中] 主持人：我们的下一个问题来自Goldman Sachs的Kash Rangan。请继续。  
+原文：Operator:Our next question comes from Kash Rangan with Goldman Sachs. You may proceed.
+
+  [108] [EN] Kash Rangan:Yeah. Thank you very much, Dev. One for you and one for you, Mike. Congratulations on joining MongoDB, Inc. as CFO. Dev, can you give us a mark to market on where we are with some other growth initiatives you undertook such as Relational Migrator, the move upmarket, the reconstitution or the refocusing of the sales force towards higher value accounts, and I think you have discussed metrics such as the productivity superiority in moving upmarket. So and if you could just not only give us mark to market, but how is that new push showing up in terms of the incremental productivity metrics? Obviously, the customer lands have been quite good.
+       [中] Kash Rangan：是的，非常感谢你，Dev。这个问题有两个部分，一个问你，一个问你，Mike。祝贺你加入MongoDB, Inc.担任CFO。Dev，你能给我们一个最新的市场评估，谈谈你们正在推进的其他增长举措，比如Relational Migrator、向高端市场拓展、销售团队的重组或重新聚焦于高价值客户吗？我记得你曾讨论过诸如向高端市场拓展时的生产力优势等指标。所以，如果你不仅能给我们最新的市场评估，还能说明这些新举措在增量生产力指标方面表现如何？显然，客户获取情况已经相当不错了。
+
+原文：
+Kash Rangan:Yeah. Thank you very much, Dev. One for you and one for you, Mike. Congratulations on joining MongoDB, Inc. as CFO. Dev, can you give us a mark to market on where we are with some other growth initiatives you undertook such as Relational Migrator, the move upmarket, the reconstitution or the refocusing of the sales force towards higher value accounts, and I think you have discussed metrics such as the productivity superiority in moving upmarket. So and if you could just not only give us mark to market, but how is that new push showing up in terms of the incremental productivity metrics? Obviously, the customer lands have been quite good.
+
+  [109] [EN] But with respect to growth rate, it does not look like we're quite yet at the inflection point. If you could just give us a little bit more of your introspective analysis on that. And then, Mike, one for you. You talked about second half dynamic with respect to, I believe, it was the EA business. Can you expand upon that a little bit? And what could go right versus that Osteo assumption? Because after all, we didn't see upside in this particular quarter sort of versus not your guidance, but your previous as well. Thank you so much.
+       [中] 但就增长率而言，我们似乎还未真正到达拐点。能否请您就此再多分享一些内部分析？另外，Mike，我想请教您一个问题。您提到了下半年的动态，我认为是指EA业务，能否展开说说？以及，相比于您对Osteo的假设，有哪些积极因素可能推动其表现？毕竟，这个季度我们并未看到超出预期的增长——无论是相比你们的指引，还是相比你们此前的表现。非常感谢。
+
+原文：
+But with respect to growth rate, it does not look like we're quite yet at the inflection point. If you could just give us a little bit more of your introspective analysis on that. And then, Mike, one for you. You talked about second half dynamic with respect to, I believe, it was the EA business. Can you expand upon that a little bit? And what could go right versus that Osteo assumption? Because after all, we didn't see upside in this particular quarter sort of versus not your guidance, but your previous as well. Thank you so much.
+
+  [110] [EN] Dev Ittycheria:Thanks, Kash. So let me start. So when we talked about the strategic initiatives, we really called out three things. One, R&D investments. Two, moving upmarket and three, putting more focus on awareness and education. So on the R&D investments, I would tell you that we're already seeing returns on investment. We know we said we're going to double down on the core. We introduced MongoDB 8.0, which is the most performant release we ever issued, and I will also point out that it's also had the fastest uptake of any major release. Customers are adopting 8.0 two times faster than our last major release.
+       [中] Dev Ittycheria：谢谢，Kash。让我开始吧。当我们讨论战略举措时，我们实际上指出了三件事。第一，研发投资。第二，向高端市场迈进。第三，更加注重认知和教育。就研发投资而言，我可以告诉你，我们已经看到了投资回报。我们说过要在核心领域加倍投入，我们推出了MongoDB 8.0，这是我们发布过的性能最高的版本，我还要指出，它也是所有主要版本中采用速度最快的。客户采用8.0的速度是我们上一个主要版本的两倍。
+
+Dev Ittycheria:Thanks, Kash. So let me start. So when we talked about the strategic initiatives, we really called out three things. One, R&D investments. Two, moving upmarket and three, putting more focus on awareness and education. So on the R&D investments, I would tell you that we're already seeing returns on investment. We know we said we're going to double down on the core. We introduced MongoDB 8.0, which is the most performant release we ever issued, and I will also point out that it's also had the fastest uptake of any major release. Customers are adopting 8.0 two times faster than our last major release.
+
+  [111] [EN] We're also expanding our engineering efforts around AI and Voyage, because that's a super exciting area for us, and we're also investing in product tooling for app modernization. And last but not least, we're bringing in more senior talent to really complement the existing team so that we can really, you know, have a broader ambition. So that investment is paying handsomely. The move upmarket is also going well because a part of our results are a function of the fact that we made that move starting last year. And we're starting to do bigger deals. We've signed some very, very large deals with some very, very large enterprises. And the productivity of that team has always been quite high.
+       [中] 我们正在围绕AI和Voyage扩大工程投入，因为这对我们来说是一个非常令人兴奋的领域。同时，我们也在为应用现代化投资产品工具。最后但同样重要的是，我们正在引进更多资深人才，真正补充现有团队，这样我们就能拥有更宏大的愿景。这项投资正在带来丰厚回报。向高端市场转型也进展顺利，因为我们的部分业绩实际上得益于去年就开始的这一转型。我们正在达成更大的交易，已经与一些非常大型的企业签署了非常、非常大的订单。而且这个团队的生产力一直相当高。
+
+We're also expanding our engineering efforts around AI and Voyage, because that's a super exciting area for us, and we're also investing in product tooling for app modernization. And last but not least, we're bringing in more senior talent to really complement the existing team so that we can really, you know, have a broader ambition. So that investment is paying handsomely. The move upmarket is also going well because a part of our results are a function of the fact that we made that move starting last year. And we're starting to do bigger deals. We've signed some very, very large deals with some very, very large enterprises. And the productivity of that team has always been quite high.
+
+  [112] [EN] And I would say a complementary move is that our self-serve business has started to acquire mid-market logos, serving them more efficiently without, you know, ceding ground to anyone else. So that shows up as you see in our customer count this quarter. And then in terms of awareness and education, we are aggressively investing in a few areas. One, we're aggressively investing in the Bay Area. That's where the next-gen AI companies, the next-gen AI developers are highly concentrated. And we're starting to see some traction there. And, you know, we have some high-profile AI customers already on our platform and lots of other smaller customers. We're investing in attracting relational developers to learn more about MongoDB, Inc.
+       [中] 我认为，一个相辅相成的举措是，我们的自助服务业务已经开始获取中型市场客户，以更高效的方式服务他们，同时不会让渡任何市场份额给竞争对手。这一点可以从本季度的客户数量中体现出来。在品牌认知与市场教育方面，我们正在积极投资几个领域。首先，我们大力投资Bay Area，因为那里是下一代AI公司和AI开发者高度集中的地区，并且我们已经开始看到一些成效。目前，我们的平台上既有知名度较高的AI客户，也有大量小型客户。我们正投入资源吸引更多关系型开发者来了解MongoDB, Inc.。
+
+And I would say a complementary move is that our self-serve business has started to acquire mid-market logos, serving them more efficiently without, you know, ceding ground to anyone else. So that shows up as you see in our customer count this quarter. And then in terms of awareness and education, we are aggressively investing in a few areas. One, we're aggressively investing in the Bay Area. That's where the next-gen AI companies, the next-gen AI developers are highly concentrated. And we're starting to see some traction there. And, you know, we have some high-profile AI customers already on our platform and lots of other smaller customers. We're investing in attracting relational developers to learn more about MongoDB, Inc.
+
+  [113] [EN] So we're attending relational conferences, you know, putting together more training and more skills for people to upskill their abilities and also providing certifications. And what we also find is a lot of the new Atlas registrants are actually new to MongoDB, Inc. So we're spending a lot of time making sure they're onboarded properly and taking full advantage of all our capabilities. And then we're also, you know, as part of the training, we're upskilling developers on modern databases. Right? As I mentioned, certifications, self-paced courses, and all that. And we also expanded our documentation to Mandarin, Portuguese, Korean, and Japanese because MongoDB, Inc. truly has a global business.
+       [中] 因此，我们正在参加行业会议，组织更多的培训和技能提升课程，帮助人们增强能力，同时还提供认证。此外，我们还发现，许多新的Atlas注册用户实际上是MongoDB, Inc.的新用户。因此，我们花费大量时间确保他们能够顺利上手，并充分利用我们的所有功能。作为培训的一部分，我们还帮助开发者提升现代数据库的技能。没错，正如我提到的，认证、自定进度课程等等。此外，我们还扩展了文档的语种，增加了简体中文、葡萄牙语、韩语和日语，因为MongoDB, Inc.确实是一家全球性企业。
+
+So we're attending relational conferences, you know, putting together more training and more skills for people to upskill their abilities and also providing certifications. And what we also find is a lot of the new Atlas registrants are actually new to MongoDB, Inc. So we're spending a lot of time making sure they're onboarded properly and taking full advantage of all our capabilities. And then we're also, you know, as part of the training, we're upskilling developers on modern databases. Right? As I mentioned, certifications, self-paced courses, and all that. And we also expanded our documentation to Mandarin, Portuguese, Korean, and Japanese because MongoDB, Inc. truly has a global business.
+
+  [114] [EN] And there are developers all around the world who want to use MongoDB, Inc. And I think we're just getting started. There's more things we're doing that I just can't talk about right now, especially on awareness and education. But the key point is there are some myths about MongoDB, Inc. that we know we need to address. And we're quite excited about the opportunity to do so.
+       [中] 全球各地的开发者都希望使用MongoDB, Inc.。我认为我们才刚刚起步。我们还在做更多的事情，但目前无法透露，尤其是在品牌认知和教育方面。但关键是，我们知道关于MongoDB, Inc.存在一些误解，需要加以澄清。而有机会这样做，我们感到非常兴奋。
+
+And there are developers all around the world who want to use MongoDB, Inc. And I think we're just getting started. There's more things we're doing that I just can't talk about right now, especially on awareness and education. But the key point is there are some myths about MongoDB, Inc. that we know we need to address. And we're quite excited about the opportunity to do so.
+
+  [115] [EN] Mike Cikos:So thank you, Kash, for the question. This is Mike and for the kind words. So just for context, as we talked about in the prepared remarks. So for the full year, you know, we remain confident in the business. We took Q1, we exceeded our expectations, and we've largely rolled the beat from the Atlas business into the full-year number. As it relates to non-Atlas and then specifically your question, we did have a good quarter in the EA business. Some of that was timing. So we adjusted the Q2 through Q4 non-Atlas business to take that into account.
+       [中] Mike Cikos：所以谢谢你，Kash，提出这个问题。我是Mike，也感谢你的美言。简单说明一下背景，就像我们在事先准备的发言中提到的。对于全年，我们对业务依然充满信心。第一季度表现超出预期，我们基本上将Atlas业务带来的超预期增长纳入了全年业绩。至于非Atlas业务，具体到你提出的问题，我们在EA业务上确实有一个不错的季度，部分原因在于时机因素。因此，我们调整了第二季度到第四季度的非Atlas业务预期，以反映这一情况。
+
+原文：Mike Cikos:So thank you, Kash, for the question. This is Mike and for the kind words. So just for context, as we talked about in the prepared remarks. So for the full year, you know, we remain confident in the business. We took Q1, we exceeded our expectations, and we've largely rolled the beat from the Atlas business into the full-year number. As it relates to non-Atlas and then specifically your question, we did have a good quarter in the EA business. Some of that was timing. So we adjusted the Q2 through Q4 non-Atlas business to take that into account.
+
+  [116] [EN] As it relates to the $50 million multiyear headwind you talked about, that's largely due to the renewals and the timing of those renewals from fiscal 2025. So we have maintained that same guidance to the extent that it could be better than May. Then that would certainly be an upside. Keep in mind though that those are renewals based on when those customers are still holding to the same guidance.
+       [中] 关于您提到的5000万美元多年期的逆风因素，这主要源于2025财年的续约情况及其时间安排。因此，我们维持了原有的指引，而且这一指引可能优于五月份的水平，若果真如此，那将是一个积极因素。但请记住，这些续约的前提是那些客户仍然遵循相同的指引。
+
+原文：
+As it relates to the $50 million multiyear headwind you talked about, that's largely due to the renewals and the timing of those renewals from fiscal 2025. So we have maintained that same guidance to the extent that it could be better than May. Then that would certainly be an upside. Keep in mind though that those are renewals based on when those customers are still holding to the same guidance.
+
+  [117] [EN] Kash Rangan:Super. Very granular. Thank you so much.
+       [中] Kash Rangan: 很好。非常详细。非常感谢。
+
+Kash Rangan:Super. Very granular. Thank you so much.
+
+  [118] [EN] Mike Cikos:Thank you.
+       [中] Mike Cikos: 谢谢。  
+Mike Cikos:Thank you.
+
+  [119] [EN] Operator:Our next question comes from Brad Reback with Stifel. You may proceed.
+       [中] 接线员：下一个问题来自Stifel的Brad Reback。请继续。
+
+Operator:Our next question comes from Brad Reback with Stifel. You may proceed.
+
+  [120] [EN] Brad Reback:Great. Thanks very much. Dev, last quarter you talked about AI only being modestly incremental to revenue growth in 2026 here. Is that the same expectation ninety days later?
+       [中] Brad Reback:好的，非常感谢。Dev，上个季度你谈到AI对2026年的收入增长只有小幅提升。90天后还是同样的预期吗？
+
+Brad Reback:Great. Thanks very much. Dev, last quarter you talked about AI only being modestly incremental to revenue growth in 2026 here. Is that the same expectation ninety days later?
+
+  [121] [EN] Dev Ittycheria:Yeah. So what I would say is the following. You know, we see thousands of customers building thousands of apps on MongoDB, Inc., and that's growing quarter over quarter. We are seeing some high-profile well-known AI companies. I mentioned Cursor on the call. And then some of a few other high-profile companies who are building on top of MongoDB, Inc. And, obviously, those businesses are really taking off. But what we see is that enterprises are still early in the adoption of AI. The barriers include this, you know, limited set of skills, experience with AI. Trust with AI systems that are probabilistic, which is another way of saying the risk hallucinations.
+       [中] Dev Ittycheria：是的。我想说的是以下几点。你知道，我们看到成千上万的客户在MongoDB, Inc.上构建了成千上万个应用程序，而且这个数字还在逐季增长。我们注意到一些备受瞩目的人工智能公司，比如在电话会议中提到的Cursor，还有其他几家知名公司也在MongoDB, Inc.之上构建应用。显然，这些业务正在飞速发展。但我们看到的是，企业在采用人工智能方面仍处于早期阶段。障碍包括：有限的相关技能和经验、对基于概率的人工智能系统的信任问题——换句话说，也就是对幻觉风险的担忧。
+
+Dev Ittycheria:Yeah. So what I would say is the following. You know, we see thousands of customers building thousands of apps on MongoDB, Inc., and that's growing quarter over quarter. We are seeing some high-profile well-known AI companies. I mentioned Cursor on the call. And then some of a few other high-profile companies who are building on top of MongoDB, Inc. And, obviously, those businesses are really taking off. But what we see is that enterprises are still early in the adoption of AI. The barriers include this, you know, limited set of skills, experience with AI. Trust with AI systems that are probabilistic, which is another way of saying the risk hallucinations.
+
+  [122] [EN] And so we see, obviously, some early use cases around operating efficiency, chatbots, codegen, and domain-specific ISVs like Harvey. But, you know, that customers are using. But and, you know, we've already seen, as I mentioned on the call, you know, LGU Plus. We have, you know, Swisscom, Novo Nordisk, Central Reach, or a bunch of customers I mentioned in the past who have already deployed our AI capabilities. But the real enduring value will come when people start building custom AI apps. And the point I want to make is that anyone can use an ISV to run their business, but that doesn't give them a competitive advantage because their competitors can use the same ISV.
+       [中] 因此我们看到，显然，围绕运营效率、聊天机器人、代码生成以及像Harvey这样面向特定领域的ISV，已经出现了一些早期应用案例。而且，客户也正在使用这些功能。不过，如我在电话会议中提到的，我们已经看到LGU Plus、Swisscom、Novo Nordisk、Central Reach，以及我之前提到过的许多客户，都已经部署了我们的AI能力。但真正持久价值将源于人们开始构建定制化AI应用。我想强调的是，任何人都可以使用ISV来运营业务，但这并不能带来竞争优势，因为竞争对手也可以使用同样的ISV。
+
+原文：
+And so we see, obviously, some early use cases around operating efficiency, chatbots, codegen, and domain-specific ISVs like Harvey. But, you know, that customers are using. But and, you know, we've already seen, as I mentioned on the call, you know, LGU Plus. We have, you know, Swisscom, Novo Nordisk, Central Reach, or a bunch of customers I mentioned in the past who have already deployed our AI capabilities. But the real enduring value will come when people start building custom AI apps. And the point I want to make is that anyone can use an ISV to run their business, but that doesn't give them a competitive advantage because their competitors can use the same ISV.
+
+  [123] [EN] What really gives them a competitive advantage is building custom solutions around using AI to transform their business, whether it's to seize new opportunities, to respond to new threats, to drive more operating efficiency. And when people start really learning about MongoDB, Inc., the document model can handle these complex data structures. You know, we have best-in-class voyage embeddings to improve the accuracy of these results to help people get comfortable with using AI. And by integrating text search, vector search, and embeddings, and operational data, that's a unique differentiator. It makes the developer's life easy. Reduces cost and complexity.
+       [中] 真正赋予他们竞争优势的是围绕使用人工智能改造业务构建定制化解决方案，无论是为了抓住新机遇、应对新威胁，还是提高运营效率。当人们开始真正了解MongoDB, Inc.时，文档模型能够处理这些复杂的数据结构。你知道，我们拥有业界一流的voyage embeddings来提升这些结果的准确性，帮助人们更自在地使用AI。通过整合文本搜索、向量搜索、嵌入向量以及运营数据，这构成了一个独特的差异化优势。它让开发者的工作更轻松，降低了成本和复杂性。
+
+What really gives them a competitive advantage is building custom solutions around using AI to transform their business, whether it's to seize new opportunities, to respond to new threats, to drive more operating efficiency. And when people start really learning about MongoDB, Inc., the document model can handle these complex data structures. You know, we have best-in-class voyage embeddings to improve the accuracy of these results to help people get comfortable with using AI. And by integrating text search, vector search, and embeddings, and operational data, that's a unique differentiator. It makes the developer's life easy. Reduces cost and complexity.
+
+  [124] [EN] And so we feel, you know, we're well-positioned for this, but it's still early as most enterprises are still early in the adoption of AI.
+       [中] 因此我们觉得，你知道，我们对此已经做好了充分准备，但依然处于早期阶段，因为大多数企业在采用AI方面仍处于早期。
+
+And so we feel, you know, we're well-positioned for this, but it's still early as most enterprises are still early in the adoption of AI.
+
+  [125] [EN] Brad Reback:Great. And then on the go-to-market side, any meaningful changes on the kind of upper market comp plan that we should be aware of?
+       [中] Brad Reback: 好的。那么关于上市策略方面，我们需要注意的上层市场薪酬计划是否有任何重大变化？
+
+Brad Reback:Great. And then on the go-to-market side, any meaningful changes on the kind of upper market comp plan that we should be aware of?
+
+  [126] [EN] Dev Ittycheria:No meaningful changes. We feel good about what's happening at the high end of the market. And we also feel good about our self-serve business being able to acquire customers more efficiently. So we feel like those motions are working.
+       [中] Dev Ittycheria：没有重大变化。我们对高端市场的表现感到满意，同时对自助服务业务能够更高效地获取客户也感到乐观。因此，我们认为这些举措正在发挥作用。
+
+Dev Ittycheria:No meaningful changes. We feel good about what's happening at the high end of the market. And we also feel good about our self-serve business being able to acquire customers more efficiently. So we feel like those motions are working.
+
+  [127] [EN] Brad Reback:Great. Thank you.
+       [中] Brad Reback: 很好。谢谢。
+
+Brad Reback:Great. Thank you.
+
+  [128] [EN] Dev Ittycheria:Thank you, Brad.
+       [中] Dev Ittycheria：谢谢，Brad。  
+Dev Ittycheria:Thank you, Brad.
+
+  [129] [EN] Operator:Our next question comes from Brent Bracelin with Piper Sandler. You may proceed.
+       [中] 接线员：下一个问题来自Piper Sandler的Brent Bracelin。请继续。
+
+Operator:Our next question comes from Brent Bracelin with Piper Sandler. You may proceed.
+
+  [130] [EN] Brent Bracelin:Thank you. Good afternoon, Mike. Great to hear your voice again here. Welcome aboard. Dev, one of the challenges that we've had with the story here is that the Atlas business has been decelerating here, moderating growth for about three years. This was the first quarter where we actually saw Atlas growth reaccelerate. Pretty big step up here in the number of net new Atlas customers. Would you now say you feel like you've kind of bottomed relative to the growth profile of Atlas and you're kind of now on a newer more stable trajectory going forward? Just walk me through what looks like a meaningful reversal here in the Atlas business.
+       [中] Brent Bracelin: 谢谢你。下午好，Mike。很高兴再次听到你的声音。欢迎加入，Dev。关于Atlas业务，我们一直面临的一个挑战是，它已经减速约三年，增长放缓。而本季度是我们在Atlas增长中首次看到重新加速。净新增Atlas客户数量大幅增长。你现在是否觉得Atlas的增长曲线已经触底，并且正在进入一个更稳定的新轨迹？请带我了解Atlas业务中看似有意义的逆转。
+
+Brent Bracelin:Thank you. Good afternoon, Mike. Great to hear your voice again here. Welcome aboard. Dev, one of the challenges that we've had with the story here is that the Atlas business has been decelerating here, moderating growth for about three years. This was the first quarter where we actually saw Atlas growth reaccelerate. Pretty big step up here in the number of net new Atlas customers. Would you now say you feel like you've kind of bottomed relative to the growth profile of Atlas and you're kind of now on a newer more stable trajectory going forward? Just walk me through what looks like a meaningful reversal here in the Atlas business.
+
+  [131] [EN] Dev Ittycheria:Yeah. So we're very proud of our results in Q1. And, you know, much to what Mike mentioned earlier, you look across the landscape, there's not many companies who have their core business growing at 26% year-over-year at our scale. Right? Atlas is a very large business. And so there's not many companies who are growing at that rate. And we feel like, you know, what's on the horizon in terms of AI, in terms of we didn't, you know, I'm talked about app modernization where we can help customers more efficiently reduce the cost and significantly reduce the time to modernize legacy applications, that gives us easier access to a large market.
+       [中] Dev Ittycheria：是的。我们对第一季度的业绩感到非常自豪。而且，正如Mike之前提到的，放眼整个行业，很少有公司能像我们这样，核心业务在我们这种规模下还能实现26%的同比增长。对吧？Atlas是一项非常庞大的业务。因此，能以这样的速度增长的公司并不多。我们觉得，展望未来，无论是人工智能方面，还是我之前提到的应用现代化——我们可以帮助客户更高效地降低成本、大幅缩短传统应用现代化所需的时间——这都让我们更容易进入一个广阔的市场。
+
+Dev Ittycheria:Yeah. So we're very proud of our results in Q1. And, you know, much to what Mike mentioned earlier, you look across the landscape, there's not many companies who have their core business growing at 26% year-over-year at our scale. Right? Atlas is a very large business. And so there's not many companies who are growing at that rate. And we feel like, you know, what's on the horizon in terms of AI, in terms of we didn't, you know, I'm talked about app modernization where we can help customers more efficiently reduce the cost and significantly reduce the time to modernize legacy applications, that gives us easier access to a large market.
+
+  [132] [EN] And so those are, you know, also initiatives that we're spending a lot of time and investment on. And there's lots of customers that still need to run their business. And continue to build applications that are core to their business strategy. So we feel good about our opportunity. Our guide is our guide. We feel good about, you know, the quarter and we also feel great about, you know, the fact that our customer adds were very strong this quarter, which shows that, you know, people are embracing MongoDB, Inc.
+       [中] 这些也是我们投入大量时间和投资的举措。还有很多客户仍需运营业务，并持续构建对其业务战略至关重要的应用。因此，我们对自身机遇感到乐观。我们的guide就是guide。我们对本季度感到满意，同时对本季度客户增长非常强劲这一事实也感到非常振奋，这表明人们正在接纳MongoDB, Inc.
+
+And so those are, you know, also initiatives that we're spending a lot of time and investment on. And there's lots of customers that still need to run their business. And continue to build applications that are core to their business strategy. So we feel good about our opportunity. Our guide is our guide. We feel good about, you know, the quarter and we also feel great about, you know, the fact that our customer adds were very strong this quarter, which shows that, you know, people are embracing MongoDB, Inc.
+
+  [133] [EN] Brent Bracelin:Thanks for that. And then, Mike, I know you're eight days in. A fire hose here. Increased focus on margin improvement reads loud and clear. You did talk about kind of balance sheet. This company does have a lot of cash. I know you're putting a billion dollars of it to use to the buyback, but other uses of cash, do you see an opportunity to maybe get a little more aggressive on M&A, small tech tuck-ins to also maybe help, you know, accelerate the AI opportunity. Walk me through kind of use of cash. Thanks.
+       [中] Brent Bracelin: 谢谢。然后，Mike，我知道你上任才 eight days，信息量很大。对 margin improvement 的重视程度明显提高。你确实谈到了资产负债表。这家公司确实有很多现金。我知道你们将其中 a billion dollars 用于回购，但现金的其他用途，你是否看到有机会在 M&A 上更加积极，比如 small tech tuck-ins，也许有助于加速 AI 的机会。请向我说明现金的用途。谢谢。
+
+Brent Bracelin:Thanks for that. And then, Mike, I know you're eight days in. A fire hose here. Increased focus on margin improvement reads loud and clear. You did talk about kind of balance sheet. This company does have a lot of cash. I know you're putting a billion dollars of it to use to the buyback, but other uses of cash, do you see an opportunity to maybe get a little more aggressive on M&A, small tech tuck-ins to also maybe help, you know, accelerate the AI opportunity. Walk me through kind of use of cash. Thanks.
+
+  [134] [EN] Mike Cikos:Sure. And thanks for the comments. Great to hear your voice as well. So, yeah, on the buybacks, just to hit that, hey, we're super excited about the board. Expanding that up to a billion dollars, and we will be active as it relates to the buyback. For the rest of the cash, what I'd say is, hey, we feel really good about the organic growth story here. And that's the focus. To the extent that there are smaller tuck-ins or we could do road map accelerations and use some of it, not a lot of it. You know, that's certainly up for debate as well. So it does give us that option.
+       [中] Mike Cikos: 当然。也谢谢你的评论。很高兴听到你的声音。那么，关于回购，我想说的是，嘿，我们对董事会感到非常兴奋。将回购规模扩大到1 billion dollars，我们会积极进行回购。至于剩余现金，我想说，嘿，我们对这里的有机增长故事感觉非常好。这是我们的重点。至于一些小的补强收购，或者我们可以加速路线图并动用部分现金，但不会太多。你知道，这当然也是可以讨论的。所以这确实给了我们这个选择。
+
+Mike Cikos:Sure. And thanks for the comments. Great to hear your voice as well. So, yeah, on the buybacks, just to hit that, hey, we're super excited about the board. Expanding that up to a billion dollars, and we will be active as it relates to the buyback. For the rest of the cash, what I'd say is, hey, we feel really good about the organic growth story here. And that's the focus. To the extent that there are smaller tuck-ins or we could do road map accelerations and use some of it, not a lot of it. You know, that's certainly up for debate as well. So it does give us that option.
+
+  [135] [EN] I would say we don't think we need to do M&A to achieve our target certainly. But to the extent that we think it can help, it is nice to have the available cash.
+       [中] 我认为我们并不需要通过并购来实现目标。但如果我们认为并购有所帮助，那么拥有可用现金也是件好事。
+
+I would say we don't think we need to do M&A to achieve our target certainly. But to the extent that we think it can help, it is nice to have the available cash.
+
+  [136] [EN] Brent Bracelin:Good to hear. Thank you.
+       [中] Brent Bracelin: 很高兴听到。谢谢。  
+Brent Bracelin:Good to hear. Thank you.
+
+  [137] [EN] Operator:Our next question comes from Ittai Kidron with Oppenheimer. You may proceed.
+       [中] 操作员：我们的下一个问题来自Oppenheimer的Ittai Kidron。请继续。
+
+Operator:Our next question comes from Ittai Kidron with Oppenheimer. You may proceed.
+
+  [138] [EN] Ittai Kidron:Thanks. Appreciate it. I want to dig in a little bit into the high-end focus, the large enterprise. Is there any data you can provide proof points kind of under the surface data points that you're tracking internally progress here? Anything about pipeline, number of Fortune 2000 logos, help me think about the evolution here and at what point do you think will be its full run rate here on this group?
+       [中] 
+
+  [139] [EN] Dev Ittycheria:Well, I would tell you that I think we already have meaningful traction. I think we previously disclosed that 75% of the Fortune 100 are existing are already MongoDB, Inc. customers, and 50% of the Fortune 500 are MongoDB, Inc. customers. So that tells you that, you know, we already have meaningful traction. And what we realized is the biggest opportunity for us is to expand in those accounts. I just recently had the CIO of one of the largest healthcare companies in the world in our office. I just met with the senior leadership team of one of the largest financial services companies here in New York.
+       [中] Dev Ittycheria：嗯，我想告诉你，我认为我们已经取得了有意义的进展。我们之前披露过，75%的Fortune 100公司已经是MongoDB, Inc.的客户，50%的Fortune 500公司也是MongoDB, Inc.的客户。这告诉你，我们已经取得了有意义的进展。我们意识到最大的机会是在这些客户中拓展业务。我最近刚邀请全球最大医疗保健公司之一的CIO到我们办公室，还刚在纽约与一家最大金融服务公司的高级领导团队会面。
+
+Dev Ittycheria:Well, I would tell you that I think we already have meaningful traction. I think we previously disclosed that 75% of the Fortune 100 are existing are already MongoDB, Inc. customers, and 50% of the Fortune 500 are MongoDB, Inc. customers. So that tells you that, you know, we already have meaningful traction. And what we realized is the biggest opportunity for us is to expand in those accounts. I just recently had the CIO of one of the largest healthcare companies in the world in our office. I just met with the senior leadership team of one of the largest financial services companies here in New York.
+
+  [140] [EN] And then I met another team from another financial services company in New York, and they're bringing us in saying, we want to have a more strategic relationship with you. So I feel like the motion is working, we're doing larger deals, you know, and the productivity of our sales team focused on those accounts is materially higher than the typical sales reps. So we feel like it's a motion that we will invest in for the long term. And I think, you know, the results will obviously speak for themselves, but we feel really good about our move upmarket.
+       [中] 后来我遇到了另一家来自纽约的金融服务公司的团队，他们主动找上我们说，希望与你们建立更具战略性的合作关系。因此我觉得这种策略正在奏效——我们正在做更大的交易，而且专注服务那些客户的销售团队的生产力明显高于普通销售代表。所以我们认为这是一种值得长期投入的策略。我相信结果自然会说明一切，但我们对向高端市场拓展的举措感到非常满意。
+
+原文：
+And then I met another team from another financial services company in New York, and they're bringing us in saying, we want to have a more strategic relationship with you. So I feel like the motion is working, we're doing larger deals, you know, and the productivity of our sales team focused on those accounts is materially higher than the typical sales reps. So we feel like it's a motion that we will invest in for the long term. And I think, you know, the results will obviously speak for themselves, but we feel really good about our move upmarket.
+
+  [141] [EN] And I also want to point out that our self-serve motion is a nice complement to that move because it allows us to acquire, you know, lower-end customers, mid-market customers much more efficiently. So we're not, like, ceding ground to anyone in that segment of the market.
+       [中] 同时，我想指出的是，我们的自助服务模式是对该举措的有力补充，因为它使我们能够更高效地获取低端客户和中端市场客户。因此，我们不会在市场的这一细分领域向任何人让步。
+
+And I also want to point out that our self-serve motion is a nice complement to that move because it allows us to acquire, you know, lower-end customers, mid-market customers much more efficiently. So we're not, like, ceding ground to anyone in that segment of the market.
+
+  [142] [EN] Ittai Kidron:Yep. That's great to see. And, Mike, for you, first of all, congratulations. Looking forward to working with you. A couple of small ones. First of all, you talked about the slower-than-planned headcount addition in the quarter. Can you tell us about the areas and is this going to be an issue down the road? In that you're kind of a little bit behind on headcount additions. And also you guys put in you raised it by $10 million. The beat was greater. Can you tell us when and where are you a little bit more concerned?
+       [中] Ittai Kidron：是的，这很棒。Mike，首先祝贺你，期待与你合作。有两个小问题。首先，你提到本季度人员招聘进度慢于计划。能否告诉我们这是哪些领域，以及这未来是否会成为问题？因为你们在人员补充上似乎有些滞后。另外，你们将业绩指引上调了1000万美元，但实际超出幅度更大。能否告诉我们，你在哪些方面、何时会更为担忧？
+
+Ittai Kidron:Yep. That's great to see. And, Mike, for you, first of all, congratulations. Looking forward to working with you. A couple of small ones. First of all, you talked about the slower-than-planned headcount addition in the quarter. Can you tell us about the areas and is this going to be an issue down the road? In that you're kind of a little bit behind on headcount additions. And also you guys put in you raised it by $10 million. The beat was greater. Can you tell us when and where are you a little bit more concerned?
+
+  [143] [EN] Mike Cikos:Sure. So let's take the headcount first. So it was really broad-based across the whole team. In terms of slower headcount additions. There was nothing that we didn't pull back or say don't hire. It just takes longer. So nothing there. Also don't have any concerns around does that mean lower, for instance, sales capacity largely due to what Dev talked about on the go-to-market? So do we think it goes forward? It certainly is a part of us, I would say, moderating our OPEX expectations for the rest of the year, hence, the increase of 200 basis points. So that's a headcount piece. On the beat and raise, so we did beat by $20 million in the quarter.
+       [中] Mike Cikos:当然，我们先从人员编制说起。这次调整在整个团队中非常广泛，表现在放缓招聘增速上。我们并未完全停止或叫停任何岗位的招聘，只是流程延长了。所以这方面没什么特别之处。同时也不必担心这是否意味着销售能力下降——正如Dev在关于市场策略的讨论中提到的。那么我们认为未来会如何呢？这确实是我们在调整下半年运营支出预期时的一部分考量，因此运营支出预期上调了200个基点。以上就是人员方面的情况。关于超预期与上调指引：本季度我们确实实现了2000万美元的超预期表现。
+
+原文：
+Mike Cikos:Sure. So let's take the headcount first. So it was really broad-based across the whole team. In terms of slower headcount additions. There was nothing that we didn't pull back or say don't hire. It just takes longer. So nothing there. Also don't have any concerns around does that mean lower, for instance, sales capacity largely due to what Dev talked about on the go-to-market? So do we think it goes forward? It certainly is a part of us, I would say, moderating our OPEX expectations for the rest of the year, hence, the increase of 200 basis points. So that's a headcount piece. On the beat and raise, so we did beat by $20 million in the quarter.
+
+  [144] [EN] As we talked about, we largely rolled the Atlas beat into the full-year number. And left the rest of the year where we were. We felt good about what we guided to after Q4. Hey. There's a lot of uncertainty as it relates to the world, tariffs, the economic situation, and everything else. So we think it's prudent to leave that guide there. We did come down by $10 million in the non-Atlas business because that was largely time. And as we said, we're still holding to the EA forecast that we did on a year-over-year basis. Now we'll see where that goes. It's also the hardest piece of the business to forecast because of those larger deals.
+       [中] 正如我们讨论过的，我们基本上将Atlas的超预期表现并入了全年数字，并维持了余下时间的预测。我们对第四季度后给出的指引感到满意。嘿，世界上存在很多不确定性，包括关税、经济形势以及其他一切。因此我们认为维持该指引是审慎的。我们在非Atlas业务上确实下调了1000万美元，这主要是因为时间因素。正如我们所说，我们仍然坚持按年度同比做出的EA预测。现在让我们看看进展如何。这也是业务中最难预测的部分，因为这些交易规模较大。
+
+As we talked about, we largely rolled the Atlas beat into the full-year number. And left the rest of the year where we were. We felt good about what we guided to after Q4. Hey. There's a lot of uncertainty as it relates to the world, tariffs, the economic situation, and everything else. So we think it's prudent to leave that guide there. We did come down by $10 million in the non-Atlas business because that was largely time. And as we said, we're still holding to the EA forecast that we did on a year-over-year basis. Now we'll see where that goes. It's also the hardest piece of the business to forecast because of those larger deals.
+
+  [145] [EN] So we thought that was the prudent way to guide the year.
+       [中] 所以我们认为这是指导今年业务的谨慎方式。
+So we thought that was the prudent way to guide the year.
+
+  [146] [EN] Ittai Kidron:That's appreciated. Thank you.
+       [中] Ittai Kidron: 非常感谢。谢谢。
+Ittai Kidron:That's appreciated. Thank you.
+
+  [147] [EN] Operator:Our next question comes from Andrew Nowinski with Wells Fargo. You may proceed.
+       [中] 接线员：我们的下一个问题来自Wells Fargo的Andrew Nowinski。请继续。
+原文：Operator:Our next question comes from Andrew Nowinski with Wells Fargo. You may proceed.
+
+  [148] [EN] Andrew Nowinski:Great. Thank you. Maybe I just wanted to follow up on the Atlas guidance. I know you're saying that, you know, consumption was in line with your expectations, but can you just provide any more color on sort of the mechanics of growth in that consumption segment? Because it would seem that the outperformance in Q1 would set you on a higher trajectory for the full year. You know, due to the fact that it is a consumption model. Unless there's some sort of drastic change in the, you know, the global economy that would change a customer's consumption patterns.
+       [中] Andrew Nowinski: 很好，谢谢。或许我想跟进一下关于Atlas的指引。我知道您提到消费情况符合预期，但能否就消费板块的增长机制提供更多细节？因为第一季度表现优异似乎会让全年处于更高的增长轨道，毕竟这是一个消费模式。除非全球经济出现某种剧烈变化，从而改变客户的消费模式。
+
+原文：Andrew Nowinski:Great. Thank you. Maybe I just wanted to follow up on the Atlas guidance. I know you're saying that, you know, consumption was in line with your expectations, but can you just provide any more color on sort of the mechanics of growth in that consumption segment? Because it would seem that the outperformance in Q1 would set you on a higher trajectory for the full year. You know, due to the fact that it is a consumption model. Unless there's some sort of drastic change in the, you know, the global economy that would change a customer's consumption patterns.
+
+  [149] [EN] Mike Cikos:Sure. So, Andrew, it's Mike. So thanks for the question. So if you take a step back and that's what we saw in Q1, we talked about the monthly consumption patterns there. We did a little bit better early in the quarter. And April was a little bit soft. The dynamic that you just talked about is exactly what's baked into the guidance for the rest of the year. We continue to expect Atlas growth to be strong as we go through the year. We are also cognizant of April's a little bit soft. May popped back. We'd like to see a couple more months of that going into the year.
+       [中] Mike Cikos：当然。Andrew，我是Mike。谢谢你的提问。回顾第一季度的情况，我们讨论过月度消费模式。季度初期我们的表现稍好一些，而4月略显疲软。你刚才提到的动态正是我们今年剩余时间业绩指引中已包含的因素。我们仍然预计Atlas业务在今年内将保持强劲增长。同时我们也意识到4月表现偏弱，但5月已出现反弹。我们希望在接下来几个月里能看到这种势头持续。
+
+原文：
+Mike Cikos:Sure. So, Andrew, it's Mike. So thanks for the question. So if you take a step back and that's what we saw in Q1, we talked about the monthly consumption patterns there. We did a little bit better early in the quarter. And April was a little bit soft. The dynamic that you just talked about is exactly what's baked into the guidance for the rest of the year. We continue to expect Atlas growth to be strong as we go through the year. We are also cognizant of April's a little bit soft. May popped back. We'd like to see a couple more months of that going into the year.
+
+  [150] [EN] Hopefully, we feel more confident as we go into the second half. But at this point, given all the economic uncertainty, we certainly hope there's upside. But we'd like to get through another quarter.
+       [中] 希望进入下半年时，我们能更有信心。但就目前而言，考虑到所有经济不确定性，我们当然希望存在上行空间。不过，我们更希望先平稳度过下一个季度。
+
+原文：
+Hopefully, we feel more confident as we go into the second half. But at this point, given all the economic uncertainty, we certainly hope there's upside. But we'd like to get through another quarter.
+
+  [151] [EN] Andrew Nowinski:Understood. And, Mike, thank you. It's great to reconnect again from our days at NetApp. You know, my second question is really more on a higher level. I, you know, I understand the performance and scalability advantages of MongoDB, Inc. over or I should say document database over a relational database. But have you maybe thought about or considered hearing sort of feedback from customers as to whether MQL might be simply maybe more difficult for a developer to use versus SQL, maybe that's why you're seeing sort of this increase in interest in Postgres? Because it's certainly not a better-performing database. I think everyone knows that, but maybe it's just a query language issue.
+       [中] Andrew Nowinski：明白。Mike，谢谢。很高兴能再次与你在NetApp时的老同事重聚。你知道，我的第二个问题其实更宏观一些。我了解MongoDB, Inc.在性能和可扩展性上的优势——或者说文档数据库相对于关系型数据库的优势。但你们有没有考虑过或听说过客户反馈，认为MQL可能比SQL更难让开发者使用？这也许就是为什么我们看到大家对Postgres的兴趣在增长？因为Postgres显然不是性能更优的数据库。我想大家都知道这点，但可能只是查询语言的问题。
+
+原文：
+Andrew Nowinski:Understood. And, Mike, thank you. It's great to reconnect again from our days at NetApp. You know, my second question is really more on a higher level. I, you know, I understand the performance and scalability advantages of MongoDB, Inc. over or I should say document database over a relational database. But have you maybe thought about or considered hearing sort of feedback from customers as to whether MQL might be simply maybe more difficult for a developer to use versus SQL, maybe that's why you're seeing sort of this increase in interest in Postgres? Because it's certainly not a better-performing database. I think everyone knows that, but maybe it's just a query language issue.
+
+  [152] [EN] Dev Ittycheria:So again, thanks for the question. I just want to, again, say, we're going after a big market. I think the Postgres popularity is a function of people basically leaving other relational platforms, in particular Oracle, SQL Server, and MySQL. So that's why you're seeing developers kind of move to Postgres. But I would tell you that Postgres is a tabular, you know, database, much like all relational databases. So then the question you have to ask yourself is they announced support for JSON. Why did they do that?
+       [中] Dev Ittycheria: 再次感谢你的提问。我想再强调一下，我们正在瞄准一个巨大的市场。我认为Postgres的流行源于用户正逐步离开其他关系型平台，尤其是Oracle、SQL Server和MySQL。这就是为什么开发者们纷纷转向Postgres。但我想告诉你，Postgres本质上是一个表格型数据库，与其他关系型数据库类似。那么你就得问自己：他们宣布支持JSON，究竟是为什么？
+
+Dev Ittycheria:So again, thanks for the question. I just want to, again, say, we're going after a big market. I think the Postgres popularity is a function of people basically leaving other relational platforms, in particular Oracle, SQL Server, and MySQL. So that's why you're seeing developers kind of move to Postgres. But I would tell you that Postgres is a tabular, you know, database, much like all relational databases. So then the question you have to ask yourself is they announced support for JSON. Why did they do that?
+
+  [153] [EN] And then what they did that because it was a tacit admission that architecture just doesn't get the job done in a world that, you know, has to deal with data in the real world. Right? Data in the real world is complex. Data in the real world has a lot of dependencies. Like, I'll give you some examples. Like, you know, if you want to model the message that has attachments or react part of the thread of conversation, how do you do that in a structured table?
+       [中] 然后他们之所以这么做，是因为这等于默认了——在必须处理真实世界数据的场景中，光靠架构设计根本行不通。对吧？真实世界的数据很复杂。真实世界的数据存在大量依赖关系。我给你们举些例子。比如，如果你想建模一个带有附件或包含对话线程回复部分的消息，在结构化表格里要怎么做？
+
+And then what they did that because it was a tacit admission that architecture just doesn't get the job done in a world that, you know, has to deal with data in the real world. Right? Data in the real world is complex. Data in the real world has a lot of dependencies. Like, I'll give you some examples. Like, you know, if you want to model the message that has attachments or react part of the thread of conversation, how do you do that in a structured table?
+
+  [154] [EN] If you want to deal with, you know, adding new fields or, you know, new values and all that, how do you, for example, if you have your users who have something multiple phone numbers, how do you model that quickly? How do you deal with nested structures, right, where a customer record could have, you know, include past orders each with their own line items and order history. Like, how do you do that, you know, with it's much more difficult where you can model that so much more easily in MongoDB, Inc. How do you deal with, like, messy, inconsistent data that there is no uniformity to?
+       [中] 如果你想要处理添加新字段或新值之类的事情，你如何——例如，如果你的用户有多个电话号码，你如何快速建模？你如何处理嵌套结构，对吧，一个客户记录可能包含过去的订单，每个订单都有自己的订单项和订单历史。比如，你如何做到这一点？在MongoDB, Inc.中，你可以更轻松地建模，而其他方式则困难得多。你如何处理混乱、不一致、没有统一性的数据？
+
+If you want to deal with, you know, adding new fields or, you know, new values and all that, how do you, for example, if you have your users who have something multiple phone numbers, how do you model that quickly? How do you deal with nested structures, right, where a customer record could have, you know, include past orders each with their own line items and order history. Like, how do you do that, you know, with it's much more difficult where you can model that so much more easily in MongoDB, Inc. How do you deal with, like, messy, inconsistent data that there is no uniformity to?
+
+  [155] [EN] And so we recognize that some people who don't know MongoDB, Inc. may not really understand all these advantages, which is why we're putting more emphasis on awareness and education. But fundamentally, if you see why these relational databases are adding JSON support, it's acknowledgment that their existing architecture cannot, you know, evolve to natively evolve to serve these new needs. And that's why we think we're well-positioned because MongoDB, Inc. is a native JSON database. It's a document database. And it's distributed. It's designed to scale. And the latest release is the most performant release. We're even more excited about 8.1 that's coming out soon. We acquired Voyage. That's going to be natively part of the platform.
+       [中] 因此，我们意识到有些人不了解MongoDB, Inc.，可能并不真正理解所有这些优势，这就是为什么我们更加注重认知度和教育。但根本上，如果你看到为什么这些关系型数据库正在添加JSON支持，这意味着它们承认现有架构无法原生演进以满足这些新需求。这正是我们认为自己处于有利地位的原因，因为MongoDB, Inc.是一个原生JSON数据库，是一个文档数据库，并且是分布式的，专为扩展而设计。最新版本是性能最强的版本，我们对即将发布的8.1版本更加兴奋。我们收购了Voyage，它将原生成为平台的一部分。
+
+And so we recognize that some people who don't know MongoDB, Inc. may not really understand all these advantages, which is why we're putting more emphasis on awareness and education. But fundamentally, if you see why these relational databases are adding JSON support, it's acknowledgment that their existing architecture cannot, you know, evolve to natively evolve to serve these new needs. And that's why we think we're well-positioned because MongoDB, Inc. is a native JSON database. It's a document database. And it's distributed. It's designed to scale. And the latest release is the most performant release. We're even more excited about 8.1 that's coming out soon. We acquired Voyage. That's going to be natively part of the platform.
+
+  [156] [EN] We're going to, you know, later this month, we'll enable people to seamlessly generate embeddings from data sitting inside MongoDB, Inc. That'll be in private preview. So that's within four months of the acquisition. So we're moving fast, we're innovating quickly, and that doesn't even mention, you know, core vector search engine as well as our keyword search engine. So when you put all these things together, it becomes a very compelling platform. But we recognize that some customers and some users just don't understand all these things, and that's what we're focused on addressing.
+       [中] 本月晚些时候，我们将使用户能够从MongoDB, Inc.内部的数据无缝生成embeddings。这项功能将以private preview形式推出，距离收购仅过去四个月。我们正在快速行动和创新，这还不包括核心的vector search engine以及我们的keyword search engine。当所有这些结合在一起时，就构成了一个极具吸引力的平台。但我们认识到，一些客户和用户并不完全理解这些内容，这正是我们着力解决的重点。
+
+We're going to, you know, later this month, we'll enable people to seamlessly generate embeddings from data sitting inside MongoDB, Inc. That'll be in private preview. So that's within four months of the acquisition. So we're moving fast, we're innovating quickly, and that doesn't even mention, you know, core vector search engine as well as our keyword search engine. So when you put all these things together, it becomes a very compelling platform. But we recognize that some customers and some users just don't understand all these things, and that's what we're focused on addressing.
+
+  [157] [EN] Andrew Nowinski:That makes sense. Thank you so much.
+       [中] Andrew Nowinski: 那有道理。非常感谢。
+Andrew Nowinski:That makes sense. Thank you so much.
+
+  [158] [EN] Operator:Thank you. Our next question comes from Mike Cikos with Needham. You may proceed.
+       [中] 操作员：谢谢。我们的下一个问题来自Needham的Mike Cikos。请继续。
+
+Operator:Thank you. Our next question comes from Mike Cikos with Needham. You may proceed.
+
+  [159] [EN] Mike Cikos:Hey, guys. Thanks for taking the questions here. Mike, just to come back to the monthly trends that you guys saw on the Atlas consumption side, and I really appreciate all the color there. If you're talking about this rebound that we saw in May, and I know we don't see, like, consumption growth year on year or usage growth year on year to the detail that you do. But is that year-on-year growth in consumption in May back to the levels that we saw in February or March, or is it still lagging based on that?
+       [中] Mike Cikos:嘿，各位。感谢你们回答这些问题。Mike，我想回到你们在Atlas消费端看到的月度趋势，非常感谢你提供的所有细节。如果你们在讨论五月出现的反弹，我知道你们看不到像我们这么详细的消费同比增长或使用量同比增长数据。但五月的消费同比增幅是否回到了二月或三月的水平，还是仍然落后？
+
+Mike Cikos:Hey, guys. Thanks for taking the questions here. Mike, just to come back to the monthly trends that you guys saw on the Atlas consumption side, and I really appreciate all the color there. If you're talking about this rebound that we saw in May, and I know we don't see, like, consumption growth year on year or usage growth year on year to the detail that you do. But is that year-on-year growth in consumption in May back to the levels that we saw in February or March, or is it still lagging based on that?
+
+  [160] [EN] Mike Cikos:So it's much more consistent with what we saw in February and in March. April was a little bit softer, and then as we said, it was a healthy rebound in May.
+       [中] 所以这与我们在2月和3月看到的情况更加一致。4月稍微疲软，然后正如我们所说，5月出现了健康反弹。
+
+Mike Cikos:So it's much more consistent with what we saw in February and in March. April was a little bit softer, and then as we said, it was a healthy rebound in May.
+
+  [161] [EN] Mike Cikos:Great. Thanks for that. And then, Dev, just one for you. I know that we have some of these go-to-market changes. I'm looking at the new logos that you added this quarter specifically. And I mean, you guys have been you have been a native JSON database. You have been that NoSQL vendor. Can you help me think about, like, why are we seeing this meaningful bump in the new logos acquired this quarter specifically? It really looks like the self-service is taking off, but just interested in what you're seeing on that front. Thank you.
+       [中] Mike Cikos：好的，谢谢。接下来，Dev，有个问题想请教你。我知道我们有一些进入市场的策略调整。我特别关注了本季度新增的客户。你们一直是一个原生JSON数据库，也是NoSQL供应商。你能帮我分析一下，为什么本季度新客户数量会出现如此显著的增长？看起来自助服务正在蓬勃发展，但我很想知道你对此的观察。谢谢。
+
+原文：
+Mike Cikos:Great. Thanks for that. And then, Dev, just one for you. I know that we have some of these go-to-market changes. I'm looking at the new logos that you added this quarter specifically. And I mean, you guys have been you have been a native JSON database. You have been that NoSQL vendor. Can you help me think about, like, why are we seeing this meaningful bump in the new logos acquired this quarter specifically? It really looks like the self-service is taking off, but just interested in what you're seeing on that front. Thank you.
+
+  [162] [EN] Dev Ittycheria:Yeah. I mean, you have to remember, our self-serve business was a new skill that we, you know, developed frankly organically here. And then, actually, May Petri, who's been promoted to CMO of the company, was the one who led our self-serve business since early 2022. She and her team have really done a great job of really growing that business, being much more sophisticated running experiments, how to attract the right level of customers, and that is showing up in the numbers. And so and as we move upmarket, we want to take advantage of that, you know, self-serve capability to be able to acquire more customers in the mid-market, and so that's something that we're going to do.
+       [中] Dev Ittycheria：是的。你得知道，我们的自助服务业务是我们在这里有机培养起来的一项新技能。实际上，2022年初刚升任公司首席营销官的May Petri，正是从那时起领导这项业务的。她和她的团队在增长业务方面做得非常出色，实验手段更加成熟，懂得如何吸引合适的客户群体，这些成果都体现在了数据上。因此，随着我们向高端市场迈进，我们希望利用这种自助服务能力来获取更多中端市场客户，这正是我们接下来的计划。
+
+原文：
+Dev Ittycheria:Yeah. I mean, you have to remember, our self-serve business was a new skill that we, you know, developed frankly organically here. And then, actually, May Petri, who's been promoted to CMO of the company, was the one who led our self-serve business since early 2022. She and her team have really done a great job of really growing that business, being much more sophisticated running experiments, how to attract the right level of customers, and that is showing up in the numbers. And so and as we move upmarket, we want to take advantage of that, you know, self-serve capability to be able to acquire more customers in the mid-market, and so that's something that we're going to do.
+
+  [163] [EN] And so we feel really good about the combination of our direct sales force as well as our self-serve business in terms of how we approach the market. And I would say that, you know, when we are able to get in front of customers, explain our differentiation, customers understand and, you know, want to use MongoDB, Inc. Our biggest challenge is making sure people really understand the differentiation and don't have certain misconceptions of what we do or what others do.
+       [中] 因此，我们对直接销售团队与自助服务业务相结合的市场策略感到非常满意。我想说，当我们能够直面客户、解释我们的差异化优势时，客户会理解并愿意使用MongoDB, Inc.。我们最大的挑战是确保人们真正理解这种差异化，避免对我们或其他公司的业务产生误解。
+
+And so we feel really good about the combination of our direct sales force as well as our self-serve business in terms of how we approach the market. And I would say that, you know, when we are able to get in front of customers, explain our differentiation, customers understand and, you know, want to use MongoDB, Inc. Our biggest challenge is making sure people really understand the differentiation and don't have certain misconceptions of what we do or what others do.
+
+  [164] [EN] Mike Cikos:Great. Congrats on the demonstrated success on that front. Thank you.
+       [中] Mike Cikos：太好了。恭喜你在那方面取得了显著的成功。谢谢。
+
+Mike Cikos:Great. Congrats on the demonstrated success on that front. Thank you.
+
+  [165] [EN] Dev Ittycheria:Thank you.
+       [中] Dev Ittycheria：谢谢。
+Dev Ittycheria:Thank you.
+
+  [166] [EN] Operator:Thank you. I would now like to turn the call back over to Dev Ittycheria for any closing remarks.
+       [中] Operator: 谢谢。现在我想把电话交还给Dev Ittycheria作结束发言。  
+Operator:Thank you. I would now like to turn the call back over to Dev Ittycheria for any closing remarks.
+
+  [167] [EN] Dev Ittycheria:Well, thank you for joining our call. First of all, I would like to thank Mike. Eight days in, it's obviously, you know, preparing for an earnings call is hard work, and to do it in eight days is pretty impressive. So I really appreciate everything he's done to prepare for the call today. You know, again, we had a strong quarter with a record total customer net additions. We're raising our revenue and operating margin guidance for the full year. We're moving forward with a billion-dollar total share repurchase program reflecting our confidence in the business and our commitment to delivering value to shareholders.
+       [中] Dev Ittycheria: 好的，感谢您加入我们的电话会议。首先，我要感谢Mike。八天时间，显然，准备一次财报电话会议是很辛苦的，而在八天内完成确实令人印象深刻。所以我非常感谢他为今天电话会议所做的所有准备。再次强调，我们本季度表现强劲，实现了创纪录的总客户净增数。我们正在上调全年的收入和营业利润率指引。我们正在推进一项10亿美元的总股票回购计划，这反映了我们对业务的信心以及为股东创造价值的承诺。
+
+Dev Ittycheria:Well, thank you for joining our call. First of all, I would like to thank Mike. Eight days in, it's obviously, you know, preparing for an earnings call is hard work, and to do it in eight days is pretty impressive. So I really appreciate everything he's done to prepare for the call today. You know, again, we had a strong quarter with a record total customer net additions. We're raising our revenue and operating margin guidance for the full year. We're moving forward with a billion-dollar total share repurchase program reflecting our confidence in the business and our commitment to delivering value to shareholders.
+
+  [168] [EN] And we're more excited than ever about our long-term outlook, particularly our position to fundamentally address the needs of workloads in both today's era and tomorrow's era driven by AI. So thank you very much for the call, and we'll talk to you soon.
+       [中] 我们对长期前景比以往任何时候都更加兴奋，尤其是在AI驱动的当下与未来时代中，我们能够从根本上满足工作负载需求的核心优势。非常感谢您的来电，我们下次再聊。
+
+And we're more excited than ever about our long-term outlook, particularly our position to fundamentally address the needs of workloads in both today's era and tomorrow's era driven by AI. So thank you very much for the call, and we'll talk to you soon.
+
+  [169] [EN] Operator:Thank you. This concludes the conference. Thank you for your participation. You may now disconnect.
+       [中] 接线员：谢谢。会议到此结束。感谢您的参与。您现在可以挂断了。
+原文：Operator:Thank you. This concludes the conference. Thank you for your participation. You may now disconnect.
+
+  [170] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。
+
+  [171] [EN] The Motley Fool has positions in and recommends MongoDB. The Motley Fool has adisclosure policy.
+       [中] Motley Fool 对 MongoDB 持仓并推荐。Motley Fool 有披露政策。
+
+  [172] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [173] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 173 段中英对照
+======================================================================

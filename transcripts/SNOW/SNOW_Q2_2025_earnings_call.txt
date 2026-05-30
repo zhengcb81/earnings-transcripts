@@ -1,0 +1,612 @@
+======================================================================
+Earnings Call Transcript
+Company: Snowflake (Snowflake)
+Ticker: SNOW
+Quarter: Q2 2025
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2024/08/21/snowflake-snow-q2-2025-earnings-call-transcript/
+Scraped: 2026-05-30T12:12:50.280446
+Characters: 54591
+======================================================================
+
+Snowflake(SNOW+7.02%)Q2 2025 Earnings CallAug 21, 2024,5:00 p.m. ET
+
+Prepared Remarks
+
+Questions and Answers
+
+Call Participants
+
+Prepared Remarks:
+
+Operator
+
+Good afternoon. Thank you for attending today's Snowflake Q2 and fiscal year 2025 earnings call. My name is Cole, and I'll be the moderator for today's call. [Operator instructions].
+
+I'd now like to pass the call over to Jimmy Sexton, head of investor relations. Please go ahead.
+
+Jimmy Sexton--Head of Investor Relations
+
+Good afternoon, and thank you for joining us on Snowflake's Q2 Fiscal 2025 Earnings Call. Joining me on the call today is Sridhar Ramaswamy, our chief executive officer; Mike Scarpelli, our chief financial officer; and Christian Kleinerman, our executive vice president of product, who will participate in the Q&A session.During today's call, we will review our financial results for the second quarter of fiscal 2025 and discuss our guidance for the third quarter and full year fiscal 2025. During today's call, we will make forward-looking statements, including statements related to our business operations and financial performance. These statements are subject to risks and uncertainties, which could cause them to differ materially from our actual results.
+
+Information concerning these risks and uncertainties is available in our earnings press release, our most recent Forms 10-K and 10-Q and our other SEC reports. All our statements are made as of today based on information currently available to us. Except as required by law, we assume no obligation to update any such statements.During today's call, we will also discuss certain non-GAAP financial measures, see our investor presentation for a reconciliation of GAAP to non-GAAP measures and business metric definitions, including adoption. The earnings press release and investor presentation are available on our website at investors.snowflake.com.
+
+A replay of today's call will also be posted on the website.With that, I would now like to turn the call over to Sridhar.
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+Thanks, Jimmy, and hi, everyone. Thanks for joining us today. As you have seen by now, we had another strong quarter, beating guidance and increasing our FY '25 product revenue expectations. I'm really proud of the team and how we accelerated our innovation pipeline, and our product delivery momentum continues to be really strong.
+
+In the first half of this year alone, we brought as much product to market as we did all of last year.We are making Snowflake the best cloud for computation, collaboration and applications on all data, and we are leveraging the part of AI to make all of these easier to create, maintain and use. This is what our team is aligned around, and I can tell you, our customers are adopting our new capabilities at an incredible pace.As I said last quarter, I have 3 key areas I'm personally focused on: listening to and learning from our customers, fueling innovation and product delivery, driving execution and alignment within our go-to-market teams. And in Q2, we delivered on all fronts, which you can see in our results. Product revenue for the quarter was $829 million, up 30% year-over-year.
+
+Remaining performance obligations totaled $5.2 billion with year-over-year growth accelerating to 48%. Given the strong quarter, we are increasing our product revenue outlook for the year. Companies like Capital One, NBCU, Petco, Pfizer, Snapchat and Western Union are all relying on Snowflake to help them fuel their businesses.I'm really encouraged by the strength of our core business, and the rapid progress we have made on the AI front. I'm very optimistic about where we are going and the opportunities we have in front of us to deliver for our customers.
+
+In fact, the more I'm with our customers, the more I appreciate just how critical we are to their business and how much they are counting on us to be their trusted advisor in their AI data journey. Nothing brings to life how strong and trusted a relationship is than when you go through challenges together. We obviously had some rough headlines in the quarter as some of our customers dealt with the cybersecurity threat.As extensively reported, the issue wasn't on the Snowflake side. After multiple investigations by internal and external cybersecurity experts, we found no evidence that our platform was breached or compromised.
+
+However, we understand that when it comes to cybersecurity, we are all in it together. My one ask of all businesses around the world, whether they're a Snowflake customer or not, is to enable and enforce multifactor authentication in your organization and ensure that you have network policies are as strong as possible, 2 things we at Snowflake have supported since 2016.There are a lot of bright spots in the quarter. None more than the time I spent with over 100 customers, many of them on my travels to the U.K., Germany, Canada and across the U.S. And of course, a Snowflake Summit in June.
+
+The affinity for our product is incredible. And the consistent theme I hear from the C suite across industries and geographies is that Snowflake is delivering ease, efficiency and reliability to their business. And so much of this came to life at Snowflake Summit.We have 15,000 on-site SMBs, up 28% year-on-year with customers and partners from around the world. We hosted our first ever Developers Day with over 3,000 attendees.
+
+The energy was simply incredible. And if you were there, you experienced a lot of our innovation and product momentum where we brought to life Cortex AI and announced Iceberg being generally available, both of which have gained a lot of traction already with customers.Penske Logistics, a leading provider of transportation and warehousing solutions has developed a variety of innovative use cases involving Cortex AI. In one example, Penske plans to use Cortex to consume various performance metrics related to its transportation business. Cortex analyses will help provide feedback to Penske's operations managers with the goal of improving performance and enhancing truck driver retention.Also, one of the largest financial services companies is using Cortex AI to analyze unstructured text data, running sentiment analysis on call center transcripts to improve their customer support experience.
+
+Twilio Segment's reverse ETL integrates with Snowflake's Cortex AI and enables Twilio customers to derive insight from their unstructured data to improve the customer journey. And Iceberg is providing one of the largest consumer services and hospitality companies with a more flexible and interoperable deployment model, enabling them to accelerate their migration to the cloud. Iceberg is enabling us to play offense and address a larger data footprint. Many of our largest customers have indicated they will now leverage Snowflake for more of their workloads as a result of this functionality. More than 400 accounts are using Iceberg as of the end of Q2. I told you last quarter that product delivery is one of our highest priorities.
+
+And in Q2, we made 9 net new product announcements and brought more than 15 product capabilities to general availability to the market. That's what we call progress. We're also seeing broad adoption of our products across our customer base. As of the end of Q2, more than 2,500 accounts were using Snowflake AI on a weekly basis.
+
+We expect this adoption to continue to increase and revenue contribution to follow.Our Notebooks offering is also seeing great traction in public preview with more than 1,600 accounts using that feature. This is critical to engage with data scientists and will unlock new opportunities that we previously did not address. We are in the early innings of this opportunity, and we'll continue to bring new features to market. Cortex Search and Cortex Analyst are expected to be generally available in Q3. We are continuing to responsibly invest in AI and machine learning to deliver enterprise AI that is easy, efficient and most of all, trusted.
+
+It's great to have so much momentum on the product front. It's fueling our incredible go-to-market theme, which, as you know, is one of our biggest advantages. To wrap things up, our innovation engine and product delivery are in overdrive. The combination of our platform and the network effect of collaboration as well as the innovation we are working on in AI is Snowflake's future and creates a huge opportunity ahead. We have a lot of work to do, but it's in our hands to deliver and take advantage of it.Mike, I'll turn it over to you.
+
+Mike Scarpelli--Chief Financial Officer
+
+Thank you, Sridhar. 2Q product revenue grew 30% year-over-year, totaling $829 million. Financial services and technology verticals drove growth in the quarter. We continue to see signs of a stable optimization environment.
+
+Our largest customers are contributing sequential product revenue growth in line with historical patterns. We delivered strong booking in the quarter. RPO grew 48% year-on-year to reach more than $5.2 billion. We signed 2 9-figure deals in the quarter.Earlier this year, we announced FY '25 sales incentives that would prioritize consumption and new customer acquisitions.
+
+In order to drive consumption, sales reps prosecute new use cases and sell new product features. We believe this focus will convert into meaningful revenue over time. Our new customer acquisition motion is ramping. We expect it to have a more material impact in FY '26. In Q2, non-GAAP product gross margin of 76% was down slightly year-over-year.
+
+As mentioned on our prior call, we are incurring GPU-related costs in order to fulfill customer demand for our newer product features. Non-GAAP operating margin of 5% exceeded our guidance, benefiting from revenue outperformance. As expected, non-GAAP operating margin is down year-on-year as a result of R&D and go-to-market investments. Our non-GAAP adjusted free cash flow margin was 8%.
+
+We continue to see approximately 80% of our customers paying annually in advance. We ended the quarter with $3.9 billion in cash, cash equivalents, short-term and long-term investments.In Q2, we used $400 million to repurchase 3 million shares. From our original $2 billion repurchase plan, we have $492 million remaining through March 2025. Our Board of Directors authorized the repurchase of an additional $2.5 billion under our stock repurchase program through March 2027.
+
+This allows us to use our cash balance and expected free cash flow to manage dilution over this period. Our share count guidance does not include the impact from the stock repurchases.Now let's turn to our outlook. We forecast product revenue based on observed behavior. Our FY '25 guidance includes contribution from Snowpark as previously stated.
+
+Our guidance does not include material contribution from the newer product features.Our forecast does include revenue headwinds associated with performance improvements. For Q3, we expect product revenue between $850 million and $855 million. We are increasing our FY '25 product revenue guidance. We now expect full year product revenue of approximately $3.356 billion, representing 26% year-over-year growth.Turning to margins.
+
+For Q3, we expect 3% non-GAAP operating margin. We are maintaining full year margin guidance. For FY '25, we expect approximately 75% non-GAAP product margin, 3% non-GAAP operating margin and 26% non-GAAP adjusted free cash flow margin.With that, operator, you can now open up the line for questions.
+
+Questions & Answers:
+
+Operator
+
+[Operator instructions] Our first question is from Keith Weiss with Morgan Stanley. Your line is now open.
+
+Keith Weiss--Analyst
+
+Excellent. Thank you, guys, for taking the questions, and Congratulations on a solid quarter. Really good to hear about the optimization starting to normalize. You guys are -- seem to be settling into just about like a 30% product revenue growth rate over the past couple of quarters.
+
+There was a lot of concerns coming into this quarter about impacts from Iceberg Tables. There was concerns that accrued during the quarter about the data leakage.That wasn't your fault, but it definitely was a marketing headwind. It was concerned about the CrowdStrike, cybersecurity incident maybe impacting consumption. Were any of these outsized impacts? Were any of these additional impacts on the consumption in the quarter versus what you guys were expecting when you originally gave us the guide?
+
+Mike Scarpelli--Chief Financial Officer
+
+I would say the cybersecurity incident was still early, had no impact on us at all from a consumption standpoint. And the CrowdStrike outage was minimal. It was a day with a few customers, but nothing of any substance. And that never really impacted us itself.
+
+And our production does not rely on Microsoft for that, so we didn't have...
+
+Keith Weiss--Analyst
+
+Got it. And then was the Iceberg Tables in line with your expectations?
+
+Mike Scarpelli--Chief Financial Officer
+
+Iceberg tables is rolling out. As we said, we have about 400 customers that are using it. We haven't seen customers move storage out of Snowflake, but we're seeing a lot of our customers. We mentioned 400 that we know of that are actually using Iceberg with new workloads, are trying that out.
+
+And we're very pleased with the progress we're seeing there. Storage is still running about 11% of our revenue.
+
+Keith Weiss--Analyst
+
+Got it. That's super helpful. Thank you, Mike.
+
+Operator
+
+Our next question is from Raimo Lenschow with Barclays. Your line is now open.
+
+Raimo Lenschow--Analyst
+
+perfect. Thank you. Two quick questions. Mike, can you -- the gross margins this quarter were better than what a lot of people have modeled.
+
+Can you speak to some of the factors for that? And then, Sridhar, for you, like around the Iceberg ecosystem, there's obviously -- there was a lot of change this quarter with the Tabular acquisition by someone. What do you see in terms of attracting talent to drive that road map forward here? Like how is your positioning in that Iceberg ecosystem evolving?
+
+Mike Scarpelli--Chief Financial Officer
+
+Yes. On the margin side, the margins were slightly better than what we had forecast internally, but it doesn't change the guide that we've given, 75% for the year. Part of that is we're still waiting in some deployments for GPUs that -- around the world that we don't have yet that we were anticipating would have come in this quarter. That's really the -- on the margin side -- the gross margin side.
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+And then on the Iceberg side, it's important to understand that the acquisition of Tabular, the company, has no impact on the Iceberg project, which is an Apache open source project. This has contributors and program committee members from a number of cloud companies, the hyperscalers, yes, but also other companies. And we also have members within Snowflake. So we very much intend for this to be an industry standard that we take a pretty significant role in shaping.And so from that perspective, we actually feel that the Tabular acquisition, in many ways, is a vindication of our strategy to bet on Iceberg because that was the format that was truly interoperable.
+
+Hopefully, this is the end of the Betamax wars and everybody -- with everybody centering around the one format that has broad support. And as I said, we will continue to be a key player in this ecosystem to ensure that the format truly serves everybody and moves the industry forward.
+
+Keith Weiss--Analyst
+
+OK. Perfect. Thank you. Well done.
+
+Operator
+
+Our next question is from Mark Murphy with J. P. Morgan. Your line is now open.
+
+Mark Murphy--Analyst
+
+OK. Thank you very much. I'll add my congrats. Mike, you mentioned a couple of 9-figure deals in the quarter.
+
+I'm curious if those are renewals with expansion or perhaps if they're related to anything else. For instance, Iceberg Table is unlocking new business where companies want to tap into some larger data sources that are in an open format or just whether there's anything else to call out on the 9-figure deals. Then I have a quick follow-up.
+
+Mike Scarpelli--Chief Financial Officer
+
+Those were existing customers. You're never going to see -- I never want to say never. It's highly unlikely you're going to see a 9-figure deal from a net new customer. But those are really as part of the renewal process and -- but expansion in both of those customers as they're looking to do more.
+
+I can't specifically say that Iceberg on either of those that I'm seeing, but they both plan on doing more with Snowflake.
+
+Mark Murphy--Analyst
+
+Yes, I understand. OK. And then as a follow-up, as we start to think forward into the next fiscal year, I think we're trying to balance out the large slate of products that recently reached GA that you mentioned, Sridhar, and might start to contribute. Then on the other side of the ledger, potential for any discrete headwinds from hardware and software improvements that you passed along, storage compression.
+
+In the past, you had auto warehouse sizing. Any high-level thoughts on, Sridhar, on how to pencil that out in terms of new products ramping and then on the other side, some of those improvements?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+I'll start to answer, and Christian should -- and Mike should chime in. First of all, we obviously can't say anything about next year. It is next year. But wherever possible, where we have indication about how new products are going to perform, we certainly tell you about it.
+
+We have given guidance, for example, about what Snowpark is going to do this year. And then similarly, with the AI products, as I said, we are seeing broad adoption, and we expect that it will begin to contribute materially to revenue next year.With respect to performance optimization, I would say that's more of an ongoing thing. We have talked to you about the things that we have on tap for this year. It is important to understand that these optimizations turn into massive cost savings for our customers and make the core product strong and that it's really important that our teams continue to do that because that's what protects our overall base.
+
+Christian?
+
+Christian Kleinerman--Executive Vice President, Product
+
+I would just emphasize that our leadership position on price performance continues to be a priority for all of us. And at this point, you've seen several years of us continuing to innovate but also deliver growth and additional uses for our customers.
+
+Mark Murphy--Analyst
+
+Thank you.
+
+Operator
+
+We have a question from Kirk Materne with Evercore. Your line is now open.
+
+Kirk Materne--Analyst
+
+Yeah. Thanks. Just 2 really quick ones. Sridhar, obviously, a lot of your partners and customers at the Summit event talked about the excitement around some of these newer products like Cortex and Snowpark.
+
+But one of the refrain was we just need better maps to understand how to use them. And I think from an industry perspective, it came up a lot, too. So I'm kind of curious, where do you think you are within your product that they can mention the ROI that [Inaudible].
+
+Mike Scarpelli--Chief Financial Officer
+
+Kirk, your line is breaking up, and we can't really hear you.
+
+Kirk Materne--Analyst
+
+Is that the any better?
+
+Mike Scarpelli--Chief Financial Officer
+
+Getting a really bad echo. And it's hard to hear you.
+
+Kirk Materne--Analyst
+
+Oh. Thanks.
+
+Operator
+
+We have a question from Kash Rangan with Goldman. Your line is now open.
+
+Kash Rangan--Analyst
+
+Hey. Thank you, guys. So one for you, Sridhar. One for you, Mike.
+
+Sridhar, when you look at the product portfolio, so clearly initiative is to get these services out. And I think you pointed out to net new 8 or 9 services. What are the conversations with customers like when they are discussing your services with you? What is your take on where are we going to be a year out with the consumption profile of an average Snowflake customer. I think on average, how do you see that mix changing between the core if you want to just bluntly call it warehousing-related revenues versus unstructured data, whatever you want to call it, Cortex AI and the other emerging buckets.
+
+How does that mix change for customers as they start to appreciate the net new products you have coming out?And one for you, Mike. You said that the Salesforce compensation tilt toward consumption. It's still in its early days, but you also intimated that in fiscal '26, we could start to see the fruit of all this. So help us understand what you mean by that? And what are the KPIs that you'd be internally monitoring to inform you and therefore us, that, that tilt toward getting more consumption within your customers is actually working to your advantage?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+Thank you, Kash. On the product side, I would say that our customers go through a journey typically starting with a desire to have a really good data platform that gives visibility. They end up adopting different architectures, but often, the enterprise is most like pristine, clean data. The gold layer, so to say, is the one that's put into Snowflake.
+
+And there are lots of customers that have standardized on Snowflake as that key data back plane.Next, usually, there is a leaning toward collaboration because all companies exist in the context of an ecosystem. They have partners. They have customers and collaboration of various kinds, certainly starting with data sharing, becomes the key next thing that they adopt broadly. And you've often heard Christian talk about things like stable edges, which is a metric that we track because it creates value.
+
+And it obviously also creates a network effect.Our overall strategy at Snowflake is to make sure that all of the sort of data workloads that a company has is satisfied by Snowflake. And this is where things like data engineering, which we have played a pretty significant role in for a while, has been an investment for us. And this is where things like Iceberg become pretty key because, all of a sudden, the universe of data that can be acted upon by Snowflake goes through a large expansion because -- precisely because not all data needs to be ingested into Snowflake before things happen. I would say AI is a little unusual in this front because of, obviously, the industry excitement around it. But we approach it very much from a viewpoint, and I think this was part of the previous question of how do we go about creating utility to our customers.
+
+We just don't go in and say use AI. We talk about how it can be used to derive much better insights over unstructured information, for example, by using an LLM function for doing data transformation like sentiment detection and easier access to data whether it is with a chatbot or text docs or using something like Analyst to give a business user access to structured data. Those tend to be the follow-on applications. And really, we feel comfortable enough to be able to be investing in these in parallel and driving revenue growth.I would say it's too early to talk about X percent for this versus Y percent for that.
+
+Our goal is to be relevant. And for me, relevance is lots and lots of our customers, thousands of customers using our products and driving meaningful 9-, 10-digit revenue for us.
+
+Mike Scarpelli--Chief Financial Officer
+
+And Kash, on your question for me on the sales comp changes, what I was meaning by that is we really bifurcated our sales force into the acquisition reps. And those customers that are landing today, we really have been focused on trying to land the right type of customer that can grow. We think they will have a meaningful impact on revenue next year with those new ones.And then also, the new muscle that we've been building in the sales organization, where the reps are just being paid on consumption, is what is driving them. It's really the growth within customers' consumption.
+
+It's a new muscle for them to learn how to go and find and help forecast new workloads coming online, and that muscle they're developing, we see, is going to have a really positive impact in 2026 for us.
+
+Kash Rangan--Analyst
+
+Excellent. Thank you so much.
+
+Operator
+
+We have a question from Karl Keirstead with UBS. Your line is now open.
+
+Karl Keirstead--Analyst
+
+OK. Great. Mike, I'd love to just ask you about usage trends as you closed the July quarter and what assumptions you're embedding in the second half product revenue guide. I think we've -- everybody on the line has sort of surely ample evidence from Microsoft all the way down, but it's a tough IT spending environment.
+
+So I'm just curious, as you set the 3Q and 4Q product revs guide, what you would call out as key variables or maybe changes in macro-related assumptions that you embedded in that guide?
+
+Mike Scarpelli--Chief Financial Officer
+
+I'll just say I think order showed from a booking standpoint that it's a normal environment, and we are very pleased with the deals we closed in the quarter. I don't see it any worse. It's not euphoric or anything, but it's very stable customer buying pattern we're seeing. And in terms of consumption trends, obviously, we just guided our revenue right now for the quarter.
+
+We beat and we raised the full year as well, too, and that's seeing the consumption trends up through this week. So we're pleased with that right now is what we're seeing.
+
+Karl Keirstead--Analyst
+
+OK. Mike, and then just maybe a follow-up. I know that you've embedded in your guidance the assumption of some degree of runoff of the storage revenues that you just repeated earlier, still represent 11% of revs. Is the expected pace of that storage runoff in this new guidance tracking similar to what you embedded 3 months ago? Or is it a little bit lighter or a little bit faster?
+
+Mike Scarpelli--Chief Financial Officer
+
+Yes. Well, I would say, as I said earlier, we really haven't seen any storage leave Snowflake yet, but that was always forecast to happen in the second half of this year, and we are expecting that is -- some of that is going to happen and that is factored into our guidance.
+
+Karl Keirstead--Analyst
+
+Thank you, Mike.
+
+Mike Scarpelli--Chief Financial Officer
+
+You're welcome.
+
+Operator
+
+Our next question is from Brent Thill with Jefferies. Your line is now open.
+
+Brent Thill--Analyst
+
+Thanks. Sridhar, can you give us an update on the adoption of Cortex and how you're seeing that trend? And for Mike, just on RPO, it was good to see really good sequential growth and the acceleration of RPO. But the gap between revenue and RPO continues to be one of the highest we've seen. Is there anything that's going on that we should consider there.
+
+Is this just similar consistent patterns you've seen in the past?
+
+Mike Scarpelli--Chief Financial Officer
+
+I'll actually answer that first just while it's on my mind. As we've said before, we have customers that sign long-term contracts. If they have consumed everything under their contract, they have the ability to buy monthly. We have 2 of our top 10 customers right now that can continue to buy through the end of the year, and we're seeing that.
+
+So they're in their top 10 customers and think top 10 customers are roughly in the $50 million to $40 million range. Those aren't reflected in current RPO very much because they're just buying as they go.
+
+Christian Kleinerman--Executive Vice President, Product
+
+On -- Christian here. On the adoption of Cortex, I believe we have a number of product capabilities under that umbrella. Cortex LMS, which represents the different language models that are available. That one, the adoption is quite strong, lots of new use cases, as Sridhar alluded to, on text summarization, text sentiment analysis.
+
+That's very strong. But also, we introduced at Summit, both Cortex Analyst and Cortex Search as a way to enable users across office, organizations to be able to chat and interrogate the data, whether it's structured or unstructured. Those 2 are important for you, but the adoption at this stage is quite strong. We have quite a bit of demand for -- going to general availability.And maybe the last one that I would call out is the Snowflake Copilot.
+
+We see a lot of usage on customers getting assistance on how to write better SQL queries, which also drives consumption back into Snowflake. So all up, a strong product suite and interest in adoption across all of it.
+
+Brent Thill--Analyst
+
+Thanks.
+
+Operator
+
+We have a question from Brad Zelnick with Deutsche Bank. Your line is now open.
+
+Brad Zelnick--Analyst
+
+Great. Thanks so much for taking the question. It's really a bigger picture question for Sridhar or maybe Christian. If the world increasingly interacts with data through generative AI and LLMs, how does the role of the data warehouse, as we've known it for decades, evolve from here? And why is Snowflake well positioned to help enterprises bridge these worlds, leveraging mountains of enterprise data to build newer generation AI applications?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+I mean, first of all, Snowflake is often at the center of all of the interesting data in companies, absolutely. We started out as a warehouse, but increasingly, we are the data backplane that provides a single unified view. Obviously, this comes from production systems, but also increasingly from multiple connectors we have to other systems whether they are a Salesforce or Segment or SAP or any of the other applications that you use. And what we are doing with additional capabilities like machine learning, like AI is to be able to act on that data to then drive operational systems.Disney, for example, uses Snowflake to do a lot of in-park optimization.
+
+And we see a lot of people that bring supply chain data into Snowflake and then optimize within Snowflake. And obviously, there are also partners like Blue Yonder, which is a supply chain company, that platform on Snowflake and then provide additional capability to their customers so that they can combine the supply chain data with other data that there is.Our bet is really that AI and machine learning are going to go where the data is. Data is going to have a strong gravity. And this is the reason why we are seeing such broad adoption.
+
+And by providing easy-to-use products with Cortex AI, for example, any analyst that knows SQL now is able to use language models. You don't need to go buy new systems, set up new things. And things like data transformation, text transformations become as simple as writing like a 2-line SQL. It is really this ease of use that makes Snowflake such an amazing platform to be able to do all these value-add applications in addition to the core analytics applications and the data sharing that people have done on Snowflake.
+
+Brad Zelnick--Analyst
+
+Thank you very much for that, Sridhar. Maybe just a quick one for you, Mike. Am I too optimistic to think that NRR can stabilize here, especially in light of all the new product that you guys are bringing online?
+
+Mike Scarpelli--Chief Financial Officer
+
+As we've said before, I'm not really going to guide NRR and I said it will, over time, converge with our revenue. And clearly, we'd like to see NRR stabilize at this level, but we'll see at the end of the quarter. I'm not disappointed with our NRR. Given our revenue growth, I'm happy with it.
+
+Brad Zelnick--Analyst
+
+Makes sense. Thanks so much.
+
+Operator
+
+Our next question is from Mike Cikos with Needham Company. Your line is now open.
+
+Mike Cikos--Needham and Company -- Analyst
+
+Great. Thanks for taking the question here, guys. The first one for Sridhar, and I just wanted to come back to Keith's question at the top of the Q&A. I know we're saying that there wasn't an impact on consumption in the quarter related to the muddled headlines around security.
+
+But has Snowflake noticed any change when thinking about the time line for sales cycles or the demand gen as it relates to some of those headlines that were out there?And then the follow-up for Mike would be when we look at the reiterated margin guidance that we have today, is there anything to think about. Was there any delayed spend that's now expected in the back half of the year just given Snowflake's outperformance on a year-to-date basis through the first half?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+On the first one about the model security headlines, obviously, we make sure that we bring up the topic when we -- whether we talk to an existing customer or to a new customer. We point to the security capabilities that we have had, honestly, for close to a decade and try to ensure that all existing customers, for example, follow best practices.They're simple like multifactor authentication, like network policies when it comes to security. And our sales team as well as I, whenever we have conversations with potential new customers, bring this up front and center. And part of the reason why we are slightly muted about this is like these are all the customers that got -- the people that got breached, these are our customers.
+
+And we want to work closely with them to make sure that they get out of the difficult situation that they are in.And both existing customers and new customers appreciate that spirit of partnership and helping them get through difficult situations. We have them talk to our CISOs. We have them talk to our security field CTOs, advise them on best practices. So roughly, I would say that there's not really been any noticeable effect or delay in things like our ability to sign up customers or get -- or, I mean, sign up new customers or get existing customers to deploy new projects.
+
+We just need to be more proactive about having the security conversation, and we absolutely do that.
+
+Mike Scarpelli--Chief Financial Officer
+
+In your question, Mike, on whether there's any delayed spend or not having an impact, so there's no delayed spend. But I will tell you is we are looking at accelerating, and it doesn't change our guidance. Our guidance is the same what it was. We are looking at potentially accelerating some of our hiring in the second half of the year, in particular for the sales force in some of the areas where we want, and that's factored into our full year guidance, which is the guidance we gave last quarter.
+
+Mike Cikos--Needham and Company -- Analyst
+
+That's great. Thank you. Appreciate the additional color.
+
+Operator
+
+Our next question is from Joel Fishbein with Truist. Your line is now open.
+
+Joel Fishbein--Analyst
+
+Thanks, and congrats on the good execution. Sridhar, you spoke about this hospitality customer using Iceberg. Can you give us some more color about that use case and maybe ROI, and maybe if that use case may be used as an example to attract other customers?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+Can you repeat the first sentence in your question? What customer?
+
+Joel Fishbein--Analyst
+
+You talked about a hospitality customer using Iceberg for a specific use case. I was just hoping to get a little bit more detail and color around that. And then maybe if that can be used as an example to attract other customers.
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+Yes. I think the general pattern that we saw there, and we see in our use case -- from our customers is the desire to adopt an architecture that is based on open file formats. And usually, the adoption starts with a small use case. Here's some incremental spend, validate interoperability between engines and then you can go and deploy at a larger scale.
+
+And I think that's the pattern that we see.
+
+Joel Fishbein--Analyst
+
+OK. Thank you.
+
+Operator
+
+We have a question from Patrick Colville with Scotiabank. Your line is now open.
+
+Patrick Colville--Analyst
+
+All right. Thank you so much for taking my question. So mostly, Sridhar, I mean I want to ask about kind of classic data analytics and warehousing. Do you mind just commenting on the pace of migrations, new analytical workloads coming online, query pricing competition in analytics now versus 6 months ago? Is there anything to call out there?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+Yes. In the core analytics space, we are the best in the world that there is. Especially when people consider migrating from complex on-prem systems, we have a professional services team that is exceptionally skilled at it and a very large ecosystem of partners that have been battle tested with massive migrations. And we have done migrations from on-prem workloads that end up saving something like 60% of the cost the customer has to bear, and their Snowflake implementations end up being very, very efficient and low maintenance. This is an area that continues to be important for us.
+
+And we see migrations from a wide variety of legacy systems. And there is also increasing interest in having AI-aided tools. We have a tool called SnowConvert that is used both by our professional services teams but also by our customers. And especially in the world of AI, we are investing more into tools like these so that migrations can be faster.
+
+I would say these kinds of data migrations from legacy systems remain an important part of both new customer acquisition but also driving substantial consumption increases in existing customers.Christian, you have a lot of background in this. Maybe you can...
+
+Christian Kleinerman--Executive Vice President, Product
+
+Maybe the additional color is that some of the systems run the most critical processes in organizations. Typically, they're closing the books on this. So oftentimes, a big portion of the migration cycle is validation and ensuring that the results are correct. And as Sridhar said, we are constantly looking at how to create technology and ways to accelerate the process, but there are some parts of it where the validation continues to be very important to customers.
+
+Mike Scarpelli--Chief Financial Officer
+
+And your question, Patrick, you specifically were talking about the cost of queries and how that has gone. We don't price on a per query because every customer's queries are different. We do a per credit pricing. You get so much compute.
+
+That has remained stable quarter-over-quarter. Sequentially, that actually grew year-over-year 1.3%. But what I can say is the price performance has gotten better quarter-over-quarter for customers, and that continues to be.
+
+Christian Kleinerman--Executive Vice President, Product
+
+And we have been public about a Snowflake Performance Index when we take not synthetic benchmarks but actual customer workloads. And we measure the performance improvement over time, and that's how we give experience to our customers that the economics are getting better on a regular basis.
+
+Patrick Colville--Analyst
+
+Super helpful. Can I -- I guess I want to ask a quick follow-up. I'll leave it open to whoever wants to answer. It's about the prepared remarks saying you're not factoring in benefit from new products and then only minimal benefit in fiscal '25 from Cortex and Snowpark.
+
+I think -- when could those hockey stick and more materially drive product revenue? Because your previous answer was that the core is rock solid and very healthy. So what about the new stuff and when that's going to really reflect?
+
+Mike Scarpelli--Chief Financial Officer
+
+The only newer product that is in the '25 guide for the full year is Snowpark as we said at the beginning of the year. And we said that's going to be about 3% of our revenue or $100 million and tracking to that nicely. And the newer products are not factored into our guidance until we see more history. I do expect they'll have an impact this year.
+
+I don't know yet, but 2026 will have an impact.
+
+Patrick Colville--Analyst
+
+Crystal clear. Thank you so much.
+
+Operator
+
+Our next question is from Michael Turrin with Wells Fargo. Your line is now open.
+
+Michael Turrin--Wells Fargo Securities -- Analyst
+
+Hey. Great. Thanks. I appreciate you taking the question.
+
+Sridhar, I want to go back to that last point and just ask your perspective. You mentioned innovation is a key focus area. So as we're thinking about those newer product efforts and you're having those initial customer conversations particularly around Summit, what are the couple of product areas beyond Snowpark that you see the most early demand signals or just customer conversation around?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+So not only have we had customer conversations, but we've also doubled up specific cadences that teams are implementing in taking new things to market. So we place a special emphasis on what we call data engineering. Iceberg is definitely a part of it, where Snowflake can be used for different kinds of computation that is distinct from the analytic workloads that we've been running.Christian talked about how a hospitality customer is running Snowflake on Iceberg Tables that were not created by us. We very much focus on that.
+
+We focus on other things like streaming ingestions. So data engineering is one work stream. Definitely a big focus on AI. We have a -- basically a war room, a top-to-bottom team from engineering to sales that is focused on how we take AI products to market.
+
+And we expect our Notebooks, for example, to hit GA in a few weeks. And we will be making an effort around making sure that those get into the hands of data scientists so that they can run the most complex machine learning algorithms that they want to run on top of Snowflake.And so we have a pretty methodical approach to how we are taking new products to market but across the gamut, whether it is AI or machine learning or more sophisticated data engineering operations including the unstructured data or things like Notebooks appealing to a very different persona, there is broad interest. It's a matter of organizing ourselves to put the right product offering in front of the right customer at the right time.
+
+Michael Turrin--Wells Fargo Securities -- Analyst
+
+That's helpful. And also just in summarizing a lot of the little comments on rest of your guidance, just go back to that point. We initially started the year with -- I think it was around 625 basis points of potential impact contemplated from the mix of things you've talked about throughout the call. Is that still the right ZIP code for us to think about? And is it fair to assume that you're leaving room for storage to come down from that 11% level in the second half, but you're not seeing that at this point? Is that the right takeaway for us?
+
+Mike Scarpelli--Chief Financial Officer
+
+Well, the storage, we always planned with Iceberg that, that was going to be the second half of the year, and we still think there will be an impact to that, and that's factored in. But our -- every year, we look at potential headwinds associated with performance improvements and other things. We don't update that on a quarterly basis, and we're not going to try to reconcile back to that. We never have and never will.
+
+Michael Turrin--Wells Fargo Securities -- Analyst
+
+That's fair. Thank you.
+
+Operator
+
+Our next question is from Tyler Radke with Citi. Your line is now open.
+
+Tyler Radke--Citi -- Analyst
+
+Yes. Thanks for taking the question. Encouraging to hear that you didn't see any negative impacts from the cyber headlines that hit intra-quarter. I was wondering if you could just sort of talk about some of the offsets, though, to the strong consumption in tech and financial services customers that you saw.
+
+The magnitude of the beat was smaller than you saw in Q1. And I know there were some maybe positive trends in Q1 that didn't continue into Q2, but if you could just help us reconcile the magnitude of the smaller beat from Q1 to Q2, that would be great.
+
+Mike Scarpelli--Chief Financial Officer
+
+Tyler, we've always said that we try to manage this business such that a 3% to 5% beat is a big -- a good beat, and we were 2.4%. Just as I don't get excited if it comes in at 5%, I'm not excited if it's at 2%. I just -- really we're trying to manage this business for the long term. I think what's more important is the fact that the beat or the raise that we're putting through the full year, I think, speaks more to what we see in the second half of the year happening now.
+
+Tyler Radke--Citi -- Analyst
+
+Yes, yes. Helpful commentary. On cash flow, it -- I think collections were a bit lighter. I think that could be a function of the go-to-market changes you talked about.
+
+The full year cash flow outlook was maintained. Can you just talk about the moving pieces in cash flow? Is there any impact from lower CapEx just given some of the GPU availability you talked? And are you seeing kind of the billings terms compress more than expected?
+
+Mike Scarpelli--Chief Financial Officer
+
+No, the billings terms are remaining consistent. As I said, 80% of our customers are annually advanced, and actually, Q2 collections were actually pretty much as we planned. Payables were a little bit higher and the timing of payables. But our Q4 -- remember, we have a lot of seasonality in cash flow.
+
+Q1 and Q4 are going to always going to be our strongest free cash flow quarter. And so I'm comfortable keeping the 26% for the year right now.
+
+Tyler Radke--Citi -- Analyst
+
+Great. Thank you.
+
+Operator
+
+We have a question from Matt Hedberg with RBC. Your line is now open.
+
+Matthew Hedberg--Analyst
+
+Great. Thanks, guys. Mike, for you, there was an early question on gross margin. It sounds like you still have some GPUs to procure in the second half.
+
+But I'm curious, now that you're kind of thinking through the impact of AI on Snowflake, confidence in sort of the medium term that gross margins have, in fact, bottomed and that we could see -- start to see an upward trajectory here at some point?
+
+Mike Scarpelli--Chief Financial Officer
+
+So first of all, when we talk about procuring GPUs, we don't actually buy GPUs. We rent them. So I just want to clarify that. And we have a lot of demand from customers outside of our major regions in Asia and even certain areas in Europe that want us to have GPUs, so they can be using some of our newer products.
+
+And unfortunately, some of the cloud vendors are just not available yet. And when I say they want the H100s, the bigger ones, you can get the smaller GPUs.And is this the bottom of margins? A lot -- I'm never going to say it's the bottom because I don't know what's in the future with new products that could have an impact on the margin. I'm not talking next year. But I feel good about the 75% for the year as we've guided.
+
+Matthew Hedberg--Analyst
+
+Got it. And then with U.S. Fed being a big quarter for you guys next quarter and sort of, I guess, some of the uncertainty on the U.S. election, have you discounted some U.S.
+
+Fed expectations for 3Q? Just kind of curious on sort of how you should think about -- how we should think about that vertical going into next year.
+
+Mike Scarpelli--Chief Financial Officer
+
+Well, I will say our federal business is our smallest vertical. And as I said before, it's only upside for us, so there's not a lot of expectations in our numbers at all for federal. And I do expect we'll close some deals this quarter.And by the way, public sector is pretty good worldwide in what we do. But your question was on U.S.
+
+Federal itself. I do expect some deals. But in terms of impact on revenue, it takes time. That won't be until the future once we close those deals.
+
+We do have FedRAMP High now. We're working on some other things as well, too. And so I do expect to close some deals this quarter in the U.S. Federal space.
+
+Matthew Hedberg--Analyst
+
+Got it. OK. Thanks, Mike.
+
+Operator
+
+Our next question is from Alex Zukin with Wolfe Research. Your line is now open.
+
+Alex Zukin--Analyst
+
+Hey, guys. Thanks for taking the question. Mike, maybe to the answer regarding maybe to the question you got a little bit earlier, obviously really great commentary on bookings growth, RPO strength, the raise being more than double the beat, which is, I think, the strongest raise in a while for product revenue. But to the point like what -- it's a little bit surprising to hear kind of technology being a strong vertical for you guys.
+
+Can you maybe talk about what you're seeing from the financial services and technology verticals that is maybe different? Is it just the macro in those areas? Is it use cases and maybe where it was a little bit on the other side, a little bit weaker and kind of what you expect there?
+
+Mike Scarpelli--Chief Financial Officer
+
+I would say in the financial services, we just have some banks that are in the early innings of migrations. Like one of them has grown, I think, 400% year-over-year. And they are going to continue to grow, and that really is driving a lot of that. And on the technology side, we just have some -- a number of other companies that are growing nicely in the tech space for us as well.
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+And a different consideration, which we actively work on, is the -- like the size and quality of the teams that we put to play in the different areas. We have among the best teams in financial services. That's where we were strong to begin with. And we are early pioneers of things like data sharing where that positive momentum fed on itself.
+
+There are other areas like the federal business, for example, where we are still building out a crack team, and that's driving growth. As much as one likes to think that it's the macroeconomic differences between sectors, what we can do often ends up influencing how robust the growth is.
+
+Alex Zukin--Analyst
+
+Got it. And then maybe just one more. If you think about the competitive landscape, that's kind of been a -- like a little bit of a charge topic this year, particularly for investors. What are maybe some of the major misconceptions or misunderstandings that you would say are out there? And how -- or any changes you observed in the competitive landscape over the course of the quarter or even the first half of the year or from a pipeline perspective?
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+I'll start. Christian and Mike should add on. I think I've spent a lot of time on the road. Just this quarter, I've met with over 100 of our biggest customers one on one.
+
+And the thing that clearly stands out from like an analytic capability, core data capability, data sharing is that we are bar none. We are the best platform that there is, and our customers absolutely recognize that. And we see more and more of their data workloads move over to Snowflake that doesn't make the process easy, a migration of a large complex system that's managing the books of a bank so that they can close it every month. It's nothing to sneeze at.
+
+It's a multi-quarter project that has to be done exceptionally carefully. So one thing that -- I wouldn't call it a misconception, but the one thing that I would reinforce is the strength that we have in our core capabilities. When it comes to newer things like AI, we've been open about the fact that we were a little behind early last year in terms of how much we were invested in it and the kind of products that we -- it's a rapidly moving field, and the kind of products that we could deploy. But even before my coming, the management team here recognize the opportunity, invested heavily in it and things like the Neeva acquisition through which I came were an accelerant to things that were already in place at Snowflake. And I would say the change over the previous quarter is that we can tell our customers, we can tell you with confidence that our AI products are world class and honestly, that we are much more reliable than building products off of APIs that you can get elsewhere because we pay a lot of meticulous attention to how we craft products. And it's that combination of reliability and ease of use that we are turning into a major strength for us in AI as well.
+
+Christian Kleinerman--Executive Vice President, Product
+
+Yes. One quick last comment on top of what Sridhar said. Our product philosophy on ease of use, smart default, how do you make things work easily out of the box, we hear competitively is a strong advantage for us across areas for analytics, for data engineering and for AI. And we'll continue to invest with that philosophy in mind.
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+I promise, last comment on this to give -- to talk about something very concrete that comes with the snowflake platform, especially after the incidence of the summer like CrowdStrike, one of the hot topics has been how we set up applications with Snowflake. This is now a battle-tested operation, and most customers are shocked to find out that we can run a full replica of an important deployment. That's something like 15% the cost of the original deployment because the replica is just -- is basically keeping up. It's not running any of the workloads that are going on in the main one.
+
+It's features like that, that continue to drive our strength in the core.
+
+Operator
+
+[Operator signoff]
+
+Duration: 0 minutes
+
+Call participants:
+
+Jimmy Sexton--Head of Investor Relations
+
+Sridhar Ramaswamy--Chief Executive Officer
+
+Mike Scarpelli--Chief Financial Officer
+
+Keith Weiss--Analyst
+
+Raimo Lenschow--Analyst
+
+Mark Murphy--Analyst
+
+Christian Kleinerman--Executive Vice President, Product
+
+Kirk Materne--Analyst
+
+Kash Rangan--Analyst
+
+Karl Keirstead--Analyst
+
+Brent Thill--Analyst
+
+Brad Zelnick--Analyst
+
+Mike Cikos--Needham and Company -- Analyst
+
+Joel Fishbein--Analyst
+
+Patrick Colville--Analyst
+
+Michael Turrin--Wells Fargo Securities -- Analyst
+
+Tyler Radke--Citi -- Analyst
+
+Matthew Hedberg--Analyst
+
+Matt Hedberg--Analyst
+
+Alex Zukin--Analyst
+
+More SNOW analysis
+
+All earnings call transcripts
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

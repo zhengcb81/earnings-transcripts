@@ -1,0 +1,604 @@
+======================================================================
+Earnings Call Transcript
+Company: Novo Nordisk (诺和诺德)
+Ticker: NVO
+Quarter: Q4 2024
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2025/02/05/novo-nordisk-nvo-q4-2024-earnings-call-transcript/
+Scraped: 2026-05-30T15:01:52.186843
+Characters: 65572
+======================================================================
+
+Novo Nordisk(NVO+0.15%)Q4 2024 Earnings CallFeb 05, 2025,7:00 a.m. ET
+
+Prepared Remarks
+
+Questions and Answers
+
+Call Participants
+
+Prepared Remarks:
+
+Operator
+
+Good day, and thank you for standing by. Welcome to the full-year 2024 Novo Nordisk earnings conference call. [Operator instructions] Please be advised that today's conference is being recorded. I would now like to hand the conference over to your first speaker today, Jacob Martin Wiborg Rode, head of investor relations.
+
+Please go ahead, sir.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you. Welcome to this Novo Nordisk earnings call for the full year of 2024. My name is Jacob Rode, and I'm the head of investor relations at Novo Nordisk. With me today, I have CEO of Novo Nordisk, Lars Fruergaard Jorgensen; Executive Vice President and Head of Commercial Strategy and Corporate Affairs Camilla Sylvest; Executive Vice President, U.S.
+
+Operations and Head of Global Business Development Dave Moore; Executive Vice President and Head of Development Martin Holst Lange; and finally, Chief Financial Officer Karsten Munk Knudsen. All speakers will be available for the Q&A session. Today's announcement and the slides for this call are available on our website, novonordisk.com. Please note that the call is being webcast live, and a recording will be made available on our website as well.
+
+The call is scheduled to last one hour and 15 minutes. Please turn to the next slide. The presentation is structured as outlined on Slide 2. Please note that all sales and operating profit growth statements will be at constant exchange rates, unless otherwise specified.
+
+Please turn to the next slide. We need to advise you that this call will contain forward-looking statements. These are subject to subject to risks and uncertainties that could cause actual results to differ materially from expectations. For further information on risk factors, please see the company announcement for the full year of 2024 and the slides prepared for this presentation.
+
+With that, over to you, Lars, for an update on our strategic aspirations.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Thank you, Jacob. Next slide, please. In 2024, we delivered 26% sales growth and 26% operating profit growth. I would like to start this call by going through the performance highlights across our strategic aspirations before handing over the word to my colleagues.
+
+Starting with our focus on purpose and sustainability, we are now serving more than 45 million patients with our diabetes and obesity treatments. This is an increase of almost 4 million patients compared to last year and reflects our continued capacity expansion efforts. Our total carbon emissions rose by 23% compared to 2023. This was mainly driven by our increased production volumes and increased investments in capital expenditure to meet the high demand for our innovative treatments.
+
+To uphold our commitment of being a sustainable employer, we expanded the number of women in senior leadership positions to 42%, compared to around 41% last year. In R&D, we have -- we had several exciting obesity readouts this quarter, such as CagriSema, semaglutide 7.2 milligrams, and amycretin. These results reinforce our strategic aspiration of developing superior treatment solutions for people living with obesity. For CagriSema, we remain confident in its potent biology and look forward to further exploring its potential and to making it available to patients.
+
+Martin will come back to this and all R&D milestones later. The quarterly sales growth reflects solid commercial execution across both operating units. Camilla and Dave will go through the details later. Karsten will go through the financial details, but I'm pleased with the sales growth of 26% in 2024, as well as attractive growth outlook for 2025.
+
+Now I would like to hand over the word to Camilla for an update on commercial execution of 2024.
+
+Camilla Sylvest--Executive Vice President, Commercial Strategy and Corporate Affairs
+
+Thank you, Lars and please turn to the next slide. In 2024, our total sales increased by 26%. The sales growth was driven by both operating units with North America operations growing 30% and international operations growing 19%. In the U.S., sales growth was positively impacted by gross-to-net sales adjustments.
+
+Our GLP-1 sales in diabetes increased by 22%, driven by North America operations growing 23% and international operations growing 18%. Insulin sales increased by 17%, driven by North America operations growing 52%, positively impacted by gross-to-net sales adjustments and international operations growing 6%. Obesity care sales increased 57%, driven by North America operations growing 45% and international operations growing 107%. In both geographies, growth was driven by Wegovy, partly offset by declining Saxenda sales as the obesity care market is moving toward once weekly treatments.
+
+Rare disease sales increased by 9%, driven by a 20% increase in North America operations, and rare the sales -- rare disease sales in international operations remained unchanged compared to last year. Please turn to the next slide. I would like to reiterate our commitment to continue reaching more patients with our innovative treatments. Today.
+
+Novo Nordisk is the global GLP-1 volume market leader, serving nearly two-thirds of all patients on GLP-1 treatments across diabetes and obesity. Our ongoing scaling efforts have supported an almost tripling of GLP-1 patient reach over the last three years. In December 2024, we announced that the acquisition of the Catalent sites from Nova Holdings was completed. This transaction supports our ongoing scaling efforts and will expand Novo Nordisk global fill and finish footprint from 11 to 14 sites.
+
+We still expect the three sites to gradually increase market supply beyond our preexisting CMO contracts to the market from 26 and allow us to reach significantly more patients in the years to come. Please turn to the next slide. Within diabetes care, sales growth was 20%, driven by our GLP-1 portfolio and insulins. We sustained our diabetes value market share leadership with an unchanged market share of 33.7% compared to last year.
+
+This remains above our strategic aspiration of reaching one-third of the global diabetes value market in 2025. Please turn to the next slide. In international operations, diabetes care sales increased by 12% in 2024, which was mainly driven by GLP-1 diabetes care sales growing 18%. Novo Nordisk remains the market leader in international operations with the GLP-1 diabetes value market share of almost 64%.
+
+And with that, I would hand over the word to Dave.
+
+David Moore--Executive Vice President, US Operations and Global Business Development
+
+Thank you, Camilla. Please turn to the next slide. Sales of GLP-1 diabetes care products in the U.S. increased by 24%.
+
+The sales increase was mainly driven by the continued uptake of Ozempic and the GLP-1 class growth. Novo Nordisk remains the market leader in the U.S. with more than 52% market share measured by total monthly prescriptions. Please turn to the next slide.
+
+Wegovy sales increased by 86% globally, driven by a 59% growth in North America operations, and Wegovy sales in international operations have reached more than DKK 11 billion. The global total branded obesity market more than doubled with a growth rate of 119%. In the U.S., the Wegovy sales growth was driven by increased volumes, partially countered by lower realized prices in the U.S. The positive volume development was also reflected in the Wegovy prescription trends in the U.S., which currently is around 200,000 weekly prescriptions.
+
+That's compared to around 100,000 weekly prescriptions in January 2024. We have reached broad formulary access for Wegovy in the U.S. and continue to work on expanding it further. Currently, Wegovy has coverage for around 55 million people living with obesity in the United States.
+
+In international operations, Wegovy has now been launched in more than 15 countries, underlining our commitment to reaching more patients. Next slide, please. Our rare disease sales increased by 9%. This was driven by sales in North America operations of 20%, while sales in international operations were unchanged.
+
+Sales of rare endocrine disorder products increased by 31%, driven by launches of Sogroya and increased Norditropin supply, as well as a positive impact from gross-to-net sales adjustments in the U.S. Rare blood disorders sales increased by 3%, driven by an increase in hemophilia B sales. Now I will turn it over to Martin for an R&D update.
+
+Martin Holst Lange--Executive Vice President, Development
+
+Thank you, Dave. Please turn to the next slide. In December, Novo Nordisk released the headline results from the first pivotal trial with CagriSema REDEFINE 1 in people living with obesity or overweight. Before getting into the results, I would like to quickly touch upon the trial design.
+
+Based on the CagriSema weight loss data observed in Phase 1 and 2 trials, we incorporated a flexible protocol in REDEFINE 1. The protocol followed a 16-week titration schedule and permitted dose modifications based on tolerability or concerns about excessive weight loss throughout the trial. This was done to balance efficacy, tolerability, and trial dropout. REDEFINE 1 was a 68-week efficacy and safety trial with 3,417 people enrolled.
+
+People were randomly assigned to either receive CagriSema, a fixed-dose combination of cagrilintide 2.4 milligrams and semaglutide 2.4 milligrams, or cagrilintide 2.4 milligrams in monotherapy, semaglutide 2.4 milligrams in monotherapy, or placebo. In line with regulatory guidelines, the purpose of the trial was to demonstrate superiority of CagriSema over placebo, cagrilintide and semaglutide on body weight reduction. Next slide, please. Previous trials and our modeling indicated that CagriSema could provide a potential weight loss of approximately 25%, while the 25% weight loss was not observed in REDEFINE 1, we are encouraged by the weight loss profile of CagriSema which stands out as one of the most substantial weight reductions observed in a clinical Phase 3a trial.
+
+From a mean baseline body weight of 106.9 kg, CagriSema demonstrated a superior and clinically relevant loss of 22.7% of body weight after 68 weeks, compared to reductions of 11.8% with cagrilintide, 16.1% with semaglutide, and 2.3% with placebo. In the trial, CagriSema appeared to have a safe and well-tolerated profile. The most common adverse events were gastrointestinal with the vast majority being mild to moderate and decreasing over time, in line with GLP-1 receptor agonist class. Generally, we observed a low level of gastrointestinal adverse events.
+
+People on CagriSema experienced 2.8 gastrointestinal events per patient per year, compared to 1.2 on cagrilintide and 2.6 on semaglutide 2.4 milligrams. Discontinuation rates due to gastrointestinal-related adverse events were also low with 3% -- 3.6% in the CagriSema arm. For both the cagrilintide and the semaglutide arm, the gastrointestinal discontinuation were 1.3%. Notably, the severity of gastrointestinal events for cagrilintide was similar to the comparator arm.
+
+As a reference, in step 1, semaglutide 2.4 milligrams had a discontinuation rate due to gastrointestinal-related adverse events of 4.5%. Lastly, the overall discontinuation rate for CagriSema was 11.7%. For comparison, semaglutide showed a discontinuation rate of 17% in step 1. In the REDEFINE 1 trial, the extent of dose modification prompted us to conduct a more in-depth analysis of people receiving the highest dose at 68 weeks, followed by an analysis of people on lower doses at 68 weeks.
+
+In the following slide, I will guide you through a post-hoc analysis based on these two subgroups and share some reflections and considerations regarding the data. Next slide, please. The first subgroup comprised 57% of the total population and consisted of people in the trial who ended on the highest 2.4 milligrams dose of CagriSema at 68 weeks. The second group accounted for 29% of the population consisted of those who were at lower doses of CagriSema at 68 weeks.
+
+The remaining 14% of the population were on either treatment pause or had been discontinued at 68 weeks. The first subgroup achieved a 12.7% mean weight loss at 20 weeks and a full 22.2% mean weight loss at 68 weeks. The weight loss trajectory for the first subgroup did not plateau at 68 weeks. CagriSema showed a high tolerability with fewer gastrointestinal adverse events compared to semaglutide 2.4 milligrams.
+
+This suggests that additional weight loss could be achieved with a trial of longer duration. The second subgroup showed a potent treatment response by achieving 15.9% mean weight loss at 20 weeks and 25.1% at 68 weeks, approaching a normal BMI at the end of treatment. The average treatment dose was 1.1 milligrams at 68 weeks. Those reductions occurred from the mid-trial to end of treatment and did not occur to gastrointestinal adverse events alone.
+
+This group of people could potentially achieve higher weight loss with higher doses through increased focus on dose escalation -- dose reescalation, as well as longer treatment duration. Overall, CagriSema demonstrates a potent treatment response resulting in a superior weight loss efficacy compared to semaglutide. Furthermore, the REDEFINE 1 data indicate that a patient-centric and individualized treatment regimen which take the initial dose escalation -- dose reescalation and trial duration into account could potentially enhance efficacy of CagriSema while maintaining a favorable safety profile. While it may appear counterintuitive that lower doses of CagriSema leads to more substantial weight loss.
+
+This patent is consistent with the observations from the step and step-up trials with semaglutide. However, it appears to be more pronounced with the potent biology of CagriSema. In addition, we have previously observed very responses to anti-obesity medications across different populations. Based on the insights from REDEFINE 1 and the reflection I've just shared with you on the data will further explore Cagrisema potential in a new Phase 3 trial, REDEFINE 11.
+
+The trial will have a longer trial duration and focus on dose escalation and reescalation. Next slide, please. Turning toward the next step for CagriSema. We are currently anticipating the results of REDEFINE 2 in the first quarter of 2025.
+
+The REDEFINE 11 trial will be initiated in the first half of 2025 and we now expect to submit CagriSema in the first quarter of 2026. The adjusted timelines are not related to the redefined development program but driven by supply chain reticentness when launching into a large and rapidly expanding market of obesity. Next slide, please. Earlier this year, Novo Nordisk announced the headline results from the Phase 3 trial step-up with semaglutide 7.2 milligram.
+
+The 72-week efficacy and safety trial investigated subcutaneous semaglutide 7.2 milligram, compared to semaglutide 2.4 milligram and placebo. 1,407 people with obesity were enrolled in the trial with a BMI of 30 or higher without diabetes. The mean baseline body weight was 113 kilograms. When evaluating the effects of treatment when all people are here to treatment after 72 weeks, semaglutide 7.2 milligram achieved a superior weight loss of 20.7%, compared to a reduction of 17.5% of semaglutide 2.4 milligram and 2.4% with placebo.
+
+In the trial, semaglutide 7.2 milligrams appear to have a safe and well-tolerated profile. We have also completed the step-up trial in an obese population with type 2 diabetes and are now evaluating the next steps in light of our overall obesity portfolio. Next slide, please. Recently, we announced the headline results from the Phase 2b/2a trial with once-weekly subcutaneous amycretin in 125 people with overweight obesity.
+
+The trial was a combined single ascending dose, multiple ascending dose, and dose response trial investigating three different maintenance doses with a total treatment duration of up to 36 weeks. The primary endpoint was a treatment was treatment-emergent adverse events. The most common adverse events were gastrointestinal and the vast majority were mild to moderate in severity. Overall, the safety profile of amycretin was consistent with amycretin-based therapies.
+
+People in the dose-response part of the trial had a baseline body weight of 92.7 kilograms. People treated with amycretin achieved an estimated body weight loss of 0.7%, 16.2%, and 22% at their respective doses. This was achieved on 1.2 -- sorry, 1.25 milligrams, 5 milligrams, and 20 milligrams, respectively. This compared to a body weight gain of between 1.9% to 2.3% for people treated with placebo.
+
+The effect of treatment was evaluated if all people were adherent to treatment. We are very encouraged by the results for subcutaneous amycretin for people living with overweight obesity. And based on the results, we are now planning for further clinical development of amycretin in people with overweight obesity. Next slide, please.
+
+Overall, we have a competitive portfolio in obesity underlined by the recent readouts from CagriSema, semaglutide 7.3 milligrams, and subcutaneous amycretin. Our strategic ambitions remains to build a portfolio of superior treatment options in obesity and a focus on efficacy, safety, and scalability, be it injectable at all. Our marketed portfolio started with Saxenda. We then set the bar with the Wegovy's attractive clinical profile with double-digit weight loss and a proven cardiovascular risk reduction from the SELECT trial.
+
+In the short term, we expect to increase our competitiveness further with semaglutide 7.2 milligrams, as well as oral semaglutide 25 milligrams. As illustrated on the right-hand side of the slide, the next-generation anti-obesity medications in our pipeline feature multiple different mode of actions that can address different segments in the obesity market. Selected highlights are the planned Phase 3 trial with cagrilintide in more therapy, further development based on the promising amycretin Phase 1/2 data and the initiation of our triple agonist Phase 1 trial. We look forward to sharing data from all of these trials when they read out.
+
+Next slide, please. Turning to the upcoming R&D milestones. We look forward to a year with many exciting trial readouts. Before turning to 2025, I would like to highlight a few milestones from the last few months.
+
+We continue our focus on investigating how our innovative treatment impact related comorbidities in diabetes and obesity. Positively, Ozempic is now the only GLP-1 receptor agonist proven to reduce the risk of chronic kidney disease in people with type 2 diabetes and chronic kidney disease. This is based on the data from the FLOW trial and positive opinion from the European regulatory authorities and a U.S. FDA approval.
+
+We have also submitted the label extension applications for oral to mega site 14 milligram on the Rybelsus brand to U.S. and the European authorities based on the data from the [Inaudible]. Further, we have resubmitted the results from the STEP HFpEF trials with a magnetite 2.4 milligram in people with obesity to the U.S. FDA.
+
+The submission includes data from FLOW and so, further substantiating the benefits of semaglutide for patients with heart failure. Excitingly, we have initiated a Phase 1 trial with a once-weekly subcutaneous triagonist in people with overweight obesity in the fourth quarter of 2024. Moving to the milestones in 2025. I would like to start with a few exciting data readouts in type 2 diabetes in the second half that supports our aspirations of raising the innovation bar.
+
+Specifically, we expect the first Phase 3 results from CagriSema, as well as Phase 2 results for both subcutaneous and amycretin and once weekly GIP/GLP-1 co-agonist. Moving to obesity and the first half of '25. We are now expecting to submit or semaglutide 25 milligram for people with obesity to the U.S. regulatory authorities in the first quarter.
+
+Furthermore, we also expect Phase 2 results from the once-weekly GLP-1, GIP co-agonist. For CagriSema, specifically, we expect results from REDEFINE 2 and REDEFINE 4, during 2025 and to initiate the new REDEFINE 1 trial later during the first half of 2025. Within rare disease, we expect regulatory submissions of Mim8 in the U.S. and in the EU in the first half -- sorry, in the second half of 2025.
+
+With then cardiovascular and emerging therapy areas, we look forward to read out the -- sorry, we look forward to the readout of the evoke and the evoke+ trials in patients with early Alzheimer's disease. With that, over to you, Karsten.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Thank you, Martin. Please turn to the next slide. In 2024, our sales grew by 25% in Danish kroner and by 26% at constant exchange rates, driven by both operating units. In the U.S., sales growth was positively impacted by gross-to-net sales adjustments.
+
+The gross margin increased to 84.7%, compared to 84.6% in 2023. The increase is mainly driven by a positive price impact due to growth to net sales adjustments in the U.S. and the positive product mix. This is partially countered by costs related to ongoing capacity expansions.
+
+Sales and distribution costs increased by 9% in Danish kroner and by 10% at constant exchange rates. In North America operations, the cost increase is mainly driven by promotional activities related to Wegovy. In international operations, the increase is mainly related to obesity care market development activities, Wegovy launch activities, as well as promotional activities for GLP-1 diabetes products. Additionally, the increase in sales institution costs is negatively impacted by an adjustment to legal provisions in 2023.
+
+Research and development costs increased by 48%, both measured in Danish kroner and at constant exchange rates. The increase in cost is mainly reflecting increased late-stage clinical trial activity, increased early research activities, as well as impairment losses related to intangible assets. Administration costs increased by 9% in both Danish kroner and at constant exchange rates. Operating profit increased by 25% measured in Danish kroner and by 26% at constant exchange rates.
+
+Operating profit is positively impacted by gross-to-net sales adjustments in the U.S. and negatively impacted by impairment losses. EBITDA increased by 32% in Danish Kroner and 33% at constant exchange rates. Net financial items showed a net loss of DKK 1.1 billion, compared to a net gain of DKK 2.1 billion last year.
+
+This primarily reflects losses on nonhedged currencies. The effective tax rate was 20.6% in 2024, compared to 20.1% in 2023. Net profit increased by 21% and diluted earnings per share increased by 22% to DKK 22.63. Net profit and diluted earnings per share are impacted by the impairments related to intangible assets.
+
+Cash flow from operating activities in 2024 was realized at DKK 121 billion, an increase of DKK 12 billion versus 2023. As for allocation of DKK 47 billion to capex for supply chain and around DKK 82 billion related to Catalent site acquisition results in free cash flow of minus DKK 14.7 billion. This compares to DKK 68.3 billion in 2023. Please go to the next slide.
+
+In line with our strategic aspiration to deliver attractive capital allocation to shareholders, we have returned DKK 64.3 billion to shareholders via dividends and share buyback during 2024. At the annual general meeting on 27th of March 2025, the board of directors will propose a final dividend of DKK 7.90 for a total 2024 dividend of DKK 11.40 including the interim dividend paid in August 2024. This is a 21% increase compared to 2023, making it the 29th consecutive year with increasing dividend per share. In addition to the dividend, the DKK 20 billion share buyback program for the past 12 months has been concluded.
+
+Novo Nordisk capital allocation priorities prioritize attractive investments into the company, including supply chain expansions and R&D, as well as consistent dividend payout. Consequently, following the further step-up in capex, Novo Nordisk is not initiating a new share buyback program at this point in time. Please go to the next slide. We continued the growth momentum in 2025 and expect the sales growth to be between 16% and 24% at constant exchange rates.
+
+This is based on several assumptions as described in the company announcements. The guidance reflects expansion expectations for sales growth in both North America operations and international operations. the sales growth is expected to be mainly driven by volume growth of GLP-1-based treatment for obesity and diabetes care, also reflecting our continued scaling of our supply chain. Our reported sales are expected to be 3 percentage points higher compared to constant exchange rates and operating profit is expected to be 5 percentage points higher compared to constant exchange rates.
+
+We expect that the operating profit will grow between 19% and 27% at constant exchange rates. This primarily reflects the sales growth outlook and continued investments in current and future growth drivers within research, development, and commercial. And negative mid-single-digit operating profit growth impact related to the acquisition of the three Catalent manufacturing sites is also included in the guidance. For 2025, we expect net financial items to amount to a loss of around DKK 9 billion.
+
+This mainly reflects losses on currencies, primarily the U.S. dollar, and increased interest expenses related to funding of the Catalent site transaction as this acquistition was mainly debt financed. The effective tax rate for 2025 is expected to be in the range of 21% to 23% and. The increase compared to 2024 is mainly driven by country and therapy sales mix.
+
+Capex is expected to be around DKK 65 billion in 2025, reflecting expansion of the supply chain. In the coming years, capex to sales ratio is still expected to be in the low double digits. The free cash flow is expected to be DKK 75 million to DKK 85 billion, reflecting the sales growth, a favorable impact from rebates in the U.S. countered by increased investments in manufacturing facilities.
+
+That covers the outlook for 2025.Now back to you, Lars.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Thank you, Karsten. Please turn to the final slide. We are pleased with the performance in 2024, where 26% sales growth reflects that more than 45 million people are now benefiting from our treatments. Further, we completed the acquisition of three Catalent sites.
+
+And during the year, we progressed our R&D pipeline, including obesity projects, such as CagriSema and amycretin. With effective 2025 outlook, we will continue to focus on strong commercial execution and the progression of our early and late-stage R&D pipeline, and on the expansion of our production capacity. With that, I would like to hand the word back to Jacob.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Lars. Next slide, please. With that, we are now ready for the Q&A. [Operator instructions] Operator, we are now ready to take the first question, please.
+
+Questions & Answers:
+
+Operator
+
+Thank you. [Operator instructions] And your first question comes from the line of Richard Vosser from J.P. Morgan. Please go ahead.
+
+Richard Vosser--Analyst
+
+Hi. Thanks for taking my questions. Two questions, please. Firstly, on Wegovy, could you give us some more details of what's holding back the U.S.
+
+prescriptions in the last quarter of '24 and the early part of '25? What can you do about it? And how should we anticipate the growth in prescriptions from here? And second question, just thanks for all the dosing data. But based on that, and what you've seen in REDEFINE 1 and the tolerability that you've shown, how do you think the profile of CagriSema will stack up versus rebound in REDEFINE 4? Thanks very much.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Richard, for those two questions. On the first one, on Wegovy prescription trends, we'll turn to you, David.
+
+David Moore--Executive Vice President, US Operations and Global Business Development
+
+Thank you, Richard, for the question. I think it's important to remember that the total market for anti-obesity medicines grew in the U.S. last year by 160%. And so the story continues to be about market expansion for obesity.
+
+And for our own brand, Wegovy, recall, we started last year with around 100,000 prescriptions and ended with over 200,000 prescriptions. And so the scaling efforts are recognized and that's being pulled through in the market. In the beginning of the year, and this is normal, there are movements in benefit plans and patients changing in terms of their co-pays and co-insurance. This is normal, but it does have an impact with total prescriptions in the beginning of the year as well as coming through holidays, as well as Martin Luther King holiday in the beginning of the year.
+
+It's important to remember, we're treating 1.2 million patients with Wegovy today, and we have access of 55 million people living with obesity in the U.S. Driving new prescriptions is, of course, our focus. And what we can say about that is we are shipping more of the starter doses as we speak. Those started doses are making their way through the supply chain from the wholesaler to a retailer, which is also new for us to have this amount of new starter doses.
+
+And now it's our opportunity to pull through this market expansion and connect more people with Wegovy in the U.S.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Dave. And then we turn to the second question, which goes to you Martin on current thoughts on CagriSema profile also looking ahead to REDEFINE 4.
+
+Martin Holst Lange--Executive Vice President, Development
+
+Yeah. Thank you very much, Richard. So REDEFINE 4, as you rightly mentioned, this had trial CagriSema versus semaglutide. The first statistical testing will be non-inferiority and based on what we've seen with REDEFINE 1, there's a good assumption that will come out with non-inferiority established.
+
+Second test for superiority. And again, I think it's too early to speculate, but we will see the data when we will see them, but that is test number two.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Martin, and thank you, Richard. Then we are ready for the next set of questions, please.
+
+Operator
+
+Thank you. Your next question comes from Harry Sephton from UBS. Please go ahead.
+
+Harry Sephton--UBS -- Analyst
+
+Hi there. Thank you for taking my questions. It's Harry Sephton from UBS. I'd like to start with the REDEFINE 1 results, and can we address this difference between the weight loss profile that doesn't show a typical dose response? You talked about the fact that fewer patients finished at the higher dose in the initial results as a potential explanation to the weaker weight loss versus your modeling, the data you've shown today somewhat contradicts this.
+
+So what have you seen to explain this discrepancy? Is it a speed of titration issue? Or are there other factors you can help explain this? And what read across can you take from these data for the imminent REDEFINE 2 data? My second question is following the amycretin subcu data. How do you see the positioning of this product versus CagriSema in the future? Do we need incremental efficacy from here? Or does the benefit from amycretin more come from scalability and the flexibility of both the injectable and oral formulations? And what is the timing for the initiation of your Phase 3 program for amycretin? Thank you.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Harry, for those two questions. On the first one, in terms of REDEFINE 1 data, we'll turn it to you, Martin.
+
+Martin Holst Lange--Executive Vice President, Development
+
+Yeah. Thank you very much, Harry. So first of all, I think it's important to call out, we don't really see discrepancies. We see a picture emerging that we've seen to an extent in the step certainly in the step-up study programs, and we see that also now in REDEFINE 1.
+
+We see a group of people who titrate with very strong safety and tolerability to the fullest dose. They have a very substantial weight loss. And specifically in REDEFINE 1, we see the potential for even further weight loss with longer treatment duration. Then we see some early responders who clearly lose weight faster than the other group.
+
+They also appear to have the potential to lose more than the other group. And what we can see from this is basically that on average, that group which is bigger than what we've normally seen in our trials, losers actually a mean of 25.2 percentage point at the end of trial, approaching a BMI that would indicate nonobesity. That actually then plays into a dynamic because these patients have slightly more gastrointestinal side effects, they also -- some of them expressed concerns about the speed of weight loss. And therefore, they start to titrate a little bit down.
+
+That, again, is a big potential because they can actually lose more weight. It's to your point, allowing them to do individual dose titration. -- titrate a little bit slower and then coming up to higher doses, balancing the speed of their weight loss and the gastrointestinal side effects. Obviously, this population also seems to be benefiting from an even -- or could be benefiting from an even longer trial duration.
+
+And that basically means we see two distinct groups, one being what we call early or high responders. But both groups actually showing more weight loss potential. We can utilize that in the future programs for Cagrisema, specifically starting with REDEFINE 11. But we can certainly also use those data when we designed the amycretin program using the same biology.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Martin. And for the second question on amycretin, CagriSema, and having a portfolio, I'll turn it to you, Camilla.
+
+Camilla Sylvest--Executive Vice President, Commercial Strategy and Corporate Affairs
+
+Thank you very much. Yeah. There's no doubt that with the size of the obesity market, it will be a key strength to have a broad portfolio of products like Martin shared with you in the slides just before. We believe we have a very strong portfolio that enables us to work with optionality, optionality in terms of different patient segments and different markets to address the big unmet need that there is.
+
+Remember, there is very few percentage points of the total population that is currently being treated. And I think historically, we've talked about sort of the people with obesity as one group. But as we expand our portfolio, we will be able to target different needs of different segments, as well as different geographies. So we have remain very confident, of course, in CagriSema and also in amycretin.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Camilla. Thank you, Martin, and thank you, Harry, for those two questions. Then we are ready for the next set of questions, please.
+
+Operator
+
+Thank you. Your next question comes from the line of Michael Nedelcovych from TD Cowen. Please go ahead.
+
+Mike Nedelcovych--TD Cowen -- Analyst
+
+Thank you for the questions. I have two. My first is on supply. Lilly has indicated that it can boost its increase in supply by 60% in the coming months.
+
+You all have never quantified capacity, but do you feel that your efforts to boost production will be competitive with this number? This might be an oversimplification, but if we grant the prescription trends in the U.S. are largely reflective of supply rather than demand than it would seem your competitor may be ramping capacity more swiftly. Do you think that's a fair interpretation? And then my second question is on oral semaglutide 25 milligrams, which you now plan to file for weight loss in the U.S. It's notable that you are not pursuing the 50-milligram dose.
+
+I assume this decision was related to supply considerations, but please correct me if I'm wrong. And how should we think about the eventual launch of this offering? Just as an example, you've used the term capped as it relates to Wegovy's ex-U.S. launches. Should we also think of oral semaglutide weight loss launch as capped?
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Mike, for those two questions, one on supply and then on launch considerations around oral sema. First, our supply will turn to you, Karsten.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Michael, thanks for this question. And let me start basically my answer on the slide we showed earlier on. So we scaled our patient reach with [Inaudible] by almost a factor 2 over the last three years, and latest data point from IQVIA, and this is based on IQVIA latest data point, we are serving almost two-thirds of the global GLP-1 market and then competition sitting on the remaining one-third. Specifically for the last year, just to have hard data, we have expanded patient reach, again, based on IQVIA numbers, more in absolute numbers, more than any other competitor in this market.
+
+So actually, we have grown faster in terms of serving more patients over the last 12 months based on IQVIA -- then I'd say as a forward-looking statement in terms of our scaling into 2025. With the guidance we have and the size of the base we have, you can say, a sales growth in, say, a midpoint of 20%, then you apply rebate enhancement and few mix impacts and share of the total portfolio, then then you get to a scaling volume scaling of GLP-1 franchise in terms of patients served nicely in excess of 30% into this year. So I think we are very competitive in terms of scaling.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Karsten. And then on oral semaglutide 25 milligram, probably too early to talk about launch and positioning, but the high-level value proposition of all [Inaudible] Camilla.
+
+Camilla Sylvest--Executive Vice President, Commercial Strategy and Corporate Affairs
+
+High-level value proposition back to what we talked about before. It is likely that there will be an all segment in obesity as there has been actually also before, but due to tolerability issues, this has been quite small. Now we have product that is moving in terms of clinical trials and efficacy with a 16% weight loss or semaglutide 25 milligram. And of course, that gives us an opportunity to launch this in selected markets.
+
+And with that, we will, of course, benefit from the benefits of semaglutide in general, and this gives us optionality to address an oral more specifically. So that's part of our plans and our order portfolio.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Camilla, and thank you, Mike, for those two questions. Then we turn to the next set of questions, please.
+
+Operator
+
+Thank you. Your next question comes from Sachin Jain, Bank of America. Please go ahead.
+
+Sachin Jain--Analyst
+
+Hi. Thanks very much. Thanks for taking my two questions. Two questions, similar topics, if I may.
+
+So back on CagriSema, Martin expert detailed explanation. Just wondering if Dave or Camilla could touch on how you're going to translate that into a commercial message. So very simply, what doses should patients be on how titrate and at the doses they get to, what do you think the profile versus [Inaudible]? And how are you thinking about positioning this relative to Wegovy, just seems quite confusing to me? And the second one is just for Karsten on the wide guidance range. You started with 8% this year at the beginning of last year, bottom to top end, what are the key areas of uncertainty or delta's view as you think about '25?
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Sachin, for those two questions. Firstly, on CagriSema and the value of the individualized treatment on you Camilla.
+
+Camilla Sylvest--Executive Vice President, Commercial Strategy and Corporate Affairs
+
+Yeah. So agree, of course, with the results we have seen, we are very confident in the product. We are very confident in our portfolio, and it's really the optionality that we are working with on how to target specific segments and specific geographies. I think it's a little bit premature for us to reveal our full commercial approach as to how we are utilizing the benefits of these different options that we have in our pipeline, but it is the sum of the pipeline that we just talked to that will really enable us to address more and more people living with obesity.
+
+So that's how we are moving forward. And why you will also see us addressing different types of products with different optionalities as we just discussed all now CagriSema, amycretin, and of course, also higher-dose Wegovy. This is all part of our opportunity to play in obesity.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Camilla. Then on the second question, we turn to you Karsten.
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Yeah. Sachin, thank you for that -- so our guidance range breadth is in line with what we had last year and is also reflective of the rapid growth rate that we're delivering as a company. The main swing factors which can all be both positive and negative, I would call out three main ones, one being supply as we've seen in prior years and more supply can make us reach more patients and and more markets. And of course, negative supply fluctuations would impact the other way.
+
+So that's number one. Number two is competition and magnitude of competition. of course, we do not have forward-looking visibility to we see what's in the market today. So it's based on our current read of the markets.
+
+And then the third factor is gross-to-net adjustments where we've seen some sizable gross-to-net adjustments in the U.S. over the past few years, reflecting a 69% spread between gross and net sales in the U.S. and that swing factor can also both be positive and negative. So that would be the main three factors.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Karsten. Thank you to you as well, Sachin. Then we are ready for the next question, please.
+
+Operator
+
+Thank you. Your next question comes from the line of Richard Parkes, BNP Paribas. Please go ahead.
+
+Richard Parkes--Analyst
+
+Yes. Thanks for taking my questions. Firstly, on CagriSema, I've got sound still a little bit confused on the inverse dose response. I'm just wondering -- why has this not been seen in any of the trials today? I'm not just to conclude that not all patients need the 20% plus weight loss that can be achieved.
+
+So I'm just wondering kind of why that's not been seen before. And then in terms of the prescription demand currently, I mean, you flagged formulary changes, but your net access sounds like it hasn't changed. So has there been some kind of big formulary changes, but the net access overall is the same? I'm just wondering what impact compounding pharmacies are having on demand currently.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you very much for those two questions. Firstly, on CagriSema, we'll turn to you, Lars.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Yeah. So thank you, Richard. So just to give a perspective on how we see this. So Martin alluded to that also in the past, have we seen a difference in how patients respond.
+
+That has been based on, say, lower potency products. So we saw a similar -- when we developed Wegovy but with less, say, spread, so to say. And in our view, we have to relate to that when you develop highly potent biologies like what we see with CagriSema, these differences will be amplified. So the fact that patients are different and respond in a different way means that we'll see increasingly as we move up and develop highly efficacy products, you will see this difference in response.
+
+And in terms of use in the market also to the prior question, I think it's perhaps less confusing for physicians than we believe because they actually use to patients responding quite differently on treatment. And that goes for obesity, but it also goes for any, say, chronic disease that patients respond differently to medicines. So physicians are used to a more patient-centric treatment regime. And I think what really matters here is that we have a highly potent biology that kind of does the job.
+
+And the other thing it's up for -- for the rest of us to acknowledge that this is a new sign we get in large-scale clinical development, but it's really linked to the potency of the product. And I anticipate that we see similar signals as we develop equally potent biologies in the future. So I'm quite comfortable with the profile and also that it works for patients and that it will also work in the hands of physicians who are used to more individualized treatment of patients.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Lars. And then on -- for the next question, I'll turn to you, Dave, on access/formulary movements in the U.S.
+
+David Moore--Executive Vice President, US Operations and Global Business Development
+
+Yeah. Thank you for the question, Richard. It's important that we reiterate that -- it's our belief that building a sustainable obesity market for the long term is through market access and having patients have a reasonable co-pay and access to the medicine. I'm happy to say for 2025 that we have maintained our broad access for Wegovy, covering 55 million people with obesity.
+
+There were no major changes with opt-ins and opt-outs. It's important to note that these patients have Wegovy available at a low out-of-pocket cost, more than 80% of them paying less than $25 for a prescription. And this is also, in addition, we have now more than 20 states that also cover Wegovy through Medicaid. You also had a question about compounding.
+
+Our latest market intelligence does tell us and show us that it is having an impact, and it is growing faster than we had anticipated. I want to remind everyone that we do not supply compounding, and we have significant actions in place to curtail this. Our focus is on patient safety and educating patients and providers that this is not sema and also to work with the regulators to curtail compounding as well.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Dave, and thank you, Richard, for those two questions. Then we'll turn to the next question, please.
+
+Operator
+
+Thank you. Your next question comes from Emily Field from Barclays. Please go ahead.
+
+Emily Field--Barclays -- Analyst
+
+Thank you. Just to follow up on the compounding point, for a few months now, all the doses of semaglutide have been marked is available on the FDA drug shortage website, but the molecule is still marked as in shortage. When do you expect that to be removed? And then would that lead to a similar kind of off-ramp from the FDA for the compounders that we saw FDA issued a directive in December for trazepatide? And then secondly, another question on REDEFINE 1. The red curve for the patients that were on the lower dose at the end of treatment, is it fair to say that a significant number of those patients did go up to 2.4 milligram and then titrated down whether for tolerability or that they were very, very fast responders to the weight loss.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Emily. And on the first one, a follow-up question on compounding, we'll turn to you, Dave.
+
+David Moore--Executive Vice President, US Operations and Global Business Development
+
+Yeah. As you mentioned, we are still listed on the drug shortage list. We are in active dialogue with FDA. It is ongoing.
+
+Of course, as we increase the resilience in our supply that has an impact on our ability to get off the drug shortage list, and we are focused on doing that as fast as possible as we believe this will help our further actions to curtail compounding in the future.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Dave. And then on the early responder curve, we'll turn to you, Martin.
+
+Martin Holst Lange--Executive Vice President, Development
+
+Yeah. Absolutely. I want to go back to Lars' point that obesity is a complex disease. And patients have individual response to treatment.
+
+So in the group where patients did not titrate to full dose at end of trial, the mean dose at week 20 was around 1.5 milligrams, indicating that very few actually opted to try to try to full 2.4 milligram dose. This is more to be seen as a group of fast and high response. And therefore, with the weight loss that they accrued, which was then also faster than the other group, they started to slow down to balance the speed of their weight loss, their gastrointestinal side effects, but also the fact that they were approaching a level below the definition of obesity. And therefore, again, it speaks to the very powerful biology that we see, but also the need to individualize treatment.
+
+And again, I'll just remind you, this is the trial at a population level where we've seen very few gastrointestinal side effects at the level of Wegovy. And therefore, that is not the key driver of how patients choose to titrate, right? I think Lars has a really good point. Patients know how to do this together with their physicians.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thanks a lot, Martin, and thank you, Emily, for the two set of questions. With that, we are ready for the next question, please.
+
+Operator
+
+Thank you. Your next question comes from the line of Florent Cespedes from Bernstein. Please go ahead.
+
+Florent Cespedes--Analyst
+
+Good afternoon. Thank you for taking my questions. Two quick ones, please. First for Dave.
+
+Could you give us your view on the situation in the U.S. for semaglutide regarding IRA, Inflation Reduction Act, because now you're on the list? So could you remind us how you will manage the situation for 2027? And when should we have the final level of rebates, if you could remind us that the process would be great? Second question for Martin on Monludaban. Maybe could you give us some color on the Phase 2 if from the kidney trial, notably on the tolerance if there is any readout on the tolerance side that could maybe help you to design or adjust the rest of the clinical -- ongoing clinical trials.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thanks a lot, Florent. On the first one, IRA, of course, I have to speak too much, but with that, over to you Dave.
+
+David Moore--Executive Vice President, US Operations and Global Business Development
+
+Yeah. Thank you, Florent. As expected, semaglutide-containing products, Ozempic, Rybelsus, Sema, Wegovy. They are selected for the second round of CMS negotiations.
+
+It's too early to speculate on the potential impact. As we've stated in the past, we oppose government price setting like we have from the beginning. The process, though, is as follows: the negotiations will end in the beginning of November. The maximum fair price will be published by the end of November, and it will be effective in the 1st of January 2027.
+
+And just for background, the rough U.S. channel mix across our portfolio is about 50%, commercial; 30%, Medicare; 10%, Medicaid; and 10%, other.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Dave. And on the next question on the monobrand in diabetic kidney disease, we'll turn to you, Martin.
+
+Martin Holst Lange--Executive Vice President, Development
+
+Thank you very much for that question. So to remind us, one being we never did the acquisition of Boludabant to develop it purely for diabetic kidney disease. Our focus was on the weight loss potential. Second, I'll just remind you that these are small studies.
+
+So obviously, we try to see them in the context of the full picture. So we are not discouraged by the fact that we did not see impact on the actual diabetic kidney disease. That study did confirm a weight loss potential for molunobant. And when we look at the safety and tolerability profile, it was comparable, albeit with slightly lower rates than in the dedicated obesity story, basically indicating that we can still have an aspiration of exploring this further in Phase 2b with lower doses looking at weight loss potential but obviously also -- and this has been the attempt from the get go, also ruling out an ability -- a potential safety concern.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Martin. Yes. Thank you as well, Florent. And then we are ready for the next set of questions, please?
+
+Operator
+
+Thank you. Your next question comes from the line of Evan Seigerman from BMO Capital Markets. Please go ahead.
+
+Evan Seigerman--Analyst
+
+Hi, all. Thank you so much for taking my questions. Kind of a big-picture question. There seems to be an obsession with absolute weight loss, whether a percent more or less can make a winner or a loser and specifically referring to CagriSema.
+
+Maybe walk me through how you view the ideal product profile of an asset. Is it better weight loss, notating tolerability, longer acting, better delivery? As you think about your portfolio what would you like to see in kind of your next-generation products?
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Evan. I think on the high-level obesity question, we'll turn to you, Lars.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Thank you, Evan, for bringing that up. I think it's really be a good topic to discuss. And obviously, it's a quite broad topic. And I think it -- the discussion opens up with what we now see in terms of this case's biologies because you say that with former generation products like Wegovy, you could, in principle, say, load patients up and all would say tolerate the weight loss they see.
+
+And also the GI tolerability, we know, is very good. But when you get into, say, the next-generation products, where you amplify the weight loss, you tease out the difference between different patients who we are still trying to look into the omics and figure out what defines the difference. And we have a lot of data. So we can start actually finding ideas about who will respond in certain ways and from a speed of weight loss, etc.
+
+So that -- then we're into the topic of, say, quality of weight loss. And I think in the early days of obesity, we have all been obsessed by the percentage over time. And I think that's a problematic ratio because if you have lived with obesity, a good part of your life and suddenly, you lose, say 25%, in some even more percent weight loss in a matter of, say, half year to a year, that's a very, very dramatic, say, change in your life and not necessarily what anyone would like. So that's one.
+
+And then, of course, we have all the comorbidities. And increasingly, I think with the establishment of CV benefits, liver benefits, etc., it also becomes a matter of, say, the health outcome improvements you have. So in this, say, opportunity space, I think it's important to be able to address those opportunities with different type of agents, to cater for these differences. Short term, as I mentioned before, I think patients together with the physician are quite comfortable in managing this journey.
+
+And I think we are perhaps struggling a bit in doing the perfect segmentation of what this market will look like. But I think we can look into all the data we have and find ways to also more targeted direct specific products to certain subsegments. So I think this is another example of the fact that we're in the early days of understanding obesity, how patients are different. And I think it's all opportunity for us with the breadth of the portfolio we have and all the data we have.
+
+So yes, percentage of weight loss matters what quality of weight loss and benefit on comorbidities, etc., etc., also matters. And it's a net total equation that I think we have a really exciting opportunity for continuous leadership in the space.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Lars, and thank you, Evan, for the questions. Then we have time for two more sets of questions, and let's start with the first one, please.
+
+Operator
+
+Thank you. The next question comes from the line of Luisa Hector from Berenberg. Please go ahead.
+
+Luisa Hector--Berenberg Capital Markets -- Analyst
+
+Hello. Thanks for taking my questions. For REDEFINE 1, could you just comment on what percentage of patients down-titrated? And any color on the timing at which that happened. And perhaps on the highest dose, what the discontinuation rate was? And then I wonder if I could ask you a question on amycretin and progression there.
+
+So when I pulled together your comments on CagriSema, the high potency, individual patient responses and then we layer in the proposed FDA guidelines that say Phase 2 data should be sufficient to capture maximal or new maximal weight reduction effects with the dosing regime. Do you feel that you have enough data to progress into Phase 3? Or would perhaps another Phase 2 be advisable?
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you for those two questions, Luisa. I think both of them for you, Martin, start with the first one. So on the data in REDEFINE 1.
+
+Martin Holst Lange--Executive Vice President, Development
+
+Yeah. So first of all, we had these two very clear distinct groups. The larger group of 57% of the people titrating to 2.4 milligram. Just to give you an example, they were at a mean dose of 2.2 milligram at 20 weeks.
+
+And they then continue to the full 2.4 milligram% and appear to stay on that. There were a few patients doing ups and downs, but it would not be meaningful to try to tease them out. Similarly, I just want to remind you, at week 20, the other group were at 1.5 milligram and they down titrated a little bit as a group to add Endotrial 1.1 while the -- while basically securing a weight loss that was higher than what we've seen before, namely 25.2%. At the same time, this way of allowing patients to do -- I don't want to say personal titration but close to actually allowed us to see the lowest overall dropout ever seen in a Phase 3 pivotal trial but also very low, and again, the lowest gastrointestinal dropouts seen in the pivotal trial.
+
+And just a reminder, CagriSema in REDEFINE 1, 3.6% dropout; semaglutide in step 1, 4.5% dropout due to gastrointestinal side effects. So we're actually quite encouraged by the data. And as Lars also alluded to, by employing this individual approach to patients moving forward, we can really leverage the full benefit of not only CagriSema but also our pipeline products.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+And then on the second question on amycretin, we'll turn to you, Martin, again, and on the next steps.
+
+Martin Holst Lange--Executive Vice President, Development
+
+So as you know, we have generated the data on the oral version of amycretin. They are very consistent with the data that we see with the subcutaneous version of amycretin in patients with obesity. We have an ongoing Phase 2 trial in patients with type 2 diabetes. Our current assessment is that we live up to the spirit of the FDA draft guidance.
+
+Obviously, as in any progression of clinical development, we had to discuss with the regulatory authorities, which we'll do in short order.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Martin, and thanks to you as well, Luisa. And then we are ready for a final set of questions, please.
+
+Operator
+
+Thank you. Your final question today comes from the line of Michael Novod from Nordea. Please go ahead.
+
+Michael Novod--Nordea Markets -- Analyst
+
+Thank you very much. Michael Novod from Nordea. Also, two questions. So the first one with the data on hand with CagriSema and the flexibility and more sort of individualized treatment, as well as sort of your plans for amycretin.
+
+Have you changed any sort of view on whether -- how to sort of weather the LOE on semaglutide in 2032, and the way of sort of replacing Wegovy with either of these drugs? And then secondly, can you tease out also on -- when you look at the very early data on CagriSema and also amycretin, anything more to add on whether amycretin looks different in terms of tolerability? I know it's very early data you have, but what sort of try to pin down on how this could look in later-stage trials, whether it's just as tolerable as CagriSema?
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Michael, thanks for those two questions. I think first, on the overall view on CagriSema and amycretin, will turn to you, Camilla. And afterwards, on amycretin tolerability, we'll turn to you, Martin. But over to you, Camilla.
+
+Camilla Sylvest--Executive Vice President, Commercial Strategy and Corporate Affairs
+
+Yeah. Thanks a lot. So in terms of whether we have changed anything in our view toward loss of exclusivity, I would say we have not. What we have learned now is, of course, that little bit more clarity on different segments.
+
+We talked about individual life treatment. We learn more about how each product works, but it only gives rise to us getting more information about how we are going to position this port portfolio of opportunities that we have. So the short answer is no, and we also continue to, of course, build on semaglutide franchise. You just saw the new indications that we got.
+
+So full speed on that going forward, but also full speed on the new innovation, simply establishing this full portfolio. So no radical changes to that at all.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Camilla. And then on the amycretin data to you, Martin?
+
+Martin Holst Lange--Executive Vice President, Development
+
+Thank you very much. It's early days. And obviously, what we can say at this point in time is we are working with two powerful biologies. They appear to have similar efficacy, but also safety and tolerability potential.
+
+And obviously, that also means that we have to think in the power of the combination biology into our amycretin development program to accrue the full potential, both in terms of weight loss, but also safety and tolerability and potentially also comorbidities when we do develop amycretin and CagriSema moving forward.
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Thank you, Martin, and also thank you to you, Michael. Now that concludes the Q&A session. Thank you for participating and feel free to contact investor relations regarding any follow-up questions that you may have. Before we fully close the call, I would like to hand over the word to you, Lars, for final remarks.
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Thank you, Jacob. I'm very pleased with the 2024 sales growth of 26%, driven by our GLP-1 portfolio in both operating units. And within R&D, we see a strong momentum, as we just discussed in our pipeline, is underlined by the recent readouts in obesity, both for CagriSema and amycretin. And of course, I'm also very pleased with the expected 2025 outlook.
+
+We continue to focus heavily on commercial execution and on the progression of our R&D pipeline and the expansion of our production capacity. So the plan is very clear, and we know what it takes to execute on this. So also thank you from me on behalf of management on your time today. We appreciate the opportunity to discuss our business with you.
+
+Thank you very much. Bye-bye.
+
+Operator
+
+[Operator signoff]
+
+Duration: 0 minutes
+
+Call participants:
+
+Jacob Martin Wiborg Rode--Head of Investor Relations
+
+Lars Fruergaard Jorgensen--President and Chief Executive Officer
+
+Camilla Sylvest--Executive Vice President, Commercial Strategy and Corporate Affairs
+
+David Moore--Executive Vice President, US Operations and Global Business Development
+
+Martin Holst Lange--Executive Vice President, Development
+
+Karsten Munk Knudsen--Executive Vice President, Chief Financial Officer
+
+Richard Vosser--Analyst
+
+Dave Moore--Executive Vice President, US Operations and Global Business Development
+
+Harry Sephton--UBS -- Analyst
+
+Mike Nedelcovych--TD Cowen -- Analyst
+
+Sachin Jain--Analyst
+
+Richard Parkes--Analyst
+
+Emily Field--Barclays -- Analyst
+
+Florent Cespedes--Analyst
+
+Evan Seigerman--Analyst
+
+Luisa Hector--Berenberg Capital Markets -- Analyst
+
+Michael Novod--Nordea Markets -- Analyst
+
+More NVO analysis
+
+All earnings call transcripts
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript. As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool recommends Novo Nordisk. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

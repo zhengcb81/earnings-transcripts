@@ -1,0 +1,419 @@
+======================================================================
+电话会议纪要 · 中英夹排版
+Company: Snowflake (Snowflake)
+Quarter: Q1 2027
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/05/27/snowflake-snow-q1-2027-earnings-transcript/
+Translated: 2026-05-29T23:29:45.856570
+Backend: google
+Paragraphs: 134
+======================================================================
+
+  [  1] [EN] May 27, 2026, at 5 p.m. ET
+       [中] 2026 年 5 月 27 日下午 5 点ET
+
+
+  ━━ Call participants ━━
+  ━━ 呼叫参与者 ━━
+
+  👤 Chief Executive Officer — Sridhar Ramaswamy
+     首席执行官 — 斯里达尔·拉马斯瓦米
+
+  👤 Chief Financial Officer — Brian Robins
+     首席财务官 — 布莱恩·罗宾斯
+
+  👤 Senior Vice President, Product — Christian Kleinerman
+     产品高级副总裁 — Christian Kleinerman
+
+  [  6] [EN] Product revenue-- $1.33 billion, up 34% year over year, with the growth rate accelerating from 30% in the previous quarter.
+       [中] 产品收入——13.3亿美元，同比增长34%，增速较上一季度的30%有所加快。
+
+
+  ━━ Net revenue retention rate-- 126%, indicating higher expansion from existing customers. ━━
+  ━━ 净收入保留率——126%，表明现有客户的扩张程度更高。 ━━
+
+  [  8] [EN] Non-GAAP operating margin-- Expanded over 300 basis points year over year to 12%.
+       [中] 非 GAAP 运营利润率——同比增长 300 多个基点，达到 12%。
+
+  [  9] [EN] Full-year product revenue guidance-- Increased to $5.84 billion, reflecting 31% year-over-year growth.
+       [中] 全年产品收入指引——增至 58.4 亿美元，同比增长 31%。
+
+  [ 10] [EN] Fiscal Q2 product revenue guidance-- $1.415 billion-$1.42 billion, projecting 30% year-over-year growth.
+       [中] 第二季度产品收入指引为 14.15 亿美元至 14.2 亿美元，预计同比增长 30%。
+
+  [ 11] [EN] Customer count-- 13,912 total customers; 616 net new customers added, up 38% year over year.
+       [中] 客户数量——客户总数 13,912 名；净新增客户616户，同比增长38%。
+
+  [ 12] [EN] Large customer expansion-- 64 customers surpassed $10 million in trailing 12-month revenue; 79 customers spent over $1 million in the period.
+       [中] 大型客户扩张——64 个客户过去 12 个月的收入超过 1000 万美元；79 名客户在此期间花费超过 100 万美元。
+
+  [ 13] [EN] Snowflake Intelligence adoption-- Accounts using Snowflake Intelligence more than doubled quarter over quarter.
+       [中] Snowflake Intelligence 的采用——使用 Snowflake Intelligence 的账户比上一季度增加了一倍多。
+
+  [ 14] [EN] CoCo adoption-- Over 7,100 accounts actively using Cortex Code (CoCo).
+       [中] CoCo 采用——超过 7,100 个帐户积极使用 Cortex Code (CoCo)。
+
+  [ 15] [EN] AI contribution-- Management stated, "CoCo had the largest driver to the increase in our forecast," with accelerated AI revenues now a significant revenue engine.
+       [中] 人工智能的贡献——管理层表示，“CoCo 是我们预测增长的最大推动力”，加速的人工智能收入现已成为重要的收入引擎。
+
+  [ 16] [EN] Remaining performance obligations-- Grew 38% year over year versus 34% in the comparable period last year.
+       [中] 剩余履约义务——同比增长 38%，而去年同期为 34%。
+
+  [ 17] [EN] Non-GAAP product gross margin guidance-- 75% projected for the full year.
+       [中] 非 GAAP 产品毛利率指导——预计全年为 75%。
+
+
+  ━━ Capital return-- $300 million deployed for repurchase of 1.7 million shares in the quarter. ━━
+  ━━ 资本回报——本季度部署 3 亿美元用于回购 170 万股股票。 ━━
+
+  [ 19] [EN] Cash position-- Quarter-end cash, cash equivalents, and investments totaled $4.4 billion.
+       [中] 现金状况——季末现金、现金等价物和投资总计 44 亿美元。
+
+  [ 20] [EN] Multiyear AWS agreement-- New five-year $6 billion contract, more than double the prior agreement, to accelerate AI adoption and lower bandwidth costs.
+       [中] 多年AWS协议——新的五年期价值60亿美元的合同，是之前协议的两倍多，以加速人工智能的采用并降低带宽成本。
+
+  [ 21] [EN] Observe acquisition-- Added 173 employees in the quarter and contributed less than one percentage point to fiscal Q1 product revenue growth.
+       [中] 观察收购——本季度增加了 173 名员工，对第一财季产品收入增长的贡献不到 1 个百分点。
+
+  [ 22] [EN] Natoma acquisition-- Announced intention to acquire Natoma, which will bring 20 employees and extend Snowflake Intelligence and CoCo automation capabilities into application workflows.
+       [中] Natoma 收购——宣布有意收购 Natoma，这将带来 20 名员工，并将 Snowflake Intelligence 和 CoCo 自动化功能扩展到应用程序工作流程中。
+
+  [ 23] [EN] Expanded AWS collaboration-- Surpassed $7 billion in lifetime AWS Marketplace sales; new partnership leverages Graviton compute and AI services.
+       [中] 扩大 AWS 合作——AWS Marketplace 生命周期销售额超过 70 亿美元；新的合作伙伴关系利用 Graviton 计算和人工智能服务。
+
+  [ 24] [EN] Strategic partnerships-- Expanded a $200 million partnership with OpenAI; joint SAP capability brought to general availability during the quarter.
+       [中] 战略合作伙伴关系——与 OpenAI 扩大了 2 亿美元的合作伙伴关系；联合 SAP 功能在本季度全面投入使用。
+
+  [ 25] [EN] Go-to-market organization-- New Chief Revenue Officer Jonathan Boulier ("J.B.") installed, following "seamless transition" aimed at driving further growth.
+       [中] 进入市场组织——继旨在推动进一步增长的“无缝过渡”之后，新任首席营收官 Jonathan Boulier（“J.B.”）上任。
+
+  [ 26] [EN] Brian Robins stated, "Our full year outlook for both non-GAAP operating margin and non-GAAP adjusted free cash flow margin continues to include approximately 150 basis point headwind related to our Observe acquisition."
+       [中] Brian Robins 表示：“我们对非 GAAP 营业利润率和非 GAAP 调整后自由现金流利润率的全年展望仍然包括与 Observe 收购相关的约 150 个基点的阻力。”
+
+  [ 27] [EN] Sridhar Ramaswamy said, "And so we are doing things like cost limits at an account level or at a particular agent level," indicating cost management is active as AI adoption at scale increases.
+       [中] Sridhar Ramaswamy 表示：“因此，我们正在采取一些措施，例如在账户级别或特定代理级别进行成本限制”，这表明随着人工智能大规模采用的增加，成本管理正在积极进行。
+
+  [ 28] [EN] Snowflake(SNOW+7.02%)delivered acceleration across core and AI-driven business lines, raising full-year guidance and highlighting significant product and operational advances. Management emphasized AI's catalyzing role, with Cortex Code (CoCo) and Snowflake Intelligence named as crucial growth engines now contributing meaningful revenue and customer expansion. The company reported a five-year, $6 billion AWS contract more than doubling prior commitments, supporting both reduced bandwidth costs and AI workload scaling. Share repurchases and sizable cash balances reinforce balance sheet strength, while enhanced partner agreements with AWS, OpenAI, and SAP expand the AI data cloud ecosystem without dependence on a single platform.
+       [中] Snowflake（SNOW + 7.02％）在核心和人工智能驱动的业务线中提供了加速，提高了全年指导并强调了重大的产品和运营进步。管理层强调人工智能的催化作用，Cortex Code (CoCo) 和 Snowflake Intelligence 被称为关键的增长引擎，目前正在贡献有意义的收入和客户扩展。该公司报告称，一份为期五年、价值 60 亿美元的 AWS 合同是之前承诺的两倍多，支持降低带宽成本和扩展 AI 工作负载。股票回购和大量现金余额增强了资产负债表实力，同时与 AWS、OpenAI 和 SAP 增强的合作伙伴协议扩展了人工智能数据云生态系统，而无需依赖单一平台。
+
+  [ 29] [EN] Non-GAAP operating margin guidance increased to 13.5% for the full year, with capital efficiency bolstered by measured, acquisition-focused hiring.
+       [中] 全年非公认会计准则营业利润率指引增至 13.5%，以收购为重点的谨慎招聘提高了资本效率。
+
+  [ 30] [EN] Management described a "flywheel effect" as rapid adoption of agentic products compounds both platform consumption and AI monetization opportunities.
+       [中] 管理层将“飞轮效应”描述为代理产品的快速采用，使平台消费和人工智能货币化机会变得更加复杂。
+
+  [ 31] [EN] Concrete examples cited include a major bank's completed large-scale data migration and Nestlé's deployment of Snowflake for digital transformation spanning 50,000 global users.
+       [中] 具体例子包括某大型银行完成的大规模数据迁移、雀巢部署Snowflake以实现全球5万用户的数字化转型。
+
+  [ 32] [EN] The acquisition of Natoma extends Snowflake’s agentic control plane into practical enterprise application workflows, enabling business users to act seamlessly without leaving the platform.
+       [中] 收购 Natoma 将 Snowflake 的代理控制平面扩展到实际的企业应用程序工作流程中，使业务用户无需离开平台即可无缝操作。
+
+  [ 33] [EN] Leadership transition at Chief Revenue Officer and forthcoming departure of Co-Founder Benoit Dageville signal both stability and ongoing innovation within the executive team.
+       [中] 首席营收官的领导层换届和联合创始人伯努瓦·达吉维尔 (Benoit Dageville) 即将离职，标志着执行团队内部的稳定性和持续创新。
+
+  [ 34] [EN] Industry glossary
+       [中] 行业术语
+
+  [ 35] [EN] CoCo (Cortex Code): Snowflake’s AI-driven code-generation and agent platform, enabling developers and partners to automate application and workflow creation within the Snowflake environment.
+       [中] CoCo（Cortex Code）：Snowflake 的人工智能驱动的代码生成和代理平台，使开发人员和合作伙伴能够在 Snowflake 环境中自动创建应用程序和工作流程。
+
+  [ 36] [EN] Snowflake Intelligence: The business user interface overlaying Snowflake’s platform, providing a natural language interface for data insight, actions, and AI-powered analytics.
+       [中] Snowflake Intelligence：覆盖 Snowflake 平台的业务用户界面，为数据洞察、操作和人工智能分析提供自然语言界面。
+
+  [ 37] [EN] Agentic control plane: Unified layer within Snowflake where business intent translates into governed actions across enterprise data, models, applications, and security policies.
+       [中] 代理控制平面：Snowflake 中的统一层，其中业务意图转化为跨企业数据、模型、应用程序和安全策略的受管控操作。
+
+  [ 38] [EN] Observe acquisition: Recent Snowflake acquisition contributing primarily personnel and limited product revenue, with a cited margin headwind.
+       [中] 观察收购情况：最近的 Snowflake 收购主要贡献了人员和有限的产品收入，且利润率面临阻力。
+
+  [ 39] [EN] Natoma: Targeted acquisition aimed at integrating application workflow automation and extending Snowflake’s AI capabilities directly into everyday business tools.
+       [中] Natoma：有针对性的收购旨在集成应用程序工作流程自动化并将 Snowflake 的人工智能功能直接扩展到日常业务工具中。
+
+  [ 40] [EN] Full Conference Call Transcript
+       [中] 完整的电话会议记录
+
+  [ 41] [EN] Sridhar Ramaswamy:Thank you, Katherine, and thank you all for joining us today. AI is fundamentally reshaping how work gets done, and Snowflake is at the center of the transformation. Across industries, organizations are moving toward a future bed employees and intelligent agents work side by side to accelerate decisions, automate complex workflows and unlock entirely new levels of productivity and innovation. With Snowflake, that future is already taking shape. Our platform brings together the four elements organizations need to become an agent enterprise, a unified governed data foundation, access to leading AI models, connectivity across enterprise applications and workflows and a unifying agent control plane that turns intent into governed action.
+       [中] 斯里达尔·拉马斯瓦米：谢谢凯瑟琳，也感谢大家今天加入我们。人工智能正在从根本上重塑工作的完成方式，而 Snowflake 正是这场变革的中心。跨行业的组织正在朝着未来的方向发展，员工和智能代理并肩工作，以加速决策、自动化复杂的工作流程并解锁全新的生产力和创新水平。有了 Snowflake，这个未来已经初具规模。我们的平台汇集了组织成为代理企业所需的四个要素：统一的治理数据基础、对领先人工智能模型的访问、跨企业应用程序和工作流程的连接以及将意图转化为治理行动的统一代理控制平面。
+
+  [ 42] [EN] That control plane is becoming real through Snowflake Intelligence and Cortex Code or CoCo, as it's affectionately known. Snowflake Intelligence gives business users a natural language interface to enterprise data context and actions, while CoCo gives builders a natural language way to create applications, pipelines, agents and workflows directly on Snowflake. Snowflake is uniquely positioned to help customers become agentic enterprises as evidenced by our Q1 results. Product revenue came in at $1.334 billion with growth accelerating to 34% year-over-year, up from 30% last quarter and 26% a year ago, marking our strongest sequential dollar growth in company history. Our net revenue retention rate increased to 126%.
+       [中] 该控制平面正在通过 Snowflake Intelligence 和 Cortex Code 或 CoCo（人们亲切地称为 CoCo）变得真实。Snowflake Intelligence 为业务用户提供了企业数据上下文和操作的自然语言界面，而 CoCo 则为构建者提供了直接在 Snowflake 上创建应用程序、管道、代理和工作流程的自然语言方式。正如我们第一季度的业绩所证明的那样，Snowflake 在帮助客户成为代理企业方面具有独特的优势。产品收入达 13.34 亿美元，同比增长 34%，高于上季度的 30% 和一年前的 26%，标志着公司历史上最强劲的连续美元增长。我们的净收入保留率提高至 126%。
+
+  [ 43] [EN] And with our continued focus on executing with discipline and operational rigger, our Q1 non-GAAP operating margin expanded over 300 basis points year-over-year to 12%. I want to take a moment to touch on our outlook. Based on a combination of strength in our core data platform business, a meaningful uplift from AI capabilities, including CoCo and Snowflake Intelligence, we are increasing our FY '27 outlook from 27% to 31% year-over-year growth. Brian will share more details on our guidance in his remarks. Thank you to all of our Snowflake for the hard work and dedication to deliver these results. Across our business, AI is strengthening Snowflake on multiple levels simultaneously.
+       [中] 随着我们继续注重执行纪律和运营操作，我们第一季度的非 GAAP 营业利润率同比增长了 300 个基点，达到 12%。我想花点时间谈谈我们的前景。基于我们核心数据平台业务的实力以及 CoCo 和 Snowflake Intelligence 等人工智能能力的显着提升，我们将 27 财年的同比增长预期从 27% 提高到 31%。布莱恩将在他的讲话中分享有关我们指导的更多细节。感谢我们所有的 Snowflake 员工为取得这些成果而付出的辛勤工作和奉献精神。在我们的整个业务中，人工智能同时在多个层面上强化 Snowflake。
+
+  [ 44] [EN] First, AI is accelerating consumption in our core platform as customers migrate workloads to Snowflake faster in order to access the data context and governance needed to power AI, securely and at scale. Second, Snowflake Intelligence and CoCo are seeing the fastest adoption of any new products in our history, opening new opportunities for growth as the first major product surfaces of the agented control plane. And third, adoption of these AI products is increasing core platform consumption as customers move from questions to answer from prompts to pipeline and from ideas to production workflows on Snowflake. Customers who are adopting CoCo are growing even faster, and we expect that momentum to continue as adoption expands.
+       [中] 首先，随着客户更快地将工作负载迁移到 Snowflake，以便安全、大规模地访问支持人工智能所需的数据上下文和治理，人工智能正在加速我们核心平台的消耗。其次，Snowflake Intelligence 和 CoCo 的新产品采用速度是我们历史上最快的，这为作为代理控制平面的第一个主要产品表面提供了新的增长机会。第三，随着客户在 Snowflake 上从问题转向答案、从提示转向管道、从想法转向生产工作流程，这些人工智能产品的采用正在增加核心平台的消耗。采用 CoCo 的客户增长速度更快，我们预计随着采用范围的扩大，这种势头将持续下去。
+
+  [ 45] [EN] The strength of our Q1 results reflects the powerful flywheel effect of the agentic enterprise. Importantly, this momentum starts with the strength of our core business. Our 13,912 customers start to Snowflake because our AI data cloud is easy to use, seamlessly connected for collaboration, entrusted with enterprise-grade governance and security. In fact, 42% of our customers are data sharing on Snowflake with at least one stable edge. This underscores the part of the platform to connect organizations, partners and applications around a single governed source of truth. That interconnected foundation becomes even more valuable in the age of AI. Snowflake isn't just software.
+       [中] 我们一季度业绩的强劲体现了代理企业强大的飞轮效应。重要的是，这种势头始于我们核心业务的实力。我们的 13,912 名客户开始使用 Snowflake，因为我们的 AI 数据云易于使用、无缝连接以进行协作、并受托企业级治理和安全性。事实上，我们 42% 的客户在至少具有一个稳定边缘的 Snowflake 上共享数据。这强调了该平台围绕单一受监管的事实来源连接组织、合作伙伴和应用程序的部分。在人工智能时代，这种相互关联的基础变得更加有价值。Snowflake 不仅仅是软件。
+
+  [ 46] [EN] It is a circulatory system, connecting modern enterprises, enabling data applications and AI agents to move secularly and seamlessly across organizations. This combination of connectivity, governance and ease of use is why enterprises continue to choose Snowflake as the cornerstone for their data and AI strategies again and again. To take Holiday Inn Club Vacations, a leading vacation ownership company, they choose Snowflake to power their data and AI modernization, citing our simplicity, built in AI and machine learning capabilities, a strong partnership as reasons for their selection. With Snowflake, they are now positioned to scale analytics and operations across their business.
+       [中] 它是一个循环系统，连接现代企业，使数据应用程序和人工智能代理能够在组织之间长期、无缝地移动。连接性、治理和易用性的结合是企业一次又一次选择 Snowflake 作为其数据和人工智能战略基石的原因。以领先的度假所有权公司 Holiday Inn Club Vacations 为例，他们选择 Snowflake 来为其数据和 AI 现代化提供支持，并以我们的简单性、内置的 AI 和机器学习功能以及强大的合作伙伴关系作为选择的理由。借助 Snowflake，他们现在能够在整个业务中扩展分析和运营。
+
+  [ 47] [EN] And Health, the leading AI-driven platform for construction and design selected Snowflake to accelerate their next phase of growth, enabling faster access to insights across the business. With Snowflake, House will significantly improve data processing performance, reduce pipeline maintenance and free up engineering resources to focus on building new products. Going forward, they'll be investing in natural language query processing and self-serve analytics to make data more accessible across the organization. On our existing customers, continue to go all in on Snowflake. After nearly 2 years and one of the most complex data warehouse migrations in financial services, one of the largest banks in the United States, completed their Teradata migration on to Snowflake.
+       [中] 领先的人工智能驱动的建筑和设计平台 Health 选择 Snowflake 来加速其下一阶段的增长，从而能够更快地获取整个业务的见解。借助 Snowflake，House 将显着提高数据处理性能、减少管道维护并释放工程资源以专注于构建新产品。展望未来，他们将投资于自然语言查询处理和自助分析，以使整个组织更容易访问数据。对于我们现有的客户，继续全力支持 Snowflake。经过近两年的时间和金融服务领域最复杂的数据仓库迁移之一，美国最大的银行之一完成了 Teradata 到 Snowflake 的迁移。
+
+  [ 48] [EN] This migration represents one of many legacy platforms they intend to move to Snowflake. Their teams are now building AI-powered regulatory intelligence, natural language analytics and data discovery directly on top of a platform they already run at massive scale. Then there is Nestle, one of the world's largest consumer goods companies with more than 2,000 brands globally, operating in 185 countries. They're expanding their use of Snowflake to power their enterprise digital transformation. As part of this, Nestle is reimagining its operations end-to-end with data and AI as key enablers: building enterprise data products used by over 50,000 users across 150 global capabilities.
+       [中] 这次迁移是他们打算迁移到 Snowflake 的众多遗留平台之一。他们的团队现在正在他们已经大规模运行的平台上直接构建人工智能驱动的监管情报、自然语言分析和数据发现。然后是雀巢，它是全球最大的消费品公司之一，在全球拥有 2,000 多个品牌，业务遍及 185 个国家。他们正在扩大 Snowflake 的使用范围，以推动企业数字化转型。作为其中的一部分，雀巢正在以数据和人工智能作为关键推动因素重新构想其端到端运营：构建由 150 个全球功能中超过 50,000 名用户使用的企业数据产品。
+
+  [ 49] [EN] This enables a real-time connected view of the business, allowing teams to make faster and more proactive decisions. On one of the world's largest wealth management firms built a Cortex powered agent called Osteo data, and deployed it to their entire executive leadership team. Over 60% of business inquiries that were previously routed to analysts for manual data pools are now answered instantly on demand, leveraging their existing data in Snowflake. We also saw Global 2000 companies like Global Payments, Depository Trust and Clearing Corporation, DTCC and Blue Yonder, expand their use of Snowflake to support growing workloads, accelerate AI-powered insights and drive further value for their end customers. This continued expansion is reflected in our large customer growth.
+       [中] 这实现了业务的实时连接视图，使团队能够更快、更主动地做出决策。世界上最大的财富管理公司之一构建了一个名为 Osteo data 的 Cortex 支持代理，并将其部署到整个执行领导团队。以前发送给分析师进行手动数据池的超过 60% 的业务查询现在可以利用 Snowflake 中的现有数据立即按需得到答复。我们还看到 Global Payments、存款信托和清算公司、DTCC 和 Blue Yonder 等全球 2000 强公司扩大了 Snowflake 的使用范围，以支持不断增长的工作负载、加速人工智能驱动的洞察并为其最终客户带来更多价值。这种持续扩张反映在我们大客户的增长上。
+
+  [ 50] [EN] In Q1, 8 customers surpassed $10 million in trailing 12-month revenue. We now have 64 customers spending more than $10 million on a trailing 12-month basis. As AI strengthens demand for our core platform, it is also expanding Snowflake's opportunity to deliver a new generation of AI-powered products and experience. Snowflake is uniquely positioned to lead in the next phase of enterprise AI because we already sit at the center of our customers' data, business context, AI models and workflow. What customers increasingly want is simple, one place to get work done. A place where a business user can ask a question, understand the answer and trigger the next step.
+       [中] 第一季度，8 个客户过去 12 个月的收入超过 1000 万美元。我们现在有 64 位客户在过去 12 个月的支出超过 1000 万美元。随着人工智能增强对我们核心平台的需求，它也扩大了 Snowflake 提供新一代人工智能产品和体验的机会。Snowflake 处于引领企业人工智能下一阶段的独特地位，因为我们已经处于客户数据、业务环境、人工智能模型和工作流程的中心。客户越来越想要的是简单的、一个可以完成工作的地方。业务用户可以提出问题、理解答案并触发下一步的地方。
+
+  [ 51] [EN] And where a developer can turn an idea into an application, a pipeline, an agent, auto workflow without leaving Snowflake. That is what we mean by the agentic control plane. It's the governed layer where intent becomes action, grounded in the customers' enterprise data, business context, model, applications and security policies. Snowflake Intelligence is the business user surface of that control plane. CoCo is the builder interface. Together, they help customers move from insight to action and from prompt to production, all within Snowflake trusted governance model. In fact, accounts using Snowflake Intelligence more than doubled quarter-over-quarter as more organizations embrace a governed, conversational way for business users to ask questions, get answered and act on enterprise data.
+       [中] 开发人员可以在不离开 Snowflake 的情况下将想法转化为应用程序、管道、代理、自动工作流程。这就是我们所说的代理控制平面。它是一个治理层，意图转化为行动，以客户的企业数据、业务上下文、模型、应用程序和安全策略为基础。Snowflake Intelligence 是该控制平面的业务用户界面。CoCo 是构建器接口。它们共同帮助客户从洞察到行动，从提示到生产，所有这些都在 Snowflake 可信治理模型内进行。事实上，随着越来越多的组织采用受管控的对话方式让业务用户提出问题、获得答案并根据企业数据采取行动，使用 Snowflake Intelligence 的账户数量环比增加了一倍多。
+
+  [ 52] [EN] And CoCo is already in use with more than 7,100 accounts, giving builders a natural language way to create applications, pipelines, agents and workloads directly in Snowflake. Just recently, our partner, Infinite Lamda was preparing for a major customer pitch. One of our engineers use CoCo to build a true customer 360 application in just 5 hours, bringing together customer data, churn insights, recommended actions and live dashboards into a single experience, and they showed it to the customer, the reaction was immediate. After the meeting, in CEO called me and said, you are changing this industry.
+       [中] CoCo 已被超过 7,100 个帐户使用，为构建者提供了一种自然语言方式，可以直接在 Snowflake 中创建应用程序、管道、代理和工作负载。就在最近，我们的合作伙伴 Infinite Lamda 正在为主要客户推介做准备。我们的一位工程师使用 CoCo 在短短 5 小时内构建了一个真正的客户 360 应用程序，将客户数据、流失洞察、推荐操作和实时仪表板整合到单一体验中，并将其展示给客户，客户立即做出了反应。会后，CEO打电话给我说，你正在改变这个行业。
+
+  [ 53] [EN] Providence, one of the largest health systems in the United States is using Snowflake Cortex to surface insights from clinical notes and patient records in seconds. With CoCo, they are now building these workflows directly in Snowflake, enabling care teams to access critical information faster while maintaining privacy standards. And Thomson Reuters, the global provider of legal, tax and regulatory intelligence uses Snowflake Cortex, including cocoa to power AI-driven legal and compliance workflows. By leveraging CoCo to build and deploy intelligent applications directly within Snowflake, its teams can turn complex regulatory data into actionable insights in seconds, while accelerating product development. This approach maintains the fiduciary grade governance and reliability required for high-stakes professional use.
+       [中] 美国最大的卫生系统之一普罗维登斯正在使用 Snowflake Cortex 在几秒钟内从临床记录和患者记录中获得见解。通过 CoCo，他们现在直接在 Snowflake 中构建这些工作流程，使护理团队能够更快地访问关键信息，同时保持隐私标准。全球法律、税务和监管情报提供商汤森路透使用 Snowflake Cortex（包括可可）来支持人工智能驱动的法律和合规工作流程。通过利用 CoCo 直接在 Snowflake 中构建和部署智能应用程序，其团队可以在几秒钟内将复杂的监管数据转化为可操作的见解，同时加速产品开发。这种方法保持了高风险专业用途所需的信托级治理和可靠性。
+
+  [ 54] [EN] CoCo is contributing meaningful AI revenue while also driving increased engagement across the broader platform. This tangible momentum together with continued strength in our core platform is reflected in our increased FY '27 outlook. Today, with the announcement of our intended acquisition of Natoma, we are extending the Snowflake agented control plane beyond data envelopment workflows into the everyday applications where work happens. With Natoma users can do things like send e-mails, summarize lack conversations, check calendars and open JIRA tickets without ever leaving Snowflake Intelligence or CoCo. The important point is not just convenience, it is control. These actions happen from a government environment with enterprise security, permissions, observability and policy enforcement built in.
+       [中] CoCo 正在贡献有意义的人工智能收入，同时也推动了更广泛平台的参与度的提高。这种切实的势头以及我们核心平台的持续实力反映在我们上调的 27 财年展望中。今天，随着我们宣布打算收购 Natoma，我们正在将 Snowflake 代理控制平面从数据封装工作流程扩展到日常工作应用程序。借助 Natoma，用户无需离开 Snowflake Intelligence 或 CoCo，就可以执行诸如发送电子邮件、总结缺少的对话、检查日历和打开 JIRA 票证等操作。重要的一点不仅仅是方便，还有控制。这些操作发生在内置企业安全性、权限、可观察性和策略执行的政府环境中。
+
+  [ 55] [EN] This will extend Snowflake leadership in AI governance by ensuring companies can safely manage not just their data, but also the actions AI agents take across business workflows. As we continue to innovate to support our customers, we are also leading the AI transformation from within. With Snowflake Intelligence and CoCo our teams are revolutionizing how they work. Across our global support organization at Snowflake, CoCo now analyzes incoming customer cases before an engineering engages, surfacing diagnostic insights and likely root causes upfront. Alongside the use of AI accelerated investigations. This has driven over 25% faster case resolution times and a 25% increase in Crete throughput per engineer.
+       [中] 这将确保公司不仅可以安全地管理其数据，还可以安全地管理人工智能代理在业务工作流程中采取的行动，从而扩大 Snowflake 在人工智能治理方面的领导地位。在我们不断创新以支持客户的同时，我们也在从内部引领人工智能转型。借助 Snowflake Intelligence 和 CoCo，我们的团队正在彻底改变他们的工作方式。在 Snowflake 的全球支持组织中，CoCo 现在在工程参与之前分析传入的客户案例，预先提供诊断见解和可能的根本原因。随着人工智能的使用加速了调查。这使得案例解决时间加快了 25% 以上，并且克里特岛每位工程师的吞吐量增加了 25%。
+
+  [ 56] [EN] By using CoCo engineering team that runs Snowflake Cloud deployment has freed up capacity and moved resources to product innovation, while reducing complex case resolution time by nearly 30% and cutting engineering time spent per ticket by roughly 40%. Across our data organization, CoCo's double developer productivity as measured by and line accord per engineer and has automated more than 100 workflows across finance, marketing, sales and HR in just weeks. Through this operational transformation, our teams are moving with greater speed and focus to capture the AI opportunity in front of us.
+       [中] 通过使用运行 Snowflake Cloud 部署的 CoCo 工程团队，释放了容量并将资源转移到产品创新上，同时将复杂案例解决时间缩短了近 30%，并将每票花费的工程时间减少了约 40%。在我们的数据组织中，按照每个工程师的生产线衡量标准，CoCo 的开发人员生产力翻了一番，并且在短短几周内就实现了财务、营销、销售和人力资源领域 100 多个工作流程的自动化。通过这种运营转型，我们的团队正在以更快的速度和更专注的方式抓住我们面前的人工智能机遇。
+
+  [ 57] [EN] In Q1, we delivered over 20% more product capabilities to market than we did a year ago, underscoring both the pace of our innovation and the breadth of platform expansion underway across Snowflake. We are also strengthening our go-to-market organization to support our next phase of growth. Following a seamless transition, our new Chief Revenue Officer, Jonathan Boulier, J.B., is positioning Snowflake to scale in the AI era. J.B. brings more than a decade of experience at Snowflake, deep knowledge of our customers and platform and a strong operational focus as we continue to evolve our go-to-market motion. That strong execution is translating into continued customer momentum and broader product adoption of the platform.
+       [中] 第一季度，我们向市场交付的产品功能比一年前增加了 20% 以上，这凸显了我们的创新步伐和 Snowflake 平台扩展的广度。我们还在加强我们的市场组织，以支持我们下一阶段的增长。在无缝过渡之后，我们新任首席营收官 Jonathan Boulier, J.B. 正在将 Snowflake 定位为在人工智能时代进行扩展。J.B. 在 Snowflake 拥有十多年的经验、对我们的客户和平台的深入了解以及对运营的高度关注，帮助我们继续推进我们的上市计划。这种强大的执行力正在转化为持续的客户动力和更广泛的平台产品采用。
+
+  [ 58] [EN] In the quarter, we added 616 net new customers, up 38% year-over-year. We're also seeing customers deploy and scale workloads at a faster pace. The number of new cases, individual projects managed on Snowflake deployed in the quarter increased 114% year-over-year as customers move more workloads into production on the platform. At the same time, the number of use cases on per account executive increased 86% year-over-year, underscoring both growing customer demand and improved sales execution across the organization. We're also continuing to strengthen our ecosystem as we deepen our strategic partner relationships and extend the reach of our AI data cloud.
+       [中] 本季度，我们净增 616 名新客户，同比增长 38%。我们还看到客户以更快的速度部署和扩展工作负载。随着客户将更多工作负载转移到平台上的生产中，本季度部署的 Snowflake 上管理的新案例和单个项目数量同比增长 114%。与此同时，每位客户主管的用例数量同比增长 86%，凸显了客户需求的增长和整个组织销售执行力的提高。随着我们深化战略合作伙伴关系并扩大人工智能数据云的覆盖范围，我们还将继续加强我们的生态系统。
+
+  [ 59] [EN] Just today, we announced an expanded collaboration with AWS through a new $6 billion multiyear agreement to accelerate enterprise AI adoption globally, leveraging Graviton compute and AI services. The announcement comes as Snowflake surpassed $7 billion in lifetime AWS Marketplace sales, reflecting the growing demand for AI and data workloads running on Snowflake. During the quarter, we also announced an expanding $200 million partnership with Open AI. And just recently, we brought the joint capability from our landmark partnership with SAP to general availability, enabling customers to unite mission-critical business data across their core data systems within our AI data clock.
+       [中] 就在今天，我们宣布通过一项价值 60 亿美元的新多年协议扩大与 AWS 的合作，利用 Graviton 计算和 AI 服务加速全球企业 AI 的采用。这一消息发布之际，Snowflake 的 AWS Marketplace 生命周期销售额已超过 70 亿美元，反映出对 Snowflake 上运行的人工智能和数据工作负载的需求不断增长。在本季度，我们还宣布与 Open AI 扩大 2 亿美元的合作伙伴关系。就在最近，我们将与 SAP 具有里程碑意义的合作伙伴关系中的联合功能全面推出，使客户能够在我们的 AI 数据时钟内将其核心数据系统中的任务关键型业务数据整合起来。
+
+  [ 60] [EN] Before I close, I want to acknowledge our Co-Founder and Chief Architect, Benoit Dageville, who will be stepping away from day-to-day operations in mid-June and continuing as a member of Snowflake's Board of Directors. Benoit is one of the greatest technical visionaries of our industry. His leadership and innovation helped invent the modern cloud data platform and laid the foundation for everything Snowflake has become today. The impact he's had on this company, our customers and the broader technology landscape is extraordinary, and we are deeply grateful for his continued guidance as we enter this next chapter. Our product organization will continue to be led by Christian Kleinerman.
+       [中] 在结束之前，我要感谢我们的联合创始人兼首席架构师 Benoit Dageville，他将于 6 月中旬退出日常运营，并继续担任 Snowflake 董事会成员。伯努瓦是我们行业最伟大的技术梦想家之一。他的领导力和创新帮助发明了现代云数据平台，并为 Snowflake 的今天奠定了基础。他对公司、我们的客户和更广泛的技术领域产生了非凡的影响，我们非常感谢他在我们进入下一个篇章时持续提供的指导。我们的产品组织将继续由 Christian Kleinerman 领导。
+
+  [ 61] [EN] For the past several years, you've seen AI emerge as a tailwind for our business. Q1 marks an important shift in this journey. The combination of Snowflake's trusted enterprise data, rich business context, leading AI models, and secure connectivity into enterprise applications creates a unique opportunity. Snowflake Intelligence and Cortex Co are the two primary ways customers experience that opportunity, one for business users, one for builders. Together, they allow customers to move from intent to action in a governed environment positioning Snowflake to win a new market, the agentic control plane. We are benefiting from AI as a secular tailwind while also monetizing first-party AI capabilities. Through the combination of rapid innovation, strong go-to-market execution and operational discipline.
+       [中] 在过去的几年里，您已经看到人工智能成为我们业务的顺风车。第一季度标志着这一旅程的重要转变。Snowflake 的可信企业数据、丰富的业务环境、领先的人工智能模型以及与企业应用程序的安全连接相结合，创造了一个独特的机会。Snowflake Intelligence 和 Cortex Co 是客户体验这一机会的两种主要方式，一种面向企业用户，一种面向建筑商。它们共同使客户能够在受监管的环境中从意图转变为行动，从而使 Snowflake 能够赢得新的市场，即代理控制平面。我们受益于人工智能作为长期的推动力，同时也将第一方人工智能能力货币化。通过快速创新、强大的市场执行力和运营纪律的结合。
+
+  [ 62] [EN] We are well positioned to deliver accelerating growth and margin expansion. With that, I'll turn it over to Brian to walk through the financial details. Brian?
+       [中] 我们处于有利地位，可以实现加速增长和利润率扩张。这样，我会将其交给 Brian 来详细说明财务细节。布莱恩？
+
+  [ 63] [EN] Brian Robins:Thank you, Sridhar. In Q1, year-over-year product revenue growth accelerated approximately 400 basis points to reach 34%. Growth benefited from a meaningful increase in AI revenue and an acceleration in our core data platform business. AI is a driving force behind our momentum. AI serves as a catalyst for our core data platform business. With an AI-first mindset, customers are moving to the cloud and to Snowflake with increasing urgency. This tailwind is evident in the pace of new customer additions. As Sridhar mentioned, our net new customer additions increased 38% year-over-year. We added 13 Global 2000s compared to 4 in the same period last year. Snowflake's AI workload is now a significant revenue engine in its own right.
+       [中] 布莱恩·罗宾斯：谢谢你，斯里达尔。第一季度，产品收入同比增长约 400 个基点，达到 34%。增长得益于人工智能收入的大幅增长以及我们核心数据平台业务的加速发展。人工智能是我们动力背后的驱动力。人工智能是我们核心数据平台业务的催化剂。秉持人工智能优先的心态，客户越来越迫切地转向云和 Snowflake。这种顺风顺水在新客户增加的速度中显而易见。正如 Sridhar 提到的，我们的新客户净增量同比增长 38%。我们新增了 13 家全球 2000 强企业，而去年同期为 4 家。Snowflake 的人工智能工作负载现在本身就是一个重要的收入引擎。
+
+  [ 64] [EN] AI products like Cortex Code are expanding our opportunity with existing customers as CoCo encourages faster, more consumption of the data platform. We now have 79 customers spending more than $1 million on a trailing 12-month basis. 46 customers crossed the 1 million threshold in Q1 compared to 26 in the year ago period. Remaining performance obligations grew 38% year-over-year compared to 34% in Q1 of last year. We continue to see customers favor Q4 renewals. As a result, we expect bookings to be increasingly weighted towards the fourth quarter. We remain committed to delivering both growth and margin expansion. In Q1, non-GAAP operating margin expanded over 300 basis points year-over-year to reach 12%.
+       [中] 随着 CoCo 鼓励更快、更多地使用数据平台，Cortex Code 等人工智能产品正在扩大我们与现有客户的机会。现在，我们有 79 位客户在过去 12 个月的支出超过 100 万美元。第一季度有 46 名客户突破 100 万大关，而去年同期为 26 名。剩余履约义务同比增长 38%，而去年第一季度为 34%。我们继续看到客户青睐第四季度的续订。因此，我们预计第四季度的预订量将越来越重要。我们仍然致力于实现增长和利润扩张。第一季度，非 GAAP 营业利润率同比增长超过 300 个基点，达到 12%。
+
+  [ 65] [EN] Strong revenue growth and disciplined hiring both contributed to the outperformance in non-GAAP operating margin. We added 190 employees this quarter compared to approximately 400 added in the year ago period. Of these 190 employees, 173 joined Snowflake through the Observe acquisition. Excluding Observe, organic hiring was limited to 17 people in the quarter. In Q1, we used approximately $300 million to repurchase 1.7 million shares. We have approximately $800 million remaining of our original $4.5 billion repurchase authorization. We ended the quarter with $4.4 billion in cash, cash equivalents, short-term and long-term investments. During the quarter, we entered into a 5-year $6 billion contract with AWS more than doubling our prior contract signed in FY '23.
+       [中] 强劲的收入增长和严格的招聘都促成了非公认会计原则营业利润率的优异表现。本季度我们增加了 190 名员工，而去年同期增加了约 400 名员工。在这 190 名员工中，有 173 名是通过收购 Observe 加入 Snowflake 的。不包括 Observe 在内，本季度的自然招聘人数仅限于 17 人。第一季度，我们使用了约 3 亿美元回购了 170 万股股票。我们最初的 45 亿美元回购授权还剩下大约 8 亿美元。截至本季度末，我们的现金、现金等价物、短期和长期投资为 44 亿美元。在本季度，我们与 AWS 签订了一份价值 60 亿美元的 5 年期合同，是之前在 23 财年签署的合同的两倍多。
+
+  [ 66] [EN] With this agreement, AWS has committed to an expanded go-to-market investment in collaboration. This agreement marks an important milestone in our ongoing partnership with AWS and its impact is fully incorporated into our outlook. Moving to our outlook. As always, our forecast is based on existing consumption patterns. There are no changes to our forecast methodology or guidance philosophy. Given the strength we've observed in both our core data platform business and AI business, we are raising our guidance for the year. For FY '27, we now expect product revenue of $5.84 billion, representing 31% year-over-year growth. In Q2, we expect product revenue between $1.415 and $1.42 billion, representing 30% year-over-year growth.
+       [中] 通过这项协议，AWS 致力于扩大合作的市场投资。该协议标志着我们与 AWS 持续合作的一个重要里程碑，其影响已完全纳入我们的前景之中。转向我们的展望。一如既往，我们的预测基于现有的消费模式。我们的预测方法或指导理念没有变化。鉴于我们在核心数据平台业务和人工智能业务方面观察到的实力，我们正在提高今年的指导。对于 27 财年，我们目前预计产品收入为 58.4 亿美元，同比增长 31%。第二季度，我们预计产品收入在 1.415 美元至 14.2 亿美元之间，同比增长 30%。
+
+  [ 67] [EN] Our Observe acquisition is progressing well, consistent with our initial expectations, Observe contributed less than 1 percentage point of product revenue growth in Q1, and we continue to expect the acquisition to add approximately 1 percentage point of revenue growth -- product revenue growth for the full year. Turning to margins. We expect 75% non-GAAP product gross margin for FY '27. We expect Q2 non-GAAP operating margin at 12.5%, and we are increasing our full year non-GAAP operating margin guidance from 12.5% to 13.5%. We are reiterating our non-GAAP adjusted free cash flow margin guide of 23%.
+       [中] 我们对 Observe 的收购进展顺利，与我们最初的预期一致，Observe 对第一季度产品收入增长的贡献不到 1 个百分点，我们继续预计此次收购将为全年产品收入增长带来约 1 个百分点的收入增长。转向边缘。我们预计 27 财年非 GAAP 产品毛利率为 75%。我们预计第二季度非 GAAP 营业利润率为 12.5%，并且我们将全年非 GAAP 营业利润率指引从 12.5% 提高至 13.5%。我们重申我们的非 GAAP 调整后自由现金流利润率指导值为 23%。
+
+  [ 68] [EN] Our full year outlook for both non-GAAP operating margin and non-GAAP adjusted free cash flow margin continues to include approximately 150 basis point headwind related to our Observe acquisition. This impact is unchanged from last quarter. Our intended acquisition of Natoma will bring 20 employees to Snowflake. Before turning to Q&A, I'd like to briefly revisit my priorities for FY '27. Last quarter, I outlined two key priorities. First, driving growth and margin expansion; second, supporting ongoing excellence in our go-to-market motion. We are executing well on both fronts as AI strengthens every element of our business. Since last quarter, we've seen a step function change in our AI revenue opportunity led by Cortex Code.
+       [中] 我们对非 GAAP 营业利润率和非 GAAP 调整后自由现金流利润率的全年展望继续包括与 Observe 收购相关的约 150 个基点的阻力。这一影响与上季度相比没有变化。我们计划收购 Natoma 将为 Snowflake 带来 20 名员工。在进行问答之前，我想简要回顾一下 27 财年的优先事项。上个季度，我概述了两个关键优先事项。首先，推动增长和利润率扩张；其次，支持我们的上市行动中持续卓越的表现。随着人工智能增强我们业务的各个要素，我们在这两个方面都表现良好。自上个季度以来，我们看到以 Cortex Code 为主导的人工智能收入机会发生了阶跃函数变化。
+
+  [ 69] [EN] Operator:[Operator Instructions]And we'll go ahead and take the first question.
+       [中] 接线员：[接线员指示]我们将继续回答第一个问题。
+
+  [ 70] [EN] Sanjit Singh:This is Sanjit Singh from Morgan Stanley. Sridhar, I've been covering consumption software companies, consume software companies for a long time. In a normal year, we typically don't see the sequential dollar growth that you guys are posting up. Typically, you don't see raises through the full year or Q2 guides the way we're seeing with this set of results. But the simple question is like what sort of inflected in the quarter on like two fronts, I would say, maybe from a market backdrop demand perspective? And then from like a -- within the Snowflake portfolio, between, let's say, maybe vibrations, organic customer expansion in the core data platform and then the AI story.
+       [中] 桑吉特·辛格：我是摩根士丹利的桑吉特·辛格。Sridhar，我很长时间以来一直在报道消费软件公司、消费软件公司。在正常年份，我们通常不会看到你们发布的美元连续增长。通常情况下，您不会看到全年或第二季度的加薪，这是我们在这组结果中看到的方式。但简单的问题是，我想说，也许从市场背景需求的角度来看，本季度在两个方面发生了什么样的变化？然后，在 Snowflake 产品组合中，可以说，可能是核心数据平台中的振动、有机客户扩展，然后是人工智能故事。
+
+  [ 71] [EN] Can you talk about where specifically you're seeing the inflection?
+       [中] 您能具体谈谈您在哪里看到了这种变化吗？
+
+  [ 72] [EN] Sridhar Ramaswamy:Absolutely. So I would break this up into three parts. First, AI is accelerating the value that people can get from the data that they have put into Snowflake or that they can put into Snowflake. So we saw like a healthy secular tailwind for our core data platform. And part two is really that agentic products, the control plane products like Snowflake Intelligence, and Cortex Code, CoCo, came into their own in Q1. Recall that CoCo went into GA on February 5. So just as we were opening up the quarter. And we've seen very strong traction with both the products.
+       [中] 斯里达尔·拉马斯瓦米：当然。所以我会把它分成三个部分。首先，人工智能正在加速人们从放入 Snowflake 或可以放入 Snowflake 的数据中获得的价值。因此，我们看到了我们的核心数据平台的健康的长期顺风。第二部分实际上是代理产品，控制平面产品，如 Snowflake Intelligence 和 Cortex Code、CoCo，在第一季度开始发挥作用。回想一下，CoCo 于 2 月 5 日进入正式发布阶段。就在我们刚开始本季度的时候。我们已经看到这两种产品都具有非常强大的吸引力。
+
+  [ 73] [EN] And the really interesting thing with Cortex Code is that it, in turn, drives more consumption on the core data platform simply because it's much easier to get projects done, whether it's a pipeline or creating a new agent or setting up a new dynamic table or even honestly, a migration. So it's driving the second order effect as well. But it's really -- this is the 1, 2, 3, and that's why I like to think of this as AI compounding Snowflake strength in data. And I'll hand it off to Brian for the mechanics of how these came together in our forecast for the quarter and the year. Brian?
+       [中] Cortex Code 真正有趣的地方在于，它反过来又会推动核心数据平台上的更多消耗，因为完成项目要容易得多，无论是管道、创建新代理、设置新动态表，甚至老实说，迁移。所以它也推动了二阶效应。但这确实是——这就是 1、2、3，这就是为什么我喜欢将其视为 AI 复合 Snowflake 数据优势的原因。我将把它交给布莱恩，让他了解我们如何将这些因素结合到我们对季度和年度的预测中。布莱恩？
+
+  [ 74] [EN] Brian Robins:Yes. Thanks, Sridhar. I'll impact that a little in terms of impact. And so Cocoa had the largest driver to the increase in our forecast. As a reminder, when we forecast, we only forecast Observe behavior. And as Sri mentioned, that just happened in the quarter. And so this quarter, we had a very unique opportunity to layer CoCo in the model, and that's reflected throughout the remainder of the year. We also saw acceleration in our core business, and that informs our outlook as well. And so there's no change to our guidance philosophy, where 3% we view as a really strong beat.
+       [中] 布莱恩·罗宾斯：是的。谢谢，斯里达尔。我会在影响方面稍微影响一下。因此，可可是我们预测增长的最大推动力。提醒一下，当我们预测时，我们只是预测观察行为。正如斯里提到的，这刚刚发生在本季度。因此，本季度，我们有一个非常独特的机会在模型中对 CoCo 进行分层，这将在今年剩余的时间里得到体现。我们还看到了我们的核心业务的加速发展，这也影响了我们的前景。因此，我们的指导理念没有改变，我们认为 3% 是一个非常强劲的目标。
+
+  [ 75] [EN] Operator:And we'll take the next question.
+       [中] 接线员：我们将回答下一个问题。
+
+  [ 76] [EN] S. Kirk Materne:It's Kirk Materne with Evercore ISI. Congrats on the quarter. Sridhar, I want to dive a little bit more into CoCo just in terms of -- how does that sort of change your customers' ability to get more data out of the platform at a faster rate? Can you just dive into that a little bit more? And then can you also just talk about how having a product like CoCo maybe changes the go-to-market model a little bit. You said, obviously, JV had a great first quarter. Just wondering how having these genic products also sort of shapes your thinking around the go-to-market efforts as we go through the rest of the year.
+       [中] S. Kirk Materne：我是 Evercore ISI 的 Kirk Materne。恭喜本季度。Sridhar，我想更深入地探讨一下 CoCo——这会如何改变您的客户以更快的速度从平台获取更多数据的能力？你能再深入一点吗？然后您能否谈谈拥有像 CoCo 这样的产品可能会如何稍微改变上市模式。你说，显然，JV 第一季度表现出色。只是想知道，在今年剩下的时间里，这些基因产品如何影响您对上市工作的思考。
+
+  [ 77] [EN] Sridhar Ramaswamy:Yes. So CoCo is a is a general-purpose coating agent that has a set of features that are specialized for Snowflake and data platforms. We have published benchmarks that show that CoCo can outperform even the frontier model when it comes to doing operations within Snowflake. And over the past quarter, we've actually expanded it to support other data platforms like Amazon Glue or Airflow or DVT cloud, and in fact, even Databricks. So it's incredibly powerful. And in terms of how it impacts our customers' ability, our ability, our partners' ability to get things done faster, is any kind of coding transformation and the migration is one such example can be made faster with CoCo.
+       [中] 斯里达尔·拉马斯瓦米：是的。所以 CoCo 是一种通用涂层剂，具有一组专门用于 Snowflake 和数据平台的功能。我们发布的基准表明，在 Snowflake 中进行操作时，CoCo 甚至可以超越前沿模型。在过去的季度中，我们实际上已将其扩展为支持其他数据平台，例如 Amazon Glue、Airflow 或 DVT 云，事实上，甚至是 Databricks。所以它非常强大。就它如何影响我们客户的能力、我们的能力、我们的合作伙伴更快地完成工作的能力而言，任何类型的编码转换都是如此，而迁移就是一个这样的例子，可以通过 CoCo 更快地完成工作。
+
+  [ 78] [EN] We have a migration team that is busy creating, we call them harnesses, they are ways of structuring the process so that a complex migration can be broken down and attacked methodically. We work very closely with both partners and customers and help them get these migrations done faster. And I previously talked about how many -- some of our partners are even switching their entire business models from charging for time and material to being able to charge for outcomes. In addition, something like creating an agent to run insight snowflake intelligence, just goes a whole lot faster because we have created workflows within CoCo for the entirety of the agent creation pipeline.
+       [中] 我们有一个正在忙于创建的迁移团队，我们称之为工具，它们是构建流程的方法，以便可以有条不紊地分解和攻击复杂的迁移。我们与合作伙伴和客户密切合作，帮助他们更快地完成这些迁移。我之前谈到过，我们的一些合作伙伴甚至正在将其整个业务模式从按时间和材料收费转变为按结果收费。此外，像创建一个代理来运行洞察雪花智能这样的事情，速度会快得多，因为我们已经在 CoCo 中为整个代理创建管道创建了工作流程。
+
+  [ 79] [EN] In fact, this has gotten so demystified that even somebody like me can go from a data set to things like Cortex Analysts and search instances to creating an agent to running an eval on it. That's the life cycle of creating an agent. It's like an automation platform for everything having to do with Snowflake. There is a ton of activity within Snowflake and outside by partners, for example, to build even more complicated skills and processes on top of this. I very much think that this is early.
+       [中] 事实上，这已经变得如此神秘，即使是像我这样的人也可以从数据集到 Cortex Analysts 和搜索实例之类的东西，再到创建一个代理来对其运行评估。这就是创建代理的生命周期。它就像一个自动化平台，涵盖与 Snowflake 相关的一切。例如，Snowflake 内部和外部的合作伙伴开展了大量活动，以在此基础上构建更复杂的技能和流程。我非常认为这还早。
+
+  [ 80] [EN] And in terms of how it's affecting our go-to-market, first and foremost, I think this products like Snowflake Intelligence have made the entirety of our go-to-market team, AI native in a way that honestly would not have been even -- like we could not even imagine it a year ago because we have a lot of government data. And so our solution engineers, our sales -- our account executives even can show the power of Snowflake. There's nothing like pulling your phone out to show what Snowflake Intelligence can do as every CEO that's met me in the last 9 months. Now that's one of the things that I always do.
+       [中] 就它如何影响我们的进入市场而言，首先也是最重要的是，我认为像 Snowflake Intelligence 这样的产品已经使我们整个进入市场团队成为人工智能原生的，老实说，这就像我们一年前无法想象的那样，因为我们有大量的政府数据。因此，我们的解决方案工程师、我们的销售人员、我们的客户主管甚至可以展示 Snowflake 的力量。没有什么比拿出手机来向过去 9 个月里见过我的每一位 CEO 展示 Snowflake Intelligence 的能力更好的了。现在这是我经常做的事情之一。
+
+  [ 81] [EN] Our solution engineers are able to build much more realistic demos and prototypes and even actually get projects done for their customers very, very quickly, showing our customers what is possible with CoCo. And similarly, our internal teams, whether it's the support team that I talked about are our SRE team, our site reliability engineering team that runs our production systems are our services team. They have 95-plus percent adoption of CoCo, which leverages them enormously when they are creating they're creating products. And CoCo and counting agents have also changed things like enablement.
+       [中] 我们的解决方案工程师能够构建更真实的演示和原型，甚至非常非常快地为客户实际完成项目，向我们的客户展示 CoCo 的可能性。同样，我们的内部团队，无论是我谈到的支持团队，都是我们的 SRE 团队，运行我们生产系统的站点可靠性工程团队，都是我们的服务团队。他们有超过 95% 的人采用 CoCo，这在他们创造产品时极大地利用了他们。CoCo 和计票代理也改变了支持等方面。
+
+  [ 82] [EN] It's a lot easier to learn, and you can literally ask a coating agent how to do something, have you right have it right to example for you for you to examine it, thinker with it and then write a more complicated example. A professor a friend of mine called coating agent self-categogical. They come with that learning built-in which means that a product feature released in CoCo can be used by someone in services literally the same week. And it's that rapid iteration that's also benefiting us. And so that's the virtuous loop that we are on. We think we can get projects done faster.
+       [中] 它更容易学习，你可以直接问一个涂层剂如何做某事，你有权利给你举例，让你检查它，用它思考，然后写一个更复杂的例子。我的一位教授和朋友称涂层剂为自分类的。它们内置了学习功能，这意味着 CoCo 中发布的产品功能可以在同一周内被服务人员使用。正是这种快速迭代也让我们受益。这就是我们所处的良性循环。我们认为我们可以更快地完成项目。
+
+  [ 83] [EN] We think we are also, honestly, very early in the world of agentic development that are new techniques being developed, honestly, every week. And our ability to get more and more complex projects done on top of these coating agents is just enormously powerful. And I think we're setting the standard for what data work and more is going to be like, both with CoCo, but also with Snowflake Intelligence and things like MCP are a further unlock into what is possible with these agents.
+       [中] 老实说，我们认为我们还处于代理开发领域的早期阶段，老实说，每周都会开发新技术。我们利用这些涂层剂完成越来越复杂的项目的能力非常强大。我认为我们正在为数据工作和更多内容设定标准，无论是 CoCo 还是 Snowflake Intelligence，MCP 之类的东西都进一步解锁了这些代理的可能性。
+
+  [ 84] [EN] Operator:And we'll take another question.
+       [中] 接线员：我们再回答一个问题。
+
+  [ 85] [EN] Karl Keirstead:It's Karl Keirstead with UBS. I'd love to continue the conversation on CoCo, if that's okay, for a question to both Sridhar and Brian. Sridhar, it's pretty evident that customer spend on Cortex Code and even broadly models like Claudia bending spending higher given the token or usage-based pricing. I think a lot of investors are worried that it's going to reach a point where customers might try to govern or throttle the use of these tools to try to contain spend. I'm just curious, are you anticipating that to happen? Perhaps the answer is that the value add is such that you are unlikely to see that?
+       [中] Karl Keirstead：我是瑞银集团的 Karl Keirstead。如果可以的话，我很想继续在 CoCo 上进行对话，向 Sridhar 和 Brian 提出一个问题。Sridhar，很明显，考虑到代币或基于使用的定价，客户在 Cortex Code 上的支出甚至像 Claudia 这样的广泛模型都会增加支出。我认为很多投资者都担心，客户可能会试图控制或限制这些工具的使用，以控制支出。我只是好奇，你期待这种情况发生吗？也许答案是附加值是如此之大以至于您不太可能看到这一点？
+
+  [ 86] [EN] And then maybe for Brian, I think there might also be a perception that products like Cortex Code come at generally a lower gross margin than the rest of the business. But one thing I noted from your guidance for the full year is that you stuck with the product gross margin guidance of 75% despite a big apparent uptick in Cortex Code, which suggests perhaps that the gross margin drag is minimal, if any. And I'd love to ask you to comment a little bit on that.
+       [中] 然后，对于 Brian 来说，我认为可能还有一种看法，即 Cortex Code 等产品的毛利率通常低于其他业务。但我从你们全年的指导中注意到的一件事是，尽管 Cortex 代码明显上升，但你们仍坚持 75% 的产品毛利率指导，这表明毛利率的拖累（如果有的话）也许是最小的。我很想请您对此发表一些评论。
+
+  [ 87] [EN] Sridhar Ramaswamy:I'll start, and then I'll hand off to Brian. Cost is always an issue that we pay attention to. This is true in Snowflake Intelligence. This is also true in Cortex Code. But what helps significantly is the fact that these are products in which you can either get things done that you are never able to before or get things done 10 times and sometimes like more than that faster. Those are not normal things. And to give you concrete examples, a very large bank that we work with has told me that while they spend several hundred million dollars on data systems as a whole, it's a very large bank.
+       [中] Sridhar Ramaswamy：我先开始，然后交给 Brian。成本一直是我们关注的问题。这在雪花智能中确实如此。Cortex 代码中也是如此。但真正有帮助的是，在这些产品中，您可以完成以前从未完成过的事情，也可以将事情完成 10 次，有时甚至更快。这些都不是正常的事情。举个具体的例子，我们合作的一家非常大的银行告诉我，虽然他们在整个数据系统上花费了数亿美元，但它是一家非常大的银行。
+
+  [ 88] [EN] The amount of money that they spend on the human capital that powers all of these various pieces of software and link them up is 3 to 4x that. And anything that makes that part of the labor force 10x more effective is always incredibly welcome. . Having said that, when we want to roll, for example, Snowflake Intelligence out to 10,000 users, cost governance is absolutely an issue just like it's an issue in Snowflake when I want to roll products out at scale.
+       [中] 他们花在人力资本上的资金是这些不同软件的 3 到 4 倍，这些人力资本为所有这些不同的软件提供支持并将它们连接起来。任何能让这部分劳动力的效率提高十倍的事情总是非常受欢迎的。。话虽如此，例如，当我们想要向 10,000 个用户推出 Snowflake Intelligence 时，成本治理绝对是一个问题，就像我想要大规模推出产品时在 Snowflake 中也是一个问题一样。
+
+  [ 89] [EN] And so we are doing things like cost limits at an account level or at a particular agent level or you want to be able to restrict how much tokens a particular user can be spending. Of course, it quickly comes back to having exceptions for very talented users that are actually worth the tokens that they are using. And that's the kind of infrastructure that we are really good at creating. And so we feel very good about being able to do that. Plus there is a lot of innovation that we are driving within these coating agent products themselves. As I said, they handle very complicated task, but not everything is complicated.
+       [中] 因此，我们正在做一些事情，例如在帐户级别或特定代理级别进行成本限制，或者您希望能够限制特定用户可以花费的代币数量。当然，很快就会回到对非常有才华的用户的例外情况，这些用户实际上值得他们使用的代币。这就是我们真正擅长创建的基础设施。因此，我们对能够做到这一点感到非常高兴。此外，我们正在这些涂层剂产品本身中推动许多创新。正如我所说，他们处理非常复杂的任务，但并非所有事情都很复杂。
+
+  [ 90] [EN] If you want to summarize, for example, I mean, I did something a couple of days ago, to summarize black threads. And perfectly small models from this raw are enough for that. You don't need the latest and greatest focus models for summarizing slack threat. We are building those kinds of capabilities natively into Snowflake, so that it can be efficient in what kind of models that it uses. But my short answer to your question is they're creating incredible value, but we are not resting on that. We are creating the controls that one needs in order to keep costs manageable as things continue expanding. Then I'll let Brian take the AIN margin question.
+       [中] 如果你要总结的话，比如说我是说，我前几天做了一个事情，总结黑线。来自这个原始的完美的小模型就足够了。您不需要最新和最好的焦点模型来总结松弛威胁。我们正在将这些功能原生构建到 Snowflake 中，以便它能够高效地使用它所使用的模型。但我对你的问题的简短回答是，他们正在创造令人难以置信的价值，但我们不会就此止步。我们正在创建所需的控制措施，以便随着业务的不断扩展，保持成本可控。然后我会让 Brian 回答 AIN 保证金问题。
+
+  [ 91] [EN] Brian Robins:Yes, Karl, thanks for the question. You're absolutely right. Our AI products have a lower gross margin than our core platform. The one thing that we want to do with our AI products when we launch a new product like CoCo is make sure that we develop a great product that we get massive adoption. And we've seen really good adoption with CoCo. We're up to roughly about a little over 7,000 accounts have adopted CoCo. With that said, we're offsetting that and keeping the same product gross margin, 75% for the full year. in lower bandwidth cost, i.e., I talked about the AWS contract. And so we're offsetting it there. So that's how we're able to do that.
+       [中] 布莱恩·罗宾斯：是的，卡尔，谢谢你的提问。你是绝对正确的。我们的人工智能产品的毛利率低于我们的核心平台。当我们推出像 CoCo 这样的新产品时，我们想要用人工智能产品做的一件事就是确保我们开发出一款能够得到广泛采用的出色产品。我们已经看到 CoCo 得到了很好的采用。我们大约有超过 7,000 个账户采用了 CoCo。话虽如此，我们正在抵消这一影响，并保持全年 75% 的产品毛利率不变。带宽成本较低，即我谈到了AWS合同。所以我们在那里抵消它。这就是我们能够做到这一点的方式。
+
+  [ 92] [EN] We're committed to find efficiency to be able to maintain that 75% gross margin.
+       [中] 我们致力于寻找能够维持 75% 毛利率的效率。
+
+  [ 93] [EN] Operator:And we'll take the next question.
+       [中] 接线员：我们将回答下一个问题。
+
+  [ 94] [EN] Raimo Lenschow:Raimo Lenschow from Barclays. Congrats from me as well, that's an amazing quarter. The question I have is more for Brian. Brian, like if you think about the last couple of quarters, you've been telling us about like the beat cadence that you think about. Obviously, this quarter, you beat by much more and CoCo is helping there, but it's also a consumption model. Like how do you think about this going forward? And how should we think about the guidance philosophy that you have here? Maybe you can help us there, but congrats from me as well, amazing quarter.
+       [中] Raimo Lenschow：来自巴克莱银行的Raimo Lenschow。我也向你表示祝贺，这是一个了不起的季度。我的问题更多是针对布莱恩的。布莱恩，如果你想想过去几个季度，你一直在告诉我们你想到的节拍节奏。显然，这个季度，你的表现要好得多，CoCo 正在帮助你，但这也是一种消费模式。您如何看待这件事？我们应该如何思考你们这里的指导理念？也许你可以帮助我们，但我也祝贺你，这是一个很棒的季度。
+
+  [ 95] [EN] Brian Robins:Thank you. Let me emphasize that there's been no change in guidance philosophy and we view a 3% beat is a very solid beat. The difference that happened this quarter was CoCo was launched in the quarter. And we base guidance on Observe behavior, and so we didn't have any Observe behavior for guidance for CoCo. And so we -- we had a unique opportunity now since we've been able to watch that for a quarter to layer that in now for the full year, and that's what we've done. And then we also saw the acceleration of the Core, and we've included that for the full year based on what we've seen.
+       [中] 布莱恩·罗宾斯：谢谢。我要强调的是，指导理念没有改变，我们认为 3% 的增长是一个非常可靠的增长。本季度发生的不同之处是 CoCo 在本季度推出。我们的指导基于观察行为，因此我们没有任何观察行为来指导 CoCo。所以我们——我们现在有一个独特的机会，因为我们已经能够观察一个季度的情况，然后将其叠加到全年，这就是我们所做的。然后我们还看到了核心的加速，并且根据我们所看到的情况，我们将其纳入了全年。
+
+  [ 96] [EN] Operator:And we'll take the next question.
+       [中] 接线员：我们将回答下一个问题。
+
+  [ 97] [EN] Matthew Hedberg:This is Matt Hedberg from RBC. Congrats from me as well. I had a question. There's been a lot of talk, especially from an autonomous AI perspective, the importance of context engineering and harness engineering. And Sridhar, you mentioned that in your prepared remarks. I guess I'm wondering what role does Snowflake have in that? And how do we think about that from a moat perspective from some of the AI labs?
+       [中] 马修·赫德伯格：我是加拿大皇家银行的马特·赫德伯格。我也表示祝贺。我有一个问题。人们已经有很多讨论，特别是从自主人工智能的角度来看，上下文工程和利用工程的重要性。斯里达尔，你在准备好的发言中提到了这一点。我想我想知道雪花在其中扮演什么角色？我们如何从一些人工智能实验室的护城河角度来思考这个问题？
+
+  [ 98] [EN] Sridhar Ramaswamy:Yes. The data that is stored in Snowflake is among the most valuable pieces of data for a particular company. This is the -- it's called the gold layer and typically has the most important information at Snowflake, for example, all of our revenue information or consumption information and information about the different departments are all kept in Snowflake. But on top of that, the dashboarding platforms that are written on top of Snowflake have an amount of additional context as well. And we see what they do. So our ability to provide context to AI is exceptional. And we are also busy creating products that can use this to make the act of getting value from AI even faster.
+       [中] 斯里达尔·拉马斯瓦米：是的。The data that is stored in Snowflake is among the most valuable pieces of data for a particular company.这就是——它被称为黄金层，通常在Snowflake中包含最重要的信息，例如，我们所有的收入信息或消费信息以及有关不同部门的信息都保存在Snowflake中。But on top of that, the dashboarding platforms that are written on top of Snowflake have an amount of additional context as well.我们看到他们做了什么。So our ability to provide context to AI is exceptional.And we are also busy creating products that can use this to make the act of getting value from AI even faster.
+
+  [ 99] [EN] I talked earlier about how we have workflow automation for the entire life cycle of creating an agent. We want to do more than that. We want CoCo to be the place where it is fastest to get value from the data investments that you have made. And Christian is working on a key effort on this side as well. Christian, do you want to add additional context.
+       [中] 我之前谈到了我们如何在创建代理的整个生命周期中实现工作流程自动化。我们想做的还不止这些。我们希望 CoCo 成为从您所做的数据投资中最快获得价值的地方。克里斯蒂安也在这方面做出了重要的努力。克里斯蒂安，你想添加更多背景信息吗？
+
+  [100] [EN] Christian Kleinerman:Yes. And briefly, Matt, I think your question is insightful. We have a track record of using metadata and activity inside of Snowflake to drive better results. Oftentimes, it used to be query optimization and performance. And we are now using that same type of civil activity in Snowflake to provide better context to AI. We will be showcasing at Summit some of the differences of how out-of-the-box results are better with CoCo and Snowflake Intelligence as opposed to other agents.
+       [中] 克里斯蒂安·克莱纳曼：是的。简而言之，马特，我认为你的问题很有洞察力。我们拥有使用 Snowflake 内部元数据和活动来推动更好结果的记录。通常，它曾经是查询优化和性能。我们现在在 Snowflake 中使用相同类型的民间活动来为人工智能提供更好的背景。我们将在峰会上展示 CoCo 和 Snowflake Intelligence 与其他代理相比开箱即用的结果如何更好的一些差异。
+
+  [101] [EN] Sridhar Ramaswamy:This also points to the overall strategic value of Cortex Code because if a number of data users from within an enterprise are using these agentic coating platforms, in order to create end-user products. It could be skills, it could be dashboards, it could be agents. We also then have the ability to essentially learn across these. And so we have created memory concepts where use of these products within Snowflake makes Cortex Code itself much better for future use. That is part of the flywheel effect that one gets from having great agentic coating products.
+       [中] Sridhar Ramaswamy：这也指出了 Cortex Code 的整体战略价值，因为如果企业内部的大量数据用户正在使用这些代理涂层平台，以便创建最终用户产品。它可以是技能，可以是仪表板，也可以是代理。然后我们也有能力从本质上学习这些内容。因此，我们创建了内存概念，在 Snowflake 中使用这些产品可以使 Cortex Code 本身更好地供将来使用。这是飞轮效应的一部分，人们从拥有优质的涂料产品中获得这一效应。
+
+  [102] [EN] Operator:And moving on to another question.
+       [中] 接线员：继续讨论另一个问题。
+
+  [103] [EN] Brent Thill:It's Brent Thill at Jefferies. Sridhar, just on the sales and marketing side, if you the backlog observed, we didn't have a really big S&M hiring quarter. And I'm just curious, based on the demand and everything you're seeing, why not lean a little harder in the go-to-market side. Maybe you are behind the scenes. And I think this maybe also ties into the transformation that took place in the quarter with the new head of sales. So maybe if you could just tie it all together in a go-to-market view from your perspective, that would be great.
+       [中] 布伦特·蒂尔：我是杰富瑞集团的布伦特·蒂尔。Sridhar，就销售和营销方面而言，如果您观察到积压订单，就会发现我们并没有真正大规模的 S&M 招聘季度。我只是很好奇，根据需求和你所看到的一切，为什么不在进入市场方面更加努力呢？也许你就在幕后。我认为这可能也与新销售主管在本季度发生的转变有关。因此，如果您能从您的角度将所有内容结合在一起，以进入市场的视角，那就太好了。
+
+  [104] [EN] Sridhar Ramaswamy:I think part of what we need to understand right now is that there are many, many places in which AI is making Snowflake a lot more efficient. I thought in my prepared remarks about how we have greatly increased the number of use cases that we have won, which is primarily an account executive driven activity. We've also had significant increases in individual productivity year-on-year. This is because of -- because of AI, their ability to learn faster, pitch products that are more relevant to their customers, and also have solution engineers create prototypes that are directly relevant and in the context of the customer. So as an organization, we are just becoming a lot more effective.
+       [中] Sridhar Ramaswamy：我认为我们现在需要了解的一部分是，人工智能在很多很多地方使 Snowflake 变得更加高效。我在准备好的发言中想到了我们如何大大增加了我们赢得的用例数量，这主要是客户主管驱动的活动。我们的个人生产力也逐年显着提高。这是因为——因为人工智能，他们能够更快地学习，推销与客户更相关的产品，并且让解决方案工程师创建与客户直接相关的原型。因此，作为一个组织，我们正在变得更加高效。
+
+  [105] [EN] We will continue to invest in all of the key functions that are responsible for driving Snowflake forward, the supply exchange ring. This applies also on the sales and solution engineering side. But it is counterbalanced by the large amount of efficiencies that we are getting in a number of other functions that are very amenable to AI automation like support like Saudi, like technical documentation. Basically, a lot of information functions and information exchange functions have gotten a whole lot easier -- and this is also where teams are being very, very effective in deploying things like CoCo on Snowflake Intelligence for these kinds of use cases. We will absolutely continue to invest wherever we get strong leverage.
+       [中] 我们将继续投资于负责推动 Snowflake 向前发展的所有关键功能，即供应交换环。这也适用于销售和解决方案工程方面。但它被我们在许多其他功能中获得的大量效率所抵消，这些功能非常适合人工智能自动化，例如沙特等支持，例如技术文档。基本上，许多信息功能和信息交换功能变得更加容易——这也是团队在针对此类用例在 Snowflake Intelligence 上部署 CoCo 等非常非常有效的地方。我们绝对会继续在有强大杠杆作用的地方进行投资。
+
+  [106] [EN] Operator:And we'll take the next question.
+       [中] 接线员：我们将回答下一个问题。
+
+  [107] [EN] Aleksandr Zukin:Alex Zukin from Wolfe Research. Just congrats on an amazing quarter. Sridhar, maybe for you, actually, both of them probably for you. If you think about the profile of a customer a year ago versus now a customer that's using Cortex Code. What are you seeing in terms of the uplift on spend? And with the acquisition of Natoma that you announced, it seems to me that Cortex Code was just the beginning. Maybe it's the first agent that you're kind of going to launch. And you're not stopping there. Maybe there's a number of other ones that are coming. So can you just help us think about how that changes the potential spend profile of the customer over time?
+       [中] 亚历山大·祖金：来自沃尔夫研究中心的亚历克斯·祖金。祝贺这个季度的出色表现。Sridhar，也许适合你，实际上，他们两个都可能适合你。如果您考虑一年前的客户资料与现在使用 Cortex 代码的客户的资料。您认为支出的增长如何？随着您宣布收购 Natoma，在我看来 Cortex Code 仅仅是一个开始。也许这是您要推出的第一个代理。而且你不会就此止步。也许还有很多其他的人即将到来。那么，您能否帮助我们思考随着时间的推移，这将如何改变客户的潜在支出状况？
+
+  [108] [EN] Sridhar Ramaswamy:I mean, among the biggest like impact that products like CoCo have with our customers is simply one that of expectation. I talked again in my remarks about how we did a 2-year Teradata migration. We are engaged in more migrations, but the time lines for doing those now run between a quarter and 2 quarters. Why both my team and the customer expects and demand state. And we have the ability to deliver against that. I think the -- both the inpatient and hunger or what people can do with data along with the expectation for how quickly we can get them done. I would say that's like that's a huge sea change. Christian?
+       [中] Sridhar Ramaswamy：我的意思是，像 CoCo 这样的产品对我们的客户产生的最大影响之一就是期望。我在发言中再次谈到了我们如何进行为期 2 年的 Teradata 迁移。我们正在进行更多的迁移，但现在完成这些迁移的时间在一个季度到两个季度之间。为什么我的团队和客户都期望和需求状态。我们有能力解决这个问题。我认为，无论是住院病人还是饥饿，或者人们可以利用数据做什么，以及对我们能多快完成这些事情的期望。我想说这就像是一个巨大的变化。基督教？
+
+  [109] [EN] Christian Kleinerman:With what you're saying, Sridhar, there's a massive backlog -- what customers want to do -- so just helping them do it faster, just as they get to the next set of work sooner.
+       [中] Christian Kleinerman：斯里达尔，正如您所说，客户想要做的事情有大量积压，因此只需帮助他们更快地完成工作，就像他们更快地开始下一组工作一样。
+
+  [110] [EN] Sridhar Ramaswamy:That's right. Even our own data teams, for example, typically had backlogs that ran into multiple years. In fact, the standard request, all of you know, this is sort of funny, but not. If you had a request of a data team, the answer usually is like that's nice, take a ticket and waited. But we are now in a situation where they can actually crack through that backlog just a whole lot more quickly unlocking value.
+       [中] 斯里达尔·拉马斯瓦米：没错。例如，即使是我们自己的数据团队，通常也会积压多年。事实上，标准要求，你们都知道，这有点有趣，但事实并非如此。如果您收到数据团队的请求，答案通常是“很好，拿票并等待”。但我们现在所处的情况是，他们实际上可以更快地解决积压问题，从而释放价值。
+
+  [111] [EN] And to go back to the question about Natoma and it's important and coding agents, it is important to understand that Snowflake Intelligence and Cortex Code are built on the same underlying technology with just different tools having different capabilities that are exposed to end users. They use the model garden underneath that powers all of these models. They share what's called the harness. This is the one that is working on top of the model, deciding what tools to call. And increasingly, they are also going to be sharing the same run time. We have a cloud run time product that is in public preview.
+       [中] 回到 Natoma 及其重要的编码代理的问题，重要的是要了解 Snowflake Intelligence 和 Cortex Code 是基于相同的底层技术构建的，只是使用具有向最终用户公开的不同功能的不同工具。他们使用下面的模型花园为所有这些模型提供动力。他们共享所谓的安全带。这是在模型之上工作的工具，决定调用哪些工具。而且，它们也将越来越多地共享相同的运行时。我们有一个公开预览版的云运行时产品。
+
+  [112] [EN] It means that all of the power that you expect from running CoCo locally can now be executed in the cloud in a governed manner. And I'm already running agents in this cloud agent platform on that ability to launch things, for example, autonomous agents because you no longer need to have your laptop open for something to run is pretty remarkable. It's all being built on the same infrastructure for the harness, further on time as well as things like session memory. And Cortex Code and Snowflake Intelligence are just two manifestations of the same product.
+       [中] 这意味着您期望在本地运行 CoCo 的所有功能现在都可以在云中以受控的方式执行。我已经在这个云代理平台上运行代理，能够启动一些东西，例如，自主代理，因为你不再需要打开笔记本电脑来运行某些东西，这是非常了不起的。这一切都建立在相同的线束基础设施上，进一步加快了时间以及会话内存等内容。而Cortex Code和Snowflake Intelligence只是同一个产品的两种表现形式。
+
+  [113] [EN] And the reason MCP and Natoma are a big deal is they now bring the context entirety of SaaS application context into these products. And so I've done deep research reports, for example, that I've shown Christian that can now look for information from Snowflake, from the web, from Google Docs also from Slack and synthesize that into something that is astoundingly meaningful. And these also let you take action instantly. You can slack somebody, you can compose e-mails and send it and you can take actions on the underlying applications, and that's the promise. We basically have a builder version and an end user version of these products.
+       [中] MCP 和 Natoma 之所以如此重要，是因为他们现在将 SaaS 应用程序上下文的上下文整体引入到这些产品中。因此，我做了深入的研究报告，例如，我向 Christian 展示了现在可以从 Snowflake、网络、Google Docs 以及 Slack 中查找信息，并将其综合成具有惊人意义的东西。这些也让你立即采取行动。你可以解雇某人，你可以撰写电子邮件并发送它，你可以对底层应用程序采取行动，这就是承诺。我们基本上有这些产品的构建版本和最终用户版本。
+
+  [114] [EN] Obviously, the names make them sound more different than they are, that's something that we are working on. But the amount of power and flexibility that these coating agent products offer is pretty remarkable. And in my mind, the right analogy here is that a coding agent, yes, can write code, but at its core, it's an abstraction agent. It can let you do things at a high level that previously you sort of had to sequence out one by one. And I think that's the power that comes from them. Christian?
+       [中] 显然，这些名字让它们听起来比实际情况更加不同，这是我们正在努力的事情。但这些涂层剂产品提供的功能和灵活性是相当出色的。在我看来，这里正确的类比是编码代理，是的，可以编写代码，但其核心是抽象代理。它可以让您以较高的水平完成以前必须一项一项地排序的事情。我认为这就是来自他们的力量。基督教？
+
+  [115] [EN] Christian Kleinerman:And one other comment on very important to highlight that it does that tool visibility with governance and auditability because our mission is to help every organization leverage AI in the context of the data but with governance, with security and trustworthiness. So that fits entirely into our mission.
+       [中] Christian Kleinerman：另一条非常重要的评论是强调它通过治理和可审计性实现了该工具的可见性，因为我们的使命是帮助每个组织在数据背景下利用人工智能，但具有治理、安全性和可信性。所以这完全符合我们的使命。
+
+  [116] [EN] Operator:And we'll take another question.
+       [中] 接线员：我们再回答一个问题。
+
+  [117] [EN] Brad Reback:Brad Reback, Stifel. Sridhar, with the success you're having here with CoCo and Snowflake Intelligence, is that fundamentally changing the competitive landscape when you're going into new customers? Are you now seeing LOMs more than some of the older competitors?
+       [中] 布拉德·雷巴克：布拉德·雷巴克，斯蒂菲尔。Sridhar，随着您在 CoCo 和 Snowflake Intelligence 方面取得的成功，当您进入新客户时，这是否会从根本上改变竞争格局？您现在是否比一些老竞争对手更了解 LOM？
+
+  [118] [EN] Sridhar Ramaswamy:We come with a unique value proposition. As you folks know, even in the world of data, that cloud service providers have had products. We have very successful partnerships with them. In fact, we just announced a $6 billion partnership with one of them. Our value prop has always been very clear. We are about customer choice. We are also about a certain amount of independence from the mechanics of the cloud providers, a snowflake implementation works fine on AWS. But it can also work on Azure. We have similar really good partnerships with the leading AI labs, both Anthropic and OpenAI. We collaborate very closely with them to create great AI products, but also to create safe AI products.
+       [中] Sridhar Ramaswamy：我们拥有独特的价值主张。正如你们所知，即使在数据领域，云服务提供商也有产品。我们与他们建立了非常成功的合作伙伴关系。事实上，我们刚刚宣布与其中一家公司建立价值 60 亿美元的合作伙伴关系。我们的价值主张一直非常明确。我们关心客户的选择。我们还希望在一定程度上独立于云提供商的机制，雪花实施在 AWS 上运行良好。但它也可以在 Azure 上运行。我们与领先的人工智能实验室（Anthropic 和 OpenAI）有着类似的良好合作伙伴关系。我们与他们密切合作，创造出色的人工智能产品，同时也创造安全的人工智能产品。
+
+  [119] [EN] And similarly, Cortex Code and Snowflake Intelligence provide model choice. We run fine on both the models. We also host a whole cities of other models ourselves and as things like open source models become more important. We always act on behalf of what is right for the customer, which I think positions us in very good stead with all our customers.
+       [中] 同样，Cortex Code 和 Snowflake Intelligence 提供了模型选择。我们在这两种模型上都运行良好。我们还自己托管了整个城市的其他模型，并且随着开源模型等事情变得更加重要。我们始终代表客户的利益行事，我认为这使我们对所有客户都非常有利。
+
+  [120] [EN] Brian Robins:And I'll just add on to that. Just from a sales execution perspective within the quarter, the achievement was great in all geographies and all industry verticals. This was the most net new customer adds that we had in company history. And so it's just really a solid quarter all around.
+       [中] Brian Robins：我补充一下。仅从本季度的销售执行角度来看，所有地区和所有垂直行业都取得了巨大的成就。这是我们公司历史上新增客户数量最多的一次。所以这确实是一个坚实的季度。
+
+  [121] [EN] Operator:And we'll go ahead and take the next question.
+       [中] 接线员：我们将继续回答下一个问题。
+
+  [122] [EN] Unknown Analyst:This is Koji Kada from Bank of America. So when I talk with partners and customers of Snowflake, I hear the same thing over and over again. Snowflake is my trusted enterprise data and AI vendor with governance and security guardrails as key differentiators. I think about that a lot. But the AI world is moving so fast. And assuming the competition out there gets better with all this. What makes you confident that Snowflake's position as the trusted enterprise data and AI partners secure over the long term?
+       [中] 未知分析师：我是美国银行的 Koji Kada。因此，当我与 Snowflake 的合作伙伴和客户交谈时，我一遍又一遍地听到同样的事情。Snowflake 是我值得信赖的企业数据和人工智能供应商，其治理和安全护栏是关键的差异化优势。我想了很多。但人工智能世界发展如此之快。假设所有这些都让外面的竞争变得更好。是什么让您对 Snowflake 作为值得信赖的企业数据和人工智能合作伙伴的地位长期稳固充满信心？
+
+  [123] [EN] Sridhar Ramaswamy:Because there are a set of deep infrastructure capabilities that just take a lot of time to develop, whether it is role-based access control and role-level access control at massive scale. -- our world-class replication that provides for things like disaster recovery, amazing organization support and there are dozens that I'm missing, Christian, do you want to add something?
+       [中] Sridhar Ramaswamy：因为有一组深层基础设施功能需要花费大量时间来开发，无论是基于角色的访问控制还是大规模的角色级访问控制。-- 我们世界级的复制提供灾难恢复、出色的组织支持等功能，还有很多我缺少的功能，克里斯蒂安，您想添加一些东西吗？
+
+  [124] [EN] Christian Kleinerman:No, I think that, that piece on data masking and role-level policies, all of the government security configuration identity makes it such that customers have already configured Snowflake to have trusted access to the data. and AI just amplifies that as opposed to alternatives are just going to get them to reinvent the wheel and rebuild all of this, which doesn't make much sense.
+       [中] Christian Kleinerman：不，我认为，关于数据屏蔽和角色级策略的部分，所有政府安全配置身份都使得客户已经将 Snowflake 配置为具有对数据的可信访问权限。人工智能只是放大了这一点，而不是替代方案只会让他们重新发明轮子并重建所有这一切，这没有多大意义。
+
+  [125] [EN] Sridhar Ramaswamy:And it's also important to understand that we are also not sitting still our ability to create products like Snowflake Intelligence and Cortex Code, but also all of the second order effects imagine having autonomous agents that can automatically figure out if there are anomalies in your data so that you don't have to be running those jobs outside are to be able to do governance not with endless tedious sets of SQL statements that you write, but more with the policy that specifies that this is how you want your enterprise governance to be done, and we take care of all the details and the mechanics of running these things behind or creating new classes of applications that sit on a substrate of Snowflake data powered by AI.
+       [中] Sridhar Ramaswamy：同样重要的是要明白，我们并没有坐以待毙，我们没有能力创造像 Snowflake Intelligence 和 Cortex Code 这样的产品，而且所有的二阶效应都想象一下，拥有自主代理，可以自动找出数据中是否存在异常，这样您就不必在外部运行这些作业，就能够进行治理，而不是使用您编写的无休止的乏味 SQL 语句集，而是更多地使用指定这就是您希望企业治理的方式的策略完成后，我们会处理所有细节和机制，以便在背后运行这些东西或创建基于 AI 驱动的 Snowflake 数据基础的新应用程序类别。
+
+  [126] [EN] These are all things that we make possible. And I think, honestly, that is also what we have to do. Your core thesis that people will be able to add these features or stitch them together is true, but we are also developing great new capabilities at brick neck speed also powered by AI. I think that is what it takes to succeed today.
+       [中] 这些都是我们使之成为可能的事情。老实说，我认为这也是我们必须做的。您的核心论点是，人们将能够添加这些功能或将它们缝合在一起，这是正确的，但我们也在以人工智能的速度开发出色的新功能。我认为这就是今天成功所需要的。
+
+  [127] [EN] Christian Kleinerman:We have lots of new controls and policies will be showcasing next week, including amazing mechanisms to simplify them.
+       [中] Christian Kleinerman：我们将在下周展示许多新的控制措施和政策，包括简化它们的惊人机制。
+
+  [128] [EN] Operator:And that does conclude the question-and-answer session. I'll now turn the conference back over to Snowflake for closing remarks.
+       [中] 接线员：问答环节到此结束。现在我将把会议转回给 Snowflake 致闭幕词。
+
+  [129] [EN] Sridhar Ramaswamy:Thank you, everyone. To recap, AI is accelerating consumption across our core platform and our native AI products, Snowflake Intelligence and Cortex Code are scaling rapidly, already contributing meaningfully to revenue in their own right. These AI capabilities are establishing Snowflake as the agentic control plane for the enterprise, connecting data, models, applications and workflows in a trusted environment where intent becomes governed action. We are continuing to execute accelerating growth, expanding margins and deepening our customer relationships while winning many new ones. We believe that Snowflake is uniquely positioned to lead in the era of the agentic enterprise and continue to see enormous opportunity ahead. AI is compounding Snowflake's advantage in data.
+       [中] 斯里达尔·拉马斯瓦米：谢谢大家。回顾一下，人工智能正在加速我们核心平台的消费，我们的原生人工智能产品 Snowflake Intelligence 和 Cortex Code 正在迅速扩展，本身已经对收入做出了有意义的贡献。这些人工智能功能正在将 Snowflake 建立为企业的代理控制平面，在可信环境中连接数据、模型、应用程序和工作流程，在该环境中，意图成为受管控的行动。我们将继续加速增长、扩大利润并深化我们的客户关系，同时赢得许多新客户。我们相信，Snowflake 具有独特的优势，能够引领代理企业时代，并继续看到未来的巨大机遇。AI正在增强Snowflake在数据方面的优势。
+
+  [130] [EN] Operator:Thank you. That does conclude today's conference. We do thank you for your participation, and have an excellent day.
+       [中] 接线员：谢谢。今天的会议到此结束。我们非常感谢您的参与，祝您度过愉快的一天。
+
+  [131] [EN] This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+       [中] 本文是为 The Motley Fool 制作的本次电话会议的文字记录。尽管我们力求“愚蠢的最佳”，但本文字记录中可能存在错误、遗漏或不准确之处。本文的部分内容是根据 The Motley Fool 的见解和投资方法，使用大型语言模型 (LLM) 创建的。它已经过我们的人工智能质量控制系统的审查。由于法学硕士（目前）不能拥有股票，因此在所提到的任何股票中都没有头寸。与我们所有的文章一样，The Motley Fool 不对您使用此内容承担任何责任，我们强烈鼓励您自己进行研究，包括亲自听电话并阅读公司的 SEC 文件。请参阅我们的条款和条件了解更多详细信息，包括我们的强制性资本免责声明。
+
+  [132] [EN] The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.
+       [中] Motley Fool 对 Snowflake 持仓并推荐。Motley Fool 有披露政策。
+
+  [133] [EN] Stocks Mentioned
+       [中] 提及的股票
+
+  [134] [EN] *Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
+       [中] *自成立以来所有推荐的平均回报。成本基础和回报基于前一个交易日收盘价。
+
+======================================================================
+共 134 段中英对照
+======================================================================

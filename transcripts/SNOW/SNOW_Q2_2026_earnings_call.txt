@@ -1,0 +1,330 @@
+======================================================================
+Earnings Call Transcript
+Company: Snowflake (Snowflake)
+Ticker: SNOW
+Quarter: Q2 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2025/08/27/snowflake-snow-q2-2026-earnings-call-transcript/
+Scraped: 2026-05-30T11:18:38.828377
+Characters: 55876
+======================================================================
+
+Wednesday, Aug. 27, 2025 at 5 p.m. ET
+
+Call participants
+
+Chief Executive Officer — Sridhar Ramaswamy
+
+Chief Financial Officer — Mike Scarpelli
+
+Senior Vice President, Product — Christian Kleinerman
+
+Operator
+
+Product revenue-- $1.09 billion in product revenue for the fiscal second quarter ended July 31, 2025, up 32% year over year.
+
+Remaining performance obligations-- $6.9 billion in remaining performance obligations for the fiscal second quarter, representing 33% year-over-year growth.
+
+Net revenue retention rate-- 125% in the fiscal second quarter, indicating healthy existing customer expansion.
+
+Customer additions-- 533 net new customers in the fiscal second quarter, including 15 Global 2,000 accounts, marking a 21% year-over-year increase in net new customer adds.
+
+Million-dollar customers-- 50 customers crossed the $1 million trailing twelve-month revenue mark in the fiscal second quarter; total now at 654.
+
+Non-GAAP product gross margin-- Non-GAAP product gross margin was 76.4% in the fiscal second quarter.
+
+Non-GAAP operating margin-- Non-GAAP operating margin increased to 11% in the fiscal second quarter.
+
+Non-GAAP adjusted free cash flow margin-- Non-GAAP adjusted free cash flow margin was 6% in the fiscal second quarter; the company stated non-GAAP free cash flow is expected to be weighted more toward the second half of the year.
+
+Cash, cash equivalents, and investments-- $4.6 billion at the end of the fiscal second quarter.
+
+Share repurchase authorization-- $1.5 billion remains available through March 2027; no repurchases occurred in the quarter.
+
+Third quarter product revenue guidance-- $1.125 billion to $1.13 billion for the fiscal third quarter, projecting 25%-26% year-over-year growth.
+
+Third quarter non-GAAP operating margin guidance-- 9% non-GAAP operating margin expected for the fiscal third quarter.
+
+Fiscal 2026 product revenue guidance-- Raised to $4.395 billion, representing 27% year-over-year growth.
+
+Fiscal 2026 margin guidance-- Non-GAAP product gross margin of 75% for fiscal 2026, non-GAAP operating margin of 9% for fiscal 2026, and non-GAAP adjusted free cash flow margin of 25% for fiscal 2026.
+
+Azure as fastest-growing cloud-- CFO Scarpelli stated, "Azure was our fastest-growing cloud. It actually grew 40% year over year."
+
+AI adoption-- AI influenced "nearly 50% of new logos" in the fiscal second quarter and powered 25% of all deployed use cases, with over 6,100 accounts using Snowflake's AI weekly as of the fiscal second quarter.
+
+Product innovation velocity-- Over 250 new product capabilities launched to general availability in the first half of fiscal 2026.
+
+Data sharing penetration-- 40% of Snowflake customers are now data sharing on the platform.
+
+Adoption of Apache Iceberg-- Over 1,200 accounts are using Apache Iceberg formats as of the fiscal second quarter.
+
+Sales and marketing hiring-- 529 new hires in the fiscal second quarter (364 in sales/marketing).
+
+New offerings in public preview-- Snowflake Intelligence and Snowpark Connect for Apache Spark are now in public preview; Cortex AI SQL also introduced.
+
+OpenFlow expansion-- OpenFlow, built on the Datavolo acquisition, now supports change data capture from Oracle and targets the $17 billion data integration market.
+
+Professional services growth-- Attributed to milestone recognition from one large customer.
+
+Snowflake(SNOW+7.02%)delivered accelerating product revenue growth in the fiscal second quarter and raised full-year guidance, with management emphasizing strong core analytics momentum and increasing AI-driven adoption. Customer acquisition accelerated, and high-value accounts continued to expand, supported by heavy sales and marketing investment in the first half. Azure was highlighted as the company’s fastest-growing cloud environment, while Snowflake’s product innovation engine produced rapid new feature launches, expanding platform breadth and enhancing AI capabilities. Data sharing, open table formats, and the integration of acquisitions like Datavolo and Crunchy provided new growth vectors. Management reported rising enterprise-wide customer deployments of AI products and described a deliberate go-to-market strategy focused on delivering measured monetization following broad adoption.
+
+CEO Ramaswamy said, "our core business analytics continues to be strong. It's the foundation of the company."
+
+CFO Scarpelli pointed out, "we saw a little bit of contribution from Crunchy, that acquisition we did with Postgres."
+
+Customer interest in Snowflake Postgres is "very, very strong," with preview expected in the next few months, according to Kleinerman.
+
+Management stated that 250 features launched to general availability in six months is driving new revenue streams and platform adoption.
+
+Professional services growth in the fiscal second quarter resulted mainly from deferred revenue recognition tied to a single large customer milestone.
+
+Over 12,000 global partners are part of Snowflake’s broader ecosystem, spanning cloud providers, technology vendors, and system integrators.
+
+Industry glossary
+
+Net revenue retention rate (NRR): The percentage of recurring revenue retained from existing customers, including expansions, downgrades, and churn, over a specific period.
+
+GA (general availability): The stage when a product or feature is fully released and supported for production use.
+
+Data sharing: Enabling organizations to securely exchange and collaborate on data within the Snowflake platform ecosystem.
+
+Change data capture (CDC): A process to identify and track changes in data in database systems for real-time analytics or replication.
+
+SC (solutions consultant/engineer): Technical sales professionals supporting customer adoption and onboarding of complex software platforms.
+
+OpenFlow: Snowflake’s connectivity platform for ingesting structured, unstructured, batch, or streaming data from various enterprise sources.
+
+Full Conference Call Transcript
+
+Sridhar Ramaswamy:Thanks, Jimmy. And, hi, everyone. Thank you all for joining us today. Snowflake has delivered yet another strong quarter. And I'm proud of the incredible work across our team and the deep partnerships with our customers to deliver these results. Our core business remains very strong. And we continue to deliver product innovation to market at a rapid pace while strengthening our go-to-market motion for growth. We're executing with intensity, and alignment continues to see an enormous opportunity ahead. Snowflake remains laser-focused on our mission to empower every enterprise to achieve its full potential through data and AI.
+
+We're delivering our more than 12,000 customers tremendous value throughout their entire data life cycle with an AI data cloud that's designed to enable faster innovation and remove friction from business operations. We remain disciplined, driving operational rigor across our business, gaining greater efficiency, even as we continue to invest aggressively in growth. We continue to execute with urgency and focus to capture the opportunities ahead and sustain durable momentum. Product revenue for Q2 was $1.09 billion, up a strong 32% year over year, demonstrating an acceleration in growth from last quarter. Remaining performance obligations totaled $6.9 billion with year-over-year growth of 33%. Our net revenue retention rate was a very healthy 125%.
+
+Our non-GAAP operating margin increased to 11%, reflecting our focus on efficiency and operational rigor. As you can see, we have continued to deliver strong revenue growth and healthy results this quarter. And as a result, we are increasing our growth expectations for the year. At Snowflake, we believe that great technology is defined by the experience of making something complex feel effortless. And we put simplicity at the center of not just our product design, but our entire customer experience. We are committed to delivering a cohesive product with fast time to value, and it's the differentiator that leads customers to choose Snowflake again and again. It's why enterprise leaders like Booking.com and the InterContinental Exchange use Snowflake.
+
+Our platform is easy to use, connected to enable fluid access to data wherever it sits, and trusted by companies of all sizes and industries. Global hospitality icon, Hyatt Hotels, uses Snowflake to simplify data management and ensure unified governance. By consolidating enterprise data into a single environment, Hyatt empowers its teams with fast, secure access to information, enabling them to make informed decisions that enhance customer experiences and drive operational efficiency. This quarter, we delivered on our product strategy, introducing incredible new innovations to drive value at each stage of our customers' data journey. Of course, AI is front and center. We are continuing to advance our leadership in enterprise AI with Snowflake Intelligence, in public preview.
+
+This platform enables every user to talk to their enterprise data, turning structured and unstructured data into actionable insights through natural language. And it powers the creation of intelligent agents directly on enterprise data. Early adoption is underway with customers like Cambia Health Solutions, which serves 2.6 million members in the Pacific Northwest. They leveraged Snowflake Intelligence to create its first intelligence agent to assist their teams in improving health outcomes for its Medicare members. This intelligence agent helps Cambia Medicare teams quickly analyze vast amounts of both point-in-time and longitudinal data, enabling them to scale their ability to deliver differentiated, personalized healthcare experiences and ensure members receive the right care at the right time.
+
+Then there's Duck Creek Technologies, a leader in insurance core systems and analytics, who is leveraging Snowflake to drive innovation with AI and agentic workflow. They're using Snowflake Intelligence to power internal teams and increase efficiency across finance, sales, and HR, ultimately setting the standard for the insurance industry. Alongside Snowflake Intelligence, we introduced Cortex AI SQL, bringing AI natively into SQL. Customers can now invoke AI models directly within Snowflake, eliminating data movement and unifying analytics and AI in a single step. We've also made great strides to deliver faster, more seamless performance with the launch of Gen 2 Warehouse.
+
+Already, they're helping our customers deliver up to 2x faster performance and greater efficiency, automatically optimizing resources to accelerate insight and simplify data management without increasing cost, strengthening the value that our customers see from Snowflake. With our introduction of Snowflake Postgres, we have reinforced our commitment to developers, enabling our customers with enterprise-grade Postgres SQL to build and run their most critical AI-powered applications on Postgres right inside the Snowflake AI data cloud. And we have extended our connectivity platform with Snowflake OpenFlow, making it easy to bring in structured, unstructured, batch, or streaming data.
+
+Built on our acquisition of Datavolo, OpenFlow provides seamless access to all enterprise data and now supports change data capture from Oracle through a strategic partnership. With customers already using OpenFlow to unlock new value from their data architecture, OpenFlow expands our reach into the $17 billion data integration market. It's also now easier to bring new workloads into Snowflake with Snowpark Connect for Apache Spark, now in public preview. This enables our customers to bring their Spark workloads directly into Snowflake, eliminating the burden of managing and tuning separate Spark environments. Customers can now run Spark DataFrame and Spark SQL natively on Snowflake's high-performance engines, simplifying operation and accelerating time to value.
+
+Overall, it was an amazing quarter for product innovation. In the first half of the year alone, we launched approximately 250 capabilities to general availability, demonstrating both the pace of our innovation and the breadth of our platform expansion. But we aren't stopping there. As we innovate, we are continuing to strengthen our platform and help our customers do more with their data to deliver great business outcomes. As more companies face the challenge of data spread across different places, we're helping them effectively share data and collaborate. As of this quarter, 40% of our customers are now data sharing on Snowflake, driving powerful network effects that strengthen our ecosystem and expand customer value.
+
+We are continuing to see strong adoption of open data formats, especially truly open modern table formats like Apache Iceberg. We now have over 1,200 accounts using Iceberg, underscoring our leadership in bringing truly open standards to the enterprise. Our progress with AI has been remarkable. Today, AI is a core reason why customers are choosing Snowflake, influencing nearly 50% of new logos won in Q2. And once they're on our platform, AI becomes a cornerstone of their strategy, powering 25% of all deployed use cases with over 6,100 accounts using Snowflake's AI every week. We've embedded AI across the data life cycle to accelerate analytics, transform workflow, and even power migrations.
+
+For example, Snow Convert AI uses AI-driven automation to speed up large-scale migration, minimize manual recoding, and reduce risk, helping customers move faster and with greater confidence. Cortex AI continues to play a foundational role in enterprise AI strategy. For example, Thomson Reuters is transforming how its business users easily act by deploying AI-powered agents built on Snowflake Cortex Search and LLM observability, enabling real-time insight, seamlessly handling drag-and-text to SQL, and significantly reducing time to insight and cost across functions like finance and HR. Then there's BlackRock, which is leveraging Snowflake Cortex AI to help its team serve their clients more and at a much larger scale.
+
+Our technology allows them to pull together pieces of information they have on a client from their past portfolio, not from a recent call, and get instant insight. It's like a superpower. It helps them understand exactly what each client needs so they can provide the best possible service. We have furthered our AI leadership by integrating the world's leading model in Cortex, ensuring day-one availability of OpenAI's new open-source as well as advanced GPT-5 model, providing our customers with choice and flexibility to leverage their model of choice for their enterprise AI application.
+
+Beyond what's possible with AI today, we are also making Snowflake the destination for building the next generation of cutting-edge applications, such as ThermoForce.ai's agentic AI platform, which helps customers automate workflows for tasks like supply chain and regulatory compliance. As we strengthen our platform and introduce new capabilities, we remain committed to scaling efficiently. Our go-to-market teams are demonstrating renewed focus and rigor, as evidenced by our healthy retention rate and our addition of 533 customers, including 15 Global 2,000 companies this quarter. This year's Snowflake Summit was a clear marker of our momentum. The event, our biggest yet, drew record numbers of over 22,000 customers, partners, and developers from around the world.
+
+It underscored the scale of our community and the excitement around the AI data cloud. We are also investing in our partnerships. Today, more than 12,000 global partners, including leading cloud providers, technology innovators, and system integrators, are part of our ecosystem. We're scaling our go-to-market engine while staying tightly aligned across engineering, product, marketing, and sales. This collaboration enables us to deliver greater value to existing customers but also win new ones with speed and precision. It's a truly exciting time at Snowflake. And I'm proud of the discipline, efficiency, and innovation we have built across the business. We've got a strong operational rhythm. We're investing strategically for growth. And we are laying the groundwork for continued scale.
+
+Mike, why don't you take us through some of the financial details?
+
+Mike Scarpelli:Thank you, Sridhar. In Q2, product revenue growth accelerated to 32% year over year. Product revenue benefited from strength in our core business. At Investor Day, you heard us outline our four key product categories: analytics, data engineering, AI and applications, and collaboration. In Q2, new features across all four product categories outperformed our expectations. With net new customer adds in the quarter up 21% year over year, it is clear that our new customer acquisition motion is yielding positive results. In the last quarter, 50 customers crossed the $1 million in trailing twelve-month revenue, a record for the company. $1 million-plus customers now total 654.
+
+Shifting to margins, Q2 non-GAAP product gross margin was 76.4%, and non-GAAP operating margin was 11%. Operating margin benefited from revenue performance in the quarter. We are focused on delivering margin expansion while investing in our business. In Q2, we added 529 heads, including 364 sales and marketing heads. As a reminder, our sales and marketing hiring is weighted to the first half of the year. Non-GAAP adjusted free cash flow margin was 6% in Q2. As discussed on our prior calls, we expect free cash flow to be weighted to the second half of the year. This expectation is supported by contracted billings, a large renewal base, and large deal volume in the pipeline.
+
+We did not utilize our repurchase program in Q2. We have $1.5 billion remaining on our authorization through March 2027. We ended the quarter with $4.6 billion in cash, cash equivalents, short-term and long-term investments. Moving to our outlook, for Q3, we expect product revenue between $1.125 billion and $1.13 billion, representing 25 to 26% year-over-year growth. We expect a non-GAAP operating margin of 9%. We are increasing our product revenue guidance for FY 2026. We now expect product revenue of $4.395 billion, representing 27% year-over-year growth. We expect a non-GAAP product gross margin of 75%, a non-GAAP operating margin of 9%, and a non-GAAP adjusted free cash flow margin of 25%.
+
+Finally, I'd like to provide an update on our CFO transition. We are making progress on our search, and we will make an announcement once we have more firm details to share. With that, operator, you can now open up the line for questions.
+
+Operator:In the question and answer session, if you would like to ask a question, please press star followed by one on your telephone keypad. And if you'd like to remove your question, press star followed by two. And to ask a question, press star 1. And as a reminder, if you were using a speakerphone, we ask that you please limit your questions to one question. Again, during the Q&A session, we please ask that you limit your questions to one question. The first question is from the line of Sanjit Singh with Morgan Stanley. You may proceed.
+
+Sanjit Singh:Yeah. Thank you for taking the question, and congrats on the accelerating product revenue growth this quarter. You guys have been executing quite well. And it seems like multiple parts of the equation came to work in Q2. Sridhar, my question for you is that it seems like modernizing the data infrastructure is a real priority among, you know, the Fortune 500, the Global 2,000. I want to get a sense of, like, as we go through this modernization effort, on the other side of that, do you see kind of durable growth, or is this customers addressing their legacy data infrastructure? Maybe you guys benefiting from that migration, if you will.
+
+But how do you feel about the durability of growth on the other side of these data transformation efforts?
+
+Sridhar Ramaswamy:Well, I think data modernization is just the beginning of the journey. It's primarily driven by the fact that legacy systems have trouble scaling, whether it's workload or data. And bringing those systems onto Snowflake is step one in value realization. In fact, the feedback that I get from our customers is that this data modernization journey is even more important than before because they realize that AI transformation of workflows of how they interact with their customers is critically dependent on getting their data in a place that's AI-ready. And that's where Snowflake comes in.
+
+Data that is in Snowflake is increasingly AI-ready, both for access by conjunctive layers like, you know, Cortex Analyst or Cortex Search, but also by agentic layers like Snowflake Intelligence, where you can both ask nontrivial questions. But we fully foresee things like applications coming on top of that data. So we feel very good that we are very much in the beginning of the journey where data indeed does more for our customers.
+
+Operator:The next question comes from the line of Raimo Lenschow with Barclays. You may proceed.
+
+Raimo Lenschow:Perfect. Congrats from me as well. I wanted to focus on the new customer adds. Obviously, great progress there. I remember last year, the U.S. organization kind of got split into hunters and farmers, and that started to contribute. I think this year, you did it for Europe. Is there already a contribution from the European side? Like, can you speak to that kind of momentum that you have there on part of the business? Thank you.
+
+Sridhar Ramaswamy:Yeah. What I would say is Europe is still developing, but it's contributing. We are laying the groundwork there. Obviously, we set up this new motion in the U.S. first, and the bulk of those new customers are coming from the U.S. where we've been replicating that setup in EMEA as well as APJ, and we think that will yield as well there, but they're performing.
+
+Operator:The next question is from the line of Karl Keirstead with UBS. You may proceed.
+
+Karl Keirstead:Sridhar and Mike, Satya Nadella on the last call went out of his way to highlight an acceleration in Snowflake on Azure. I'm just curious as I think through what may have driven the outstanding results this quarter. Was there anything unique that you did with Microsoft or with customers that are running on Azure worth calling out? Or did it feel like your outperformance was fairly even across the different cloud providers? Thank you.
+
+Mike Scarpelli:I would say, actually, Azure was our fastest-growing cloud. It actually grew 40% year over year. Our customers running on Azure, and I would say a lot of that is attributable to better alignment between our field and Microsoft. We've been spending a lot of time the last six months there. I would also say too that Microsoft is very strong in EMEA. We're seeing some good uptick in EMEA in our business as well with some large accounts that's contributing to that as well. But, clearly, the Azure cloud is the fastest growing, but it's off a lower base. AWS is still the biggest, but Microsoft is moving up.
+
+Sridhar Ramaswamy:The only thing that I would add on top of that is that I think we have both depth and breadth of collaboration. We work very closely with the Azure team at an infrastructure level, at the level of OneLake, but also at the level of the end-user products like Office Copilot and Power BI. And the go-to-market partnerships that Mike referenced just now are an additional, like, cherry on top of that. We see these as long-term benefits for both the company and you'll see more and more results come out of it in the future.
+
+Operator:The next question comes from the line of Kirk Materne with Evercore ISI. You may proceed.
+
+Kirk Materne:Thanks very much. I'll add my congrats on a great quarter. Mike, it sounds like there's a number of drivers of the upside in 2Q, especially around some of the newer products that came to market across those four pillars of growth. Was just wondering, how did you sort of contemplate some of these newer products in the guide for 3Q? I know you guys tend to want to get a little bit of a trend line going before you want to make any kind of bet on them. So I was just kind of wondering how they kind of that played out in 2Q and how you're thinking about for 3Q. Thanks.
+
+Mike Scarpelli:Well, as I said, they outperformed our expectations. We did have a modest amount in our forecast for those because it didn't just come out this quarter. We talked about them at Summit, but we've been working on these for a while. And when we set our forecast for the next quarter, it's always based on consumption patterns we're seeing today. And I would say, yes, Q2 surprised us on the upside. We knew it was going to be a strong quarter, but not as strong as it was. And that's just the nature of a consumption model.
+
+Operator:The next question comes from the line of Alex Zukin with Wolfe Research. You may proceed.
+
+Alex Zukin:Hey, guys. Thanks for taking the question. I guess, to the prior question, maybe if I think about the acceleration in consumption that you guys are now seeing, is this something where this is a normalization of, like, the demand environment, your customers feeling better about spending again, or is there and or is there something more happening where you're getting increasingly included in these AI initiatives, these AI budgets, these new products are unlocking incremental budget spend? And if it's the latter, to what extent is...
+
+Operator:We were just cut off in the middle of Alex's question.
+
+Alex Zukin:My apologies, Alex. Are you able to queue right back up for a question by pressing star one?
+
+Alex Zukin:Perfect.
+
+Operator:Alex Zukin, your line is now open.
+
+Alex Zukin:Hey, guys. Sorry. I don't know where I got cut off. But to what extent do you feel as though the outperformance was kind of a normalization of the demand environment and kind of improved execution from the field versus getting included in more of these AI-centric budgets and seeing some of these products really initiatives come to fruition? If you think about it more as the latter, how do we think about that as we progress through the years starting to drive really meaningful incremental upside on top of previous consumption trends in your customers?
+
+Sridhar Ramaswamy:Mike and I have talked to this before, Alex, which is that our core business analytics continues to be strong. It's the foundation of the company. And you can see this also in things like NRR, net revenue retention, which was a very solid 125%. What is happening is that there is more and more recognition that the AI components of our data platform can deliver enormous value. And we are seeing budgets get allocated from large customers for AI projects.
+
+And typically, that also happens when the data is on Snowflake because our customers then realize that the things that they love about Snowflake, which is the ease of use, the work that they have put into governance to make sure that only the right people can see the right data, the amount of work that we put into making sure that AI is trustworthy, all of these play into these large customers choosing us for AI projects. And for example, of the use cases that were deployed in Q2, close to 25%, you know, close to a quarter of them involved AI in some form or the other. So this is definitely a trend that will continue.
+
+But, again, I'll stress something that Mike has said, which is we forecast as well as we can, meaning that as these workloads become more and more mainstream, our prediction models are going to pick that up and increasingly roll that into our forecast. But we feel very good about our ability to create business value with AI, and that is a trend that we expect to see both continue and accelerate.
+
+Operator:The next question comes from the line of Kash Rangan with Goldman Sachs. You may proceed.
+
+Kash Rangan:Hi. Congratulations. Good to see the reacceleration in product revenue and also net expansion rate. Sridhar, I had a question for you. Sridhar, we have seen AI in the consumer ramp just get better and better. Some would argue the rate of improvement of these models appears to have stalled a little bit, which is disputable. But at what point are we going to see the AI magic that has taken over the consumer world make its way into the enterprise? I mean, certainly, there seem to be some indicators of that at the platform layer.
+
+But what gives you the conviction today more than perhaps at Summit, that AI and the enterprise is about to work through tangible business cases? And, also, I was intrigued by your comment on supporting Spark in that confidence in supporting Spark on Snowflake. Seems to be a new thing that I picked up. Can you talk more about that as well? Thank you so much.
+
+Sridhar Ramaswamy:Yeah. On the first one, I will definitely say that, you know, AI is an emergent and increasingly powerful force. I can speak to it with personal experience. The kind of questions that we can ask of a sales agent that we develop on Snowflake Intelligence has become pretty remarkable. Obviously, I wanted to answer questions like get an update about a customer that I'm about to meet so that my AE does not have to write that particular brief for me.
+
+But being able to do cross-cutting analysis, for example, of the most popular use case top trends and use cases, questions that I would normally need to go to an analyst for, Snowflake Intelligence can figure out how to write pretty complicated plans for that and deliver this. I think that's where you are seeing the magic happen. And for our partnerships with OpenAI, we launched, you know, GPT the same day that they launched it. We launched GPT-5 on Snowflake. And similarly, with Anthropic, it gives our customers the best of both worlds.
+
+The world's best model, combined with the data about their business that they have often painstakingly put into Snowflake, and that's where we are seeing massive value get realized. And that's a little bit of an aha moment for us and for our customers. I'm happy to show off, for example, Snowflake Intelligence to our customers in every conversation that they have. And the inevitable reaction is that they want such functionality directly on top of their data as well. So, Christian, you want to take the Spark question, please?
+
+Christian Kleinerman:Yes. Certainly. So we've talked about Snowpark for many years and how it has been performing well for us. We outperform all Spark distributions, managed Spark with products out there. And we heard from our customers that they want to simplify the migration effort or cost to be able to get those benefits from Snowpark. Spark itself has introduced something called Spark Connect. And that is what we've done. We've adopted the Spark APIs, but the processing happens by Snowflake, specifically by Snowpark. So now you get the benefit of it is a familiar set of APIs and program models but with the performance and cost benefits of Snowpark.
+
+Operator:The next question comes from the line of Brent Thill with Jefferies. You may proceed.
+
+Brent Thill:Thanks, Mike. You raised the guide more than the beat quarter. I'm just curious about visibility and what you're seeing in the second half.
+
+Mike Scarpelli:I would just say we've consistently been raising by the beat plus more for the last six quarters. And, you know, that's based upon consumption trends we're seeing through literally to today. And consumption is strong within our customers. You see that net revenue retention, we're seeing a number of our new products with a lot of uptick in those. And as Sridhar mentioned, we just went GA this year with 250 new features. All these features drive new revenue for Snowflake, and we anticipate continuing to have that type of delivery of new features going into the future. That's one of the things Sridhar is really focused on the last year and a half, engineering and product.
+
+Operator:The next question comes from the line of Mark Murphy with JPMorgan. You may proceed.
+
+Mark Murphy:Thank you. The sales and marketing new hires are again just an enormous number, you know, for the second consecutive quarter. I think it's the biggest six months of hiring that you've ever had. Can you walk us through the underlying dynamic? Does that reflect pipeline growth stepping up proportionately? And where is that going to place Snowflake in terms of, you know, the growth of your quota-carrying sales capacity by the time all of that ramps in six to twelve months or however long it takes?
+
+Mike Scarpelli:Yeah. I would say we've actually hired more sales and marketing people in the first six months of this year on a net basis than we did in the prior two years combined. But I want to remind you that in Q3 and Q4 of last year, we went through a pretty extensive performance within our sales organization in particular. We've pretty much worked through most of that, but, you know, we really look at the productivity of reps, and we're really focused on getting reps and SCs, by the way, too. We've added a lot more SCs into the organization.
+
+We have more specialty salespeople within the organization, and we will continue to add as long as we see that we're yielding the productivity. And it's not just bookings. It's also activity and stuff of what they're doing with customers. And that's strong. But we've always anticipated that the first half of the year was going to be a much higher number than the second half.
+
+Operator:The next question comes from the line of Brent Bracelin with Piper Sandler. You may proceed.
+
+Brent Bracelin:Thank you. Good afternoon. Mike, I want to go back to the drivers of upside in the quarter. If I just take a step back, highest sequential growth in product revenue in two and a half years. A pretty sharp year-over-year acceleration in the number of million-dollar customer adds. How much of the acceleration here in Q2 and surprise was driven by higher consumption in the core versus an incremental uptake on these new products in AI?
+
+Mike Scarpelli:Well, we had some large customers that were doing some migrations of new workloads that drove outperformance, some very big customers. I would say we saw a little bit of contribution from Crunchy, that acquisition we did with Postgres. But the newer workloads we're seeing meaningful contribution as well too. But it's really the core of our business is what's driving the significant upside.
+
+Operator:The next question comes from the line of Tyler Radke with Citi. You may proceed.
+
+Tyler Radke:Yeah. Thank you for taking the question. Sridhar, one of the questions we often get from investors just in terms of framing the competitive environment. Obviously, Snowflake, Databricks, you have the hyperscalers, you know, including Microsoft Fabric. Despite your close partnership, Palantir and others. I'm just curious if you are having these conversations with an increasing number of million-dollar customers, just sort of how are they bucketing and thinking about the different swim lanes of these various technologies and do you feel like there's sort of less confusion maybe among the larger players such as yourselves that's helping sort of unlock, you know, higher deal flow and velocity for you.
+
+Sridhar Ramaswamy:First of all, Snowflake is the best AI data platform that there is. And this is widely recognized by many of our customers and new customers. And we stand out in that respect. And the product quality that we have always strived to create, whether it is ease of use and simplicity, or connectedness, where we don't let silos develop where data is shareable as it should be. Being a trustworthy platform, where we spend a lot of time on making sure that we reduce hallucinations, work with our customers, and having the right governance in place. Increasingly, these qualities are apparent to our customers.
+
+Yes, there are some areas in which some customers might prefer some of the platforms that you mentioned. But we feel very good both about our strength in the core, which is around analytics, but increasingly in our ability to bring new products, whether it is our Postgres offering or OpenFlow, which is our cloud ingestion platform or variants of supporting Spark or machine learning or AI. We feel very good and confident about our position. And the value prospect we bring resonates in all the customer conversations that we have.
+
+And that's the reason why you're seeing acceleration across the board both in new customers, but also in things like consumption from existing customers or how quickly AI is getting adopted.
+
+Operator:The next question comes from the line of Brad Sills with Bank of America. You may proceed.
+
+Brad Sills:Oh, great. Thank you so much. I see that professional services had a real nice ramp this quarter. I think it's up 20% quarter on quarter. What's going on there? Is that just an indication of customers looking to Snowflake for more consultative kind of strategic deals? Is it getting into all these different types of workloads? We just would love to get your thoughts on what's driving that and what that might mean as a leading indicator for the business. Thank you.
+
+Mike Scarpelli:Yeah. I just want to remind you that of the total amount of professional services done in the Snowflake ecosystem, we ourselves do a very small fraction of that. Most of that is being done by the GSIs. We typically want to be more the expert services to help other partners do things. And there are some customers that insist that we are the ones doing the work. And what drove that upside in the PS this quarter was one large customer where there were some milestones that had to be hit that we were deferring that revenue that we recognized this quarter because those milestones were hit.
+
+If you took that out, it was a normal growth quarter for services. But our goal is not to do all the services. Our goal is for our partners to be doing those things.
+
+Operator:The next question comes from the line of Michael Turrin with Wells Fargo. You may proceed.
+
+Michael Turrin:Hey, thanks very much. Appreciate taking the question. Maybe on the expansion rate, good to see the improvement there. I'm curious if you think that metric is at all turning a corner with optimizations fading into the background and consumption trends improving or anything else you'd add around the improvement we're seeing in Q2, whether that's durable from here and how maybe some of the newer product traction you're seeing informs your perspective on that metric going forward? Thank you.
+
+Mike Scarpelli:Well, I would say, first of all, we never guide to net revenue retention. It's really a product of our revenue growth, and we grew, we outpaced our revenue growth this quarter, so you'd expect that net revenue retention to have ticked back up slightly. What I will say is what's driving that is actually, and I mentioned it's a couple of questions ago. We had a number of our large customers that have been existing customers for a while that migrated new workloads. That caused an uptick. As a reminder, when people migrate new workloads, it typically causes an uptick in consumption, and then it normalizes thereafter. This has always been the case.
+
+And I would say optimizations actually have nothing that caused anything unusual. We talked about optimizations before. Customers are always optimizing on Snowflake. And if anything, we're trying to get in front of these things with customers so customers don't use Snowflake unwisely so they don't have to deal with optimizations. And I'm not aware of any customer that's not in an unhealthy place right now in terms of their consumption. Where a number of years ago, we were well aware of ones.
+
+Operator:The next question comes from the line of Brad Reback with Stifel. You may proceed.
+
+Brad Reback:Great. Mike, just picking up on that migration point. I know last quarter, you talked about having good line of sight into that level of activity. Does it look similar for the second half or maybe even bigger? Thanks.
+
+Mike Scarpelli:Yeah. We've identified a number of new workload use cases to go into production, and think about this as a number of some of these are on-prem migrations. Others are from first-generation cloud infrastructure from raw S3 or Azure. So, yes, we're getting much better than that, I would say, as our SCs, I think, are doing a phenomenal job of really identifying those use case go-lives and migrations.
+
+Operator:The next question comes from the line of Patrick Colville with Scotiabank.
+
+Joe Vandrick:Hi. This is Joe Vandrick on for Patrick Colville. You guys had a nice quarter landing incremental G2K customers. Can you talk a bit more about the opportunity that you see in these accounts specifically? And I know you have 654 customers spending over a million dollars. Have you guys talked about what percentage of those customers are G2K? Then lastly, I guess, how are your sales reps communicating the value proposition to these very large customers to drive spending higher? Thanks.
+
+Mike Scarpelli:Well, what I would say is, you know, a global 2,000 customer, there's no reason why the average Global 2,000 customer can't spend $10 million a year on Snowflake just looking at all the different things, and it can be higher than that. And I would say, don't quote me on this, but I'll again, it's roughly 50% of those million-dollar-plus customers are Global 2,000.
+
+Joe Vandrick:The next question comes from the line of Matt Hedberg, my apologies.
+
+Mike Scarpelli:And you were asking about how do our salespeople articulate the business value. You know, we spend a lot of time with sales enablement and educating these people, and we really want it to be in a discussion about not as what is the cost of Snowflake. What is the value you're getting? And, you know, I would say some reps and teams are very good at it. Others are developing. But that's really the way we go to market is what is the business value you're going to get out of using Snowflake.
+
+Operator:The next question comes from the line of Matt Hedberg with RBC. You may proceed.
+
+Matt Hedberg:Great. Thanks for taking my question, guys. Congrats from me as well. I wanted to circle back on Crunchy. Mike, you noted it contributed a little bit to the quarter. Kind of curious about how that's progressing? How is that integration working? And when you're thinking about addressing OLTP and OLAP opportunities, you know, where are we in that sort of evolution curve? Because it feels like it's certainly a long-term opportunity. There's obviously some increased competition there. But just kind of give us an update on how that's progressing.
+
+Christian Kleinerman:The integration from Crunchy to what we're calling Snowflake Postgres is progressing extremely well. The part that we highlight or are most excited about is that it's not just a Postgres service, but it is a Postgres with enterprise readiness and enterprise capabilities. Customer-managed keys, replication, business continuity, all of that is making great progress, and we will be in preview in the next couple of months very soon. And the customer interest that we are seeing is very, very strong.
+
+Operator:The next question comes from the line of Patrick Walravens with Citizens. You may proceed.
+
+Patrick Walravens:Oh, great. Thank you so much. Hey, Sridhar. Can I ask you sort of a big picture question here, which is do you agree with people who are observing that the frontier models are converging in their performance? And if so, what are the implications of that? Like, where do those companies, where do the OpenAI's and Anthropic, you know, where do they go next? And what are the implications of that for Snowflake, and where do you want to go next?
+
+Sridhar Ramaswamy:First of all, I think every prediction that we have made about various kinds of plateauing has not really turned out to be true some six odd months later. So I don't think it's quite the case that these models are plateaued along every dimension. If you think about the increase in code quality that these models have been able to demonstrate, even over the last six months, it's been a pretty remarkable transformation. And when it comes to the enterprise, obviously, there's not, you know, products that have been adopted at quite the same scale, let's say, as consumer chat GPT, with its nearly billion customers.
+
+But these kinds of experiences become useful only when the data that matters to the enterprise, all of the PDFs that are sitting in SharePoint or the various other data sources that there are, also become accessible to these models. And that's what we have created with Snowflake Intelligence. I think there is ample runway. But I think the remarkable progress is also being made in agentic AI, in these models learning to use tools of different kinds. I dabble a bit in code generation models, and their ability to get work done has gone up by a pretty remarkable amount again over the past six odd months.
+
+And I think you're going to see situations in which every complicated task that humans are involved in is going to have agentic solutions that are human-assisted, where the model using tools does some of the work, and then the humans guide the model to be able to be a lot more productive. So I think from that perspective, it's still very, very early innings. Think of all the work that happens in an enterprise, whether it is insurance claims processing, you know, or regulatory reporting or anomaly detection of various kinds or even going through the due diligence process for an M&A or a complicated legal thing that you have to do.
+
+All of those are areas where the application of data and AI is very much in its infancy. So I think there is honestly years of work ahead in terms of the value that we can get from AI. The models have advanced so much that I think just effectively using them in all of the workflows that matter to end is going to create enormous value for all of us.
+
+Operator:The next question comes from the line of Mike Cikos with Needham. You may proceed.
+
+Mike Cikos:Hey. Thanks for taking the question, guys. I just wanted to come back to the impressive stat that we heard earlier regarding the volume of accounts which are adopting your AI product and features. I think we're growing full of mid to high teens sequentially here. And I just wanted to stitch together. So we have the adoption was great, but can you discuss what's the monetization strategy that you're putting in place behind that adoption curve? Is a larger sales effort required on Snowflake's part to ramp the revenue behind that usage, or how does that play out from your scene? Thank you.
+
+Sridhar Ramaswamy:Yeah. We were very deliberate about how we brought AI to Snowflake. We wanted it to feel natural to be a natural extension of how people access data. I've talked previously about primitives around search and structured data. That was the foundation of how we began to introduce AI. They themselves were useful in that people could create chatbots and answer data or be able to talk to your SQL, as it were, to get at structured data. We've then introduced higher-level constructs that sit on top of it, like Snowflake Intelligence.
+
+One thing that we were very, very deliberate about was the need for these capabilities to be truly easy to use and for our customers to be able to get value very quickly from them or at least experiment with them very quickly. And this is what has led to the broad adoption, to be honest, without us investing in a massive sales play. We have a specialist team, but compared to the size of a regular sales team, it's actually quite small. And so from that perspective, that broad 6,000 odd number is very impressive.
+
+We are now beginning to see situations in which a product like Snowflake Intelligence is rolled out very, very broadly to the entirety of a workforce. For example, with the sales data assistant, I want to make sure that it is rolled out to every salesperson. And I said the beauty of that is all of the permissioning, all of the complexities of making sure that the right person has access to the right information, is something that we make very, very easy to implement. These kinds of use cases are the ones that are going to be driving meaningful revenue for us.
+
+And, yes, we are having our specialists focus on these use cases because they're going to drive more revenue. But this is all part of a very deliberate strategy of creating world-class products, getting very broad adoption, and demystifying AI. And then working on use cases that generate massive value for our customers and, in turn, revenue for us. And that's the beauty of the consumption model. In that our customers don't have to make some very large commitment to a project that's not yet delivered value if they have to go implement a project which we make easy. But we make the, you know, like, we make revenue only when our customers recognize value.
+
+We feel good about where we are. I think this is the right way to have taken AI to the Snowflake data cloud.
+
+Operator:The next question comes from the line of Greg Muskowitz with Mizuho. You may proceed.
+
+Greg Muskowitz:Great. Thank you. Maybe another question on AI, if I may. We've recently begun to hear, Sridhar, of meaningful customer commitment to Cortex AI. In other words, you know, not just some customers exploring it, but a real uptick in usage. I know you called out some interesting wins in your script. But more broadly, is this consistent with what you're seeing? And if so, would be helpful to hear a bit more on the primary use cases that you're seeing for Cortex so far. Thanks.
+
+Sridhar Ramaswamy:The primary use cases center around a combination of bringing structured and unstructured information together in a custom repository. For example, as a data agent. I talked about BlackRock in the script, I think, where I said they're creating a little bit of a customer 360. All of the information that is relevant to a customer, available in a single chatbot. And I use this kind of functionality very frequently. Where if I'm going to have a meeting with a customer, I want to know everything about them that we know.
+
+I'm able to get at what kind of relationship we have with them, how much we are spending, what the open use cases are, any other recent notes, work the information about the account hierarchy here that manages them. It is that pattern. It is that flexible access to data that repeats itself over and over again, and people just apply that in very different ways. Thomson Reuters uses Cortex to create a set of products for their internal use. They have products for HR teams, finance teams, and so on. I think that it gets really interesting is now in having in being able to take a whole set of using agentic AI.
+
+Where in addition to getting information that you want, you're also then able to say, okay. And now, you know, take like, do this update. Send an email or update a record in Salesforce or some other action. I think that's where we are seeing utility get created.
+
+Operator:The next question is from the line of John DiFucci with Guggenheim. You may proceed.
+
+John DiFucci:Thanks for taking my question. My question is I guess it's sort of a high-level question. Listen, these results are really good. Everybody's noted that. And, you know, you've been pretty clear that you're focused on AI for the future, but these results are primarily driven by your core data warehouse and analytics business. And then we understand why you're focused on AI, and I guess why everybody's asking lots of questions on AI. But I'm more curious about that core market. There's still a huge part of this market that's still on-premise. And you have the pole position in cloud-based data warehouse. You're the pioneer, and people love your products.
+
+But can you talk about the sustainability of that market as a growth driver? And are there any other solutions on the horizon that keep you up at night that could disrupt that market to the data warehouse, cloud-based data warehouse and analytics market, like you disrupted the massive on-prem data warehouse market?
+
+Sridhar Ramaswamy:I mean, first of all, I should be clear that we have been consistent in saying that it's not an either-or. Our core business continues to be very strong, and we have talked to you folks about a number of metrics, including net revenue retention, which is measured over a two-year time frame that supports that. And other things that we're doing in the areas of AI are important because that is where utility is going to be delivered in a massive way both today and tomorrow. So it's not the case that we can say we should just focus on our core business because people that bet on Snowflake are betting on Snowflake for the next five years.
+
+And we need to invest in both. But to your point about the sustainability of the core analytics market, 100%. I think there is a lot of business to be had. There are a lot of on-prem systems. And part of what we are figuring out in this moment is AI is going to disrupt potentially everybody, including us. This is the reason why we stress product innovation so much.
+
+This is the reason why in addition to creating products like Snowflake Intelligence, which are cutting edge, we also obsess about how to make sure that our migration technology is the latest and greatest that there is because being able to migrate legacy systems faster is going to be a significant benefit to whoever that can do that fast. And, you know, that would be my final thing. Yes, there is a big market in legacy systems that are going to be migrating over. All of the cloud players, including us, are benefiting from that on-prem to cloud migration. But we do really need to innovate on both fronts to be successful in the long term.
+
+Operator:In the interest of time, that was our last question. I would now like to pass the conference back over to Sridhar Ramaswamy for closing remarks.
+
+Sridhar Ramaswamy:Thank you. In closing, Snowflake is at the center of today's enterprise AI revolution, delivering tremendous value throughout the end-to-end data life cycle. Snowflake is easy to use, connected for seamless collaboration, and trusted for enterprise-grade performance, driving customers to choose and expand with us. We continue to execute at scale, as evidenced by our product revenue growth and strong outlook for the remainder of Fiscal 2026. We see a long runway of durable high growth and continued margin expansion on it. It's an exciting time for Snowflake, and I look forward to sharing more of our progress in the quarters ahead. Thank you all for joining us.
+
+Operator:That concludes today's call. Thank you for your participation, and enjoy the rest of your day.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has positions in and recommends Snowflake. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.
