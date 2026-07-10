@@ -22,10 +22,8 @@ import json
 import time
 import logging
 import argparse
-import hashlib
 from pathlib import Path
 from datetime import datetime
-from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -34,8 +32,10 @@ from common import (
     load_config, get_path, load_companies, setup_logging,
     FileNaming, JsonCache, LineClassifier, split_paragraphs,
     text_hash, parse_transcript_header, extract_body,
-    TranslatorFactory, translate_paragraphs,
+    TranslatorFactory, translate_paragraphs, build_bilingual_data,
 )
+
+log = logging.getLogger(__name__)
 
 
 # ──────────────────────────────────────────────
@@ -335,22 +335,8 @@ def translate_after_download(cfg: dict, fn: FileNaming, english_path: Path, skip
     # Translate each paragraph
     translated_parts = translate_paragraphs(paragraphs, tcache, translator, cfg, log)
 
-    # Build aligned pairs JSON
-    pairs = []
-    for i, (orig, trans) in enumerate(zip(paragraphs, translated_parts)):
-        pairs.append({"en": orig, "zh": trans})
-
-    bilingual_data = {
-        "meta": {
-            "company": header_meta.get('Company', ''),
-            "quarter": header_meta.get('Quarter', ''),
-            "source": header_meta.get('Source', ''),
-            "url": header_meta.get('URL', ''),
-            "translated": datetime.now().isoformat(),
-            "backend": translator.name,
-        },
-        "pairs": pairs,
-    }
+    # Build and save bilingual JSON
+    bilingual_data = build_bilingual_data(header_meta, paragraphs, translated_parts, translator.name)
     bilingual_path.write_text(json.dumps(bilingual_data, ensure_ascii=False, indent=1), encoding="utf-8")
     log.info(f"  Bilingual saved: {bilingual_path.name} ({len(pairs)} pairs)")
 
@@ -389,9 +375,7 @@ def main():
     transcripts_dir.mkdir(exist_ok=True)
     logs_dir.mkdir(exist_ok=True)
 
-    global log
-    log = setup_logging(cfg, str(logs_dir / "scraper.log"))
-    log = logging.getLogger("scraper")
+    setup_logging(cfg, str(logs_dir / "scraper.log"))
 
     output_dir = args.output or transcripts_dir
 

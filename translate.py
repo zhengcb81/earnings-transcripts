@@ -6,17 +6,19 @@ Usage: python3 translate.py              # 翻译所有
        python3 translate.py --backend google # 强制用Google
 """
 
-import json, re, time, logging, hashlib, argparse
+import json, logging, argparse
 from pathlib import Path
-from datetime import datetime
 
 from common import (
     load_config, get_path, setup_logging,
-    FileNaming, JsonCache, LineClassifier,
+    FileNaming, JsonCache,
     split_paragraphs, text_hash,
     parse_transcript_header, extract_body,
     TranslatorFactory, translate_paragraphs,
+    build_bilingual_data,
 )
+
+log = logging.getLogger(__name__)
 
 
 # ── Main translate function ──
@@ -28,52 +30,13 @@ def translate_transcript(cfg: dict, fn: FileNaming, filepath: Path, cache: JsonC
     # Split into paragraphs
     paragraphs = split_paragraphs(body)
 
-    # Classify lines for formatting
-    classifier = LineClassifier(cfg)
-    line_types = [classifier.classify(p.split("\n")[0]) for p in paragraphs]
-
     log.info(f"  {len(paragraphs)} paragraphs, backend={backend.name}")
 
     # Translate using common translate_paragraphs
     translated = translate_paragraphs(paragraphs, cache, backend, cfg, log)
 
-    # Build bilingual output with emoji prefixes
-    bilingual_parts = []
-    for i, (orig, trans) in enumerate(zip(paragraphs, translated)):
-        lt = line_types[i] if i < len(line_types) else 'body'
-
-        if lt == 'datetime':
-            bilingual_parts.append(f"\U0001f4c5 {trans}")
-        elif lt == 'participant':
-            bilingual_parts.append(f"\U0001f464 {trans}")
-        elif lt == 'header':
-            bilingual_parts.append(f"\u2501\u2501 {trans} \u2501\u2501")
-        else:
-            # For Google: trans is just Chinese. Show Chinese then English
-            if backend.name == "google":
-                bilingual_parts.append(f"{trans}\n  {orig}")
-            else:
-                # For DeepSeek: trans already contains both
-                bilingual_parts.append(trans)
-
-
-    # Build aligned pairs JSON
-    pairs = []
-    for i, (orig, trans) in enumerate(zip(paragraphs, translated)):
-        pairs.append({"en": orig, "zh": trans})
-
-    bilingual_data = {
-        "meta": {
-            "company": header_meta.get("Company", ""),
-            "quarter": header_meta.get("Quarter", ""),
-            "source": header_meta.get("Source", ""),
-            "url": header_meta.get("URL", ""),
-            "translated": datetime.now().isoformat(),
-            "backend": backend.name,
-        },
-        "pairs": pairs,
-    }
-
+    # Build and save bilingual JSON
+    bilingual_data = build_bilingual_data(header_meta, paragraphs, translated, backend.name)
     out_path = fn.english_to_bilingual(filepath)
     out_path.write_text(json.dumps(bilingual_data, ensure_ascii=False, indent=1), encoding="utf-8")
     log.info(f"  Saved: {out_path.name} ({len(pairs)} pairs)")
@@ -93,7 +56,7 @@ def translate_transcript(cfg: dict, fn: FileNaming, filepath: Path, cache: JsonC
 def main():
     parser = argparse.ArgumentParser(description="Transcript翻译器")
     parser.add_argument("--ticker", help="只翻译指定股票")
-    parser.add_argument("--backend", choices=["deepseek", "google", "auto"], default="auto")
+    parser.add_argument("--backend", choices=["minimax", "mimo", "deepseek", "google", "auto"], default="auto")
     args = parser.parse_args()
 
     # Load config
@@ -101,9 +64,7 @@ def main():
     fn = FileNaming(cfg)
     transcripts_dir = get_path(cfg, "transcripts_dir")
 
-    global log
-    log = setup_logging(cfg)
-    log = logging.getLogger("translate")
+    setup_logging(cfg)
 
     # Cache
     cache_path = get_path(cfg, "translate_cache")

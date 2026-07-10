@@ -13,7 +13,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from common import (
     load_config, get_path, load_companies, FileNaming, JsonCache,
     LineClassifier, split_paragraphs, text_hash, parse_transcript_header,
-    extract_body, DeepSeekTranslator, GoogleTranslator,
+    extract_body, MiMoTranslator, MiniMaxTranslator, DeepSeekTranslator, GoogleTranslator,
+    TranslatorFactory,
 )
 
 
@@ -23,6 +24,48 @@ from common import (
 def cfg():
     """Load real config.yaml."""
     return load_config()
+
+
+@pytest.fixture
+def mock_cfg(tmp_path):
+    """Minimal mock config for isolated tests."""
+    companies_file = tmp_path / "companies.txt"
+    companies_file.write_text("TEST|测试|Test Corp|nasdaq\n", encoding="utf-8")
+    return {
+        "paths": {
+            "base_dir": str(tmp_path),
+            "companies_file": "companies.txt",
+            "transcripts_dir": "transcripts",
+            "logs_dir": "logs",
+            "cache_file": ".cache.json",
+            "translate_cache": ".translate_cache.json",
+            "config_json": "config.json",
+        },
+        "naming": {
+            "english_suffix": "_earnings_call",
+            "bilingual_suffix": "_bilingual",
+            "interleaved_suffix": "_interleaved",
+            "english_ext": ".txt",
+            "bilingual_ext": ".json",
+            "interleaved_ext": ".txt",
+        },
+        "companies": {"delimiter": "|", "fields": ["ticker", "name_cn", "name_en", "exchange"], "comment_prefix": "#"},
+        "mimo": {"base_url": "https://test.com/v1", "model": "test-model", "max_tokens": 100, "temperature": 0.1,
+                 "availability_test_tokens": 5, "system_prompt": "test", "user_prompt_template": "{text}",
+                 "availability_prompt": "OK", "sleep_between_calls": 0, "cache_save_interval": 10},
+        "minimax": {"base_url": "https://test.com/v1", "model": "test-model", "max_tokens": 100, "temperature": 0.1,
+                    "availability_test_tokens": 5, "system_prompt": "test", "user_prompt_template": "{text}",
+                    "availability_prompt": "OK", "sleep_between_calls": 0, "cache_save_interval": 10},
+        "deepseek": {"base_url": "https://test.com/v1", "model": "test-model", "max_tokens": 100, "temperature": 0.1,
+                     "availability_test_tokens": 5, "system_prompt": "test", "user_prompt_template": "{text}",
+                     "availability_prompt": "OK", "sleep_between_calls": 0, "cache_save_interval": 10},
+        "google": {"target_language": "Chinese", "availability_test_text": "test", "sleep_between_calls": 0},
+        "translate": {"hash_length": 16, "min_paragraph_length": 5},
+        "format": {"separator_width": 70, "separator_char": "=", "datetime_separator_width": 50, "datetime_separator_char": "─",
+                   "language_labels": {"en": "[EN]", "zh": "[中]"}},
+        "line_classification": {"max_participant_length": 120, "max_header_length": 100, "header_keywords": ["Revenue", "Q&A"]},
+        "logging": {"format": "%(asctime)s [%(levelname)s] %(message)s", "level": "INFO"},
+    }
 
 
 @pytest.fixture
@@ -294,16 +337,45 @@ class TestTranscriptParsing:
 # ── Translator Tests ──
 
 class TestTranslators:
+    def test_mimo_config(self, cfg):
+        m = MiMoTranslator(cfg)
+        assert m.model == "mimo-v2.5-pro"
+        assert m.name == "mimo"
+        assert "xiaomimimo.com" in m.base_url
+
+    def test_minimax_config(self, cfg):
+        m = MiniMaxTranslator(cfg)
+        assert m.model == "MiniMax-M3"
+        assert m.name == "minimax"
+        assert "minimaxi.com" in m.base_url
+
     def test_deepseek_config(self, cfg):
         ds = DeepSeekTranslator(cfg)
         assert ds.model == "deepseek-v4-flash"
         assert ds.name == "deepseek"
 
     def test_google_config(self, cfg):
+        pytest.importorskip("translatepy")
         g = GoogleTranslator(cfg)
         assert g.name == "google"
 
+    def test_factory_auto_fallback(self, cfg):
+        """auto 模式在没有 API key 时应 fallback 到 Google。"""
+        pytest.importorskip("translatepy")
+        t = TranslatorFactory.create(cfg, "auto")
+        assert t.name == "google"
+
+    def test_factory_google(self, cfg):
+        pytest.importorskip("translatepy")
+        t = TranslatorFactory.create(cfg, "google")
+        assert t.name == "google"
+
+    def test_factory_unknown_backend(self, cfg):
+        with pytest.raises(ValueError, match="Unknown backend"):
+            TranslatorFactory.create(cfg, "nonexistent")
+
     def test_google_translate(self, cfg):
+        pytest.importorskip("translatepy")
         g = GoogleTranslator(cfg)
         if g.available():
             result = g.translate("Revenue grew 18%")

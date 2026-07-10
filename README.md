@@ -1,11 +1,11 @@
 # 美股电话会议纪要工具
 
-自动获取美股上市公司 Earnings Call Transcripts，支持 DeepSeek LLM 中英对照翻译和 Web 阅读器。
+自动获取美股上市公司 Earnings Call Transcripts，支持 MiMo/MiniMax/DeepSeek LLM 中英对照翻译和 Web 阅读器。
 
 ## 功能
 
 - 从 Motley Fool 自动下载英文电话会议纪要
-- DeepSeek LLM 翻译（Google Translate 兜底）
+- MiMo / MiniMax / DeepSeek LLM 翻译（Google Translate 兜底）
 - Web 阅读器：左右分屏中英对照、段落对齐、KPI 高亮
 - 三种输出格式：英文原文 / 中英JSON / 中英夹排TXT
 - 配置驱动，无硬编码
@@ -28,15 +28,24 @@ python3 reader.py
 ```
 earnings-transcripts/
 ├── config.yaml          # 统一配置（所有参数集中管理）
-├── config.json          # DeepSeek API key（需手动创建）
-├── common.py            # 共享模块（配置/命名/缓存/翻译）
+├── config.json          # LLM API keys（需手动创建）
+├── config.py            # 配置加载/路径解析
+├── naming.py            # 文件命名规则
+├── cache.py             # JSON 缓存
+├── parser.py            # 段落解析/文件头解析/行分类
+├── translator.py        # 翻译体系（MiMo/MiniMax/DeepSeek/Google）
+├── common.py            # 共享模块（re-export 门面）
 ├── scraper.py           # 爬虫：下载 + 自动翻译
 ├── translate.py         # 独立翻译器
 ├── make_interleaved.py  # 中英夹排TXT生成器
 ├── reader.py            # Web 阅读器
+├── templates/
+│   └── index.html       # 阅读器 HTML 模板
 ├── companies.txt        # 公司清单
 ├── tests/               # 测试套件
-│   └── test_common.py   # 32个单元测试
+│   ├── test_common.py   # 共享模块测试
+│   ├── test_reader.py   # 阅读器测试
+│   └── test_scraper.py  # 爬虫测试
 ├── transcripts/         # 下载的数据
 │   ├── MSFT/
 │   │   ├── MSFT_Q3_2026_earnings_call.txt    # 英文原文
@@ -55,21 +64,25 @@ earnings-transcripts/
 | `paths` | 目录结构和文件路径 |
 | `naming` | 文件命名规则（后缀/扩展名） |
 | `fool` | Motley Fool 爬虫参数 |
+| `mimo` | MiMo LLM 翻译参数（默认） |
+| `minimax` | MiniMax LLM 翻译参数 |
 | `deepseek` | DeepSeek LLM 翻译参数 |
 | `reader` | 阅读器端口和UI参数 |
 | `line_classification` | 行分类规则（标题/参与者/正文） |
 
-DeepSeek API key 放在 `config.json`（单独文件，不入git）：
+API key 放在 `config.json`（单独文件，不入git）：
 
 ```bash
 cat > ~/earnings-transcripts/config.json << 'EOF'
 {
-  "deepseek_api_key": "***',
-  "deepseek_base_url": "https://api.deepseek.com",
-  "deepseek_model": "deepseek-v4-flash"
+  "mimo_api_key": "your-mimo-key",
+  "minimax_api_key": "your-minimax-key",
+  "deepseek_api_key": "your-deepseek-key"
 }
 EOF
 ```
+
+翻译后端优先级（auto 模式）：MiniMax → MiMo → DeepSeek → Google Translate
 
 ## 使用方法
 
@@ -86,8 +99,10 @@ python3 scraper.py --no-translate      # 跳过翻译
 ### 翻译器 (translate.py)
 
 ```bash
-python3 translate.py                   # 翻译所有
+python3 translate.py                   # 翻译所有（auto模式: MiMo→MiniMax→DeepSeek→Google）
 python3 translate.py --ticker FIG      # 只翻译Figma
+python3 translate.py --backend mimo    # 强制用MiMo
+python3 translate.py --backend minimax # 强制用MiniMax
 python3 translate.py --backend google  # 强制用Google
 ```
 
@@ -121,7 +136,7 @@ python3 reader.py --port 9000          # 自定义端口
 python3 -m pytest tests/ -v
 ```
 
-32个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、transcript解析、翻译器。
+45个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、transcript解析、翻译器、阅读器数据构建、爬虫配置。
 
 ## 添加公司
 

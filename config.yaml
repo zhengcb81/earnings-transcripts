@@ -51,6 +51,30 @@ fmp:
   request_timeout: 15
   min_content_length: 200
 
+# ── MiMo 翻译（默认） ──
+mimo:
+  base_url: "https://token-plan-cn.xiaomimimo.com/v1"
+  model: "mimo-v2.5-pro"
+  max_tokens: 4000
+  temperature: 0.1
+  availability_test_tokens: 5
+  user_prompt_template: "翻译为中文，翻译后换行附原文：\n\n{text}"
+  availability_prompt: "Say OK"
+  sleep_between_calls: 0.3
+  cache_save_interval: 10
+
+# ── MiniMax 翻译 ──
+minimax:
+  base_url: "https://api.minimaxi.com/v1"
+  model: "MiniMax-M3"
+  max_tokens: 4000
+  temperature: 0.1
+  availability_test_tokens: 5
+  user_prompt_template: "翻译为中文，翻译后换行附原文：\n\n{text}"
+  availability_prompt: "Say OK"
+  sleep_between_calls: 0.3
+  cache_save_interval: 10
+
 # ── DeepSeek 翻译 ──
 deepseek:
   base_url: "https://api.deepseek.com"
@@ -58,18 +82,10 @@ deepseek:
   max_tokens: 4000
   temperature: 0.1
   availability_test_tokens: 5
-  system_prompt: |
-    你是专业金融翻译。将英文财报电话会议纪要翻译为中文。
-    规则：
-    1. 保留所有数字、金额($4.27)、百分比(18%)、ticker符号原样不动
-    2. 人名保留英文原名，职位翻译为中文
-    3. 专业术语用标准翻译：constant currency=固定汇率, revenue=营收, operating income=营业利润, EPS=每股收益, gross margin=毛利率, RPO=剩余履约义务
-    4. 公司名/产品名保留英文：Azure, Copilot, GitHub, LinkedIn
-    5. 翻译后换行附原文
   user_prompt_template: "翻译为中文，翻译后换行附原文：\n\n{text}"
   availability_prompt: "Say OK"
   sleep_between_calls: 0.3
-  cache_save_interval: 10   # 每N段保存一次缓存
+  cache_save_interval: 10
 
 # ── Google Translate ──
 google:
@@ -81,6 +97,14 @@ google:
 translate:
   hash_length: 16              # MD5截取长度
   min_paragraph_length: 5      # 太短的段落不翻译
+  system_prompt: |
+    你是专业金融翻译。将英文财报电话会议纪要翻译为中文。
+    规则：
+    1. 保留所有数字、金额($4.27)、百分比(18%)、ticker符号原样不动
+    2. 人名保留英文原名，职位翻译为中文
+    3. 专业术语用标准翻译：constant currency=固定汇率, revenue=营收, operating income=营业利润, EPS=每股收益, gross margin=毛利率, RPO=剩余履约义务
+    4. 公司名/产品名保留英文：Azure, Copilot, GitHub, LinkedIn
+    5. 翻译后换行附原文
 
 # ── 文件格式 ──
 format:
