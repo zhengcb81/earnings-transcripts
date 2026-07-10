@@ -37,7 +37,9 @@ class _OpenAITranslator:
         self.model = json_cfg.get(f"{prefix}_model", section.get("model", self._default_model))
         self.max_tokens = section.get("max_tokens", 4000)
         self.temperature = section.get("temperature", 0.1)
-        self.system_prompt = section.get("system_prompt", "") or cfg.get("translate", {}).get("system_prompt", "你是专业金融翻译。翻译为中文。")
+        self.system_prompt = section.get("system_prompt", "") or cfg.get("translate", {}).get("system_prompt", "")
+        if not self.system_prompt:
+            raise ValueError(f"system_prompt 未配置：请在 config.yaml 的 {self._config_key} 或 translate 段落中设置")
         self.user_prompt_tpl = section.get("user_prompt_template", "翻译为中文：\n\n{text}")
         self.availability_prompt = section.get("availability_prompt", "Say OK")
         self.test_tokens = section.get("availability_test_tokens", 5)
@@ -51,6 +53,7 @@ class _OpenAITranslator:
         return self._client
 
     def available(self) -> bool:
+        """测试 API 是否可用（发送一条最短请求）。"""
         if not self.api_key:
             return False
         try:
@@ -68,6 +71,7 @@ class _OpenAITranslator:
         return text
 
     def translate(self, text: str) -> str:
+        """翻译单段文本，返回译文。"""
         r = self.client.chat.completions.create(
             model=self.model,
             messages=[

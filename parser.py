@@ -45,8 +45,11 @@ def split_paragraphs(text: str, min_length: int = 5) -> list[str]:
     return [p for p in paragraphs if len(p.strip()) >= min_length]
 
 
-def parse_transcript_header(content: str, sep: str = "=" * 70) -> dict:
+def parse_transcript_header(content: str, sep: str = None, cfg: dict = None) -> dict:
     """从 transcript 文件内容解析头部元数据。"""
+    if sep is None:
+        fmt = (cfg or {}).get("format", {})
+        sep = fmt.get("separator_char", "=") * fmt.get("separator_width", 70)
     parts = content.split(sep)
     if len(parts) < 3:
         return {}
@@ -59,8 +62,11 @@ def parse_transcript_header(content: str, sep: str = "=" * 70) -> dict:
     return meta
 
 
-def extract_body(content: str, sep: str = "=" * 70) -> str:
+def extract_body(content: str, sep: str = None, cfg: dict = None) -> str:
     """从 transcript 文件内容提取正文（头部之后的部分）。"""
+    if sep is None:
+        fmt = (cfg or {}).get("format", {})
+        sep = fmt.get("separator_char", "=") * fmt.get("separator_width", 70)
     parts = content.split(sep)
     if len(parts) < 3:
         return content

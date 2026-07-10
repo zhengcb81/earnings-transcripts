@@ -338,7 +338,7 @@ def translate_after_download(cfg: dict, fn: FileNaming, english_path: Path, skip
     # Build and save bilingual JSON
     bilingual_data = build_bilingual_data(header_meta, paragraphs, translated_parts, translator.name)
     bilingual_path.write_text(json.dumps(bilingual_data, ensure_ascii=False, indent=1), encoding="utf-8")
-    log.info(f"  Bilingual saved: {bilingual_path.name} ({len(pairs)} pairs)")
+    log.info(f"  Bilingual saved: {bilingual_path.name} ({len(bilingual_data['pairs'])} pairs)")
 
     # Generate interleaved txt
     try:

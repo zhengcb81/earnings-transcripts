@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Transcript翻译器: DeepSeek LLM优先, Google Translate兜底
+Transcript翻译器: 多后端LLM翻译 (MiniMax → MiMo → DeepSeek fallback), Google Translate兜底
 Usage: python3 translate.py              # 翻译所有
        python3 translate.py --ticker MSFT # 只翻译指定
        python3 translate.py --backend google # 强制用Google
@@ -39,7 +39,7 @@ def translate_transcript(cfg: dict, fn: FileNaming, filepath: Path, cache: JsonC
     bilingual_data = build_bilingual_data(header_meta, paragraphs, translated, backend.name)
     out_path = fn.english_to_bilingual(filepath)
     out_path.write_text(json.dumps(bilingual_data, ensure_ascii=False, indent=1), encoding="utf-8")
-    log.info(f"  Saved: {out_path.name} ({len(pairs)} pairs)")
+    log.info(f"  Saved: {out_path.name} ({len(bilingual_data['pairs'])} pairs)")
 
     # Generate interleaved txt
     try:

@@ -381,3 +381,62 @@ class TestTranslators:
             result = g.translate("Revenue grew 18%")
             assert len(result) > 0
             assert result != "Revenue grew 18%"
+
+    def test_translator_system_prompt_required(self, mock_cfg):
+        """缺少 system_prompt 时应抛出 ValueError。"""
+        mock_cfg["mimo"].pop("system_prompt", None)
+        mock_cfg["translate"].pop("system_prompt", None)
+        with pytest.raises(ValueError, match="system_prompt"):
+            MiMoTranslator(mock_cfg)
+
+
+# ── Parser Edge Cases ──
+
+class TestParserEdgeCases:
+    def test_parse_header_custom_sep(self, tmp_path):
+        """自定义分隔符应能正确解析。"""
+        sep = "-" * 50
+        content = f"{sep}\nCompany: Test\nQuarter: Q1\n{sep}\nBody text"
+        meta = parse_transcript_header(content, sep=sep)
+        assert meta["Company"] == "Test"
+        assert meta["Quarter"] == "Q1"
+
+    def test_extract_body_custom_sep(self, tmp_path):
+        """自定义分隔符应能正确提取正文。"""
+        sep = "-" * 50
+        content = f"{sep}\nHeader\n{sep}\nBody content here"
+        body = extract_body(content, sep=sep)
+        assert "Body content here" in body
+
+    def test_parse_header_from_cfg(self, mock_cfg):
+        """应从 cfg 读取分隔符配置。"""
+        sep = "=" * 70
+        content = f"{sep}\nCompany: Test Corp\n{sep}\nBody"
+        meta = parse_transcript_header(content, cfg=mock_cfg)
+        assert meta["Company"] == "Test Corp"
+
+    def test_split_paragraphs_whitespace_only(self):
+        """纯空白段落应被过滤。"""
+        text = "  \n\n  \t\n\nreal paragraph"
+        result = split_paragraphs(text, min_length=1)
+        assert len(result) == 1
+        assert "real paragraph" in result[0]
+
+
+# ── TextHash Edge Cases ──
+
+class TestTextHashEdgeCases:
+    def test_empty_string(self):
+        """空字符串应返回有效 hash。"""
+        h = text_hash("")
+        assert len(h) > 0
+
+    def test_unicode(self):
+        """Unicode 文本应正常处理。"""
+        h = text_hash("营收增长18%")
+        assert len(h) > 0
+
+    def test_long_text(self):
+        """长文本应正常处理。"""
+        h = text_hash("word " * 1000)
+        assert len(h) > 0

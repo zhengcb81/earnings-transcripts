@@ -16,10 +16,8 @@ from urllib.parse import urlparse, parse_qs
 
 from common import load_companies, parse_transcript_header, load_config, get_path
 
-BASE_DIR = Path(__file__).parent
-TRANSCRIPTS_DIR = BASE_DIR / "transcripts"
-COMPANIES_FILE = BASE_DIR / "companies.txt"
-TEMPLATE_FILE = BASE_DIR / "templates" / "index.html"
+_BASE_DIR = Path(__file__).parent
+__TEMPLATE_FILE = _BASE_DIR / "templates" / "index.html"
 
 
 class ReaderHandler(BaseHTTPRequestHandler):
@@ -34,7 +32,7 @@ class ReaderHandler(BaseHTTPRequestHandler):
 
     def serve_index(self):
         data = self.build_data()
-        html_template = TEMPLATE_FILE.read_text(encoding="utf-8")
+        html_template = _TEMPLATE_FILE.read_text(encoding="utf-8")
         html = html_template.replace('/*__DATA__*/{}/*__END__*/', json.dumps(data, ensure_ascii=False))
         self.send_response(200)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
@@ -51,11 +49,12 @@ class ReaderHandler(BaseHTTPRequestHandler):
     def build_data(self):
         cfg = load_config()
         companies = load_companies(cfg)
+        transcripts_dir = get_path(cfg, "transcripts_dir")
         transcripts = {}
 
         for company in companies:
             ticker = company["ticker"]
-            company_dir = TRANSCRIPTS_DIR / ticker
+            company_dir = transcripts_dir / ticker
             if not company_dir.exists():
                 transcripts[ticker] = []
                 continue
@@ -68,7 +67,9 @@ class ReaderHandler(BaseHTTPRequestHandler):
                 meta = parse_transcript_header(content)
 
                 # Extract body (after the header separator)
-                parts = content.split("=" * 70)
+                fmt = cfg.get("format", {})
+                sep = fmt.get("separator_char", "=") * fmt.get("separator_width", 70)
+                parts = content.split(sep)
                 body = parts[-1].strip() if len(parts) > 1 else content
 
                 try:
