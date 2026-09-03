@@ -360,10 +360,18 @@ class TestTranslators:
         assert g.name == "google"
 
     def test_factory_auto_fallback(self, cfg):
-        """auto 模式在没有 API key 时应 fallback 到 Google。"""
+        """auto 模式在三个 LLM key 都缺失时应 fallback 到 Google。"""
         pytest.importorskip("translatepy")
-        t = TranslatorFactory.create(cfg, "auto")
+        # 真实 config.json 里有 key，这里指向不存在的文件来模拟"未配置 LLM"
+        keyless = json.loads(json.dumps(cfg))
+        keyless["paths"]["config_json"] = "nonexistent_keys.json"
+        t = TranslatorFactory.create(keyless, "auto")
         assert t.name == "google"
+
+    def test_factory_auto_prefers_llm_when_keyed(self, cfg):
+        """配好 key 时，auto 不该退化到 Google。"""
+        t = TranslatorFactory.create(cfg, "auto")
+        assert t.name in ("minimax", "mimo", "deepseek")
 
     def test_factory_google(self, cfg):
         pytest.importorskip("translatepy")

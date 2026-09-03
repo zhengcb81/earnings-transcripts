@@ -10,6 +10,7 @@ paths:
   logs_dir: "logs"                       # 日志目录
   cache_file: ".cache.json"              # 下载缓存
   translate_cache: ".translate_cache.json" # 翻译缓存
+  lock_file: ".instance.lock"            # 单实例锁（scraper/translate 共用）
   config_json: "config.json"             # DeepSeek API配置（兼容旧格式）
 
 # ── 文件命名规则 ──

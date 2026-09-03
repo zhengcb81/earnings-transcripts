@@ -12,6 +12,9 @@ from naming import FileNaming
 # 缓存
 from cache import JsonCache
 
+# 单实例锁（防并发运行互相覆盖）
+from lock import SingleInstanceLock
+
 # 解析
 from parser import (
     LineClassifier, split_paragraphs,

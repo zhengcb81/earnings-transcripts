@@ -16,12 +16,16 @@
 pip install requests beautifulsoup4 lxml openai translatepy pyyaml
 
 # 1. 下载 + 自动翻译
-python3 scraper.py
+python3 scraper.py --quarters 8
 
 # 2. 启动阅读器
 python3 reader.py
 # 浏览器打开 http://localhost:8765
 ```
+
+> **Windows 注意**：本机依赖装在 Miniconda 里，用 `C:/Miniconda/python.exe` 代替 `python3`
+> （WorkBuddy 自带的托管 Python 没装依赖，直接跑会 ImportError）。
+> 缺 `translatepy` 时只影响 Google 兜底后端，三个 LLM 后端照常可用。
 
 ## 项目结构
 
@@ -89,22 +93,57 @@ EOF
 ### 爬虫 (scraper.py)
 
 ```bash
-python3 scraper.py                     # 下载所有公司 + 自动翻译
+python3 scraper.py                     # 所有公司，最近 1 个季度（--quarters 默认 1）
+python3 scraper.py --quarters 8        # 所有公司，最近8个季度（2年）
 python3 scraper.py --ticker MSFT       # 只处理微软
-python3 scraper.py --quarters 12       # 最近12个季度（3年）
-python3 scraper.py --list              # 只列出可用transcripts
+python3 scraper.py --list              # 只列出可用transcripts，不下载
 python3 scraper.py --no-translate      # 跳过翻译
+python3 scraper.py --force             # 强制重新下载并覆盖已有英文原文
+python3 scraper.py --no-cache          # 不读写 .cache.json（不影响基于磁盘文件的跳过判断）
 ```
+
+### 增量执行（重复运行是安全的）
+
+`--quarters` 调大不会重跑已完成的季度。跳过与否看**磁盘上产物是否齐全**
+（英文原文 + 中英对照都在），而不是看 `.cache.json`——所以缓存文件丢了也没关系。
+
+| 本地状态 | 行为 |
+|---|---|
+| 英文 + 双语都在 | 跳过，不下载不翻译 |
+| 只有英文，缺双语 | 只补翻译，不重新下载 |
+| 都没有 | 正常下载 + 翻译 |
+| 加了 `--force` | 无视以上，全部重新下载并覆盖英文原文 |
+
+翻译本身另有段落级缓存（`.translate_cache.json`，按内容 MD5 命中），
+重跑不会重复烧 token。
+
+### 不能并发运行
+
+`scraper.py` 和 `translate.py` 共用一把文件锁（`.instance.lock`）。第二个实例会直接
+退出并报出占用者的 PID：
+
+```
+已有 scraper/translate 实例在运行：pid=12345 started=2026-09-03T23:09:33
+并发运行会互相覆盖文件、重复消耗翻译额度。
+确认没有其它实例后删除锁文件重试：.instance.lock
+```
+
+两个实例一起跑时，除了互相覆盖文件，还会争抢同一个 LLM 额度（实测翻译速度掉到 1/4），
+并且并发写 `.translate_cache.json` 有损坏风险。锁由操作系统保证在进程退出时释放，
+崩溃也不会留下死锁。`--list` 是只读操作，不受锁限制。
 
 ### 翻译器 (translate.py)
 
 ```bash
-python3 translate.py                   # 翻译所有（auto模式: MiMo→MiniMax→DeepSeek→Google）
+python3 translate.py                   # 翻译所有（auto模式: MiniMax→MiMo→DeepSeek→Google）
 python3 translate.py --ticker FIG      # 只翻译Figma
 python3 translate.py --backend mimo    # 强制用MiMo
 python3 translate.py --backend minimax # 强制用MiniMax
 python3 translate.py --backend google  # 强制用Google
+python3 translate.py --force           # 重译已有的中英对照文件
 ```
+
+默认跳过已有译文的文件，只补缺失的。
 
 ### 夹排生成 (make_interleaved.py)
 

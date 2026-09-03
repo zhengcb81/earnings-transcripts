@@ -13,6 +13,10 @@ Usage:
   python3 scraper.py --quarters 4        # 抓取最近4个季度
   python3 scraper.py --source fmp --api-key YOUR_KEY  # 使用FMP API
   python3 scraper.py --list              # 只列出可用的transcripts
+  python3 scraper.py --force             # 强制重新下载并覆盖已有文件
+
+增量行为：默认会跳过磁盘上产物已齐全的季度（英文原文 + 中英对照都在），
+          不重复下载、不重复翻译。缓存文件 .cache.json 丢失也不影响判断。
 """
 
 import os
@@ -33,6 +37,7 @@ from common import (
     FileNaming, JsonCache, LineClassifier, split_paragraphs,
     text_hash, parse_transcript_header, extract_body,
     TranslatorFactory, translate_paragraphs, build_bilingual_data,
+    SingleInstanceLock,
 )
 
 log = logging.getLogger(__name__)
@@ -274,12 +279,69 @@ Characters: {transcript.get('char_count', 'N/A')}
     return filepath
 
 
-def save_summary(cfg: dict, companies: list, all_results: dict, output_dir: Path = None):
+def find_english_file(fn: FileNaming, ticker: str, quarter: str, output_dir: Path = None) -> Path:
+    """返回该季度英文原文应处的路径（不保证存在）。与 save_transcript 的落盘规则保持一致。"""
+    if output_dir:
+        q = quarter.replace(" ", "_")
+        return output_dir / ticker / f"{ticker}_{q}{fn.english_suffix}{fn.english_ext}"
+    return fn.english_path(ticker, quarter)
+
+
+def completed_entry(cfg: dict, english_path: Path, company: dict, quarter: str, url: str = "N/A") -> dict:
+    """从已存在的英文原文中读取元信息，构造结果/缓存条目（用于回填缓存与生成 summary）。"""
+    ticker = company["ticker"]
+    entry = {
+        "title": f"{company['name_en']} ({ticker}) {quarter} Earnings Call Transcript",
+        "quarter": quarter,
+        "source": "motley_fool",
+        "url": url,
+        "char_count": 0,
+        "local_file": str(english_path),
+    }
+    try:
+        meta = parse_transcript_header(
+            english_path.read_text(encoding="utf-8", errors="ignore"), cfg=cfg
+        )
+    except OSError:
+        meta = {}
+
+    if meta.get("Source"):
+        entry["source"] = meta["Source"]
+    # 传入的 url 优先（它就是缓存键，必须权威）；没传才回落到文件头里记的来源
+    if entry["url"] == "N/A" and meta.get("URL") and meta["URL"] != "N/A":
+        entry["url"] = meta["URL"]
+    try:
+        entry["char_count"] = int(str(meta.get("Characters", 0)).replace(",", ""))
+    except ValueError:
+        entry["char_count"] = 0
+    return entry
+
+
+def quarter_from_filename(fn: FileNaming, ticker: str, path: Path) -> str:
+    """从文件名反解季度，如 MSFT_Q3_2026_earnings_call.txt → 'Q3 2026'。"""
+    stem = path.name[len(ticker) + 1:]
+    suffix = fn.english_suffix + fn.english_ext
+    if stem.endswith(suffix):
+        stem = stem[: -len(suffix)]
+    return stem.replace("_", " ")
+
+
+def save_summary(cfg: dict, fn: FileNaming, companies: list, output_dir: Path = None):
+    """
+    生成本地语料清单。
+
+    按**磁盘上的实际文件**生成，而不是按本次运行结果生成——否则跑一次
+    --quarters 1 就会把记录了 8 个季度的 summary 截断成 1 个季度。
+    """
     transcripts_dir = output_dir or get_path(cfg, "transcripts_dir")
     summary_path = transcripts_dir / "summary.txt"
     sep_char = cfg.get("format", {}).get("separator_char", "=")
     sep_width = cfg.get("format", {}).get("separator_width", 70)
     sep = sep_char * sep_width
+
+    def newest_first(q: str):
+        m = re.search(r"Q(\d)\s+(\d{4})", q)
+        return (-int(m.group(2)), -int(m.group(1))) if m else (0, 0)
 
     lines = [
         sep,
@@ -287,21 +349,30 @@ def save_summary(cfg: dict, companies: list, all_results: dict, output_dir: Path
         f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         sep, "",
     ]
+    total = 0
     for company in companies:
         ticker = company["ticker"]
-        results = all_results.get(ticker, [])
+        quarters = sorted(
+            (quarter_from_filename(fn, ticker, p) for p in fn.find_english_files(ticker)),
+            key=newest_first,
+        )
+        total += len(quarters)
         lines.append(f"{company['name_en']} ({company['name_cn']}) [{ticker}]")
-        if not results:
+        if not quarters:
             lines.append("  [NO TRANSCRIPTS FOUND]")
         else:
-            for r in results:
-                lines.append(f"  - {r.get('quarter', 'N/A')}: {r.get('title', 'N/A')}")
-                lines.append(f"    Source: {r.get('source', 'N/A')} | Chars: {r.get('char_count', 'N/A')}")
-                lines.append(f"    URL: {r.get('url', 'N/A')}")
+            for quarter in quarters:
+                entry = completed_entry(
+                    cfg, find_english_file(fn, ticker, quarter, output_dir), company, quarter
+                )
+                lines.append(f"  - {quarter}: {entry['title']}")
+                lines.append(f"    Source: {entry['source']} | Chars: {entry['char_count']}")
+                lines.append(f"    URL: {entry['url']}")
         lines.append("")
+    lines.append(f"Total: {total} transcripts across {len(companies)} companies")
     lines.append(sep)
     summary_path.write_text("\n".join(lines), encoding="utf-8")
-    log.info(f"Summary saved: {summary_path}")
+    log.info(f"Summary saved: {summary_path} ({total} transcripts)")
 
 
 # ──────────────────────────────────────────────
@@ -363,8 +434,9 @@ def main():
     parser.add_argument("--api-key", help="FMP API key")
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--list", action="store_true", help="只列出可用transcripts，不下载")
-    parser.add_argument("--no-cache", action="store_true", help="忽略缓存")
+    parser.add_argument("--no-cache", action="store_true", help="不读写下载缓存（不影响基于磁盘文件的跳过判断）")
     parser.add_argument("--no-translate", action="store_true", help="跳过翻译（默认下载后自动翻译）")
+    parser.add_argument("--force", action="store_true", help="强制重新下载并覆盖已存在的英文原文")
     args = parser.parse_args()
 
     # Load config
@@ -376,6 +448,20 @@ def main():
     logs_dir.mkdir(exist_ok=True)
 
     setup_logging(cfg, str(logs_dir / "scraper.log"))
+
+    # 单实例锁：--list 是只读操作，不参与互斥
+    lock_file = get_path(cfg, "lock_file")
+    if not args.list:
+        ok, holder = SingleInstanceLock(lock_file).acquire()
+        if not ok:
+            msg = (
+                f"已有 scraper/translate 实例在运行：{holder}\n"
+                f"并发运行会互相覆盖文件、重复消耗翻译额度。\n"
+                f"确认没有其它实例后删除锁文件重试：{lock_file}"
+            )
+            log.error(msg)
+            print(f"\n{msg}\n", file=sys.stderr)
+            sys.exit(2)
 
     output_dir = args.output or transcripts_dir
 
@@ -440,6 +526,25 @@ def main():
 
             for u in urls:
                 url = u["url"]
+
+                # ① 磁盘上已有产物 → 跳过下载。判据是实际文件，缓存丢了也能正确识别。
+                if not args.force:
+                    english = find_english_file(fn, ticker, u["quarter"], output_dir)
+                    bilingual = fn.english_to_bilingual(english)
+                    if english.exists():
+                        if args.no_translate or bilingual.exists():
+                            log.info(f"  Skipping (already downloaded): {u['quarter']}")
+                        else:
+                            # 英文已有但译文缺失 → 只补翻译，不重新下载
+                            log.info(f"  English exists, translating only: {u['quarter']}")
+                            translate_after_download(cfg, fn, english)
+                        entry = completed_entry(cfg, english, company, u["quarter"], url)
+                        all_results[ticker].append(entry)
+                        if not args.no_cache:
+                            cache.set(url, entry)
+                        continue
+
+                # ② 下载缓存命中 → 跳过
                 if url in cache and not args.no_cache:
                     log.info(f"  Skipping (cached): {u['quarter']}")
                     all_results[ticker].append(cache[url])
@@ -456,6 +561,7 @@ def main():
                         "title": transcript["title"],
                         "quarter": transcript["quarter"],
                         "source": transcript["source"],
+                        "url": url,
                         "char_count": transcript["char_count"],
                         "local_file": str(filepath),
                     })
@@ -471,6 +577,15 @@ def main():
             try:
                 fmp_results = fmp.find_and_scrape(ticker)
                 for r in fmp_results:
+                    if not args.force:
+                        english = find_english_file(fn, ticker, r["quarter"], output_dir)
+                        if english.exists() and (
+                            args.no_translate or fn.english_to_bilingual(english).exists()
+                        ):
+                            log.info(f"  Skipping (already downloaded): {r['quarter']}")
+                            r.update(completed_entry(cfg, english, company, r["quarter"],
+                                                     r.get("url", "FMP API")))
+                            continue
                     filepath = save_transcript(cfg, fn, company, r, output_dir)
                     translate_after_download(cfg, fn, filepath, skip=args.no_translate)
                     r["local_file"] = str(filepath)
@@ -481,7 +596,7 @@ def main():
     # ── Save ──
     if not args.no_cache:
         cache.save()
-    save_summary(cfg, companies, all_results, output_dir)
+    save_summary(cfg, fn, companies, output_dir)
 
     # ── Report ──
     print(f"\n{'='*70}")

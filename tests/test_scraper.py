@@ -52,6 +52,75 @@ class TestScraperHelpers:
         assert bilingual.name == "MSFT_Q3_2026_bilingual.json"
 
 
+class TestIncrementalSkip:
+    def test_find_english_file_matches_save_transcript(self, cfg):
+        """find_english_file 的路径规则必须与 save_transcript 的落盘路径一致，否则跳过判断会失效。"""
+        from common import FileNaming
+        from scraper import find_english_file
+        fn = FileNaming(cfg)
+
+        for out in (None, Path("transcripts")):
+            got = find_english_file(fn, "MSFT", "Q3 2026", out)
+            assert got.name == "MSFT_Q3_2026_earnings_call.txt"
+            if out:
+                assert got.parent.name == "MSFT"
+                assert got.parent.parent == Path("transcripts")
+
+    def test_completed_entry_reads_meta_from_file(self, cfg):
+        """completed_entry 能从已有英文原文里读出 Characters / URL，供 summary 与缓存回填使用。"""
+        from common import FileNaming
+        from scraper import completed_entry
+        fn = FileNaming(cfg)
+        files = fn.find_english_files()
+        if not files:
+            pytest.skip("No transcript files found")
+
+        company = {"ticker": "TEST", "name_en": "TestCo", "name_cn": "测试"}
+        entry = completed_entry(cfg, files[0], company, "Q3 2026", "https://example.com/x")
+
+        assert entry["quarter"] == "Q3 2026"
+        assert entry["url"] == "https://example.com/x"
+        assert isinstance(entry["char_count"], int)
+        assert entry["char_count"] > 0          # 真实文件头里带 Characters: N
+        assert entry["local_file"] == str(files[0])
+
+    def test_completed_entry_tolerates_missing_file(self, cfg):
+        """文件不存在时不应抛异常。"""
+        from scraper import completed_entry
+        company = {"ticker": "NOPE", "name_en": "Nope", "name_cn": "无"}
+        entry = completed_entry(cfg, Path("transcripts/NOPE/NOPE_Q1_2020_earnings_call.txt"),
+                                company, "Q1 2020")
+        assert entry["char_count"] == 0
+
+
+class TestSaveSummary:
+    def test_quarter_from_filename_roundtrip(self, cfg):
+        """文件名与季度字符串能互相还原，否则按磁盘生成 summary 时会对不上。"""
+        from common import FileNaming
+        from scraper import find_english_file, quarter_from_filename
+        fn = FileNaming(cfg)
+        for ticker, quarter in [("MSFT", "Q3 2026"), ("SNOW", "Q1 2027"), ("NVO", "Q4 2023")]:
+            path = find_english_file(fn, ticker, quarter, Path("transcripts"))
+            assert quarter_from_filename(fn, ticker, path) == quarter
+
+    def test_summary_lists_all_local_files_not_just_this_run(self, cfg, tmp_path):
+        """summary 按磁盘文件生成：只跑 1 个季度也不能把既有清单截断。"""
+        from common import FileNaming, load_companies
+        from scraper import save_summary, quarter_from_filename
+        fn = FileNaming(cfg)
+        companies = load_companies(cfg, filter_ticker="MSFT")
+        files = fn.find_english_files("MSFT")
+        if not files:
+            pytest.skip("No MSFT transcript files found")
+
+        save_summary(cfg, fn, companies, tmp_path)
+        text = (tmp_path / "summary.txt").read_text(encoding="utf-8")
+
+        for f in files:                      # 每个本地文件都必须在清单里
+            assert quarter_from_filename(fn, "MSFT", f) in text
+        assert f"Total: {len(files)}" in text
+
+
 class TestScraperConfig:
     def test_fool_config_present(self, cfg):
         """fool 配置区块包含必要字段。"""

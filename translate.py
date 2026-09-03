@@ -6,7 +6,7 @@ Usage: python3 translate.py              # 翻译所有
        python3 translate.py --backend google # 强制用Google
 """
 
-import json, logging, argparse
+import json, logging, argparse, sys
 from pathlib import Path
 
 from common import (
@@ -15,7 +15,7 @@ from common import (
     split_paragraphs, text_hash,
     parse_transcript_header, extract_body,
     TranslatorFactory, translate_paragraphs,
-    build_bilingual_data,
+    build_bilingual_data, SingleInstanceLock,
 )
 
 log = logging.getLogger(__name__)
@@ -57,6 +57,7 @@ def main():
     parser = argparse.ArgumentParser(description="Transcript翻译器")
     parser.add_argument("--ticker", help="只翻译指定股票")
     parser.add_argument("--backend", choices=["minimax", "mimo", "deepseek", "google", "auto"], default="auto")
+    parser.add_argument("--force", action="store_true", help="重译已存在的中英对照文件")
     args = parser.parse_args()
 
     # Load config
@@ -65,6 +66,19 @@ def main():
     transcripts_dir = get_path(cfg, "transcripts_dir")
 
     setup_logging(cfg)
+
+    # 单实例锁：与 scraper 共用同一把锁，避免并发写同一批文件
+    lock_file = get_path(cfg, "lock_file")
+    ok, holder = SingleInstanceLock(lock_file).acquire()
+    if not ok:
+        msg = (
+            f"已有 scraper/translate 实例在运行：{holder}\n"
+            f"并发运行会互相覆盖文件、重复消耗翻译额度。\n"
+            f"确认没有其它实例后删除锁文件重试：{lock_file}"
+        )
+        log.error(msg)
+        print(f"\n{msg}\n", file=sys.stderr)
+        sys.exit(2)
 
     # Cache
     cache_path = get_path(cfg, "translate_cache")
@@ -86,6 +100,7 @@ def main():
     log.info(f"Companies: {companies}")
 
     total = 0
+    skipped = 0
     for ticker in companies:
         files = fn.find_english_files(ticker)
         log.info(f"\n{'─'*50}")
@@ -93,6 +108,10 @@ def main():
         log.info(f"{'─'*50}")
 
         for f in files:
+            if not args.force and fn.english_to_bilingual(f).exists():
+                log.info(f"  Skip (already translated): {f.name}")
+                skipped += 1
+                continue
             log.info(f"  {f.name}")
             result = translate_transcript(cfg, fn, f, cache, backend)
             if result:
@@ -101,7 +120,7 @@ def main():
 
     cache.save()
     print(f"\n{'='*50}")
-    print(f"翻译完成: {total} 个文件, {len(cache)} 条缓存")
+    print(f"翻译完成: 新译 {total} 个, 跳过 {skipped} 个（已有译文）, {len(cache)} 条缓存")
     print(f"{'='*50}")
 
 
