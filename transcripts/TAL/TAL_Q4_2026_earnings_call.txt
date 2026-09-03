@@ -5,8 +5,8 @@ Ticker: TAL
 Quarter: Q4 2026
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/04/23/tal-tal-q4-2026-earnings-call-transcript/
-Scraped: 2026-05-29T22:26:58.221589
-Characters: 30791
+Scraped: 2026-09-03T22:58:44.230696
+Characters: 30792
 ======================================================================
 
 Thursday, April 23, 2026 at 8 a.m. ET
@@ -21,7 +21,7 @@ Net Revenues-- $802.4 million, an increase of 31.5% year over year (YOY) in U.S.
 
 Gross Profit-- $427.2 million, up 34.5% YOY from $317.6 million, with gross margin rising to 53.2% from 52.0% YOY.
 
-Non-GAAP Net Income Attributable toTAL Education Group(TAL0.51%)-- $254.5 million, compared to $7.0 million YOY.
+Non-GAAP Net Income Attributable toTAL Education Group(TAL-1.15%)-- $254.5 million, compared to $7.0 million YOY.
 
 Peiyou Small Class Retention-- Stable at approximately 80% throughout the fiscal year, with certain quarters above that level.
 

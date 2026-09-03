@@ -1,0 +1,316 @@
+======================================================================
+Earnings Call Transcript
+Company: Figma (Figma)
+Ticker: FIG
+Quarter: Q2 2026
+Source: motley_fool
+URL: https://www.fool.com/earnings/call-transcripts/2026/08/12/figma-fig-q2-2026-earnings-call-transcript/
+Scraped: 2026-09-03T22:58:49.023068
+Characters: 57923
+======================================================================
+
+Wednesday, Aug. 5, 2026 at 5 p.m. ET
+
+CALL PARTICIPANTS
+
+Vice President of Investor Relations - Kate DeLeo
+
+Co-Founder and Chief Executive Officer - Dylan Field
+
+Chief Financial Officer - Praveer Melwani
+
+Revenue-- $370.1 million, representing 48% growth year over year and marking the third consecutive quarter of top-line acceleration.
+
+Net Dollar Retention Rate-- 136%, driven by consistent seat expansion and the initial contribution from AI credit add-ons.
+
+Non-GAAP Gross Margin-- 85%, increasing 2.5 percentage points from the prior quarter due to the commencement of AI credit monetization in mid-March.
+
+Non-GAAP Operating Margin-- 10%, reflecting seasonal investment costs associated with the annual Config user conference.
+
+Free Cash Flow Margin-- 14%, impacted by increased inference spending and expenses related to the Config conference.
+
+Paid Customers >$10,000 ARR-- 15,964, growing 34% year over year as the company deepens penetration within enterprise accounts.
+
+Paid Customers >$100,000 ARR-- 1,635, representing 46% year-over-year growth driven by large-scale enterprise expansions.
+
+AI Credit Adoption-- Over 80% of paid customers with more than $10,000 in ARR, consuming AI credits on a weekly basis as of the end of June.
+
+Figma Agent Usage-- Over 50% of paid customers with more than $10,000 in ARR, using the agent weekly following its June beta launch.
+
+MCP Write-to-Figma Usage-- 75% quarter-over-quarter growth, reflecting increased developer adoption of the Model Context Protocol for pushing work into the canvas.
+
+International Revenue-- 50% growth year over year, supported by new data localization efforts in Brazil, Australia, and India.
+
+Full Year Revenue Guidance-- $1.463 billion to $1.467 billion, a $40 million raise reflecting strength in AI adoption and seat expansion.
+
+Q3 Revenue Guidance-- $373 million to $375 million, implying 36% year-over-year growth at the midpoint of the range.
+
+Full Year Non-GAAP Operating Income Guidance-- $125 million to $135 million, representing a 9% margin at the midpoint.
+
+Cash and Marketable Securities-- $1.7 billion as of June 30, 2026, supporting ongoing product and infrastructure investments.
+
+Enterprise Seat Expansion-- A large technology customer added over 25,000 total paid seats through an AI credit add-on during the quarter.
+
+Plugin Creation-- Weekly plugin creation rates more than doubled following the launch of generative plugins.
+
+Agent-Exclusive Users-- 20% of weekly credit consumers on paid plans are using the Figma agent exclusively for their AI workflows.
+
+Gross Retention Rate-- Remained stable in the mid- to high 90% range, highlighting the mission-critical nature of the platform.
+
+Developer Adoption-- At one large tech customer, engineers now hold more paid seats than designers, a shift attributed to integrated developer tools.
+
+Melwani stated, "We do not charge our customers for their usage of products that are currently in beta, and we bear the cost of inference without offsetting consumption revenue," noting that non-GAAP gross margin will vary quarter to quarter in the near term.
+
+Melwani noted that the company anticipates "tougher comps" in the third and fourth quarters due to the anniversary of pricing and packaging changes implemented in March 2025.
+
+Figma, Inc.(FIG-1.98%)reported financial results for the second quarter of 2026, achieving its third consecutive quarter of accelerated revenue growth. Management reported that the transition to a full-stack creation canvas, which integrates code, agents, and expressive design capabilities, is driving increased engagement among both designers and engineers. The company is prioritizing investment in a model-agnostic AI architecture and first-party models to manage inference costs and latency as usage scales. Strategic focus remains on expanding the surface area for AI consumption through products like the Figma agent and Code Layers, which aim to bridge the gap between initial design concepts and production-ready code.
+
+CEO Field stated that the "line between building software and making creative work is dissolving," opening the platform to new audiences such as in-house brand designers and creative agencies.
+
+The company announced several leadership transitions, including moving former CTO Kris Rasmussen to the role of Chief Architect to focus on engineering challenges like the Figma agent.
+
+Management reported that 2/3 of paid customers with more than $10,000 in ARR added full seats at renewal, consistent with prior quarters and indicating steady core seat expansion.
+
+Senior Product Designer Alexandra Pereira noted that "Figma Motion turns animated illustrations from a specialist handoff into a system capability," allowing broader teams to design with motion natively.
+
+Designer Alex Fortney stated that the "Figma MCP has saved me countless hours of manual labor on all the design system files," highlighting the productivity gains from new developer integration tools.
+
+CFO Melwani indicated that the $40 million raise in full-year revenue guidance does not yet incorporate revenue from products currently in beta or early access, such as Code Layers or Figma Weave.
+
+Designer Jack Goozee noted that using Figma Weave for 3D renders "took a day, whereas it would have taken a 3D specialist weeks and tens of thousands of pounds to ideate through these elements."
+
+INDUSTRY GLOSSARY
+
+MCP (Model Context Protocol): An open standard for connecting AI agents to external data sources and tools, used by Figma to integrate design and code workflows.
+
+Code Layers: A Figma feature that allows interactive code to live directly on the design canvas for visual and code-based editing.
+
+Shaders: AI-powered tools within Figma that generate and manipulate complex textures and visual effects like liquid glass.
+
+Figma Weave: An AI tool for media generation and editing that allows users to sculpt and refine visual assets directly on the canvas.
+
+Figma Make: An AI tool used to generate functional prototypes and production-ready code from design prompts.
+
+Inference: The process by which a trained AI model processes input data to generate a response or output.
+
+Config: Figma's annual user conference for designers, developers, and product teams.
+
+ARR (Annual Recurring Revenue): The annualized value of active customer agreements, assuming existing terms for renewals.
+
+10-Q: A quarterly financial report required by the SEC that provides a comprehensive view of a company's performance.
+
+GAAP (Generally Accepted Accounting Principles): The standard framework of guidelines for financial accounting.
+
+Full Conference Call Transcript
+
+Operator:Hello, everyone. Thank you for joining us, and welcome to the Figma Second Quarter 2026 Earnings Call.[Operator Instructions]I will now hand the conference over to Kate DeLeo, Vice President of Investor Relations. Kate, please go ahead.
+
+Kate DeLeo:Good afternoon, and thank you for joining us on today's conference call to discuss Figma's results for the second quarter of 2026. On the call, we have Dylan Field, Figma's Co-Founder and Chief Executive Officer; and Praveer Melwani, our Chief Financial Officer. During the course of today's call, we may make forward-looking statements, including, but not limited to, statements regarding our guidance and future financial performance, market demand, product development, growth prospects, business strategies and plans, partnerships, ability to attract and retain customers and ability to compete effectively. These forward-looking statements are based on management's current views and assumptions and should not be relied upon as of any subsequent date, and we disclaim any obligation to update any forward-looking statements.
+
+Actual results may vary materially from today's statements. Information concerning our risks, uncertainties and other factors that could cause results to differ from these forward-looking statements are included in our filings with the SEC, including our quarterly report on Form 10-Q for the quarter ended June 30, 2026. Our discussion today will include certain non-GAAP financial measures. These non-GAAP financial measures should be considered in addition to, not as a substitute or in isolation from GAAP measures. Our non-GAAP measures exclude the effect of our GAAP results of stock-based compensation and certain other items.
+
+Reconciliations of non-GAAP financial measures to comparable GAAP measures can be found in our press release accompanying this call, which is posted to the Investor Relations page on our website. I would now like to turn the conference call over to Dylan.
+
+Dylan Field:Hi, everyone, and thanks for joining. I'm excited to share the results of another strong quarter for Figma. In Q2, we delivered $370 million in revenue, representing a year-over-year growth rate of 48% and our third consecutive quarter of accelerated growth. Q2 was also our first full quarter of AI monetization. And what we're seeing follows a pattern that is familiar to Figma, a core group of users driving outsized usage, paving the way for broader adoption across the organization. This gives us confidence in the AI consumption opportunity ahead. On the P&L front, net dollar retention rate was 136%. Non-GAAP gross profit dollars grew by 40% year-over-year, an acceleration on the previous quarter.
+
+Non-GAAP operating margin was 10%, reflecting the typical seasonal impact of Config. Free cash flow margin was 14%, and we ended Q2 with $1.7 billion in cash, cash equivalents and marketable securities. These numbers reflect incredible execution from the Figma team. They also show that as companies reimagine how they build products with AI, they are doubling down on Figma. This is because what Figma offers is unique, a performant professional-grade canvas where humans as well as agents can work side by side, deep product context that makes agents actually useful and full creative control through a combination of AI and direct manipulation.
+
+These differentiators are even more valuable in a world where code is a commodity and value is moving up the stack. We see a big opportunity for Figma as we make code a primitive on our platform and become the canvas for full stack creation. Let me explain. In June, at Config, we announced Code Layers, which we plan to roll out in early access soon. AI has made individuals more productive than ever. Everyone is working with their own agent, exploring their own path in their own tool. Teams are moving faster, but they're often pointed in completely different directions. Collaboration takes a back seat as tunnel vision takes over.
+
+Individuals grow more attached to the direction they've explored and less open to ideas from their team. Code Layers is designed to address these challenges. With Code Layers, interactive code lives directly on the Figma canvas. Teams can edit designs and code or manipulate them visually. They can also compare different variations of code-backed prototypes on the canvas side by side. And this makes iteration fast and collaboration the default. Code Layers is built on the same technical foundations as Figma Make. Simply put, it's Figma Make on the canvas. And Figma Make itself is getting more powerful.
+
+For example, in May, we started rolling out the ability for teams to start working directly in the production code base with Make. Teams can go from idea to ship product without leaving Figma. 1Password uses Figma from prototype all the way to code that ships to production. Their design systems team has built a full AI-assisted prototyping pipeline with Figma Make, complete with the custom MCP and AI-powered skills, and that lets them scaffold and publish new prototypes automatically. They've also opened Figma Make access to licensed engineers. And when that process starts outside of Figma, we've also made it easier to bring your work into Figma with our MCP server.
+
+At Clay, designer Alex Fortney was tasked with redesigning the company's tools panel, a surface undergoing its fourth redesign in the last 5 years. Using MCP, Alex was able to expedite what would have been a tedious process by pulling all the existing components out of legacy code base and into Figma. That way, she could audit the entire surface visually and altogether. As she put it, "The Figma MCP has saved me countless hours of manual labor on all the design system files, and it's made it a lot easier for Clay's engineers to translate design into production-ready code." MCP is what makes this possible at scale.
+
+Write-back support lets teams push work into Figma, not just pull from it. And in Q2, MCP write-to-Figma usage grew 75% quarter-over-quarter. Code Layers pushing into production with Figma Make and the Figma MCP server together will all drive more usage and credit consumption by expanding what you can do with code in Figma. As AI makes code easier to write, everything though is starting to look the same. These models are trained on what already exists. So what you get back is in distribution. It's the expected answer. The teams that will stand out are the ones with a bold point of view that are willing to push past obvious solutions.
+
+At Config, we launched Motion and Shaders, 2 new expressive capabilities that used to require leaving Figma, but now are native to our canvas. And with Figma Motion, teams can build custom animations from scratch, layer those on to existing designs or ask the agent to even generate a starting point. And this is all in the same canvas that their team already works in. Atlassian is a great example. The design systems team is building motion directly into the Atlassian design system, giving anyone on the team the ability to design with and generate motion themselves. This is important because Motion is something teams almost always want but rarely get because it's time-consuming and it's expensive to build.
+
+As Senior Product Designer, Alexandra Pereira put it, "Figma Motion turns animated illustrations from a specialist handoff into a system capability." Like Motion, Shaders make products feel live in new ways. With Shaders, anyone can describe a texture or effect like liquid glass and a Figma agent will build it for you. And then you can manipulate the output directly with fine-grain controls that give you ways to customize your results. Figma Weave brings a similar approach to AI-generated media. Instead of stopping at the first prompt, you can sculpt generated outputs like Clay, connecting models and refining results until what's on the canvas is exactly what you had in your head.
+
+Weave Tools can now run inside Figma, which means teams can generate images and other visual assets without switching tools. This matters more as visual assets become a bigger part of how software gets made. In addition, this also opens up Figma to new audiences we haven't served historically, in-house brand designers, creative agencies doing complex hands-on work. Taxi Studio, a U.K.-based brand design agency, set up a Weave workflow to generate 3D renders for design presentation with our client, Carlsberg, using 3 simple inputs, a beer glass, a hop leaf and also a background. They create a starting point for brand imagery and then further refined lighting, camera angle and texture.
+
+As designer Jack Goozee put it, "All this took a day, whereas it would have taken a 3D specialist weeks and tens of thousands of pounds to ideate through these elements. It is such a great way to elevate and add richness to the work while staying very much in control." And it's this control that sets Weave apart, the ability to express your creative vision exactly as you imagine it. Together, Motion, Shaders and Weave give teams the tools to make work that's genuinely distinctive, not just AI generated. The market this can serve is significant. And overall, it points to a larger shift. The line between building software and making creative work is dissolving.
+
+This opens up new mediums, new possibilities and new audiences for Figma. The third opportunity is agents. The Figma agent is built natively for design. It's fluent in Figma and increasingly powered by our own proprietary models. Because it works on the same canvas as your team, it has access to all the same tools that you do, including our new expressive capabilities like Motion and Shaders. One way to think of the agent is as a capable design intern you can hand work off to, everything from time-consuming tasks like documenting your design system to generating design variations that your team can build on.
+
+And because it works directly on the Figma canvas, you can have multiple agents running in parallel while you and your team focus on higher level work. But the agent can do more than complete tasks. They can also build custom tools. And that's what generative plugins are for. You can describe what you need and the agent will build something that your entire team can reuse, like custom chart generators or plugins that pull in live data directly onto the canvas. The response to generative plugins has been strong. As of July 31, weekly plugin creation was more than double what it was prior to the launch of generative plugins. Together, this represents a significant opportunity for our business.
+
+As the Figma agent takes on more work, AI consumption increases and the ceiling on what a team can create in Figma moves up. The Figma agent rolled out in open beta in June, and the early signs are promising. As of July 31, over 50% of paid customers with more than $10,000 in ARR were already using the Figma agent on a weekly basis. The agent is also expanding who uses AI in Figma, not just how much. As of July 31, more than 20% of weekly credit consuming users on paid plans were exclusively consuming credits using the Figma agent.
+
+The common thread across code, new creative capabilities and the Figma agent is that they increase the surface for AI consumption and the possibilities for what and who can create in Figma. Together, they can grow our total addressable market in ways that we are only beginning to capture. More than 10 years ago, Figma introduced the Infinite Canvas as a shared space for teams to design software. The next evolution is a canvas for full stack creation, one place where anyone, anywhere can reach for whatever tool they need to build whatever they dream up, exactly as they imagine it. Before I close, I want to share some updates on our leadership team.
+
+First, our Chief Technology Officer, Kris Rasmussen, will become Figma's Chief Architect. After almost 10 years at Figma, Kris sees an opportunity to scale his impact by working directly on Figma's most business-critical engineering challenges, starting with Figma agent. We are kicking off the search for a new CTO. And in the meantime, the engineering teams responsible for our AI and editor efforts will report directly to me. Additionally, our long-time security leader, Dev Akhawe, will become Figma's Chief Security Officer. Dev and his team were early to adopt AI in Figma's cybersecurity efforts, and I'm excited for Dev to step into this role. We also have 2 internal leadership transitions.
+
+First, after 7 incredible years, our Chief Product Officer, Yuhki Yamashita, has decided to close the Figma chapter and take extended time off. Yuhki has helped shape Figma's product and culture, and I'm so grateful for his dedication and impact. Loredana Crisan, who joined Figma as our Chief Design Officer in 2025, will expand her scope and lead Figma's product function as well. Loredana joined us almost a year ago after spending nearly a decade leading design and product at Meta for Messenger and Meta's AI efforts. Her remarkable design and product aptitude and a strong point of view that she brings have already made a tremendous impact on Figma.
+
+Lastly, Sheila Vashee, our Chief Marketing Officer, will be departing Figma at the end of August. Sheila has built strong marketing foundations for Figma as we have scaled our go-to-market efforts. Nairi Hourdajian, Figma's long-time Chief Communications Officer, will be our new CMO. Nairi is a leader I trust deeply. Her creativity and sharp perspective have shaped so much of our strategy in marketing and across Figma's business. I know her bold approach will further strengthen Figma's marketing and differentiate our brand. A year into our journey as a public company, the opportunity is bigger than even we expected. The tools are changing, the creative possibilities are expanding and Figma finds itself at the forefront of this shift.
+
+We have so much work ahead and even more left to build for our customers. I'm super excited for it, and I know the team is too. And with that, I'll pass it off to Praveer.
+
+Praveer Melwani:Thanks, Dylan. As Dylan shared, our vision of becoming the canvas for full stack creation is resonating with customers. We consistently hear from our customers that they want to build more, move faster and push the boundaries of what is possible, all while elevating craft and taste. We're proud that our financial results indicate that we are delivering the right products and features to our customers as AI transforms the way products are built. Q2 was another record quarter. Importantly, it was our first full quarter in which AI credit monetization contributed to results. Q2 revenue was $370 million, up 48% year-over-year and our third straight quarter of accelerated year-over-year revenue growth.
+
+Just as importantly, that growth was accretive to gross profit in Q2. Non-GAAP gross profit for Q2 grew 40% year-over-year with our gross profit dollar growth accelerating 9 percentage points quarter-over-quarter. Let's start with AI credit monetization. As a reminder, we embed AI credits in each of our seats. Starting in mid-March, we implemented credit limits on all seats. Today, teams are able to purchase additional credits beyond these limits. A key signal we wanted to understand was how credit utilization would trend as customers began paying for incremental usage. A full quarter in, we are encouraged by what we've observed. Sustained usage is translating into revenue in 2 ways.
+
+First, credits included in every seat make those seats more valuable, supporting upgrades, new team conversion and retention. As of the end of Q2, approximately 2/3 of paid customers with more than $10,000 in ARR added full seats compared to their prior renewal, which is consistent with prior quarters. At the same time, gross retention rate was stable in the mid- to high 90s, highlighting the mission-critical nature of our platform for our customers. Second, as customers exceed the credits built into their seats, they can purchase additional credit add-on subscriptions or enable pay-as-you-go. We're encouraged by the paid conversion we're seeing and the continued broadening of adoption across our customer base.
+
+As of the end of Q2, over 80% of paid customers with more than $10,000 in ARR were consuming AI credits weekly. We are also continuing to learn how customers want to purchase, scale and govern AI usage. We're moving quickly to iterate on our pricing model based on customer feedback. Just this week, we began rolling out user level limits, giving admins more precise control over how AI credits are allocated across their organizations. We're also working to make it easier for users to request additional credits when they need them. There is meaningful room ahead as adoption deepens and we introduce new features and products that consume AI credits.
+
+Our products and features that are in beta and are still rolling out to customers, including Figma agent, Figma Make on local code, Motion, generative plugins and Code Layers do not currently consume paid credits. Early usage of these new products and features is trending ahead of expectations. We're already seeing that the Figma agent is drawing new users to consume AI credits as well as driving existing users to deepen their usage. As of July 31, over 50% of paid customers with more than $10,000 in ARR were already using the Figma agent on a weekly basis. Now let's turn to our key metrics.
+
+In Q2, net dollar retention rate for paid customers with more than $10,000 in ARR remained strong at 136%, even as we begin to anniversary our pricing and packaging changes from March 2025. We are continuing to both add new customers and go deeper with our existing customers. In Q2, paid customers with more than $10,000 in ARR grew 34% year-over-year and paid customers with more than $100,000 in ARR grew 46% year-over-year. We continue to invest in our go-to-market teams to support our global customer base. Last quarter, we expanded our footprint with a new office in Sao Paulo to better serve our customers in one of the fastest-growing markets.
+
+We also now offer local data hosting in Brazil after introducing data localization in Australia and India earlier this year. All of these efforts have continued to help drive our global business and international revenue, which grew 50% year-over-year in Q2. Now let me highlight a few of our customer wins from the quarter. One of the world's largest technology companies expanded its enterprise contract with Figma in Q2, purchasing an AI credit add-on covering more than 25,000 total paid seats with the company now having more paid seats held by engineers than designers, a strong signal of developer adoption at scale.
+
+A technology infrastructure company expanded its AI credit add-ons multiple times within a single quarter, increasing its purchase credit commitment by 5x from its first add-on as part of a company-wide push for AI native workflows across its product development org. During a month-long trial of Figma Make, a global financial institution held an internal Hackathon across its product, design and engineering teams, reducing prototype development time from a full quarter to a matter of days. New admin tools for managing user credits also unblocked a path to broader adoption by giving the company greater visibility and control over AI usage across teams.
+
+Together, these productivity gains and stronger governance capabilities led the company to purchase a significant enterprise AI credit add-on subscription, while AI credit consumption increased 2.5x quarter-over-quarter. Building on a successful 5-year partnership with one of Europe's largest software providers, we identified opportunities to further accelerate adoption of our AI products. With targeted training for power users, we drove organization-wide adoption. The impact was immediate. AI credit consumption grew 2.5x month-over-month in the first month following the engagement and a new contract. Turning to the income statement. Unless noted, all metrics are non-GAAP. We have provided a reconciliation of GAAP to non-GAAP financials in our earnings release, which is posted to our website.
+
+Gross profit grew and gross margin improved in Q2. Gross profit was $314 million, up 40% year-over-year, and gross margin was 85%, up 2.5 percentage points quarter-over-quarter. The acceleration in gross profit growth and the improvement in gross margin this quarter is the result of our first full quarter of AI credit monetization. Looking ahead, we have a clear set of tools to manage inference costs as adoption scales. We route across models based on task complexity, optimize across providers through our model-agnostic architecture and are beginning to bring first-party models trained on Figma's design corpus into specific design tasks inside the Figma agent.
+
+For the right tasks, we believe those models can deliver comparable quality at lower cost and latency and will continue to represent a key area of investment and development in the second half of the year. With the new products and features rolling out in beta post-Config, the goal remains to drive usage, retention and growth while improving quality, latency and cost ahead of GA. We do not charge our customers for their usage of products that are currently in beta, and we bear the cost of inference without offsetting consumption revenue. As a result, gross margin will vary from quarter-to-quarter in the near term.
+
+Over the long term, we expect additional usage to drive revenue and gross profit dollar growth. Q2 operating income was $36 million, a 10% operating margin. We hosted over 10,000 members of our community in San Francisco in Q2 for Config, our annual user conference. We view Config as an investment in our community and customers. This investment impacts our Q2 operating income and free cash flow. Inclusive of Config, our Q2 operating expenses grew at a slower rate than our top line. Q2 free cash flow was $53 million, a margin of 14%. The largest single driver for the year-over-year variance was costs related to our increased inference spend. The Config expenses also impacted our free cash flow.
+
+We ended the quarter with $1.7 billion in cash, cash equivalents and marketable securities, and we remain confident in the long-term cash-generating profile of the business. Now let's close it out with our outlook. A reminder on our guidance philosophy. We provide a snapshot of our current view based on recent trends, including what we have high confidence in and where visibility is more limited, we observe sustained trends before fully incorporating them. For the third quarter, we expect revenue of $373 million to $375 million or 36% growth at the midpoint of the range.
+
+For the full year, we are raising our outlook to $1.463 billion to $1.467 billion, implying 39% growth at the midpoint, a raise of $40 million. The raise is reflective of strength in AI credit consumption for products being monetized today, positive early signal on the back of our new launches, strong conversion and continued expansion. We are maintaining our full year non-GAAP operating income guidance of $125 million to $135 million, a 9% operating margin at the midpoint. This is the right moment to lean into investment given the strong signals we see.
+
+The question we ask ourselves is whether investment in product and go-to-market increases the likelihood that Figma builds a durable advantage over the long term, even at the temporary cost of near-term margin. Over the long term, we remain focused on innovating while driving durable revenue growth and maximizing operating profit dollars. To close, Q2 was another strong quarter, our first full quarter of AI credit monetization, a deepening of our product portfolio, a broadening of our AI workflows, an acceleration of growth in revenue and gross profit dollars and continued strength in retention and expansion. More importantly, we are confident in how this all will compound in the quarters ahead.
+
+AI is changing how teams build software and how creative work is done, and that makes Figma more important. We are pairing product velocity with a monetization model that will evolve alongside usage and that gives us confidence in durable, profitable growth from here. With that, I'll hand it over to the operator for Q&A.
+
+Operator:[Operator Instructions]Your first question comes from the line of Alex Zukin with Wolfe Research.
+
+Aleksandr Zukin:Two quick ones for me. Dylan, given the amount of products out there right now in the marketplace from cloud design to Vercel to the vibe coding platforms, maybe just level set and remind us what are you seeing on both top of funnel and upsell dynamics and cross-sell? And why Figma seems to be winning even more in what looks like a more crowded field and the confidence that you have that, that differentiation should continue.
+
+Dylan Field:Absolutely. Thank you for the question. So I think that what we've seen overall is as teams explore how to integrate AI into their workflows, they go through a journey on that. And what we've continued to see is teams doubling down on Figma as they come out of that process. Now to your question, as you mentioned, there's many tools, they're solving different problems. Some of them are primarily coding tools. Others are more optimized for individuals or small teams. And I think it's really important to remind everyone that building software at scale is different.
+
+And the challenge isn't just generating code or making sort of design assets that anyone in the organization might want to create or bathroom signs or greeting cards. I think what's really important is to understand that our offering is really optimized for professional designers and it's unique.
+
+And the way we get there is a performant professional-grade canvas, one where humans and agents can work side by side, deep product context that makes those agents actually useful and very importantly, full creative control through a combination of AI, but also direct manipulation and a ton of long-tail functionality and workflow features we've really built into a professional design environment that our customers still have plenty of requests for us to improve on. And overall, you bring those capabilities together and you layer the ecosystem that we've built on top with MCP, with Code Layers coming and with Figma Make continuing to improve.
+
+And what we see when those all come together is that these tools are very good for different parts of the process, and teams continue to come back and double down on Figma to build products. I'll pass it over to Praveer for anything he wants to add.
+
+Praveer Melwani:No, the only thing I'd add, Alex, are some of the key indicators that I'm staring at. We're looking at the number of customers that are expanding at time of renewal within our 10,000-plus customers, and you saw about 2/3 of those customers adding full seats at time of renewal. Our NDR rate of 136% remains healthy and strong, and it's built on the back of continued and steady expansion, strength in gross dollar retention and us now being able to overlay our AI credit model on top. So there's a lot of tailwinds that we get the benefit of, but it starts with product and it ends with product.
+
+And I think Dylan kind of did a fantastic job there describing it.
+
+Operator:Your next question comes from the line of Gabriela Borges with Goldman Sachs.
+
+Gabriela Borges:I wanted to pick both of your brain on 2 questions that we're getting with the stock being down in the aftermarket. Praveer, the first question is on the sequential that you're guiding to for 3Q. Maybe just give us a little bit more color. It looks much more conservative than what you guided to in 2Q and then much smaller in absolute dollars than what you guided to in 2Q. And then the flip side of this is on the gross margin. I know you have a number of cohorts, a number of new products layering in, all of which will be monetized when the time is right.
+
+But maybe just level set us on how to think about what the cadence of gross margin looks like over the medium term and any kind of balance you can put around that for us?
+
+Praveer Melwani:Yes. Thanks, Gabriela. Really good to hear from you. So our guidance philosophy here remains consistent in that we provide a snapshot of our current view based on recent trends, including what we have a high degree of confidence in and where we have -- visibility is a little bit more limited. We wait until we observe sustained trends there before fully incorporating them. So both in Q1 and Q2, this provided us more telemetry in how AI consumption will translate into revenue, which we've been able to flow through for the back half of the year.
+
+However, as we continue to create new surfaces that are going to draw even more credits over a longer period of time in agent, in Code Layers, in Make and local code. Today, those products are sitting in beta or early access programs and are not drawing down paid credits. And so what we've given ourselves an opportunity to do is to continue to invest to learn how those products actually mature to ensure that we're improving latency, reducing cost and improving quality before we transition those into generally available products.
+
+And then as we make those transitions, similar to the investment trajectory that we've taken with our AI products thus far, we'll observe our ability to monetize them on the other side before fully incorporating them. And so the sort of philosophy actually also translates to our operating income in that we have an opportunity here to both drive deeper investment into a number of these newer surfaces, which is exactly what we've started to do and observe. And so that's why you're seeing deepening investment into the back half of this year is because we're really excited about the initial metrics and components there.
+
+Operator:Your next question comes from the line of Michael Turrin with Wells Fargo.
+
+Michael Turrin:I just want to ask a 2-parter on Make, if I may. Dylan, I'm curious, given the rise in focus around open source and open weight models, if there's anything you see there that could potentially help further improve the overall position of Make as you're talking to customers. And for Praveer, we actually saw gross margin expansion this quarter. I think the 85% is a bit better than what we were expecting. So just curious if you have an updated view on whether we're reaching a local bottom in any way, given you're now monetizing credit consumption or just how to think about the improvement in gross margin there?
+
+Dylan Field:Thank you. I'll start with an answer around model and what we can see on the horizon, what we think might be possible. So I would orient everyone around 3 variables. One is latency, the second is quality, the third is cost. And as we work on first-party model development, which could include post trains of open source models, especially U.S.-based open source models, you will likely see us be able to further discretize certain tasks, which could help with latency, it can help with quality and it can help with cost. And we think that's applicable not just to Make, it's also applicable to agent and to plenty of other surfaces across the Figma platform.
+
+And with that, I'll pass to Praveer for the second part.
+
+Praveer Melwani:Really good to hear from you again. So the thing that we're seeing over here is actually a consistent behavior that we've observed as we've had different product launches over time. The initial -- while we're seeing widespread use of our AI products, so about 80% of our 10,000-plus customers are using -- are drawing down credits on a weekly basis. What we are seeing is that we have an opportunity here to grow usage within those accounts, finding those initial champions and then expanding it over time.
+
+In addition, as I was mentioning with the prior question, a number of the newer products that we just rolled out either in beta or early access programs are not drawing down paid credits today. And that then is an investment that we make in driving ubiquity of these newer surfaces. So the trajectory that we've taken over the past year now where we have these periods of investment that then serves as a headwind to gross margin. And then in a period where we flip on monetization, we can then start to see the acceleration in gross profit dollar growth is one that I expect in subsequent periods.
+
+So I think we're now, again, in an investment period, an investment cycle as we continue to drive ubiquity of these newer products. And then my expectation over the medium to long term there is then we'll then start to be able to translate that into gross profit dollars and more durable long-term growth as well.
+
+Operator:Your next question comes from the line of Arjun Bhatia with William Blair.
+
+Arjun Bhatia:I was -- I wanted to ask maybe a little bit just on the credit consumption of the products that are sort of drawing down these paid credits. I imagine that's mostly Make, maybe agent here to come. But as we're looking at the back half guidance, should the sequential consumption of paid credits for those surfaces continue to increase? I'm curious what you -- I know it's just 1 quarter in, but I'm curious what you saw in 2Q and then as we're going through July, if that trend -- if those trends accelerated or if there's any change there that you've baked into the guide?
+
+Praveer Melwani:Yes. Thanks for the question, Arjun. I think we've seen a number of different trajectories that customers take. Some were ready to make scaled purchases as soon as our AI credits came out of -- as soon as we began implementing those AI credit limits. Others started on pay-as-you-go offerings, and then they exceeded their limits there before purchasing more scaled add-ons. And there's also a set of customers that required us to have more direct partnership with where we went into those accounts and really drove enablement side by side with the champions there and saw credit consumption multiply over those same periods prior to them actually going and purchasing these scaled add-ons.
+
+What's really interesting here is our customers are looking to us for strategic thought and direction. They're advocating for a partner. They want to be -- they want us to be a part of the conversation on how folks should be building product in this AI age. And as that starts to pick up, we fully believe that we should continue to have the opportunity to increase our credit consumption within these customer accounts as well. This is in addition to the newer surfaces that just came out in beta and early access program.
+
+And you're exactly right that while they sit in beta and early access programs, they are not drawing down paid credits, but they will as they transition over into our -- into GAs over time, which then serves as a tailwind for us in the latter part of the year, early into next as well.
+
+Operator:Your next question comes from the line of Billy Fitzsimmons with Piper Sandler.
+
+William Fitzsimmons:For Dylan, can you just contextualize how Figma's MCP usage has trended year-to-date? You mentioned it was up 75% year-over-year, but just help us think about how that tracked sequentially. Last quarter, there were some questions kind of about the general competitive environment. But talking to Figma customers, many are pulling in external AI workflows into Figma. Would be curious to the extent you can kind of quantify the magnitude of that occurring. And if I could just ask one for Praveer. On the OpEx side, how is Figma's hiring needs kind of trended year-to-date versus maybe your initial expectations going into the year?
+
+Dylan Field:Yes, I can start, and thank you for the question. First off, I'll just quickly correct what you said there in terms of the 75% growth. It's actually quarter-over-quarter on the write MCP. So that's people that are using our MCP to get work into Figma. And so we've been thrilled to see the overall MCP growth as well as the specific growth on the write MCP and that use Figma tool call. Now when we look at overall the picture at MCP, we see a bunch of stuff happening. We see people pulling work from Figma to go build it elsewhere. We see people pushing work into Figma.
+
+Overall, our point of view is that we really want to make sure that wherever you start, whether it's a coding agent and then you realize, wow, there's a lot of opportunity to make the design better here or it's in Figma and you're starting with a very design forward view, that Figma is adding value to the process overall. And what we want as well is to offer people ways to complete that whole workflow in Figma. But overall, yes, we're thrilled to see the growth of MCP. We'll be curious to watch the trade-off potentially between MCP and agent in the future.
+
+Definitely, as you're able to complete more of the workflow in Figma, we'll want to see if there's any change that creates in MCP, and that's something that we're watching as well.
+
+Praveer Melwani:And then to your question on hiring, I think it's -- we continue to invest and build the team. But to your point, we are hiring fewer people today than we originally had planned, and that's because we've been able to augment the team that we have with AI and tools and have seen modernization of processes across the board. So I think we've been really thoughtful now as folks are both coming in and transitioning out to make sure that the process by which that someone is coming in and operating in is the right one for the way that people should be building companies in this new age.
+
+And so even as our customers are going through this process of retooling as are we internally, and I think we're really excited about some of the levers that we've been able to find.
+
+Operator:Your next question comes from the line of Rishi Jaluria with RBC.
+
+Rishi Jaluria:Just one for me. I'll keep it to one. As you think about some of the success that you're having with some of the newer SKUs, not just Figma Make, obviously, you've shared a lot around that, but even some of the exciting products that we saw at Config. Can you maybe walk us through not only what does the success look like in driving usage among the existing customer base, but are you seeing situations where you're actually landing net new customer logos as a result of having these additional products and what that kind of expansion motion could look like?
+
+Praveer Melwani:Rishi, I really appreciate the question. I think largely, what we found is a lot of the new products here give us an opportunity to grow the number of folks that can sit on -- can sit and hold paid seats within existing paid plans. That's more within our larger customers as we go deeper and that will be evidenced and has been evidenced in our net dollar retention rate. I do think that there has been moments on the lower end parts of the business and the overall number of customers that are on platform, and we've disclosed this in prior quarters, we've seen an acceleration in our ability to go and acquire customers over there as well.
+
+And so we've both been able to grow the overall number of folks sitting on paid plans while also then deepening within existing. On agent specifically, what we found is -- and Dylan kind of -- Dylan did disclose this in our prepared remarks, that we've actually increased the overall number of weekly active credit consuming users on paid plans. And that today, folks that are actually drawing down paid credits or rather consuming credits on paid plans via agent represents about 20% of the overall. So that in and of itself is broadening who can now hold a paid seat and lowering the floor over time as well.
+
+Operator:Your next question comes from the line of Elizabeth Porter with Morgan Stanley.
+
+Elizabeth Elliott:I was hoping to get an update on the unit economics of AI credit revenue just after you've gone through this full quarter of monetization. So what are some of the levers, whether it's the task-based model routing, the optimization across providers or first-party models that are already starting to lower inference costs? And how we should think about those efficiencies affecting the incremental gross margin profile as usage scales?
+
+Praveer Melwani:Yes, we've taken a model -- sorry, a model-agnostic approach to the way that we're serving inference to our customers. And so that will continue to be a growing place of investment for us, especially as we deepen our investments on the first-party side. So today, we're able to serve an increasing share of requests that come in on agent via first-party models. And again, you then have the constant back and forth and trade-off that we're making around what is -- are we able to serve that customer and that query with lower latency, lower cost and higher quality alongside of it.
+
+And so we'll continue to make good decisions there and pull the right levers at the right moments in time. And as we've demonstrated over the course of the quarter, we have the ability here to accelerate our gross profit dollar growth as we transition more and more of our credit consuming products to being paid.
+
+Dylan Field:I'll just add, I think that there's so much we've done and so much more we can do when it comes to efficiency here. But again, you won't see us redo that at the expense of quality or at the expense of lower latency. We think those are also ways to drive revenue up when it comes to consumption.
+
+Operator:Your next question comes from the line of Samik Chatterjee with JPMorgan.
+
+Samik Chatterjee:And maybe this is more for Praveer. Just the $40 million raise for the outlook for the year, I'm wondering how much of that is driven by the incremental credit usage that you're seeing relative to maybe other things coming in better like higher seats, et cetera? And are you now post the beta release of some of these AI products that you did at Config, are you now -- any change in thoughts in terms of how much they contribute as you're going through that beta release at this point?
+
+Praveer Melwani:Yes, I'll be explicit here. I think right now, at this moment, we are not taking credit for the products that are in early access programs or beta in our full year revenue outlook. I think that represents upside as we transition from these periods where the credits are not drawing down paid credits, and we transition those to GA products. And then as a result, we'll be able to take more credit for it in our revenue outlook.
+
+Our philosophy here has always been to give you a transparent view of the things that we know and have a high degree of confidence over -- and in areas where we're still learning and/or products haven't fully transitioned to that -- to being paid, we give ourselves some opportunity to learn and share that with you when we have a higher degree of confidence.
+
+Operator:Your next question comes from the line of Nick Altmann with BTIG.
+
+Nicholas Altmann:I wanted to circle back on the proprietary model. And Dylan, you touched on it a little bit, but just which use cases and surfaces do you feel like the first-party model will take priority with your users? And then just given it sounds like the initial usage of your design agent is going really well, like how much of that would you attribute to your proprietary model? And do you anticipate the first-party model maybe accelerating AI usage and engagement in the near term as you expand that beyond the design agent?
+
+Dylan Field:Yes. Thank you for the question. I would say that first-party models, plural, will have use cases and ways they show up across our platform. Right now, a lot of it you can think about as how do you work better with design, how do you work better with Figma and that is where we're seeing the most use cases show up. Over time, we think that will expand. At the same time, we're also still very much working with Frontier Labs, especially where customers want us to, like actually taking the design and building it and implementing it fully.
+
+That is something that I expect we will continue to work with Frontier Labs on in the immediate future, and we're grateful for those partnerships as well. And in general, I think that the more that we can make it so that first-party models combined with Frontier models end up at that -- the right place in that Frontier I mentioned between quality, latency and cost, the more that we can get to the right place there, the more we'll see acceleration of usage in general.
+
+Operator:Your next question comes from the line of Tyler Radke with Citibank.
+
+Tyler Radke:Maybe this one is for Praveer. So we're getting some questions. Obviously, really strong Q2 results. But as we look at the sequential guide into the Q3, can you just remind us some of the sets of assumptions you're making? It looks like sequentially kind of some of the smallest growth that you've guided to. I know there's some moving pieces with price. But I guess more specifically, as you think about AI becoming a larger piece of the business, obviously, usage is more volatile than subscription seats. So how are you just incorporating that mix dynamic into your guidance philosophy?
+
+Praveer Melwani:Yes. No, I appreciate the question, Tyler. I think maybe I'll start on the products that are and aren't included. I won't belabor it because I think I've spoken about this a couple of times during the call. The products that are in early access programs or betas that are not drawing down paid credits. We're going to wait until those transition over to GA products where we can observe how they actually monetize before taking credit for it in the guide. I think more broadly than that, the back half of this year, we start to come up against the anniversarying of the pricing changes that we made last year.
+
+So there's a couple of tougher comps there that we start to run into in Q3 and Q4. But largely, the key health indicators of the business and the places that I'm spending time and attention staring at, it's like how -- what is our ability to go and drive AI consumption across our customers. 80% of our 10,000-plus customers are consuming credits on -- 10,000-plus customers are consuming credits on a weekly basis. What is our ability to go and add full seats at time of renewal. Within our 10,000 plus customers, 2/3 of our customers there added full seats at time of renewal, which is consistent with what we've observed in prior quarters.
+
+We're both being able to go deeper within these customers, go broader and then you then have the overlay of what can come in a number of the products that will roll out over time. And we do have some upside to the plan that should we execute, we can achieve. But today, we want to give you guys a true view of what we know. And then lastly, just to give you a flavoring of how our AI consumption revenue is actually translating or rather is being contracted. The majority of the structures today are via add-ons that are coterminous subscriptions with an individual subscription.
+
+So we have a fair amount of visibility in how those will translate over time. But you're exactly right that if more and more of that were to move to pay-as-you-go or if we end up with more extended contracting structures, we could see more variability and when that gets recognized.
+
+Operator:Your next question comes from the line of Parker Lane with Stifel.
+
+John McShane:This is Jack McShane on for Parker. Praveer, you mentioned in your prepared remarks and in this last question, customers looking to -- or are you guys looking to iterate your pricing model based on customer feedback. Not sure you'll provide much on future pricing plans, but can you provide any color on what feedback around pricing has been from your customers? Are customers looking for more certainty around AI costs? Or are they becoming increasingly comfortable with paying consumption?
+
+Praveer Melwani:Yes. I think at the very basic level, and I see this even as a purchaser of a number of different AI tools is your customers want control and choice. They want to understand that their investment here is driving return, and we need to be able to both provide our customers with that same level of choice and control while also then being able to be really clear with the ROI that they're seeing on the other side of it. I think that from a true ROI perspective, we're actually seeing some really interesting early indicators.
+
+Folks that are relying on Code Connect and then also using our MCP are seeing that the overall number of tokens consumed on the other side of it as they're translating it to a code it will be that much more efficient. We're finding that folks like the ability to both lead with AI in certain places, but then have the full creative control on the canvas. And so not each action needs to be credit consuming as a result. There are things that we're rolling out on the actual pricing and packaging side that give folks the ability to set user level controls, the ability to set restrictions in certain places.
+
+I think we want -- we hear from customers that they want to have the ability to draw down credits over longer periods of time. And as we think about the right ones and the right changes to make to our model, again, to provide customers with the control that they want and choice that they want, my expectation is that, that will start to break down even more barriers and make the sales process that much more efficient over time.
+
+Dylan Field:I'll just add before we end here that we are learning a lot and so is the market generally as it comes to purchasing software on different ways that AI credits and consumption should be purchased. And so as we continue to learn, we'll continue to improve. And I think that will be something that continues to happen over the long term because I think we're still in the early days of what people want to see here and how they'll express that.
+
+Operator:There are no further questions at this time. This concludes today's call. Thank you for attending. You may now disconnect.
+
+This article is a transcript of this conference call produced for The Motley Fool. While we strive for our Foolish Best, there may be errors, omissions, or inaccuracies in this transcript.Parts of this article were created using Large Language Models (LLMs) based on The Motley Fool's insights and investing approach. It has been reviewed by our AI quality control systems. Since LLMs cannot (currently) own stocks, it has no positions in any of the stocks mentioned.As with all our articles, The Motley Fool does not assume any responsibility for your use of this content, and we strongly encourage you to do your own research, including listening to the call yourself and reading the company's SEC filings. Please see ourTerms and Conditionsfor additional details, including our Obligatory Capitalized Disclaimers of Liability.
+
+The Motley Fool has positions in and recommends Figma. The Motley Fool has adisclosure policy.
+
+Stocks Mentioned
+
+*Average returns of all recommendations since inception. Cost basis and return based on previous market day close.

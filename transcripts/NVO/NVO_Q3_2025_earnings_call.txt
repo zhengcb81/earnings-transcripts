@@ -5,7 +5,7 @@ Ticker: NVO
 Quarter: Q3 2025
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2025/12/11/novo-nordisk-nvo-q3-2025-earnings-transcript/
-Scraped: 2026-05-29T22:26:55.640784
+Scraped: 2026-09-03T22:58:38.961725
 Characters: 66307
 ======================================================================
 
@@ -73,7 +73,7 @@ Wegovy weekly prescriptions in the U.S. declined sequentially. Management noted 
 
 Management confirmed intensifying competition and pricing pressure in both diabetes and obesity internationally and in the U.S. Lower expectations for GLP-1 sales growth are driving the reduced 2025 guidance.
 
-Novo Nordisk(NVO+0.14%)delivered 15% sales growth in the first nine months, but narrowed its full-year guidance and emphasized headwinds in GLP-1 diabetes and obesity products, reflecting both increased competition and coverage challenges. Capital allocation priorities were reiterated following major acquisition proposals for Metsera and Akero, with the Metsera offer structured for $6.7 billion upfront and up to $10 billion with milestones, while Akero’s lead asset targets a currently untreatable MASH population. Restructuring is a key focus, with 9,000 positions to be eliminated and DKK 8 billion in annual savings projected, although this incurred significant current-period costs and will reshape Novo Nordisk’s operational model and R&D prioritization. Regulatory submissions and near-term launches—including the Wegovy pill and new rare disease assets—are moving forward. Management signaled that pricing, patent expirations, and evolving payer dynamics in the U.S. Medicaid and Medicare programs could materially influence revenue growth through 2026 and beyond.
+Novo Nordisk(NVO+1.58%)delivered 15% sales growth in the first nine months, but narrowed its full-year guidance and emphasized headwinds in GLP-1 diabetes and obesity products, reflecting both increased competition and coverage challenges. Capital allocation priorities were reiterated following major acquisition proposals for Metsera and Akero, with the Metsera offer structured for $6.7 billion upfront and up to $10 billion with milestones, while Akero’s lead asset targets a currently untreatable MASH population. Restructuring is a key focus, with 9,000 positions to be eliminated and DKK 8 billion in annual savings projected, although this incurred significant current-period costs and will reshape Novo Nordisk’s operational model and R&D prioritization. Regulatory submissions and near-term launches—including the Wegovy pill and new rare disease assets—are moving forward. Management signaled that pricing, patent expirations, and evolving payer dynamics in the U.S. Medicaid and Medicare programs could materially influence revenue growth through 2026 and beyond.
 
 Metsera’s pipeline, if acquired, would bring differentiated GLP-1 and amylin assets, complementing internal development and widening treatment options by dosing, patient phenotype, and delivery channel.
 

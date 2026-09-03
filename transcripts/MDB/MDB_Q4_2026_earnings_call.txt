@@ -5,7 +5,7 @@ Ticker: MDB
 Quarter: Q4 2026
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/03/02/mongodb-mdb-q4-2026-earnings-call-transcript/
-Scraped: 2026-05-30T13:28:22.060279
+Scraped: 2026-09-03T22:58:36.418909
 Characters: 61520
 ======================================================================
 
@@ -61,7 +61,7 @@ AI product uptake metrics-- The number of customers using vector search and Voya
 
 Leadership changes-- Erica Woolini appointed as Chief Customer Officer, effective March 3; Cedric Pash and Paul Kepambesis to depart, with a new CRO search in late stages and leadership transition planned through Q2.
 
-MongoDB(MDB+2.97%)reported accelerated growth across both Atlas and non-Atlas product lines, highlighted by all-time record new ARR and substantial large enterprise deals in regulated industries. Management indicated broad-based demand from AI native, fintech, public sector, and Fortune 500 cohorts, with specific expansion in AI workloads and deeper adoption of platform features among high-value Atlas customers. Strategic execution included a significant increase in RPO, prioritization of feature parity for EA with Atlas, and a leadership transition designed to support expanded go-to-market initiatives, especially in the AI and enterprise segments.
+MongoDB(MDB+2.41%)reported accelerated growth across both Atlas and non-Atlas product lines, highlighted by all-time record new ARR and substantial large enterprise deals in regulated industries. Management indicated broad-based demand from AI native, fintech, public sector, and Fortune 500 cohorts, with specific expansion in AI workloads and deeper adoption of platform features among high-value Atlas customers. Strategic execution included a significant increase in RPO, prioritization of feature parity for EA with Atlas, and a leadership transition designed to support expanded go-to-market initiatives, especially in the AI and enterprise segments.
 
 CEO Desai stated, "MongoDB's foundation is in great shape, and the company is well on its way to become the generational data platform of choice in the AI and multi-cloud era."
 

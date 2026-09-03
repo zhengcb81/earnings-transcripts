@@ -1,12 +1,15 @@
 ======================================================================
 Earnings Call Transcripts - Summary Report
-Generated: 2026-05-30 17:50:59
+Generated: 2026-09-03 23:17:07
 ======================================================================
 
 Microsoft (微软) [MSFT]
-  - Q3 2026: Microsoft (MSFT) Q3 2026 Earnings Transcript
+  - Q4 2026: Microsoft (MSFT) Q4 2026 Earnings Call Transcript
+    Source: motley_fool | Chars: 65572
+    URL: https://www.fool.com/earnings/call-transcripts/2026/08/07/microsoft-msft-q4-2026-earnings-call-transcript/
+  - Q3 2026: Microsoft (MSFT) Q3 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 60925
-    URL: N/A
+    URL: https://www.fool.com/earnings/call-transcripts/2026/04/29/microsoft-msft-q3-2026-earnings-transcript/
   - Q2 2026: Microsoft (MSFT) Q2 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 61515
     URL: https://www.fool.com/earnings/call-transcripts/2026/01/28/microsoft-msft-q2-2026-earnings-call-transcript/
@@ -33,13 +36,13 @@ Generate Biomedicines (Generate Biomedicines) [GENB]
   [NO TRANSCRIPTS FOUND]
 
 Snowflake (Snowflake) [SNOW]
-  - Q1 2027: Snowflake (SNOW) Q1 2027 Earnings Transcript
-    Source: motley_fool | Chars: 53809
-    URL: N/A
+  - Q1 2027: Snowflake (SNOW) Q1 2027 Earnings Call Transcript
+    Source: motley_fool | Chars: 53810
+    URL: https://www.fool.com/earnings/call-transcripts/2026/05/27/snowflake-snow-q1-2027-earnings-transcript/
   - Q4 2026: Snowflake (SNOW) Q4 2026 Earnings Call Transcript
-    Source: motley_fool | Chars: 43200
+    Source: motley_fool | Chars: 43201
     URL: https://www.fool.com/earnings/call-transcripts/2026/02/25/snowflake-snow-q4-2026-earnings-call-transcript/
-  - Q2 2026: Snowflake SNOW Q2 2026 Earnings Call Transcript
+  - Q2 2026: Snowflake (SNOW) Q2 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 55876
     URL: https://www.fool.com/earnings/call-transcripts/2025/08/27/snowflake-snow-q2-2026-earnings-call-transcript/
   - Q4 2025: Snowflake (SNOW) Q4 2025 Earnings Call Transcript
@@ -59,16 +62,16 @@ Snowflake (Snowflake) [SNOW]
     URL: https://www.fool.com/earnings/call-transcripts/2024/02/29/snowflake-snow-q4-2024-earnings-call-transcript/
 
 MongoDB (MongoDB) [MDB]
-  - Q1 2027: MongoDB (MDB) Q1 2027 Earnings Transcript
+  - Q1 2027: MongoDB (MDB) Q1 2027 Earnings Call Transcript
     Source: motley_fool | Chars: 58388
-    URL: N/A
+    URL: https://www.fool.com/earnings/call-transcripts/2026/05/28/mongodb-mdb-q1-2027-earnings-transcript/
   - Q4 2026: MongoDB (MDB) Q4 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 61520
     URL: https://www.fool.com/earnings/call-transcripts/2026/03/02/mongodb-mdb-q4-2026-earnings-call-transcript/
   - Q2 2026: MongoDB (MDB) Q2 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 68605
     URL: https://www.fool.com/earnings/call-transcripts/2025/08/26/mongodb-mdb-q2-2026-earnings-call-transcript/
-  - Q1 2026: MongoDB MDB Q1 2026 Earnings Call Transcript
+  - Q1 2026: MongoDB (MDB) Q1 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 66435
     URL: https://www.fool.com/earnings/call-transcripts/2025/06/04/mongodb-mdb-q1-2026-earnings-call-transcript/
   - Q4 2025: MongoDB (MDB) Q4 2025 Earnings Call Transcript
@@ -85,9 +88,9 @@ MongoDB (MongoDB) [MDB]
     URL: https://www.fool.com/earnings/call-transcripts/2024/05/31/mongodb-mdb-q1-2025-earnings-call-transcript/
 
 Novo Nordisk (诺和诺德) [NVO]
-  - Q3 2025: Novo Nordisk (NVO) Q3 2025 Earnings Transcript
+  - Q3 2025: Novo Nordisk (NVO) Q3 2025 Earnings Call Transcript
     Source: motley_fool | Chars: 66307
-    URL: N/A
+    URL: https://www.fool.com/earnings/call-transcripts/2025/12/11/novo-nordisk-nvo-q3-2025-earnings-transcript/
   - Q4 2024: Novo Nordisk (NVO) Q4 2024 Earnings Call Transcript
     Source: motley_fool | Chars: 65572
     URL: https://www.fool.com/earnings/call-transcripts/2025/02/05/novo-nordisk-nvo-q4-2024-earnings-call-transcript/
@@ -111,34 +114,38 @@ Novo Nordisk (诺和诺德) [NVO]
     URL: https://www.fool.com/earnings/call-transcripts/2023/08/10/novo-nordisk-nvo-q2-2023-earnings-call-transcript/
 
 TAL Education (好未来) [TAL]
-  - Q4 2026: TAL (TAL) Q4 2026 Earnings Call Transcript
-    Source: motley_fool | Chars: 30791
-    URL: N/A
-  - Q4 2025: TAL (TAL) Q4 2025 Earnings Call Transcript
-    Source: motley_fool | Chars: 39447
-    URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q4-2025-earnings-call-transcript/
-  - Q1 2026: TAL (TAL) Q1 2026 Earnings Call Transcript
-    Source: motley_fool | Chars: 35700
-    URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q1-2026-earnings-call-transcript/
-  - Q2 2026: TAL (TAL) Q2 2026 Earnings Call Transcript
-    Source: motley_fool | Chars: 34548
-    URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q2-2026-earnings-call-transcript/
-  - Q3 2026: TAL (TAL) Q3 2026 Earnings Call Transcript
+  - Q4 2026: TAL Education (TAL) Q4 2026 Earnings Call Transcript
+    Source: motley_fool | Chars: 30792
+    URL: https://www.fool.com/earnings/call-transcripts/2026/04/23/tal-tal-q4-2026-earnings-call-transcript/
+  - Q3 2026: TAL Education (TAL) Q3 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 36840
     URL: https://www.fool.com/earnings/call-transcripts/2026/01/29/tal-tal-q3-2026-earnings-call-transcript/
+  - Q2 2026: TAL Education (TAL) Q2 2026 Earnings Call Transcript
+    Source: motley_fool | Chars: 34548
+    URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q2-2026-earnings-call-transcript/
+  - Q1 2026: TAL Education (TAL) Q1 2026 Earnings Call Transcript
+    Source: motley_fool | Chars: 35700
+    URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q1-2026-earnings-call-transcript/
+  - Q4 2025: TAL Education (TAL) Q4 2025 Earnings Call Transcript
+    Source: motley_fool | Chars: 39448
+    URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q4-2025-earnings-call-transcript/
 
 Figma (Figma) [FIG]
+  - Q2 2026: Figma (FIG) Q2 2026 Earnings Call Transcript
+    Source: motley_fool | Chars: 57923
+    URL: https://www.fool.com/earnings/call-transcripts/2026/08/12/figma-fig-q2-2026-earnings-call-transcript/
   - Q1 2026: Figma (FIG) Q1 2026 Earnings Call Transcript
     Source: motley_fool | Chars: 50506
-    URL: N/A
+    URL: https://www.fool.com/earnings/call-transcripts/2026/05/15/figma-fig-q1-2026-earnings-call-transcript/
   - Q4 2025: Figma (FIG) Q4 2025 Earnings Call Transcript
     Source: motley_fool | Chars: 57384
-    URL: N/A
+    URL: https://www.fool.com/earnings/call-transcripts/2026/02/18/figma-fig-q4-2025-earnings-call-transcript/
   - Q3 2025: Figma (FIG) Q3 2025 Earnings Call Transcript
     Source: motley_fool | Chars: 52502
-    URL: N/A
+    URL: https://www.fool.com/earnings/call-transcripts/2025/11/05/figma-fig-q3-2025-earnings-call-transcript/
   - Q2 2025: Figma (FIG) Q2 2025 Earnings Call Transcript
     Source: motley_fool | Chars: 52878
     URL: https://www.fool.com/earnings/call-transcripts/2025/09/04/figma-fig-q2-2025-earnings-call-transcript/
 
+Total: 43 transcripts across 7 companies
 ======================================================================

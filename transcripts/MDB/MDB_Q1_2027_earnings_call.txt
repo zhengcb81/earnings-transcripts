@@ -5,7 +5,7 @@ Ticker: MDB
 Quarter: Q1 2027
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/05/28/mongodb-mdb-q1-2027-earnings-transcript/
-Scraped: 2026-05-29T22:26:53.110494
+Scraped: 2026-09-03T22:58:33.761677
 Characters: 58388
 ======================================================================
 
@@ -57,7 +57,7 @@ Share Repurchase-- $100 million allocated in the quarter toward share repurchase
 
 AI Use Cases-- Management cited specific customer examples, including Zoom standardizing on MongoDB, Andor Labs using Atlas for security workflows, and Zomato orchestrating 15 million conversations per month on Atlas, resulting in a 55% reduction in support costs and a 40% productivity gain for human agents.
 
-MongoDB(MDB+2.97%)raised its revenue growth guidance for both the upcoming quarter and full fiscal year, citing consistent Atlas momentum, expanding AI workloads, and strong multi-year deal activity. The company completed the acquisition of ClarityDB Solutions, enhancing its U.S. federal vertical offering and integrating associated revenue and expertise into guidance projections. Customer metrics highlighted rising enterprise adoption, with an increasing portion of major clients expanding platform usage through new AI and search features. Both GAAP and non-GAAP profitability improved, supporting cash flow expansion and ongoing investments in growth initiatives. Management described the agentic and AI-native opportunity as early yet accelerating, underpinned by recent product innovations and growing demand from sectors pursuing modernization and AI-driven transformation.
+MongoDB(MDB+2.41%)raised its revenue growth guidance for both the upcoming quarter and full fiscal year, citing consistent Atlas momentum, expanding AI workloads, and strong multi-year deal activity. The company completed the acquisition of ClarityDB Solutions, enhancing its U.S. federal vertical offering and integrating associated revenue and expertise into guidance projections. Customer metrics highlighted rising enterprise adoption, with an increasing portion of major clients expanding platform usage through new AI and search features. Both GAAP and non-GAAP profitability improved, supporting cash flow expansion and ongoing investments in growth initiatives. Management described the agentic and AI-native opportunity as early yet accelerating, underpinned by recent product innovations and growing demand from sectors pursuing modernization and AI-driven transformation.
 
 Desai stated that MongoDB's platform and flexible schema are "uniquely suited to how applications get built in the agentic era," enabling integration of prompt-driven and unstructured data.
 

@@ -5,8 +5,8 @@ Ticker: SNOW
 Quarter: Q4 2026
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/02/25/snowflake-snow-q4-2026-earnings-call-transcript/
-Scraped: 2026-05-30T11:12:28.460659
-Characters: 43200
+Scraped: 2026-09-03T22:58:31.102521
+Characters: 43201
 ======================================================================
 
 Wednesday, February 25, 2026 at 5 p.m. ET
@@ -59,7 +59,7 @@ FY 2027 Guidance-- Product revenue of $5.66 billion forecasted for 27% growth; n
 
 Hiring Outlook-- Headcount growth concentrated in Q1, reflecting the addition of 178 Observe employees; Q4 net headcount adds were 37 after a small reduction-in-force that affected about 200 people.
 
-Snowflake Inc.(SNOW+7.02%)reported accelerated customer and revenue expansion, highlighted by notable milestones in large contract sales and platform adoption. The company advanced its position in enterprise AI through the rapid monetization of Snowflake Intelligence and Cortex Code, accompanied by substantial expansion in partnerships and integrated AI model access. Management guided for continued top-line growth and margin gains, underpinned by recent acquisitions, disciplined operating practices, and observed consumption trends.
+Snowflake Inc.(SNOW+16.55%)reported accelerated customer and revenue expansion, highlighted by notable milestones in large contract sales and platform adoption. The company advanced its position in enterprise AI through the rapid monetization of Snowflake Intelligence and Cortex Code, accompanied by substantial expansion in partnerships and integrated AI model access. Management guided for continued top-line growth and margin gains, underpinned by recent acquisitions, disciplined operating practices, and observed consumption trends.
 
 CEO Ramaswamy emphasized, "We are rapidly transforming from the platform for governing and analyzing data into the platform where customers build and run AI-native applications and workflows."
 

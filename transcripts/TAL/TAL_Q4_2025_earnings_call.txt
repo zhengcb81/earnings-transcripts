@@ -5,8 +5,8 @@ Ticker: TAL
 Quarter: Q4 2025
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/04/21/tal-tal-q4-2025-earnings-call-transcript/
-Scraped: 2026-05-30T17:15:52.844609
-Characters: 39447
+Scraped: 2026-09-03T22:58:46.823227
+Characters: 39448
 ======================================================================
 
 Thursday, April 24, 2025 at 8 a.m. ET
@@ -51,7 +51,7 @@ Learning Devices segment reported an adjusted operating loss in both the quarter
 
 Sequential quarter-over-quarter revenue decline in Learning Devices attributed to seasonality following a Q3 e-commerce peak, as stated by management.
 
-TAL Education Group(TAL0.51%)reported robust year-over-year revenue growth and full-year profitability on a non-GAAP basis, supported by expansion in both Learning Services and Content Solutions. Management emphasized strategic expansion, prudent operational discipline, and the integration of advanced AI features across core product lines. The company further enhanced its capital return framework by extending its share repurchase authorization and confirmed a strong cash position to support growth and shareholder returns.
+TAL Education Group(TAL-1.15%)reported robust year-over-year revenue growth and full-year profitability on a non-GAAP basis, supported by expansion in both Learning Services and Content Solutions. Management emphasized strategic expansion, prudent operational discipline, and the integration of advanced AI features across core product lines. The company further enhanced its capital return framework by extending its share repurchase authorization and confirmed a strong cash position to support growth and shareholder returns.
 
 Management specified that operating leverage, particularly reductions in general and administrative expenses as a percentage of revenue, is an ongoing source of profitability improvement.
 

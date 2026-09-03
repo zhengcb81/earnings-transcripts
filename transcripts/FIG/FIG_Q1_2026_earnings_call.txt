@@ -5,7 +5,7 @@ Ticker: FIG
 Quarter: Q1 2026
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/05/15/figma-fig-q1-2026-earnings-call-transcript/
-Scraped: 2026-05-29T22:27:01.065162
+Scraped: 2026-09-03T23:11:38.244321
 Characters: 50506
 ======================================================================
 
@@ -45,7 +45,7 @@ Product metrics-- In Q1, 60% of Figma’s largest customers used Make weekly, an
 
 AI-driven Pro team conversions-- Pro team conversions to paid plans increased over 150% year over year, led by adoption of AI capabilities.
 
-Figma(FIG+9.19%)reported accelerating revenue growth, significant expansion in its paid customer base, and early success in monetizing AI features across its platform. New credit monetization initiatives are showing strong engagement, particularly among enterprise and organizational users who continue to purchase additional credits after enforcement. The company emphasized unique competitive positioning through platform differentiation and ongoing product expansions, while its raised full-year guidance reflects confidence in broad-based seat growth, retention, and continued AI-driven upsell. Figma’s updated bonus accrual structure will continue to impact quarterly free cash flow margins moving forward.
+Figma(FIG-1.98%)reported accelerating revenue growth, significant expansion in its paid customer base, and early success in monetizing AI features across its platform. New credit monetization initiatives are showing strong engagement, particularly among enterprise and organizational users who continue to purchase additional credits after enforcement. The company emphasized unique competitive positioning through platform differentiation and ongoing product expansions, while its raised full-year guidance reflects confidence in broad-based seat growth, retention, and continued AI-driven upsell. Figma’s updated bonus accrual structure will continue to impact quarterly free cash flow margins moving forward.
 
 A major international hyperscaler unified over 35,000 paid seats under a single agreement, representing one of the largest deals in company history.
 

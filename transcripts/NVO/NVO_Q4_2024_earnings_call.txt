@@ -5,11 +5,11 @@ Ticker: NVO
 Quarter: Q4 2024
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2025/02/05/novo-nordisk-nvo-q4-2024-earnings-call-transcript/
-Scraped: 2026-05-30T15:01:52.186843
+Scraped: 2026-09-03T22:58:41.680855
 Characters: 65572
 ======================================================================
 
-Novo Nordisk(NVO+0.15%)Q4 2024 Earnings CallFeb 05, 2025,7:00 a.m. ET
+Novo Nordisk(NVO+1.58%)Q4 2024 Earnings CallFeb 05, 2025,7:00 a.m. ET
 
 Prepared Remarks
 

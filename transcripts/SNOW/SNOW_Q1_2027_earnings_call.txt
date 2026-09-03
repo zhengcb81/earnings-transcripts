@@ -5,8 +5,8 @@ Ticker: SNOW
 Quarter: Q1 2027
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/05/27/snowflake-snow-q1-2027-earnings-transcript/
-Scraped: 2026-05-29T22:26:50.591293
-Characters: 53809
+Scraped: 2026-09-03T22:58:28.400174
+Characters: 53810
 ======================================================================
 
 May 27, 2026, at 5 p.m. ET
@@ -63,7 +63,7 @@ Brian Robins stated, "Our full year outlook for both non-GAAP operating margin a
 
 Sridhar Ramaswamy said, "And so we are doing things like cost limits at an account level or at a particular agent level," indicating cost management is active as AI adoption at scale increases.
 
-Snowflake(SNOW+7.02%)delivered acceleration across core and AI-driven business lines, raising full-year guidance and highlighting significant product and operational advances. Management emphasized AI's catalyzing role, with Cortex Code (CoCo) and Snowflake Intelligence named as crucial growth engines now contributing meaningful revenue and customer expansion. The company reported a five-year, $6 billion AWS contract more than doubling prior commitments, supporting both reduced bandwidth costs and AI workload scaling. Share repurchases and sizable cash balances reinforce balance sheet strength, while enhanced partner agreements with AWS, OpenAI, and SAP expand the AI data cloud ecosystem without dependence on a single platform.
+Snowflake(SNOW+16.55%)delivered acceleration across core and AI-driven business lines, raising full-year guidance and highlighting significant product and operational advances. Management emphasized AI's catalyzing role, with Cortex Code (CoCo) and Snowflake Intelligence named as crucial growth engines now contributing meaningful revenue and customer expansion. The company reported a five-year, $6 billion AWS contract more than doubling prior commitments, supporting both reduced bandwidth costs and AI workload scaling. Share repurchases and sizable cash balances reinforce balance sheet strength, while enhanced partner agreements with AWS, OpenAI, and SAP expand the AI data cloud ecosystem without dependence on a single platform.
 
 Non-GAAP operating margin guidance increased to 13.5% for the full year, with capital efficiency bolstered by measured, acquisition-focused hiring.
 

@@ -5,7 +5,7 @@ Ticker: MSFT
 Quarter: Q3 2026
 Source: motley_fool
 URL: https://www.fool.com/earnings/call-transcripts/2026/04/29/microsoft-msft-q3-2026-earnings-transcript/
-Scraped: 2026-05-29T22:26:47.308700
+Scraped: 2026-09-03T22:58:23.710711
 Characters: 60925
 ======================================================================
 
@@ -95,7 +95,7 @@ Azure Capacity and Supply Constraints-- Supply expected to remain constrained at
 
 OpenAI Partnership Agreement Update-- CFO Hood said, "having the revenue share exist through 2030—the predictability of that is a real positive for us—and, as Satya pointed out, the IP being royalty-free with the elimination of our rev share to them."
 
-Microsoft(MSFT+5.25%)reported record results with rapid year-over-year growth in revenue, operating income, and EPS, supported by surging cloud and AI demand. Management highlighted material expansion in paid Copilot seats, increased product usage intensity, and a transformative shift in enterprise monetization toward hybrid seat-plus-consumption models. Guidance signals elevated capital investments to address persistent infrastructure constraints and maintain high service availability amid robust commercial demand.
+Microsoft(MSFT+2.68%)reported record results with rapid year-over-year growth in revenue, operating income, and EPS, supported by surging cloud and AI demand. Management highlighted material expansion in paid Copilot seats, increased product usage intensity, and a transformative shift in enterprise monetization toward hybrid seat-plus-consumption models. Guidance signals elevated capital investments to address persistent infrastructure constraints and maintain high service availability amid robust commercial demand.
 
 Executives articulated that future revenue streams will increasingly blend per-user entitlements with usage-based consumption rather than traditional seat licensing alone.
 
