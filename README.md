@@ -100,7 +100,27 @@ python3 scraper.py --list              # 只列出可用transcripts，不下载
 python3 scraper.py --no-translate      # 跳过翻译
 python3 scraper.py --force             # 强制重新下载并覆盖已有英文原文
 python3 scraper.py --no-cache          # 不读写 .cache.json（不影响基于磁盘文件的跳过判断）
+python3 scraper.py --dry-run           # 只报告会做什么，不改动任何文件
 ```
+
+不确定跑下去会发生什么时，先来一次 `--dry-run`：
+
+```
+$ python3 scraper.py --quarters 8 --dry-run
+  [skip     ] MSFT Q4 2026
+  [skip     ] MSFT Q3 2026
+  ...
+================================================================
+DRY RUN — 未下载、未翻译、未改动任何文件
+================================================================
+  跳过 skip       : 42
+  补翻译 translate: 0
+  下载 download   : 0
+================================================================
+```
+
+它和真正的跳过判断走的是同一个 `plan_action()`，所以结果可以直接信。
+（只有 Phase 1 的公司页面探测会联网，那是为了拿到 transcript 链接列表。）
 
 ### 增量执行（重复运行是安全的）
 

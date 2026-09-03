@@ -14,6 +14,7 @@ Usage:
   python3 scraper.py --source fmp --api-key YOUR_KEY  # 使用FMP API
   python3 scraper.py --list              # 只列出可用的transcripts
   python3 scraper.py --force             # 强制重新下载并覆盖已有文件
+  python3 scraper.py --dry-run           # 只报告会做什么，不改动任何文件
 
 增量行为：默认会跳过磁盘上产物已齐全的季度（英文原文 + 中英对照都在），
           不重复下载、不重复翻译。缓存文件 .cache.json 丢失也不影响判断。
@@ -287,6 +288,17 @@ def find_english_file(fn: FileNaming, ticker: str, quarter: str, output_dir: Pat
     return fn.english_path(ticker, quarter)
 
 
+def plan_action(fn: FileNaming, ticker: str, quarter: str, output_dir: Path = None,
+                no_translate: bool = False) -> str:
+    """这个季度接下来会做什么：skip / translate / download。--dry-run 与跳过判断共用同一套逻辑。"""
+    english = find_english_file(fn, ticker, quarter, output_dir)
+    if not english.exists():
+        return "download"
+    if no_translate or fn.english_to_bilingual(english).exists():
+        return "skip"
+    return "translate"
+
+
 def completed_entry(cfg: dict, english_path: Path, company: dict, quarter: str, url: str = "N/A") -> dict:
     """从已存在的英文原文中读取元信息，构造结果/缓存条目（用于回填缓存与生成 summary）。"""
     ticker = company["ticker"]
@@ -437,6 +449,7 @@ def main():
     parser.add_argument("--no-cache", action="store_true", help="不读写下载缓存（不影响基于磁盘文件的跳过判断）")
     parser.add_argument("--no-translate", action="store_true", help="跳过翻译（默认下载后自动翻译）")
     parser.add_argument("--force", action="store_true", help="强制重新下载并覆盖已存在的英文原文")
+    parser.add_argument("--dry-run", action="store_true", help="只报告每个季度会做什么，不下载不翻译不写文件")
     args = parser.parse_args()
 
     # Load config
@@ -449,9 +462,9 @@ def main():
 
     setup_logging(cfg, str(logs_dir / "scraper.log"))
 
-    # 单实例锁：--list 是只读操作，不参与互斥
+    # 单实例锁：--list / --dry-run 是只读操作，不参与互斥
     lock_file = get_path(cfg, "lock_file")
-    if not args.list:
+    if not (args.list or args.dry_run):
         ok, holder = SingleInstanceLock(lock_file).acquire()
         if not ok:
             msg = (
@@ -513,8 +526,9 @@ def main():
 
         # ── Phase 2: Download ──
         sleep_between = cfg.get("fool", {}).get("sleep_between_downloads", 2)
+        dry_counts = {"skip": 0, "translate": 0, "download": 0}
         log.info(f"\n{'─'*50}")
-        log.info("Phase 2: Downloading transcripts")
+        log.info("Phase 2: Downloading transcripts" + ("  [DRY RUN]" if args.dry_run else ""))
         log.info(f"{'─'*50}")
 
         for company in companies:
@@ -526,6 +540,13 @@ def main():
 
             for u in urls:
                 url = u["url"]
+
+                # ⓪ 演练：只报告计划，不下载、不翻译、不写任何文件
+                if args.dry_run:
+                    action = plan_action(fn, ticker, u["quarter"], output_dir, args.no_translate)
+                    dry_counts[action] += 1
+                    print(f"  [{action:9s}] {ticker} {u['quarter']}")
+                    continue
 
                 # ① 磁盘上已有产物 → 跳过下载。判据是实际文件，缓存丢了也能正确识别。
                 if not args.force:
@@ -568,7 +589,7 @@ def main():
                 time.sleep(sleep_between)
 
     # ── Phase 3: FMP fallback ──
-    if args.source in ("fmp", "both") and args.api_key:
+    if args.source in ("fmp", "both") and args.api_key and not args.dry_run:
         fmp = FMPScraper(cfg, args.api_key, max_quarters=args.quarters)
         for company in companies:
             ticker = company["ticker"]
@@ -594,6 +615,16 @@ def main():
                 log.error(f"  FMP error for {ticker}: {e}")
 
     # ── Save ──
+    if args.dry_run:
+        print(f"\n{'='*64}")
+        print("DRY RUN — 未下载、未翻译、未改动任何文件")
+        print(f"{'='*64}")
+        print(f"  跳过 skip       : {dry_counts['skip']}")
+        print(f"  补翻译 translate: {dry_counts['translate']}")
+        print(f"  下载 download   : {dry_counts['download']}")
+        print(f"{'='*64}")
+        return
+
     if not args.no_cache:
         cache.save()
     save_summary(cfg, fn, companies, output_dir)

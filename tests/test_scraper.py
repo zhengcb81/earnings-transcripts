@@ -9,11 +9,18 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from common import load_config, load_companies, parse_transcript_header, extract_body
+from scraper import find_english_file, plan_action
 
 
 @pytest.fixture
 def cfg():
     return load_config()
+
+
+@pytest.fixture
+def fn(cfg):
+    from common import FileNaming
+    return FileNaming(cfg)
 
 
 class TestScraperHelpers:
@@ -91,6 +98,39 @@ class TestIncrementalSkip:
         entry = completed_entry(cfg, Path("transcripts/NOPE/NOPE_Q1_2020_earnings_call.txt"),
                                 company, "Q1 2020")
         assert entry["char_count"] == 0
+
+
+class TestPlanAction:
+    """plan_action 决定每个季度的去向，--dry-run 与真实跳过判断共用它。"""
+
+    @staticmethod
+    def _seed(fn, root, ticker, quarter, with_bilingual):
+        p = find_english_file(fn, ticker, quarter, root)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("English", encoding="utf-8")
+        if with_bilingual:
+            fn.english_to_bilingual(p).write_text("{}", encoding="utf-8")
+
+    def test_missing_english_needs_download(self, fn, tmp_path):
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "download"
+
+    def test_english_without_translation_needs_translate(self, fn, tmp_path):
+        self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=False)
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "translate"
+
+    def test_english_without_translation_is_skipped_when_no_translate(self, fn, tmp_path):
+        self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=False)
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path, no_translate=True) == "skip"
+
+    def test_complete_pair_is_skipped(self, fn, tmp_path):
+        self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=True)
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "skip"
+
+    def test_download_never_reported_for_existing_english(self, fn, tmp_path):
+        """核心诉求：英文已存在就绝不应该是 download（那意味着会覆盖）。"""
+        for with_bilingual in (True, False):
+            self._seed(fn, tmp_path, "FIG", "Q2 2026", with_bilingual)
+            assert plan_action(fn, "FIG", "Q2 2026", tmp_path) != "download"
 
 
 class TestSaveSummary:
