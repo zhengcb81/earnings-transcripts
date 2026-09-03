@@ -36,8 +36,9 @@ earnings-transcripts/
 ├── config.py            # 配置加载/路径解析
 ├── naming.py            # 文件命名规则
 ├── cache.py             # JSON 缓存
+├── lock.py              # 单实例锁（防并发运行互相覆盖）
 ├── parser.py            # 段落解析/文件头解析/行分类
-├── translator.py        # 翻译体系（MiMo/MiniMax/DeepSeek/Google）
+├── translator.py        # 翻译体系（MiniMax/MiMo/DeepSeek/Google）
 ├── common.py            # 共享模块（re-export 门面）
 ├── scraper.py           # 爬虫：下载 + 自动翻译
 ├── translate.py         # 独立翻译器
@@ -48,8 +49,9 @@ earnings-transcripts/
 ├── companies.txt        # 公司清单
 ├── tests/               # 测试套件
 │   ├── test_common.py   # 共享模块测试
+│   ├── test_lock.py     # 单实例锁测试
 │   ├── test_reader.py   # 阅读器测试
-│   └── test_scraper.py  # 爬虫测试
+│   └── test_scraper.py  # 爬虫测试（含增量跳过、summary 生成）
 ├── transcripts/         # 下载的数据
 │   ├── MSFT/
 │   │   ├── MSFT_Q3_2026_earnings_call.txt    # 英文原文
@@ -65,12 +67,13 @@ earnings-transcripts/
 
 | 区块 | 说明 |
 |------|------|
-| `paths` | 目录结构和文件路径 |
+| `paths` | 目录结构和文件路径（含 `lock_file` 单实例锁位置） |
 | `naming` | 文件命名规则（后缀/扩展名） |
 | `fool` | Motley Fool 爬虫参数 |
-| `mimo` | MiMo LLM 翻译参数（默认） |
-| `minimax` | MiniMax LLM 翻译参数 |
+| `minimax` | MiniMax LLM 翻译参数（auto 模式首选） |
+| `mimo` | MiMo LLM 翻译参数 |
 | `deepseek` | DeepSeek LLM 翻译参数 |
+| `translate` | 翻译提示词与段落缓存参数 |
 | `reader` | 阅读器端口和UI参数 |
 | `line_classification` | 行分类规则（标题/参与者/正文） |
 
@@ -150,7 +153,7 @@ DRY RUN — 未下载、未翻译、未改动任何文件
 
 两个实例一起跑时，除了互相覆盖文件，还会争抢同一个 LLM 额度（实测翻译速度掉到 1/4），
 并且并发写 `.translate_cache.json` 有损坏风险。锁由操作系统保证在进程退出时释放，
-崩溃也不会留下死锁。`--list` 是只读操作，不受锁限制。
+崩溃也不会留下死锁。`--list` 和 `--dry-run` 是只读操作，不受锁限制。
 
 ### 翻译器 (translate.py)
 
@@ -195,7 +198,14 @@ python3 reader.py --port 9000          # 自定义端口
 python3 -m pytest tests/ -v
 ```
 
-45个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、transcript解析、翻译器、阅读器数据构建、爬虫配置。
+79个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
+transcript解析、翻译器、阅读器数据构建、爬虫配置、**单实例锁**、**增量跳过的三种
+判定分支（skip / translate / download）**、summary 按磁盘生成。
+
+```bash
+# 本机依赖装在 Miniconda，用这个跑
+C:/Miniconda/python.exe -m pytest tests/ -q
+```
 
 ## 添加公司
 
