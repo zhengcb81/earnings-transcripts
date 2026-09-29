@@ -438,7 +438,7 @@ def translate_after_download(cfg: dict, fn: FileNaming, english_path: Path, skip
 # ──────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────
-def main():
+def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="美股电话会议纪要爬虫 v2")
     parser.add_argument("--ticker", help="只抓取指定股票代码")
     parser.add_argument("--quarters", type=int, default=1, help="抓取最近N个季度")
@@ -447,10 +447,20 @@ def main():
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--list", action="store_true", help="只列出可用transcripts，不下载")
     parser.add_argument("--no-cache", action="store_true", help="不读写下载缓存（不影响基于磁盘文件的跳过判断）")
-    parser.add_argument("--no-translate", action="store_true", help="跳过翻译（默认下载后自动翻译）")
+    parser.add_argument(
+        "--no-translate",
+        "--disable-translation",
+        dest="no_translate",
+        action="store_true",
+        help="只保存英文原文，不生成或补做双语翻译；旧旗标 --no-translate 保持兼容",
+    )
     parser.add_argument("--force", action="store_true", help="强制重新下载并覆盖已存在的英文原文")
     parser.add_argument("--dry-run", action="store_true", help="只报告每个季度会做什么，不下载不翻译不写文件")
-    args = parser.parse_args()
+    return parser
+
+
+def main(argv: list[str] | None = None):
+    args = build_argument_parser().parse_args(argv)
 
     # Load config
     cfg = load_config()
