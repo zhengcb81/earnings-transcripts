@@ -220,7 +220,7 @@ AAPL|苹果|Apple|nasdaq
 
 | 来源 | 费用 | 说明 |
 |------|------|------|
-| Motley Fool | 免费 | 主力源 |
+| Motley Fool | 旧版 scraper 的历史来源 | 新的 JSON 工具默认禁用自动抓取 |
 | FMP API | 当前计划与访问权限以官方定价页为准 | 结构化补充源 |
 
 ## 输出格式
@@ -233,9 +233,9 @@ AAPL|苹果|Apple|nasdaq
 
 ## Company-wiki / filing-fetch machine interface (new, isolated)
 
-The files transcript_tool.py and transcript_api.py expose a JSON subprocess boundary for one exact fiscal quarter. This interface is separate from scraper.py: it never loads config.yaml or companies.txt, writes files, initializes logs/locks/caches, invokes translation, or creates bilingual/interleaved outputs. It supports Motley Fool HTML pages and FMP's structured transcript endpoint.
+The files transcript_tool.py and transcript_api.py expose a JSON subprocess boundary for one exact fiscal quarter. This interface is separate from scraper.py: it never loads config.yaml or companies.txt, writes files, initializes logs/locks/caches, invokes translation, or creates bilingual/interleaved outputs. The production provider settings disable Motley Fool before any HTTP session is created. FMP's structured exact-quarter endpoint remains available when the process has a valid key and entitlement.
 
-Example request on stdin (the caller must only set download_authorized=true after its normal explicit download authorization):
+Example request on stdin (`download_authorized=true` is the one explicit network intent; the caller decides it before invoking the tool):
 
 ~~~json
 {
@@ -253,10 +253,10 @@ Example request on stdin (the caller must only set download_authorized=true afte
 }
 ~~~
 
-Invoke it with both gates enabled:
+Invoke it with the request's network intent set to true:
 
 ~~~powershell
-$requestJson | C:/Miniconda/python.exe transcript_tool.py --request-stdin --allow-download
+$requestJson | C:/Miniconda/python.exe transcript_tool.py --request-stdin --include-source-payload
 ~~~
 
 For an orchestrator that must authorize a selected source **before requesting its transcript body**, use two phases:
@@ -289,12 +289,12 @@ Candidate-fetch request example (all fields are strict; the nested candidate has
 
 The default `--operation fetch` remains the legacy one-step discover-and-fetch behavior for compatibility. It cannot provide an external caller a chance to authorize the exact candidate before the body request, so company-wiki and filing-fetch integrations must use `discover` followed by `fetch-candidate`; the one-step mode is not approved for production integration.
 
-The JSON authorization field is the caller's authorization decision; the --allow-download switch is a second explicit operator/process gate. For FMP, set `FMP_API_KEY` in the process environment; the key is never written to the result or canonical source URL. The tool checks the exact quarter and year in the provider response and returns ambiguous instead of choosing if more than one exact-period document remains. Motley Fool redirects must remain HTTPS on www.fool.com; FMP redirects are rejected. Responses and extracted bodies have hard byte limits and one shared deadline.
+The JSON `download_authorized` field is the single network intent. The old `--allow-download` switch remains accepted for existing callers but cannot override a false request field and is no longer required. Default runtime settings disable Motley Fool in fetch, discover, and candidate-fetch even when intent is true. For FMP, set `FMP_API_KEY` in the process environment; the key is never written to the result or canonical source URL. The tool checks the exact quarter and year in the provider response and returns ambiguous instead of choosing if more than one exact-period document remains. Motley Fool redirects must remain HTTPS on www.fool.com; FMP redirects are rejected. Responses and extracted bodies have hard byte limits and one shared deadline.
 
 A default successful result (schema `/1`) contains the untranslated English body, stable provider document ID/source URL, extraction version, the SHA-256 of the provider payload, and a separate SHA-256 of canonical UTF-8 text. To hand the exact bounded provider response to a downstream immutable-raw importer, callers may additionally pass `include_source_payload=True` to the Python API or add `--include-source-payload` to the CLI. That opt-in returns schema `/2`, base64-encoded response bytes, normalized MIME type, a safe effective URL, successful HTTP status, UTC retrieval time, and adapter name/version; it omits the duplicate `content_utf8` field and still performs no file writes. The default remains schema `/1` and does not return the raw response. Schema `/2` has a bounded 24 MiB encoded field ceiling; source responses remain limited by their provider/request byte caps. Motley Fool effective URLs are HTTPS `www.fool.com` path-only URLs with query values and fragments removed. FMP effective URLs may include only symbol/year/quarter, never the API key. Unsupported MIME types fail closed in raw-payload mode.
 
 For Motley Fool, `published_date` comes from the dated source URL. This interface capability does not grant automated-fetch, retention, or derivation rights; the company-wiki policy currently denies Motley Fool production use. FMP returns a structured JSON payload whose `date` field is the call date, not a verified publication date, so its result has `call_date`, `publication_date: null`, and `as_of_cutoff_verified: false`. Downstream historical as-of queries must not treat that call date as publication time. Before persistence, the company-wiki writer must independently verify current rights and validate provider provenance, raw bytes, MIME, date precision, extraction version, and both hashes.
 
-Statuses are fetched, not_found, ambiguous, unsupported, not_authorized, provider_error, deadline_exceeded, content_too_large, provenance_rejected, and invalid_request. The CLI emits exactly one JSON result on stdout and performs no retries or fallback translation. Unknown providers return unsupported; FMP requires an API key and uses `https://financialmodelingprep.com/stable/earning-call-transcript`. See [FMP's official endpoint documentation](https://site.financialmodelingprep.com/developer/docs/stable/search-transcripts). FMP terms and the account plan must be checked before persisting or redistributing transcript text; FMP says public display/redistribution requires a specific agreement ([terms](https://site.financialmodelingprep.com/terms-of-service), [pricing and access](https://site.financialmodelingprep.com/developer/docs/pricing)). This is a JSON CLI contract, not an MCP protocol server; an MCP wrapper can be added later without changing these schemas.
+Statuses are fetched, not_found, ambiguous, unsupported, unavailable, not_authorized, rate_limited, provider_error, deadline_exceeded, content_too_large, provenance_rejected, and invalid_request. A missing FMP key reports `unavailable/provider_credentials_missing`, HTTP 402 reports `unavailable/provider_entitlement_required`, and HTTP 429 reports `rate_limited/provider_http_429`. The CLI emits exactly one JSON result on stdout and performs no retries or fallback translation. Unknown providers return unsupported; FMP requires an API key and uses `https://financialmodelingprep.com/stable/earning-call-transcript`. See [FMP's official endpoint documentation](https://site.financialmodelingprep.com/developer/docs/stable/search-transcripts). FMP terms and the account plan must be checked before persisting or redistributing transcript text; FMP says public display/redistribution requires a specific agreement ([terms](https://site.financialmodelingprep.com/terms-of-service), [pricing and access](https://site.financialmodelingprep.com/developer/docs/pricing)). This is a JSON CLI contract, not an MCP protocol server; an MCP wrapper can be added later without changing these schemas.
 
-**Integration status:** both provider boundaries are implemented and offline contract-tested. One user-authorized authenticated FMP canary using the supplied local key-file path returned HTTP 402 (Payment Required); it provided no transcript, and no response content was persisted. Do not retry until the account's endpoint entitlement is confirmed. The CLI reads `FMP_API_KEY` from its environment. filing-fetch invocation, company-wiki canonical import, provider-specific date-quality handling, FMP retention-rights confirmation, and their end-to-end test remain pending the current revenue-forecast cross-repository snapshot/lock being clear. Do not edit or refresh another repository's snapshot from this project.
+**Integration status:** The offline CLI-to-API-to-fake-FMP-HTTP route and deterministic `/2` producer goldens are in [tests/golden](tests/golden/README.md). A previous user-authorized live FMP canary returned HTTP 402; endpoint entitlement and retention rights remain unverified, and this test run made no real provider request. The FMP `/2` success result has 26 fields, JSON MIME, and a safe period query; the current company-wiki importer accepts only the 24-field Motley shape, HTML/plain MIME, and a query-free URL. Its consumer migration awaits a provider-specific contract decision. filing-fetch invocation and the cross-repository import E2E remain pending.

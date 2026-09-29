@@ -83,3 +83,11 @@
 - 新翻译控制测试验证 `--no-translate` 与 `--disable-translation` 等价，并断言 skip 路径不初始化翻译器、不创建文件。company-wiki companion API 的既有 fake HTTP 回归一起通过。
 - Ruff：新测试/API 文件全绿；scraper.py 使用 `--ignore F401,F541` 的有界复核全绿。普通全文件 Ruff 仍报告三个本次 diff 之外的旧项（LineClassifier/text_hash 未使用导入及多余 f-string），没有顺手改动这些无关代码。`git diff --check` 通过。
 - 测试过程中没有读取任何 API 凭证、没有下载 transcript、没有处理或翻译公司文档；那次既有翻译 smoke test 只可能触发对合成短句的 Google 翻译。离线回归的唯一 pytest run tree 经路径/reparse 校验后已删除；没有改 `transcripts/`、生产配置或缓存。
+
+## Session: ET single-intent and /2 golden delivery (2026-09-29)
+
+- Preserved the pre-existing ET companion WIP in commit `21336d2`. Classified `eval_results.json` as an old July translation evaluation artifact and `.workbuddy-ai/memory/*` as old tool-private notes; neither was staged, changed, or deleted.
+- RED first: 4 failed/1 passed across the new single-intent CLI, default Motley disablement, missing-key/402 entitlement, 429 status, and FY-only tests. After implementation, added a bad effective-host RED, then made FMP response-location validation fail closed.
+- The true CLI dispatch accepts an offline test session factory. A fake FMP 200 traverses stdin JSON → CLI → API → fake HTTP → stdout `/2` JSON using only a fake key. Tests assert one exact call, both hashes/raw base64, no translation initialization, and no extra files. Other tests cover disabled provider zero HTTP, wrong candidate/period/host, redirect, timeout, response/body byte caps, deterministic content identity, malformed JSON, and exit codes.
+- Generated `tests/golden/manifest.json` plus positive/negative `/2` fixtures with fixed `retrieved_at=2026-09-29T12:00:00Z`; generator `--check` and test compare exact CLI bytes. FMP's 26-key `/2` and CWP's current 24-key exact consumer remain incompatible pending cross-repository contract decision.
+- Focused ET API/translation tests: **41 passed**. Full offline suite: **118 passed, 2 deselected** (the prior credential-dependent automatic LLM test and Google translation test). Unique ET test roots were checked nonexistent before use and restored nonexistent in `finally`; production transcript/config/cache files were untouched. No real provider was contacted.

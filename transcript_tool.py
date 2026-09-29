@@ -6,18 +6,27 @@ import json
 import os
 import sys
 from pathlib import Path
+from typing import Any, Callable
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from transcript_api import (
+    DEFAULT_PROVIDER_SETTINGS,
     DISCOVERY_RESULT_SCHEMA,
+    ProviderSettings,
     fetch_transcript,
     fetch_transcript_candidate,
     discover_transcripts,
 )
 
 
-def main(argv: list[str] | None = None) -> int:
+def main(
+    argv: list[str] | None = None,
+    *,
+    _session_factory: Callable[[], Any] | None = None,
+    _provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
+) -> int:
+    """Run the JSON boundary; private injection points are for offline tests only."""
     parser = argparse.ArgumentParser(
         description="Fetch one exact-period untranslated earnings transcript."
     )
@@ -31,7 +40,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--allow-download",
         action="store_true",
-        help="Explicitly permit provider network access for this invocation.",
+        help="Legacy compatibility flag; the request's download_authorized field controls network intent.",
     )
     parser.add_argument(
         "--include-source-payload",
@@ -59,9 +68,11 @@ def main(argv: list[str] | None = None) -> int:
             }
         else:
             request = json.loads(raw)
-            if not args.allow_download and isinstance(request, dict):
-                request = dict(request)
-                request["download_authorized"] = False
+            provider_options: dict[str, Any] = {
+                "provider_settings": _provider_settings,
+            }
+            if _session_factory is not None:
+                provider_options["session_factory"] = _session_factory
             if args.operation == "discover":
                 if args.include_source_payload:
                     result = {
@@ -72,16 +83,18 @@ def main(argv: list[str] | None = None) -> int:
                         "provider": request.get("provider", "motley_fool") if isinstance(request, dict) else "motley_fool",
                     }
                 else:
-                    result = discover_transcripts(request)
+                    result = discover_transcripts(request, **provider_options)
             elif args.operation == "fetch-candidate":
                 result = fetch_transcript_candidate(
-                    request, include_source_payload=args.include_source_payload
+                    request, include_source_payload=args.include_source_payload,
+                    **provider_options,
                 )
             else:
                 result = fetch_transcript(
                     request,
                     fmp_api_key=os.environ.get("FMP_API_KEY"),
                     include_source_payload=args.include_source_payload,
+                    **provider_options,
                 )
     except (json.JSONDecodeError, UnicodeError):
         result = {

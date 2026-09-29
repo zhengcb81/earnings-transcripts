@@ -11,9 +11,10 @@ import html
 import json
 import re
 import time
+from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from typing import Any, Callable
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qsl, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -34,6 +35,19 @@ MIN_CONTENT_CHARS = 200
 ALLOWED_HOST = "www.fool.com"
 FMP_ALLOWED_HOST = "financialmodelingprep.com"
 EXCHANGES = ("nasdaq", "nyse")
+
+
+@dataclass(frozen=True)
+class ProviderSettings:
+    """Reviewed runtime availability; request intent cannot enable a provider."""
+
+    motley_fool_enabled: bool = False
+    fmp_enabled: bool = True
+
+
+DEFAULT_PROVIDER_SETTINGS = ProviderSettings()
+
+
 SKIP_TEXT = (
     "motley fool stock advisor",
     "click here to learn more",
@@ -74,6 +88,16 @@ class _ProviderFailure(Exception):
     def __init__(self, error_code: str = "provider_response"):
         super().__init__(error_code)
         self.error_code = error_code
+
+
+class _ProviderUnavailable(Exception):
+    def __init__(self, error_code: str):
+        super().__init__(error_code)
+        self.error_code = error_code
+
+
+class _RateLimited(Exception):
+    pass
 
 
 def _validate_request(value: Any) -> dict[str, Any]:
@@ -148,6 +172,45 @@ def _base_result(
         "provider": provider,
         **fields,
     }
+
+
+def _provider_gate(
+    request_id: str,
+    provider: str,
+    *,
+    operation: str,
+    result_schema: str,
+    settings: ProviderSettings,
+) -> dict[str, Any] | None:
+    """Apply one provider configuration before creating an HTTP session."""
+    if provider not in ("motley_fool", "fmp"):
+        return _base_result(
+            request_id, "unsupported", provider=provider,
+            result_schema=result_schema, error_code="provider_unavailable",
+        )
+    if provider == "motley_fool" and not settings.motley_fool_enabled:
+        return _base_result(
+            request_id, "unavailable", provider=provider,
+            result_schema=result_schema, error_code="provider_disabled",
+        )
+    if provider == "fmp" and not settings.fmp_enabled:
+        return _base_result(
+            request_id, "unavailable", provider=provider,
+            result_schema=result_schema, error_code="provider_disabled",
+        )
+    if operation == "discover" and provider != "motley_fool":
+        return _base_result(
+            request_id, "unsupported", provider=provider,
+            result_schema=result_schema,
+            error_code="candidate_discovery_unavailable",
+        )
+    if operation == "fetch-candidate" and provider != "motley_fool":
+        return _base_result(
+            request_id, "unsupported", provider=provider,
+            result_schema=result_schema,
+            error_code="candidate_fetch_unavailable",
+        )
+    return None
 
 
 def _mime_type(response: requests.Response) -> str:
@@ -233,6 +296,8 @@ def _read_bounded(
                 _check_url(next_url)
                 url = next_url
                 continue
+            if response.status_code == 429:
+                raise _RateLimited()
             if response.status_code != 200:
                 raise _ProviderFailure(f"provider_http_{response.status_code}")
             chunks: list[bytes] = []
@@ -326,6 +391,40 @@ def _extract_body(page: bytes) -> tuple[str, str]:
     return title, body
 
 
+def _check_fmp_effective_url(
+    url: str, normalized: dict[str, Any], api_key: str
+) -> None:
+    """Check the actual response location without returning its secret query."""
+    if not isinstance(url, str):
+        raise _ProvenanceRejected()
+    try:
+        parsed = urlparse(url)
+        if (
+            parsed.scheme.lower() != "https"
+            or parsed.hostname != FMP_ALLOWED_HOST
+            or parsed.path != "/stable/earning-call-transcript"
+            or parsed.username is not None
+            or parsed.password is not None
+            or parsed.port not in (None, 443)
+            or parsed.fragment
+        ):
+            raise _ProvenanceRejected()
+        if parsed.query:
+            pairs = parse_qsl(
+                parsed.query, keep_blank_values=True, strict_parsing=True
+            )
+            expected = {
+                "symbol": normalized["ticker"],
+                "year": str(normalized["fiscal_year"]),
+                "quarter": str(normalized["fiscal_quarter"]),
+                "apikey": api_key,
+            }
+            if len(pairs) != len(expected) or dict(pairs) != expected:
+                raise _ProvenanceRejected()
+    except ValueError as exc:
+        raise _ProvenanceRejected() from exc
+
+
 def _read_fmp_payload(
     session: requests.Session,
     normalized: dict[str, Any],
@@ -357,8 +456,17 @@ def _read_fmp_payload(
     except requests.RequestException as exc:
         raise _ProviderFailure() from exc
     try:
+        _check_fmp_effective_url(response.url, normalized, api_key)
         if response.status_code in (301, 302, 303, 307, 308):
             raise _ProvenanceRejected()
+        if response.status_code == 402:
+            raise _ProviderUnavailable("provider_entitlement_required")
+        if response.status_code == 401:
+            raise _ProviderUnavailable("provider_credentials_rejected")
+        if response.status_code == 403:
+            raise _ProviderUnavailable("provider_entitlement_denied")
+        if response.status_code == 429:
+            raise _RateLimited()
         if response.status_code != 200:
             raise _ProviderFailure(f"provider_http_{response.status_code}")
         chunks: list[bytes] = []
@@ -527,12 +635,13 @@ def fetch_transcript(
     session_factory: Callable[[], requests.Session] = requests.Session,
     fmp_api_key: str | None = None,
     include_source_payload: bool = False,
+    provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
 ) -> dict[str, Any]:
     """Fetch one exact fiscal quarter or return a bounded structured status.
 
-    The caller must supply both download authorization in the request and, for
-    the CLI, the separate --allow-download switch. The function is hermetic in
-    tests through session_factory and has no filesystem/config/cache effects.
+    The request's download_authorized field is the single network intent.
+    Provider availability is separate runtime configuration. The function is
+    hermetic in tests through session_factory and has no filesystem effects.
     """
     request_id = request.get("request_id") if isinstance(request, dict) else None
     if type(include_source_payload) is not bool:
@@ -544,14 +653,21 @@ def fetch_transcript(
         return _base_result(request_id, "invalid_request", result_schema=result_schema, error_code="request_schema")
     request_id = normalized["request_id"]
     if not normalized["download_authorized"]:
-        return _base_result(request_id, "not_authorized", result_schema=result_schema)
+        return _base_result(
+            request_id, "not_authorized", provider=normalized["provider"],
+            result_schema=result_schema,
+        )
     provider = normalized["provider"]
-    if provider not in ("motley_fool", "fmp"):
-        return _base_result(request_id, "unsupported", result_schema=result_schema, error_code="provider_unavailable")
+    gate = _provider_gate(
+        request_id, provider, operation="fetch", result_schema=result_schema,
+        settings=provider_settings,
+    )
+    if gate is not None:
+        return gate
     if provider == "fmp" and (not isinstance(fmp_api_key, str) or not fmp_api_key.strip()):
         return _base_result(
             request_id,
-            "not_authorized",
+            "unavailable",
             provider="fmp",
             result_schema=result_schema,
             error_code="provider_credentials_missing",
@@ -650,6 +766,16 @@ def fetch_transcript(
         return _base_result(request_id, "content_too_large", provider=provider, result_schema=result_schema, error_code="byte_limit")
     except _ProvenanceRejected:
         return _base_result(request_id, "provenance_rejected", provider=provider, result_schema=result_schema, error_code="provider_identity_or_host")
+    except _ProviderUnavailable as exc:
+        return _base_result(
+            request_id, "unavailable", provider=provider,
+            result_schema=result_schema, error_code=exc.error_code,
+        )
+    except _RateLimited:
+        return _base_result(
+            request_id, "rate_limited", provider=provider,
+            result_schema=result_schema, error_code="provider_http_429",
+        )
     except _ProviderFailure as exc:
         return _base_result(request_id, "provider_error", provider=provider, result_schema=result_schema, error_code=exc.error_code)
     except requests.Timeout:
@@ -668,6 +794,7 @@ def discover_transcripts(
     request: Any,
     *,
     session_factory: Callable[[], requests.Session] = requests.Session,
+    provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
 ) -> dict[str, Any]:
     """Discover exact-period Motley Fool candidates without fetching transcript pages.
 
@@ -692,12 +819,12 @@ def discover_transcripts(
             request_id, "not_authorized", provider=provider,
             result_schema=DISCOVERY_RESULT_SCHEMA,
         )
-    if provider != "motley_fool":
-        return _base_result(
-            request_id, "unsupported", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA,
-            error_code="candidate_discovery_unavailable",
-        )
+    gate = _provider_gate(
+        request_id, provider, operation="discover",
+        result_schema=DISCOVERY_RESULT_SCHEMA, settings=provider_settings,
+    )
+    if gate is not None:
+        return gate
 
     deadline = time.monotonic() + normalized["timeout_seconds"]
     exchanges = EXCHANGES if normalized["exchange"] == "auto" else (normalized["exchange"],)
@@ -763,6 +890,16 @@ def discover_transcripts(
         return _base_result(
             request_id, "provenance_rejected", provider=provider,
             result_schema=DISCOVERY_RESULT_SCHEMA, error_code="provider_identity_or_host",
+        )
+    except _ProviderUnavailable as exc:
+        return _base_result(
+            request_id, "unavailable", provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA, error_code=exc.error_code,
+        )
+    except _RateLimited:
+        return _base_result(
+            request_id, "rate_limited", provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
         return _base_result(
@@ -850,6 +987,7 @@ def fetch_transcript_candidate(
     *,
     session_factory: Callable[[], requests.Session] = requests.Session,
     include_source_payload: bool = False,
+    provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
 ) -> dict[str, Any]:
     """Fetch one already-discovered Motley Fool candidate; never discovers here."""
     request_id = request.get("request_id") if isinstance(request, dict) else None
@@ -869,11 +1007,12 @@ def fetch_transcript_candidate(
         return _base_result(
             request_id, "not_authorized", provider=provider, result_schema=result_schema,
         )
-    if provider != "motley_fool":
-        return _base_result(
-            request_id, "unsupported", provider=provider, result_schema=result_schema,
-            error_code="candidate_fetch_unavailable",
-        )
+    gate = _provider_gate(
+        request_id, provider, operation="fetch-candidate",
+        result_schema=result_schema, settings=provider_settings,
+    )
+    if gate is not None:
+        return gate
 
     deadline = time.monotonic() + normalized["timeout_seconds"]
     session = None
@@ -940,6 +1079,16 @@ def fetch_transcript_candidate(
         return _base_result(
             request_id, "provenance_rejected", provider=provider,
             result_schema=result_schema, error_code="candidate_effective_url_or_mime",
+        )
+    except _ProviderUnavailable as exc:
+        return _base_result(
+            request_id, "unavailable", provider=provider,
+            result_schema=result_schema, error_code=exc.error_code,
+        )
+    except _RateLimited:
+        return _base_result(
+            request_id, "rate_limited", provider=provider,
+            result_schema=result_schema, error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
         return _base_result(

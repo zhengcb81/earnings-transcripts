@@ -1,0 +1,44 @@
+{
+  "files": {
+    "fmp_v2.credentials_missing.json": {
+      "bytes": 166,
+      "sha256": "0515573fa8b48f40d25d105817c53181907808858f5130ec08fff56670e7fc56"
+    },
+    "fmp_v2.entitlement_402.json": {
+      "bytes": 167,
+      "sha256": "289bdd6de882eb690103ee9c967c97910cb429927c1005d4cd3d5f2faf4fb351"
+    },
+    "fmp_v2.fetched.json": {
+      "bytes": 2263,
+      "sha256": "ee643fbbd6c37b82c933689f819525330df21c6383e8b2fa81500902ac39ece3"
+    },
+    "fmp_v2.fy_only_invalid.json": {
+      "bytes": 164,
+      "sha256": "8133e5d90075ba4970568f0f9fbfaf19190c6a6ef1e641c1db0533d0e3572bda"
+    },
+    "fmp_v2.request.json": {
+      "bytes": 318,
+      "sha256": "3e76b12cab53275c7244e4782a1ddb44de4122080a474f85d2a725f249ab8842"
+    },
+    "fmp_v2.wrong_quarter.json": {
+      "bytes": 171,
+      "sha256": "a7554f636a312ffc29e6b1b9e242fd37b089610bb95dc3b116c8740899aad1ca"
+    },
+    "motley_candidate_v2.disabled.json": {
+      "bytes": 163,
+      "sha256": "6876601068650f01cae88acabe52e12ed2343681af602ffc1aaaa26afda7350c"
+    },
+    "motley_candidate_v2.fetched_test_only.json": {
+      "bytes": 1929,
+      "sha256": "35469e35d91149f175ba15118ef10b4825eda265f2c58fe063300907e2acde6a"
+    },
+    "motley_candidate_v2.request.json": {
+      "bytes": 612,
+      "sha256": "f0bc5f8eb8112ef31e5f4c355295a79b7de6fa8d6c5220922b58c99226b59015"
+    }
+  },
+  "fixed_retrieved_at": "2026-09-29T12:00:00Z",
+  "fixture_only": true,
+  "producer": "earnings-transcripts/transcript_tool.main",
+  "result_schema": "earnings-transcript-result/2"
+}

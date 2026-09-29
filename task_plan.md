@@ -128,3 +128,14 @@ Keep the existing filing request schema byte-semantics unchanged. Implement in t
 - Therefore, this turn only changes the independent E-T repository. Wait until the active card's current closure receipt, owner lock, and repo snapshots are re-read before changing filing-fetch/company-wiki.
 - Official FMP API documentation was checked on 2026-09-27: `/stable/earning-call-transcript?symbol=...&year=...&quarter=...` returns JSON with symbol, year, period, date, and content. One authenticated call using the user-supplied key file returned HTTP 402; no transcript body was returned or persisted. FMP pricing and terms say transcript coverage and display/redistribution permissions depend on plan/agreement. Do not retry until access is confirmed.
 - On resumption, read the actual control entry/card and machine snapshot. Use their current accepted snapshot; do not edit their plan or characterize plan-only hash drift as a code conflict.
+
+## 2026-09-29 ET owner revision (supersedes the earlier two-gate bullets above)
+
+- [x] Saved the existing relevant WIP as recoverable commit `21336d2`; left the unrelated July `eval_results.json` and old `.workbuddy-ai/memory/*` untracked.
+- [x] Made `download_authorized` the one request-level network intent. The legacy `--allow-download` spelling remains accepted but has no separate gating authority; a false request still makes zero HTTP calls.
+- [x] Added one immutable provider configuration shared by fetch, discover, and candidate-fetch. Motley Fool defaults disabled at all three entrypoints before HTTP session creation. Fake-only tests can explicitly enable its parser/candidate path.
+- [x] Named FMP missing key and 401/402/403 as `unavailable` with distinct codes, and HTTP 429 as `rate_limited`. Wrong host/redirect/period, timeout, raw-byte and canonical-body budgets remain fail-closed.
+- [x] Added a private session-factory seam in the real CLI dispatch. Fake FMP HTTP plus a fake key now passes true stdin JSON → CLI → API → transport → stdout JSON without provider access, translation, or extra files.
+- [x] Generated stable `earnings-transcript-result/2` producer goldens from the real CLI serializer under a fixed test clock. FMP remains 26 fields; test-only Motley candidate remains 24 fields. See `tests/golden/manifest.json`.
+- [x] Focused API/translation suite: 41 passed; whole offline suite: 118 passed, 2 deselected. Both used a unique ET `tests/et-run-*` root and restored it in `finally`.
+- [ ] Cross-repository CWP FMP importer contract and FF companion integration remain outside this ET owner scope. FMP endpoint entitlement and retention rights remain unverified; the historical live attempt returned 402 and was not repeated.

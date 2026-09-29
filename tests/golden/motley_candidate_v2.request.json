@@ -1,0 +1,18 @@
+{
+  "as_of_date": "2026-09-30",
+  "candidate": {
+    "provider_document_id": "/earnings/call-transcripts/2026/09/01/acme-q2-2026-earnings-transcript",
+    "published_date": "2026-09-01",
+    "source_url": "https://www.fool.com/earnings/call-transcripts/2026/09/01/acme-q2-2026-earnings-transcript/"
+  },
+  "download_authorized": true,
+  "exchange": "nyse",
+  "fiscal_quarter": 2,
+  "fiscal_year": 2026,
+  "max_body_bytes": 1000000,
+  "provider": "motley_fool",
+  "request_id": "test-request-001",
+  "schema_version": "earnings-transcript-candidate-fetch-request/1",
+  "ticker": "ACME",
+  "timeout_seconds": 10
+}
