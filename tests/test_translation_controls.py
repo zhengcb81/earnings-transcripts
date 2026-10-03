@@ -18,6 +18,15 @@ def test_translation_disable_flags_select_no_translate_mode(flag: str) -> None:
     assert args.no_translate is True
 
 
+def test_translation_is_opt_in_only() -> None:
+    """默认原语言；只有显式 --translate 才打开翻译能力。"""
+    defaults = scraper.build_argument_parser().parse_args([])
+    assert defaults.translate is False
+    assert defaults.no_translate is False
+    opt_in = scraper.build_argument_parser().parse_args(["--translate"])
+    assert opt_in.translate is True
+
+
 def test_skip_mode_returns_before_creating_translator_or_files(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:

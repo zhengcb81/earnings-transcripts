@@ -790,6 +790,151 @@ def fetch_transcript(
                 pass
 
 
+def _listing_candidates(
+    session: requests.Session,
+    ticker: str,
+    exchange: str,
+    as_of: date,
+    deadline: float,
+) -> dict[str, dict[str, Any]]:
+    """All candidate transcript metadata visible on the quote listings.
+
+    Shared by exact-period discovery and the in-process batch listing helper;
+    never fetches a transcript body.
+    """
+    exchanges = EXCHANGES if exchange == "auto" else (exchange,)
+    eligible: dict[str, dict[str, Any]] = {}
+    for ex in exchanges:
+        quote_url = f"https://{ALLOWED_HOST}/quote/{ex}/{ticker.lower()}/"
+        listing, _, _ = _read_bounded(session, quote_url, deadline, MAX_LISTING_BYTES)
+        for candidate in _candidate_urls(listing, ticker, quote_url):
+            if candidate["published_date"] <= as_of:
+                eligible[candidate["source_url"]] = candidate
+    return eligible
+
+
+def _candidate_entries(
+    eligible: dict[str, dict[str, Any]],
+    *,
+    ticker: str,
+    exchange: str,
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "provider": "motley_fool",
+            "ticker": ticker,
+            "exchange": exchange,
+            "fiscal_period": (
+                f"{item['period'][0]}-Q{item['period'][1]}"
+                if item["period"] is not None
+                else None
+            ),
+            "provider_document_id": item["provider_document_id"],
+            "source_url": item["source_url"],
+            "published_date": item["published_date"].isoformat(),
+        }
+        for item in sorted(eligible.values(), key=lambda value: value["source_url"])
+    ]
+
+
+def _map_listing_failure(request_id: str, exc: Exception) -> dict[str, Any]:
+    if isinstance(exc, _DeadlineExceeded):
+        status, error_code = "deadline_exceeded", "provider_deadline"
+    elif isinstance(exc, _PayloadTooLarge):
+        status, error_code = "content_too_large", "byte_limit"
+    elif isinstance(exc, _ProvenanceRejected):
+        status, error_code = "provenance_rejected", "provider_identity_or_host"
+    elif isinstance(exc, _ProviderUnavailable):
+        status, error_code = "unavailable", exc.error_code
+    elif isinstance(exc, _RateLimited):
+        status, error_code = "rate_limited", "provider_http_429"
+    elif isinstance(exc, _ProviderFailure):
+        status, error_code = "provider_error", exc.error_code
+    elif isinstance(exc, requests.Timeout):
+        status, error_code = "deadline_exceeded", "provider_deadline"
+    else:
+        status, error_code = "provider_error", "unexpected_provider_failure"
+    return {
+        "status": status,
+        "request_id": request_id,
+        "error_code": error_code,
+        "candidates": [],
+    }
+
+
+def list_transcript_candidates(
+    *,
+    ticker: str,
+    exchange: str = "auto",
+    as_of_date: str,
+    request_id: str,
+    timeout_seconds: int = 30,
+    download_authorized: bool = True,
+    session_factory: Callable[[], requests.Session] = requests.Session,
+    provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
+) -> dict[str, Any]:
+    """List every candidate (with explicit FY/Q when the slug carries one) for
+    one ticker from the Motley Fool quote listings, without any body fetch.
+
+    In-process batch helper for scraper.py's metadata phase. It is not exposed
+    on the transcript_tool wire and does not change any `/2` protocol result.
+    """
+    result: dict[str, Any] = {"request_id": request_id, "candidates": []}
+    if (
+        not isinstance(ticker, str)
+        or not _TICKER_RE.fullmatch(ticker.strip().upper())
+        or exchange not in ("auto", *EXCHANGES)
+        or not isinstance(request_id, str)
+        or not request_id.strip()
+        or len(request_id) > 128
+        or type(timeout_seconds) is not int
+        or not 1 <= timeout_seconds <= MAX_TIMEOUT_SECONDS
+        or type(download_authorized) is not bool
+    ):
+        result.update(status="invalid_request", error_code="request_schema")
+        return result
+    ticker = ticker.strip().upper()
+    try:
+        as_of = date.fromisoformat(as_of_date)
+        if as_of.isoformat() != as_of_date:
+            raise ValueError(as_of_date)
+    except (TypeError, ValueError):
+        result.update(status="invalid_request", error_code="request_schema")
+        return result
+    if not download_authorized:
+        result["status"] = "not_authorized"
+        return result
+    if not provider_settings.motley_fool_enabled:
+        result.update(status="unavailable", error_code="provider_disabled")
+        return result
+
+    deadline = time.monotonic() + timeout_seconds
+    session = None
+    try:
+        session = session_factory()
+        session.headers.update({
+            "User-Agent": "company-wiki-transcript-adapter/1.0",
+            "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+        eligible = _listing_candidates(session, ticker, exchange, as_of, deadline)
+        entries = _candidate_entries(eligible, ticker=ticker, exchange=exchange)
+        entries.sort(
+            key=lambda item: (item["published_date"], item["source_url"]), reverse=True
+        )
+        result["status"] = "discovered" if entries else "not_found"
+        result["candidates"] = entries
+        return result
+    except Exception as exc:
+        return _map_listing_failure(request_id, exc)
+    finally:
+        if session is not None:
+            try:
+                session.close()
+            except Exception:
+                pass
+
+
 def discover_transcripts(
     request: Any,
     *,
@@ -827,7 +972,6 @@ def discover_transcripts(
         return gate
 
     deadline = time.monotonic() + normalized["timeout_seconds"]
-    exchanges = EXCHANGES if normalized["exchange"] == "auto" else (normalized["exchange"],)
     session = None
     try:
         session = session_factory()
@@ -836,29 +980,21 @@ def discover_transcripts(
             "Accept": "text/html,application/xhtml+xml",
             "Accept-Language": "en-US,en;q=0.9",
         })
-        eligible: dict[str, dict[str, Any]] = {}
-        expected_period = (normalized["fiscal_year"], normalized["fiscal_quarter"])
-        for exchange in exchanges:
-            quote_url = f"https://{ALLOWED_HOST}/quote/{exchange}/{normalized['ticker'].lower()}/"
-            listing, _, _ = _read_bounded(session, quote_url, deadline, MAX_LISTING_BYTES)
-            for candidate in _candidate_urls(listing, normalized["ticker"], quote_url):
-                if (
-                    candidate["period"] == expected_period
-                    and candidate["published_date"] <= normalized["as_of"]
-                ):
-                    eligible[candidate["source_url"]] = candidate
-        candidates = [
-            {
-                "provider": "motley_fool",
-                "ticker": normalized["ticker"],
-                "exchange": normalized["exchange"],
-                "fiscal_period": f"{normalized['fiscal_year']}-Q{normalized['fiscal_quarter']}",
-                "provider_document_id": item["provider_document_id"],
-                "source_url": item["source_url"],
-                "published_date": item["published_date"].isoformat(),
-            }
-            for item in sorted(eligible.values(), key=lambda value: value["source_url"])
-        ]
+        eligible = {
+            url: candidate
+            for url, candidate in _listing_candidates(
+                session,
+                normalized["ticker"],
+                normalized["exchange"],
+                normalized["as_of"],
+                deadline,
+            ).items()
+            if candidate["period"]
+            == (normalized["fiscal_year"], normalized["fiscal_quarter"])
+        }
+        candidates = _candidate_entries(
+            eligible, ticker=normalized["ticker"], exchange=normalized["exchange"]
+        )
         if not candidates:
             status = "not_found"
         elif len(candidates) > 1:
