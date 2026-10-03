@@ -15,8 +15,8 @@
 ```bash
 pip install requests beautifulsoup4 lxml openai translatepy pyyaml
 
-# 1. 下载 + 自动翻译
-python3 scraper.py --quarters 8
+# 1. 下载（默认原语言；翻译需显式 --translate）
+python3 scraper.py --periods 2026Q1,2026Q2
 
 # 2. 启动阅读器
 python3 reader.py
@@ -40,7 +40,7 @@ earnings-transcripts/
 ├── parser.py            # 段落解析/文件头解析/行分类
 ├── translator.py        # 翻译体系（MiniMax/MiMo/DeepSeek/Google）
 ├── common.py            # 共享模块（re-export 门面）
-├── scraper.py           # 爬虫：下载 + 自动翻译
+├── scraper.py           # 有限批次采集入口（transcript_api 薄编排，默认原语言）
 ├── translate.py         # 独立翻译器
 ├── make_interleaved.py  # 中英夹排TXT生成器
 ├── reader.py            # Web 阅读器
@@ -95,50 +95,82 @@ EOF
 
 ### 爬虫 (scraper.py)
 
+`scraper.py` 现在是现代 `transcript_api` 的薄批量编排层：唯一的 provider 边界、
+精确期间、批次限额、`--output` 全隔离；默认保存原语言，不初始化翻译器。
+
 ```bash
-python3 scraper.py                     # 所有公司，最近 1 个季度（--quarters 默认 1）
-python3 scraper.py --quarters 8        # 所有公司，最近8个季度（2年）
-python3 scraper.py --ticker MSFT       # 只处理微软
-python3 scraper.py --list              # 只列出可用transcripts，不下载
-python3 scraper.py --disable-translation  # 只保存英文原文；旧参数 --no-translate 仍可用
-python3 scraper.py --force             # 强制重新下载并覆盖已有英文原文
-python3 scraper.py --no-cache          # 不读写 .cache.json（不影响基于磁盘文件的跳过判断）
-python3 scraper.py --dry-run           # 只报告会做什么，不改动任何文件
+python3 scraper.py --periods 2026Q1,2026Q2   # 明确期间列表（精确 FY/Q，推荐）
+python3 scraper.py --ticker MSFT --periods 2026Q2
+python3 scraper.py --list --periods 2026Q2   # 只做 metadata 列表：零正文、零写入
+python3 scraper.py --dry-run --periods 2026Q2  # 零 HTTP、零写入、零翻译
+python3 scraper.py --quarters 4              # legacy 最近 N 期：仅当 metadata 给出明确 FY/Q 才展开
+python3 scraper.py --source fmp --periods 2026Q2   # FMP 精确期；--list/--quarters 对 FMP 具名失败
+python3 scraper.py --translate               # 显式启用翻译（默认不翻译）
+python3 scraper.py --no-translate            # 兼容旧旗标；当前默认即为不翻译
+python3 scraper.py --output D:/et-run        # 原件/日志/锁/临时/manifest 全部写到这里
 ```
+
+期间语义：
+
+- `--periods 2025Q4,2026Q1` 是**精确 fiscal year/quarter 列表**，不是“最近 N 期”。
+- 未给 `--periods` 时走 legacy `--quarters N`（默认 1）：只在 metadata discovery
+  给出明确 FY/Q 后有限展开；无法唯一确定则报 `period_unresolved`、零正文抓取、不猜 Q4。
+  `--source fmp` 没有 metadata 发现，`--quarters` 直接 `period_unresolved`（零 HTTP）。
+- `--periods` 与 `--quarters` 不能同时给；`--list` 与 `--dry-run` 不能同时给。
+
+批次限额（默认值，均为有限值；每次 HTTP 前核对，不设 unlimited、无隐式重试）：
+
+| 参数 | 默认 | 语义 |
+|---|---|---|
+| `--max-requests` | 64 | 批次累计 HTTP 请求（含 metadata）上限 |
+| `--max-seconds` | 600 | 批次总时长（正有限秒）；单请求 timeout 取 min(30s, 剩余额度) |
+| `--max-response-bytes` | 67108864 | 批次累计响应字节上限（流式累计，超限中断连接） |
+| `--max-output-bytes` | 33554432 | 本次**新保存原件**字节上限（不计 manifest/日志） |
+
+退出码：`0` 成功；`1` 具名失败（provider 不可用、`period_unresolved`、
+`output_conflict` 等）；`2` 用法错误/锁冲突；`3` 触发批次限额（partial，
+报告已完成文档，不回滚、不覆盖已有原件）。
+
+Provider 可用性由 `transcript_api.ProviderSettings` 决定：生产默认
+Motley Fool disabled（零 HTTP、具名 `unavailable/provider_disabled`），
+FMP 需要 `FMP_API_KEY` 或 `--api-key`；缺 key/402/限流/坏响应分别具名报告，
+不自动换期间或 provider。所有 HTTP 走 `transcript_api` 的流式
+byte/deadline/host 约束，旧的直连 Session 实现已退休。
+
+每次真实运行在输出根写 `run_manifest.json`（request_id/状态/bytes/时间，
+不含 key、不含正文）与 `logs/scraper.log`；`--list`/`--dry-run` 在
+目录/日志/锁初始化之前结束，不产生任何写入。
 
 不确定跑下去会发生什么时，先来一次 `--dry-run`：
 
 ```
-$ python3 scraper.py --quarters 8 --dry-run
-  [skip     ] MSFT Q4 2026
-  [skip     ] MSFT Q3 2026
+$ python3 scraper.py --periods 2026Q2 --dry-run
+======================================================================
+DRY RUN — 零 HTTP、零写入、零翻译
+======================================================================
+  [download ] MSFT Q2 2026
   ...
-================================================================
-DRY RUN — 未下载、未翻译、未改动任何文件
-================================================================
-  跳过 skip       : 42
-  补翻译 translate: 0
-  下载 download   : 0
-================================================================
+----------------------------------------------------------------------
+  download: 1  skip: 0  translate: 0  unknown: 0
+======================================================================
 ```
 
-它和真正的跳过判断走的是同一个 `plan_action()`，所以结果可以直接信。
-（只有 Phase 1 的公司页面探测会联网，那是为了拿到 transcript 链接列表。）
+`--quarters` 形式的 dry-run 对无法本地确定的期间只报 `unknown`，
+不虚构候选。计划与真实跳过判断共用同一个 `plan_action()`。
 
 ### 增量执行（重复运行是安全的）
 
-`--quarters` 调大不会重跑已完成的季度。跳过与否看**磁盘上产物是否齐全**
-（英文原文 + 中英对照都在），而不是看 `.cache.json`——所以缓存文件丢了也没关系。
+跳过与否看**磁盘上英文原件是否存在 + 身份（URL）是否一致**：
 
 | 本地状态 | 行为 |
 |---|---|
-| 英文 + 双语都在 | 跳过，不下载不翻译 |
-| 只有英文，缺双语 | 只补翻译，不重新下载 |
-| 都没有 | 正常下载 + 翻译 |
-| 加了 `--force` | 无视以上，全部重新下载并覆盖英文原文 |
+| 原件已存在且 URL/正文一致 | 复用，不下载、不覆盖 |
+| 原件已存在但身份/字节冲突 | 具名 `output_conflict` 失败，绝不覆盖 |
+| 原件缺失 | 下载并原子保存（临时文件失败 finally 清理） |
+| 加了 `--translate` 且缺译文 | 只补翻译，不重新下载 |
 
 翻译本身另有段落级缓存（`.translate_cache.json`，按内容 MD5 命中），
-重跑不会重复烧 token。
+仅在显式 `--translate` 时才会初始化。
 
 ### 不能并发运行
 
@@ -198,9 +230,11 @@ python3 reader.py --port 9000          # 自定义端口
 python3 -m pytest tests/ -v
 ```
 
-79个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
-transcript解析、翻译器、阅读器数据构建、爬虫配置、**单实例锁**、**增量跳过的三种
-判定分支（skip / translate / download）**、summary 按磁盘生成。
+151个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
+transcript解析、翻译器、阅读器数据构建、单实例锁、summary 按磁盘生成、
+**批次限额（请求/秒/累计字节/输出字节）**、**精确期间 vs recent-N**、
+**provider disabled 与 FMP list/dry-run 零 HTTP**、**原件复用与
+`output_conflict` 不覆盖**、**`/2` goldens**、以及 subprocess 真实退出路径。
 
 ```bash
 # 本机依赖装在 Miniconda，用这个跑
@@ -220,16 +254,22 @@ AAPL|苹果|Apple|nasdaq
 
 | 来源 | 费用 | 说明 |
 |------|------|------|
-| Motley Fool | 旧版 scraper 的历史来源 | 新的 JSON 工具默认禁用自动抓取 |
-| FMP API | 当前计划与访问权限以官方定价页为准 | 结构化补充源 |
+| Motley Fool | 旧版 scraper 的历史来源 | 批次与 JSON 工具共用 ProviderSettings，生产默认 disabled（零 HTTP） |
+| FMP API | 当前计划与访问权限以官方定价页为准 | 结构化精确期来源（`/stable/earning-call-transcript`） |
 
 ## 输出格式
 
-每篇transcript生成3个文件：
+默认每篇 transcript 只生成一个原语言文件：
 
-1. `*_earnings_call.txt` — 英文原文
+1. `*_earnings_call.txt` — 原文
+
+显式 `--translate` 时额外生成：
+
 2. `*_bilingual.json` — 中英对照JSON（段落对齐）
 3. `*_interleaved.txt` — 中英夹排TXT（一段英文一段中文）
+
+真实批次运行另在输出根写 `run_manifest.json` 与 `logs/scraper.log`
+（request_id/状态/bytes/时间；不含 key、不含正文）。
 
 ## Company-wiki / filing-fetch machine interface (new, isolated)
 

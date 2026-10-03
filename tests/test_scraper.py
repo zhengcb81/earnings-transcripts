@@ -114,17 +114,22 @@ class TestPlanAction:
     def test_missing_english_needs_download(self, fn, tmp_path):
         assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "download"
 
-    def test_english_without_translation_needs_translate(self, fn, tmp_path):
+    def test_english_without_translation_needs_translate_when_enabled(self, fn, tmp_path):
         self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=False)
-        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "translate"
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path, translate_enabled=True) == "translate"
+
+    def test_english_without_translation_is_skipped_by_default(self, fn, tmp_path):
+        """默认（无 --translate）不补翻译：原文已在即 skip。"""
+        self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=False)
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "skip"
 
     def test_english_without_translation_is_skipped_when_no_translate(self, fn, tmp_path):
         self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=False)
-        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path, no_translate=True) == "skip"
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path, translate_enabled=False) == "skip"
 
     def test_complete_pair_is_skipped(self, fn, tmp_path):
         self._seed(fn, tmp_path, "MSFT", "Q1 2020", with_bilingual=True)
-        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path) == "skip"
+        assert plan_action(fn, "MSFT", "Q1 2020", tmp_path, translate_enabled=True) == "skip"
 
     def test_download_never_reported_for_existing_english(self, fn, tmp_path):
         """核心诉求：英文已存在就绝不应该是 download（那意味着会覆盖）。"""
