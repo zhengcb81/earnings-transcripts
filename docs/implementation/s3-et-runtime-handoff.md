@@ -4,6 +4,7 @@
 
 - 基线仓：`C:\Users\郑曾波\Projects\earnings-transcripts\earnings-transcripts`，main/origin/main `4924d57044ae061d5fec3ccd4f1b7e74633f013a`（未改动，tracked 干净）。
 - 本交付分支：`codex/et-s3-bounded-runtime`（基于 4924d57），worktree：`C:\Users\郑曾波\Projects\earnings-transcripts-s3-runtime`。
+- 交付主体提交：`66557c6`（feat: bound legacy scraper batch with modern transcript API），已 push 至 `origin/codex/et-s3-bounded-runtime`；未合 main。
 - 本包 PWF：`.planning/s3-et-bounded-runtime-20261003/{task_plan,findings,progress}.md`（随分支提交）。
 - 基线测试：120 passed；本包完成后 151 passed + 10 个 `/2` goldens 匹配。
 - 未复制进交付、也未清理的旧笔记：基线仓未跟踪 `.workbuddy-ai/`、`eval_results.json`。
