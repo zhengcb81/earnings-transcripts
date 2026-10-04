@@ -1,8 +1,10 @@
-"""Bounded batch runtime contract for scraper.py (ET-S3).
+"""Bounded batch runtime contract for scraper.py (ET-S3, ET-DEADLINE seams).
 
-Every test runs offline: fake transports are injected, FMP keys are fake, and
-all writes are confined to pytest temporary directories or the explicit
-``--output`` root. No test may contact a live provider.
+Every test runs offline: HTTP happens inside a real worker subprocess whose
+transport is installed by the private launcher seam (no production CLI flag or
+environment backdoor), FMP keys are fake, and all writes are confined to
+pytest temporary directories or the explicit ``--output`` root. No test may
+contact a live provider.
 """
 
 from __future__ import annotations
@@ -21,6 +23,13 @@ sys.path.insert(0, str(ROOT))
 
 import scraper  # noqa: E402
 from transcript_api import DEFAULT_PROVIDER_SETTINGS, ProviderSettings  # noqa: E402
+from tests.test_retrieval_runtime import (  # noqa: E402
+    LAUNCHER,
+    StallResponse,
+    fake_spec,
+    get_urls,
+    read_records,
+)
 from tests.test_transcript_api import (  # noqa: E402
     FMP_URL,
     QUOTE_URL,
@@ -42,64 +51,56 @@ def run_main(
     monkeypatch: pytest.MonkeyPatch,
     argv: list[str],
     *,
-    session: FakeSession | None = None,
+    calls_file: Path,
+    responses: dict | None = None,
     settings=DEFAULT_PROVIDER_SETTINGS,
     companies: list[dict] | None = None,
     key: str | None = None,
+    temp_root: Path | None = None,
 ) -> int:
-    """Dispatch through the real CLI entry with injected offline plumbing."""
+    """Dispatch through the real CLI entry with the private worker seam."""
     if key is None:
         monkeypatch.delenv("FMP_API_KEY", raising=False)
     else:
         monkeypatch.setenv("FMP_API_KEY", key)
     return scraper.main(
         argv,
-        _session_factory=(lambda: session) if session is not None else None,
+        _retrieval_launcher=LAUNCHER,
+        _retrieval_spec=fake_spec(responses or {}, calls_file=calls_file),
         _provider_settings=settings,
         _companies=companies if companies is not None else [ACME],
+        _retrieval_temp_root=temp_root,
     )
-
-
-class SlowStreamResponse(FakeResponse):
-    """First chunk immediately, then stall past the batch deadline."""
-
-    def __init__(self, url, payload, stall_seconds: float, **kwargs):
-        super().__init__(url, payload, **kwargs)
-        self._stall = stall_seconds
-
-    def iter_content(self, chunk_size):
-        half = max(1, len(self._payload) // 2)
-        yield self._payload[:half]
-        time.sleep(self._stall)
-        yield self._payload[half:]
 
 
 # ── provider gates & zero-HTTP paths ───────────────────────────────
 
 
 def test_default_fool_real_run_is_disabled_with_zero_http(tmp_path, monkeypatch):
-    session = FakeSession({})  # any HTTP raises KeyError
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--periods", "2026Q2", "--output", str(tmp_path / "out")],
-        session=session,
+        calls_file=calls_file,
+        responses={},
     )
     assert rc == 1
-    assert session.calls == []
+    assert get_urls(calls_file) == []
 
 
 def test_default_fool_list_is_disabled_with_zero_http_and_no_writes(
     tmp_path, monkeypatch, capsys
 ):
     out = tmp_path / "out"
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--list", "--periods", "2026Q2", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={},
     )
     assert rc == 1
-    assert session.calls == []
+    assert get_urls(calls_file) == []
     assert "provider_disabled" in capsys.readouterr().err
     assert not out.exists()
 
@@ -108,15 +109,16 @@ def test_fmp_list_is_unsupported_with_zero_http_and_no_writes(
     tmp_path, monkeypatch, capsys
 ):
     out = tmp_path / "out"
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--list", "--periods", "2026Q3", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={},
         key=FAKE_KEY,
     )
     assert rc == 1
-    assert session.calls == []
+    assert get_urls(calls_file) == []
     assert "candidate_discovery_unavailable" in capsys.readouterr().err
     assert not out.exists()
 
@@ -125,15 +127,16 @@ def test_fmp_recent_quarters_is_period_unresolved_before_any_http(
     tmp_path, monkeypatch, capsys
 ):
     out = tmp_path / "out"
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--quarters", "2", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={},
         key=FAKE_KEY,
     )
     assert rc == 1
-    assert session.calls == []
+    assert get_urls(calls_file) == []
     assert "period_unresolved" in capsys.readouterr().err
     assert not out.exists()
 
@@ -145,16 +148,17 @@ def test_dry_run_with_explicit_periods_is_zero_http_and_creates_nothing(
     tmp_path, monkeypatch, capsys
 ):
     out = tmp_path / "out"
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2026Q3", "--dry-run", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={},
         key=FAKE_KEY,
     )
     captured = capsys.readouterr()
     assert rc == 0
-    assert session.calls == []
+    assert get_urls(calls_file) == []
     assert not out.exists()
     assert "download" in captured.out
     assert "ACME" in captured.out
@@ -164,16 +168,17 @@ def test_dry_run_recent_quarters_reports_unknown_without_inventing_candidates(
     tmp_path, monkeypatch, capsys
 ):
     out = tmp_path / "out"
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--quarters", "2", "--dry-run", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={},
         key=FAKE_KEY,
     )
     captured = capsys.readouterr()
     assert rc == 0
-    assert session.calls == []
+    assert get_urls(calls_file) == []
     assert not out.exists()
     assert "unknown" in captured.out.lower()
     for fake_label in ("2026Q1", "2026Q2", "Q1 2026", "Q2 2026"):
@@ -186,19 +191,21 @@ def test_dry_run_recent_quarters_reports_unknown_without_inventing_candidates(
 def test_explicit_periods_send_exact_fiscal_year_and_quarter(
     tmp_path, monkeypatch
 ):
-    session = FakeSession({
-        FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME", period="Q4", year=2025),
-                              content_type="application/json"),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2025Q4", "--output", str(tmp_path / "out")],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME", period="Q4", year=2025),
+                                  content_type="application/json"),
+        },
         key=FAKE_KEY,
     )
     assert rc == 0
-    assert len(session.calls) == 1
-    params = session.calls[0][1]["params"]
+    gets = [record for record in read_records(calls_file) if record["op"] == "get"]
+    assert len(gets) == 1
+    params = gets[0]["params"]
     assert params["year"] == 2025
     assert params["quarter"] == 4
     saved = list((tmp_path / "out").glob("ACME/ACME_Q4_2025_earnings_call.txt"))
@@ -206,7 +213,7 @@ def test_explicit_periods_send_exact_fiscal_year_and_quarter(
 
 
 def test_usage_validation_exits_2(tmp_path, monkeypatch, capsys):
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     cases = [
         ["--periods", "2025Q4,garbage", "--output", str(tmp_path / "a")],
         ["--periods", "2025Q4", "--quarters", "2", "--output", str(tmp_path / "b")],
@@ -215,9 +222,9 @@ def test_usage_validation_exits_2(tmp_path, monkeypatch, capsys):
         ["--list", "--dry-run", "--periods", "2025Q4", "--output", str(tmp_path / "e")],
     ]
     for argv in cases:
-        rc = run_main(monkeypatch, argv, session=session, key=FAKE_KEY)
+        rc = run_main(monkeypatch, argv, calls_file=calls_file, responses={}, key=FAKE_KEY)
         assert rc == 2, argv
-    assert session.calls == []
+    assert get_urls(calls_file) == []
 
 
 # ── translation defaults ───────────────────────────────────────────
@@ -233,15 +240,16 @@ def test_default_run_never_translates_or_constructs_translator(
 
     monkeypatch.setattr(translator.TranslatorFactory, "create", explode)
     monkeypatch.setattr(scraper, "TranslatorFactory", translator.TranslatorFactory)
-    session = FakeSession({
-        FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
-                              content_type="application/json"),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
+                                  content_type="application/json"),
+        },
         key=FAKE_KEY,
     )
     assert rc == 0
@@ -256,19 +264,20 @@ def test_default_run_never_translates_or_constructs_translator(
 def test_fool_recent_quarters_expand_only_from_resolvable_metadata(
     tmp_path, monkeypatch
 ):
-    session = FakeSession({
-        QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL, Q2_URL)),
-        Q2_URL: FakeResponse(Q2_URL, transcript_html()),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--quarters", "1", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL, Q2_URL)),
+            Q2_URL: FakeResponse(Q2_URL, transcript_html()),
+        },
         settings=ENABLED_FOOL,
     )
     assert rc == 0
-    assert [call[0] for call in session.calls] == [QUOTE_URL, Q2_URL]
+    assert get_urls(calls_file) == [QUOTE_URL, Q2_URL]
     assert (out / "ACME" / "ACME_Q2_2026_earnings_call.txt").exists()
     assert not (out / "ACME" / "ACME_Q1_2026_earnings_call.txt").exists()
 
@@ -277,35 +286,36 @@ def test_fool_recent_quarters_without_resolvable_periods_is_period_unresolved(
     tmp_path, monkeypatch, capsys
 ):
     unparsed = "https://www.fool.com/earnings/call-transcripts/2026/09/01/acme-transcript/"
-    session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(unparsed))})
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--quarters", "2", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(unparsed))},
         settings=ENABLED_FOOL,
     )
     assert rc == 1
     assert "period_unresolved" in capsys.readouterr().err
-    assert [call[0] for call in session.calls] == [QUOTE_URL]  # metadata only, zero body
+    assert get_urls(calls_file) == [QUOTE_URL]  # metadata only, zero body
     assert not any(out.rglob("*_earnings_call.txt"))
 
 
 def test_list_with_explicit_periods_prints_only_matching_metadata(
     tmp_path, monkeypatch, capsys
 ):
-    session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL, Q2_URL))})
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--list", "--periods", "2026Q2", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL, Q2_URL))},
         settings=ENABLED_FOOL,
     )
     captured = capsys.readouterr()
     assert rc == 0
-    assert len(session.calls) == 1
-    assert session.calls[0][0] == QUOTE_URL  # metadata only, zero body fetch
+    assert get_urls(calls_file) == [QUOTE_URL]  # metadata only, zero body fetch
     assert Q2_URL in captured.out
     assert Q1_URL not in captured.out
     assert not out.exists()
@@ -341,25 +351,52 @@ def test_budget_session_with_expired_deadline_makes_zero_http():
     assert inner.calls == []
 
 
+def test_expired_batch_budget_starts_no_worker(tmp_path):
+    """Zero remaining quota must be rejected before any worker is spawned."""
+    budget = scraper.BatchBudget(5, 0.0, 1024, 1024)
+    calls_file = tmp_path / "calls.jsonl"
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
+    ctx = scraper._RetrievalContext(
+        launcher=LAUNCHER,
+        launcher_spec=fake_spec({}, calls_file=calls_file),
+        temp_root=temp_root,
+        api_key=None,
+    )
+    outcome = scraper._supervise(
+        budget, ctx, ENABLED_FOOL, "list",
+        {
+            "ticker": "ACME", "exchange": "nyse", "as_of_date": "2026-09-30",
+            "request_id": "zero-budget-1", "timeout_seconds": 1,
+            "download_authorized": True,
+        },
+    )
+    assert outcome is None
+    assert budget.exhausted == "batch_deadline"
+    assert list(temp_root.iterdir()) == []
+    assert not calls_file.exists()
+
+
 def test_batch_max_requests_stops_batch_with_named_partial(
     tmp_path, monkeypatch, capsys
 ):
-    session = FakeSession({
-        QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL, Q2_URL)),
-        Q1_URL: FakeResponse(Q1_URL, transcript_html(title="ACME Q1 2026")),
-        Q2_URL: FakeResponse(Q2_URL, transcript_html()),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--periods", "2026Q1,2026Q2", "--max-requests", "1", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL, Q2_URL)),
+            Q1_URL: FakeResponse(Q1_URL, transcript_html(title="ACME Q1 2026")),
+            Q2_URL: FakeResponse(Q2_URL, transcript_html()),
+        },
         settings=ENABLED_FOOL,
     )
     captured = capsys.readouterr()
     assert rc == 3
     assert "request_limit" in captured.out
-    assert len(session.calls) == 1  # listing only; body blocked, no retry
+    assert get_urls(calls_file) == [QUOTE_URL]  # listing only; body blocked, no retry
     assert not any(out.rglob("*_earnings_call.txt"))
 
 
@@ -367,9 +404,7 @@ def test_batch_max_response_bytes_stops_mid_stream_with_named_failure(
     tmp_path, monkeypatch, capsys
 ):
     payload = fmp_payload(symbol="ACME")
-    session = FakeSession({
-        FMP_URL: FakeResponse(FMP_URL, payload, content_type="application/json"),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
@@ -378,36 +413,46 @@ def test_batch_max_response_bytes_stops_mid_stream_with_named_failure(
             "--max-response-bytes", str(len(payload) - 10),
             "--output", str(out),
         ],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            FMP_URL: FakeResponse(FMP_URL, payload, content_type="application/json"),
+        },
         key=FAKE_KEY,
     )
     captured = capsys.readouterr()
     assert rc == 3
     assert "response_bytes" in captured.out
-    assert len(session.calls) == 1
+    assert len(get_urls(calls_file)) == 1
     assert not any(out.rglob("*_earnings_call.txt"))
 
 
-def test_slow_stream_hits_batch_deadline_and_closes_connection(
+def test_slow_stream_hits_batch_deadline_and_stops_the_batch(
     tmp_path, monkeypatch, capsys
 ):
-    slow_body = SlowStreamResponse(Q2_URL, transcript_html(), stall_seconds=1.6)
-    session = FakeSession({
-        QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL)),
-        Q2_URL: slow_body,
-    })
+    """A permanently stalled stream is killed at the shared batch deadline."""
+    calls_file = tmp_path / "calls.jsonl"
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
     out = tmp_path / "out"
+    started = time.monotonic()
     rc = run_main(
         monkeypatch,
-        ["--periods", "2026Q2", "--max-seconds", "1.0", "--output", str(out)],
-        session=session,
+        ["--periods", "2026Q2", "--max-seconds", "6.0", "--output", str(out)],
+        calls_file=calls_file,
+        responses={
+            QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL)),
+            Q2_URL: StallResponse(Q2_URL, transcript_html(), stall=(1, None)),
+        },
         settings=ENABLED_FOOL,
+        temp_root=temp_root,
     )
+    elapsed = time.monotonic() - started
     captured = capsys.readouterr()
     assert rc == 3
     assert "batch_deadline" in captured.out
-    assert len(session.calls) == 2
-    assert slow_body.closed is True  # deadline closes the connection
+    assert get_urls(calls_file) == [QUOTE_URL, Q2_URL]  # body fetch started, then killed
+    assert elapsed < 6.0 + 1.0 + 10.0  # deadline + unified grace + startup margin
+    assert list(temp_root.iterdir()) == []  # worker reaped, temp results removed
     assert not any(out.rglob("*_earnings_call.txt"))
 
 
@@ -418,15 +463,15 @@ def test_output_writes_are_isolated_under_output_flag(
     tmp_path, monkeypatch, capsys
 ):
     monkeypatch.chdir(tmp_path)
-    session = FakeSession({
-        FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
-                              content_type="application/json"),
-    })
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
-        session=session,
+        calls_file=out / "calls.jsonl",
+        responses={
+            FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
+                                  content_type="application/json"),
+        },
         key=FAKE_KEY,
     )
     assert rc == 0
@@ -451,15 +496,16 @@ def test_existing_original_is_reused_without_body_fetch(
         encoding="utf-8",
     )
     before = seeded.read_bytes()
-    session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--periods", "2026Q2", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))},
         settings=ENABLED_FOOL,
     )
     assert rc == 0
-    assert [call[0] for call in session.calls] == [QUOTE_URL]  # metadata only
+    assert get_urls(calls_file) == [QUOTE_URL]  # metadata only
     assert seeded.read_bytes() == before
 
 
@@ -476,18 +522,19 @@ def test_identity_conflict_is_named_and_never_overwrites(
         encoding="utf-8",
     )
     before = seeded.read_bytes()
-    session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--periods", "2026Q2", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))},
         settings=ENABLED_FOOL,
     )
     captured = capsys.readouterr()
     assert rc == 1
     assert "output_conflict" in captured.err + captured.out
     assert seeded.read_bytes() == before
-    assert [call[0] for call in session.calls] == [QUOTE_URL]
+    assert get_urls(calls_file) == [QUOTE_URL]
 
 
 def test_store_original_reports_byte_conflict_and_reused(
@@ -532,28 +579,30 @@ def test_existing_fmp_original_is_reused_without_credentials_or_http(
     seeded = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
     seeded.parent.mkdir(parents=True)
     seeded.write_text("stored original\n", encoding="utf-8")
-    session = FakeSession({})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={},
         key=None,  # no credentials available at all
     )
     assert rc == 0
-    assert session.calls == []
+    assert get_urls(calls_file) == []
 
 
 def test_output_limit_leaves_no_temp_or_original(tmp_path, monkeypatch, capsys):
-    session = FakeSession({
-        FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
-                              content_type="application/json"),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2026Q3",
          "--max-output-bytes", "5", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
+                                  content_type="application/json"),
+        },
         key=FAKE_KEY,
     )
     captured = capsys.readouterr()
@@ -592,19 +641,20 @@ def test_list_metadata_requests_count_against_batch_limit(
     tmp_path, monkeypatch, capsys
 ):
     second = {"ticker": "ZETA", "name_en": "Zeta", "name_cn": "泽塔", "exchange": "nyse"}
-    session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))})
+    calls_file = tmp_path / "calls.jsonl"
     rc = run_main(
         monkeypatch,
         ["--list", "--periods", "2026Q2", "--max-requests", "1",
          "--output", str(tmp_path / "out")],
-        session=session,
+        calls_file=calls_file,
+        responses={QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))},
         settings=ENABLED_FOOL,
         companies=[ACME, second],
     )
     captured = capsys.readouterr()
     assert rc == 3
     assert "request_limit" in captured.out
-    assert len(session.calls) == 1  # metadata counts; second ticker blocked
+    assert len(get_urls(calls_file)) == 1  # metadata counts; second ticker blocked
     assert not (tmp_path / "out").exists()
 
 
@@ -614,15 +664,16 @@ def test_list_metadata_requests_count_against_batch_limit(
 def test_manifest_records_requests_without_key_or_body(
     tmp_path, monkeypatch, capsys
 ):
-    session = FakeSession({
-        FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
-                              content_type="application/json"),
-    })
+    calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
         ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
-        session=session,
+        calls_file=calls_file,
+        responses={
+            FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"),
+                                  content_type="application/json"),
+        },
         key=FAKE_KEY,
     )
     assert rc == 0
@@ -641,6 +692,8 @@ def test_manifest_records_requests_without_key_or_body(
     captured = capsys.readouterr()
     assert FAKE_KEY not in captured.out + captured.err
     assert "Management discussed customer demand" not in captured.out + captured.err
+    if calls_file.exists():
+        assert FAKE_KEY not in calls_file.read_text(encoding="utf-8")
 
 
 # ── real subprocess exit paths (offline-safe by construction) ──────

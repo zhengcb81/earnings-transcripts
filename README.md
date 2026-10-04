@@ -118,18 +118,31 @@ python3 scraper.py --output D:/et-run        # 原件/日志/锁/临时/manifest
   `--source fmp` 没有 metadata 发现，`--quarters` 直接 `period_unresolved`（零 HTTP）。
 - `--periods` 与 `--quarters` 不能同时给；`--list` 与 `--dry-run` 不能同时给。
 
-批次限额（默认值，均为有限值；每次 HTTP 前核对，不设 unlimited、无隐式重试）：
+批次限额（默认值，均为有限值；每次正式采集前核对，不设 unlimited、无隐式重试）：
 
 | 参数 | 默认 | 语义 |
 |---|---|---|
 | `--max-requests` | 64 | 批次累计 HTTP 请求（含 metadata）上限 |
-| `--max-seconds` | 600 | 批次总时长（正有限秒）；单请求 timeout 取 min(30s, 剩余额度) |
+| `--max-seconds` | 600 | 批次**采集**总时长（硬截止，正有限秒）：全批共用同一 deadline，逐文档只给剩余额度、不重置；单请求 timeout 取 min(30s, 剩余额度)。**只约束网络采集**，显式 `--translate` 的翻译耗时不在该限额内 |
 | `--max-response-bytes` | 67108864 | 批次累计响应字节上限（流式累计，超限中断连接） |
 | `--max-output-bytes` | 33554432 | 本次**新保存原件**字节上限（不计 manifest/日志） |
 
+硬截止实现（`transcript_tool.py` 与 `scraper.py` 的 fetch/discover/fetch-candidate/list
+metadata 统一走同一条链）：每次 provider 采集由内部 supervisor
+（`retrieval_runtime.py`）在独立 worker 子进程（`retrieval_worker.py`）里执行，
+deadline 从正式操作开始按 monotonic 计时，supervisor 用同一份剩余浮点秒等待
+（不四舍五入到 1 秒）；到期先 terminate、必要时 kill，全部等待共享同一个
+**1 秒清理宽限**，确认退出后才删除该次临时结果，删除失败则具名报
+`retrieval_cleanup_failed`、绝不假装已回收。worker 结果文件有大小/JSON/请求
+标识/schema 校验，晚于 deadline 的结果不接受为 `fetched`；worker 被杀或结果
+不可信时用量记为**未知**并停止该批（报告不宣称 0 消耗、不恢复完整预算）。
+内部用量与 worker 信封不进公共 stdout，不改变任何请求/响应协议字段；
+零额度（不 spawn）、disabled provider、缺 key 仍然零外发。默认构造 0 个
+translator；只有显式 `--translate` 才在采集完成后由父进程补翻译。
+
 退出码：`0` 成功；`1` 具名失败（provider 不可用、`period_unresolved`、
-`output_conflict` 等）；`2` 用法错误/锁冲突；`3` 触发批次限额（partial，
-报告已完成文档，不回滚、不覆盖已有原件）。
+`output_conflict`、采集 worker 异常 `retrieval_worker_failure` 等）；`2` 用法错误/锁冲突；
+`3` 触发批次限额（partial，报告已完成文档，不回滚、不覆盖已有原件）。
 
 Provider 可用性由 `transcript_api.ProviderSettings` 决定：生产默认
 Motley Fool disabled（零 HTTP、具名 `unavailable/provider_disabled`），
@@ -138,7 +151,9 @@ FMP 需要 `FMP_API_KEY` 或 `--api-key`；缺 key/402/限流/坏响应分别具
 byte/deadline/host 约束，旧的直连 Session 实现已退休。
 
 每次真实运行在输出根写 `run_manifest.json`（request_id/状态/bytes/时间，
-不含 key、不含正文）与 `logs/scraper.log`；`--list`/`--dry-run` 在
+不含 key、不含正文；批次预算块在 worker 用量未知时把 requests/response_bytes
+记为 null 并置 `usage_unknown: true`，绝不虚报 0 消耗）与
+`logs/scraper.log`；`--list`/`--dry-run` 在
 目录/日志/锁初始化之前结束，不产生任何写入。
 
 不确定跑下去会发生什么时，先来一次 `--dry-run`：
@@ -230,11 +245,14 @@ python3 reader.py --port 9000          # 自定义端口
 python3 -m pytest tests/ -v
 ```
 
-151个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
+172个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
 transcript解析、翻译器、阅读器数据构建、单实例锁、summary 按磁盘生成、
 **批次限额（请求/秒/累计字节/输出字节）**、**精确期间 vs recent-N**、
 **provider disabled 与 FMP list/dry-run 零 HTTP**、**原件复用与
-`output_conflict` 不覆盖**、**`/2` goldens**、以及 subprocess 真实退出路径。
+`output_conflict` 不覆盖**、**硬截止（阻塞 worker 在 deadline+统一清理宽限内
+回收且进程确认退出、超期结果拒收、坏 worker/坏 JSON/超大结果不成功、临时根清完、
+用量未知不停报 0）**、**真实 CLI → supervisor → worker → 现有 API → serializer
+的假 FMP 200/402/429/缺 key**、**`/2` goldens**、以及 subprocess 真实退出路径。
 
 ```bash
 # 本机依赖装在 Miniconda，用这个跑
@@ -329,7 +347,7 @@ Candidate-fetch request example (all fields are strict; the nested candidate has
 
 The default `--operation fetch` remains the legacy one-step discover-and-fetch behavior for compatibility. It cannot provide an external caller a chance to authorize the exact candidate before the body request, so company-wiki and filing-fetch integrations must use `discover` followed by `fetch-candidate`; the one-step mode is not approved for production integration.
 
-The JSON `download_authorized` field is the single network intent. The old `--allow-download` switch remains accepted for existing callers but cannot override a false request field and is no longer required. Default runtime settings disable Motley Fool in fetch, discover, and candidate-fetch even when intent is true. For FMP, set `FMP_API_KEY` in the process environment; the key is never written to the result or canonical source URL. The tool checks the exact quarter and year in the provider response and returns ambiguous instead of choosing if more than one exact-period document remains. Motley Fool redirects must remain HTTPS on www.fool.com; FMP redirects are rejected. Responses and extracted bodies have hard byte limits and one shared deadline.
+The JSON `download_authorized` field is the single network intent. The old `--allow-download` switch remains accepted for existing callers but cannot override a false request field and is no longer required. Default runtime settings disable Motley Fool in fetch, discover, and candidate-fetch even when intent is true. For FMP, set `FMP_API_KEY` in the process environment; the key is never written to the result or canonical source URL. The tool checks the exact quarter and year in the provider response and returns ambiguous instead of choosing if more than one exact-period document remains. Motley Fool redirects must remain HTTPS on www.fool.com; FMP redirects are rejected. Responses and extracted bodies have hard byte limits and one shared deadline. The CLI enforces that deadline from the outside: each retrieval runs in an internal supervised worker subprocess (`retrieval_runtime.py` → `retrieval_worker.py`) whose monotonic budget starts when the operation starts; the parent terminates then kills the worker at the deadline plus one fixed 1-second cleanup grace, and a result that completes after the deadline is never returned as `fetched`. Internal usage accounting and the worker envelope never appear on stdout, and the key only travels through the controlled process environment.
 
 A default successful result (schema `/1`) contains the untranslated English body, stable provider document ID/source URL, extraction version, the SHA-256 of the provider payload, and a separate SHA-256 of canonical UTF-8 text. To hand the exact bounded provider response to a downstream immutable-raw importer, callers may additionally pass `include_source_payload=True` to the Python API or add `--include-source-payload` to the CLI. That opt-in returns schema `/2`, base64-encoded response bytes, normalized MIME type, a safe effective URL, successful HTTP status, UTC retrieval time, and adapter name/version; it omits the duplicate `content_utf8` field and still performs no file writes. The default remains schema `/1` and does not return the raw response. Schema `/2` has a bounded 24 MiB encoded field ceiling; source responses remain limited by their provider/request byte caps. Motley Fool effective URLs are HTTPS `www.fool.com` path-only URLs with query values and fragments removed. FMP effective URLs may include only symbol/year/quarter, never the API key. Unsupported MIME types fail closed in raw-payload mode.
 

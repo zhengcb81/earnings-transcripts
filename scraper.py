@@ -8,8 +8,11 @@
   ``--quarters N`` 只在 metadata discovery 给出明确 FY/Q 后有限展开，
   无法唯一确定则 ``period_unresolved``、零正文抓取、不猜 Q4。
 - 批次限额 ``--max-requests/--max-seconds/--max-response-bytes/
-  --max-output-bytes`` 在每次 HTTP 前核对；触发后返回具名 partial/failure
-  与已完成文档，不回滚、不覆盖已有原件。
+  --max-output-bytes`` 在每次正式采集前核对。``--max-seconds`` 是**硬截止**：
+  批次自创建起共用同一 deadline，逐文件只给剩余额度、不重置，到期在统一
+  清理宽限内终止内部采集 worker（retrieval_runtime/retrieval_worker）；
+  触发后返回具名 partial/failure 与已完成文档，不回滚、不覆盖已有原件。
+  该限额只约束网络采集，显式 ``--translate`` 的翻译耗时不在其中。
 - 默认原语言保存；只有显式 ``--translate`` 才初始化翻译器。
 - ``--list`` 只做 metadata（零正文、零写入）；``--dry-run`` 零 HTTP 零写入；
   两者在目录/日志/锁初始化之前结束。
@@ -29,11 +32,10 @@ import re
 import sys
 import time
 import uuid
+from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
-from typing import Any, Callable
-
-import requests
+from typing import Any
 
 from common import (
     FileNaming,
@@ -49,15 +51,18 @@ from common import (
     split_paragraphs,
     translate_paragraphs,
 )
+from retrieval_budget import (
+    BatchBudget,
+    BatchBudgetExceeded,
+    _BudgetSession,  # noqa: F401  re-exported for the budget unit tests
+)
+from retrieval_runtime import RetrievalOutcome, run_retrieval
 from transcript_api import (
     CANDIDATE_FETCH_REQUEST_SCHEMA,
     DEFAULT_PROVIDER_SETTINGS,
     MAX_BODY_BYTES,
     REQUEST_SCHEMA,
     ProviderSettings,
-    fetch_transcript,
-    fetch_transcript_candidate,
-    list_transcript_candidates,
 )
 
 log = logging.getLogger("scraper")
@@ -90,111 +95,52 @@ _ERROR_STATUSES = frozenset({
 })
 
 
-class BatchBudgetExceeded(Exception):
-    """Batch-level resource cap reached; carries the named reason."""
+@dataclass(frozen=True)
+class _RetrievalContext:
+    """Supervisor wiring for one run; the launcher fields are a private test seam."""
 
-    def __init__(self, reason: str):
-        super().__init__(reason)
-        self.reason = reason
-
-
-class BatchBudget:
-    """Whole-run quotas checked before every HTTP request and every write."""
-
-    def __init__(
-        self,
-        max_requests: int,
-        max_seconds: float,
-        max_response_bytes: int,
-        max_output_bytes: int,
-    ):
-        self.max_requests = max_requests
-        self.requests_left = max_requests
-        self.deadline = time.monotonic() + max_seconds
-        self.max_response_bytes = max_response_bytes
-        self.response_bytes_left = max_response_bytes
-        self.max_output_bytes = max_output_bytes
-        self.output_bytes_left = max_output_bytes
-        self.exhausted: str | None = None
-
-    def _exhaust(self, reason: str) -> None:
-        if self.exhausted is None:
-            self.exhausted = reason
-        raise BatchBudgetExceeded(reason)
-
-    def remaining_seconds(self) -> float:
-        return self.deadline - time.monotonic()
-
-    def check_request(self) -> None:
-        if self.exhausted is not None:
-            raise BatchBudgetExceeded(self.exhausted)
-        if self.requests_left <= 0:
-            self._exhaust("request_limit")
-        if self.remaining_seconds() <= 0:
-            self._exhaust("batch_deadline")
-        if self.response_bytes_left <= 0:
-            self._exhaust("response_bytes")
-
-    def record_response(self, size: int) -> None:
-        if size > self.response_bytes_left:
-            self._exhaust("response_bytes")
-        self.response_bytes_left -= size
-        if self.remaining_seconds() <= 0:
-            self._exhaust("batch_deadline")
-
-    def take_output(self, size: int) -> None:
-        if self.exhausted is not None:
-            raise BatchBudgetExceeded(self.exhausted)
-        if size > self.output_bytes_left:
-            self._exhaust("output_bytes")
-        self.output_bytes_left -= size
-
-    def report(self) -> dict[str, Any]:
-        return {
-            "max_requests": self.max_requests,
-            "requests_used": self.max_requests - self.requests_left,
-            "max_response_bytes": self.max_response_bytes,
-            "response_bytes_used": self.max_response_bytes - self.response_bytes_left,
-            "max_output_bytes": self.max_output_bytes,
-            "output_bytes_used": self.max_output_bytes - self.output_bytes_left,
-            "exhausted": self.exhausted,
-        }
+    launcher: str | None = None
+    launcher_spec: dict[str, Any] | None = None
+    temp_root: Path | None = None
+    api_key: str | None = None
 
 
-class _BudgetResponse:
-    """Delegating response that counts streamed bytes against the batch."""
+def _supervise(
+    budget: BatchBudget,
+    ctx: _RetrievalContext,
+    provider_settings: ProviderSettings,
+    operation: str,
+    payload: dict[str, Any],
+) -> RetrievalOutcome | None:
+    """Budget-checked hard-deadline retrieval; ``None`` means stop the batch.
 
-    def __init__(self, inner: Any, budget: BatchBudget):
-        self._inner = inner
-        self._budget = budget
-
-    def __getattr__(self, name: str) -> Any:
-        return getattr(self._inner, name)
-
-    def iter_content(self, chunk_size: int):
-        for chunk in self._inner.iter_content(chunk_size=chunk_size):
-            self._budget.record_response(len(chunk))
-            yield chunk
-
-    def close(self) -> None:
-        self._inner.close()
-
-
-class _BudgetSession:
-    """Delegating session that enforces the batch quota before every HTTP GET."""
-
-    def __init__(self, inner: Any, budget: BatchBudget):
-        self._inner = inner
-        self._budget = budget
-        self.headers = inner.headers
-
-    def get(self, url: str, **kwargs: Any) -> _BudgetResponse:
-        self._budget.check_request()
-        self._budget.requests_left -= 1
-        return _BudgetResponse(self._inner.get(url, **kwargs), self._budget)
-
-    def close(self) -> None:
-        self._inner.close()
+    The shared batch quota is checked before any worker is spawned, the
+    worker receives only the remaining float seconds/request/byte budget, and
+    its reported usage is folded back. A deadline or an unknown usage marks
+    the batch terminal without restoring any budget.
+    """
+    try:
+        budget.check_request()
+    except BatchBudgetExceeded:
+        return None
+    outcome = run_retrieval(
+        operation,
+        payload,
+        remaining_seconds=budget.remaining_seconds(),
+        requests_left=budget.requests_left,
+        response_bytes_left=budget.response_bytes_left,
+        provider_settings=provider_settings,
+        fmp_api_key=ctx.api_key,
+        launcher=ctx.launcher,
+        launcher_spec=ctx.launcher_spec,
+        temp_root=ctx.temp_root,
+    )
+    budget.apply_usage(outcome.usage)
+    if outcome.reason == "deadline":
+        budget.stop_with("batch_deadline")
+    if outcome.usage is None:
+        budget.mark_usage_unknown()
+    return outcome
 
 
 def new_request_id() -> str:
@@ -664,7 +610,7 @@ def _process_fool_company(
     args: argparse.Namespace,
     periods: list[tuple[int, int]] | None,
     budget: BatchBudget,
-    session_factory: Callable[[], Any],
+    ctx: _RetrievalContext,
     provider_settings: ProviderSettings,
     entries: list[dict[str, Any]],
     transcripts_root: Path,
@@ -675,17 +621,31 @@ def _process_fool_company(
     exchange = company.get("exchange") or "auto"
     listing_request_id = new_request_id()
     listing_started = time.monotonic()
-    listing = list_transcript_candidates(
-        ticker=ticker,
-        exchange=exchange,
-        as_of_date=date.today().isoformat(),
-        request_id=listing_request_id,
-        timeout_seconds=_request_timeout(budget),
-        session_factory=session_factory,
-        provider_settings=provider_settings,
+    sup = _supervise(
+        budget, ctx, provider_settings, "list",
+        {
+            "ticker": ticker,
+            "exchange": exchange,
+            "as_of_date": date.today().isoformat(),
+            "request_id": listing_request_id,
+            "timeout_seconds": _request_timeout(budget),
+            "download_authorized": True,
+        },
     )
-    if budget.exhausted:
+    if sup is None or budget.exhausted:
         return "budget"
+    if sup.result is None:
+        print(
+            f"error: {ticker}: provider_error/retrieval_worker_failure",
+            file=sys.stderr,
+        )
+        _record_entry(
+            entries, request_id=listing_request_id, company=company, fiscal_period=None,
+            status="provider_error", error_code="retrieval_worker_failure",
+            elapsed_seconds=time.monotonic() - listing_started,
+        )
+        return "stop"
+    listing = sup.result
     listing_status = listing["status"]
     if listing_status not in ("discovered", "not_found"):
         print(
@@ -766,16 +726,21 @@ def _process_fool_company(
             "published_date": candidate["published_date"],
         }
         started = time.monotonic()
-        result = fetch_transcript_candidate(
-            request,
-            session_factory=session_factory,
-            provider_settings=provider_settings,
+        sup = _supervise(
+            budget, ctx, provider_settings, "fetch-candidate", request
         )
         elapsed = time.monotonic() - started
-        if budget.exhausted:
+        if sup is None or budget.exhausted:
             return "budget"
+        if sup.result is None:
+            _finalize_fetched(
+                cfg, fn, company, label, fiscal,
+                {"status": "provider_error", "error_code": "retrieval_worker_failure"},
+                entries, translate_enabled, transcripts_root, budget, request_id, elapsed,
+            )
+            return "stop"
         outcome = _finalize_fetched(
-            cfg, fn, company, label, fiscal, result, entries,
+            cfg, fn, company, label, fiscal, sup.result, entries,
             translate_enabled, transcripts_root, budget, request_id, elapsed,
         )
         if outcome:
@@ -790,12 +755,11 @@ def _process_fmp_company(
     company: dict,
     periods: list[tuple[int, int]],
     budget: BatchBudget,
-    session_factory: Callable[[], Any],
+    ctx: _RetrievalContext,
     provider_settings: ProviderSettings,
     entries: list[dict[str, Any]],
     transcripts_root: Path,
     translate_enabled: bool,
-    api_key: str | None,
 ) -> str:
     """Exact-period FMP fetches; no discovery endpoint exists, so periods must be explicit."""
     ticker = company["ticker"]
@@ -817,17 +781,19 @@ def _process_fmp_company(
         )
         request_id = request["request_id"]
         started = time.monotonic()
-        result = fetch_transcript(
-            request,
-            session_factory=session_factory,
-            fmp_api_key=api_key,
-            provider_settings=provider_settings,
-        )
+        sup = _supervise(budget, ctx, provider_settings, "fetch", request)
         elapsed = time.monotonic() - started
-        if budget.exhausted:
+        if sup is None or budget.exhausted:
             return "budget"
+        if sup.result is None:
+            _finalize_fetched(
+                cfg, fn, company, label, fiscal,
+                {"status": "provider_error", "error_code": "retrieval_worker_failure"},
+                entries, translate_enabled, transcripts_root, budget, request_id, elapsed,
+            )
+            return "stop"
         outcome = _finalize_fetched(
-            cfg, fn, company, label, fiscal, result, entries,
+            cfg, fn, company, label, fiscal, sup.result, entries,
             translate_enabled, transcripts_root, budget, request_id, elapsed,
         )
         if outcome:
@@ -875,11 +841,18 @@ def _report(budget: BatchBudget, entries: list[dict[str, Any]]) -> int:
     print("-" * 70)
     print("  " + ("  ".join(f"{k}={v}" for k, v in sorted(counts.items())) or "no work"))
     report = budget.report()
-    print(
-        f"  budget: requests={report['requests_used']}/{report['max_requests']}  "
-        f"response_bytes={report['response_bytes_used']}/{report['max_response_bytes']}  "
-        f"output_bytes={report['output_bytes_used']}/{report['max_output_bytes']}"
-    )
+    if report["usage_unknown"]:
+        print(
+            "  budget: requests=unknown  response_bytes=unknown  "
+            f"output_bytes={report['output_bytes_used']}/{report['max_output_bytes']}  "
+            "(worker ended without a usage report)"
+        )
+    else:
+        print(
+            f"  budget: requests={report['requests_used']}/{report['max_requests']}  "
+            f"response_bytes={report['response_bytes_used']}/{report['max_response_bytes']}  "
+            f"output_bytes={report['output_bytes_used']}/{report['max_output_bytes']}"
+        )
     if budget.exhausted:
         print(f"  exit: limit_exceeded: {budget.exhausted}")
         code = EXIT_PARTIAL
@@ -927,7 +900,8 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-requests", type=int, default=DEFAULT_MAX_REQUESTS,
                         help=f"批次累计 HTTP 请求上限（默认 {DEFAULT_MAX_REQUESTS}）")
     parser.add_argument("--max-seconds", type=float, default=DEFAULT_MAX_SECONDS,
-                        help=f"批次总时长上限，正有限秒（默认 {DEFAULT_MAX_SECONDS:g}）")
+                        help=f"批次采集总时长上限（硬截止，正有限秒；只约束网络采集，"
+                             f"不含显式 --translate 的翻译耗时；默认 {DEFAULT_MAX_SECONDS:g}）")
     parser.add_argument("--max-response-bytes", type=int, default=DEFAULT_MAX_RESPONSE_BYTES,
                         help=f"批次累计响应字节上限（默认 {DEFAULT_MAX_RESPONSE_BYTES}）")
     parser.add_argument("--max-output-bytes", type=int, default=DEFAULT_MAX_OUTPUT_BYTES,
@@ -1016,7 +990,7 @@ def _run_list(
     args: argparse.Namespace,
     companies: list[dict],
     periods: list[tuple[int, int]] | None,
-    session_factory: Callable[[], Any] | None,
+    ctx: _RetrievalContext,
     provider_settings: ProviderSettings,
 ) -> int:
     """metadata-only 列表：零正文、零写入；metadata 请求计入批次额度。"""
@@ -1037,8 +1011,6 @@ def _run_list(
         args.max_requests, args.max_seconds,
         args.max_response_bytes, args.max_output_bytes,
     )
-    base_factory = session_factory or requests.Session
-    budget_factory = lambda: _BudgetSession(base_factory(), budget)  # noqa: E731
     failed = False
     today = date.today().isoformat()
     print("=" * 70)
@@ -1046,18 +1018,27 @@ def _run_list(
     print("=" * 70)
     for company in companies:
         ticker = company["ticker"]
-        listing = list_transcript_candidates(
-            ticker=ticker,
-            exchange=company.get("exchange") or "auto",
-            as_of_date=today,
-            request_id=new_request_id(),
-            timeout_seconds=_request_timeout(budget),
-            session_factory=budget_factory,
-            provider_settings=provider_settings,
+        sup = _supervise(
+            budget, ctx, provider_settings, "list",
+            {
+                "ticker": ticker,
+                "exchange": company.get("exchange") or "auto",
+                "as_of_date": today,
+                "request_id": new_request_id(),
+                "timeout_seconds": _request_timeout(budget),
+                "download_authorized": True,
+            },
         )
-        if budget.exhausted:
+        if sup is None or budget.exhausted:
             print(f"  exit: limit_exceeded: {budget.exhausted}")
             return EXIT_PARTIAL
+        if sup.result is None:
+            print(
+                f"error: {ticker}: provider_error/retrieval_worker_failure",
+                file=sys.stderr,
+            )
+            return EXIT_FAILURE  # unknown usage stops the listing
+        listing = sup.result
         if listing["status"] not in ("discovered", "not_found"):
             print(
                 f"error: {ticker}: {listing['status']}/{listing.get('error_code') or '-'}",
@@ -1103,7 +1084,7 @@ def _run_batch(
     args: argparse.Namespace,
     companies: list[dict],
     periods: list[tuple[int, int]] | None,
-    session_factory: Callable[[], Any] | None,
+    ctx: _RetrievalContext,
     provider_settings: ProviderSettings,
     translate_enabled: bool,
 ) -> int:
@@ -1143,10 +1124,7 @@ def _run_batch(
             args.max_requests, args.max_seconds,
             args.max_response_bytes, args.max_output_bytes,
         )
-        base_factory = session_factory or requests.Session
-        budget_factory = lambda: _BudgetSession(base_factory(), budget)  # noqa: E731
         fn = FileNaming(cfg)
-        api_key = args.api_key or os.environ.get("FMP_API_KEY")
 
         for company in companies:
             if budget.exhausted:
@@ -1154,7 +1132,7 @@ def _run_batch(
             if args.source == "fool":
                 outcome = _process_fool_company(
                     cfg=cfg, fn=fn, company=company, args=args, periods=periods,
-                    budget=budget, session_factory=budget_factory,
+                    budget=budget, ctx=ctx,
                     provider_settings=provider_settings, entries=entries,
                     transcripts_root=transcripts_root,
                     translate_enabled=translate_enabled,
@@ -1162,10 +1140,10 @@ def _run_batch(
             else:
                 outcome = _process_fmp_company(
                     cfg=cfg, fn=fn, company=company, periods=periods,
-                    budget=budget, session_factory=budget_factory,
+                    budget=budget, ctx=ctx,
                     provider_settings=provider_settings, entries=entries,
                     transcripts_root=transcripts_root,
-                    translate_enabled=translate_enabled, api_key=api_key,
+                    translate_enabled=translate_enabled,
                 )
             if outcome in ("budget", "stop"):
                 break
@@ -1199,9 +1177,11 @@ def _run_batch(
 def main(
     argv: list[str] | None = None,
     *,
-    _session_factory: Callable[[], Any] | None = None,
     _provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
     _companies: list[dict] | None = None,
+    _retrieval_launcher: str | None = None,
+    _retrieval_spec: dict[str, Any] | None = None,
+    _retrieval_temp_root: Path | None = None,
 ) -> int:
     """CLI entry; private injection points are for offline tests only."""
     parser = build_argument_parser()
@@ -1239,12 +1219,18 @@ def main(
         return _run_dry_plan(
             cfg, args, companies, periods, transcripts_root, translate_enabled
         )
+    retrieval_ctx = _RetrievalContext(
+        launcher=_retrieval_launcher,
+        launcher_spec=_retrieval_spec,
+        temp_root=_retrieval_temp_root,
+        api_key=args.api_key or None,
+    )
     if args.list:
         return _run_list(
-            args, companies, periods, _session_factory, _provider_settings
+            args, companies, periods, retrieval_ctx, _provider_settings
         )
     return _run_batch(
-        cfg, args, companies, periods, _session_factory, _provider_settings,
+        cfg, args, companies, periods, retrieval_ctx, _provider_settings,
         translate_enabled,
     )
 
