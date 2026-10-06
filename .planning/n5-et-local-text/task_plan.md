@@ -6,7 +6,7 @@
 
 ## Next Step
 
-写 `docs/implementation/handoffs/N5-ET-TXT/{HANDOFF.md,handoff.json}` 并按两段提交（先代码提交取 delivery_head，再交 handoff 提交）。
+无——本卡范围完成；等 MAIN 验收合入（分支未推送）。
 
 ## Current Phase
 
@@ -51,9 +51,9 @@ Phase 6
 ### Phase 6: 文档与交接
 
 - [x] README：增量执行核验表、收据 schema/边界、audit CLI、输出格式、测试计数 234
-- [ ] `docs/implementation/handoffs/N5-ET-TXT/HANDOFF.md` + `handoff.json`（cwp-independent-handoff/1）
-- [ ] 两段正常提交本分支（代码 → handoff）
-- **Status:** in_progress
+- [x] `docs/implementation/handoffs/N5-ET-TXT/HANDOFF.md` + `handoff.json`（cwp-independent-handoff/1）
+- [x] 两段正常提交本分支：代码 `96c9bc8b0b4610a4e4660918bbfb9cbe80fa0395`（delivery_head）→ handoff docs 提交
+- **Status:** complete
 
 ## Key Questions
 

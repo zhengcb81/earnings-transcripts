@@ -1,0 +1,92 @@
+{
+  "schema_version": "cwp-independent-handoff/1",
+  "lane_id": "N5-ET-TXT",
+  "status": "complete",
+  "repo": "C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts",
+  "worktree": "C:/Users/郑曾波/Projects/cwp-lanes-20261006/et-local-text",
+  "branch": "codex/n5-et-local-text",
+  "base_head": "63c4090083cd34ece2ebb23affab81a419bc79dc",
+  "delivery_head": "96c9bc8b0b4610a4e4660918bbfb9cbe80fa0395",
+  "commits": [
+    "96c9bc8b0b4610a4e4660918bbfb9cbe80fa0395"
+  ],
+  "changed_paths": [
+    "scraper.py",
+    "transcript_artifact.py",
+    "transcript_audit.py",
+    "tests/test_batch_runtime.py",
+    "tests/test_transcript_artifact.py",
+    "tests/test_transcript_audit.py",
+    "README.md",
+    ".planning/n5-et-local-text/task_plan.md",
+    ".planning/n5-et-local-text/findings.md",
+    ".planning/n5-et-local-text/progress.md",
+    "docs/implementation/handoffs/N5-ET-TXT/HANDOFF.md",
+    "docs/implementation/handoffs/N5-ET-TXT/handoff.json"
+  ],
+  "upstream_pins": {},
+  "public_commands": [
+    "git -C C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts worktree add -b codex/n5-et-local-text C:/Users/郑曾波/Projects/cwp-lanes-20261006/et-local-text 63c4090083cd34ece2ebb23affab81a419bc79dc",
+    "C:/Miniconda/python.exe -m pytest tests/ -q",
+    "C:/Miniconda/python.exe -m pytest tests/test_batch_runtime.py tests/test_transcript_artifact.py tests/test_transcript_audit.py tests/test_scraper.py -q",
+    "C:/Miniconda/python.exe tests/generate_transcript_goldens.py --check",
+    "C:/Miniconda/python.exe -m ruff check scraper.py transcript_artifact.py transcript_audit.py tests/test_transcript_artifact.py tests/test_transcript_audit.py tests/test_batch_runtime.py",
+    "C:/Miniconda/python.exe transcript_audit.py",
+    "C:/Miniconda/python.exe transcript_audit.py --report-dir OUT",
+    "C:/Miniconda/python.exe transcript_audit.py --write-receipts"
+  ],
+  "tests": [
+    {
+      "command": "C:/Miniconda/python.exe -m pytest tests/ -q",
+      "passed": 234,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 77.76
+    },
+    {
+      "command": "C:/Miniconda/python.exe tests/generate_transcript_goldens.py --check",
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 0.68
+    },
+    {
+      "command": "C:/Miniconda/python.exe -m ruff check scraper.py transcript_artifact.py transcript_audit.py tests/test_transcript_artifact.py tests/test_transcript_audit.py tests/test_batch_runtime.py",
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 0.19
+    }
+  ],
+  "real_samples": [
+    {
+      "sample_id": "transcripts/MSFT/MSFT_Q1_2025_earnings_call.txt",
+      "sha256": "ac1cc6170dcfaa68e586dfcdc6c5bf2e4de05cc0bfb7836013c37cc60eb701ae",
+      "byte_size": 60363,
+      "metadata_is_fixture": false
+    }
+  ],
+  "protection": {
+    "originals_unchanged": true,
+    "production_state_unchanged": true,
+    "owner_files_unchanged": true
+  },
+  "cleanup": {
+    "before": "transcripts inventory: 43 *_earnings_call.txt, 0 *.receipt.json, git-clean",
+    "after": "identical inventory (size/mtime_ns/SHA-256 re-checked; no receipts generated in source transcripts)",
+    "restored": true
+  },
+  "calls": {
+    "model_posts": 0,
+    "provider_http": 0,
+    "downloads": 0
+  },
+  "open_items": [
+    "CodeGraph not initialized in source repo (reported per card, not initialized)",
+    "41 pre-existing ruff errors in untouched files (common.py/reader.py/translate.py etc.); package files are clean",
+    "_existing_status byte-compare race branch still treats CRLF-old vs LF-new identical text as conflict (pre-existing, effectively unreachable)",
+    "--write-receipts intentionally not run against real corpus (card forbids receipts in source transcripts); run on a copy or explicit --root",
+    "receipt and TXT are two atomic replaces (TXT first): interruption yields legacy header-proof path or receipt_invalid, never lost original",
+    "branch not pushed to remote; MAIN decides merge"
+  ]
+}

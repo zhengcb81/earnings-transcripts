@@ -48,13 +48,16 @@
   - 集中一次验证见下表
 - Files created/modified: `tests/test_batch_runtime.py`（+6 集成例）、`tests/test_transcript_audit.py`
 
-### Phase 6: 文档与交接 — in_progress
+### Phase 6: 文档与交接 — complete
 
-- **Status:** in_progress
+- **Status:** complete
 - Actions taken:
   - README：项目结构（+2 模块）、增量执行核验收据表+完整性边界、audit CLI 段、输出格式收据行、测试计数 172→234
-  - 待办：HANDOFF.md + handoff.json → 两段提交
-- Files created/modified: `README.md`
+  - 编辑器整文件格式化污染（59 无关 hunk）→ 回 HEAD 按锚点只重放本包区域，diff 收敛为 5+1 hunk
+  - 代码提交（delivery_head）`96c9bc8b0b4610a4e4660918bbfb9cbe80fa0395`（10 files, 2344+/35-）
+  - `docs/implementation/handoffs/N5-ET-TXT/HANDOFF.md` + `handoff.json`（JSON 校验通过、实测数字与真实样本 SHA 均为实测）
+  - 临时文件（AppData Temp 的 patch 脚本/副本）已删除；工作区仅剩本包改动
+- Files created/modified: `README.md`、`docs/implementation/handoffs/N5-ET-TXT/{HANDOFF.md,handoff.json}`、本 PWF
 
 ## Test Results
 
