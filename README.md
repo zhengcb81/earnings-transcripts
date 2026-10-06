@@ -41,6 +41,8 @@ earnings-transcripts/
 ├── translator.py        # 翻译体系（MiniMax/MiMo/DeepSeek/Google）
 ├── common.py            # 共享模块（re-export 门面）
 ├── scraper.py           # 有限批次采集入口（transcript_api 薄编排，默认原语言）
+├── transcript_artifact.py # 本地原件字节/身份核验 + et-local-text-receipt/1 小收据
+├── transcript_audit.py  # 本地原件 audit CLI（默认只读、零网络、零翻译）
 ├── translate.py         # 独立翻译器
 ├── make_interleaved.py  # 中英夹排TXT生成器
 ├── reader.py            # Web 阅读器
@@ -175,14 +177,43 @@ DRY RUN — 零 HTTP、零写入、零翻译
 
 ### 增量执行（重复运行是安全的）
 
-跳过与否看**磁盘上英文原件是否存在 + 身份（URL）是否一致**：
+跳过与否看**磁盘上英文原件是否存在 + 复用前的严格核验**
+（`transcript_artifact.verify_stored_original`：严格 UTF-8 解码、实算正文与整文件
+SHA-256/UTF-8 字节数、头部身份/期间、sidecar 收据；头部 `Characters` 只作历史
+诊断、从不当字节长度；文件名只产生“期望”，不是证据）：
 
-| 本地状态 | 行为 |
+| 本地状态 | 报告 / 退出码 |
 |---|---|
-| 原件已存在且 URL/正文一致 | 复用，不下载、不覆盖 |
-| 原件已存在但身份/字节冲突 | 具名 `output_conflict` 失败，绝不覆盖 |
-| 原件缺失 | 下载并原子保存（临时文件失败 finally 清理） |
-| 加了 `--translate` 且缺译文 | 只补翻译，不重新下载 |
+| download 收据逐项吻合 | `reused`（verified），不下载不覆盖，rc 0 |
+| 无收据，但头部 `Ticker`（或已知 URL）+ `Quarter` 可证明且正文非空 | `legacy_unverified`，保持原文件，rc 0 |
+| 证明不了身份/期间（仅 URL、无头部、缺 Quarter 等） | `unknown`/`identity_missing`（**非** verified reused），rc 0 |
+| 头部或收据与期望矛盾（错 ticker/错期间/URL 不符） | 具名 `output_conflict/identity_mismatch\\|period_mismatch`，原件保留，rc 1 |
+| 空文件/乱码/不可读/收据坏/收据哈希不符 | 具名 `output_conflict/empty_original\\|invalid_encoding\\|unreadable\\|receipt_invalid\\|receipt_mismatch`，原件保留，rc 1 |
+| 原件缺失 | 下载并原子保存 + 同目录 `*.receipt.json` 小收据（临时文件失败 finally 清理） |
+| 加了 `--translate` 且缺译文 | 只补翻译，不重新下载；`unknown` 与冲突不派生翻译 |
+
+完整性边界：核验证明“当前字节 = 收据字节、身份/期间相符”，**不证明内容完整**
+（无法凭关键词判断截断）。已有文件绝不自动覆盖、删除或悄悄补下载。
+
+新落盘原件旁附 `et-local-text-receipt/1` 收据（同目录 sidecar，实测约 0.5–0.7 KB，
+原子写入、计入 `--max-output-bytes`），绑定 ticker、明确 fiscal year/quarter、
+provider、source_url（实际已知才填）、extraction/version、取得时间 `obtained_at`、
+canonical 正文与整文件的 SHA-256/UTF-8 字节数。收据只是 **ET 本地附件**：
+不宣称 provider 原始 HTTP hash、公开日/as-of 证明或 CWP 准入，也不是第二个
+canonical 来源库；`published_date` 恒为 null，`timestamp` 是取得时间不是公开日。
+
+### 本地原件 audit（transcript_audit.py，默认只读）
+
+```bash
+python3 transcript_audit.py                    # 只读：JSON 小报告打到 stdout，零写入
+python3 transcript_audit.py --report-dir out   # 报告原子写到独立目标目录
+python3 transcript_audit.py --write-receipts   # 显式：为可证明且无收据的原件补收据
+```
+
+0 网络、0 翻译、0 外部 LLM，与批次复用同一套验证实现。`--write-receipts` 只加
+`audit-legacy` 收据（记录当前字节与头部可证明字段，`obtained_at`/`extraction_version`
+保持 null、不补造下载时来源），绝不改、删、覆盖 TXT 原件或已有收据。
+退出码：0 无具名失败；1 存在损坏/矛盾/坏收据。
 
 翻译本身另有段落级缓存（`.translate_cache.json`，按内容 MD5 命中），
 仅在显式 `--translate` 时才会初始化。
@@ -245,14 +276,18 @@ python3 reader.py --port 9000          # 自定义端口
 python3 -m pytest tests/ -v
 ```
 
-172个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
+234个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
 transcript解析、翻译器、阅读器数据构建、单实例锁、summary 按磁盘生成、
 **批次限额（请求/秒/累计字节/输出字节）**、**精确期间 vs recent-N**、
 **provider disabled 与 FMP list/dry-run 零 HTTP**、**原件复用与
 `output_conflict` 不覆盖**、**硬截止（阻塞 worker 在 deadline+统一清理宽限内
 回收且进程确认退出、超期结果拒收、坏 worker/坏 JSON/超大结果不成功、临时根清完、
 用量未知不停报 0）**、**真实 CLI → supervisor → worker → 现有 API → serializer
-的假 FMP 200/402/429/缺 key**、**`/2` goldens**、以及 subprocess 真实退出路径。
+的假 FMP 200/402/429/缺 key**、**`/2` goldens**、以及 subprocess 真实退出路径、
+**本地原件核验与 `et-local-text-receipt/1` 收据（空/截断/乱码/错 ticker/错期间/
+Characters 虚报/坏收据/篡改/不同 newline/CRLF、二跑零 HTTP 复用、收据中断原件不丢）**
+和 **audit CLI（只读、报告目录、显式补 audit-legacy 收据、真实 MSFT 前后
+SHA/size/mtime 不变）**。
 
 ```bash
 # 本机依赖装在 Miniconda，用这个跑
@@ -277,14 +312,15 @@ AAPL|苹果|Apple|nasdaq
 
 ## 输出格式
 
-默认每篇 transcript 只生成一个原语言文件：
+默认每篇 transcript 只生成一个原语言文件（新保存的原文旁附小收据）：
 
 1. `*_earnings_call.txt` — 原文
+2. `*_earnings_call.receipt.json` — `et-local-text-receipt/1` 小收据（实测约 0.5–0.7 KB，ET 本地附件）
 
 显式 `--translate` 时额外生成：
 
-2. `*_bilingual.json` — 中英对照JSON（段落对齐）
-3. `*_interleaved.txt` — 中英夹排TXT（一段英文一段中文）
+3. `*_bilingual.json` — 中英对照JSON（段落对齐）
+4. `*_interleaved.txt` — 中英夹排TXT（一段英文一段中文）
 
 真实批次运行另在输出根写 `run_manifest.json` 与 `logs/scraper.log`
 （request_id/状态/bytes/时间；不含 key、不含正文）。

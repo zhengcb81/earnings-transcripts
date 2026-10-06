@@ -591,6 +591,421 @@ def test_existing_fmp_original_is_reused_without_credentials_or_http(
     assert get_urls(calls_file) == []
 
 
+# ── existing-original verification: receipt + identity/period ──────
+
+
+def _seed_header_original(
+    out: Path, filename: str, header_lines: list[str], body: str
+) -> Path:
+    seeded = out / "ACME" / filename
+    seeded.parent.mkdir(parents=True, exist_ok=True)
+    sep = "=" * 70
+    seeded.write_text(
+        f"{sep}\nEarnings Call Transcript\n"
+        + "\n".join(header_lines)
+        + f"\n{sep}\n\n{body}",
+        encoding="utf-8",
+    )
+    return seeded
+
+
+def _manifest_entries(out: Path) -> list[dict]:
+    manifest = json.loads((out / "run_manifest.json").read_text(encoding="utf-8"))
+    return manifest["entries"]
+
+
+def test_existing_empty_original_is_named_failure_not_reused(
+    tmp_path, monkeypatch, capsys
+):
+    """0 字节原件必须具名失败并保持原样，绝不能报 reused。"""
+    out = tmp_path / "out"
+    seeded = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
+    seeded.parent.mkdir(parents=True)
+    seeded.write_bytes(b"")
+    calls_file = tmp_path / "calls.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls_file,
+        responses={},
+        key=None,
+    )
+    captured = capsys.readouterr()
+    assert rc == 1
+    assert "output_conflict" in captured.err
+    assert seeded.read_bytes() == b""
+    assert get_urls(calls_file) == []
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "output_conflict"
+    assert entry["error_code"] == "empty_original"
+
+
+def test_existing_wrong_ticker_header_is_identity_mismatch(
+    tmp_path, monkeypatch, capsys
+):
+    """头部 Ticker 与路径期望不符 → 具名 identity_mismatch，原件保留。"""
+    out = tmp_path / "out"
+    seeded = _seed_header_original(
+        out,
+        "ACME_Q3_2026_earnings_call.txt",
+        [
+            "Company: Microsoft (微软)",
+            "Ticker: MSFT",
+            "Quarter: Q3 2026",
+            "Source: fmp_api",
+            "URL: N/A",
+            "Characters: 33",
+        ],
+        "Stored body for the wrong company.",
+    )
+    before = seeded.read_bytes()
+    calls_file = tmp_path / "calls.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls_file,
+        responses={},
+        key=None,
+    )
+    captured = capsys.readouterr()
+    assert rc == 1
+    assert "output_conflict/identity_mismatch" in captured.err
+    assert seeded.read_bytes() == before
+    assert get_urls(calls_file) == []
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "output_conflict"
+    assert entry["error_code"] == "identity_mismatch"
+
+
+def test_existing_wrong_period_header_is_period_mismatch(tmp_path, monkeypatch, capsys):
+    """头部 Quarter 与请求期间不符 → 具名 period_mismatch，不凭文件名纠正。"""
+    out = tmp_path / "out"
+    seeded = _seed_header_original(
+        out,
+        "ACME_Q3_2026_earnings_call.txt",
+        [
+            "Company: Acme (亚克力)",
+            "Ticker: ACME",
+            "Quarter: Q1 2026",
+            "Source: fmp_api",
+            "URL: N/A",
+            "Characters: 30",
+        ],
+        "Stored body for another quarter.",
+    )
+    before = seeded.read_bytes()
+    calls_file = tmp_path / "calls.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls_file,
+        responses={},
+        key=None,
+    )
+    captured = capsys.readouterr()
+    assert rc == 1
+    assert "output_conflict/period_mismatch" in captured.err
+    assert seeded.read_bytes() == before
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "output_conflict"
+    assert entry["error_code"] == "period_mismatch"
+
+
+def test_characters_header_is_never_reported_as_content_bytes(tmp_path, monkeypatch):
+    """头部 Characters: 500000 只是历史诊断，content_bytes 必须是实算字节。"""
+    out = tmp_path / "out"
+    body = "Truncated prepared remarks."
+    seeded = _seed_header_original(
+        out,
+        "ACME_Q3_2026_earnings_call.txt",
+        [
+            "Company: Acme (亚克力)",
+            "Ticker: ACME",
+            "Quarter: Q3 2026",
+            "Source: fmp_api",
+            "URL: N/A",
+            "Characters: 500000",
+        ],
+        body,
+    )
+    before = seeded.read_bytes()
+    calls_file = tmp_path / "calls.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls_file,
+        responses={},
+        key=None,
+    )
+    assert rc == 0
+    assert seeded.read_bytes() == before
+    assert get_urls(calls_file) == []
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "legacy_unverified"
+    assert entry["content_bytes"] == len(body.encode("utf-8"))
+    assert entry["content_bytes"] != 500000
+
+
+def test_url_only_legacy_original_reports_unknown_identity_missing(
+    tmp_path, monkeypatch, capsys
+):
+    """头部只有 URL（身份可证、期间不可证）→ unknown/identity_missing，非 verified reused。"""
+    out = tmp_path / "out"
+    seeded = out / "ACME" / "ACME_Q2_2026_earnings_call.txt"
+    seeded.parent.mkdir(parents=True)
+    seeded.write_text(
+        f"{'=' * 70}\nEarnings Call Transcript\nURL: {Q2_URL}\n"
+        f"{'=' * 70}\n\nPreviously stored original body.\n",
+        encoding="utf-8",
+    )
+    before = seeded.read_bytes()
+    calls_file = tmp_path / "calls.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--periods", "2026Q2", "--output", str(out)],
+        calls_file=calls_file,
+        responses={QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))},
+        settings=ENABLED_FOOL,
+    )
+    captured = capsys.readouterr()
+    assert rc == 0
+    assert "unknown/identity_missing" in captured.err
+    assert seeded.read_bytes() == before
+    assert get_urls(calls_file) == [QUOTE_URL]  # metadata only, zero body
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "unknown"
+    assert entry["error_code"] == "identity_missing"
+    assert entry["content_bytes"] == len(
+        "Previously stored original body.".encode("utf-8")
+    )
+
+
+def test_new_fmp_original_writes_receipt_and_second_run_reuses_zero_http(
+    tmp_path, monkeypatch
+):
+    """真实批次 CLI → 原子 TXT+收据 → 再次运行零 HTTP 且收据逐项吻合。"""
+    import hashlib
+
+    from transcript_artifact import canonical_body, receipt_path
+
+    out = tmp_path / "out"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=tmp_path / "calls1.jsonl",
+        responses={
+            FMP_URL: FakeResponse(
+                FMP_URL, fmp_payload(symbol="ACME"), content_type="application/json"
+            ),
+        },
+        key=FAKE_KEY,
+    )
+    assert rc == 0
+    txt = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
+    assert txt.exists()
+    rpath = receipt_path(txt)
+    assert rpath.exists()
+    assert [p.name for p in out.rglob("*.tmp-*")] == []
+    assert _manifest_entries(out)[0]["status"] == "fetched"
+
+    receipt = json.loads(rpath.read_text(encoding="utf-8"))
+    assert receipt["schema"] == "et-local-text-receipt/1"
+    assert receipt["kind"] == "download"
+    assert receipt["ticker"] == "ACME"
+    assert (receipt["fiscal_year"], receipt["fiscal_quarter"]) == (2026, 3)
+    assert receipt["fiscal_period"] == "2026-Q3"
+    assert receipt["provider"] == "fmp"
+    assert receipt["extraction_version"]
+    assert receipt["obtained_at"]
+    assert receipt["published_date"] is None
+
+    raw = txt.read_bytes()
+    assert receipt["file_sha256"] == hashlib.sha256(raw).hexdigest()
+    assert receipt["file_bytes"] == len(raw)
+    body = canonical_body(raw.decode("utf-8")).encode("utf-8")
+    assert receipt["body_sha256"] == hashlib.sha256(body).hexdigest()
+    assert receipt["body_bytes"] == len(body)
+    assert receipt["body_bytes"] < receipt["file_bytes"]
+
+    calls2 = tmp_path / "calls2.jsonl"
+    rc2 = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls2,
+        responses={},
+        key=FAKE_KEY,
+    )
+    assert rc2 == 0
+    assert get_urls(calls2) == []  # zero HTTP on verified reuse
+    assert txt.read_bytes() == raw
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "reused"
+    assert entry["content_bytes"] == receipt["body_bytes"]
+
+
+def test_tampered_original_is_receipt_mismatch_and_keeps_bytes(
+    tmp_path, monkeypatch, capsys
+):
+    """收据与当前字节不符 → 具名 receipt_mismatch，篡改后的原件也原样保留。"""
+    out = tmp_path / "out"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=tmp_path / "calls1.jsonl",
+        responses={
+            FMP_URL: FakeResponse(
+                FMP_URL, fmp_payload(symbol="ACME"), content_type="application/json"
+            ),
+        },
+        key=FAKE_KEY,
+    )
+    assert rc == 0
+    txt = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
+    tampered = txt.read_bytes() + b"\ntampered line\n"
+    txt.write_bytes(tampered)
+
+    calls2 = tmp_path / "calls2.jsonl"
+    rc2 = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls2,
+        responses={},
+        key=FAKE_KEY,
+    )
+    captured = capsys.readouterr()
+    assert rc2 == 1
+    assert "output_conflict/receipt_mismatch" in captured.err
+    assert get_urls(calls2) == []
+    assert txt.read_bytes() == tampered
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "output_conflict"
+    assert entry["error_code"] == "receipt_mismatch"
+
+
+def test_bad_receipt_json_is_named_failure_and_original_kept(
+    tmp_path, monkeypatch, capsys
+):
+    """半写/坏 JSON 收据 → 具名 receipt_invalid，TXT 不动、收据不被“修好”。"""
+    out = tmp_path / "out"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=tmp_path / "calls1.jsonl",
+        responses={
+            FMP_URL: FakeResponse(
+                FMP_URL, fmp_payload(symbol="ACME"), content_type="application/json"
+            ),
+        },
+        key=FAKE_KEY,
+    )
+    assert rc == 0
+    txt = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
+    rpath = txt.parent / "ACME_Q3_2026_earnings_call.receipt.json"
+    txt_before = txt.read_bytes()
+    rpath.write_bytes(b'{"schema": "et-local-text-receipt/1", "kind": "down')
+
+    calls2 = tmp_path / "calls2.jsonl"
+    rc2 = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls2,
+        responses={},
+        key=FAKE_KEY,
+    )
+    captured = capsys.readouterr()
+    assert rc2 == 1
+    assert "output_conflict/receipt_invalid" in captured.err
+    assert get_urls(calls2) == []
+    assert txt.read_bytes() == txt_before
+    assert rpath.read_bytes() == b'{"schema": "et-local-text-receipt/1", "kind": "down'
+
+
+def test_interrupted_receipt_write_keeps_original_and_reports_legacy(
+    tmp_path, monkeypatch
+):
+    """收据写入中断：原件已落盘不丢，下次按 legacy 头部证明保守报告。"""
+
+    def boom(*args, **kwargs):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(scraper, "write_atomic", boom)
+    out = tmp_path / "out"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=tmp_path / "calls1.jsonl",
+        responses={
+            FMP_URL: FakeResponse(
+                FMP_URL, fmp_payload(symbol="ACME"), content_type="application/json"
+            ),
+        },
+        key=FAKE_KEY,
+    )
+    assert rc == 0
+    txt = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
+    assert txt.exists()
+    rpath = txt.parent / "ACME_Q3_2026_earnings_call.receipt.json"
+    assert not rpath.exists()
+    raw = txt.read_bytes()
+    assert _manifest_entries(out)[0]["status"] == "fetched"
+    assert [p.name for p in out.rglob("*.tmp-*")] == []
+
+    monkeypatch.undo()
+    calls2 = tmp_path / "calls2.jsonl"
+    rc2 = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls2,
+        responses={},
+        key=FAKE_KEY,
+    )
+    assert rc2 == 0
+    assert get_urls(calls2) == []
+    assert txt.read_bytes() == raw
+    entry = _manifest_entries(out)[0]
+    assert entry["status"] == "legacy_unverified"
+
+
+def test_reuse_of_verified_legacy_file_never_constructs_translator(
+    tmp_path, monkeypatch
+):
+    """默认（无 --translate）复用路径同样零翻译器构造。"""
+    import translator
+
+    def explode(*args, **kwargs):
+        pytest.fail("translator must not be constructed without --translate")
+
+    monkeypatch.setattr(translator.TranslatorFactory, "create", explode)
+    monkeypatch.setattr(scraper, "TranslatorFactory", translator.TranslatorFactory)
+    out = tmp_path / "out"
+    seeded = _seed_header_original(
+        out,
+        "ACME_Q3_2026_earnings_call.txt",
+        [
+            "Company: Acme (亚克力)",
+            "Ticker: ACME",
+            "Quarter: Q3 2026",
+            "Source: fmp_api",
+            "URL: N/A",
+            "Characters: 33",
+        ],
+        "Stored body for the right company.",
+    )
+    before = seeded.read_bytes()
+    calls_file = tmp_path / "calls.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls_file,
+        responses={},
+        key=None,
+    )
+    assert rc == 0
+    assert seeded.read_bytes() == before
+    assert get_urls(calls_file) == []
+    assert _manifest_entries(out)[0]["status"] == "legacy_unverified"
+
+
 def test_output_limit_leaves_no_temp_or_original(tmp_path, monkeypatch, capsys):
     calls_file = tmp_path / "calls.jsonl"
     out = tmp_path / "out"

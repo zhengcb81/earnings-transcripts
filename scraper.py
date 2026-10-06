@@ -64,6 +64,17 @@ from transcript_api import (
     REQUEST_SCHEMA,
     ProviderSettings,
 )
+from transcript_artifact import (
+    OUTCOME_IDENTITY_MISSING,
+    OUTCOME_LEGACY_UNVERIFIED,
+    OUTCOME_VERIFIED,
+    build_download_receipt,
+    parse_quarter_label,
+    receipt_json_bytes,
+    receipt_path,
+    verify_stored_original,
+    write_atomic,
+)
 
 log = logging.getLogger("scraper")
 
@@ -419,6 +430,32 @@ def _existing_status(cfg: dict, existing_text: str, transcript: dict) -> str:
     return "output_conflict"
 
 
+def _download_receipt_bytes(
+    cfg: dict, company: dict, transcript: dict, text: str, payload: bytes
+) -> bytes:
+    """新原件的 sidecar 收据字节；季度不可解析时跳过并具名 log（原件不受影响）。"""
+    period = parse_quarter_label(transcript.get("quarter", ""))
+    if period is None:
+        log.warning(
+            "receipt_write_skipped: unparseable quarter %r for %s",
+            transcript.get("quarter"),
+            company["ticker"],
+        )
+        return b""
+    receipt = build_download_receipt(
+        ticker=company["ticker"],
+        fiscal_year=period[0],
+        fiscal_quarter=period[1],
+        source=transcript.get("source"),
+        url=transcript.get("url"),
+        obtained_at=datetime.now().isoformat(timespec="seconds"),
+        text=text,
+        payload=payload,
+        cfg=cfg,
+    )
+    return receipt_json_bytes(receipt)
+
+
 def _store_original(
     cfg: dict,
     fn: FileNaming,
@@ -429,25 +466,40 @@ def _store_original(
 ) -> tuple[str, Path]:
     """保存一份原件：绝不覆盖已有文件；重复内容复用；冲突具名失败。
 
-    新文件先写同目录临时文件再原子替换；任何失败路径都在 finally 清理临时文件。
+    新文件先写同目录临时文件再原子替换，落盘成功后附 ``et-local-text-receipt/1``
+    收据（同目录 sidecar，同样原子）；收据字节计入输出额度，任何失败路径都在
+    finally 清理临时文件，原件不丢。
     """
     ticker = company["ticker"]
     path = find_english_file(fn, ticker, transcript["quarter"], output_dir)
     if path.exists():
-        existing = path.read_text(encoding="utf-8", errors="ignore")
+        try:
+            existing = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            return ("output_conflict", path)
         return (_existing_status(cfg, existing, transcript), path)
 
-    payload = render_original(cfg, company, transcript).encode("utf-8")
-    budget.take_output(len(payload))
+    text = render_original(cfg, company, transcript)
+    payload = text.encode("utf-8")
+    receipt_bytes = _download_receipt_bytes(cfg, company, transcript, text, payload)
+    budget.take_output(len(payload) + len(receipt_bytes))
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path: Path | None = path.parent / f".{path.name}.tmp-{os.getpid()}"
     try:
         tmp_path.write_bytes(payload)
         if path.exists():  # 并发竞态：已有原件绝不覆盖
-            existing = path.read_text(encoding="utf-8", errors="ignore")
+            try:
+                existing = path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                return ("output_conflict", path)
             return (_existing_status(cfg, existing, transcript), path)
         os.replace(tmp_path, path)
         tmp_path = None
+        if receipt_bytes:
+            try:
+                write_atomic(receipt_path(path), receipt_bytes)
+            except OSError as exc:
+                log.warning("receipt_write_failed: %s: %s", path.name, exc)
         return ("fetched", path)
     finally:
         if tmp_path is not None and tmp_path.exists():
@@ -505,6 +557,13 @@ def _maybe_translate(cfg: dict, fn: FileNaming, english_path: Path, translate_en
         log.warning("translation failed for %s: %s", english_path.name, exc)
 
 
+_ENTRY_STATUS_FOR_OUTCOME = {
+    OUTCOME_VERIFIED: "reused",
+    OUTCOME_LEGACY_UNVERIFIED: "legacy_unverified",
+    OUTCOME_IDENTITY_MISSING: "unknown",
+}
+
+
 def _finalize_existing(
     cfg: dict,
     fn: FileNaming,
@@ -516,29 +575,56 @@ def _finalize_existing(
     entries: list[dict[str, Any]],
     translate_enabled: bool,
 ) -> None:
-    """已有原件：身份核验后复用，绝不覆盖；身份不符 → 具名 output_conflict。"""
+    """已有原件：验证（身份/期间/字节/收据）后复用，绝不覆盖。
+
+    - 头部或收据与期望矛盾、文件损坏、收据坏/不匹配 → 具名
+      ``output_conflict/<code>`` 失败，原件原样保留；
+    - download 收据逐项吻合 → ``reused``（verified）；无收据但头部可证明
+      身份+期间且正文非空 → ``legacy_unverified``；
+    - 证明不了身份/期间 → ``unknown``/``identity_missing``（非 verified reused）。
+    ``content_bytes`` 一律为实算正文 UTF-8 字节，头部 ``Characters`` 只作诊断。
+    """
     request_id = new_request_id()
-    if expected_url is not None:
-        meta = parse_transcript_header(
-            path.read_text(encoding="utf-8", errors="ignore"), cfg=cfg
-        )
-        header_url = meta.get("URL")
-        if header_url and header_url not in ("N/A",) and header_url != expected_url:
-            print(
-                f"error: {company['ticker']} {fiscal}: output_conflict/identity_mismatch",
-                file=sys.stderr,
-            )
-            _record_entry(
-                entries, request_id=request_id, company=company, fiscal_period=fiscal,
-                status="output_conflict", error_code="identity_mismatch", file=path,
-            )
-            return
-    info = completed_entry(cfg, path, company, label, expected_url or "N/A")
-    _record_entry(
-        entries, request_id=request_id, company=company, fiscal_period=fiscal,
-        status="reused", content_bytes=(info["char_count"] or None), file=path,
+    verdict = verify_stored_original(
+        path,
+        ticker=company["ticker"],
+        quarter=label,
+        cfg=cfg,
+        expected_url=expected_url,
     )
-    _maybe_translate(cfg, fn, path, translate_enabled)
+    status = _ENTRY_STATUS_FOR_OUTCOME.get(verdict.outcome, "output_conflict")
+    if verdict.outcome in (OUTCOME_VERIFIED, OUTCOME_LEGACY_UNVERIFIED):
+        _record_entry(
+            entries,
+            request_id=request_id,
+            company=company,
+            fiscal_period=fiscal,
+            status=status,
+            content_bytes=verdict.body_bytes,
+            file=path,
+        )
+        _maybe_translate(cfg, fn, path, translate_enabled)
+        return
+    if verdict.outcome == OUTCOME_IDENTITY_MISSING:
+        print(
+            f"warning: {company['ticker']} {fiscal}: unknown/identity_missing",
+            file=sys.stderr,
+        )
+    else:
+        print(
+            f"error: {company['ticker']} {fiscal}: output_conflict/{verdict.error_code}",
+            file=sys.stderr,
+        )
+    _record_entry(
+        entries,
+        request_id=request_id,
+        company=company,
+        fiscal_period=fiscal,
+        status=status,
+        error_code=verdict.error_code,
+        content_bytes=verdict.body_bytes,
+        file=path,
+    )
 
 
 def _finalize_fetched(
