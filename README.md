@@ -343,7 +343,8 @@ Example request on stdin (`download_authorized=true` is the one explicit network
   "provider": "motley_fool",
   "download_authorized": true,
   "timeout_seconds": 30,
-  "max_body_bytes": 5000000
+  "max_body_bytes": 5000000,
+  "max_cost_usd": "0.00"
 }
 ~~~
 
@@ -392,3 +393,11 @@ For Motley Fool, `published_date` comes from the dated source URL. This interfac
 Statuses are fetched, not_found, ambiguous, unsupported, unavailable, not_authorized, rate_limited, provider_error, deadline_exceeded, content_too_large, provenance_rejected, and invalid_request. A missing FMP key reports `unavailable/provider_credentials_missing`, HTTP 402 reports `unavailable/provider_entitlement_required`, and HTTP 429 reports `rate_limited/provider_http_429`. The CLI emits exactly one JSON result on stdout and performs no retries or fallback translation. Unknown providers return unsupported; FMP requires an API key and uses `https://financialmodelingprep.com/stable/earning-call-transcript`. See [FMP's official endpoint documentation](https://site.financialmodelingprep.com/developer/docs/stable/search-transcripts). FMP terms and the account plan must be checked before persisting or redistributing transcript text; FMP says public display/redistribution requires a specific agreement ([terms](https://site.financialmodelingprep.com/terms-of-service), [pricing and access](https://site.financialmodelingprep.com/developer/docs/pricing)). This is a JSON CLI contract, not an MCP protocol server; an MCP wrapper can be added later without changing these schemas.
 
 **Integration status:** The offline CLI-to-API-to-fake-FMP-HTTP route and deterministic `/2` producer goldens are in [tests/golden](tests/golden/README.md). A previous user-authorized live FMP canary returned HTTP 402; endpoint entitlement and retention rights remain unverified, and this test run made no real provider request. The FMP `/2` success result has 26 fields, JSON MIME, and a safe period query; the current company-wiki importer accepts only the 24-field Motley shape, HTML/plain MIME, and a query-free URL. Its consumer migration awaits a provider-specific contract decision. filing-fetch invocation and the cross-repository import E2E remain pending.
+
+### Operation capability and incremental request cost
+
+`python transcript_tool.py --capabilities` returns local `earnings-provider-capabilities/1` metadata without HTTP or credentials. FMP supports exact `fetch`, not `discover` or `fetch-candidate`. Enabled capability is not proof of account entitlement: existing subscription/API quota requests have zero incremental fee, but a real 402/403 is still returned as `provider_entitlement_required`. No plan is purchased or upgraded. Motley Fool remains disabled by default.
+
+The exact request accepts optional `max_cost_usd` as non-negative decimal text with at most two decimal places (default `"0"` for legacy callers). Unknown or above-ceiling incremental prices fail before HTTP. Fee ceilings do not replace the byte limit, timeout or explicit requested network intent.
+
+`--report-usage` additionally emits a final `earnings-retrieval-usage/1` receipt on stderr, separate from content JSON: request ID, `usage_complete`, and measured `requests_used` / `response_bytes_used`. A hard-killed worker can have unknown final usage (`usage: null`, `usage_complete: false`); do not invent zero requests or automatically retry such an operation. Without the flag, legacy stdout/stderr behavior is preserved. Neither option changes untranslated raw bytes or fills an unknown publication date from the call date.

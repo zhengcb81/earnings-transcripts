@@ -13,6 +13,7 @@ import re
 import time
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
+from decimal import Decimal, InvalidOperation
 from typing import Any, Callable
 from urllib.parse import parse_qsl, urljoin, urlparse
 
@@ -46,6 +47,25 @@ class ProviderSettings:
 
 
 DEFAULT_PROVIDER_SETTINGS = ProviderSettings()
+
+
+def provider_operation_capability(
+    provider: str, operation: str, *, settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
+) -> dict[str, Any]:
+    """Local operation/pricing metadata; account entitlement remains unknown.
+
+    FMP uses the existing account subscription/rate/bandwidth quota. A GET
+    neither purchases nor upgrades a plan, and has zero incremental request
+    charge: https://site.financialmodelingprep.com/pricing-plans . A provider
+    rejection must still be reported from the actual request.
+    """
+    supported = (provider == "fmp" and operation == "fetch") or (
+        provider == "motley_fool" and operation in {"fetch", "discover", "fetch-candidate"})
+    enabled = {"fmp": settings.fmp_enabled, "motley_fool": settings.motley_fool_enabled}.get(provider, False)
+    return {"provider": provider, "operation": operation, "enabled": enabled,
+            "supported": supported, "incremental_cost_usd": "0" if supported else None,
+            "billing_model": "subscription_quota" if provider == "fmp" else "public_http",
+            "entitlement": "runtime_unknown"}
 
 
 SKIP_TEXT = (
@@ -116,7 +136,7 @@ def _validate_request(value: Any) -> dict[str, Any]:
         "timeout_seconds",
         "max_body_bytes",
     }
-    if set(value) != required:
+    if not required.issubset(value) or set(value) - required - {"max_cost_usd"}:
         raise _InvalidRequest()
     if value["schema_version"] != REQUEST_SCHEMA:
         raise _InvalidRequest()
@@ -152,6 +172,10 @@ def _validate_request(value: Any) -> dict[str, Any]:
     if type(value["max_body_bytes"]) is not int or not 1 <= value["max_body_bytes"] <= MAX_BODY_BYTES:
         raise _InvalidRequest()
     normalized = dict(value)
+    fee = value.get("max_cost_usd", "0")
+    if not isinstance(fee, str) or not re.fullmatch(r"(?:0|[1-9][0-9]*)(?:\.[0-9]{1,2})?", fee):
+        raise _InvalidRequest()
+    normalized["cost_limit"] = Decimal(fee)
     normalized["ticker"] = ticker
     normalized["as_of"] = as_of_date
     return normalized
@@ -181,6 +205,7 @@ def _provider_gate(
     operation: str,
     result_schema: str,
     settings: ProviderSettings,
+    cost_limit: Decimal = Decimal("0"),
 ) -> dict[str, Any] | None:
     """Apply one provider configuration before creating an HTTP session."""
     if provider not in ("motley_fool", "fmp"):
@@ -188,28 +213,29 @@ def _provider_gate(
             request_id, "unsupported", provider=provider,
             result_schema=result_schema, error_code="provider_unavailable",
         )
-    if provider == "motley_fool" and not settings.motley_fool_enabled:
+    capability = provider_operation_capability(provider, operation, settings=settings)
+    if not capability["enabled"]:
         return _base_result(
             request_id, "unavailable", provider=provider,
             result_schema=result_schema, error_code="provider_disabled",
         )
-    if provider == "fmp" and not settings.fmp_enabled:
-        return _base_result(
-            request_id, "unavailable", provider=provider,
-            result_schema=result_schema, error_code="provider_disabled",
-        )
-    if operation == "discover" and provider != "motley_fool":
+    if not capability["supported"]:
         return _base_result(
             request_id, "unsupported", provider=provider,
             result_schema=result_schema,
-            error_code="candidate_discovery_unavailable",
+            error_code="candidate_discovery_unavailable" if operation == "discover" else "candidate_fetch_unavailable",
         )
-    if operation == "fetch-candidate" and provider != "motley_fool":
-        return _base_result(
-            request_id, "unsupported", provider=provider,
-            result_schema=result_schema,
-            error_code="candidate_fetch_unavailable",
-        )
+    fee = capability.get("incremental_cost_usd")
+    try:
+        charge = Decimal(fee) if isinstance(fee, str) else Decimal("NaN")
+    except InvalidOperation:
+        charge = Decimal("NaN")
+    if not charge.is_finite() or charge < 0:
+        return _base_result(request_id, "unavailable", provider=provider,
+            result_schema=result_schema, error_code="provider_cost_unknown")
+    if charge > cost_limit:
+        return _base_result(request_id, "unavailable", provider=provider,
+            result_schema=result_schema, error_code="provider_cost_budget_exceeded")
     return None
 
 
@@ -660,7 +686,7 @@ def fetch_transcript(
     provider = normalized["provider"]
     gate = _provider_gate(
         request_id, provider, operation="fetch", result_schema=result_schema,
-        settings=provider_settings,
+        settings=provider_settings, cost_limit=normalized["cost_limit"],
     )
     if gate is not None:
         return gate

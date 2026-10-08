@@ -27,6 +27,7 @@ from transcript_api import (
     discover_transcripts,
     fetch_transcript,
     fetch_transcript_candidate,
+    provider_operation_capability,
 )
 
 
@@ -78,6 +79,15 @@ def _supervised_result(
         launcher_spec=launcher_spec,
         temp_root=temp_root,
     )
+    # Keep acquisition diagnostics out of the immutable content schema.
+    receipt = {
+        "schema_version": "earnings-retrieval-usage/1",
+        "request_id": request.get("request_id") if isinstance(request, dict) else None,
+        "usage_complete": outcome.result is not None and outcome.reason is None and outcome.usage is not None,
+        "usage": outcome.usage,
+    }
+    if args.report_usage:
+        sys.stderr.write(json.dumps(receipt, separators=(",", ":")) + "\n")
     if outcome.result is not None:
         return outcome.result
     request_id = (
@@ -107,7 +117,10 @@ def main(
     parser = argparse.ArgumentParser(
         description="Fetch one exact-period untranslated earnings transcript."
     )
-    parser.add_argument("--request-stdin", action="store_true", required=True)
+    entry = parser.add_mutually_exclusive_group(required=True)
+    entry.add_argument("--request-stdin", action="store_true")
+    entry.add_argument("--capabilities", action="store_true", help="Local operation/pricing metadata; no provider requests.")
+    parser.add_argument("--report-usage", action="store_true", help="Emit the final supervisor usage receipt on stderr; content schema is unchanged.")
     parser.add_argument(
         "--operation",
         choices=("fetch", "discover", "fetch-candidate"),
@@ -125,6 +138,13 @@ def main(
         help="Opt in to a bounded base64 original provider response; never writes files.",
     )
     args = parser.parse_args(argv)
+    if args.capabilities:
+        result = {"schema_version": "earnings-provider-capabilities/1", "providers": {
+            provider: {operation: provider_operation_capability(provider, operation, settings=_provider_settings)
+                       for operation in ("fetch", "discover", "fetch-candidate")}
+            for provider in ("fmp", "motley_fool")}}
+        sys.stdout.write(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n")
+        return 0
     result_schema = (
         DISCOVERY_RESULT_SCHEMA
         if args.operation == "discover"
