@@ -12,6 +12,7 @@ The worker envelope is internal: it never appears on the public tool stdout,
 never carries credentials (the FMP key travels only through the controlled
 process environment), and never changes any request/response schema.
 """
+
 from __future__ import annotations
 
 import json
@@ -88,7 +89,8 @@ def run_retrieval(
     ``remaining_seconds`` is the caller's remaining float budget (a batch
     passes its shared remaining time, never a fresh full budget per file).
     ``requests_left`` / ``response_bytes_left`` are the batch quotas the worker
-    must enforce mid-flight; ``None`` means the single-operation path.
+    must enforce mid-flight independently; each ``None`` omits only that quota.
+    A response-only operation must not silently become unlimited.
     """
     deadline = time.monotonic() + max(0.0, remaining_seconds)
     if remaining_seconds <= 0:
@@ -135,9 +137,7 @@ def run_retrieval(
             else None
         ),
     }
-    request_path.write_bytes(
-        json.dumps(envelope, ensure_ascii=False).encode("utf-8")
-    )
+    request_path.write_bytes(json.dumps(envelope, ensure_ascii=False).encode("utf-8"))
 
     env = os.environ.copy()
     if fmp_api_key:
@@ -287,9 +287,15 @@ def _load_result_file(
     result = envelope.get("result")
     if not isinstance(result, dict):
         return None, usage, "worker_failure"
-    if expected_request_id is not None and result.get("request_id") != expected_request_id:
+    if (
+        expected_request_id is not None
+        and result.get("request_id") != expected_request_id
+    ):
         return None, usage, "worker_failure"
-    if expected_schemas is not None and result.get("schema_version") not in expected_schemas:
+    if (
+        expected_schemas is not None
+        and result.get("schema_version") not in expected_schemas
+    ):
         return None, usage, "worker_failure"
     if time.monotonic() > deadline:
         return None, usage, "deadline"

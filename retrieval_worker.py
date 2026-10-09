@@ -6,6 +6,7 @@ no further processes, and communicates solely through one bounded atomic
 result file in its own temp directory. Credentials reach it only through the
 process environment (``FMP_API_KEY``) and are never serialized.
 """
+
 from __future__ import annotations
 
 import importlib
@@ -59,7 +60,10 @@ def _provider_settings(envelope: dict[str, Any]) -> ProviderSettings | None:
         return None
     if set(raw) != {"motley_fool_enabled", "fmp_enabled"}:
         return None
-    if type(raw["motley_fool_enabled"]) is not bool or type(raw["fmp_enabled"]) is not bool:
+    if (
+        type(raw["motley_fool_enabled"]) is not bool
+        or type(raw["fmp_enabled"]) is not bool
+    ):
         return None
     return ProviderSettings(
         motley_fool_enabled=raw["motley_fool_enabled"],
@@ -145,7 +149,12 @@ def main(argv: list[str]) -> int:
     if not isinstance(seconds_remaining, (int, float)) or seconds_remaining < 0:
         return 1
 
-    if type(requests_left) is int and type(response_bytes_left) is int:
+    if any(
+        value is not None and (type(value) is not int or value < 0)
+        for value in (requests_left, response_bytes_left)
+    ):
+        return 1
+    if requests_left is not None or response_bytes_left is not None:
         budget: BatchBudget | UsageCounter = BatchBudget(
             requests_left, float(seconds_remaining), response_bytes_left, 0
         )

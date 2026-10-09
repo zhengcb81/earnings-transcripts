@@ -1,0 +1,26 @@
+{
+  "stage": "proxy_RED",
+  "command": [
+    "C:\\Miniconda\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_request_response_budget.py",
+    "-k",
+    "transparent_cli_proxy",
+    "-q",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_proxy_red_47q07xmt\\pytest"
+  ],
+  "exit_code": 1,
+  "seconds": 3.704,
+  "stdout": "FFF                                                                      [100%]\n================================== FAILURES ===================================\n_ test_transparent_cli_proxy_uses_real_worker_and_requested_identity[MSFT-2025-4-success-1024-134217728] _\ntests\\test_request_response_budget.py:551: in test_transparent_cli_proxy_uses_real_worker_and_requested_identity\n    assert completed.returncode == 0, completed.stderr\nE   AssertionError: C:\\Miniconda\\python.exe: can't open file 'C:\\\\Users\\\\郑曾波\\\\Projects\\\\_harness_worktrees\\\\pool-20261009\\\\et-budget\\\\tests\\\\request_budget_cli_proxy.py': [Errno 2] No such file or directory\nE     \nE   assert 2 == 0\nE    +  where 2 = CompletedProcess(args=['C:\\\\Miniconda\\\\python.exe', '-X', 'utf8', '-B', 'C:\\\\Users\\\\郑曾波\\\\Projects\\\\_harness_worktrees\\...rktrees\\\\\\\\pool-20261009\\\\\\\\et-budget\\\\\\\\tests\\\\\\\\request_budget_cli_proxy.py': [Errno 2] No such file or directory\\n\").returncode\n_ test_transparent_cli_proxy_uses_real_worker_and_requested_identity[GLOBAL-2024-1-success-1024-1024] _\ntests\\test_request_response_budget.py:551: in test_transparent_cli_proxy_uses_real_worker_and_requested_identity\n    assert completed.returncode == 0, completed.stderr\nE   AssertionError: C:\\Miniconda\\python.exe: can't open file 'C:\\\\Users\\\\郑曾波\\\\Projects\\\\_harness_worktrees\\\\pool-20261009\\\\et-budget\\\\tests\\\\request_budget_cli_proxy.py': [Errno 2] No such file or directory\nE     \nE   assert 2 == 0\nE    +  where 2 = CompletedProcess(args=['C:\\\\Miniconda\\\\python.exe', '-X', 'utf8', '-B', 'C:\\\\Users\\\\郑曾波\\\\Projects\\\\_harness_worktrees\\...rktrees\\\\\\\\pool-20261009\\\\\\\\et-budget\\\\\\\\tests\\\\\\\\request_budget_cli_proxy.py': [Errno 2] No such file or directory\\n\").returncode\n_ test_transparent_cli_proxy_uses_real_worker_and_requested_identity[NVDA-2026-2-padded-json-20386-1024] _\ntests\\test_request_response_budget.py:551: in test_transparent_cli_proxy_uses_real_worker_and_requested_identity\n    assert completed.returncode == 0, completed.stderr\nE   AssertionError: C:\\Miniconda\\python.exe: can't open file 'C:\\\\Users\\\\郑曾波\\\\Projects\\\\_harness_worktrees\\\\pool-20261009\\\\et-budget\\\\tests\\\\request_budget_cli_proxy.py': [Errno 2] No such file or directory\nE     \nE   assert 2 == 0\nE    +  where 2 = CompletedProcess(args=['C:\\\\Miniconda\\\\python.exe', '-X', 'utf8', '-B', 'C:\\\\Users\\\\郑曾波\\\\Projects\\\\_harness_worktrees\\...rktrees\\\\\\\\pool-20261009\\\\\\\\et-budget\\\\\\\\tests\\\\\\\\request_budget_cli_proxy.py': [Errno 2] No such file or directory\\n\").returncode\n=========================== short test summary info ===========================\nFAILED tests/test_request_response_budget.py::test_transparent_cli_proxy_uses_real_worker_and_requested_identity[MSFT-2025-4-success-1024-134217728]\nFAILED tests/test_request_response_budget.py::test_transparent_cli_proxy_uses_real_worker_and_requested_identity[GLOBAL-2024-1-success-1024-1024]\nFAILED tests/test_request_response_budget.py::test_transparent_cli_proxy_uses_real_worker_and_requested_identity[NVDA-2026-2-padded-json-20386-1024]\n3 failed, 30 deselected in 1.15s\n",
+  "stderr": "",
+  "paid_calls": 0,
+  "temp_restored": true
+}

@@ -1,0 +1,30 @@
+{
+  "stage": "CONCENTRATED_GREEN",
+  "generated_at": "2026-10-09T00:52:17.787640+00:00",
+  "command": [
+    "C:\\Miniconda\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_request_response_budget.py",
+    "tests/test_transcript_api.py",
+    "tests/test_retrieval_runtime.py",
+    "tests/test_retrieval_cli_e2e.py",
+    "tests/test_batch_runtime.py",
+    "-q",
+    "--tb=short",
+    "-rs",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_green_s00wh2lz\\pytest"
+  ],
+  "exit_code": 0,
+  "seconds": 60.086,
+  "stdout": "........................................................................ [ 56%]\n........................................................                 [100%]\n128 passed in 57.83s\n",
+  "stderr": "",
+  "temp_restored": true,
+  "paid_calls": 0
+}

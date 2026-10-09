@@ -7,6 +7,7 @@ process termination, not by cooperative blocking checks alone. The private
 ``_session_factory`` injection keeps the pure-Python cooperative path for
 offline tests; its blocking behavior is not the hard-deadline guarantee.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -72,7 +73,13 @@ def _supervised_result(
         request,
         remaining_seconds=_operation_deadline(request),
         requests_left=None,
-        response_bytes_left=None,
+        response_bytes_left=(
+            request.get("max_response_bytes")
+            if isinstance(request, dict)
+            and type(request.get("max_response_bytes")) is int
+            and request["max_response_bytes"] > 0
+            else None
+        ),
         include_source_payload=args.include_source_payload,
         provider_settings=provider_settings,
         launcher=launcher,
@@ -83,16 +90,16 @@ def _supervised_result(
     receipt = {
         "schema_version": "earnings-retrieval-usage/1",
         "request_id": request.get("request_id") if isinstance(request, dict) else None,
-        "usage_complete": outcome.result is not None and outcome.reason is None and outcome.usage is not None,
+        "usage_complete": outcome.result is not None
+        and outcome.reason is None
+        and outcome.usage is not None,
         "usage": outcome.usage,
     }
     if args.report_usage:
         sys.stderr.write(json.dumps(receipt, separators=(",", ":")) + "\n")
     if outcome.result is not None:
         return outcome.result
-    request_id = (
-        request.get("request_id") if isinstance(request, dict) else None
-    )
+    request_id = request.get("request_id") if isinstance(request, dict) else None
     provider = "motley_fool"
     if isinstance(request, dict) and isinstance(request.get("provider"), str):
         if request["provider"]:
@@ -119,8 +126,16 @@ def main(
     )
     entry = parser.add_mutually_exclusive_group(required=True)
     entry.add_argument("--request-stdin", action="store_true")
-    entry.add_argument("--capabilities", action="store_true", help="Local operation/pricing metadata; no provider requests.")
-    parser.add_argument("--report-usage", action="store_true", help="Emit the final supervisor usage receipt on stderr; content schema is unchanged.")
+    entry.add_argument(
+        "--capabilities",
+        action="store_true",
+        help="Local operation/pricing metadata; no provider requests.",
+    )
+    parser.add_argument(
+        "--report-usage",
+        action="store_true",
+        help="Emit the final supervisor usage receipt on stderr; content schema is unchanged.",
+    )
     parser.add_argument(
         "--operation",
         choices=("fetch", "discover", "fetch-candidate"),
@@ -139,17 +154,26 @@ def main(
     )
     args = parser.parse_args(argv)
     if args.capabilities:
-        result = {"schema_version": "earnings-provider-capabilities/1", "providers": {
-            provider: {operation: provider_operation_capability(provider, operation, settings=_provider_settings)
-                       for operation in ("fetch", "discover", "fetch-candidate")}
-            for provider in ("fmp", "motley_fool")}}
-        sys.stdout.write(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n")
+        result = {
+            "schema_version": "earnings-provider-capabilities/1",
+            "providers": {
+                provider: {
+                    operation: provider_operation_capability(
+                        provider, operation, settings=_provider_settings
+                    )
+                    for operation in ("fetch", "discover", "fetch-candidate")
+                }
+                for provider in ("fmp", "motley_fool")
+            },
+        }
+        sys.stdout.write(
+            json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"
+        )
         return 0
     result_schema = (
         DISCOVERY_RESULT_SCHEMA
         if args.operation == "discover"
-        else
-        "earnings-transcript-result/2"
+        else "earnings-transcript-result/2"
         if args.include_source_payload
         else "earnings-transcript-result/1"
     )
@@ -157,7 +181,10 @@ def main(
         raw = sys.stdin.read(128 * 1024 + 1)
         if len(raw.encode("utf-8")) > 128 * 1024:
             result = _wire_failure(
-                result_schema, None, "invalid_request", "request_too_large",
+                result_schema,
+                None,
+                "invalid_request",
+                "request_too_large",
                 "motley_fool",
             )
         else:
@@ -171,8 +198,11 @@ def main(
                     if isinstance(raw_provider, str) and raw_provider:
                         provider = raw_provider
                 result = _wire_failure(
-                    DISCOVERY_RESULT_SCHEMA, request_id, "invalid_request",
-                    "source_payload_not_valid_for_discovery", provider,
+                    DISCOVERY_RESULT_SCHEMA,
+                    request_id,
+                    "invalid_request",
+                    "source_payload_not_valid_for_discovery",
+                    provider,
                 )
             elif _session_factory is not None:
                 # Cooperative path: injected custom session (offline tests).
@@ -210,7 +240,9 @@ def main(
         result = _wire_failure(
             result_schema, None, "invalid_request", "invalid_json", "motley_fool"
         )
-    sys.stdout.write(json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n")
+    sys.stdout.write(
+        json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"
+    )
     return 0
 
 

@@ -1,0 +1,40 @@
+{
+  "work_package": "W02-ET",
+  "base": "282e8908e98196447e3ac72d95a4c7425a3aa322",
+  "status": "responsibility_verified_pending_main_merge",
+  "changed_paths": [
+    "retrieval_budget.py",
+    "retrieval_runtime.py",
+    "retrieval_worker.py",
+    "transcript_api.py",
+    "transcript_tool.py",
+    "README.md",
+    "tests/test_request_response_budget.py",
+    "tests/request_budget_cli_proxy.py",
+    "tools/run_request_budget_e2e.py"
+  ],
+  "sha256": {
+    "retrieval_budget.py": "bf9f6f858692a9042171fb5f9c34fdf8cf9bd269a9aaf2ccd7d328cfe26a345d",
+    "retrieval_runtime.py": "52c91b302c20d0c2f7acdb6bcf240c393de1dea8e48b0754cbf938923ae32b2c",
+    "retrieval_worker.py": "15347091d6f03b800259a9f9165dd711d3887f42cdbd11be3216a0695f6a48ac",
+    "transcript_api.py": "7748add3500e2e1c95bf1f74aa4a7858110f1db5dcf67a733f2f4426199d926b",
+    "transcript_tool.py": "f86b4605ecab1969ef16a195296bee45b91c2ca381312349a600392f42fa5fb3",
+    "README.md": "4788287111aea4a8d7d16fec77e9d2d4bd3e713efba5ba82cbc2dcb37ee77510",
+    "tests/test_request_response_budget.py": "550249ff4794d9cb1f74bfce46d6855aa6cb6a5cd438027b0e25e091db270236",
+    "tests/request_budget_cli_proxy.py": "746ec72ea8b9f2c2f5762cd4ce34b25eb2ffae05de975384ce12909e5079b0b8",
+    "tools/run_request_budget_e2e.py": "027b7f1f6e6a4e5d80310fb463c1e1b5086e3fa88ce8bbe49821d6f11cf6b32a"
+  },
+  "red": "16failed/8passed initial; one additional request-quota failure; proxy3RED",
+  "green": "131passed in66.70s; see MAIN_GREEN.json",
+  "cli_e2e": "five actual supervisor/worker cases in CLI_E2E.json; external HTTP mocked",
+  "three_repo_e2e": "C:/Users/郑曾波/Projects/company-wiki/docs/plans/cross-market-rf-e2e-2026-10-08/phase6/transcript_budget_candidate_contract.json",
+  "temporary_restored": true,
+  "supplier_cost_usd": "0",
+  "model_calls": 0,
+  "installation": "No ET skill copy; FF tool uses canonical ET repository path",
+  "limits": "operation optional positive int independent from10MiB canonical body and per-response hardcap; actual overflow not clamped",
+  "not_done": [
+    "main merge/push by coordinator",
+    "real FMP entitlement remains external"
+  ]
+}

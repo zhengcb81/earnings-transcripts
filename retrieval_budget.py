@@ -5,6 +5,7 @@ enforce the batch request/byte/deadline quotas without importing the scraper
 CLI, its config/logging stack, or any translator module. scraper.py re-exports
 these names, so ``scraper.BatchBudget`` and friends keep their old identity.
 """
+
 from __future__ import annotations
 
 import time
@@ -24,9 +25,9 @@ class BatchBudget:
 
     def __init__(
         self,
-        max_requests: int,
+        max_requests: int | None,
         max_seconds: float,
-        max_response_bytes: int,
+        max_response_bytes: int | None,
         max_output_bytes: int,
     ):
         self.max_requests = max_requests
@@ -37,6 +38,8 @@ class BatchBudget:
         self.max_output_bytes = max_output_bytes
         self.output_bytes_left = max_output_bytes
         self.exhausted: str | None = None
+        self.requests_used = 0
+        self.response_bytes_used = 0
         # True once a worker vanished without reporting its consumption; the
         # report must then refuse to claim an exact (or zero) used amount.
         self.usage_unknown = False
@@ -52,20 +55,31 @@ class BatchBudget:
     def check_request(self) -> None:
         if self.exhausted is not None:
             raise BatchBudgetExceeded(self.exhausted)
-        if self.requests_left <= 0:
+        if self.requests_left is not None and self.requests_left <= 0:
             self._exhaust("request_limit")
         if self.remaining_seconds() <= 0:
             self._exhaust("batch_deadline")
-        if self.response_bytes_left <= 0:
+        if self.response_bytes_left is not None and self.response_bytes_left <= 0:
             self._exhaust("response_bytes")
 
     def record_request(self) -> None:
-        self.requests_left -= 1
+        self.requests_used += 1
+        if self.requests_left is not None:
+            self.requests_left -= 1
+
+    def constrain_response(self, limit: int) -> None:
+        """Narrow this operation's remaining quota without resetting usage."""
+        if self.response_bytes_left is None or limit < self.response_bytes_left:
+            self.response_bytes_left = limit
 
     def record_response(self, size: int) -> None:
-        if size > self.response_bytes_left:
-            self._exhaust("response_bytes")
-        self.response_bytes_left -= size
+        # A yielded chunk was already consumed; account it even if it exceeds
+        # permission. Negative remaining is evidence, never clamped to zero.
+        self.response_bytes_used += size
+        if self.response_bytes_left is not None:
+            self.response_bytes_left -= size
+            if self.response_bytes_left < 0:
+                self._exhaust("response_bytes")
         if self.remaining_seconds() <= 0:
             self._exhaust("batch_deadline")
 
@@ -79,8 +93,8 @@ class BatchBudget:
     def usage_snapshot(self) -> dict[str, Any]:
         """What this budget object consumed so far (worker → parent contract)."""
         return {
-            "requests_used": self.max_requests - self.requests_left,
-            "response_bytes_used": self.max_response_bytes - self.response_bytes_left,
+            "requests_used": self.requests_used,
+            "response_bytes_used": self.response_bytes_used,
             "exhausted": self.exhausted,
         }
 
@@ -88,8 +102,12 @@ class BatchBudget:
         """Fold a worker's reported consumption into this batch budget."""
         if usage is None:
             return
-        self.requests_left -= usage["requests_used"]
-        self.response_bytes_left -= usage["response_bytes_used"]
+        self.requests_used += usage["requests_used"]
+        self.response_bytes_used += usage["response_bytes_used"]
+        if self.requests_left is not None:
+            self.requests_left -= usage["requests_used"]
+        if self.response_bytes_left is not None:
+            self.response_bytes_left -= usage["response_bytes_used"]
         reason = usage.get("exhausted")
         if reason and self.exhausted is None:
             self.exhausted = reason
@@ -106,13 +124,11 @@ class BatchBudget:
     def report(self) -> dict[str, Any]:
         return {
             "max_requests": self.max_requests,
-            "requests_used": None if self.usage_unknown else (
-                self.max_requests - self.requests_left
-            ),
+            "requests_used": None if self.usage_unknown else (self.requests_used),
             "max_response_bytes": self.max_response_bytes,
-            "response_bytes_used": None if self.usage_unknown else (
-                self.max_response_bytes - self.response_bytes_left
-            ),
+            "response_bytes_used": None
+            if self.usage_unknown
+            else (self.response_bytes_used),
             "max_output_bytes": self.max_output_bytes,
             "output_bytes_used": self.max_output_bytes - self.output_bytes_left,
             "exhausted": self.exhausted,
@@ -121,26 +137,39 @@ class BatchBudget:
 
 
 class UsageCounter:
-    """Duck-typed budget that records usage for one operation, enforcing nothing.
+    """One operation's actual usage, with an optional raw-response quota.
 
-    Used by the retrieval worker on the single-operation (tool) path, where no
-    batch quota exists and the API's own timeout plus the parent supervisor's
-    deadline provide the bound.
+    The API/supervisor enforce time; a request can narrow response consumption
+    without requiring a batch request-count quota or creating another meter.
     """
 
     def __init__(self):
         self.requests_used = 0
         self.response_bytes_used = 0
+        self.response_bytes_left: int | None = None
         self.exhausted: str | None = None
 
+    def constrain_response(self, limit: int) -> None:
+        if self.response_bytes_left is None or limit < self.response_bytes_left:
+            self.response_bytes_left = limit
+
     def check_request(self) -> None:
-        return None
+        if self.exhausted is not None:
+            raise BatchBudgetExceeded(self.exhausted)
+        if self.response_bytes_left is not None and self.response_bytes_left <= 0:
+            self.exhausted = "response_bytes"
+            raise BatchBudgetExceeded(self.exhausted)
 
     def record_request(self) -> None:
         self.requests_used += 1
 
     def record_response(self, size: int) -> None:
         self.response_bytes_used += size
+        if self.response_bytes_left is not None:
+            self.response_bytes_left -= size
+            if self.response_bytes_left < 0:
+                self.exhausted = "response_bytes"
+                raise BatchBudgetExceeded(self.exhausted)
 
     def take_output(self, size: int) -> None:
         return None
@@ -164,6 +193,9 @@ class _BudgetResponse:
         return getattr(self._inner, name)
 
     def iter_content(self, chunk_size: int):
+        remaining = self._budget.response_bytes_left
+        if remaining is not None:
+            chunk_size = min(chunk_size, max(1, remaining))
         for chunk in self._inner.iter_content(chunk_size=chunk_size):
             self._budget.record_response(len(chunk))
             yield chunk
@@ -179,6 +211,9 @@ class _BudgetSession:
         self._inner = inner
         self._budget = budget
         self.headers = inner.headers
+
+    def constrain_response(self, limit: int) -> None:
+        self._budget.constrain_response(limit)
 
     def get(self, url: str, **kwargs: Any) -> _BudgetResponse:
         self._budget.check_request()

@@ -1,0 +1,24 @@
+{
+  "stage": "GREEN_ATTEMPT",
+  "command": [
+    "C:\\Miniconda\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_request_response_budget.py",
+    "-q",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_fast_8xt46q2z\\pytest"
+  ],
+  "exit_code": 0,
+  "seconds": 4.639,
+  "stdout": "........................                                                 [100%]\n24 passed in 2.13s\n",
+  "stderr": "",
+  "temp_restored": true,
+  "paid_calls": 0
+}

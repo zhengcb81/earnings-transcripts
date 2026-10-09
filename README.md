@@ -344,6 +344,7 @@ Example request on stdin (`download_authorized=true` is the one explicit network
   "download_authorized": true,
   "timeout_seconds": 30,
   "max_body_bytes": 5000000,
+  "max_response_bytes": 8000000,
   "max_cost_usd": "0.00"
 }
 ~~~
@@ -374,6 +375,7 @@ Candidate-fetch request example (all fields are strict; the nested candidate has
   "download_authorized": true,
   "timeout_seconds": 30,
   "max_body_bytes": 5000000,
+  "max_response_bytes": 8000000,
   "candidate": {
     "provider_document_id": "/earnings/call-transcripts/2026/09/01/msft-q3-2026-earnings-transcript",
     "source_url": "https://www.fool.com/earnings/call-transcripts/2026/09/01/msft-q3-2026-earnings-transcript/",
@@ -401,3 +403,22 @@ Statuses are fetched, not_found, ambiguous, unsupported, unavailable, not_author
 The exact request accepts optional `max_cost_usd` as non-negative decimal text with at most two decimal places (default `"0"` for legacy callers). Unknown or above-ceiling incremental prices fail before HTTP. Fee ceilings do not replace the byte limit, timeout or explicit requested network intent.
 
 `--report-usage` additionally emits a final `earnings-retrieval-usage/1` receipt on stderr, separate from content JSON: request ID, `usage_complete`, and measured `requests_used` / `response_bytes_used`. A hard-killed worker can have unknown final usage (`usage: null`, `usage_complete: false`); do not invent zero requests or automatically retry such an operation. Without the flag, legacy stdout/stderr behavior is preserved. Neither option changes untranslated raw bytes or fills an unknown publication date from the call date.
+
+### Optional operation response-byte quota
+
+Exact `earnings-transcript-request/1` and candidate `earnings-transcript-candidate-fetch-request/1` accept optional `max_response_bytes`, a positive integer (booleans, null, zero and fractional values are invalid). It limits the cumulative HTTP response-stream bytes consumed by this operation: listing/discovery, redirects, candidate/body requests all share one remaining quota. It is independent of canonical UTF-8 `max_body_bytes`, which still has the existing10MiB ceiling. FMP JSON wrapper/metadata bytes count before text extraction; an oversized wrapper cannot pass merely because its content is short.
+
+An operation quota of128MiB is valid; it does not increase the fixed per-response FMP16MiB, Motley listing2MiB or transcript-page10MiB limits. For explicit operation quotas, Motley HTML wrapper bytes use the fixed page limit and canonical text uses `max_body_bytes`. Omitting the new field preserves legacy single-operation behavior and its original raw/body limits. Request-count and response-byte quotas inside the existing batch/worker budget are independently optional, not an all-or-nothing pair.
+
+`response_bytes_used` records bytes actually yielded by the provider response stream, including a chunk that crosses a quota. It may be greater than `max_response_bytes`; neither remaining quota nor used amount is clamped. The reader stops at that chunk, discards incomplete payload/content, returns `content_too_large/byte_limit`, and its normal final receipt carries `exhausted: "response_bytes"`. A completed worker report can be `usage_complete: true` for this terminal failure; it does not mean the whole provider response was downloaded. A lost/deadline-killed worker remains incomplete with null usage. Cleanup failures do not replace the primary reason or measured usage, and are reported separately.
+
+Offline replay (the formal tool entry and real worker, only HTTP transport mocked; pytest test dependency required):
+
+```text
+python -X utf8 -B tools/run_request_budget_e2e.py --case padded-json --max-response-bytes 1024
+python -X utf8 -B tools/run_request_budget_e2e.py --case success --ticker MSFT --max-response-bytes 134217728
+python -X utf8 -B tools/run_request_budget_e2e.py --case deadline
+python -X utf8 -B tools/run_request_budget_e2e.py --case worker-loss
+```
+
+The driver uses a fake key and no network, preserves its immutable original fixture, restores its owned temporary root, and emits a small receipt/SHA proof. It cannot demonstrate real FMP entitlement or paid-account availability. Full focused tests use pytest because the existing test modules are pytest functions with fixtures; a unittest import reporting zero tests is not validation.

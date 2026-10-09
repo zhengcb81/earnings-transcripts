@@ -1,0 +1,26 @@
+{
+  "stage": "proxy_GREEN",
+  "command": [
+    "C:\\Miniconda\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "pytest",
+    "tests/test_request_response_budget.py",
+    "-k",
+    "transparent_cli_proxy",
+    "-q",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp",
+    "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_proxy_green_i8zxhpuf\\pytest"
+  ],
+  "exit_code": 0,
+  "seconds": 7.147,
+  "stdout": "...                                                                      [100%]\n3 passed, 30 deselected in 4.30s\n",
+  "stderr": "",
+  "paid_calls": 0,
+  "temp_restored": true
+}

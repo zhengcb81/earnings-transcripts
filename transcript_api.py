@@ -3,6 +3,7 @@
 The API extracts an untranslated text body from a public Motley Fool transcript
 page. It does not read project config, write files, translate, cache, or log.
 """
+
 from __future__ import annotations
 
 import base64
@@ -19,6 +20,7 @@ from urllib.parse import parse_qsl, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
+from retrieval_budget import BatchBudgetExceeded, UsageCounter, _BudgetSession
 
 REQUEST_SCHEMA = "earnings-transcript-request/1"
 RESULT_SCHEMA = "earnings-transcript-result/1"
@@ -50,7 +52,10 @@ DEFAULT_PROVIDER_SETTINGS = ProviderSettings()
 
 
 def provider_operation_capability(
-    provider: str, operation: str, *, settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
+    provider: str,
+    operation: str,
+    *,
+    settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
 ) -> dict[str, Any]:
     """Local operation/pricing metadata; account entitlement remains unknown.
 
@@ -60,12 +65,22 @@ def provider_operation_capability(
     rejection must still be reported from the actual request.
     """
     supported = (provider == "fmp" and operation == "fetch") or (
-        provider == "motley_fool" and operation in {"fetch", "discover", "fetch-candidate"})
-    enabled = {"fmp": settings.fmp_enabled, "motley_fool": settings.motley_fool_enabled}.get(provider, False)
-    return {"provider": provider, "operation": operation, "enabled": enabled,
-            "supported": supported, "incremental_cost_usd": "0" if supported else None,
-            "billing_model": "subscription_quota" if provider == "fmp" else "public_http",
-            "entitlement": "runtime_unknown"}
+        provider == "motley_fool"
+        and operation in {"fetch", "discover", "fetch-candidate"}
+    )
+    enabled = {
+        "fmp": settings.fmp_enabled,
+        "motley_fool": settings.motley_fool_enabled,
+    }.get(provider, False)
+    return {
+        "provider": provider,
+        "operation": operation,
+        "enabled": enabled,
+        "supported": supported,
+        "incremental_cost_usd": "0" if supported else None,
+        "billing_model": "subscription_quota" if provider == "fmp" else "public_http",
+        "entitlement": "runtime_unknown",
+    }
 
 
 SKIP_TEXT = (
@@ -136,7 +151,10 @@ def _validate_request(value: Any) -> dict[str, Any]:
         "timeout_seconds",
         "max_body_bytes",
     }
-    if not required.issubset(value) or set(value) - required - {"max_cost_usd"}:
+    if not required.issubset(value) or set(value) - required - {
+        "max_cost_usd",
+        "max_response_bytes",
+    }:
         raise _InvalidRequest()
     if value["schema_version"] != REQUEST_SCHEMA:
         raise _InvalidRequest()
@@ -151,9 +169,17 @@ def _validate_request(value: Any) -> dict[str, Any]:
         raise _InvalidRequest()
     if value["exchange"] not in ("auto", *EXCHANGES):
         raise _InvalidRequest()
-    if type(value["fiscal_year"]) is not int or not 1990 <= value["fiscal_year"] <= 2100:
+    if (
+        type(value["fiscal_year"]) is not int
+        or not 1990 <= value["fiscal_year"] <= 2100
+    ):
         raise _InvalidRequest()
-    if type(value["fiscal_quarter"]) is not int or value["fiscal_quarter"] not in (1, 2, 3, 4):
+    if type(value["fiscal_quarter"]) is not int or value["fiscal_quarter"] not in (
+        1,
+        2,
+        3,
+        4,
+    ):
         raise _InvalidRequest()
     if not isinstance(value["as_of_date"], str):
         raise _InvalidRequest()
@@ -167,13 +193,25 @@ def _validate_request(value: Any) -> dict[str, Any]:
         raise _InvalidRequest()
     if type(value["download_authorized"]) is not bool:
         raise _InvalidRequest()
-    if type(value["timeout_seconds"]) is not int or not 1 <= value["timeout_seconds"] <= MAX_TIMEOUT_SECONDS:
+    if (
+        type(value["timeout_seconds"]) is not int
+        or not 1 <= value["timeout_seconds"] <= MAX_TIMEOUT_SECONDS
+    ):
         raise _InvalidRequest()
-    if type(value["max_body_bytes"]) is not int or not 1 <= value["max_body_bytes"] <= MAX_BODY_BYTES:
+    if (
+        type(value["max_body_bytes"]) is not int
+        or not 1 <= value["max_body_bytes"] <= MAX_BODY_BYTES
+    ):
+        raise _InvalidRequest()
+    if "max_response_bytes" in value and (
+        type(value["max_response_bytes"]) is not int or value["max_response_bytes"] <= 0
+    ):
         raise _InvalidRequest()
     normalized = dict(value)
     fee = value.get("max_cost_usd", "0")
-    if not isinstance(fee, str) or not re.fullmatch(r"(?:0|[1-9][0-9]*)(?:\.[0-9]{1,2})?", fee):
+    if not isinstance(fee, str) or not re.fullmatch(
+        r"(?:0|[1-9][0-9]*)(?:\.[0-9]{1,2})?", fee
+    ):
         raise _InvalidRequest()
     normalized["cost_limit"] = Decimal(fee)
     normalized["ticker"] = ticker
@@ -210,20 +248,30 @@ def _provider_gate(
     """Apply one provider configuration before creating an HTTP session."""
     if provider not in ("motley_fool", "fmp"):
         return _base_result(
-            request_id, "unsupported", provider=provider,
-            result_schema=result_schema, error_code="provider_unavailable",
+            request_id,
+            "unsupported",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_unavailable",
         )
     capability = provider_operation_capability(provider, operation, settings=settings)
     if not capability["enabled"]:
         return _base_result(
-            request_id, "unavailable", provider=provider,
-            result_schema=result_schema, error_code="provider_disabled",
+            request_id,
+            "unavailable",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_disabled",
         )
     if not capability["supported"]:
         return _base_result(
-            request_id, "unsupported", provider=provider,
+            request_id,
+            "unsupported",
+            provider=provider,
             result_schema=result_schema,
-            error_code="candidate_discovery_unavailable" if operation == "discover" else "candidate_fetch_unavailable",
+            error_code="candidate_discovery_unavailable"
+            if operation == "discover"
+            else "candidate_fetch_unavailable",
         )
     fee = capability.get("incremental_cost_usd")
     try:
@@ -231,12 +279,53 @@ def _provider_gate(
     except InvalidOperation:
         charge = Decimal("NaN")
     if not charge.is_finite() or charge < 0:
-        return _base_result(request_id, "unavailable", provider=provider,
-            result_schema=result_schema, error_code="provider_cost_unknown")
+        return _base_result(
+            request_id,
+            "unavailable",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_cost_unknown",
+        )
     if charge > cost_limit:
-        return _base_result(request_id, "unavailable", provider=provider,
-            result_schema=result_schema, error_code="provider_cost_budget_exceeded")
+        return _base_result(
+            request_id,
+            "unavailable",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_cost_budget_exceeded",
+        )
     return None
+
+
+def _quota_failure(exc: BatchBudgetExceeded) -> tuple[str, str]:
+    if exc.reason == "response_bytes":
+        return "content_too_large", "byte_limit"
+    if exc.reason == "batch_deadline":
+        return "deadline_exceeded", "provider_deadline"
+    # Keep the old generic request/output-quota classification. The named
+    # exhausted reason remains in the separate measured usage receipt.
+    return "provider_error", "unexpected_provider_failure"
+
+
+def _operation_session(session: Any, normalized: dict[str, Any]) -> Any:
+    """Reuse one operation meter for all HTTP calls, including test injection."""
+    limit = normalized.get("max_response_bytes")
+    if limit is None:
+        return session
+    if not isinstance(session, _BudgetSession):
+        session = _BudgetSession(session, UsageCounter())
+    session.constrain_response(limit)
+    return session
+
+
+def _body_response_cap(normalized: dict[str, Any]) -> int:
+    # Legacy omitted-field callers keep their old body/raw coupling. With an
+    # explicit operation quota, HTML wrapper bytes and canonical text differ.
+    return (
+        MAX_BODY_BYTES
+        if "max_response_bytes" in normalized
+        else normalized["max_body_bytes"]
+    )
 
 
 def _mime_type(response: requests.Response) -> str:
@@ -356,10 +445,15 @@ def _period_from_slug(slug: str) -> tuple[int, int] | None:
     return None
 
 
-def _candidate_urls(listing_html: bytes, ticker: str, base_url: str) -> list[dict[str, Any]]:
+def _candidate_urls(
+    listing_html: bytes, ticker: str, base_url: str
+) -> list[dict[str, Any]]:
     text = listing_html.decode("utf-8", errors="replace")
     soup = BeautifulSoup(text, "html.parser")
-    raw_urls = {html.unescape(urljoin(base_url, anchor.get("href", ""))) for anchor in soup.find_all("a", href=True)}
+    raw_urls = {
+        html.unescape(urljoin(base_url, anchor.get("href", "")))
+        for anchor in soup.find_all("a", href=True)
+    }
     raw_urls.update(
         html.unescape(match.group(0))
         for match in re.finditer(
@@ -436,9 +530,7 @@ def _check_fmp_effective_url(
         ):
             raise _ProvenanceRejected()
         if parsed.query:
-            pairs = parse_qsl(
-                parsed.query, keep_blank_values=True, strict_parsing=True
-            )
+            pairs = parse_qsl(parsed.query, keep_blank_values=True, strict_parsing=True)
             expected = {
                 "symbol": normalized["ticker"],
                 "year": str(normalized["fiscal_year"]),
@@ -572,7 +664,10 @@ def _fetch_fmp_transcript(
             raise _ProvenanceRejected()
         symbol = item.get("symbol")
         period = _fmp_period(item)
-        if not isinstance(symbol, str) or symbol.strip().upper() != normalized["ticker"]:
+        if (
+            not isinstance(symbol, str)
+            or symbol.strip().upper() != normalized["ticker"]
+        ):
             raise _ProvenanceRejected()
         if period != expected_period:
             raise _ProvenanceRejected()
@@ -639,11 +734,13 @@ def _fetch_fmp_transcript(
         "content_bytes": len(content_bytes),
     }
     if include_source_payload:
-        result_fields.update(_source_payload_fields(
-            payload,
-            mime_type=mime_type,
-            effective_url=safe_source_url,
-        ))
+        result_fields.update(
+            _source_payload_fields(
+                payload,
+                mime_type=mime_type,
+                effective_url=safe_source_url,
+            )
+        )
     else:
         result_fields["content_utf8"] = match["content"]
     return _base_result(
@@ -671,26 +768,43 @@ def fetch_transcript(
     """
     request_id = request.get("request_id") if isinstance(request, dict) else None
     if type(include_source_payload) is not bool:
-        return _base_result(request_id, "invalid_request", error_code="source_payload_flag")
-    result_schema = RESULT_SCHEMA_WITH_SOURCE_PAYLOAD if include_source_payload else RESULT_SCHEMA
+        return _base_result(
+            request_id, "invalid_request", error_code="source_payload_flag"
+        )
+    result_schema = (
+        RESULT_SCHEMA_WITH_SOURCE_PAYLOAD if include_source_payload else RESULT_SCHEMA
+    )
     try:
         normalized = _validate_request(request)
     except _InvalidRequest:
-        return _base_result(request_id, "invalid_request", result_schema=result_schema, error_code="request_schema")
+        return _base_result(
+            request_id,
+            "invalid_request",
+            result_schema=result_schema,
+            error_code="request_schema",
+        )
     request_id = normalized["request_id"]
     if not normalized["download_authorized"]:
         return _base_result(
-            request_id, "not_authorized", provider=normalized["provider"],
+            request_id,
+            "not_authorized",
+            provider=normalized["provider"],
             result_schema=result_schema,
         )
     provider = normalized["provider"]
     gate = _provider_gate(
-        request_id, provider, operation="fetch", result_schema=result_schema,
-        settings=provider_settings, cost_limit=normalized["cost_limit"],
+        request_id,
+        provider,
+        operation="fetch",
+        result_schema=result_schema,
+        settings=provider_settings,
+        cost_limit=normalized["cost_limit"],
     )
     if gate is not None:
         return gate
-    if provider == "fmp" and (not isinstance(fmp_api_key, str) or not fmp_api_key.strip()):
+    if provider == "fmp" and (
+        not isinstance(fmp_api_key, str) or not fmp_api_key.strip()
+    ):
         return _base_result(
             request_id,
             "unavailable",
@@ -701,15 +815,21 @@ def fetch_transcript(
 
     deadline = time.monotonic() + normalized["timeout_seconds"]
     ticker = normalized["ticker"]
-    exchanges = EXCHANGES if normalized["exchange"] == "auto" else (normalized["exchange"],)
+    exchanges = (
+        EXCHANGES if normalized["exchange"] == "auto" else (normalized["exchange"],)
+    )
     session = None
     try:
-        session = session_factory()
-        session.headers.update({
-            "User-Agent": "company-wiki-transcript-adapter/1.0",
-            "Accept": "application/json" if provider == "fmp" else "text/html,application/xhtml+xml",
-            "Accept-Language": "en-US,en;q=0.9",
-        })
+        session = _operation_session(session_factory(), normalized)
+        session.headers.update(
+            {
+                "User-Agent": "company-wiki-transcript-adapter/1.0",
+                "Accept": "application/json"
+                if provider == "fmp"
+                else "text/html,application/xhtml+xml",
+                "Accept-Language": "en-US,en;q=0.9",
+            }
+        )
         if provider == "fmp":
             return _fetch_fmp_transcript(
                 normalized,
@@ -722,11 +842,14 @@ def fetch_transcript(
         eligible: dict[str, dict[str, Any]] = {}
         for exchange in exchanges:
             quote_url = f"https://{ALLOWED_HOST}/quote/{exchange}/{ticker.lower()}/"
-            listing, _, _ = _read_bounded(session, quote_url, deadline, MAX_LISTING_BYTES)
+            listing, _, _ = _read_bounded(
+                session, quote_url, deadline, MAX_LISTING_BYTES
+            )
             for candidate in _candidate_urls(listing, ticker, quote_url):
                 candidate_period = candidate["period"]
                 if (
-                    candidate_period == (normalized["fiscal_year"], normalized["fiscal_quarter"])
+                    candidate_period
+                    == (normalized["fiscal_year"], normalized["fiscal_quarter"])
                     and candidate["published_date"] <= normalized["as_of"]
                 ):
                     eligible[candidate["source_url"]] = candidate
@@ -745,14 +868,19 @@ def fetch_transcript(
                 result_schema=result_schema,
                 fiscal_period=f"{normalized['fiscal_year']}-Q{normalized['fiscal_quarter']}",
                 candidate_count=len(eligible),
-                candidate_ids=sorted(item["provider_document_id"] for item in eligible.values()),
+                candidate_ids=sorted(
+                    item["provider_document_id"] for item in eligible.values()
+                ),
             )
         candidate = next(iter(eligible.values()))
         page, final_url, mime_type = _read_bounded(
-            session, candidate["source_url"], deadline, normalized["max_body_bytes"]
+            session, candidate["source_url"], deadline, _body_response_cap(normalized)
         )
         _check_url(final_url)
-        if include_source_payload and mime_type not in ("text/html", "application/xhtml+xml"):
+        if include_source_payload and mime_type not in (
+            "text/html",
+            "application/xhtml+xml",
+        ):
             raise _ProvenanceRejected()
         title, body = _extract_body(page)
         body_bytes = body.encode("utf-8")
@@ -773,11 +901,13 @@ def fetch_transcript(
             "content_bytes": len(body_bytes),
         }
         if include_source_payload:
-            result_fields.update(_source_payload_fields(
-                page,
-                mime_type=mime_type,
-                effective_url=_safe_effective_url(final_url),
-            ))
+            result_fields.update(
+                _source_payload_fields(
+                    page,
+                    mime_type=mime_type,
+                    effective_url=_safe_effective_url(final_url),
+                )
+            )
         else:
             result_fields["content_utf8"] = body
         return _base_result(
@@ -787,27 +917,78 @@ def fetch_transcript(
             **result_fields,
         )
     except _DeadlineExceeded:
-        return _base_result(request_id, "deadline_exceeded", provider=provider, result_schema=result_schema, error_code="provider_deadline")
+        return _base_result(
+            request_id,
+            "deadline_exceeded",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_deadline",
+        )
+    except BatchBudgetExceeded as exc:
+        status, error_code = _quota_failure(exc)
+        return _base_result(
+            request_id,
+            status,
+            provider=provider,
+            result_schema=result_schema,
+            error_code=error_code,
+        )
     except _PayloadTooLarge:
-        return _base_result(request_id, "content_too_large", provider=provider, result_schema=result_schema, error_code="byte_limit")
+        return _base_result(
+            request_id,
+            "content_too_large",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="byte_limit",
+        )
     except _ProvenanceRejected:
-        return _base_result(request_id, "provenance_rejected", provider=provider, result_schema=result_schema, error_code="provider_identity_or_host")
+        return _base_result(
+            request_id,
+            "provenance_rejected",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_identity_or_host",
+        )
     except _ProviderUnavailable as exc:
         return _base_result(
-            request_id, "unavailable", provider=provider,
-            result_schema=result_schema, error_code=exc.error_code,
+            request_id,
+            "unavailable",
+            provider=provider,
+            result_schema=result_schema,
+            error_code=exc.error_code,
         )
     except _RateLimited:
         return _base_result(
-            request_id, "rate_limited", provider=provider,
-            result_schema=result_schema, error_code="provider_http_429",
+            request_id,
+            "rate_limited",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
-        return _base_result(request_id, "provider_error", provider=provider, result_schema=result_schema, error_code=exc.error_code)
+        return _base_result(
+            request_id,
+            "provider_error",
+            provider=provider,
+            result_schema=result_schema,
+            error_code=exc.error_code,
+        )
     except requests.Timeout:
-        return _base_result(request_id, "deadline_exceeded", provider=provider, result_schema=result_schema, error_code="provider_deadline")
+        return _base_result(
+            request_id,
+            "deadline_exceeded",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_deadline",
+        )
     except Exception:
-        return _base_result(request_id, "provider_error", provider=provider, result_schema=result_schema, error_code="unexpected_provider_failure")
+        return _base_result(
+            request_id,
+            "provider_error",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="unexpected_provider_failure",
+        )
     finally:
         if session is not None:
             try:
@@ -864,7 +1045,9 @@ def _candidate_entries(
 
 
 def _map_listing_failure(request_id: str, exc: Exception) -> dict[str, Any]:
-    if isinstance(exc, _DeadlineExceeded):
+    if isinstance(exc, BatchBudgetExceeded):
+        status, error_code = _quota_failure(exc)
+    elif isinstance(exc, _DeadlineExceeded):
         status, error_code = "deadline_exceeded", "provider_deadline"
     elif isinstance(exc, _PayloadTooLarge):
         status, error_code = "content_too_large", "byte_limit"
@@ -938,11 +1121,13 @@ def list_transcript_candidates(
     session = None
     try:
         session = session_factory()
-        session.headers.update({
-            "User-Agent": "company-wiki-transcript-adapter/1.0",
-            "Accept": "text/html,application/xhtml+xml",
-            "Accept-Language": "en-US,en;q=0.9",
-        })
+        session.headers.update(
+            {
+                "User-Agent": "company-wiki-transcript-adapter/1.0",
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Language": "en-US,en;q=0.9",
+            }
+        )
         eligible = _listing_candidates(session, ticker, exchange, as_of, deadline)
         entries = _candidate_entries(eligible, ticker=ticker, exchange=exchange)
         entries.sort(
@@ -987,12 +1172,17 @@ def discover_transcripts(
     provider = normalized["provider"]
     if not normalized["download_authorized"]:
         return _base_result(
-            request_id, "not_authorized", provider=provider,
+            request_id,
+            "not_authorized",
+            provider=provider,
             result_schema=DISCOVERY_RESULT_SCHEMA,
         )
     gate = _provider_gate(
-        request_id, provider, operation="discover",
-        result_schema=DISCOVERY_RESULT_SCHEMA, settings=provider_settings,
+        request_id,
+        provider,
+        operation="discover",
+        result_schema=DISCOVERY_RESULT_SCHEMA,
+        settings=provider_settings,
     )
     if gate is not None:
         return gate
@@ -1000,12 +1190,14 @@ def discover_transcripts(
     deadline = time.monotonic() + normalized["timeout_seconds"]
     session = None
     try:
-        session = session_factory()
-        session.headers.update({
-            "User-Agent": "company-wiki-transcript-adapter/1.0",
-            "Accept": "text/html,application/xhtml+xml",
-            "Accept-Language": "en-US,en;q=0.9",
-        })
+        session = _operation_session(session_factory(), normalized)
+        session.headers.update(
+            {
+                "User-Agent": "company-wiki-transcript-adapter/1.0",
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Language": "en-US,en;q=0.9",
+            }
+        )
         eligible = {
             url: candidate
             for url, candidate in _listing_candidates(
@@ -1040,43 +1232,76 @@ def discover_transcripts(
         )
     except _DeadlineExceeded:
         return _base_result(
-            request_id, "deadline_exceeded", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="provider_deadline",
+            request_id,
+            "deadline_exceeded",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code="provider_deadline",
+        )
+    except BatchBudgetExceeded as exc:
+        status, error_code = _quota_failure(exc)
+        return _base_result(
+            request_id,
+            status,
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code=error_code,
         )
     except _PayloadTooLarge:
         return _base_result(
-            request_id, "content_too_large", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="byte_limit",
+            request_id,
+            "content_too_large",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code="byte_limit",
         )
     except _ProvenanceRejected:
         return _base_result(
-            request_id, "provenance_rejected", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="provider_identity_or_host",
+            request_id,
+            "provenance_rejected",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code="provider_identity_or_host",
         )
     except _ProviderUnavailable as exc:
         return _base_result(
-            request_id, "unavailable", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code=exc.error_code,
+            request_id,
+            "unavailable",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code=exc.error_code,
         )
     except _RateLimited:
         return _base_result(
-            request_id, "rate_limited", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="provider_http_429",
+            request_id,
+            "rate_limited",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
         return _base_result(
-            request_id, "provider_error", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code=exc.error_code,
+            request_id,
+            "provider_error",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code=exc.error_code,
         )
     except requests.Timeout:
         return _base_result(
-            request_id, "deadline_exceeded", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="provider_deadline",
+            request_id,
+            "deadline_exceeded",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code="provider_deadline",
         )
     except Exception:
         return _base_result(
-            request_id, "provider_error", provider=provider,
-            result_schema=DISCOVERY_RESULT_SCHEMA, error_code="unexpected_provider_failure",
+            request_id,
+            "provider_error",
+            provider=provider,
+            result_schema=DISCOVERY_RESULT_SCHEMA,
+            error_code="unexpected_provider_failure",
         )
     finally:
         if session is not None:
@@ -1086,14 +1311,29 @@ def discover_transcripts(
                 pass
 
 
-def _validate_candidate_fetch_request(value: Any) -> tuple[dict[str, Any], dict[str, Any]]:
+def _validate_candidate_fetch_request(
+    value: Any,
+) -> tuple[dict[str, Any], dict[str, Any]]:
     top_level_fields = {
-        "schema_version", "request_id", "ticker", "exchange", "fiscal_year",
-        "fiscal_quarter", "as_of_date", "provider", "download_authorized",
-        "timeout_seconds", "max_body_bytes", "candidate",
+        "schema_version",
+        "request_id",
+        "ticker",
+        "exchange",
+        "fiscal_year",
+        "fiscal_quarter",
+        "as_of_date",
+        "provider",
+        "download_authorized",
+        "timeout_seconds",
+        "max_body_bytes",
+        "candidate",
     }
     candidate_fields = {"provider_document_id", "source_url", "published_date"}
-    if not isinstance(value, dict) or set(value) != top_level_fields:
+    if (
+        not isinstance(value, dict)
+        or not top_level_fields.issubset(value)
+        or set(value) - top_level_fields - {"max_response_bytes"}
+    ):
         raise _InvalidRequest()
     if value["schema_version"] != CANDIDATE_FETCH_REQUEST_SCHEMA:
         raise _InvalidRequest()
@@ -1105,6 +1345,8 @@ def _validate_candidate_fetch_request(value: Any) -> tuple[dict[str, Any], dict[
         for key in top_level_fields
         if key not in {"schema_version", "candidate"}
     }
+    if "max_response_bytes" in value:
+        base_request["max_response_bytes"] = value["max_response_bytes"]
     base_request["schema_version"] = REQUEST_SCHEMA
     normalized = _validate_request(base_request)
     for key in candidate_fields:
@@ -1154,24 +1396,36 @@ def fetch_transcript_candidate(
     """Fetch one already-discovered Motley Fool candidate; never discovers here."""
     request_id = request.get("request_id") if isinstance(request, dict) else None
     if type(include_source_payload) is not bool:
-        return _base_result(request_id, "invalid_request", error_code="source_payload_flag")
-    result_schema = RESULT_SCHEMA_WITH_SOURCE_PAYLOAD if include_source_payload else RESULT_SCHEMA
+        return _base_result(
+            request_id, "invalid_request", error_code="source_payload_flag"
+        )
+    result_schema = (
+        RESULT_SCHEMA_WITH_SOURCE_PAYLOAD if include_source_payload else RESULT_SCHEMA
+    )
     try:
         normalized, candidate = _validate_candidate_fetch_request(request)
     except _InvalidRequest:
         return _base_result(
-            request_id, "invalid_request", result_schema=result_schema,
+            request_id,
+            "invalid_request",
+            result_schema=result_schema,
             error_code="candidate_request_schema_or_identity",
         )
     request_id = normalized["request_id"]
     provider = normalized["provider"]
     if not normalized["download_authorized"]:
         return _base_result(
-            request_id, "not_authorized", provider=provider, result_schema=result_schema,
+            request_id,
+            "not_authorized",
+            provider=provider,
+            result_schema=result_schema,
         )
     gate = _provider_gate(
-        request_id, provider, operation="fetch-candidate",
-        result_schema=result_schema, settings=provider_settings,
+        request_id,
+        provider,
+        operation="fetch-candidate",
+        result_schema=result_schema,
+        settings=provider_settings,
     )
     if gate is not None:
         return gate
@@ -1179,22 +1433,27 @@ def fetch_transcript_candidate(
     deadline = time.monotonic() + normalized["timeout_seconds"]
     session = None
     try:
-        session = session_factory()
-        session.headers.update({
-            "User-Agent": "company-wiki-transcript-adapter/1.0",
-            "Accept": "text/html,application/xhtml+xml",
-            "Accept-Language": "en-US,en;q=0.9",
-        })
+        session = _operation_session(session_factory(), normalized)
+        session.headers.update(
+            {
+                "User-Agent": "company-wiki-transcript-adapter/1.0",
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Language": "en-US,en;q=0.9",
+            }
+        )
         page, final_url, mime_type = _read_bounded(
             session,
             candidate["source_url"],
             deadline,
-            normalized["max_body_bytes"],
+            _body_response_cap(normalized),
         )
         safe_effective_url = _safe_effective_url(final_url)
         if safe_effective_url != candidate["source_url"]:
             raise _ProvenanceRejected()
-        if include_source_payload and mime_type not in ("text/html", "application/xhtml+xml"):
+        if include_source_payload and mime_type not in (
+            "text/html",
+            "application/xhtml+xml",
+        ):
             raise _ProvenanceRejected()
         title, body = _extract_body(page)
         body_bytes = body.encode("utf-8")
@@ -1215,9 +1474,13 @@ def fetch_transcript_candidate(
             "content_bytes": len(body_bytes),
         }
         if include_source_payload:
-            result_fields.update(_source_payload_fields(
-                page, mime_type=mime_type, effective_url=safe_effective_url,
-            ))
+            result_fields.update(
+                _source_payload_fields(
+                    page,
+                    mime_type=mime_type,
+                    effective_url=safe_effective_url,
+                )
+            )
         else:
             result_fields["content_utf8"] = body
         return _base_result(
@@ -1229,43 +1492,76 @@ def fetch_transcript_candidate(
         )
     except _DeadlineExceeded:
         return _base_result(
-            request_id, "deadline_exceeded", provider=provider,
-            result_schema=result_schema, error_code="provider_deadline",
+            request_id,
+            "deadline_exceeded",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_deadline",
+        )
+    except BatchBudgetExceeded as exc:
+        status, error_code = _quota_failure(exc)
+        return _base_result(
+            request_id,
+            status,
+            provider=provider,
+            result_schema=result_schema,
+            error_code=error_code,
         )
     except _PayloadTooLarge:
         return _base_result(
-            request_id, "content_too_large", provider=provider,
-            result_schema=result_schema, error_code="byte_limit",
+            request_id,
+            "content_too_large",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="byte_limit",
         )
     except _ProvenanceRejected:
         return _base_result(
-            request_id, "provenance_rejected", provider=provider,
-            result_schema=result_schema, error_code="candidate_effective_url_or_mime",
+            request_id,
+            "provenance_rejected",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="candidate_effective_url_or_mime",
         )
     except _ProviderUnavailable as exc:
         return _base_result(
-            request_id, "unavailable", provider=provider,
-            result_schema=result_schema, error_code=exc.error_code,
+            request_id,
+            "unavailable",
+            provider=provider,
+            result_schema=result_schema,
+            error_code=exc.error_code,
         )
     except _RateLimited:
         return _base_result(
-            request_id, "rate_limited", provider=provider,
-            result_schema=result_schema, error_code="provider_http_429",
+            request_id,
+            "rate_limited",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
         return _base_result(
-            request_id, "provider_error", provider=provider,
-            result_schema=result_schema, error_code=exc.error_code,
+            request_id,
+            "provider_error",
+            provider=provider,
+            result_schema=result_schema,
+            error_code=exc.error_code,
         )
     except requests.Timeout:
         return _base_result(
-            request_id, "deadline_exceeded", provider=provider,
-            result_schema=result_schema, error_code="provider_deadline",
+            request_id,
+            "deadline_exceeded",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="provider_deadline",
         )
     except Exception:
         return _base_result(
-            request_id, "provider_error", provider=provider,
-            result_schema=result_schema, error_code="unexpected_provider_failure",
+            request_id,
+            "provider_error",
+            provider=provider,
+            result_schema=result_schema,
+            error_code="unexpected_provider_failure",
         )
     finally:
         if session is not None:

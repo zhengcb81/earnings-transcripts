@@ -1,0 +1,125 @@
+{
+  "stage": "ACTUAL_CLI_MOCK_E2E",
+  "generated_at": "2026-10-09T00:53:46.410806+00:00",
+  "records": [
+    {
+      "command": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/run_request_budget_e2e.py",
+        "--case",
+        "padded-json",
+        "--ticker",
+        "NVDA",
+        "--max-response-bytes",
+        "1024",
+        "--temp-root",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_cli_djhody5i"
+      ],
+      "exit_code": 0,
+      "seconds": 1.223,
+      "stdout": "{\n  \"case\": \"padded-json\",\n  \"ticker\": \"NVDA\",\n  \"formal_entry\": \"transcript_tool.main -> supervisor -> worker -> API -> mock HTTP\",\n  \"real_provider_request\": false,\n  \"max_response_bytes\": 1024,\n  \"status\": \"content_too_large\",\n  \"error_code\": \"byte_limit\",\n  \"receipt\": {\n    \"schema_version\": \"earnings-retrieval-usage/1\",\n    \"request_id\": \"test-request-001\",\n    \"usage_complete\": true,\n    \"usage\": {\n      \"requests_used\": 1,\n      \"response_bytes_used\": 20386,\n      \"exhausted\": \"response_bytes\"\n    }\n  },\n  \"observed_mock_get_calls\": 1,\n  \"source_payload_returned\": false,\n  \"source_payload_open_sha256\": null,\n  \"old_fixture_sha256\": \"c3026c48bfe03fc481db2d2429329dfc5beff61e3df317938aea9766f162847b\",\n  \"old_fixture_unchanged\": true,\n  \"worker_temp_empty\": true,\n  \"paid_calls\": 0,\n  \"temporary_root_restored\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/run_request_budget_e2e.py",
+        "--case",
+        "padded-json",
+        "--ticker",
+        "MSFT",
+        "--max-response-bytes",
+        "1024",
+        "--temp-root",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_cli_djhody5i"
+      ],
+      "exit_code": 0,
+      "seconds": 1.301,
+      "stdout": "{\n  \"case\": \"padded-json\",\n  \"ticker\": \"MSFT\",\n  \"formal_entry\": \"transcript_tool.main -> supervisor -> worker -> API -> mock HTTP\",\n  \"real_provider_request\": false,\n  \"max_response_bytes\": 1024,\n  \"status\": \"content_too_large\",\n  \"error_code\": \"byte_limit\",\n  \"receipt\": {\n    \"schema_version\": \"earnings-retrieval-usage/1\",\n    \"request_id\": \"test-request-001\",\n    \"usage_complete\": true,\n    \"usage\": {\n      \"requests_used\": 1,\n      \"response_bytes_used\": 20386,\n      \"exhausted\": \"response_bytes\"\n    }\n  },\n  \"observed_mock_get_calls\": 1,\n  \"source_payload_returned\": false,\n  \"source_payload_open_sha256\": null,\n  \"old_fixture_sha256\": \"c3026c48bfe03fc481db2d2429329dfc5beff61e3df317938aea9766f162847b\",\n  \"old_fixture_unchanged\": true,\n  \"worker_temp_empty\": true,\n  \"paid_calls\": 0,\n  \"temporary_root_restored\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/run_request_budget_e2e.py",
+        "--case",
+        "success",
+        "--ticker",
+        "MSFT",
+        "--max-response-bytes",
+        "134217728",
+        "--temp-root",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_cli_djhody5i"
+      ],
+      "exit_code": 0,
+      "seconds": 1.546,
+      "stdout": "{\n  \"case\": \"success\",\n  \"ticker\": \"MSFT\",\n  \"formal_entry\": \"transcript_tool.main -> supervisor -> worker -> API -> mock HTTP\",\n  \"real_provider_request\": false,\n  \"max_response_bytes\": 134217728,\n  \"status\": \"fetched\",\n  \"error_code\": null,\n  \"receipt\": {\n    \"schema_version\": \"earnings-retrieval-usage/1\",\n    \"request_id\": \"test-request-001\",\n    \"usage_complete\": true,\n    \"usage\": {\n      \"requests_used\": 1,\n      \"response_bytes_used\": 1024,\n      \"exhausted\": null\n    }\n  },\n  \"observed_mock_get_calls\": 1,\n  \"source_payload_returned\": true,\n  \"source_payload_open_sha256\": \"198ed397cdf5ab0206ed99e8e424d742d6cb68081c1b3d1a8d23aa6666a8013f\",\n  \"old_fixture_sha256\": \"c3026c48bfe03fc481db2d2429329dfc5beff61e3df317938aea9766f162847b\",\n  \"old_fixture_unchanged\": true,\n  \"worker_temp_empty\": true,\n  \"paid_calls\": 0,\n  \"temporary_root_restored\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/run_request_budget_e2e.py",
+        "--case",
+        "deadline",
+        "--ticker",
+        "NVDA",
+        "--max-response-bytes",
+        "1024",
+        "--temp-root",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_cli_djhody5i"
+      ],
+      "exit_code": 0,
+      "seconds": 2.545,
+      "stdout": "{\n  \"case\": \"deadline\",\n  \"ticker\": \"NVDA\",\n  \"formal_entry\": \"transcript_tool.main -> supervisor -> worker -> API -> mock HTTP\",\n  \"real_provider_request\": false,\n  \"max_response_bytes\": 1024,\n  \"status\": \"deadline_exceeded\",\n  \"error_code\": \"provider_deadline\",\n  \"receipt\": {\n    \"schema_version\": \"earnings-retrieval-usage/1\",\n    \"request_id\": \"test-request-001\",\n    \"usage_complete\": false,\n    \"usage\": null\n  },\n  \"observed_mock_get_calls\": 1,\n  \"source_payload_returned\": false,\n  \"source_payload_open_sha256\": null,\n  \"old_fixture_sha256\": \"c3026c48bfe03fc481db2d2429329dfc5beff61e3df317938aea9766f162847b\",\n  \"old_fixture_unchanged\": true,\n  \"worker_temp_empty\": true,\n  \"paid_calls\": 0,\n  \"temporary_root_restored\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/run_request_budget_e2e.py",
+        "--case",
+        "worker-loss",
+        "--ticker",
+        "NVDA",
+        "--max-response-bytes",
+        "1024",
+        "--temp-root",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\etW02_cli_djhody5i"
+      ],
+      "exit_code": 0,
+      "seconds": 1.014,
+      "stdout": "{\n  \"case\": \"worker-loss\",\n  \"ticker\": \"NVDA\",\n  \"formal_entry\": \"transcript_tool.main -> supervisor -> worker -> API -> mock HTTP\",\n  \"real_provider_request\": false,\n  \"max_response_bytes\": 1024,\n  \"status\": \"provider_error\",\n  \"error_code\": \"retrieval_worker_failure\",\n  \"receipt\": {\n    \"schema_version\": \"earnings-retrieval-usage/1\",\n    \"request_id\": \"test-request-001\",\n    \"usage_complete\": false,\n    \"usage\": null\n  },\n  \"observed_mock_get_calls\": 0,\n  \"source_payload_returned\": false,\n  \"source_payload_open_sha256\": null,\n  \"old_fixture_sha256\": \"c3026c48bfe03fc481db2d2429329dfc5beff61e3df317938aea9766f162847b\",\n  \"old_fixture_unchanged\": true,\n  \"worker_temp_empty\": true,\n  \"paid_calls\": 0,\n  \"temporary_root_restored\": true\n}\n",
+      "stderr": ""
+    }
+  ],
+  "temp_initial_absent": true,
+  "temp_restored": true,
+  "paid_calls": 0,
+  "real_provider_requests": 0,
+  "syntax_files": [
+    "retrieval_budget.py",
+    "retrieval_worker.py",
+    "retrieval_runtime.py",
+    "transcript_api.py",
+    "transcript_tool.py",
+    "tests/test_request_response_budget.py",
+    "tools/run_request_budget_e2e.py"
+  ],
+  "syntax": "PASS"
+}
