@@ -29,6 +29,7 @@ from transcript_api import (
     fetch_transcript,
     fetch_transcript_candidate,
     provider_operation_capability,
+    preflight_transcript_fetch,
 )
 
 
@@ -66,6 +67,7 @@ def _supervised_result(
     launcher: str | None,
     launcher_spec: dict[str, Any] | None,
     temp_root: Path | None,
+    fmp_api_key: str | None = None,
 ) -> dict[str, Any]:
     """Run one retrieval through the supervisor and map hard failures."""
     outcome = retrieval_runtime.run_retrieval(
@@ -82,6 +84,7 @@ def _supervised_result(
         ),
         include_source_payload=args.include_source_payload,
         provider_settings=provider_settings,
+        fmp_api_key=fmp_api_key,
         launcher=launcher,
         launcher_spec=launcher_spec,
         temp_root=temp_root,
@@ -109,6 +112,41 @@ def _supervised_result(
     else:
         status, error_code = "provider_error", "retrieval_worker_failure"
     return _wire_failure(result_schema, request_id, status, error_code, provider)
+
+
+def _configured_fmp_key() -> tuple[str | None, str | None]:
+    """Read one explicit source; never scan files or put key/path in a result."""
+    configured = os.environ.get("FMP_API_KEY_FILE")
+    if configured is None:
+        value = os.environ.get("FMP_API_KEY")
+        return value if isinstance(value, str) and value.strip() else None, None
+    if not configured.strip():
+        return None, "provider_credentials_file_unavailable"
+    try:
+        with Path(configured).open("rb") as stream:
+            raw = stream.read(4097)
+    except OSError:
+        return None, "provider_credentials_file_unavailable"
+    if len(raw) > 4096:
+        return None, "provider_credentials_file_invalid"
+    try:
+        value = raw.decode("utf-8-sig").strip()
+    except UnicodeError:
+        return None, "provider_credentials_file_invalid"
+    if not value:
+        return None, "provider_credentials_file_empty"
+    if any(not 33 <= ord(char) <= 126 for char in value):
+        return None, "provider_credentials_file_invalid"
+    return value, None
+
+
+def _emit_preflight_usage(request: Any, args: argparse.Namespace) -> None:
+    if args.report_usage:
+        receipt = {"schema_version": "earnings-retrieval-usage/1",
+                   "request_id": request.get("request_id") if isinstance(request, dict) else None,
+                   "usage_complete": True,
+                   "usage": {"requests_used": 0, "response_bytes_used": 0, "exhausted": None}}
+        sys.stderr.write(json.dumps(receipt, separators=(",", ":")) + "\n")
 
 
 def main(
@@ -189,7 +227,18 @@ def main(
             )
         else:
             request = json.loads(raw)
-            if args.operation == "discover" and args.include_source_payload:
+            preflight = preflight_transcript_fetch(request, result_schema=result_schema,
+                                                  settings=_provider_settings) if args.operation == "fetch" else None
+            fmp_api_key, credential_error = (None, None)
+            if preflight is None and args.operation == "fetch" and isinstance(request, dict) and request.get("provider") == "fmp":
+                fmp_api_key, credential_error = _configured_fmp_key()
+            if preflight is not None:
+                result = preflight
+                _emit_preflight_usage(request, args)
+            elif credential_error is not None:
+                result = _wire_failure(result_schema, request.get("request_id"), "unavailable", credential_error, "fmp")
+                _emit_preflight_usage(request, args)
+            elif args.operation == "discover" and args.include_source_payload:
                 provider = "motley_fool"
                 request_id = None
                 if isinstance(request, dict):
@@ -221,7 +270,7 @@ def main(
                 else:
                     result = fetch_transcript(
                         request,
-                        fmp_api_key=os.environ.get("FMP_API_KEY"),
+                        fmp_api_key=fmp_api_key,
                         include_source_payload=args.include_source_payload,
                         **provider_options,
                     )
@@ -235,6 +284,7 @@ def main(
                     launcher=_retrieval_launcher,
                     launcher_spec=_retrieval_spec,
                     temp_root=_retrieval_temp_root,
+                    fmp_api_key=fmp_api_key,
                 )
     except (json.JSONDecodeError, UnicodeError):
         result = _wire_failure(

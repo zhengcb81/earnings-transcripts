@@ -80,6 +80,8 @@ def provider_operation_capability(
         "incremental_cost_usd": "0" if supported else None,
         "billing_model": "subscription_quota" if provider == "fmp" else "public_http",
         "entitlement": "runtime_unknown",
+        "supported_markets": ["US"] if supported else [],
+        "supported_exchanges": ["auto", *EXCHANGES] if supported else [],
     }
 
 
@@ -167,7 +169,11 @@ def _validate_request(value: Any) -> dict[str, Any]:
     ticker = value["ticker"].strip().upper()
     if not _TICKER_RE.fullmatch(ticker):
         raise _InvalidRequest()
-    if value["exchange"] not in ("auto", *EXCHANGES):
+    exchange = value["exchange"]
+    if not isinstance(exchange, str):
+        raise _InvalidRequest()
+    exchange = exchange.strip().lower()
+    if re.fullmatch(r"[a-z][a-z0-9_-]{0,31}", exchange) is None:
         raise _InvalidRequest()
     if (
         type(value["fiscal_year"]) is not int
@@ -214,9 +220,28 @@ def _validate_request(value: Any) -> dict[str, Any]:
     ):
         raise _InvalidRequest()
     normalized["cost_limit"] = Decimal(fee)
+    normalized["exchange"] = exchange
     normalized["ticker"] = ticker
     normalized["as_of"] = as_of_date
     return normalized
+
+
+def preflight_transcript_fetch(
+    request: Any, *, result_schema: str, settings: ProviderSettings,
+) -> dict[str, Any] | None:
+    """Validate the fetch contract/capability without key access or HTTP."""
+    request_id = request.get("request_id") if isinstance(request, dict) else None
+    try:
+        normalized = _validate_request(request)
+    except _InvalidRequest:
+        return _base_result(request_id, "invalid_request", result_schema=result_schema,
+                            error_code="request_schema")
+    if not normalized["download_authorized"]:
+        return _base_result(request_id, "not_authorized", provider=normalized["provider"],
+                            result_schema=result_schema)
+    return _provider_gate(normalized["request_id"], normalized["provider"], operation="fetch",
+                          result_schema=result_schema, settings=settings,
+                          cost_limit=normalized["cost_limit"], exchange=normalized["exchange"])
 
 
 def _base_result(
@@ -244,6 +269,7 @@ def _provider_gate(
     result_schema: str,
     settings: ProviderSettings,
     cost_limit: Decimal = Decimal("0"),
+    exchange: str | None = None,
 ) -> dict[str, Any] | None:
     """Apply one provider configuration before creating an HTTP session."""
     if provider not in ("motley_fool", "fmp"):
@@ -272,6 +298,11 @@ def _provider_gate(
             error_code="candidate_discovery_unavailable"
             if operation == "discover"
             else "candidate_fetch_unavailable",
+        )
+    if exchange is not None and exchange not in capability.get("supported_exchanges", ("auto", *EXCHANGES)):
+        return _base_result(
+            request_id, "unsupported", provider=provider, result_schema=result_schema,
+            error_code="unsupported_market" if exchange == "hkex" else "unsupported_exchange",
         )
     fee = capability.get("incremental_cost_usd")
     try:
@@ -639,6 +670,10 @@ def _fetch_fmp_transcript(
 ) -> dict[str, Any]:
     request_id = normalized["request_id"]
     payload, mime_type = _read_fmp_payload(session, normalized, deadline, api_key)
+    raw_key = api_key.encode("utf-8")
+    escaped_key = json.dumps(api_key, ensure_ascii=True)[1:-1].encode("ascii")
+    if raw_key in payload or escaped_key in payload:
+        raise _ProviderFailure("provider_credentials_leaked")
     if include_source_payload and mime_type != "application/json":
         raise _ProvenanceRejected()
     try:
@@ -798,6 +833,7 @@ def fetch_transcript(
         operation="fetch",
         result_schema=result_schema,
         settings=provider_settings,
+        exchange=normalized["exchange"],
         cost_limit=normalized["cost_limit"],
     )
     if gate is not None:
@@ -1183,6 +1219,7 @@ def discover_transcripts(
         operation="discover",
         result_schema=DISCOVERY_RESULT_SCHEMA,
         settings=provider_settings,
+        exchange=normalized["exchange"],
     )
     if gate is not None:
         return gate
@@ -1426,6 +1463,7 @@ def fetch_transcript_candidate(
         operation="fetch-candidate",
         result_schema=result_schema,
         settings=provider_settings,
+        exchange=normalized["exchange"],
     )
     if gate is not None:
         return gate
