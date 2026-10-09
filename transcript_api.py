@@ -659,6 +659,31 @@ def _fmp_period(item: dict[str, Any]) -> tuple[int, int] | None:
     return year, quarter
 
 
+def _decoded_string_exposed(value: Any, credential: str) -> bool:
+    """Objects have already been checked by the pairs hook; scan array leaves."""
+    pending = [value]
+    while pending:
+        item = pending.pop()
+        if isinstance(item, str) and credential in item:
+            return True
+        if isinstance(item, (list, tuple)):
+            pending.extend(item)
+    return False
+
+
+def _credential_checked_json(payload: bytes, credential: str) -> Any:
+    """Check every decoded key/value before duplicate object keys can disappear."""
+    def checked_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        for name, value in pairs:
+            if credential in name or _decoded_string_exposed(value, credential):
+                raise _ProviderFailure("provider_credentials_leaked")
+        return dict(pairs)
+    decoded = json.loads(payload.decode("utf-8"), object_pairs_hook=checked_pairs)
+    if _decoded_string_exposed(decoded, credential):
+        raise _ProviderFailure("provider_credentials_leaked")
+    return decoded
+
+
 def _fetch_fmp_transcript(
     normalized: dict[str, Any],
     session: requests.Session,
@@ -677,7 +702,7 @@ def _fetch_fmp_transcript(
     if include_source_payload and mime_type != "application/json":
         raise _ProvenanceRejected()
     try:
-        data = json.loads(payload.decode("utf-8"))
+        data = _credential_checked_json(payload, api_key)
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise _ProviderFailure() from exc
     if not isinstance(data, list):

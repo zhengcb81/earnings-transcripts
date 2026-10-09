@@ -19,6 +19,14 @@ SENTINEL = "w07-synthetic-key-no-public-output"
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.fixture(autouse=True)
+def minimal_synthetic_environment(monkeypatch, tmp_path):
+    safe = {name: os.environ[name] for name in ("SYSTEMROOT", "WINDIR", "PATH", "TEMP", "TMP", "COMSPEC", "PATHEXT") if name in os.environ}
+    safe.update(USERPROFILE=str(tmp_path / "profile"), HOME=str(tmp_path / "profile"), PYTHONUTF8="1")
+    monkeypatch.setattr(os, "environ", safe)
+
+
+
 @pytest.mark.parametrize("exchange,reason", [("HKEX", "unsupported_market"),
                                            ("TOKYO", "unsupported_exchange"),
                                            ("NASDAQ", "provider_credentials_missing")])
@@ -106,3 +114,63 @@ def test_fmp_echoed_key_never_becomes_immutable_original_or_source_payload():
     assert len(session.calls) == 1
     assert SENTINEL not in json.dumps(result)
     assert "provider_payload_base64" not in result
+
+
+
+def _escaped_provider_payload(location):
+    payload = json.loads(fmp_payload())
+    if location == "content":
+        payload[0]["content"] += SENTINEL
+    elif location == "object_key":
+        payload[0][SENTINEL] = ["safe"]
+    elif location == "array":
+        payload[0]["metadata"] = [{"nested": [SENTINEL]}]
+    escaped = "".join("\\u%04x" % ord(char) for char in SENTINEL)
+    raw = json.dumps(payload).replace(SENTINEL, escaped).encode()
+    if location == "duplicate_key":
+        raw = raw[:-2] + b',"detail":"' + escaped.encode() + b'","detail":"clean"}]'
+    return raw
+
+
+@pytest.mark.parametrize("include", [False, True])
+@pytest.mark.parametrize("location", ["content", "object_key", "array", "duplicate_key"])
+def test_decoded_provider_json_strings_never_reach_v1_or_v2(include, location):
+    from tests.test_transcript_api import FakeSession
+    raw = _escaped_provider_payload(location)
+    assert SENTINEL.encode() not in raw
+    session = FakeSession({FMP_URL: FakeResponse(FMP_URL, raw, content_type="application/json")})
+    result = fetch_transcript(make_request(provider="fmp", ticker="MSFT", exchange="NASDAQ", fiscal_quarter=3),
+        fmp_api_key=SENTINEL, include_source_payload=include, session_factory=lambda: session)
+    assert result["status"] == "provider_error"
+    assert result["error_code"] == "provider_credentials_leaked"
+    assert SENTINEL not in json.dumps(result)
+    assert "provider_payload_base64" not in result and "content_utf8" not in result
+    assert len(session.calls) == 1
+
+
+@pytest.mark.parametrize("include", [False, True])
+def test_real_supervised_cli_rejects_escaped_provider_key_preserves_usage(tmp_path, monkeypatch, include):
+    raw = _escaped_provider_payload("content")
+    monkeypatch.setenv("FMP_API_KEY", SENTINEL)
+    calls = tmp_path / "calls.jsonl"
+    spec = fake_spec({FMP_URL: FakeResponse(FMP_URL, raw, content_type="application/json")}, calls_file=calls)
+    runtime_root = tmp_path / "runtime"
+    runtime_root.mkdir()
+    request = make_request(provider="fmp", ticker="MSFT", exchange="NASDAQ", fiscal_quarter=3)
+    monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps(request)))
+    out, err = io.StringIO(), io.StringIO()
+    monkeypatch.setattr(sys, "stdout", out)
+    monkeypatch.setattr(sys, "stderr", err)
+    args = ["--request-stdin", "--report-usage"] + (["--include-source-payload"] if include else [])
+    assert transcript_tool.main(args, _retrieval_launcher=LAUNCHER, _retrieval_spec=spec,
+                                _retrieval_temp_root=runtime_root) == 0
+    result, receipt = json.loads(out.getvalue()), json.loads(err.getvalue())
+    assert result["status"] == "provider_error"
+    assert result["error_code"] == "provider_credentials_leaked"
+    assert "provider_payload_base64" not in result and "content_utf8" not in result
+    assert SENTINEL not in out.getvalue() + err.getvalue()
+    assert receipt["usage_complete"] is True
+    assert receipt["usage"]["requests_used"] == 1
+    assert receipt["usage"]["response_bytes_used"] == len(raw)
+    assert get_urls(calls) == [FMP_URL]
+    assert list(runtime_root.iterdir()) == []
