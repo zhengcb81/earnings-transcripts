@@ -329,7 +329,14 @@ AAPL|苹果|Apple|nasdaq
 
 The files transcript_tool.py and transcript_api.py expose a JSON subprocess boundary for one exact fiscal quarter. This interface is separate from scraper.py: it never loads config.yaml or companies.txt, writes files, initializes logs/locks/caches, invokes translation, or creates bilingual/interleaved outputs. The production provider settings disable Motley Fool before any HTTP session is created. FMP's structured exact-quarter endpoint remains available when the process has a valid key and entitlement.
 
-Example request on stdin (`download_authorized=true` is the one explicit network intent; the caller decides it before invoking the tool):
+Carry forward the authorized company task and existing session authorization to
+its needed transcript retrieval through currently configured providers and
+budgets. Do not request permission again for each transcript or supplier, create
+a permission file, or require a live canary. Preserve account capability,
+credentials, byte/time/fee limits, unknown prior usage and platform security
+review; an unavailable capability remains a named gap.
+
+Example request on stdin (`download_authorized=true` is the single network intent derived from that task; it is not another human approval):
 
 ~~~json
 {
@@ -355,10 +362,12 @@ Invoke it with the request's network intent set to true:
 $requestJson | C:/Miniconda/python.exe transcript_tool.py --request-stdin --include-source-payload
 ~~~
 
-For an orchestrator that must authorize a selected source **before requesting its transcript body**, use two phases:
+For candidate-bound retrieval when the configured provider supports discovery,
+use two phases. FMP supports exact fetch only; these phases do not add another
+permission step or enable a disabled provider.
 
-1. Run the exact-period request with `--operation discover`. It returns only candidate metadata (`provider_document_id`, canonical URL, exact fiscal period, and publication date); it does not fetch candidate pages. The orchestrator must first permit the discovery request itself under its `discover` policy action.
-2. After checking the unique candidate, current source rights, the exact download authorization and byte cap, call `--operation fetch-candidate` with the `earnings-transcript-candidate-fetch-request/1` contract. This makes one body request to that candidate only. Candidate host, path, ticker, fiscal period, publication date and provider document ID are checked locally before any request. Add `--include-source-payload` only when the caller needs the schema `/2` bounded raw response for immutable-raw import.
+1. Run the exact-period request with `--operation discover` and the task's network intent. It returns candidate metadata (`provider_document_id`, canonical URL, exact fiscal period, and publication date); it does not fetch candidate pages.
+2. With the unique matching candidate and unchanged resource limits, call `--operation fetch-candidate` using `earnings-transcript-candidate-fetch-request/1`. It makes one body request to that candidate. Candidate host, path, ticker, fiscal period, publication date and provider document ID are validated locally before any request. Add `--include-source-payload` when CWP needs the bounded schema `/2` original response for immutable-raw import.
 
 Candidate-fetch request example (all fields are strict; the nested candidate has exactly these three fields):
 
@@ -390,11 +399,11 @@ The JSON `download_authorized` field is the single network intent. The old `--al
 
 A default successful result (schema `/1`) contains the untranslated English body, stable provider document ID/source URL, extraction version, the SHA-256 of the provider payload, and a separate SHA-256 of canonical UTF-8 text. To hand the exact bounded provider response to a downstream immutable-raw importer, callers may additionally pass `include_source_payload=True` to the Python API or add `--include-source-payload` to the CLI. That opt-in returns schema `/2`, base64-encoded response bytes, normalized MIME type, a safe effective URL, successful HTTP status, UTC retrieval time, and adapter name/version; it omits the duplicate `content_utf8` field and still performs no file writes. The default remains schema `/1` and does not return the raw response. Schema `/2` has a bounded 24 MiB encoded field ceiling; source responses remain limited by their provider/request byte caps. Motley Fool effective URLs are HTTPS `www.fool.com` path-only URLs with query values and fragments removed. FMP effective URLs may include only symbol/year/quarter, never the API key. Unsupported MIME types fail closed in raw-payload mode.
 
-For Motley Fool, `published_date` comes from the dated source URL. This interface capability does not grant automated-fetch, retention, or derivation rights; the company-wiki policy currently denies Motley Fool production use. FMP returns a structured JSON payload whose `date` field is the call date, not a verified publication date, so its result has `call_date`, `publication_date: null`, and `as_of_cutoff_verified: false`. Downstream historical as-of queries must not treat that call date as publication time. Before persistence, the company-wiki writer must independently verify current rights and validate provider provenance, raw bytes, MIME, date precision, extraction version, and both hashes.
+For Motley Fool, `published_date` comes from the dated source URL. Current ET defaults disable Motley Fool; task intent does not enable an unconfigured provider or establish account capability. FMP returns a structured JSON payload whose `date` field is the call date, not a verified publication date, so its result has `call_date`, `publication_date: null`, and `as_of_cutoff_verified: false`. Downstream historical as-of queries must not treat that call date as publication time. The company-wiki writer owns source intake validation of provider provenance, raw bytes, MIME, date precision, extraction version and hashes under the current configured capability; this is not a per-transcript human permission receipt.
 
 Statuses are fetched, not_found, ambiguous, unsupported, unavailable, not_authorized, rate_limited, provider_error, deadline_exceeded, content_too_large, provenance_rejected, and invalid_request. A missing FMP key reports `unavailable/provider_credentials_missing`, HTTP 402 reports `unavailable/provider_entitlement_required`, and HTTP 429 reports `rate_limited/provider_http_429`. The CLI emits exactly one JSON result on stdout and performs no retries or fallback translation. Unknown providers return unsupported; FMP requires an API key and uses `https://financialmodelingprep.com/stable/earning-call-transcript`. See [FMP's official endpoint documentation](https://site.financialmodelingprep.com/developer/docs/stable/search-transcripts). FMP terms and the account plan must be checked before persisting or redistributing transcript text; FMP says public display/redistribution requires a specific agreement ([terms](https://site.financialmodelingprep.com/terms-of-service), [pricing and access](https://site.financialmodelingprep.com/developer/docs/pricing)). This is a JSON CLI contract, not an MCP protocol server; an MCP wrapper can be added later without changing these schemas.
 
-**Integration status:** The offline CLI-to-API-to-fake-FMP-HTTP route and deterministic `/2` producer goldens are in [tests/golden](tests/golden/README.md). A previous user-authorized live FMP canary returned HTTP 402; endpoint entitlement and retention rights remain unverified, and this test run made no real provider request. The FMP `/2` success result has 26 fields, JSON MIME, and a safe period query; the current company-wiki importer accepts only the 24-field Motley shape, HTML/plain MIME, and a query-free URL. Its consumer migration awaits a provider-specific contract decision. filing-fetch invocation and the cross-repository import E2E remain pending.
+**Historical integration observation:** The offline CLI-to-API-to-fake-FMP-HTTP route and deterministic `/2` producer goldens are in [tests/golden](tests/golden/README.md). A previous live FMP canary returned HTTP 402; that run did not prove account entitlement or retention capability. At that checkpoint the FMP `/2` result had 26 fields, JSON MIME and a safe period query, while the consumer supported only the 24-field Motley shape; filing-fetch invocation and cross-repository import were still pending. Preserve those historical receipts. They do not impose a new canary, observation window or permission step on current configured requests; current CWP/FF contracts and actual provider responses determine present capability.
 
 ### Operation capability and incremental request cost
 
