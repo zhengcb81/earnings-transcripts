@@ -1,0 +1,5 @@
+# Findings
+
+已有40PASS/1FAIL证明日期排除有效、import0，但ET把未来call与空列表压成同形JSON，FF又把所有非fetched泛化provider unavailable。测试只assertnot_found，缺原因传递契约。已选复用error_code有限诊断，不升级wire、不重验其他层身份。ET CodeGraph未初始化，只读诊断已按正式knownpath直接读，不初始化。
+
+最终实现把actual身份和期间证明留在原source层，仅新增两值诊断。_listing_candidate_selection返回eligible+真实日期排除标记，exact fetch/discover共享；batch _listing_candidates保留dict接口。FMP多候选在原歧义判断后才处理唯一日期，不放宽原判断；call_date不替publication。真实worker诊断和请求/响应512等用量由既有serializer透明保留，不增body字段。

@@ -349,3 +349,50 @@ def test_two_document_batch_second_gets_only_remaining_budget(
     assert list(temp_root.iterdir()) == []
     assert not any(out.rglob("*_bilingual*"))
     assert not any(out.rglob("*_interleaved*"))
+
+
+def test_w06_cutoff_diagnostic_and_actual_usage_survive_real_worker(monkeypatch, tmp_path):
+    forbid_translator(monkeypatch)
+    monkeypatch.chdir(tmp_path)
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
+    for provider in ("fmp", "motley_fool"):
+        calls_file = tmp_path / f"{provider}.jsonl"
+        if provider == "fmp":
+            request = make_request(
+                ticker="MSFT", exchange="nasdaq", fiscal_quarter=3,
+                provider="fmp", as_of_date="2026-07-21",
+            )
+            payload = fmp_payload()
+            responses = {
+                FMP_URL: FakeResponse(FMP_URL, payload, content_type="application/json")
+            }
+            expected_code = "call_after_as_of"
+        else:
+            request = make_request(as_of_date="2026-08-31")
+            payload = quote_html(Q2_URL)
+            responses = {QUOTE_URL: FakeResponse(QUOTE_URL, payload)}
+            expected_code = "publication_after_as_of"
+        spec = fake_spec(responses, calls_file=calls_file)
+        rc, out, err = run_tool(
+            monkeypatch,
+            ["--request-stdin", "--include-source-payload", "--report-usage"],
+            request, spec=spec, temp_root=temp_root, settings=ENABLED_FOOL,
+        )
+        result = json.loads(out)
+        usage = json.loads(err)
+        assert rc == 0
+        assert result["schema_version"] == "earnings-transcript-result/2"
+        assert result["status"] == "not_found"
+        assert result["error_code"] == expected_code
+        assert result["candidate_count"] == 0
+        assert "provider_payload_base64" not in result
+        assert usage["schema_version"] == "earnings-retrieval-usage/1"
+        assert usage["request_id"] == request["request_id"]
+        assert usage["usage_complete"] is True
+        assert usage["usage"]["requests_used"] == 1
+        assert usage["usage"]["response_bytes_used"] == len(payload)
+        assert len(get_urls(calls_file)) == 1
+        assert all(not envelope["translator_loaded"] for envelope in envelopes(calls_file))
+        assert list(temp_root.iterdir()) == []
+        assert E2E_KEY not in out + err

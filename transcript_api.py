@@ -764,6 +764,7 @@ def _fetch_fmp_transcript(
             result_schema=result_schema,
             fiscal_period=f"{normalized['fiscal_year']}-Q{normalized['fiscal_quarter']}",
             candidate_count=0,
+            error_code="call_after_as_of",
         )
     content_bytes = match["content"].encode("utf-8")
     if len(content_bytes) > normalized["max_body_bytes"]:
@@ -876,9 +877,6 @@ def fetch_transcript(
 
     deadline = time.monotonic() + normalized["timeout_seconds"]
     ticker = normalized["ticker"]
-    exchanges = (
-        EXCHANGES if normalized["exchange"] == "auto" else (normalized["exchange"],)
-    )
     session = None
     try:
         session = _operation_session(session_factory(), normalized)
@@ -900,20 +898,10 @@ def fetch_transcript(
                 include_source_payload=include_source_payload,
                 result_schema=result_schema,
             )
-        eligible: dict[str, dict[str, Any]] = {}
-        for exchange in exchanges:
-            quote_url = f"https://{ALLOWED_HOST}/quote/{exchange}/{ticker.lower()}/"
-            listing, _, _ = _read_bounded(
-                session, quote_url, deadline, MAX_LISTING_BYTES
-            )
-            for candidate in _candidate_urls(listing, ticker, quote_url):
-                candidate_period = candidate["period"]
-                if (
-                    candidate_period
-                    == (normalized["fiscal_year"], normalized["fiscal_quarter"])
-                    and candidate["published_date"] <= normalized["as_of"]
-                ):
-                    eligible[candidate["source_url"]] = candidate
+        eligible, excluded_after_as_of = _listing_candidate_selection(
+            session, ticker, normalized["exchange"], normalized["as_of"], deadline,
+            fiscal_period=(normalized["fiscal_year"], normalized["fiscal_quarter"]),
+        )
         if not eligible:
             return _base_result(
                 request_id,
@@ -921,6 +909,8 @@ def fetch_transcript(
                 result_schema=result_schema,
                 fiscal_period=f"{normalized['fiscal_year']}-Q{normalized['fiscal_quarter']}",
                 candidate_count=0,
+                **({"error_code": "publication_after_as_of"}
+                   if excluded_after_as_of else {}),
             )
         if len(eligible) > 1:
             return _base_result(
@@ -1058,6 +1048,37 @@ def fetch_transcript(
                 pass
 
 
+def _listing_candidate_selection(
+    session: requests.Session,
+    ticker: str,
+    exchange: str,
+    as_of: date,
+    deadline: float,
+    *,
+    fiscal_period: tuple[int, int] | None = None,
+) -> tuple[dict[str, dict[str, Any]], bool]:
+    """Select validated metadata and retain why a target scope was excluded.
+
+    Identity is owned by _candidate_urls. Filter the requested period before
+    recording cutoff exclusion, so another quarter cannot explain this gap.
+    All configured exchanges are observed before uniqueness is decided.
+    """
+    exchanges = EXCHANGES if exchange == "auto" else (exchange,)
+    eligible: dict[str, dict[str, Any]] = {}
+    excluded_after_as_of = False
+    for ex in exchanges:
+        quote_url = f"https://{ALLOWED_HOST}/quote/{ex}/{ticker.lower()}/"
+        listing, _, _ = _read_bounded(session, quote_url, deadline, MAX_LISTING_BYTES)
+        for candidate in _candidate_urls(listing, ticker, quote_url):
+            if fiscal_period is not None and candidate["period"] != fiscal_period:
+                continue
+            if candidate["published_date"] <= as_of:
+                eligible[candidate["source_url"]] = candidate
+            else:
+                excluded_after_as_of = True
+    return eligible, excluded_after_as_of
+
+
 def _listing_candidates(
     session: requests.Session,
     ticker: str,
@@ -1065,19 +1086,10 @@ def _listing_candidates(
     as_of: date,
     deadline: float,
 ) -> dict[str, dict[str, Any]]:
-    """All candidate transcript metadata visible on the quote listings.
-
-    Shared by exact-period discovery and the in-process batch listing helper;
-    never fetches a transcript body.
-    """
-    exchanges = EXCHANGES if exchange == "auto" else (exchange,)
-    eligible: dict[str, dict[str, Any]] = {}
-    for ex in exchanges:
-        quote_url = f"https://{ALLOWED_HOST}/quote/{ex}/{ticker.lower()}/"
-        listing, _, _ = _read_bounded(session, quote_url, deadline, MAX_LISTING_BYTES)
-        for candidate in _candidate_urls(listing, ticker, quote_url):
-            if candidate["published_date"] <= as_of:
-                eligible[candidate["source_url"]] = candidate
+    """Preserve the in-process batch listing interface; no body fetch."""
+    eligible, _ = _listing_candidate_selection(
+        session, ticker, exchange, as_of, deadline,
+    )
     return eligible
 
 
@@ -1260,18 +1272,14 @@ def discover_transcripts(
                 "Accept-Language": "en-US,en;q=0.9",
             }
         )
-        eligible = {
-            url: candidate
-            for url, candidate in _listing_candidates(
-                session,
-                normalized["ticker"],
-                normalized["exchange"],
-                normalized["as_of"],
-                deadline,
-            ).items()
-            if candidate["period"]
-            == (normalized["fiscal_year"], normalized["fiscal_quarter"])
-        }
+        eligible, excluded_after_as_of = _listing_candidate_selection(
+            session,
+            normalized["ticker"],
+            normalized["exchange"],
+            normalized["as_of"],
+            deadline,
+            fiscal_period=(normalized["fiscal_year"], normalized["fiscal_quarter"]),
+        )
         candidates = _candidate_entries(
             eligible, ticker=normalized["ticker"], exchange=normalized["exchange"]
         )
@@ -1291,6 +1299,8 @@ def discover_transcripts(
             as_of_date=normalized["as_of"].isoformat(),
             candidate_count=len(candidates),
             candidates=candidates,
+            **({"error_code": "publication_after_as_of"}
+               if not candidates and excluded_after_as_of else {}),
         )
     except _DeadlineExceeded:
         return _base_result(

@@ -1,0 +1,40 @@
+{
+  "schema_version": "w06-cutoff-handoff/1",
+  "verdict": "AUTHOR_COMPLETE_PENDING_ROOT_MATRIX",
+  "root": "C:\\Users\\郑曾波\\Projects\\_harness_worktrees\\w06\\et-cutoff-root",
+  "base_head": "c91f5f54bc2a24e7b5d6e648dba3f9d578f5fa52",
+  "files": [
+    {
+      "repository": "et",
+      "path": "transcript_api.py",
+      "sha256": "f1bc6e6cadcf02ce6aad757c2d79d16a5ed87270dece827ac45399d4ffcbf2e3",
+      "bytes": 57923
+    },
+    {
+      "repository": "et",
+      "path": "tests/test_transcript_api.py",
+      "sha256": "72303bc90edc5e7687881f2b698d831ccf20875910b40885f8e38d17a9512c54",
+      "bytes": 35002
+    },
+    {
+      "repository": "et",
+      "path": "tests/test_retrieval_cli_e2e.py",
+      "sha256": "a55153a6f12fcfc2c751ea6da5818c05d60caa87a7d4aac696e96a223ceda9a7",
+      "bytes": 14455
+    }
+  ],
+  "tests": {
+    "red": {
+      "failed": 5,
+      "passed": 6
+    },
+    "concentrated": {
+      "passed": 56,
+      "seconds": 40.37
+    },
+    "goldens": 10,
+    "lint": "PASS"
+  },
+  "next_step": "ROOT original41 matrix, independent acceptance and publishing",
+  "stop": true
+}

@@ -125,6 +125,7 @@ def test_as_of_date_excludes_later_publication_without_fetching_body():
         make_request(as_of_date="2026-08-31"), session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True)
     )
     assert result["status"] == "not_found"
+    assert result["error_code"] == "publication_after_as_of"
     assert len(session.calls) == 1
 
 
@@ -486,6 +487,7 @@ def test_fmp_excludes_call_after_requested_as_of_date():
         fmp_api_key="fake-key",
     )
     assert result["status"] == "not_found"
+    assert result["error_code"] == "call_after_as_of"
 
 
 def test_fmp_rejects_redirects():
@@ -739,3 +741,125 @@ def test_cli_invalid_json_and_usage_have_stable_exit_codes_without_network():
     )
     assert misuse.returncode == 2
     assert misuse.stdout == ""
+
+
+# W06: exclusion is an observed acquisition outcome, not provider unavailability.
+def _fmp_cutoff_result(payload, *, as_of="2026-07-21", include_payload=False):
+    session = FakeSession({
+        FMP_URL: FakeResponse(FMP_URL, payload, content_type="application/json")
+    })
+    result = fetch_transcript(
+        make_request(
+            ticker="MSFT", exchange="nasdaq", fiscal_quarter=3,
+            provider="fmp", as_of_date=as_of,
+        ),
+        session_factory=lambda: session, fmp_api_key="fake-cutoff-key",
+        include_source_payload=include_payload,
+    )
+    assert len(session.calls) == 1
+    return result
+
+
+def test_w06_fmp_cutoff_cause_survives_both_result_versions():
+    for include_payload in (False, True):
+        result = _fmp_cutoff_result(fmp_payload(), include_payload=include_payload)
+        assert result["schema_version"] == (
+            "earnings-transcript-result/2" if include_payload
+            else "earnings-transcript-result/1"
+        )
+        assert result["status"] == "not_found"
+        assert result["fiscal_period"] == "2026-Q3"
+        assert result["candidate_count"] == 0
+        assert result["error_code"] == "call_after_as_of"
+        assert not set(result) & {
+            "reason", "content_utf8", "provider_payload_base64",
+            "as_of_cutoff_verified", "publication_date",
+        }
+
+
+def test_w06_fmp_empty_response_is_missing_without_cutoff_inference():
+    for include_payload in (False, True):
+        result = _fmp_cutoff_result(b"[]", include_payload=include_payload)
+        assert result["status"] == "not_found"
+        assert result["candidate_count"] == 0
+        assert "error_code" not in result
+
+
+def test_w06_fmp_cutoff_day_is_allowed_but_publication_stays_unknown():
+    result = _fmp_cutoff_result(fmp_payload(), as_of="2026-07-22")
+    assert result["status"] == "fetched"
+    assert "error_code" not in result
+    assert result["call_date"] == "2026-07-22"
+    assert result["publication_date"] is None
+    assert result["as_of_cutoff_verified"] is False
+
+
+def test_w06_fmp_wrong_scope_cannot_be_reclassified_as_cutoff():
+    for payload in (
+        fmp_payload(symbol="OTHER"), fmp_payload(period="Q2"),
+        fmp_payload(year=2025), fmp_payload(date="2026-7-22"),
+    ):
+        result = _fmp_cutoff_result(payload)
+        assert result["status"] == "provenance_rejected"
+        assert result.get("error_code") != "call_after_as_of"
+
+
+def test_w06_fmp_multiple_candidates_keep_existing_ambiguity():
+    current = json.loads(fmp_payload(date="2026-07-20"))[0]
+    future = json.loads(fmp_payload(date="2026-07-22"))[0]
+    for rows in ([current, future], [future, dict(future)]):
+        result = _fmp_cutoff_result(json.dumps(rows).encode("utf-8"))
+        assert result["status"] == "ambiguous"
+        assert result["candidate_count"] == 2
+        assert "error_code" not in result
+
+
+def test_w06_motley_fetch_and_discover_preserve_target_publication_cutoff():
+    for operation in (fetch_transcript, discover_transcripts):
+        session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))})
+        result = operation(
+            make_request(as_of_date="2026-08-31"),
+            session_factory=lambda: session,
+            provider_settings=ProviderSettings(motley_fool_enabled=True),
+        )
+        assert result["status"] == "not_found"
+        assert result["candidate_count"] == 0
+        assert result["error_code"] == "publication_after_as_of"
+        assert len(session.calls) == 1
+        assert "content_utf8" not in result
+
+
+def test_w06_motley_other_period_future_record_is_plain_missing():
+    for operation in (fetch_transcript, discover_transcripts):
+        session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q1_URL))})
+        result = operation(
+            make_request(as_of_date="2026-04-30"),
+            session_factory=lambda: session,
+            provider_settings=ProviderSettings(motley_fool_enabled=True),
+        )
+        assert result["status"] == "not_found"
+        assert result["candidate_count"] == 0
+        assert "error_code" not in result
+        assert len(session.calls) == 1
+
+
+def test_w06_motley_cutoff_day_and_mixed_dates_select_eligible_candidate():
+    future = Q2_URL.replace("/09/01/", "/09/02/")
+    for operation in (fetch_transcript, discover_transcripts):
+        session = FakeSession({
+            QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL, future)),
+            Q2_URL: FakeResponse(Q2_URL, transcript_html()),
+        })
+        result = operation(
+            make_request(as_of_date="2026-09-01"),
+            session_factory=lambda: session,
+            provider_settings=ProviderSettings(motley_fool_enabled=True),
+        )
+        assert result["status"] == (
+            "fetched" if operation is fetch_transcript else "discovered"
+        )
+        assert "error_code" not in result
+        assert len(session.calls) == (2 if operation is fetch_transcript else 1)
+        if operation is discover_transcripts:
+            assert result["candidate_count"] == 1
+            assert result["candidates"][0]["source_url"] == Q2_URL
