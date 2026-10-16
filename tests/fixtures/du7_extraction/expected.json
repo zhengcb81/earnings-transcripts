@@ -1,0 +1,64 @@
+{
+  "schema": "du7-extraction-expected/1",
+  "expected_basis": "hand-derived from construction card counterexamples; normalization is whitespace-collapsed text joined by blank lines; independent of implementation output",
+  "cases": {
+    "business_sentence": {
+      "fixture": "business_sentence.html",
+      "title": "ACME Q2 2026 Earnings Call",
+      "body": "Operator: Good afternoon, and welcome to the ACME second quarter 2026 earnings conference call.\n\nAdvertising revenue grew 20% and advertisement pricing declined.\n\nManagement described the commercial rollout, customer qualification, capacity expansion and overseas launch schedule in detail.\n\nRevenue for the quarter was 1.2 billion dollars, up 12 percent year over year.",
+      "order_markers": [
+        "Operator: Good afternoon",
+        "Advertising revenue grew 20%",
+        "Management described the commercial rollout",
+        "Revenue for the quarter was 1.2 billion dollars"
+      ],
+      "title_sha256": "610d716022c7ffdf8b008268fd1f6435f0cf92cb79961095eb8b7bdef9f2c9dd",
+      "body_sha256": "ea448b0a1948767080562aaf82d179789afad40a82c1428923c593df25041038",
+      "title_utf8_bytes": 26,
+      "body_utf8_bytes": 370
+    },
+    "nested_li_p": {
+      "fixture": "nested_li_p.html",
+      "title": "ACME Q2 2026 Earnings Call",
+      "body": "Operator: Good afternoon, and welcome to the ACME second quarter 2026 earnings conference call.\n\nOur subscription revenue increased 18 percent driven by enterprise customer wins and strong renewal rates across every region.\n\nManagement described the commercial rollout, customer qualification, capacity expansion and overseas launch schedule in detail.",
+      "order_markers": [
+        "Operator: Good afternoon",
+        "Our subscription revenue increased 18 percent",
+        "Management described the commercial rollout"
+      ],
+      "title_sha256": "610d716022c7ffdf8b008268fd1f6435f0cf92cb79961095eb8b7bdef9f2c9dd",
+      "body_sha256": "6740d4fcef8be5c6a56616d7e38116f42bed32664fed37ff2c815dcc666df618",
+      "title_utf8_bytes": 26,
+      "body_utf8_bytes": 352
+    },
+    "short_title": {
+      "fixture": "short_title.html",
+      "title": "ACME Q2 2026 Earnings Call",
+      "body": "Q&A\n\nOperator: We will now open the line for questions. Please go ahead.\n\nAnalyst: Thank you. Can you talk about the advertising pricing trend in the quarter?\n\nCEO: Sure. Advertising revenue growth was 20 points and pricing stabilized, which is what we expected given the mix shift.\n\nCFO: We remain confident in our full year outlook and the guidance ranges we published in May.",
+      "order_markers": [
+        "Q&A",
+        "Operator: We will now open",
+        "Analyst: Thank you.",
+        "CEO: Sure.",
+        "CFO: We remain confident"
+      ],
+      "title_sha256": "610d716022c7ffdf8b008268fd1f6435f0cf92cb79961095eb8b7bdef9f2c9dd",
+      "body_sha256": "03ccd748e286f256b5465a9c6216f5e4b96775e60b64576aa465c0166d95b253",
+      "title_utf8_bytes": 26,
+      "body_utf8_bytes": 378
+    },
+    "compat_baseline": {
+      "fixture": "compat_baseline.html",
+      "title": "ACME Q2 2026 Earnings Call",
+      "body": "Operator: Welcome to the call.\n\nManagement described the commercial rollout, customer qualification, capacity expansion and overseas launch schedule in detail. Management described the commercial rollout, customer qualification, capacity expansion and overseas launch schedule in detail. Management described the commercial rollout, customer qualification, capacity expansion and overseas launch schedule in detail. Management described the commercial rollout, customer qualification, capacity expansion and overseas launch schedule in detail.",
+      "order_markers": [
+        "Operator: Welcome to the call.",
+        "Management described the commercial rollout"
+      ],
+      "title_sha256": "610d716022c7ffdf8b008268fd1f6435f0cf92cb79961095eb8b7bdef9f2c9dd",
+      "body_sha256": "97b5b19f0b9967c0ab40c9dd2b68854a0e229db30c7505af3948028b03a0f2ca",
+      "title_utf8_bytes": 26,
+      "body_utf8_bytes": 543
+    }
+  }
+}

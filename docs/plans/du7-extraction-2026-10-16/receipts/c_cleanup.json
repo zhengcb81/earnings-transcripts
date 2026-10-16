@@ -1,0 +1,17 @@
+{
+  "schema": "du7-cleanup-receipt/1",
+  "run_date": "2026-10-16",
+  "owned_test_root": "tests/fixtures/du7_extraction + docs/plans/du7-extraction-2026-10-16",
+  "temp_usage": "all e2e/scratch files used pytest tmp_path (auto-purged per test); no workspace Temp/sentinel outside owned roots",
+  "workspace_tmp_leaks": [],
+  "transcripts_dir_present": false,
+  "sentinel_restore": "e2e asserts before/after dict equality of sentinel.bin + pre-existing v1 TXT byte hashes; new downloads/receipts deleted in-test",
+  "new_files_deleted_in_tests": [
+    "out/ACME/ACME_Q2_2026_earnings_call.txt",
+    "out/ACME/ACME_Q2_2026_earnings_call.txt.receipt.json",
+    "out/summary.txt, out/run_manifest.json, out/.instance.lock, out/logs/scraper.log (failure test leaves run metadata only, no original/receipt/tmp)"
+  ],
+  "production_writes": 0,
+  "supplier_calls": 0,
+  "originals_untouched": true
+}

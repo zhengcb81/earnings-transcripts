@@ -22,12 +22,15 @@ import requests
 from bs4 import BeautifulSoup
 from retrieval_budget import BatchBudgetExceeded, UsageCounter, _BudgetSession
 
+import transcript_extraction
+
 REQUEST_SCHEMA = "earnings-transcript-request/1"
 RESULT_SCHEMA = "earnings-transcript-result/1"
 RESULT_SCHEMA_WITH_SOURCE_PAYLOAD = "earnings-transcript-result/2"
 DISCOVERY_RESULT_SCHEMA = "earnings-transcript-discovery-result/1"
 CANDIDATE_FETCH_REQUEST_SCHEMA = "earnings-transcript-candidate-fetch-request/1"
-EXTRACTION_VERSION = "motley-fool-main-text/1"
+EXTRACTION_VERSION_LEGACY = "motley-fool-main-text/1"
+EXTRACTION_VERSION = "motley-fool-main-text/2"
 ADAPTER_VERSION = "1.0.0"
 MAX_TIMEOUT_SECONDS = 60
 MAX_BODY_BYTES = 10 * 1024 * 1024
@@ -522,24 +525,17 @@ def _candidate_urls(
     return list(candidates.values())
 
 
+def _extract_page(page: bytes) -> "transcript_extraction.ExtractionResult":
+    """One DOM observation via the shared extraction owner; old error contract."""
+    try:
+        return transcript_extraction.extract(page)
+    except transcript_extraction.ExtractionError as exc:
+        raise _ProviderFailure() from exc
+
+
 def _extract_body(page: bytes) -> tuple[str, str]:
-    soup = BeautifulSoup(page, "html.parser")
-    title_node = soup.find("h1")
-    title = title_node.get_text(" ", strip=True) if title_node else ""
-    main = soup.find("main")
-    if main is None:
-        raise _ProviderFailure()
-    paragraphs: list[str] = []
-    for node in main.find_all(["p", "h2", "h3", "li"]):
-        text = " ".join(node.get_text(" ", strip=True).split())
-        lowered = text.casefold()
-        if len(text) < 5 or any(skip in lowered for skip in SKIP_TEXT):
-            continue
-        paragraphs.append(text)
-    body = "\n\n".join(paragraphs).strip()
-    if not title or len(body) < MIN_CONTENT_CHARS:
-        raise _ProviderFailure()
-    return title, body
+    result = _extract_page(page)
+    return result.title, result.body
 
 
 def _check_fmp_effective_url(
@@ -933,7 +929,8 @@ def fetch_transcript(
             "application/xhtml+xml",
         ):
             raise _ProvenanceRejected()
-        title, body = _extract_body(page)
+        extraction = _extract_page(page)
+        title, body = extraction.title, extraction.body
         body_bytes = body.encode("utf-8")
         if len(body_bytes) > normalized["max_body_bytes"]:
             raise _PayloadTooLarge()
@@ -946,7 +943,7 @@ def fetch_transcript(
             "source_url": candidate["source_url"],
             "provider_document_id": candidate["provider_document_id"],
             "published_date": candidate["published_date"].isoformat(),
-            "extraction_version": EXTRACTION_VERSION,
+            "extraction_version": extraction.extraction_version,
             "provider_payload_sha256": hashlib.sha256(page).hexdigest(),
             "canonical_content_sha256": hashlib.sha256(body_bytes).hexdigest(),
             "content_bytes": len(body_bytes),
@@ -1528,7 +1525,8 @@ def fetch_transcript_candidate(
             "application/xhtml+xml",
         ):
             raise _ProvenanceRejected()
-        title, body = _extract_body(page)
+        extraction = _extract_page(page)
+        title, body = extraction.title, extraction.body
         body_bytes = body.encode("utf-8")
         if len(body_bytes) > normalized["max_body_bytes"]:
             raise _PayloadTooLarge()
@@ -1541,7 +1539,7 @@ def fetch_transcript_candidate(
             "source_url": candidate["source_url"],
             "provider_document_id": candidate["provider_document_id"],
             "published_date": candidate["published_date"],
-            "extraction_version": EXTRACTION_VERSION,
+            "extraction_version": extraction.extraction_version,
             "provider_payload_sha256": hashlib.sha256(page).hexdigest(),
             "canonical_content_sha256": hashlib.sha256(body_bytes).hexdigest(),
             "content_bytes": len(body_bytes),

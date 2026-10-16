@@ -8,22 +8,22 @@ PLAN_ID：`du7-extraction-2026-10-16`；PWF_PLAN_ROOT：`docs/plans`。
 
 ## A：调查、冻结接口、行为RED
 
-Status: pending
+Status: done
 
 按卡真实代码与期望，保留旧正确行为，区分合成/真实/未运行。
 
 ## B：所属层共因实现和集中测试
 
-Status: pending
+Status: done
 
 先测试后实现，不增加预算/权限/身份库；不改旧断言、跨仓或兄弟范围。
 
 ## C：实际入口E2E、清理和交接
 
-Status: pending
+Status: done
 
 只读原件，独立Temp/sentinel，成功/失败均恢复；正常commit后提交handoff.md/json和收据，冻结源码并STOP。
 
 ## Next Step
 
-执行A；只在A/B/C大节点集中检查，不增加小节点人工许可或每commit全仓测试。
+ROOT 并线与精确CI；独立agent审查后如有整改项由作者在冻结前补齐。见 handoff.md/handoff.json。

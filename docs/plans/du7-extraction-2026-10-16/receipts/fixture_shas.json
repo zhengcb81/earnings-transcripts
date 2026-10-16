@@ -1,0 +1,92 @@
+[
+  {
+    "kind": "synthetic",
+    "source_sha256": "78c34763ed94425085d189d1459565b927f5155e896be3e3f5efe8a184dc07fd",
+    "scope": "tests/fixtures/du7_extraction/ad_container.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "b7933c40ca3557d87304e8eff2d5bdef52807782674ee021142e8f0bebe0150d",
+    "scope": "tests/fixtures/du7_extraction/business_sentence.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "61ab56ef4535fac4ca7568dd64cfd623e6724fdcf245d18cf0c1d92a6ead416d",
+    "scope": "tests/fixtures/du7_extraction/compat_baseline.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "5d1cd090b2baab07b43a654bd49bd3aaeea0273dc576ab3d2083ad4e965cb371",
+    "scope": "tests/fixtures/du7_extraction/div_p_inline.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "4929e17c250291f7a3ee0cbdd5be7d7e84a23ca7747cfb222a0d202a6f65e503",
+    "scope": "tests/fixtures/du7_extraction/empty_body.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "9ba31b6005c80b6ed9a09fdd0e11fd97354b1d4991ccaeaed9865519df6240f1",
+    "scope": "tests/fixtures/du7_extraction/expected.json",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "2d826a60241433d19984172ce3e49ac3f7dc3dc0e56b52846de0628670274a59",
+    "scope": "tests/fixtures/du7_extraction/labels_entities.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "d3304fa52d8d2df20b5b0ecfae90ea0ff35ee485a9d1671fe2f2d6371c0a431e",
+    "scope": "tests/fixtures/du7_extraction/malformed.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "dee116e3202c58f2a2aa433683b201d23504bb39607598f7be979327519527ff",
+    "scope": "tests/fixtures/du7_extraction/missing_main.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "0fa0f15d41f8e0cc9a17d8517c7a08bafad82240b46467b2f8e8e948303fbb31",
+    "scope": "tests/fixtures/du7_extraction/mixed_cjk.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "8172b8f2e616474fc5b3f1e0d62d2afb76db9aaf5b94c0b5c37523ee0cdd6130",
+    "scope": "tests/fixtures/du7_extraction/multi_main.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "190a42000cc31c615a099afb2fae0f1d9eb5e7e6f22e2b21a3a8a55323b9c955",
+    "scope": "tests/fixtures/du7_extraction/nested_li_p.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "dd1aaacf8d3aa9e6aebadf304354009d4e988bcb2f1ee4310fcb7d8bcddd4f24",
+    "scope": "tests/fixtures/du7_extraction/real_duplicate.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "83425d4ce5214e5e3b8310cc2ab7dcacd77791d8f009a424b19d0dda72bea0d5",
+    "scope": "tests/fixtures/du7_extraction/script_hidden.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  },
+  {
+    "kind": "synthetic",
+    "source_sha256": "df1dfa04f60b24edce4045a4f752da1c1115cb040b0243e4425c3a7e57b601be",
+    "scope": "tests/fixtures/du7_extraction/short_title.html",
+    "expected_basis": "hand-derived counterexamples from construction card; expected.json carries frozen title/body SHA + order markers"
+  }
+]

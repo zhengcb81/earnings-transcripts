@@ -1,0 +1,106 @@
+{
+  "schema_version": "du7-handoff/1",
+  "card_id": "DU7-ET-EXTRACTION",
+  "base_commit": "d0ac42c60dcca992db78860b8469cfed3dd527e5",
+  "branch": "codex/du7-et-extraction-20261016",
+  "implementation_commits": [],
+  "changed_paths": [
+    "transcript_extraction.py",
+    "transcript_api.py",
+    "tests/test_du7_extraction_behavior.py",
+    "tests/test_du7_extraction_edges.py",
+    "tests/test_du7_extraction_wiring.py",
+    "tests/test_du7_extraction_e2e.py",
+    "tests/fixtures/du7_extraction/",
+    "docs/plans/du7-extraction-2026-10-16/"
+  ],
+  "entrypoints": [
+    "transcript_extraction.extract(page: bytes) -> ExtractionResult",
+    "transcript_api._extract_body(page: bytes) -> tuple[str, str] (legacy port, delegated)",
+    "transcript_api.fetch_transcript / fetch_transcript_candidate (both via _extract_page)",
+    "transcript_tool.main --request-stdin --operation fetch-candidate",
+    "scraper.main --periods --output"
+  ],
+  "interfaces": {
+    "inputs": [
+      "Motley transcript HTML page bytes (text/html)"
+    ],
+    "outputs": [
+      "title/body with whitespace-collapsed paragraphs joined by blank lines",
+      "extraction_version: motley-fool-main-text/1 when output is byte-identical to frozen v1 semantics, else motley-fool-main-text/2",
+      "internal typed ExtractionResult with limited diagnostics (kept_short_text, kept_skip_text, suppressed_nested_duplicate, dropped_node_scope)"
+    ],
+    "unchanged": [
+      "_extract_body signature and _ProviderFailure error contract (missing main / missing title / body < MIN_CONTENT_CHARS)",
+      "public /1 and /2 request/response field sets",
+      "fmp-api-content/1 FMP extraction",
+      "DEFAULT_PROVIDER_SETTINGS (motley_fool_enabled=False, fmp_enabled=True)",
+      "HTTP/URL verification/budget/concurrency/cache/translation layers"
+    ]
+  },
+  "tests": [
+    {
+      "command": "python -m pytest tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_wiring.py tests/test_du7_extraction_e2e.py -q",
+      "exit_code": 0,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/c_final_du7_suite.txt"
+    },
+    {
+      "command": "python -m pytest tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_wiring.py tests/test_transcript_api.py tests/test_request_response_budget.py tests/test_retrieval_cli_e2e.py tests/test_transcript_artifact.py tests/test_batch_runtime.py -q",
+      "exit_code": 0,
+      "passed": 190,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_concentrated_regression.txt"
+    },
+    {
+      "command": "python tests/generate_transcript_goldens.py --check",
+      "exit_code": 0,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_concentrated_regression.txt"
+    }
+  ],
+  "red_receipts": [
+    "receipts/a_first_behavior_red.txt"
+  ],
+  "fixtures": [
+    {
+      "kind": "synthetic",
+      "source_sha256": "see receipts/fixture_shas.json (15 fixture files, per-file sha256)",
+      "scope": "tests/fixtures/du7_extraction/*.html + expected.json",
+      "expected_basis": "hand-derived from construction-card counterexamples; frozen title/body UTF-8 SHA + order markers in expected.json; compat baseline body SHA 97b5b19f... matches frozen golden canonical_content_sha256"
+    }
+  ],
+  "old_behavior_preserved": [
+    "compat small page extraction byte-identical (body sha256 97b5b19f0b9967c0ab40c9dd2b68854a0e229db30c7505af3948028b03a0f2ca), reports motley-fool-main-text/1",
+    "_extract_body port signature and _ProviderFailure contract unchanged",
+    "first-main behavior for multi-main pages unchanged",
+    "FMP extraction fmp-api-content/1 and payload fields unchanged",
+    "motley disabled by default: CLI returns unavailable/provider_disabled with zero HTTP calls",
+    "existing TXT originals reused without re-download (e2e), pre-existing v1 file and sentinel byte-identical after run",
+    "10 frozen goldens unchanged and matched"
+  ],
+  "known_limits": [
+    "synthetic fixtures dominate; live Motley DOM not exercised (provider default disabled, no production policy change)",
+    "multi-main keeps current first-main selection",
+    "v1 reference projection runs alongside v2 on the same parsed DOM solely for honest version labeling",
+    "sparse worktree lacks transcripts/ dir: 3 test_scraper cases fail identically on the clean baseline (not this card); test_common translator LLM factory case fails on baseline without env keys (not this card)"
+  ],
+  "not_run": [
+    "live public-page sample segment-by-segment reading (reported NOT_RUN; live DOM adaptability unverified; three synthetic root causes delivered independently)",
+    "translation and any paid LLM call (forbidden by card; e2e asserts translator is never constructed)"
+  ],
+  "root_integration_steps": [
+    "merge codex/du7-et-extraction-20261016 (transcript_extraction.py, transcript_api.py narrow delegation, 4 new test files, fixtures)",
+    "no CWP/FF field sync needed: consumer contract accepts any <=128-char extraction_version for Motley and pins only fmp-api-content/1 for FMP (statically verified)",
+    "optional ROOT decision: spot-check extract() against a real Motley page if a live sample is obtained",
+    "precise CI: DU7 suite + concentrated regression + golden check; ignore the 3 baseline test_scraper directory cases and 1 baseline translator case"
+  ],
+  "supplier_calls": 0,
+  "production_writes": 0,
+  "cleanup_receipt": "receipts/c_cleanup.json"
+}

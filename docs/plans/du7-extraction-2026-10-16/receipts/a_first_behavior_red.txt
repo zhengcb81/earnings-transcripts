@@ -1,0 +1,40 @@
+    def test_short_structural_heading_q_and_a_is_preserved():
+        """Short headings like Q&A are structure, not noise."""
+        title, body = _extract_body(_page("short_title"))
+>       _assert_case("short_title", title, body)
+
+tests\test_du7_extraction_behavior.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'short_title', title = 'ACME Q2 2026 Earnings Call'
+body = 'Operator: We will now open the line for questions. Please go ahead.\n\nAnalyst: Thank you. Can you talk about the adv...given the mix shift.\n\nCFO: We remain confident in our full year outlook and the guidance ranges we published in May.'
+
+    def _assert_case(name: str, title: str, body: str) -> None:
+        expected = EXPECTED[name]
+        assert title == expected["title"], f"{name}: title drifted"
+        assert _sha(title) == expected["title_sha256"], f"{name}: title sha drifted"
+>       assert body == expected["body"], (
+            f"{name}: body drifted\n--- got ---\n{body!r}\n--- want ---\n{expected['body']!r}"
+        )
+E       AssertionError: short_title: body drifted
+E         --- got ---
+E         'Operator: We will now open the line for questions. Please go ahead.\n\nAnalyst: Thank you. Can you talk about the advertising pricing trend in the quarter?\n\nCEO: Sure. Advertising revenue growth was 20 points and pricing stabilized, which is what we expected given the mix shift.\n\nCFO: We remain confident in our full year outlook and the guidance ranges we published in May.'
+E         --- want ---
+E         'Q&A\n\nOperator: We will now open the line for questions. Please go ahead.\n\nAnalyst: Thank you. Can you talk about the advertising pricing trend in the quarter?\n\nCEO: Sure. Advertising revenue growth was 20 points and pricing stabilized, which is what we expected given the mix shift.\n\nCFO: We remain confident in our full year outlook and the guidance ranges we published in May.'
+E       assert 'Operator: We...ished in May.' == 'Q&A\n\nOpera...ished in May.'
+E         
+E         - Q&A
+E         - 
+E           Operator: We will now open the line for questions. Please go ahead.
+E           
+E           Analyst: Thank you. Can you talk about the advertising pricing trend in the quarter?
+E           ...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+tests\test_du7_extraction_behavior.py:33: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_du7_extraction_behavior.py::test_business_sentence_with_advertising_words_is_preserved
+FAILED tests/test_du7_extraction_behavior.py::test_li_p_paragraph_is_emitted_once
+FAILED tests/test_du7_extraction_behavior.py::test_short_structural_heading_q_and_a_is_preserved
+========================= 3 failed, 1 passed in 0.40s =========================
