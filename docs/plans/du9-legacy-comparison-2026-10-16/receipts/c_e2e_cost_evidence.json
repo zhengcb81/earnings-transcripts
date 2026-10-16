@@ -1,0 +1,82 @@
+{
+  "schema": "du9-cost-evidence/1",
+  "plan_id": "du9-legacy-comparison-2026-10-16",
+  "measured_at_scale": "algorithmic counters, not wall-clock",
+  "shapes": [
+    {
+      "shape": "nested_p_200",
+      "dom_nodes": 412,
+      "decision": "legacy_differs",
+      "extraction_version": "motley-fool-main-text/2",
+      "oracle_agrees": true,
+      "comparator_nodes_visited": 404,
+      "comparator_blocks_scanned": 2,
+      "comparator_chars_compared": 258,
+      "comparator_max_intermediate_chars": 11,
+      "comparator_full_confirmations": 1,
+      "frozen_legacy_body_chars": 536781
+    },
+    {
+      "shape": "nested_p_1200",
+      "dom_nodes": 2412,
+      "decision": "legacy_differs",
+      "extraction_version": "motley-fool-main-text/2",
+      "oracle_agrees": true,
+      "comparator_nodes_visited": 2404,
+      "comparator_blocks_scanned": 2,
+      "comparator_chars_compared": 258,
+      "comparator_max_intermediate_chars": 11,
+      "comparator_full_confirmations": 1,
+      "frozen_legacy_body_chars": 19414381
+    },
+    {
+      "shape": "nested_p_2400",
+      "dom_nodes": 4812,
+      "decision": "legacy_differs",
+      "extraction_version": "motley-fool-main-text/2",
+      "oracle_agrees": true,
+      "comparator_nodes_visited": 4804,
+      "comparator_blocks_scanned": 2,
+      "comparator_chars_compared": 258,
+      "comparator_max_intermediate_chars": 11,
+      "comparator_full_confirmations": 1,
+      "frozen_legacy_body_chars": 78643981
+    },
+    {
+      "shape": "siblings_600",
+      "dom_nodes": 1210,
+      "decision": "legacy_equal",
+      "extraction_version": "motley-fool-main-text/1",
+      "oracle_agrees": true,
+      "comparator_nodes_visited": 1203,
+      "comparator_blocks_scanned": 601,
+      "comparator_chars_compared": 34458,
+      "comparator_max_intermediate_chars": 11,
+      "comparator_full_confirmations": 601,
+      "frozen_legacy_body_chars": 35632
+    },
+    {
+      "shape": "siblings_2000",
+      "dom_nodes": 4010,
+      "decision": "legacy_equal",
+      "extraction_version": "motley-fool-main-text/1",
+      "oracle_agrees": true,
+      "comparator_nodes_visited": 4003,
+      "comparator_blocks_scanned": 2001,
+      "comparator_chars_compared": 114258,
+      "comparator_max_intermediate_chars": 11,
+      "comparator_full_confirmations": 2001,
+      "frozen_legacy_body_chars": 118232
+    }
+  ],
+  "pre_fix_red_baseline": {
+    "source": "receipts/a_first_behavior_red.txt",
+    "nested_2400_get_text_calls": 2403,
+    "nested_2400_piece_yields": 2883603,
+    "nested_2400_dom_nodes": 4812
+  },
+  "shas": {
+    "baseline_commit": "0cb71731cef6c6b3582f595d44f5b8a077392ac1",
+    "frozen_reference_source_sha256": "85d1d45c52f14b39768120184e034945b0e4e8887ce622b4a2069e1b27bfad2b"
+  }
+}

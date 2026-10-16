@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import hashlib
 import inspect
+import json
 import random
 import sys
 from pathlib import Path
@@ -36,6 +37,21 @@ sys.path.insert(0, str(ROOT))
 
 import legacy_projection_comparison  # noqa: E402
 import transcript_extraction  # noqa: E402
+from tests.test_retrieval_runtime import (  # noqa: E402
+    LAUNCHER,
+    fake_spec,
+    get_urls,
+)
+from tests.test_transcript_api import (  # noqa: E402
+    Q1_URL,
+    Q2_URL,
+    QUOTE_URL,
+    FakeResponse,
+    FakeSession,
+    make_candidate_request,
+    quote_html,
+)
+from transcript_api import ProviderSettings  # noqa: E402
 
 FIXTURES = Path(__file__).parent / "fixtures" / "du9_legacy_comparison"
 
@@ -540,3 +556,241 @@ def test_comparator_confirms_every_paragraph_on_equal_pages():
         assert stats.nodes_visited <= 10 * _node_count(page)
         assert stats.max_intermediate_chars <= 512
         assert stats.chars_compared <= len(result.title) + len(result.body) + 64
+
+
+# --------------------------------------------------------------------------
+# Node C: the real public entries with the local fake HTTP seam (0 network,
+# 0 translation), end-to-end cost accounting and isolation cleanup.
+# --------------------------------------------------------------------------
+
+ACME = {"ticker": "ACME", "name_en": "Acme", "name_cn": "亚克力", "exchange": "nyse"}
+SENTINEL = b"sentinel-keep-bytes\x00\xff"
+OLD_V1_TEXT = (
+    "pre-existing v1 original body, never rewritten by this test run\n" * 4
+)
+
+
+def _forbid_translator(monkeypatch: pytest.MonkeyPatch) -> None:
+    import scraper
+    import translator
+
+    def explode(*args, **kwargs):
+        pytest.fail("translator must not be constructed by these runs")
+
+    monkeypatch.setattr(translator.TranslatorFactory, "create", explode)
+    monkeypatch.setattr(scraper, "TranslatorFactory", translator.TranslatorFactory)
+
+
+def _snapshot_paths(paths: list[Path]) -> dict[str, tuple[str, int]]:
+    return {
+        str(path): (
+            hashlib.sha256(path.read_bytes()).hexdigest(),
+            path.stat().st_mtime_ns,
+        )
+        for path in paths
+    }
+
+
+def _directory_state(root: Path) -> dict[str, str]:
+    return {
+        str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in root.rglob("*")
+        if path.is_file()
+    }
+
+
+def test_e2e_deep_fetch_reports_honest_version_with_bounded_comparison(
+    monkeypatch, tmp_path
+):
+    """Real candidate-fetch entry, fake HTTP seam, deeply nested page: one
+    DOM observation, bounded comparison work, honest /2 label, numbers intact."""
+    from transcript_api import fetch_transcript_candidate
+
+    _forbid_translator(monkeypatch)
+    page = _nested_p_page(1200)
+    session = FakeSession({Q2_URL: FakeResponse(Q2_URL, page)})
+
+    captured: dict = {}
+    real_compare = legacy_projection_comparison.legacy_projection_matches
+
+    def capturing_compare(soup, title, body, **kwargs):
+        stats = legacy_projection_comparison.ComparisonStats()
+        captured["stats"] = stats
+        kwargs["stats"] = stats
+        return real_compare(soup, title, body, **kwargs)
+
+    monkeypatch.setattr(
+        legacy_projection_comparison, "legacy_projection_matches",
+        capturing_compare,
+    )
+    real_parser = transcript_extraction.BeautifulSoup
+    parses = {"count": 0}
+
+    def counting_parser(*args, **kwargs):
+        parses["count"] += 1
+        return real_parser(*args, **kwargs)
+
+    monkeypatch.setattr(transcript_extraction, "BeautifulSoup", counting_parser)
+
+    result = fetch_transcript_candidate(
+        make_candidate_request(),
+        session_factory=lambda: session,
+        provider_settings=ProviderSettings(motley_fool_enabled=True),
+    )
+    assert result["status"] == "fetched"
+    assert [url for url, _kwargs in session.calls] == [Q2_URL]
+    assert result["provider_payload_sha256"] == hashlib.sha256(page).hexdigest()
+    body = result["content_utf8"]
+    assert result["canonical_content_sha256"] == hashlib.sha256(
+        body.encode("utf-8")
+    ).hexdigest()
+    # a deep legacy projection can never equal the ownership body: honest /2
+    assert result["extraction_version"] == transcript_extraction.EXTRACTION_VERSION
+    # the numbers and full text survive the end-to-end path unchanged
+    assert "Level 0 wraps the chain." in body
+    assert "Level 1199 wraps the chain." in body
+    assert "The innermost paragraph ends the deep nesting chain." in body
+    # one DOM build for the whole fetch; bounded comparison work
+    assert parses["count"] == 1
+    stats = captured["stats"]
+    assert stats.nodes_visited <= 10 * _node_count(page)
+    assert stats.max_intermediate_chars <= 512
+    assert stats.chars_compared <= len(body) + 8192
+
+    # the equal side keeps the legacy /1 label through the same real entry
+    equal_page = (FIXTURES / "equal_flat.html").read_bytes()
+    equal_session = FakeSession({Q2_URL: FakeResponse(Q2_URL, equal_page)})
+    equal_result = fetch_transcript_candidate(
+        make_candidate_request(),
+        session_factory=lambda: equal_session,
+        provider_settings=ProviderSettings(motley_fool_enabled=True),
+    )
+    assert equal_result["status"] == "fetched"
+    assert equal_result["extraction_version"] == (
+        transcript_extraction.EXTRACTION_VERSION_LEGACY
+    )
+
+
+def test_e2e_existing_txt_reused_and_equal_page_reports_legacy_version(
+    monkeypatch, tmp_path
+):
+    """Real scraper entry reuses the existing TXT without refetching, writes
+    a complete original plus receipt for the equal page, and pre-existing
+    files and owned inputs survive byte for byte."""
+    import scraper
+
+    _forbid_translator(monkeypatch)
+    out = tmp_path / "out"
+    old_v1 = out / "ACME" / "ACME_Q1_2026_earnings_call.txt"
+    old_v1.parent.mkdir(parents=True)
+    old_v1.write_bytes(OLD_V1_TEXT.encode("utf-8"))
+    sentinel = tmp_path / "sentinel.bin"
+    sentinel.write_bytes(SENTINEL)
+    before = _directory_state(tmp_path)
+    inputs_before = _snapshot_paths([
+        FIXTURES / "equal_flat.html", ROOT / "config.yaml",
+    ])
+
+    page = (FIXTURES / "equal_flat.html").read_bytes()
+    calls_file = tmp_path / "calls.jsonl"
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
+    spec = fake_spec(
+        {
+            QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL)),
+            Q2_URL: FakeResponse(Q2_URL, page),
+        },
+        calls_file=calls_file,
+    )
+    rc = scraper.main(
+        ["--periods", "2026Q1,2026Q2", "--output", str(out)],
+        _provider_settings=ProviderSettings(motley_fool_enabled=True),
+        _companies=[ACME],
+        _retrieval_launcher=LAUNCHER,
+        _retrieval_spec=spec,
+        _retrieval_temp_root=temp_root,
+    )
+    assert rc == 0
+    urls = get_urls(calls_file)
+    assert Q1_URL not in urls
+    assert urls.count(Q2_URL) == 1
+    assert len(urls) == 2
+
+    new_original = out / "ACME" / "ACME_Q2_2026_earnings_call.txt"
+    assert new_original.exists()
+    assert "Subscription revenue grew 18% to $1.2 billion" in (
+        new_original.read_text(encoding="utf-8")
+    )
+    receipt_files = list((out / "ACME").glob("*.receipt.json"))
+    assert receipt_files, "new original must carry its download receipt"
+    receipt = json.loads(receipt_files[0].read_text(encoding="utf-8"))
+    assert receipt["schema"] == "et-local-text-receipt/1"
+    assert receipt["extraction_version"] and receipt["body_sha256"]
+    # pre-existing v1 original and sentinel survive byte for byte
+    assert old_v1.read_bytes() == OLD_V1_TEXT.encode("utf-8")
+    assert sentinel.read_bytes() == SENTINEL
+
+    created = [
+        path
+        for path in tmp_path.rglob("*")
+        if path.is_file() and str(path.relative_to(tmp_path)) not in before
+    ]
+    assert created
+    for path in created:
+        path.unlink()
+    after = _directory_state(tmp_path)
+    for name, digest in before.items():
+        assert after[name] == digest
+    assert list(temp_root.iterdir()) == []
+    # owned inputs and configuration are untouched (SHA + mtime)
+    assert _snapshot_paths([
+        FIXTURES / "equal_flat.html", ROOT / "config.yaml",
+    ]) == inputs_before
+
+
+def test_e2e_failed_body_fetch_leaves_no_half_files(monkeypatch, tmp_path):
+    """A failing body fetch through the real entry writes no original,
+    receipt or temp file and reaps the retrieval temp root."""
+    import scraper
+
+    _forbid_translator(monkeypatch)
+    out = tmp_path / "out"
+    out.mkdir()
+    sentinel = tmp_path / "sentinel.bin"
+    sentinel.write_bytes(SENTINEL)
+    before = _directory_state(tmp_path)
+
+    calls_file = tmp_path / "calls.jsonl"
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
+    spec = fake_spec(
+        {
+            QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL)),
+            Q2_URL: FakeResponse(Q2_URL, b"", status_code=500),
+        },
+        calls_file=calls_file,
+    )
+    rc = scraper.main(
+        ["--periods", "2026Q2", "--output", str(out)],
+        _provider_settings=ProviderSettings(motley_fool_enabled=True),
+        _companies=[ACME],
+        _retrieval_launcher=LAUNCHER,
+        _retrieval_spec=spec,
+        _retrieval_temp_root=temp_root,
+    )
+    assert rc != 0
+    half_files = [
+        path
+        for path in tmp_path.rglob("*")
+        if path.is_file()
+        and (
+            path.name.endswith("_earnings_call.txt")
+            or path.name.endswith(".receipt.json")
+            or ".tmp-" in path.name
+        )
+    ]
+    assert half_files == [], f"failure must not leave half files: {half_files}"
+    assert sentinel.read_bytes() == SENTINEL
+    for name, digest in before.items():
+        assert hashlib.sha256((tmp_path / name).read_bytes()).hexdigest() == digest
+    assert list(temp_root.iterdir()) == []
