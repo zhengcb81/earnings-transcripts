@@ -173,3 +173,47 @@ def test_error_paths_do_not_write_partial_files(tmp_path):
     after = sorted(p.name for p in tmp_path.iterdir())
     assert before == after
     assert marker.read_bytes() == b"keep-me"
+
+
+def test_max_body_bytes_rejection_survives_extraction_change():
+    """Card B4: the current body byte-limit rejection contract stays."""
+    page = _page("business_sentence")
+    body_len = len(transcript_extraction.extract(page).body.encode("utf-8"))
+    session = FakeSession({Q2_URL: FakeResponse(Q2_URL, page)})
+    request = make_candidate_request()
+    request["max_body_bytes"] = body_len - 1
+    result = fetch_transcript_candidate(
+        request, session_factory=lambda: session, provider_settings=ENABLED
+    )
+    assert result["status"] == "content_too_large"
+    assert result["error_code"] == "byte_limit"
+
+
+def test_response_byte_quota_rejection_survives_extraction_change():
+    """Card B4: the current max_response_bytes quota rejection contract stays."""
+    from retrieval_budget import UsageCounter, _BudgetSession
+
+    page = _page("business_sentence")
+    inner = FakeSession({Q2_URL: FakeResponse(Q2_URL, page)})
+    budget = UsageCounter()
+    session = _BudgetSession(inner, budget)
+    request = make_candidate_request(max_response_bytes=10)
+    result = fetch_transcript_candidate(
+        request, session_factory=lambda: session, provider_settings=ENABLED
+    )
+    assert result["status"] == "content_too_large"
+    assert result["error_code"] == "byte_limit"
+    assert budget.usage_snapshot()["exhausted"] == "response_bytes"
+
+
+def test_deadline_rejection_survives_extraction_change():
+    """Card B4: the current deadline rejection contract stays."""
+    import requests
+
+    session = FakeSession({Q2_URL: requests.Timeout("deadline")})
+    result = fetch_transcript_candidate(
+        make_candidate_request(), session_factory=lambda: session,
+        provider_settings=ENABLED,
+    )
+    assert result["status"] == "deadline_exceeded"
+    assert result["error_code"] == "provider_deadline"

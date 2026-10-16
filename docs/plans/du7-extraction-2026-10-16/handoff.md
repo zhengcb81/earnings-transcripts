@@ -45,10 +45,21 @@ C:/Miniconda/python.exe tests/generate_transcript_goldens.py --check
 
 - 首个行为 RED（`receipts/a_first_behavior_red.txt`）：3 failed / 1 passed——业务句误删、li>p 双发射、
   Q&A 短标题删除三个共因均以行为断言复现（非 import 级）；兼容基线当时即绿。
-- DU7 最终 24/24 绿（`receipts/c_final_du7_suite.txt`）：行为 4、边缘/过滤 11、wiring/版本 5、真实入口 e2e 4。
-- 集中回归 190/190 绿（`receipts/b_concentrated_regression.txt`）：新测试 + test_transcript_api +
+- DU7 最终 28/28 绿（`receipts/c_final_du7_suite.txt`）：行为 4、边缘/过滤 12、wiring/版本/字节截止拒绝 8、真实入口 e2e 4。
+- 集中回归 198/198 绿（`receipts/b_concentrated_regression.txt`）：新测试 + test_transcript_api +
   test_request_response_budget + test_retrieval_cli_e2e + test_transcript_artifact + test_batch_runtime。
-- golden check 10/10 匹配（旧 v1 冻结 gold 未动）。
+- golden check 10/10 匹配（`receipts/b_golden_check.txt`；旧 v1 冻结 gold 未动）。
+- ruff 对 transcript_extraction.py / transcript_api.py / 全部 du7 测试全绿。
+
+## 独立审查与整改
+
+独立审查 agent 报告后完成 3 项整改：
+1. 清理 e2e 测试未用导入与未用变量（ruff exit 0）。
+2. 补 B4 缺口：wiring 测试新增最大 body 字节拒绝、max_response_bytes 配额拒绝、deadline 拒绝三例
+   （`test_max_body_bytes_rejection_survives_extraction_change` 等），断言现行拒绝合同不变。
+3. 收窄 `_CONTAINER_TOKENS`：移除 follow/share/promo/promotion 等易与业务复合类名冲突的宽 token
+   （如 class="follow-up-question"），并新增 `test_business_compound_class_names_are_not_treated_as_ad_containers`
+   防误杀回归；广告证据 token（ad/ads/advert*/sponsor*/newsletter/cookie/paywall/outbrain/taboola 等整词）不变。
 
 ## 新/旧提取版本兼容表
 

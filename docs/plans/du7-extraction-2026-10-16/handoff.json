@@ -42,15 +42,15 @@
     {
       "command": "python -m pytest tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_wiring.py tests/test_du7_extraction_e2e.py -q",
       "exit_code": 0,
-      "passed": 24,
+      "passed": 28,
       "failed": 0,
       "skipped": 0,
       "receipt": "receipts/c_final_du7_suite.txt"
     },
     {
-      "command": "python -m pytest tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_wiring.py tests/test_transcript_api.py tests/test_request_response_budget.py tests/test_retrieval_cli_e2e.py tests/test_transcript_artifact.py tests/test_batch_runtime.py -q",
+      "command": "python -m pytest tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_wiring.py tests/test_du7_extraction_e2e.py tests/test_transcript_api.py tests/test_request_response_budget.py tests/test_retrieval_cli_e2e.py tests/test_transcript_artifact.py tests/test_batch_runtime.py -q",
       "exit_code": 0,
-      "passed": 190,
+      "passed": 198,
       "failed": 0,
       "skipped": 0,
       "receipt": "receipts/b_concentrated_regression.txt"
@@ -61,7 +61,7 @@
       "passed": 10,
       "failed": 0,
       "skipped": 0,
-      "receipt": "receipts/b_concentrated_regression.txt"
+      "receipt": "receipts/b_golden_check.txt"
     }
   ],
   "red_receipts": [
@@ -70,7 +70,7 @@
   "fixtures": [
     {
       "kind": "synthetic",
-      "source_sha256": "see receipts/fixture_shas.json (15 fixture files, per-file sha256)",
+      "source_sha256": "pointer: receipts/fixture_shas.json lists per-file sha256 for all 15 fixture files (files too numerous for inline digests)",
       "scope": "tests/fixtures/du7_extraction/*.html + expected.json",
       "expected_basis": "hand-derived from construction-card counterexamples; frozen title/body UTF-8 SHA + order markers in expected.json; compat baseline body SHA 97b5b19f... matches frozen golden canonical_content_sha256"
     }

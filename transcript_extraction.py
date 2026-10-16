@@ -51,15 +51,17 @@ _NON_CONTENT_TAGS = frozenset({
 })
 
 # Whole tokens only (class/id values are tokenized on non-alphanumerics), so a
-# business class like "load-more" can never match the "ad" token.
+# business class like "load-more" can never match the "ad" token. Tokens that
+# also read as business words in compound class names ("follow-up",
+# "share-price", "promo-code") are deliberately not listed: node-scope
+# filtering must not eat real transcript containers.
 _CONTAINER_TOKENS = frozenset({
     "ad", "ads", "advert", "advertisement", "advertising", "adslot",
-    "advertorial", "sponsor", "sponsored", "sponsorship", "promo",
-    "promotion", "newsletter", "subscribe", "subscription", "cookie",
+    "advertorial", "sponsor", "sponsored", "sponsorship",
+    "newsletter", "subscribe", "subscription", "cookie",
     "cookies", "consent", "paywall", "interstitial", "outbrain", "taboola",
     "breadcrumb", "navbar", "navigation", "sidebar", "popup", "modal",
-    "banner", "pagination", "comment", "comments", "disqus", "share",
-    "social", "follow",
+    "pagination", "comment", "comments", "disqus",
 })
 
 _ROLE_TOKENS = frozenset({

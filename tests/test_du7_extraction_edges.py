@@ -122,3 +122,25 @@ def test_dual_emission_regression_shapes():
     short_body = _extract_body(_page("short_title"))[1]
     assert short_body.split("\n\n")[0] == "Q&A"
     assert short_body.count("CEO: Sure.") == 1
+
+
+def test_business_compound_class_names_are_not_treated_as_ad_containers():
+    """follow-up / share-price / promo-code class tokens must not eat content."""
+    html = (
+        b'<html><head><meta charset="utf-8"></head><body>'
+        b"<h1>ACME Q2 2026 Earnings Call</h1><main>"
+        b'<div class="follow-up-question"><p>Analyst: Could you clarify the follow-up '
+        b"on the enterprise pipeline and the expected conversion rate in the second "
+        b"half of this fiscal year?</p></div>"
+        b'<div class="share-price-metrics"><p>Revenue guidance was raised and the '
+        b"share price metrics in our dashboard remain consistent with the outlook "
+        b"we published in the prior quarter for the full fiscal year.</p></div>"
+        b'<div class="promo-code-terms"><p>Promotional code terms were disclosed in '
+        b"the appendix of the annual report filed with the regulator last week and "
+        b"are unchanged from the previously published description of the program.</p></div>"
+        b"</main></body></html>"
+    )
+    title, body = _extract_body(html)
+    assert "Could you clarify the follow-up" in body
+    assert "share price metrics in our dashboard" in body
+    assert "Promotional code terms were disclosed" in body

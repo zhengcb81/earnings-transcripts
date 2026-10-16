@@ -42,7 +42,6 @@ from tests.test_transcript_api import (  # noqa: E402
     FakeResponse,
     make_candidate_request,
     quote_html,
-    transcript_html,
 )
 
 FIXTURES = Path(__file__).parent / "fixtures" / "du7_extraction"
@@ -265,4 +264,7 @@ def test_failure_path_leaves_no_half_files(monkeypatch, tmp_path):
     ]
     assert half_files == [], f"failure must not leave half files: {half_files}"
     assert sentinel.read_bytes() == SENTINEL
+    # pre-existing files survive byte-identically
+    for name, digest in before.items():
+        assert hashlib.sha256((tmp_path / name).read_bytes()).hexdigest() == digest
     assert list(temp_root.iterdir()) == []
