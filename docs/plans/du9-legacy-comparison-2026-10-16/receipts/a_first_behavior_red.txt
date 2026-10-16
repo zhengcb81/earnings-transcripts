@@ -1,0 +1,15 @@
+>       assert counters["piece_yields"] <= 8 * nodes, (
+            f"depth={depth}: text-piece visits {counters['piece_yields']} exceed "
+            f"the linear bound 8*nodes={8 * nodes} (quadratic legacy replay)"
+        )
+E       AssertionError: depth=2400: text-piece visits 2883603 exceed the linear bound 8*nodes=38496 (quadratic legacy replay)
+E       assert 2883603 <= (8 * 4812)
+
+tests\test_du9_legacy_comparison.py:168: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_du9_legacy_comparison.py::test_production_extract_never_replays_frozen_legacy_reference
+FAILED tests/test_du9_legacy_comparison.py::test_production_extract_never_calls_get_text
+FAILED tests/test_du9_legacy_comparison.py::test_text_piece_visits_stay_linear_on_deep_nested_blocks[200]
+FAILED tests/test_du9_legacy_comparison.py::test_text_piece_visits_stay_linear_on_deep_nested_blocks[1200]
+FAILED tests/test_du9_legacy_comparison.py::test_text_piece_visits_stay_linear_on_deep_nested_blocks[2400]
+5 failed, 152 passed in 32.08s
