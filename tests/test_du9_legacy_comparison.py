@@ -22,6 +22,8 @@ deep/sibling shapes.
 """
 from __future__ import annotations
 
+import hashlib
+import inspect
 import random
 import sys
 from pathlib import Path
@@ -32,6 +34,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+import legacy_projection_comparison  # noqa: E402
 import transcript_extraction  # noqa: E402
 
 FIXTURES = Path(__file__).parent / "fixtures" / "du9_legacy_comparison"
@@ -283,6 +286,13 @@ _MATRIX_PAGES: dict[str, bytes] = {
     "malformed_unclosed": _main_page(_filler_main(
         f"<p>{FACT}<p>Second malformed paragraph also missing its closing tag"
     )),
+    "skip_phrase_across_comment": _main_page(_filler_main(
+        "<p>click<!--disc--> here to learn more about the quarter results.</p>"
+    )),
+    "skip_word_split_inline": _main_page(_filler_main(
+        "<p>adver<strong>tisement</strong> pricing held steady through the "
+        "final stretch of the reporting period.</p>"
+    )),
 }
 
 
@@ -397,3 +407,136 @@ def test_generated_sample_set_covers_both_outcomes():
         outcomes.add(_expected_is_legacy(_generated_page(rng)))
     assert True in outcomes, "generated samples never hit the equal side"
     assert False in outcomes, "generated samples never hit the unequal side"
+
+
+# --------------------------------------------------------------------------
+# Node B: comparator-internal bounds (algorithmic counts, never wall-clock).
+# --------------------------------------------------------------------------
+
+
+def _compare_with_stats(
+    page: bytes, stats: legacy_projection_comparison.ComparisonStats
+) -> tuple[bool, bool]:
+    """Drive the comparator directly with fresh stats; returns
+    ``(decision, oracle_agreement_expected)``."""
+    result = transcript_extraction.extract(page)
+    soup = BeautifulSoup(page, "html.parser")
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        soup,
+        result.title,
+        result.body,
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    frozen = transcript_extraction._legacy_v1_reference(
+        BeautifulSoup(page, "html.parser")
+    )
+    expected = frozen == (result.title, result.body)
+    assert matched is expected
+    return matched, expected
+
+
+def test_frozen_legacy_reference_source_is_untouched():
+    """The frozen v1 baseline stays byte-identical to the released function."""
+    source = inspect.getsource(transcript_extraction._legacy_v1_reference)
+    normalized = "\n".join(source.splitlines())
+    digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+    assert digest == (
+        "85d1d45c52f14b39768120184e034945b0e4e8887ce622b4a2069e1b27bfad2b"
+    )
+
+
+@pytest.mark.parametrize("name", sorted(_MATRIX_PAGES))
+def test_block_iteration_order_matches_find_all(name):
+    soup = BeautifulSoup(_MATRIX_PAGES[name], "html.parser")
+    main = soup.find("main")
+    expected = main.find_all(["p", "h2", "h3", "li"])
+    mine = list(legacy_projection_comparison._iter_legacy_blocks(
+        main, transcript_extraction._BLOCK_TAGS
+    ))
+    assert [id(block) for block in mine] == [id(block) for block in expected]
+
+
+@pytest.mark.parametrize("depth", [200, 1200, 2400])
+def test_comparator_visits_stay_linear_on_adjacent_deep_scales(depth, monkeypatch):
+    page = _nested_p_page(depth)
+    nodes = _node_count(page)
+    result = transcript_extraction.extract(page)
+    counters = _install_visit_counter(monkeypatch)
+    stats = legacy_projection_comparison.ComparisonStats()
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        BeautifulSoup(page, "html.parser"),
+        result.title,
+        result.body,
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    assert matched is False
+    # no bs4 text iteration happens anywhere in the comparison itself
+    assert counters["get_text_calls"] == 0
+    assert counters["piece_yields"] == 0
+    assert stats.nodes_visited <= 10 * nodes, (
+        f"depth={depth}: comparator visited {stats.nodes_visited} nodes for "
+        f"{nodes} DOM nodes"
+    )
+    assert stats.max_intermediate_chars <= 512
+    assert stats.chars_compared <= len(result.title) + len(result.body) + 64
+
+
+def test_comparator_adjacent_scale_growth_is_linear():
+    visited = {}
+    for depth in (200, 1200, 2400):
+        page = _nested_p_page(depth)
+        stats = legacy_projection_comparison.ComparisonStats()
+        _compare_with_stats(page, stats)
+        visited[depth] = stats.nodes_visited
+    assert visited[1200] <= 8 * visited[200]
+    assert visited[2400] <= 2.5 * visited[1200]
+
+
+def test_deep_comparison_never_materializes_the_legacy_body():
+    page = _nested_p_page(1200)
+    soup = BeautifulSoup(page, "html.parser")
+    frozen = transcript_extraction._legacy_v1_reference(soup)
+    result = transcript_extraction.extract(page)
+    legacy_body_len = len(frozen[1])
+    # the frozen path materializes a duplicated legacy body of this size
+    assert legacy_body_len > 100_000
+    stats = legacy_projection_comparison.ComparisonStats()
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        BeautifulSoup(page, "html.parser"),
+        result.title,
+        result.body,
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    assert matched is (frozen == (result.title, result.body)) is False
+    assert stats.max_intermediate_chars <= 512, (
+        "comparison must never buffer the duplicated legacy body"
+    )
+    assert stats.nodes_visited <= 10 * _node_count(page)
+
+
+def test_comparator_confirms_every_paragraph_on_equal_pages():
+    for page in (
+        (FIXTURES / "equal_flat.html").read_bytes(),
+        _sibling_page(600),
+    ):
+        stats = legacy_projection_comparison.ComparisonStats()
+        matched, expected = _compare_with_stats(page, stats)
+        assert matched is True
+        assert expected is True
+        result = transcript_extraction.extract(page)
+        assert stats.full_confirmations == len(result.body.split("\n\n"))
+        assert stats.nodes_visited <= 10 * _node_count(page)
+        assert stats.max_intermediate_chars <= 512
+        assert stats.chars_compared <= len(result.title) + len(result.body) + 64
