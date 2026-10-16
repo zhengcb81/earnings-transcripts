@@ -50,19 +50,30 @@ _NON_CONTENT_TAGS = frozenset({
     "nav", "aside", "footer", "figcaption",
 })
 
-# Whole tokens only (class/id values are tokenized on non-alphanumerics), so a
-# business class like "load-more" can never match the "ad" token. Tokens that
-# also read as business words in compound class names ("follow-up",
-# "share-price", "promo-code") are deliberately not listed: node-scope
-# filtering must not eat real transcript containers.
-_CONTAINER_TOKENS = frozenset({
-    "ad", "ads", "advert", "advertisement", "advertising", "adslot",
-    "advertorial", "sponsor", "sponsored", "sponsorship",
-    "newsletter", "subscribe", "subscription", "cookie",
-    "cookies", "consent", "paywall", "interstitial", "outbrain", "taboola",
+# Ambiguous business words in metadata are not enough to delete content.
+# Recognize a declared UI/ad node or an adjacent ad/UI structural marker,
+# never an arbitrary token from e.g. subscription-revenue/data-adoption-rate.
+_EXPLICIT_UI_MARKERS = frozenset({
+    "ad", "ads", "advert", "advertisement", "advertorial", "adslot",
+    "adsbygoogle", "paywall", "interstitial", "outbrain", "taboola",
     "breadcrumb", "navbar", "navigation", "sidebar", "popup", "modal",
-    "pagination", "comment", "comments", "disqus",
+    "pagination", "comments", "disqus",
 })
+_PROMOTION_MARKERS = frozenset({
+    "ad", "ads", "advert", "advertisement", "advertising", "advertorial",
+    "sponsor", "sponsored", "sponsorship", "newsletter", "subscribe",
+    "subscription", "cookie", "cookies", "consent", "comments",
+})
+_UI_STRUCTURES = frozenset({
+    "container", "wrapper", "slot", "unit", "banner", "block", "widget",
+    "popup", "overlay", "signup", "prompt", "consent", "notice", "form",
+    "paywall", "panel", "menu", "navigation", "nav",
+})
+_AD_ATTRIBUTES = frozenset({
+    "data-ad", "data-ad-slot", "data-ad-unit", "data-ad-container",
+    "data-ad-client", "data-ad-format", "data-advertisement",
+})
+_FALSE_MARKERS = frozenset({"false", "0", "off", "none"})
 
 _ROLE_TOKENS = frozenset({
     "navigation", "banner", "contentinfo", "complementary", "menu",
@@ -98,20 +109,25 @@ class ExtractionResult:
     diagnostics: tuple[str, ...]
 
 
-def _evidence_tokens(tag: Tag) -> set[str]:
-    tokens: set[str] = set()
-    for attr in ("class", "id", "role", "data-testid", "data-type"):
-        value = tag.get(attr)
-        if isinstance(value, list):
-            value = " ".join(str(item) for item in value)
-        if isinstance(value, str):
-            tokens.update(
-                token for token in _TOKEN_SPLIT_RE.split(value.lower()) if token
-            )
-    for attr in tag.attrs:
-        if attr.startswith("data-ad"):
-            tokens.add("ad")
-    return tokens
+def _metadata_marks_ui(tag: Tag) -> bool:
+    for attr in ("class", "id", "data-testid", "data-type"):
+        values = tag.get(attr)
+        if not isinstance(values, list):
+            values = [values]
+        for value in values:
+            if not isinstance(value, str):
+                continue
+            normalized = value.strip().lower()
+            if normalized in _EXPLICIT_UI_MARKERS:
+                return True
+            tokens = [token for token in _TOKEN_SPLIT_RE.split(normalized) if token]
+            if any(left in _PROMOTION_MARKERS and right in _UI_STRUCTURES
+                   for left, right in zip(tokens, tokens[1:])):
+                return True
+    for attr in _AD_ATTRIBUTES:
+        if tag.has_attr(attr) and str(tag.get(attr, "")).strip().lower() not in _FALSE_MARKERS:
+            return True
+    return False
 
 
 def _is_droppable(tag: Tag) -> bool:
@@ -125,10 +141,10 @@ def _is_droppable(tag: Tag) -> bool:
     style = tag.get("style")
     if isinstance(style, str) and _HIDDEN_STYLE_RE.search(style):
         return True
-    tokens = _evidence_tokens(tag)
-    if tokens & _CONTAINER_TOKENS:
+    role = tag.get("role")
+    if isinstance(role, str) and set(role.lower().split()) & _ROLE_TOKENS:
         return True
-    return bool(tokens & _ROLE_TOKENS)
+    return _metadata_marks_ui(tag)
 
 
 def _collect_runs(
@@ -138,27 +154,39 @@ def _collect_runs(
     runs: list[tuple[int, Tag, str]],
     state: dict[str, bool],
 ) -> None:
-    for child in node.children:
+    # Iterator frames use O(depth) storage and never recurse on the Python
+    # call stack. Dropped subtrees are pruned rather than repeatedly visited.
+    stack = [(iter(node.children), owner, dropped)]
+    while stack:
+        children, current_owner, current_dropped = stack[-1]
+        try:
+            child = next(children)
+        except StopIteration:
+            stack.pop()
+            continue
         if isinstance(child, _SKIPPED_STRING_TYPES):
             continue
         if isinstance(child, NavigableString):
-            if dropped or owner is None:
+            if current_dropped or current_owner is None:
                 continue
-            piece = child.strip()
-            if not piece:
-                continue
-            runs.append((id(owner), owner, piece))
+            piece = str(child)
+            if piece:
+                runs.append((id(current_owner), current_owner, piece))
         elif isinstance(child, Tag):
-            child_dropped = dropped or _is_droppable(child)
-            if child_dropped and not dropped:
-                if child.find(list(_BLOCK_TAGS)) is not None:
+            if current_dropped or _is_droppable(child):
+                if child.name in _BLOCK_TAGS or child.find(list(_BLOCK_TAGS)) is not None:
                     state[DIAG_DROPPED_CONTAINER] = True
-            child_owner = owner
-            if not child_dropped and child.name in _BLOCK_TAGS:
+                continue
+            if child.name == "br":
+                if current_owner is not None:
+                    runs.append((id(current_owner), current_owner, "\n"))
+                continue
+            child_owner = current_owner
+            if child.name in _BLOCK_TAGS:
                 child_owner = child
-                if owner is not None and owner.name in _BLOCK_TAGS:
+                if current_owner is not None and current_owner.name in _BLOCK_TAGS:
                     state[DIAG_NESTED_SUPPRESSED] = True
-            _collect_runs(child, child_owner, child_dropped, runs, state)
+            stack.append((iter(child.children), child_owner, False))
 
 
 def _paragraphs(runs: list[tuple[int, Tag, str]]) -> list[str]:
@@ -167,12 +195,12 @@ def _paragraphs(runs: list[tuple[int, Tag, str]]) -> list[str]:
     run_pieces: list[str] = []
     for run_id, _tag, piece in runs:
         if run_ids and run_id != run_ids[-1]:
-            paragraphs.append(" ".join(run_pieces))
+            paragraphs.append("".join(run_pieces))
             run_pieces = []
         run_ids.append(run_id)
         run_pieces.append(piece)
     if run_pieces:
-        paragraphs.append(" ".join(run_pieces))
+        paragraphs.append("".join(run_pieces))
     return [" ".join(text.split()) for text in paragraphs if text.split()]
 
 
@@ -199,14 +227,17 @@ def _legacy_v1_reference(soup: BeautifulSoup) -> tuple[str, str] | None:
 def extract(page: bytes) -> ExtractionResult:
     soup = BeautifulSoup(page, "html.parser")
     title_node = soup.find("h1")
-    title = title_node.get_text(" ", strip=True) if title_node else ""
+    title_runs: list[tuple[int, Tag, str]] = []
+    if title_node is not None:
+        _collect_runs(title_node, title_node, _is_droppable(title_node), title_runs, {})
+    title = " ".join(_paragraphs(title_runs))
     main = soup.find("main")
     if main is None:
         raise ExtractionError("missing_main")
 
     runs: list[tuple[int, Tag, str]] = []
     state: dict[str, bool] = {}
-    _collect_runs(main, None, False, runs, state)
+    _collect_runs(main, None, _is_droppable(main), runs, state)
     paragraphs = _paragraphs(runs)
     body = "\n\n".join(paragraphs).strip()
 

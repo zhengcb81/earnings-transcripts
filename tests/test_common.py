@@ -3,7 +3,6 @@ tests/test_common.py - 共享模块单元测试
 """
 
 import json
-import tempfile
 import pytest
 from pathlib import Path
 
@@ -14,16 +13,38 @@ from common import (
     load_config, get_path, load_companies, FileNaming, JsonCache,
     LineClassifier, split_paragraphs, text_hash, parse_transcript_header,
     extract_body, MiMoTranslator, MiniMaxTranslator, DeepSeekTranslator, GoogleTranslator,
-    TranslatorFactory,
+    TranslatorFactory, _OpenAITranslator,
 )
+
+
+@pytest.fixture
+def no_translator_network(monkeypatch):
+    """Exercise the real wrappers/factory with a controlled, offline backend."""
+    import socket
+    from types import SimpleNamespace
+    calls = []
+    class FakeGoogleBackend:
+        def translate(self, text, target):
+            calls.append((text, target))
+            return SimpleNamespace(result="available" if text == "test" else "营收增长18%")
+    def denied(*args, **kwargs):
+        pytest.fail("a translator unit test attempted network access")
+    monkeypatch.setitem(sys.modules, "translatepy", SimpleNamespace(Translator=FakeGoogleBackend))
+    monkeypatch.setattr(socket.socket, "connect", denied)
+    monkeypatch.setattr(socket.socket, "connect_ex", denied)
+    monkeypatch.setattr(socket, "create_connection", denied)
+    monkeypatch.setattr(socket, "getaddrinfo", denied)
+    return calls
 
 
 # ── Fixtures ──
 
 @pytest.fixture
-def cfg():
-    """Load real config.yaml."""
-    return load_config()
+def cfg(tmp_path):
+    """Read template settings, but resolve every data/key path in owned TEMP."""
+    result = load_config()
+    result["paths"]["base_dir"] = str(tmp_path)
+    return result
 
 
 @pytest.fixture
@@ -336,6 +357,7 @@ class TestTranscriptParsing:
 
 # ── Translator Tests ──
 
+@pytest.mark.usefixtures("no_translator_network")
 class TestTranslators:
     def test_mimo_config(self, cfg):
         m = MiMoTranslator(cfg)
@@ -354,41 +376,66 @@ class TestTranslators:
         assert ds.model == "deepseek-v4-flash"
         assert ds.name == "deepseek"
 
-    def test_google_config(self, cfg):
-        pytest.importorskip("translatepy")
-        g = GoogleTranslator(cfg)
+    def test_google_config(self, mock_cfg, no_translator_network):
+        g = GoogleTranslator(mock_cfg)
         assert g.name == "google"
+        assert no_translator_network == []
 
-    def test_factory_auto_fallback(self, cfg):
-        """auto 模式在三个 LLM key 都缺失时应 fallback 到 Google。"""
-        pytest.importorskip("translatepy")
-        # 真实 config.json 里有 key，这里指向不存在的文件来模拟"未配置 LLM"
-        keyless = json.loads(json.dumps(cfg))
-        keyless["paths"]["config_json"] = "nonexistent_keys.json"
-        t = TranslatorFactory.create(keyless, "auto")
-        assert t.name == "google"
+    def test_factory_auto_fallback(self, mock_cfg, monkeypatch, no_translator_network):
+        """All three controlled keyless candidates must fall back without HTTP."""
+        available_calls = []
+        def available(candidate):
+            available_calls.append(candidate.name)
+            assert not candidate.api_key
+            return False
+        monkeypatch.setattr(_OpenAITranslator, "available", available)
+        translator = TranslatorFactory.create(mock_cfg, "auto")
+        assert translator.name == "google"
+        assert available_calls == ["minimax", "mimo", "deepseek"]
+        assert no_translator_network == []
 
-    def test_factory_auto_prefers_llm_when_keyed(self, cfg):
-        """配好 key 时，auto 不该退化到 Google。"""
-        t = TranslatorFactory.create(cfg, "auto")
-        assert t.name in ("minimax", "mimo", "deepseek")
+    @pytest.mark.parametrize("keyed, expected, checked", [
+        (("minimax",), "minimax", ["minimax"]),
+        (("mimo",), "mimo", ["minimax", "mimo"]),
+        (("deepseek",), "deepseek", ["minimax", "mimo", "deepseek"]),
+        (("minimax", "mimo", "deepseek"), "minimax", ["minimax"]),
+    ])
+    def test_factory_auto_prefers_llm_when_keyed(
+            self, mock_cfg, monkeypatch, no_translator_network, keyed, expected, checked):
+        """Synthetic owned keys prove priority, never real key/HTTP availability."""
+        get_path(mock_cfg, "config_json").write_text(
+            json.dumps({name + "_api_key": "synthetic-not-real-" + name for name in keyed}),
+            encoding="utf-8")
+        available_calls = []
+        def available(candidate):
+            available_calls.append(candidate.name)
+            if candidate.api_key:
+                assert candidate.api_key == "synthetic-not-real-" + candidate.name
+            return bool(candidate.api_key)
+        monkeypatch.setattr(_OpenAITranslator, "available", available)
+        translator = TranslatorFactory.create(mock_cfg, "auto")
+        assert translator.name == expected
+        assert translator._client is None
+        assert available_calls == checked
+        assert no_translator_network == []
 
-    def test_factory_google(self, cfg):
-        pytest.importorskip("translatepy")
-        t = TranslatorFactory.create(cfg, "google")
-        assert t.name == "google"
+    def test_factory_google(self, mock_cfg, no_translator_network):
+        translator = TranslatorFactory.create(mock_cfg, "google")
+        assert translator.name == "google"
+        assert no_translator_network == []
 
     def test_factory_unknown_backend(self, cfg):
         with pytest.raises(ValueError, match="Unknown backend"):
             TranslatorFactory.create(cfg, "nonexistent")
 
-    def test_google_translate(self, cfg):
-        pytest.importorskip("translatepy")
-        g = GoogleTranslator(cfg)
-        if g.available():
-            result = g.translate("Revenue grew 18%")
-            assert len(result) > 0
-            assert result != "Revenue grew 18%"
+    def test_google_translate(self, mock_cfg, no_translator_network):
+        google = GoogleTranslator(mock_cfg)
+        assert google.name == "google"
+        assert google.available() is True
+        result = google.translate("Revenue grew 18%")
+        assert result == "营收增长18%"
+        assert result != "Revenue grew 18%"
+        assert no_translator_network == [("test", "Chinese"), ("Revenue grew 18%", "Chinese")]
 
     def test_translator_system_prompt_required(self, mock_cfg):
         """缺少 system_prompt 时应抛出 ValueError。"""

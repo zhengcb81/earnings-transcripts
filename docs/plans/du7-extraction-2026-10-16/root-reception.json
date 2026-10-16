@@ -1,0 +1,233 @@
+{
+  "schema_version": "du7-root-reception/1",
+  "card_id": "DU7-ET-EXTRACTION",
+  "status": "PASS_WITH_THREE_ROOT_CAUSES_FIXED_READY_ROOT_COMMIT",
+  "author_head": "511fe4968e3be86dd3c548b231a7a19a57020582",
+  "base_commit": "d0ac42c60dcca992db78860b8469cfed3dd527e5",
+  "integration_workdir": "C:\\Users\\郑曾波\\Projects\\earnings-transcripts-du7-integration",
+  "integration_head": "511fe4968e3be86dd3c548b231a7a19a57020582",
+  "branch": "codex/root-du7-et-20261016",
+  "frozen_source_files": [
+    {
+      "path": "transcript_extraction.py",
+      "sha256": "381dd6d65bd7da8310e234c4ab38979935d9bdbace32a197d522fedaff432a7a",
+      "bytes": 9626
+    },
+    {
+      "path": "tests/test_root_du7_extraction_robustness.py",
+      "sha256": "eb9d9239cecf2aadab6543efa13fc803121662b449fe7211a7cb58b98896e15d",
+      "bytes": 5259
+    },
+    {
+      "path": "tests/test_du7_extraction_edges.py",
+      "sha256": "f6b4ddbb491c574d5991da294a5e4757125fa376a14310b53dcfc926b764b94f",
+      "bytes": 6559
+    }
+  ],
+  "git_writes_by_reviewer": 0,
+  "findings": [
+    {
+      "id": "ET-ROOT-P2-FILTER-SCOPE",
+      "severity": "P2",
+      "status": "FIXED",
+      "cause": "Broad data-ad prefix and tokens in arbitrary metadata mislabeled business adoption/adjusted/subscription/advertising/cookie/banner fields as advertisements; even data-ad=false was dropped.",
+      "red": "probe.json and root-red.*",
+      "fix": "Only explicit ad attributes with non-false markers, declared UI/ad metadata structures, semantic ARIA roles and non-content/hidden nodes are excluded. Business-domain token membership alone is not evidence."
+    },
+    {
+      "id": "ET-ROOT-P2-DOM-STACK",
+      "severity": "P2",
+      "status": "FIXED",
+      "cause": "Recursive DOM walk fails on valid 1200-level inline HTML far below existing response byte caps. Baseline succeeds.",
+      "red": "probe.json and root-red.*",
+      "fix": "Iterator stack O(depth), one DOM observation, no recursionlimit increase; drop subtrees pruned. 1200-level visible/hidden and2400-level node-work controls pass."
+    },
+    {
+      "id": "ET-ROOT-P2-INLINE-ADJACENCY",
+      "severity": "P2",
+      "status": "FIXED",
+      "cause": "Inherited per-run strip plus unconditional space joining splits actual source digits, words, punctuation and CJK units, e.g.$1.<strong>2</strong> becomes$1. 2.",
+      "red": "inline-number-inherited.json and inline-red.* (10FAIL/20PASS)",
+      "fix": "Preserve original same-owner text run adjacency and whitespace until one final whitespace normalization. Keep block/list segments; BR supplies a whitespace boundary. Title uses the same owner collection. Frozen v1 reference comparison unchanged."
+    }
+  ],
+  "independent_tests": [
+    {
+      "label": "author delivery concentrated",
+      "passed": 198,
+      "failed": 0,
+      "seconds": 116.87,
+      "receipt": "acceptance.json"
+    },
+    {
+      "label": "root first two causes RED",
+      "passed": 5,
+      "failed": 10,
+      "seconds": 0.72,
+      "receipt": "root-red.json"
+    },
+    {
+      "label": "root first two causes concentrated",
+      "passed": 213,
+      "failed": 0,
+      "receipt": "root-concentrated.json"
+    },
+    {
+      "label": "inline adjacency RED",
+      "passed": 20,
+      "failed": 10,
+      "seconds": 0.81,
+      "receipt": "inline-red.json"
+    },
+    {
+      "label": "final ROOT regressions",
+      "passed": 30,
+      "failed": 0,
+      "seconds": 1.79,
+      "receipt": "inline-green.json"
+    },
+    {
+      "label": "final author+ROOT concentrated",
+      "passed": 228,
+      "failed": 0,
+      "seconds": 132.69,
+      "receipt": "inline-concentrated.json"
+    },
+    {
+      "label": "old frozen golden",
+      "matched": 10,
+      "changed": 0,
+      "receipt": "inline-concentrated-goldens.stdout.txt"
+    },
+    {
+      "label": "Ruff changed 3 sources/tests and diffcheck",
+      "exit_code": 0,
+      "note": "Final Ruff used --no-cache; generated integration-tree Ruff cache removed after exact absolute/non-reparse validation."
+    }
+  ],
+  "baseline_failures": {
+    "delivered_results": {
+      "failed": 3,
+      "skipped": 1
+    },
+    "isolated_actual_base_results": {
+      "failed": 3,
+      "skipped": 1
+    },
+    "receipts": [
+      "old-four-delivered.stdout.txt",
+      "old-four-baseline.stdout.txt"
+    ],
+    "details": [
+      {
+        "tests": [
+          "test_parse_and_extract_roundtrip",
+          "test_completed_entry_reads_meta_from_file"
+        ],
+        "result": "FAIL",
+        "cause": "FileNaming.find_english_files assumes transcripts directory exists in the checkout. Both actual base and delivery lack it."
+      },
+      {
+        "test": "test_summary_lists_all_local_files_not_just_this_run",
+        "result": "SKIP",
+        "cause": "No MSFT transcript files."
+      },
+      {
+        "test": "test_factory_auto_prefers_llm_when_keyed",
+        "result": "FAIL",
+        "cause": "Test provides no controlled LLM key but asserts real host config must prefer LLM. With credential-free isolation both base and delivery select Google; no actual translation was run."
+      }
+    ],
+    "author_handoff_count_corrected": "Author described3 scraper FAIL+1 translator FAIL; independent result is2 scraper FAIL+1 scraper SKIP+1 translator FAIL. These failures are not discarded or counted into228PASS.",
+    "recommended_followup": "ROOT test-hygiene node should use explicit owned TXT fixtures and synthetic key/availability mocks instead of production directories/real credentials; no provider call or assertion deletion required.",
+    "resolution": "Fixed in separate test-only follow-up; original3FAIL/1SKIP evidence retained. See test_hygiene_completion."
+  },
+  "version_and_wiring": {
+    "legacy_reference_source_unchanged": true,
+    "version_rule": "Actual old-v1 title/body byte equality retains motley-fool-main-text/1; otherwise /2. Root-only algorithm changes remain unmerged /2 work, no published /1 change.",
+    "both_fetch_entries": "fetch_transcript and fetch_transcript_candidate call _extract_page -> transcript_extraction.extract; metadata body and version from that same result.",
+    "FMP": "fmp-api-content/1, transport/budget/default provider settings unchanged. Motley default remains disabled.",
+    "consumer_sync": "No CWP/FF wire changes needed; include transcript_extraction.py with transcript_api.py in ET checkout/package. Existing consumer bounded string accepts Motley /2; FMP pins unchanged /1.",
+    "old_originals": "Existing TXT/receipts reused without re-download, no translation, old byte hashes preserved by actual supervisor/worker fake-HTTP CLI tests."
+  },
+  "approved_test_change": {
+    "proposal": "inline-expectation-change-proposal.json",
+    "original_archive": "author-inline-expectations-before.zip",
+    "edit_receipt": "approved-edge-edit.json",
+    "only_changes": "Two author-new edges expectations remove source-invented spaces before comma. Literal original DOM verified; ROOT explicitly approved. Original HTML/expected.json/base gold untouched.",
+    "EOL_note": "Initial raw-SHA guard correctly refused authorLF vs new checkoutCRLF. Empty gitdiff and exact LF-normalized equality independently established before preserving existing checkout CRLF in the two literal edits."
+  },
+  "cleanup": {
+    "author_source_tree_unchanged": true,
+    "final_source_and_fixture_sha_unchanged_during_run": true,
+    "all_temp_removed": true,
+    "sentinel_preserved": true,
+    "new_ruff_cache_removed": true,
+    "production_writes": 0,
+    "supplier_calls": 0,
+    "network_calls": 0,
+    "api_cost_usd": 0
+  },
+  "limits": [
+    "No existing real Motley HTML page available in the read-only repo inventory; live DOM adaptability remains NOT_RUN. No provider was enabled to manufacture live success.",
+    "Pure ownership walk is iterative and linear in visited nodes/text; frozen v1 reference still uses baseline per-block get_text and may have quadratic work/materialization for deeply nested repeated block structures. The outer existing provider supervision/deadlines remain; this node does not claim complete parser CPU/memory hard bounds.",
+    "First-main behavior and global first-h1 choice remain existing selection semantics. No whole-page fallback or invented complete transcript.",
+    "Offline fake HTTP CLI/supervisor/worker and synthetic DOM are not supplier reachability or company financial truth certification."
+  ],
+  "root_integration_steps": [
+    "Review original author commits + this3-file ROOT repair and approved2-assertion change; no further source edits in author tree.",
+    "Normal Git commit/root integration/push/exact CI; all source writes by reviewer now frozen.",
+    "Publish new module together with API; retain existing local TXT originals and current provider defaults.",
+    "Update master PWF with package reception,3 root causes, corrected baseline test debt and live-DOM/v1-reference scope limits."
+  ],
+  "evidence_archive": {
+    "path": "docs\\plans\\du7-extraction-2026-10-16\\root-reception-receipts.zip",
+    "bytes": 28281,
+    "sha256": "9426912039d9c33a0cfe29b12916a599f8970b7635521c948e4e1d0b26ebf4e7",
+    "files": 24,
+    "readback_byte_verified": true
+  },
+  "test_hygiene_completion": {
+    "status": "PASS_FROZEN_READY_ROOT_COMMIT",
+    "plan": "docs/plans/du7-extraction-2026-10-16/root-reception-test-hygiene.md",
+    "details": "root-reception-test-hygiene.json",
+    "tests": {
+      "concentrated": {
+        "passed": 99,
+        "failed": 0,
+        "skipped": 0,
+        "seconds": 3.07,
+        "denominator": "65 complete common+scraper cases +30 frozen ROOT extraction cases +4 author behavior cases",
+        "receipt": "test-hygiene-green.json"
+      },
+      "different_cwd": {
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0,
+        "seconds": 1.28,
+        "denominator": "3 former transcript-dependent cases plus4 explicit-key factory vectors",
+        "receipt": "test-hygiene-cross-cwd.stdout.txt"
+      },
+      "Ruff_and_diffcheck": "PASS",
+      "first_receipts_preserved": {
+        "concentrated": "98PASS/1FAIL due new strengthened test expectation counting header separator blank lines as body Characters; original renderer says82bodychars, extract_body contains2leading header blanklines. Correct expected length strips header separator whitespace; producer untouched.",
+        "cross_cwd": "6PASS/1same assertion failure",
+        "Ruff": "4pre-existing unused/redefined imports removed only in owned two files",
+        "receipt": "test-hygiene-first.json/stdout +cross-cwd-first/ruff-first logs"
+      }
+    },
+    "owned_paths": [
+      {
+        "path": "tests/test_common.py",
+        "sha256": "d021a868f0f4b4ccc9bfa1c1ef8710f34b40589654c1ce86c58ed0314091b5c7",
+        "bytes": 17981
+      },
+      {
+        "path": "tests/test_scraper.py",
+        "sha256": "68f2201009c83b20a7379e920c1189be2aef4476f2e66475268b94895d624dd3",
+        "bytes": 10735
+      }
+    ],
+    "production_sources_unchanged": true
+  }
+}

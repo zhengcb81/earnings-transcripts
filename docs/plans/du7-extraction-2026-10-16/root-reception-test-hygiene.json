@@ -1,0 +1,113 @@
+{
+  "schema_version": "du7-root-test-hygiene/1",
+  "status": "PASS_FROZEN_READY_ROOT_COMMIT",
+  "head": "511fe4968e3be86dd3c548b231a7a19a57020582",
+  "workdir": "C:\\Users\\郑曾波\\Projects\\earnings-transcripts-du7-integration",
+  "owned_paths": [
+    {
+      "path": "tests/test_common.py",
+      "sha256": "d021a868f0f4b4ccc9bfa1c1ef8710f34b40589654c1ce86c58ed0314091b5c7",
+      "bytes": 17981
+    },
+    {
+      "path": "tests/test_scraper.py",
+      "sha256": "68f2201009c83b20a7379e920c1189be2aef4476f2e66475268b94895d624dd3",
+      "bytes": 10735
+    }
+  ],
+  "why_tests_were_wrong": [
+    "The old cfg loaded base_dir=. and discovered a user transcript directory relative to ambient cwd. A clean checkout has no such originals, and another cwd could point it at a different project lake. These tests were not self-contained units.",
+    "A factory test assumed real keys and live availability without supplying either. It checked host/account state instead of deterministic dispatch.",
+    "Google test called real availability/translation but conditioned all assertions on availability. An offline provider meant a successful no-op; the independent fake-availability RED proves0 translation calls could pass."
+  ],
+  "red_evidence": [
+    "test-hygiene-red.json (cross-project cwd path +0translation no-op pass)",
+    "test-hygiene-red-et-cwd.json (ET cwd path +0translation no-op pass)",
+    "old-four-delivered.stdout.txt and old-four-baseline.stdout.txt retain actual3FAIL/1SKIP; not ignored"
+  ],
+  "fixes": [
+    "scraper cfg reads unchanged template then points company/key/transcript data at owned tmp_path; real render_original produces3TXT for two MSFT periods and one SNOW period; sample bytes and sentinel checked after tests.",
+    "Path open/iterdir/glob fail if tests try original ambient/project transcript/company/key paths. Missing-file test now targets absent owned path.",
+    "Original nonempty file assertions replace environment-dependent skips; completed-entry charcount/source and two-period summary URLs/nonzerochars independently asserted.",
+    "common cfg base_dir is tmp_path. Factory tests use explicit synthetic JSON keys and mock only availability; four key vectors verify priority/checked candidates/no client construction.",
+    "Translator test class forbids socket/DNS calls and uses controlled translatepy backend. Actual Google wrapper constructor/available/translate assertions, exact two calls and output remain mandatory; no network-dependent conditional empty pass."
+  ],
+  "results": {
+    "concentrated": {
+      "passed": 99,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 3.07,
+      "denominator": "65 complete common+scraper cases +30 frozen ROOT extraction cases +4 author behavior cases",
+      "receipt": "test-hygiene-green.json"
+    },
+    "different_cwd": {
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 1.28,
+      "denominator": "3 former transcript-dependent cases plus4 explicit-key factory vectors",
+      "receipt": "test-hygiene-cross-cwd.stdout.txt"
+    },
+    "Ruff_and_diffcheck": "PASS",
+    "first_receipts_preserved": {
+      "concentrated": "98PASS/1FAIL due new strengthened test expectation counting header separator blank lines as body Characters; original renderer says82bodychars, extract_body contains2leading header blanklines. Correct expected length strips header separator whitespace; producer untouched.",
+      "cross_cwd": "6PASS/1same assertion failure",
+      "Ruff": "4pre-existing unused/redefined imports removed only in owned two files",
+      "receipt": "test-hygiene-first.json/stdout +cross-cwd-first/ruff-first logs"
+    }
+  },
+  "scope_and_ci": {
+    "actual_tracked_workflows": [],
+    "requirement_or_conftest_files": "None in examined exact Git tree. Absence confirmed through git ls-tree, not sparse filesystem inventory alone.",
+    "claim": "No ET remote CI job or success fabricated; ROOT will normalcommit/push and use actual local test receipts. No workflow/test selection/hook change.",
+    "old_baseline_status": "Actual3FAIL/1SKIP retained as historical evidence. Those four selectors now run as7parameterized cases with no skipped path; previous lack of data/keys no longer controls result."
+  },
+  "preserved": {
+    "producer_files_and_configuration": true,
+    "old228_and10gold_source_freeze_verified": true,
+    "frozen_v1_reference": true,
+    "provider_defaults_and_translation_configuration": true,
+    "author_tree": true,
+    "no_other_tests_modified_this_node": true,
+    "no_new_conftest": true
+  },
+  "cleanup": {
+    "sources_unchanged": true,
+    "temp_removed": true,
+    "sentinel_preserved": true
+  },
+  "supplier_calls": 0,
+  "network_calls": 0,
+  "api_cost_usd": 0,
+  "git_writes": 0,
+  "remaining": [
+    "ROOT normalcommit/push together with already frozen ET extraction package",
+    "No need to create an extra CI gate; existing production/external work remains outside this test-only node"
+  ],
+  "evidence_archive": {
+    "path": "docs\\plans\\du7-extraction-2026-10-16\\root-reception-test-hygiene-receipts.zip",
+    "sha256": "087d655e570cb22dec9c745c2c0b111e8bcde49990294c1ef889cbaa3d77cb76",
+    "bytes": 20241,
+    "files": 16,
+    "readback_byte_verified": true,
+    "entries": {
+      "test-hygiene-red.json": "a180443a7164334b38bb205ad4d2713773c7480b8190b6423c09a568753e2472",
+      "test-hygiene-red-et-cwd.json": "83ebc5592d87d02f8de73ebae88215909037076e88e578b49efbb462abff3682",
+      "test-hygiene-first.json": "4df96f1fd385baadf37a58504ea7579dc26475aa978ef89fa49111936bde852e",
+      "test-hygiene-first.stdout.txt": "18b0f6b8e035fe7c8b59192b720f4c38d1ea90cf06306b0b0e7f21845cad4c0f",
+      "test-hygiene-first.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "test-hygiene-cross-cwd-first.stdout.txt": "d33901e00c29a05bb135eb9fde959d7d2b63d920733b03866a96d4242f40d4f0",
+      "test-hygiene-ruff-first.stdout.txt": "3c7ef2ad22d549fe00aeddf3bbf91e688b7f4211f21335b544dbe8b6c4098fe7",
+      "test-hygiene-green.json": "99c598586b98d9c31e9720bf57794225d3fd1999f6e43adb9516d8c09ccc5895",
+      "test-hygiene-green.stdout.txt": "cfbb5122beb8f670d69a5936a5429559e59378ff31e41b31d7fd613b4afff843",
+      "test-hygiene-green.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "test-hygiene-cross-cwd.stdout.txt": "34829a45ee96dc135e19772677b79442250868578c4fc49c2afccc242e6fde92",
+      "test-hygiene-cross-cwd.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "test-hygiene-ruff.stdout.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "test-hygiene-final.diff": "f8d766975288daf284b2bd938393d2004c1d0f35dafeb1abaf64fed7cd547b82",
+      "before/tests/test_common.py": "a6d088ca932d2f110ac56d2d72a110714b1f4b9e7dbfc75731635cc2e582e7f0",
+      "before/tests/test_scraper.py": "5d4cbf5634da72833f8070e07ff8b6a845b87ba5bcbcdf7c8c916a8d577f2b10"
+    }
+  }
+}

@@ -8,13 +8,60 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from common import load_config, load_companies, parse_transcript_header, extract_body
+from common import load_config, parse_transcript_header, extract_body
 from scraper import find_english_file, plan_action
 
 
 @pytest.fixture
-def cfg():
-    return load_config()
+def cfg(tmp_path, monkeypatch):
+    """Render owned TXT samples; no test relies on a user's transcript lake."""
+    from common import FileNaming, get_path
+    from scraper import render_original
+
+    result = load_config()  # Read the non-secret configuration template only.
+    protected = [get_path(result, key).resolve()
+                 for key in ("transcripts_dir", "companies_file", "config_json")]
+    protected += [(Path(__file__).resolve().parents[1] / result["paths"][key]).resolve()
+                  for key in ("transcripts_dir", "companies_file", "config_json")]
+    result["paths"].update(base_dir=str(tmp_path), transcripts_dir="transcripts",
+                           companies_file="companies.txt", config_json="unused-test-keys.json")
+    (tmp_path / "companies.txt").write_text(
+        "MSFT|微软|Microsoft|nasdaq\nSNOW|Snowflake|Snowflake|nyse\n", encoding="utf-8")
+    naming = FileNaming(result)
+    samples = {}
+    for ticker, quarter in (("MSFT", "Q2 2026"), ("MSFT", "Q3 2026"), ("SNOW", "Q1 2027")):
+        company = {"ticker": ticker, "name_en": ticker + " fixture", "name_cn": "测试公司"}
+        body = "Synthetic owned excerpt. Revenue grew 18%. Overseas expansion remains in progress."
+        transcript = {"quarter": quarter, "source": "synthetic-fixture",
+                      "url": "https://fixture.invalid/" + ticker + "/" + quarter.replace(" ", "-"),
+                      "scraped_at": "2026-10-16T00:00:00", "char_count": len(body), "content": body}
+        target = naming.english_path(ticker, quarter)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(render_original(result, company, transcript), encoding="utf-8")
+        samples[target] = target.read_bytes()
+    sentinel = tmp_path / "sentinel.bin"
+    sentinel.write_bytes(b"preserve-existing-fixture")
+
+    original_open, original_iterdir, original_glob = Path.open, Path.iterdir, Path.glob
+    def check(path):
+        actual = path.resolve()
+        assert not any(actual == root or actual.is_relative_to(root) for root in protected), (
+            "test attempted production transcript/company/key data access: " + str(actual))
+    def guarded_open(path, *args, **kwargs):
+        check(path)
+        return original_open(path, *args, **kwargs)
+    def guarded_iterdir(path):
+        check(path)
+        return original_iterdir(path)
+    def guarded_glob(path, pattern, **kwargs):
+        check(path)
+        return original_glob(path, pattern, **kwargs)
+    monkeypatch.setattr(Path, "open", guarded_open)
+    monkeypatch.setattr(Path, "iterdir", guarded_iterdir)
+    monkeypatch.setattr(Path, "glob", guarded_glob)
+    yield result
+    assert sentinel.read_bytes() == b"preserve-existing-fixture"
+    assert all(path.read_bytes() == body for path, body in samples.items())
 
 
 @pytest.fixture
@@ -26,11 +73,10 @@ def fn(cfg):
 class TestScraperHelpers:
     def test_parse_and_extract_roundtrip(self, cfg):
         """parse_transcript_header + extract_body 可以正确解析实际文件。"""
-        from common import get_path, FileNaming
+        from common import FileNaming
         fn = FileNaming(cfg)
         files = fn.find_english_files()
-        if not files:
-            pytest.skip("No transcript files found")
+        assert files, "owned fixture must contain original TXT files"
 
         content = files[0].read_text(encoding="utf-8")
         meta = parse_transcript_header(content)
@@ -79,8 +125,7 @@ class TestIncrementalSkip:
         from scraper import completed_entry
         fn = FileNaming(cfg)
         files = fn.find_english_files()
-        if not files:
-            pytest.skip("No transcript files found")
+        assert files, "owned fixture must contain original TXT files"
 
         company = {"ticker": "TEST", "name_en": "TestCo", "name_cn": "测试"}
         entry = completed_entry(cfg, files[0], company, "Q3 2026", "https://example.com/x")
@@ -88,15 +133,17 @@ class TestIncrementalSkip:
         assert entry["quarter"] == "Q3 2026"
         assert entry["url"] == "https://example.com/x"
         assert isinstance(entry["char_count"], int)
-        assert entry["char_count"] > 0          # 真实文件头里带 Characters: N
+        assert entry["char_count"] == len(extract_body(files[0].read_text(encoding="utf-8")).strip())
+        assert entry["source"] == "synthetic-fixture"
         assert entry["local_file"] == str(files[0])
 
     def test_completed_entry_tolerates_missing_file(self, cfg):
         """文件不存在时不应抛异常。"""
         from scraper import completed_entry
         company = {"ticker": "NOPE", "name_en": "Nope", "name_cn": "无"}
-        entry = completed_entry(cfg, Path("transcripts/NOPE/NOPE_Q1_2020_earnings_call.txt"),
-                                company, "Q1 2020")
+        from common import FileNaming
+        missing = FileNaming(cfg).english_path("NOPE", "Q1 2020")
+        entry = completed_entry(cfg, missing, company, "Q1 2020")
         assert entry["char_count"] == 0
 
 
@@ -155,15 +202,17 @@ class TestSaveSummary:
         fn = FileNaming(cfg)
         companies = load_companies(cfg, filter_ticker="MSFT")
         files = fn.find_english_files("MSFT")
-        if not files:
-            pytest.skip("No MSFT transcript files found")
-
-        save_summary(cfg, fn, companies, tmp_path)
-        text = (tmp_path / "summary.txt").read_text(encoding="utf-8")
+        assert len(files) == 2, "both independently rendered MSFT quarters must be included"
+        from common import get_path
+        owned_originals = get_path(cfg, "transcripts_dir")
+        save_summary(cfg, fn, companies, owned_originals)
+        text = (owned_originals / "summary.txt").read_text(encoding="utf-8")
 
         for f in files:                      # 每个本地文件都必须在清单里
             assert quarter_from_filename(fn, "MSFT", f) in text
         assert f"Total: {len(files)}" in text
+        assert "Chars: 0" not in text
+        assert "https://fixture.invalid/MSFT/" in text
 
 
 class TestScraperConfig:

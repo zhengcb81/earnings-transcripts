@@ -43,8 +43,8 @@ def test_business_ad_words_at_any_position_or_language_are_kept():
 def test_div_p_and_inline_markup_emit_once_in_document_order():
     title, body = _extract_body(_page("div_p_inline"))
     parts = body.split("\n\n")
-    assert parts[0] == "Operator: Good afternoon , and welcome to the ACME second quarter 2026 earnings conference call."
-    assert parts[1] == "Revenue for the second quarter was $1.2 billion , up 20% from the prior year, driven by SaaS demand."
+    assert parts[0] == "Operator: Good afternoon, and welcome to the ACME second quarter 2026 earnings conference call."
+    assert parts[1] == "Revenue for the second quarter was $1.2 billion, up 20% from the prior year, driven by SaaS demand."
     assert parts[2].startswith("CEO: We continue to invest in capacity expansion & overseas launch")
     assert len(parts) == 3
 
