@@ -3,7 +3,7 @@
   "card_id": "DU7-ET-EXTRACTION",
   "base_commit": "d0ac42c60dcca992db78860b8469cfed3dd527e5",
   "branch": "codex/du7-et-extraction-20261016",
-  "implementation_commits": ["7fd14e7"],
+  "implementation_commits": ["7fd14e7", "47e76a7", "b386cc4"],
   "changed_paths": [
     "transcript_extraction.py",
     "transcript_api.py",
