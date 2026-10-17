@@ -115,6 +115,57 @@ def _dropped_chain_page(chain: str, depth: int) -> bytes:
     return _main_page(_filler_main(inner))
 
 
+# Reviewer R2-1 families: nested KEPT blocks whose composed sizes collide
+# with repeated identical/length-equal paragraphs. A per-block confirmation
+# walk would re-walk the same subtrees theta(depth^2) times.
+_REPEAT = "chain paragraph text repeated identically at every nesting level"
+
+
+def _nested_kept_chain_page(depth: int) -> bytes:
+    inner = f"<p>{_REPEAT}</p>"
+    for _ in range(depth):
+        inner = f"<p>{inner}</p>"
+    siblings = "".join(f"<p>{_REPEAT}</p>" for _ in range(depth - 1))
+    return _main_page(f"<main>{inner}{siblings}</main>")
+
+
+def _nested_kept_balanced_page(depth: int) -> bytes:
+    # direct-nested pairs balance the paragraph counts so the count
+    # pre-check cannot decide alone (chain has depth+1 kept blocks, each
+    # pair contributes one extra v2 paragraph)
+    inner = f"<p>{_REPEAT}</p>"
+    for _ in range(depth):
+        inner = f"<p>{inner}</p>"
+    pairs = "".join(
+        f"<p>direct pre paragraph {i} with equal length padding text here now"
+        f"<p>nested inner paragraph {i} with equal length padding text now"
+        "</p>direct post paragraph with more equal length padding text ok</p>"
+        for i in range(depth)
+    )
+    return _main_page(f"<main>{inner}{pairs}</main>")
+
+
+def _nested_kept_derived_page(depth: int) -> bytes:
+    # same-length (but different-text) sibling paragraphs force the derived
+    # slice comparison for nested kept chain blocks
+    width = len(_REPEAT)
+    inner = f"<p>{_REPEAT}</p>"
+    for _ in range(depth):
+        inner = f"<p>{inner}</p>"
+    pairs = "".join(
+        f"<p>{'a' * width}<p>{'b' * width}</p>{'c' * width}</p>"
+        for _ in range(depth)
+    )
+    return _main_page(f"<main>{inner}{pairs}</main>")
+
+
+_NESTED_KEPT_FACTORIES = (
+    _nested_kept_chain_page,
+    _nested_kept_balanced_page,
+    _nested_kept_derived_page,
+)
+
+
 def _node_count(page: bytes) -> int:
     return sum(1 for _ in BeautifulSoup(page, "html.parser").descendants)
 
@@ -587,6 +638,51 @@ def test_dropped_chain_adjacent_scale_growth_is_linear(chain):
         visited[depth] = stats.nodes_visited
     assert visited[1200] <= 8 * visited[200]
     assert visited[2400] <= 2.5 * visited[1200]
+
+
+@pytest.mark.parametrize("factory, needs_confirmation", [
+    (_nested_kept_chain_page, False),  # paragraph counts decide alone
+    (_nested_kept_balanced_page, True),
+    (_nested_kept_derived_page, True),
+])
+@pytest.mark.parametrize("depth", [200, 1200, 2400])
+def test_nested_kept_families_stay_linear(
+    factory, needs_confirmation, depth, monkeypatch
+):
+    """Nested kept blocks (reviewer R2-1 families) must never re-walk a
+    subtree: count pre-check, one outermost DOM walk, derived slice checks."""
+    page = factory(depth)
+    nodes = _node_count(page)
+    result = transcript_extraction.extract(page)
+    frozen = transcript_extraction._legacy_v1_reference(
+        BeautifulSoup(page, "html.parser")
+    )
+    expected = frozen == (result.title, result.body)
+    counters = _install_visit_counter(monkeypatch)
+    stats = legacy_projection_comparison.ComparisonStats()
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        BeautifulSoup(page, "html.parser"),
+        result.title,
+        result.body,
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    assert matched is expected
+    assert counters["get_text_calls"] == 0
+    assert counters["piece_yields"] == 0
+    assert stats.nodes_visited <= 10 * nodes, (
+        f"{factory.__name__} depth={depth}: {stats.nodes_visited} visits for "
+        f"{nodes} nodes (nested confirmation re-walk)"
+    )
+    # at most the outermost kept block of a nest may walk the DOM
+    assert stats.full_confirmations <= 1
+    confirmations = stats.full_confirmations + stats.derived_confirmations
+    if needs_confirmation:
+        assert confirmations >= 1
+    assert stats.max_intermediate_chars <= _max_text_piece(page)
 
 
 def test_comparator_adjacent_scale_growth_is_linear():

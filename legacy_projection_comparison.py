@@ -17,11 +17,18 @@ This module decides it from the already-parsed DOM in two bounded phases:
   is tagged to the innermost block whose span contains it and inherited by
   ancestors at close, so the space-joined legacy text is never stored and
   each subtree contributes work only for its own tokens.
-* **Confirmation phase** — for each kept block in order (drop rule
-  ``size < min_paragraph_chars`` or ``skip_text`` hit), the composed length
-  is compared with the current paragraph first; only on equal lengths does
-  an exact streaming walk compare characters, stopping at the first
-  divergence. A block whose composed length already diverges costs O(1).
+* **Confirmation phase** — kept blocks (drop rule
+  ``size < min_paragraph_chars`` or ``skip_text`` hit) are first counted
+  against the current paragraph count (unequal lengths decide in O(1)).
+  The kept-block count equal, only an *outermost* kept block — one without
+  an already-verified kept ancestor — walks its own subtree for exact
+  character comparison (stopping at the first divergence); its composed
+  length must equal the current paragraph first. Nested kept blocks are
+  verified from the verified ancestor's paragraph slice at the
+  evidence-composed offset of their first token, so a subtree is walked at
+  most once across the whole decision and every DOM confirmation walk is
+  over pairwise non-nested subtrees; derived slice comparisons are bounded
+  by the current paragraphs themselves.
 
 Equality is claimed only from exact token/character agreement (never from a
 hash), and ``"\\n\\n"``-joined bodies equal their paragraph sequences, so the
@@ -58,6 +65,7 @@ class ComparisonStats:
     text_strings_visited: int = 0
     chars_compared: int = 0
     full_confirmations: int = 0
+    derived_confirmations: int = 0  # slice checks attempted (no DOM walk)
     max_intermediate_chars: int = 0
 
 
@@ -65,12 +73,18 @@ class ComparisonStats:
 class _BlockEvidence:
     """Compositional legacy text facts for one block, filled by the single
     evidence pass: ``count``/``sum_len`` describe the block's whole subtree
-    token stream; ``tainted`` records a ``skip_text`` occurrence inside it."""
+    token stream; ``tainted`` records a ``skip_text`` occurrence inside it;
+    ``offset_in_parent`` is where this block's normalized text starts inside
+    its nearest block ancestor's normalized text (set once, at the block's
+    first token), and ``parent_id`` links that ancestor for offset chains."""
 
     count: int = 0
     sum_len: int = 0
     tainted: bool = False
     start: int | None = None  # casefolded-stream offset of the first token
+    block_id: int = 0
+    parent_id: int | None = None
+    offset_in_parent: int = 0
 
     @property
     def size(self) -> int:
@@ -177,10 +191,20 @@ def _collect_evidence(
                 stats.max_intermediate_chars = max(
                     stats.max_intermediate_chars, len(token)
                 )
-            for frame in reversed(frames):
+            # first token of each still-unstarted frame records where that
+            # frame's normalized text begins inside its block-parent's text
+            for depth_index in range(len(frames) - 1, -1, -1):
+                frame = frames[depth_index]
                 if frame.start is not None:
                     break
                 frame.start = token_start
+                if depth_index > 0:
+                    parent = frames[depth_index - 1]
+                    frame.offset_in_parent = (
+                        parent.sum_len + parent.count if parent.count else 0
+                    )
+                else:
+                    frame.offset_in_parent = 0
             if frames:
                 innermost = frames[-1]
                 innermost.count += 1
@@ -228,6 +252,8 @@ def _collect_evidence(
         if child.name in block_tags:
             ordered.append(child)
             child_evidence = _BlockEvidence()
+            child_evidence.block_id = id(child)
+            child_evidence.parent_id = frames[-1].block_id if frames else None
             evidence[id(child)] = child_evidence
             if stats is not None:
                 stats.blocks_scanned += 1
@@ -325,6 +351,13 @@ def _body_matches(
     whitespace-normalized, so the split is the exact inverse of the join).
     Positional equality of both sequences with equal lengths is exactly
     equality of the joined bodies, which is the frozen decision.
+
+    Kept blocks are first counted against the current paragraph count (a
+    length mismatch decides immediately). Only kept blocks without an
+    already-verified kept ancestor walk the DOM for exact confirmation —
+    nested kept blocks are confirmed from the verified ancestor's paragraph
+    slice at their composed offset, so DOM walks cover pairwise non-nested
+    subtrees and derived comparisons are bounded by the current paragraphs.
     """
     main = soup.find("main")
     if main is None:
@@ -336,23 +369,58 @@ def _body_matches(
         return False
     ordered, evidence = _collect_evidence(main, block_tags, skip_text, stats)
     expected_paragraphs = current_body.split("\n\n")
-    index = 0
+
+    kept: list[Tag] = []
     for block in ordered:
         facts = evidence[id(block)]
-        if facts.count == 0:
+        if facts.count == 0 or facts.tainted:
             continue
-        size = facts.size
-        if size < min_paragraph_chars or facts.tainted:
+        if facts.size < min_paragraph_chars:
             continue
-        if index >= len(expected_paragraphs):
-            return False
+        kept.append(block)
+    # Sequence lengths decide without any walk when they differ.
+    if len(kept) != len(expected_paragraphs):
+        return False
+
+    verified: dict[int, int] = {}  # block id -> verified expected-paragraph slot
+    resolved: dict[int, tuple[int | None, int]] = {}  # block id -> (anchor, offset)
+
+    def resolve_anchor(block_id: int) -> tuple[int | None, int]:
+        """Nearest verified kept ancestor and this block's offset inside its
+        paragraph, composed from per-block offsets (path-cached)."""
+        cached = resolved.get(block_id)
+        if cached is not None:
+            return cached
+        offset = 0
+        current_id: int | None = block_id
+        while current_id is not None and current_id not in verified:
+            offset += evidence[current_id].offset_in_parent
+            current_id = evidence[current_id].parent_id
+        resolved[block_id] = (current_id, offset)
+        return current_id, offset
+
+    index = 0
+    for block in kept:
+        facts = evidence[id(block)]
         expected = expected_paragraphs[index]
-        if size != len(expected):
+        anchor_id, offset = resolve_anchor(id(block))
+        if facts.size != len(expected):
             return False
-        if not _block_matches(block, expected, stats):
-            return False
-        if stats is not None:
-            stats.full_confirmations += 1
+        if anchor_id is None:
+            if not _block_matches(block, expected, stats):
+                return False
+            if stats is not None:
+                stats.full_confirmations += 1
+        else:
+            anchor_paragraph = expected_paragraphs[verified[anchor_id]]
+            if offset + facts.size > len(anchor_paragraph):
+                return False  # defensive: structure guarantees containment
+            if stats is not None:
+                stats.derived_confirmations += 1
+                stats.chars_compared += facts.size
+            if anchor_paragraph[offset:offset + facts.size] != expected:
+                return False
+        verified[id(block)] = index
         index += 1
     return index == len(expected_paragraphs)
 
