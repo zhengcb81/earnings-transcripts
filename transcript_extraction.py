@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from html.parser import HTMLParser
 
 from bs4 import BeautifulSoup
 from bs4.element import (
@@ -76,7 +77,7 @@ _V2_OWNERS = _BLOCK_TAGS | frozenset({
 # silently discarded and return a seemingly complete transcript; fail closed
 # instead. Only markup-looking tails (``<letter``, ``</``, ``<!``, ``<?``)
 # count, so a lone ``<`` in trailing text stays a text character.
-_DANGLING_MARKUP_RE = re.compile(rb"<[a-zA-Z/?!][^>]*\Z")
+_MARKUP_PREFIX_RE = re.compile(r"<[a-zA-Z/?!]")
 
 _NON_CONTENT_TAGS = frozenset({
     "script", "style", "noscript", "template", "svg", "iframe", "object",
@@ -259,8 +260,19 @@ def _legacy_v1_reference(soup: BeautifulSoup) -> tuple[str, str] | None:
 
 
 def _ends_in_unfinished_markup(page: bytes) -> bool:
-    _head, sep, tail = page.rpartition(b">")
-    return _DANGLING_MARKUP_RE.search(tail if sep else page) is not None
+    # Use the standard tokenizer's pending input before close() repairs EOF.
+    # It understands quotes/comments/raw-text, unlike splitting at the last >.
+    # This builds no DOM and retains no second text projection; the actual
+    # BeautifulSoup DOM is still built once below. Latin-1 preserves every
+    # byte for the ASCII markup grammar without guessing document encoding.
+    tokenizer = HTMLParser(convert_charrefs=False)
+    try:
+        tokenizer.feed(page.decode("latin-1"))
+    except AssertionError:
+        # Unknown declaration syntax is not evidence of truncation. Leave
+        # malformed-but-complete markup to the existing tolerant DOM parser.
+        return False
+    return _MARKUP_PREFIX_RE.match(tokenizer.rawdata.lstrip()) is not None
 
 
 def extract(page: bytes) -> ExtractionResult:
@@ -278,7 +290,7 @@ def extract(page: bytes) -> ExtractionResult:
 
     runs: list[tuple[int, Tag, str]] = []
     state: dict[str, bool] = {}
-    _collect_runs(main, None, _is_droppable(main), runs, state)
+    _collect_runs(main, main, _is_droppable(main), runs, state)
     paragraphs = _paragraphs(runs)
     body = "\n\n".join(paragraphs).strip()
 

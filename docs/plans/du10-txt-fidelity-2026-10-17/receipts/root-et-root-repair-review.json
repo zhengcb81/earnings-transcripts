@@ -1,0 +1,66 @@
+{
+  "reviewer": "/root/du10_et_reception_review",
+  "review_type": "independent ROOT repair delta",
+  "verdict": "PASS",
+  "unresolved": [],
+  "base_worktree_head": "8ae2f5633bf0fa13aea19645fc2d69784956bb01",
+  "binding": "Reviewed uncommitted file bytes. ROOT may commit and fill commit identity if these exact source/test bytes remain unchanged. No self-referential receipt SHA required.",
+  "reviewed_sha256": {
+    "transcript_extraction.py": "c6c7a0d4d5e411b616bc3a90a16158183ba83977cb6ac92fb14e1e73da591abd",
+    "tests/test_root_du10_fidelity_boundaries.py": "fb75e0cad7fec4230d17b1081a83553b0bee5690fb7bcc60783ea0b83b0f0842"
+  },
+  "resolved_findings": [
+    "ET-ROOT-01 quoted-attribute and comment > truncation bypass",
+    "ET-ROOT-02 main direct/inline owner omission"
+  ],
+  "executions": {
+    "independent_controls": 15,
+    "passed": 15,
+    "full_regression_rerun": false,
+    "root_reported_regression": "304 PASS /80.05s, reused as ROOT record; not independently rerun",
+    "commands": "python -B - stdin scripts using source only; no bytecode/cache/files in reception or author tree"
+  },
+  "control_cases": [
+    "cut_quoted_gt",
+    "cut_quoted_multiple_gt",
+    "cut_comment_gt",
+    "cut_comment_multiple_gt",
+    "cut_processing_instruction",
+    "complete_script",
+    "complete_style",
+    "complete_comment",
+    "complete_quoted_attribute",
+    "literal_lt_tail",
+    "entity_tail",
+    "main_inline_only",
+    "main_hidden",
+    "mixed_order",
+    "legacy_unchanged"
+  ],
+  "extra_boundary_checks": [
+    {
+      "case": "unknown declaration then unfinished attribute",
+      "result": "ExtractionError(truncated_markup)"
+    },
+    {
+      "case": "unclosed script ending ordinary rawtext",
+      "result": "ACCEPT /1; not general page-completeness detector; no business text lost in this constructed example"
+    }
+  ],
+  "precheck_cost": "An additional full Latin-1 byte-preserving decode and standard-library HTMLParser tokenization is performed before BeautifulSoup. One DOM is built, but tokenization is no longer single-pass. O(N) additional decoded buffer and normal-input traversal cost; no performance measurement or universal worst-case linearity claim made in this delta review.",
+  "boundary": "Only identifiable unfinished markup at EOF is rejected; unclosed ordinary elements, open rawtext, or mid-sentence truncation are not certified absent. HTML-parser behavior is tolerant; keep this as parsing quality diagnostics, not a new approval chain.",
+  "source_contract_review": {
+    "legacy_block_tags": "unchanged",
+    "frozen_reference": "unchanged",
+    "comparator": "unchanged",
+    "old_v1_equal_page": "/1 verified",
+    "recovered_direct_text": "/2 verified",
+    "main_hidden": "still fails empty_body",
+    "no_translation_or_network_change": true
+  },
+  "first_control_expectation_correction": "An initial hand-written PI sample with a > inside a quoted-looking PI tail was expected rejected, but HTML processing instructions terminate at > without attribute quote semantics. Corrected that independent test expectation to an actually unterminated PI (no >); no source defect or code change required. All 15 corrected control expectations pass.",
+  "author_tree_mutations": 0,
+  "supplier_calls": 0,
+  "llm_calls": 0,
+  "production_reads": 0
+}

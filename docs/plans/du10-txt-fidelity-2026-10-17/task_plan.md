@@ -1,3 +1,7 @@
+## ROOT 接收更新 — 2026-10-17
+
+最终实现/复审已通过，详情 [ROOT_RECEPTION](ROOT_RECEPTION.md)。正常主线发布后以母 PWF 的远端 SHA 为准；下方旧状态是作者历史。
+
 # DU10-ET-TXT-FIDELITY 任务计划
 
 - 卡片: `company-wiki/docs/plans/document-understanding-2026-10-13/parallel/du10-2026-10-17/du10_et_txt_fidelity.md`

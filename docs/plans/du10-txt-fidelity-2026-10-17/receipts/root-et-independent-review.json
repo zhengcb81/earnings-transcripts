@@ -1,0 +1,84 @@
+{
+  "card_id": "DU10-ET-TXT-FIDELITY",
+  "reviewer": "/root/du10_et_reception_review",
+  "reviewed_head": "cb8e29cddb3836fe670d93d65a02678f5ce8e466",
+  "base": "7d06777e250ee3f7ae58f0be2cee62944bd2c104",
+  "verdict": "REQUEST_CHANGES",
+  "source_sha256": {
+    "transcript_extraction.py": "62b5d9ef94d04d2b6dd758bae0d982f7fa05fd86ff6a81c7b9e0e77aface1a30",
+    "tests/test_du10_transcript_fidelity.py": "b922af7de4d3f05c9280a5feaf10322ba3fc2ee5717cacc8ab2c91f21bdd547f",
+    "legacy_projection_comparison.py": "2f9acacf6d11f23f495a530e4eba82997c3019d20124e2c8a9f6c0fb2051b661"
+  },
+  "reused_author_review": {
+    "reviewed_commit": "42310b7c69b34c1153cc45da401b67cc8c069804",
+    "rounds": 2,
+    "source_tests_delta_to_delivery": "EMPTY; only four PWF paths changed",
+    "results_reused": [
+      294,
+      561
+    ],
+    "timing_suite_note": "46 PASS, one timing failure passed isolated; untouched by card; no complete rerun by ROOT reviewer"
+  },
+  "commands": [
+    {
+      "command": "python -B -m pytest -p no:cacheprovider tests/test_du10_transcript_fidelity.py -q",
+      "result": "10 passed in 1.20s",
+      "exit_code": 0
+    },
+    {
+      "command": "python -B synthetic in-memory adversarial checks",
+      "result": "3 truncation bypass shapes; main-inline content loss confirmed; six legal complete control shapes accepted; baseline confirms main content loss predates DU10"
+    }
+  ],
+  "findings": [
+    {
+      "id": "ET-ROOT-01",
+      "priority": "P2",
+      "classification": "newly added truncation feature is incomplete",
+      "where": "transcript_extraction.py::_ends_in_unfinished_markup",
+      "root_cause": "rpartition(b\">\") treats > inside attribute quotes or unfinished comment as markup terminator; regex sees only empty remainder",
+      "reproduction_suffixes": [
+        "<p title=\"unfinished >",
+        "<!-- unfinished >",
+        "<p title=\"unfinished > CEO: outlook remains"
+      ],
+      "prefix": "<html><h1>ACME earnings call</h1><main><p>The company delivered results across the reported business segments. The company delivered results across the reported business segments. The company delivered results across the reported business segments. The company delivered results across the reported business segments. The company delivered results across the reported business segments. </p>",
+      "actual": "ACCEPT; prior paragraph only; extraction_version motley-fool-main-text/1",
+      "expected": "ExtractionError(truncated_markup); do not emit complete-looking transcript",
+      "remedy": "Use linear HTML lexical state aware of quote/comment/rawtext boundaries; add bypass shapes and complete script/comment/attribute controls; retain one DOM observation and frozen comparator."
+    },
+    {
+      "id": "ET-ROOT-02",
+      "priority": "P2",
+      "classification": "preexisting root cause left uncovered by block coverage expansion; not a DU10 regression",
+      "where": "transcript_extraction.py::extract/_collect_runs",
+      "root_cause": "main is invoked with owner=None; direct text and inline speaker/text descendants never acquire an owner, although main is the canonical content container",
+      "reproduction": "<h1>ACME</h1><main><p>[335-char valid filler]</p><strong>CFO:</strong> Revenue outlook rises.</main>",
+      "actual": "CFO and material outlook text disappear; ACCEPT /1. With only inline main content, empty_body. Exact original base7d067 reproduces same loss.",
+      "expected": "Preserve direct main text/speaker and order, honest /2 when differing from frozen v1; do not require a p/div wrapper for meaningful content",
+      "remedy": "Use main itself as fallback owner under normal droppable rules. Add main-direct, inline-only, mixed main text/p and dropped-wrapper controls without expanding frozen _BLOCK_TAGS."
+    }
+  ],
+  "false_positive_hunt": {
+    "complete_legal_controls": 6,
+    "passed": 6,
+    "unclosed_or_invalid_controls_rejected": 2,
+    "complete_legal_false_positive_found": false
+  },
+  "scope_and_cleanup": {
+    "author_tree_read_only": true,
+    "author_git_status_end": "clean",
+    "bytecode_disabled": true,
+    "pytest_cache_disabled": true,
+    "no_live_transcript_content_read": true,
+    "supplier_calls": 0,
+    "llm_calls": 0,
+    "temporary_test_files_created": 0
+  },
+  "not_claimed": [
+    "Author live MF HTML generalization remains NOT_RUN",
+    "Chinese-native transcript absent; CJK synthetic only",
+    "FMP real JSON unchanged and NOT_RUN",
+    "Successful old goldens do not prove preservation of content those old algorithms both omitted"
+  ]
+}
