@@ -7,7 +7,7 @@
     "71103cf",
     "fc91325"
   ],
-  "final_commit": "SEE review/independent_review.json reviewed_commit field; author freezes HEAD after the final review confirmation",
+  "final_commit": "42310b7c69b34c1153cc45da401b67cc8c069804 (code/tests reviewed and frozen at this SHA by independent review; the delivery commit on top adds only PWF documentation)",
   "changed_paths": [
     "transcript_extraction.py",
     "tests/test_du10_transcript_fidelity.py",

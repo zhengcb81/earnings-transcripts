@@ -44,10 +44,12 @@
 - 清理收据 `receipts/cleanup.md`：无临时残留、主树哨兵不变。
 - NOT_RUN：真实线上 MF HTML DOM（无本地缓存且卡禁下载）；中文母语来源 transcript 本地不存在；FMP JSON 真实载荷（需凭证）。
 
-### Phase D — 独立审查与交接 — Status: in_progress
+### Phase D — 独立审查与交接 — Status: complete
 - 冻结最终 HEAD；由不同 agent 审查代码/测试/定位/边界/无翻译/旧 goldens/目录保护/PWF。
 - 审查报告 PASS 且零未解决方可交接；否则修复后按最终 SHA 再审。
 - 产出 handoff.md/json + receipts。
+- 第 1 轮：fc91325 → **PASS 零未解决**（review/independent_review.md/json）；7 条低度备注中需行动 2 项已整改（handoff.json、cleanup 方法补记），整改提交 42310b7。
+- 第 2 轮（最终 SHA 复核）：42310b7 → **PASS 零未解决、可交接**（源码/测试与所审树逐字节相同，仅 PWF 文档差异）；cleanup 聚合方法重算精确命中，备注 5/7 关闭。
 
 ## Decisions Made
 - 2026-10-17: 不扩展 `_BLOCK_TAGS` 本身（会经 `legacy_projection_matches(block_tags=...)` 篡改冻结 v1 投影语义）；新增独立 v2 所有权集合。
@@ -60,4 +62,4 @@
 | （暂无） | | |
 
 ## Next Step
-Phase B：在 `transcript_extraction.py` 实施所有权集合解耦 + EOF 截断检测，跑 RED→GREEN。
+（无——全阶段 complete，已交接：代码/测试冻结于 `42310b7c69b34c1153cc45da401b67cc8c069804`，独立审查两轮 PASS 零未解决。）

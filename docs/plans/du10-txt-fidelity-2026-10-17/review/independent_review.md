@@ -84,3 +84,33 @@ task_plan / findings / progress / handoff 自洽，覆盖卡片全部交付物�
 ## 结论
 
 作者声称的工作真实、正确、未越权：RED 可独立复现、修复最小且冻结契约零漂移、真实语料与主树原件分毫未动、证据链可复算、PWF 完整诚实。**PASS，零未解决问题**；§8 各项为记录性备注与 Phase D 收尾动作，不阻塞交接。本报告与 `independent_review.json` 为审查员唯一写入物，未 commit（由作者处理）。
+
+---
+
+## 最终 SHA 复核（fc91325 → 42310b7）
+
+- 复核对象：整改提交 `42310b7c69b34c1153cc45da401b67cc8c069804`；上一轮所审 `fc91325b65965c178e0cd68d8789be5e974aa067`。
+- **Verdict 维持 PASS，未解决问题仍为 0。**
+
+### Delta 范围
+
+`git diff --stat fc91325..42310b7`：仅 5 个 PWF 文档路径——`handoff.json`（A，112 行）、`progress.md`（M，+8/-1）、`receipts/cleanup.md`（M，+1）、`review/independent_review.md` 与 `review/independent_review.json`（A，即本轮审查第 1 轮报告原样入库）。**`git diff fc91325..42310b7 -- transcript_extraction.py tests/ legacy_projection_comparison.py` 为空**——源码/测试与第 1 轮所审树逐字节相同，第 1 轮全部测试执行结果（RED 6/4、GREEN 10、294、561、47、ruff）对 42310b7 继续有效，无需重跑。
+
+### 整改核实（对应第 1 轮备注）
+
+| # | 第 1 轮备注 | 整改声明 | 复核结果 |
+|---|---|---|---|
+| 1 | handoff.json 待补 | 新增 `handoff.json`（du7-handoff/1） | **属实且一致**：base/branch/实施提交正确；tests 数字 10/294/561、ruff "All checks passed" 与我实测一致；47 项如实标注为作者单独运行；NOT_RUN 四项（线上 MF DOM、中文母语来源、FMP JSON、翻译/LLM 调用 0）与 known_limits（句中无标记截断、尾随 `<字母` 边界、CJK 空白归一）与我的发现一一对应；`independent_review` 指向本报告 JSON；`final_commit` 声明以本文件 `reviewed_commit` 为准（本复核已置为 42310b7） |
+| 5 | `.workbuddy-ai` 聚合哈希不可复算 | cleanup.md 补记方法 | **方法属实、可复算**：按记载（rglob 全部 is_file 文件、按完整路径字符串排序、依次 `update(路径utf-8)+update(文件字节)`，ET 主树绝对路径）重算 = `4a3133440d7b20a0866788bd0d3a6e6fa7b5cf1c4923ffff075ba12c9036f691`，**精确命中** |
+| 7a | handoff.json 缺失致悬空引用 | 同 #1 | 悬空引用消除 |
+| 7b | progress 台账只到基线行 | 补会话 3（Phase D 独立审查） | **内容属实**：所记 18 文件白名单、RED 6/4、294、561、ruff、10 误报页、7 截断形态、9 对抗样张、130 SHA、主树哨兵均与我第 1 轮实际执行一致 |
+| — | review 报告入库 | 随 42310b7 提交 | **逐字节原样**：`git show 42310b7:…md/json` 的 SHA256（`18078b56…`/`5fb87bab…`）与我第 1 轮写入文件完全相等 |
+
+### 本轮新观察（不构成未解决问题）
+
+- `task_plan.md` 存在一处**未提交**修改（Phase D 第 1 轮 PASS 记录行），内容准确；与本次 review 更新同属收尾编辑，按惯例由作者随最终提交处理。
+- `handoff.json` 的 `final_commit` 为指向 `review/independent_review.json` `reviewed_commit` 的指针字符串而非字面 SHA——设计上由本复核闭合（现已置为 42310b7），语义无歧义。
+
+### 结论
+
+第 1 轮 7 条备注中需要行动的 2 项（备注 5、备注 7）已在 42310b7 整改并经复核证实；其余 5 条为接受性低度观察，维持原判。**最终 SHA `42310b7c69b34c1153cc45da401b67cc8c069804`：PASS，零未解决问题，可交接。**
