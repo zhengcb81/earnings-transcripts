@@ -157,3 +157,38 @@ Verdict：**FAIL**（1 high：R2-1）。
 
 修复后本地全套（待第3轮独立复核确认）：du9 **214 passed**、DU7/ROOT **58 passed**、
 集中回归 **170 passed**、golden **10/10 matched**、ruff 全绿。
+
+## 第3轮（2026-10-16）
+
+reviewer_agent_id：agent_2654a408-ab25-4c35-8acf-edbc811806e2（同第2轮 agent）。
+reviewed_commit：`38953ea`（含第2轮修复 `3dc576c`）。
+
+Verdict：**FAIL**（2 medium：R3-1、R3-2）。
+
+### 审查者报告（要点原文）
+
+- R2-1 修复属实：其round-2反例 d=200..4800 现为 1.00×节点访问、计数预检 O(1) 判定、
+  d=4800 快于冻结 23×；新增族测试对旧模块有真实回归网（旧模块 100.6× 违界）；
+  本轮自建fuzz 21,306 比较 **0 分歧**；1 parse/0 get_text/白名单/冻结sha/文档/收据
+  全部符合实际；恒True/恒False 比较器变异均被现有测试拦截。
+- **R3-1（medium）**：`resolve_anchor` 无路径压缩——被污染祖先链下的
+  star 形状（每深度一个保留块）走 θ(n²) 纯Python父链步（n=2400: 0.56s、
+  74% profile 时间；n=4800: 5.4–5.9s），`nodes_visited` 不可见（1.33×）。
+  建议：首走缓存全部中间节点 / 证据段即算终锚；star形状进代价测试并用
+  显式resolve步数断言。
+- **R3-2（medium）**：锚定/偏移的**正向路径（decision=True）无仓内覆盖**——
+  把每个 `offset_in_parent` +1 后 du9 214 与 golden 10 全绿；其fuzz中
+  `extraction_version==/1 且 derived_confirmations>0` 的页有212例，仓内0例。
+  建议：加正向嵌套保留等价页fixture（断言 derived≥1 + oracle）+ 偏移损坏哨兵。
+- 观察（非发现）：平铺等价页是常数因子最差情形（siblings_2000: 0.308s vs
+  冻结0.126s，访问线性），收据已披露。
+
+### 处置
+
+| id | severity | cause | status | fix_commit | verification_receipt |
+|---|---|---|---|---|---|
+| R3-1 | medium | resolve_anchor 无路径压缩，star形状 θ(n²) 父链步且stats不可见 | fix_committed，待同agent复核 | （本轮提交） | 首走缓存全部已访问节点（含非候选中间块）+ `anchor_resolve_steps` 计数断言 `<= blocks_scanned`；`test_resolve_star_anchor_walks_stay_linear`×200/1200/2400；收据26形状零违规（star_2400: steps 4800 == blocks 4800，0.22s vs 冻结2.69s） |
+| R3-2 | medium | 正向派生路径无仓内覆盖，偏移损坏全绿 | OPEN——已向同审查agent索要其212例 /1+derived 的最小反例 | - | 作者侧穷举40k+结构候选与1000页对抗fuzz均未找到 decision=True 且 derived≥1 的页（构造分析指向Xfull配对槽结构性障碍）；需审查方提供可复现页后立即入fixture |
+
+修复后本地全套（待第4轮复核）：du9 **217 passed**、DU7/ROOT 58、集中回归 170、
+golden 10/10、ruff 全绿。

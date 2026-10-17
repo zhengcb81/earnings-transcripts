@@ -1,0 +1,15 @@
+{
+  "schema": "du9-cleanup/1",
+  "plan_id": "du9-legacy-comparison-2026-10-16",
+  "whitelist_violations": [],
+  "changed_path_count": 18,
+  "existing_tests_modified": [],
+  "supplier_calls": 0,
+  "network_seams": "all HTTP via tests FakeSession/fake_spec launcher; translator factory asserted unconstructed in e2e tests",
+  "production_writes": 0,
+  "in_test_cleanup": [
+    "test_e2e_existing_txt_reused_and_equal_page_reports_legacy_version: deletes created files, asserts directory SHA state restored, temp_root empty, fixture+config SHA+mtime unchanged",
+    "test_e2e_failed_body_fetch_leaves_no_half_files: asserts no half files, sentinel intact, directory SHA state unchanged, temp_root empty"
+  ],
+  "workspace_end_state": "tracked diff identical to whitelist; untracked leftovers none (handoff docs are whitelisted plan docs)"
+}

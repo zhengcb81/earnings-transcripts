@@ -66,6 +66,7 @@ class ComparisonStats:
     chars_compared: int = 0
     full_confirmations: int = 0
     derived_confirmations: int = 0  # slice checks attempted (no DOM walk)
+    anchor_resolve_steps: int = 0  # uncached parent links walked (<= blocks_scanned)
     max_intermediate_chars: int = 0
 
 
@@ -387,17 +388,40 @@ def _body_matches(
 
     def resolve_anchor(block_id: int) -> tuple[int | None, int]:
         """Nearest verified kept ancestor and this block's offset inside its
-        paragraph, composed from per-block offsets (path-cached)."""
+        paragraph, composed from per-block offsets.
+
+        Every uncached link walked is cached (including intermediate
+        non-candidate blocks), so across a whole decision each block is
+        resolved at most once and the total walk stays O(blocks) even for
+        star-shaped nests of kept blocks under dropped ancestors.
+        """
         cached = resolved.get(block_id)
         if cached is not None:
             return cached
-        offset = 0
+        chain: list[int] = []
         current_id: int | None = block_id
-        while current_id is not None and current_id not in verified:
-            offset += evidence[current_id].offset_in_parent
+        stop: tuple[int | None, int] | None = None
+        while current_id is not None:
+            if current_id in verified:
+                stop = (current_id, 0)
+                break
+            hit = resolved.get(current_id)
+            if hit is not None:
+                stop = hit
+                break
+            chain.append(current_id)
+            if stats is not None:
+                stats.anchor_resolve_steps += 1
             current_id = evidence[current_id].parent_id
-        resolved[block_id] = (current_id, offset)
-        return current_id, offset
+        if stop is None:
+            stop = (None, 0)
+        if not chain:
+            return stop
+        terminal, running = stop
+        for node_id in reversed(chain):
+            running += evidence[node_id].offset_in_parent
+            resolved[node_id] = (terminal, running)
+        return resolved[block_id]
 
     index = 0
     for block in kept:

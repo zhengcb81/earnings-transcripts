@@ -166,6 +166,19 @@ _NESTED_KEPT_FACTORIES = (
 )
 
 
+def _resolve_star_page(depth: int) -> bytes:
+    """Reviewer R3-1 shape: kept siblings at increasing depth under a fully
+    tainted ancestor chain — anchor resolution walks parent links per kept
+    block unless every walked link is path-cached."""
+    inner = (
+        f"<p><span class='advertisement'>advertisement junk here</span>"
+        f"<p>paragraph number {depth} kept text words</p></p>"
+    )
+    for i in range(depth - 1, 0, -1):
+        inner = f"<p><p>paragraph number {i} kept text words</p>{inner}</p>"
+    return _main_page(f"<main>{inner}</main>")
+
+
 def _node_count(page: bytes) -> int:
     return sum(1 for _ in BeautifulSoup(page, "html.parser").descendants)
 
@@ -682,6 +695,39 @@ def test_nested_kept_families_stay_linear(
     confirmations = stats.full_confirmations + stats.derived_confirmations
     if needs_confirmation:
         assert confirmations >= 1
+    assert stats.max_intermediate_chars <= _max_text_piece(page)
+
+
+@pytest.mark.parametrize("depth", [200, 1200, 2400])
+def test_resolve_star_anchor_walks_stay_linear(depth, monkeypatch):
+    """Anchor resolution must path-cache every link it walks: each block is
+    resolved at most once across the whole decision (R3-1)."""
+    page = _resolve_star_page(depth)
+    nodes = _node_count(page)
+    result = transcript_extraction.extract(page)
+    frozen = transcript_extraction._legacy_v1_reference(
+        BeautifulSoup(page, "html.parser")
+    )
+    expected = frozen == (result.title, result.body)
+    counters = _install_visit_counter(monkeypatch)
+    stats = legacy_projection_comparison.ComparisonStats()
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        BeautifulSoup(page, "html.parser"),
+        result.title,
+        result.body,
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    assert matched is expected
+    assert counters["get_text_calls"] == 0
+    assert stats.nodes_visited <= 10 * nodes
+    assert stats.anchor_resolve_steps <= stats.blocks_scanned, (
+        f"depth={depth}: {stats.anchor_resolve_steps} parent-link steps for "
+        f"{stats.blocks_scanned} blocks (uncached anchor chain)"
+    )
     assert stats.max_intermediate_chars <= _max_text_piece(page)
 
 
