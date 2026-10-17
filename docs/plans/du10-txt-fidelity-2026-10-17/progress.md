@@ -17,7 +17,13 @@
 - 全仓回归：608 passed（不含时序敏感）+ test_batch_runtime/test_retrieval_cli_e2e 47 passed = 655 全绿；ruff `transcript_extraction.py tests/test_du10_transcript_fidelity.py` 全绿。
 - 真实语料只读验证：分母 = 6 家 43 份 `*_earnings_call.txt`；深检 3 份（MSFT EN 152¶、NVO EN 301¶、TAL 中企 90¶），段落回溯零失败；合成 MF 形状标记 + 真实内容往返逐段精确一致（MSFT/NVO/TAL 全 exact，诚实 `/2`）；CJK 头部字面完好。首轮往返夹具曾自插空格造成伪差，改为字节忠实拼接后全 exact（夹具缺陷非解析器缺陷）。
 - 清理：130 语料文件 SHA 不变；主树 `.workbuddy-ai/`、`eval_results.json` 哨兵不变；temp 残留 0。收据 `receipts/cleanup.md`。
-- Next: 冻结 HEAD → 独立审查 agent → PASS 后交接。
+
+## 2026-10-17 会话 3（Phase D 独立审查）
+
+- 提交 `fc91325`（receipts + handoff.md）冻结后交独立审查员（general-purpose agent，与实施者不同上下文）。
+- 审查范围核验：18 个变更文件全在白名单内；独立 RED 复现（临时 worktree @7d06777 只装作者测试+夹具）= 6 failed/4 passed 与收据逐项一致；DU10+旧 goldens 294 passed；全仓 561 passed；ruff 全绿；截断检测 10 种完整特殊尾页零误报、7 种截断形态全拦；9 例新对抗样张内容/次序/回溯/版本标签全过；130 语料 SHA 复算一致；主树哨兵核实。
+- 审查判定 **PASS、零未解决**；7 条低度记录性备注（`review/independent_review.md/json`）。
+- 按备注整改：补 `handoff.json`（含 reviewer 与所审 SHA）、cleanup.md 记载目录聚合 SHA 复算方法、progress 台账补全；随后请同一审查员按新最终 SHA 复核收尾。
 
 ## 测试结果台账
 

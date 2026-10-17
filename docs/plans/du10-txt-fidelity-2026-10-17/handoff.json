@@ -1,0 +1,112 @@
+{
+  "schema_version": "du7-handoff/1",
+  "card_id": "DU10-ET-TXT-FIDELITY",
+  "base_commit": "7d06777e250ee3f7ae58f0be2cee62944bd2c104",
+  "branch": "codex/du10-et-txt-fidelity",
+  "implementation_commits": [
+    "71103cf",
+    "fc91325"
+  ],
+  "final_commit": "SEE review/independent_review.json reviewed_commit field; author freezes HEAD after the final review confirmation",
+  "changed_paths": [
+    "transcript_extraction.py",
+    "tests/test_du10_transcript_fidelity.py",
+    "tests/fixtures/du10_transcript_fidelity/",
+    "docs/plans/du10-txt-fidelity-2026-10-17/"
+  ],
+  "entrypoints": [
+    "transcript_extraction.extract(page: bytes) -> ExtractionResult(title, body, extraction_version, diagnostics)"
+  ],
+  "interfaces": {
+    "inputs": [
+      "raw transcript page bytes (Motley Fool HTML), unchanged contract"
+    ],
+    "outputs": [
+      "ExtractionResult unchanged; new ExtractionError reason 'truncated_markup' joins the existing typed error contract mapped by transcript_api._ProviderFailure"
+    ],
+    "unchanged": [
+      "EXTRACTION_VERSION_LEGACY=motley-fool-main-text/1",
+      "EXTRACTION_VERSION=motley-fool-main-text/2",
+      "_BLOCK_TAGS={p,h2,h3,li} (frozen legacy/comparator contract)",
+      "MIN_CONTENT_CHARS=200",
+      "LEGACY_MIN_PARAGRAPH_CHARS=5",
+      "SKIP_TEXT tuple",
+      "legacy_projection_comparison.py untouched",
+      "no translation code or auto-translation fields",
+      "no provenance fields added"
+    ]
+  },
+  "tests": [
+    {
+      "command": "python -m pytest tests/test_du10_transcript_fidelity.py -q",
+      "exit_code": 0,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "docs/plans/du10-txt-fidelity-2026-10-17/receipts/red_run.txt (RED side); GREEN in review report"
+    },
+    {
+      "command": "python -m pytest tests/test_du10_transcript_fidelity.py tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_e2e.py tests/test_du7_extraction_wiring.py tests/test_root_du7_extraction_robustness.py tests/test_du9_legacy_comparison.py -q",
+      "exit_code": 0,
+      "passed": 294,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "old goldens zero drift, re-verified independently by reviewer"
+    },
+    {
+      "command": "python -m pytest tests/ -q --ignore=tests/test_batch_runtime.py --ignore=tests/test_retrieval_cli_e2e.py",
+      "exit_code": 0,
+      "passed": 561,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "plus test_batch_runtime/test_retrieval_cli_e2e 47 passed separately (author) "
+    },
+    {
+      "command": "ruff check transcript_extraction.py tests/test_du10_transcript_fidelity.py",
+      "exit_code": 0,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "All checks passed"
+    }
+  ],
+  "red_receipts": [
+    "docs/plans/du10-txt-fidelity-2026-10-17/receipts/red_run.txt"
+  ],
+  "fixtures": [
+    {
+      "kind": "synthetic",
+      "source_sha256": "n/a (hand-authored, no production excerpt; reviewer verified 0 exact matches against the 130-file corpus)",
+      "scope": "tests/fixtures/du10_transcript_fidelity/ 6 HTML fixtures + hand-derived expected.json",
+      "expected_basis": "hand-derived paragraphs before implementation, traceability-anchored onto fixture text nodes in test code"
+    }
+  ],
+  "old_behavior_preserved": [
+    "v1-equal pages (no new-owner structures) stay byte-identical and report motley-fool-main-text/1",
+    "DU7/DU9 suites 284 passed unchanged",
+    "br-to-space folding frozen (DU9 pinned shape)",
+    "speaker-label glue without source whitespace preserved byte-faithfully (v1 injected a space there; v2 divergence is honest /2)"
+  ],
+  "known_limits": [
+    "mid-sentence truncation without markup residue is byte-undecidable and can still yield a seemingly complete body",
+    "truncation gate rejects complete pages whose trailing text after the last '>' contains an unclosed '<letter' (illegal-escape form; fails visibly instead of silent mangling)",
+    "CJK U+3000/NBSP whitespace normalization to ASCII space matches frozen v1, unchanged",
+    "live Motley Fool DOM generalization NOT_RUN; Chinese-native source transcript absent locally; FMP JSON live payload NOT_RUN (credentials)"
+  ],
+  "not_run": [
+    "live MF HTML page extraction (no local raw HTML cache; card forbids downloading samples)",
+    "Chinese-native source transcript verification (none exists locally; TAL et al. originals are English)",
+    "FMP JSON real payload (requires credentials; outside this card's modifiable surface)",
+    "translation/LLM calls: 0"
+  ],
+  "root_integration_steps": [
+    "merge codex/du10-et-txt-fidelity (transcript_extraction.py + tests/test_du10_transcript_fidelity.py + tests/fixtures/du10_transcript_fidelity/ + this PWF)",
+    "no CWP/FF field sync needed: extraction_version contract unchanged, /2 remains a free-form label",
+    "suggested CI: du10 10 + du9 226 + DU7 58 + full tree 655 + ruff",
+    "do NOT rewrite existing *_earnings_call.txt originals; /2 affects future downloads only"
+  ],
+  "supplier_calls": 0,
+  "production_writes": 0,
+  "cleanup_receipt": "docs/plans/du10-txt-fidelity-2026-10-17/receipts/cleanup.md",
+  "independent_review": "docs/plans/du10-txt-fidelity-2026-10-17/review/independent_review.json"
+}

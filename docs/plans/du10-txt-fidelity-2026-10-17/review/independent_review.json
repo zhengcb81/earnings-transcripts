@@ -1,0 +1,28 @@
+{
+ "schema_version": "du10-review/1",
+ "reviewed_commit": "fc91325b65965c178e0cd68d8789be5e974aa067",
+ "baseline_commit": "7d06777e250ee3f7ae58f0be2cee62944bd2c104",
+ "reviewer": "independent reviewer agent (fully separate from author)",
+ "review_date": "2026-10-17",
+ "verdict": "PASS",
+ "unresolved": [],
+ "checks": {
+  "scope": true,
+  "red_green": true,
+  "frozen_contracts": true,
+  "code_review": true,
+  "real_corpus_preserved": true,
+  "evidence_chain": true,
+  "pwf_complete": true,
+  "adversarial": true
+ },
+ "key_commands_and_results": {
+  "scope": "git diff --name-status 7d06777..fc91325 -> only whitelist paths (transcript_extraction.py M; tests/test_du10_transcript_fidelity.py A; tests/fixtures/du10_transcript_fidelity/ A; docs/plans/du10-txt-fidelity-2026-10-17/ A); git status clean before and after review",
+  "red_reproduction": "temp worktree at 7d06777 + author tests copied -> 6 failed, 4 passed, failure set identical to receipts/red_run.txt; temp worktree removed afterwards",
+  "frozen_suites": "pytest du10+du7x4+robustness+du9 -> 294 passed (10+284, zero golden drift); pytest tests/ minus 2 timing suites -> 561 passed; collection counts 608/47; ruff check -> All checks passed; timing suites 46 passed + 1 timing-flaky failure that passed on isolated rerun (file untouched by diff)",
+  "corpus": "130/130 SHA256 recomputed and identical; ET main tree git status only ?? .workbuddy-ai/ and ?? eval_results.json; eval_results.json SHA matches receipt exactly",
+  "evidence_chain": "verify_real_corpus.py logic re-run in-memory reproduces real_corpus_verification.json exactly (RERUN_EQUAL_TO_COMMITTED_RECEIPT: True); red_run.txt matches independent reproduction; fixture text found 0 times in all 130 corpus files (python exact-substring search)",
+  "adversarial": "9 novel cases (h5/h6+dl/dt/dd, ad-wrapped table, non-evidenced promo class, no-h1, nested div turns, thead/tbody, CJK/EN mixed, tr-direct text, version honesty pair /1<->/2): content preserved, order stable, every paragraph traceable to input text nodes, no fabrication, honest version labels; false-positive hunt: 10 complete-but-special-tail pages all extract, 7 true truncation shapes all raise ExtractionError(truncated_markup)"
+ },
+ "notes": "PASS with zero blocking issues. Low-severity recorded notes: (1) fail-closed truncation check also rejects complete pages whose byte-tail after the last '>' contains an unclosed '<letter' (invalid unescaped text; visible failure via ExtractionError->_ProviderFailure, not silent corruption; risk argued by author in findings.md); (2) markup-free mid-sentence truncation remains byte-undetectable (independently confirmed; author declared honestly); (3) bare '<letter' mid-page text is swallowed by html.parser to the next '>' - pre-existing v1-identical behavior proven by the /1 byte-equality label, not introduced here; (4) DIAG_NESTED_SUPPRESSED now fires on routine p-in-div structures - internal-only, zero consumers, kept out of content schema by transcript_tool.py; (5) .workbuddy-ai directory aggregate SHA in cleanup.md not reproducible with 7 natural aggregation methods (method undocumented) though existence, git-status cleanliness and eval_results.json exact SHA independently verified; (6) CJK fixture borrows real public facts (TAL/好未来, executive 彭壮壮, reported figures 8.614亿/39.1%/38.1%) in synthetic prose - zero verbatim corpus text committed; suggest purely fictional names for future fixtures; (7) Phase D finalization must add handoff.md's referenced handoff.json (with reviewer + reviewed SHA fc91325b65965c178e0cd68d8789be5e974aa067) and may complete the progress.md test-ledger table; expected sequencing per card, review gate precedes handoff."
+}
