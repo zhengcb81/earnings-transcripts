@@ -1,0 +1,56 @@
+CW-BASETEMP-DECISION {"event": "decision", "requested_basetemp": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\du9-et-root-k1v0iptf\\cwp-provider-reader-evidence", "requested_basetemp_len": 81, "cwd_len": 34, "threshold": 60, "win32_path_limit": 210, "generation_reserve": 150, "relocated": true, "reason": "resolved-basetemp-exceeds-budget", "effective_basetemp": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\cw-pytest-basetemp\\20261017-142119-3f0595fe", "effective_basetemp_len": 75}
+.........F..                                                             [100%]
+================================== FAILURES ===================================
+_ test_fmp_unknown_publication_cli_stores_original_but_excludes_historical_cutoff _
+
+tmp_path = WindowsPath('C:/Users/郑曾波/AppData/Local/Temp/cw-pytest-basetemp/20261017-142119-3f0595fe/test_fmp_unknown_publication_c0')
+
+    def test_fmp_unknown_publication_cli_stores_original_but_excludes_historical_cutoff(
+        tmp_path: Path,
+    ) -> None:
+        from company_wiki.source_catalog import SourceCatalog, load_catalog_config
+        from company_wiki.source_catalog.source_reader import SourceVersionReader
+        from company_wiki.source_catalog.transcript_material import extract_transcript_material
+    
+        root, envelope, original = _fmp_fixture(tmp_path)
+        catalog = None
+        try:
+            first = _run(root, envelope)
+            assert first.returncode == 0, first.stderr
+            imported = json.loads(first.stdout)
+            assert imported["status"] == "imported"
+            assert imported["canonical_status"] == "imported_new"
+            assert imported["provider_payload_sha256"] == _sha(original)
+            source_ref = imported["source_ref"]
+            assert imported["schema_version"] == "company-wiki-transcript-import-response/3"
+            assert source_ref == {
+                "schema_version": "2.0",
+                "document_id": source_ref["document_id"],
+                "source_id": imported["source_id"],
+                "content_sha256": _sha(original),
+                "byte_size": len(original),
+                "mime_type": "application/json",
+            }
+            assert isinstance(source_ref["document_id"], str) and source_ref["document_id"]
+            assert not any("path" in key.lower() for key in source_ref)
+            files = [p for p in (root / "companies").rglob("*.json") if not p.name.endswith(".source.json")]
+            assert len(files) == 1 and files[0].read_bytes() == original
+>           assert files[0].name.startswith("unknown-date_fmp_")
+E           AssertionError: assert False
+E            +  where False = <built-in method startswith of str object at 0x000001B778ADDAD0>('unknown-date_fmp_')
+E            +    where <built-in method startswith of str object at 0x000001B778ADDAD0> = 'ac80acc852b87da638448ea18b5fe365bd1.json'.startswith
+E            +      where 'ac80acc852b87da638448ea18b5fe365bd1.json' = WindowsPath('C:/Users/郑曾波/AppData/Local/Temp/cw-pytest-basetemp/20261017-142119-3f0595fe/test_fmp_unknown_publication_...-wiki-fmp/companies/Microsoft Corporation/raw/investor_relations/transcripts/ac80acc852b87da638448ea18b5fe365bd1.json').name
+
+tests\contract\test_transcript_import_cli_e2e.py:311: AssertionError
+============================== warnings summary ===============================
+..\..\..\..\Miniconda\Lib\site-packages\_pytest\config\__init__.py:1464
+  C:\Miniconda\Lib\site-packages\_pytest\config\__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/contract/test_transcript_import_cli_e2e.py::test_fmp_unknown_publication_cli_stores_original_but_excludes_historical_cutoff
+1 failed, 11 passed, 1 warning in 13.85s
+CW-BASETEMP-CLEANUP {"event": "cleanup", "dir": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\cw-pytest-basetemp\\20261017-142119-3f0595fe", "existed": true, "removed": true}
+

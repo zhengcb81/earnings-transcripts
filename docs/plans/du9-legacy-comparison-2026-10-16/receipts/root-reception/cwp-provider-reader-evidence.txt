@@ -1,0 +1,12 @@
+CW-BASETEMP-DECISION {"event": "decision", "requested_basetemp": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\du9-et-root-sydbnw95\\cwp-provider-reader-evidence", "requested_basetemp_len": 81, "cwd_len": 34, "threshold": 60, "win32_path_limit": 210, "generation_reserve": 150, "relocated": true, "reason": "resolved-basetemp-exceeds-budget", "effective_basetemp": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\cw-pytest-basetemp\\20261017-150016-6607c41e", "effective_basetemp_len": 75}
+............                                                             [100%]
+============================== warnings summary ===============================
+..\..\..\..\Miniconda\Lib\site-packages\_pytest\config\__init__.py:1464
+  C:\Miniconda\Lib\site-packages\_pytest\config\__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 1 warning in 19.05s
+CW-BASETEMP-CLEANUP {"event": "cleanup", "dir": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\cw-pytest-basetemp\\20261017-150016-6607c41e", "existed": true, "removed": true}
+

@@ -1,0 +1,23 @@
+{
+  "schema_version": "du9-et-root-reception/1",
+  "status": "ACCEPTED_COMPONENT",
+  "author_commit": "6d94c38df1f0edaae34cfed199ae8407287b0681",
+  "reviewed_source_commit": "da82f3a4961c1736c002f52a6a3d8d05b277bd8d",
+  "root_merge_commit": "f95345b1e3aaf21b6d5ab6f4022eb87a216e4cc3",
+  "review_status": "PASS",
+  "unresolved_count": 0,
+  "review_after_source_delta": false,
+  "final_et_tests": "454PASS;118.70s",
+  "goldens": "10/10 unchanged",
+  "ff_offline_contract": "117PASS;12.58s",
+  "cwp_offline_contract": "12PASS after obsolete physical filename assertion corrected",
+  "supplier_calls": 0,
+  "translation_calls": 0,
+  "original_copies": 0,
+  "legacy_original_oracle_unchanged": true,
+  "main_untracked_preserved": true,
+  "installation_sync": "NOT_NEEDED: no standalone ET skill installation; FF configured tool remains primary ET checkout",
+  "ci": "NOT_CONFIGURED: repository tracks no workflow or pre-push hook; no invented green CI",
+  "contract_scope": "ET actual workers with fake HTTP; FF actual ET CLI pre-HTTP plus fixture-success/real CWP CLI; CWP provider/reader/evidence fake-tool E2E. Segmented offline contracts, not a live supplier or single all-real success chain.",
+  "publication_receipt_owner": "CWP mother PWF review/du9_et_reception.json"
+}

@@ -1,0 +1,125 @@
+{
+  "rows": [
+    {
+      "label": "et-final-concentrated",
+      "cwd": "C:\\Users\\郑曾波\\Projects\\earnings-transcripts-du9-root-reception",
+      "argv": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "addopts=",
+        "--basetemp",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\du9-et-root-k1v0iptf\\et-final-concentrated",
+        "tests/test_du9_legacy_comparison.py",
+        "tests/test_du7_extraction_behavior.py",
+        "tests/test_du7_extraction_edges.py",
+        "tests/test_du7_extraction_wiring.py",
+        "tests/test_du7_extraction_e2e.py",
+        "tests/test_root_du7_extraction_robustness.py",
+        "tests/test_transcript_api.py",
+        "tests/test_request_response_budget.py",
+        "tests/test_retrieval_cli_e2e.py",
+        "tests/test_transcript_artifact.py",
+        "tests/test_batch_runtime.py"
+      ],
+      "exit_code": 0,
+      "seconds": 119.58
+    },
+    {
+      "label": "et-goldens",
+      "cwd": "C:\\Users\\郑曾波\\Projects\\earnings-transcripts-du9-root-reception",
+      "argv": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tests/generate_transcript_goldens.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.94
+    },
+    {
+      "label": "et-ruff",
+      "cwd": "C:\\Users\\郑曾波\\Projects\\earnings-transcripts-du9-root-reception",
+      "argv": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "legacy_projection_comparison.py",
+        "transcript_extraction.py",
+        "tests/test_du9_legacy_comparison.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.23
+    },
+    {
+      "label": "ff-et-cwp-contract",
+      "cwd": "C:\\Users\\郑曾波\\Projects\\filing-fetch",
+      "argv": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "addopts=",
+        "--basetemp",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\du9-et-root-k1v0iptf\\ff-et-cwp-contract",
+        "tests/test_transcript_companion.py",
+        "tests/test_transcript_companion_transport.py",
+        "tests/test_transcript_launch_contract.py",
+        "tests/test_transcript_response_budget.py"
+      ],
+      "exit_code": 0,
+      "seconds": 13.2
+    },
+    {
+      "label": "cwp-provider-reader-evidence",
+      "cwd": "C:\\Users\\郑曾波\\Projects\\company-wiki",
+      "argv": [
+        "C:\\Miniconda\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "addopts=",
+        "--basetemp",
+        "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\du9-et-root-sydbnw95\\cwp-provider-reader-evidence",
+        "tests/e2e/test_transcript_provider_full_chain.py",
+        "tests/contract/test_transcript_import_cli_e2e.py"
+      ],
+      "exit_code": 0,
+      "seconds": 19.72
+    }
+  ],
+  "passed": true,
+  "runner_mode": "cwp-only with preserved unchanged ET/FF receipts",
+  "supplier_calls": 0,
+  "http_calls": 0,
+  "source_and_config_sha_unchanged": true,
+  "sentinel_bytes_mtime_unchanged": true,
+  "owned_temp_removed": true,
+  "scope": "ET actual workers with fake HTTP; FF actual ET CLI pre-HTTP plus fixture-success/real CWP CLI; CWP provider/reader/evidence fake-tool E2E. Segmented offline contracts, not a live supplier or single all-real success chain."
+}
