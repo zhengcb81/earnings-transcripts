@@ -1,0 +1,186 @@
+{
+  "schema_version": "du9-handoff/1",
+  "card_id": "DU9-ET-LEGACY-COMPARISON",
+  "plan_id": "du9-legacy-comparison-2026-10-16",
+  "base_commit": "0cb71731cef6c6b3582f595d44f5b8a077392ac1",
+  "branch": "codex/du9-legacy-comparison-20261016",
+  "implementation_commits": [
+    "fe53906 test: pin DU9 legacy-comparison behavior RED and frozen-oracle anchors",
+    "30cc016 feat: bounded legacy comparison reusing one DOM with exact frozen semantics",
+    "36c9b38 test: add real-entry E2E bounds, isolation cleanup and cost receipts",
+    "5dc4e00 fix: replace per-block subtree rescans with one shared evidence pass",
+    "6a9ddc5 docs: record independent review round 1 findings and fix receipts",
+    "3dc576c fix: anchor nested confirmations to verified ancestor paragraphs",
+    "38953ea docs: record independent review round 2 finding and fix receipts",
+    "c407ce5 fix: path-cache anchor resolution and pin resolve-step budget",
+    "ea6983b test: pin anchor offsets to frozen text slices and update round-3 records",
+    "da82f3a test: add frozen-tuple true-direction pins and record round-4 PASS"
+  ],
+  "changed_paths": [
+    "legacy_projection_comparison.py",
+    "transcript_extraction.py",
+    "tests/test_du9_legacy_comparison.py",
+    "tests/fixtures/du9_legacy_comparison/equal_flat.html",
+    "tests/fixtures/du9_legacy_comparison/unequal_semantics.html",
+    "docs/plans/du9-legacy-comparison-2026-10-16/ (plan PWF, receipts, review, handoff)"
+  ],
+  "interfaces": {
+    "unchanged": [
+      "transcript_extraction.extract(page) -> ExtractionResult(title, body, extraction_version, diagnostics)",
+      "transcript_extraction.ExtractionError(reason) and transcript_api._extract_body error contract",
+      "EXTRACTION_VERSION_LEGACY=motley-fool-main-text/1, EXTRACTION_VERSION=motley-fool-main-text/2",
+      "MIN_CONTENT_CHARS=200, SKIP_TEXT, all v2 body/title/diagnostics semantics",
+      "frozen transcript_extraction._legacy_v1_reference function body (sha256 85d1d45c52f14b39768120184e034945b0e4e8887ce622b4a2069e1b27bfad2b, LF-normalized ast segment, pinned by test)"
+    ],
+    "new": [
+      "transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS = 5 (frozen per-paragraph rule made explicit; zero behavior change)",
+      "legacy_projection_comparison.legacy_projection_matches(soup, current_title, current_body, *, block_tags, skip_text, min_paragraph_chars, min_content_chars, stats=None) -> bool (pure; frozen inputs injected by the extraction owner; exact parity with frozen oracle)",
+      "legacy_projection_comparison.ComparisonStats(blocks_scanned, nodes_visited, text_strings_visited, chars_compared, full_confirmations, derived_confirmations, max_intermediate_chars) (test-only observability)"
+    ]
+  },
+  "root_integration_steps": [
+    "Merge codex/du9-legacy-comparison-20261016 (source: legacy_projection_comparison.py + transcript_extraction.py thin wiring + tests/test_du9_legacy_comparison.py + tests/fixtures/du9_legacy_comparison/ + this PWF).",
+    "No CWP/FF field sync needed: extraction_version contract unchanged (Motley free string, FMP fmp-api-content/1 untouched; consumer side already verified in DU7).",
+    "Precise CI: du9 214 + DU7/ROOT 58 + concentrated 170 + golden check 10 + ruff on the three changed source/test files.",
+    "Baseline-existing sparse-worktree failures (3x test_scraper missing transcripts/ dir, 1x test_common translation env key) are out of this card's scope.",
+    "Optional: one live Motley page spot check via transcript_extraction.extract (ROOT decides whether to temporarily enable the provider)."
+  ],
+  "tests": [
+    {
+      "argv": "python -m pytest tests/test_du9_legacy_comparison.py -q",
+      "exit_code": 0,
+      "passed": 226,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_du9_suite.txt"
+    },
+    {
+      "argv": "python -m pytest tests/test_du7_extraction_behavior.py tests/test_du7_extraction_edges.py tests/test_du7_extraction_wiring.py tests/test_du7_extraction_e2e.py tests/test_root_du7_extraction_robustness.py -q",
+      "exit_code": 0,
+      "passed": 58,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_du7_root_suites.txt"
+    },
+    {
+      "argv": "python -m pytest tests/test_transcript_api.py tests/test_request_response_budget.py tests/test_retrieval_cli_e2e.py tests/test_transcript_artifact.py tests/test_batch_runtime.py -q",
+      "exit_code": 0,
+      "passed": 170,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_concentrated_regression.txt"
+    },
+    {
+      "argv": "python tests/generate_transcript_goldens.py --check",
+      "exit_code": 0,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_golden_check.txt"
+    },
+    {
+      "argv": "ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_du9_legacy_comparison.py",
+      "exit_code": 0,
+      "passed": 226,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "receipts/b_ruff.txt"
+    }
+  ],
+  "red_receipts": [
+    "receipts/a_first_behavior_red.txt (5 failed / 152 passed before implementation: frozen replay, per-block get_text, quadratic piece visits at 200/1200/2400 depth; sibling control green)"
+  ],
+  "independent_expected_basis": "Every expectation is generated from two independent sides: the frozen transcript_extraction._legacy_v1_reference (function body byte-identical to baseline, used only as controlled oracle) and the actual v2 ExtractionResult of extract; the expected legacy label is frozen_v1 == (v2.title, v2.body). Hand matrix (24 pages), 2 fixtures, 120 seeded generated samples, adjacent-scale deep/sibling/dropped-chain/nested-kept shapes, and the goldens cover both equal and unequal sides; the new comparator is never compared against itself.",
+  "cost_evidence": {
+    "receipt": "receipts/c_e2e_cost_evidence.json",
+    "shapes": 26,
+    "violations_of_10x_node_bound": 0,
+    "oracle_disagreements": 0,
+    "pre_fix": "2403 get_text calls, 2883603 piece visits, duplicated legacy body materialized (78.6M chars at depth 2400)",
+    "post_fix_examples": "nested_text_2400: 4806 visits / 4812 nodes, 0 get_text, 1 DOM build; dropped_empty_2400: 2406 / 2412; kept_chain_2400: 7201 / 7208; resolve_star_2400: 9603 visits / 7210 nodes with anchor_resolve_steps 4800 == blocks_scanned 4800; wall-clock informational and at most the frozen replay on every shape"
+  },
+  "known_limits": [
+    "Linearity claims are algorithmic counters of the comparison module only; bs4 html.parser DOM construction remains linear-cost (pre-existing parser); the HTTP supervisor/worker hard-limit paths were not re-measured in this card - comparison linearity is not a whole-system hard realtime claim.",
+    "Synthetic fixtures dominate; real Motley live pages not exercised (provider disabled by default).",
+    "test_batch_runtime/test_retrieval_cli_e2e contain occasional timing-sensitive subprocess cases (observed isolated flake under load, green on isolated rerun; both failing cases never reach the extraction path). Out of this card's scope, unchanged.",
+    "Review rounds 2-3 continue on a fresh independent agent instance because the round-1 instance was not resumable on this platform (recorded in review/independent_review.md).",
+    "Reviewer's disclosed tradeoff: flat equal pages are the comparator's worst constant-factor case (siblings_2000: 0.31s vs frozen 0.13s) with linear visits; informational wall-clock in the receipt."
+  ],
+  "not_run": [
+    "Live Motley page section-by-section reading (provider disabled by default; not enabling production policy for the sake of card C).",
+    "Translation/LLM: 0 calls (e2e asserts the translator factory is never constructed)."
+  ],
+  "supplier_calls": 0,
+  "production_writes": 0,
+  "cleanup_receipt": "receipts/c_cleanup.json (zero whitelist violations, zero existing tests modified, in-test sentinel/SHA/mtime restoration asserted)",
+  "independent_review": {
+    "reviewer_agent_ids": [
+      "agent_7f887c6e-2676-4840-954e-1a15365921ef (round 1)",
+      "agent_2654a408-ab25-4c35-8acf-edbc811806e2 (rounds 2-3; fresh instance continuing round 1 because the original instance was not resumable)"
+    ],
+    "reviewed_commit": "da82f3a (rounds 4+5 delta; rounds 1-3 at 36c9b38/6a9ddc5/38953ea)",
+    "report": "review/independent_review.md",
+    "findings": [
+      {
+        "id": "R1-1",
+        "severity": "high",
+        "cause": "per-block subtree re-walks kept the comparator theta(depth^2) on legacy-dropped deep chains (8638803 visits at depth 2400)",
+        "status": "fixed_verified_by_round_2",
+        "fix_commit": "5dc4e00",
+        "verification_receipt": "round-2 independent re-measurement: dropped chains ~1.0x node visits, 30-120x wall-clock wins, parity held"
+      },
+      {
+        "id": "R1-2",
+        "severity": "medium",
+        "cause": "cost anchors structurally blind to dropped-chain quadratic",
+        "status": "fixed_verified_by_round_2",
+        "fix_commit": "5dc4e00",
+        "verification_receipt": "dropped chains empty/short/skip x 200/1200/2400 in tests and receipt"
+      },
+      {
+        "id": "R1-3",
+        "severity": "low",
+        "cause": "max_intermediate_chars understated piece.split() transient and a fixed 512 bound could spuriously trip",
+        "status": "fixed_verified_by_round_2",
+        "fix_commit": "5dc4e00",
+        "verification_receipt": "counter tracks single text-piece length; bounds derive from _max_text_piece(page)"
+      },
+      {
+        "id": "R2-1",
+        "severity": "high",
+        "cause": "confirmation phase re-walked nested kept zero-direct chains theta(depth^2) (2888402 visits at depth 2400); the pairwise-disjoint claim was falsified",
+        "status": "fix_committed_pending_round_3",
+        "fix_commit": "3dc576c",
+        "verification_receipt": "count pre-check + outermost-only DOM confirmation + derived slice checks; nested-kept family tests; receipt 23 shapes zero violations; 600-page own adversarial fuzz 0 disagreements"
+      },
+      {
+        "id": "R3-1",
+        "severity": "medium",
+        "cause": "resolve_anchor walked raw parent links without path compression: theta(n^2) Python steps on a reachable star shape, invisible to nodes_visited",
+        "status": "closed_verified_round_4",
+        "fix_commit": "c407ce5",
+        "verification_receipt": "path-cache every walked node + anchor_resolve_steps<=blocks_scanned assertion + star tests 200/1200/2400; receipt 26 shapes zero violations"
+      },
+      {
+        "id": "R3-2",
+        "severity": "medium",
+        "cause": "no in-repo page exercises decision=True through the derived path; offset corruption left the suite green; reviewer claims 212 such pages in their fuzz",
+        "status": "retracted_by_reviewer_round_4",
+        "fix_commit": null,
+        "verification_receipt": "reviewer retracted: the 212 /1+derived cases were frozen-tuple harness inputs, never production v2 outputs; structural impossibility independently confirmed; offset ground-truth pin endorsed (clean 224, +1 corruption fails exactly its 7 cases); frozen-tuple positive test added per reviewer's round-4 recommendation"
+      }
+    ],
+    "final_status": "PASS",
+    "unresolved_count": 0,
+    "round_4": {
+      "verdict": "PASS",
+      "fresh_seed_fuzz": "17812 comparisons, 0 disagreements",
+      "star_verification": "n=300..9600, anchor_resolve_steps == blocks_scanned at every size; n=9600 0.2881s vs frozen 41.17s"
+    },
+    "round_5_delta": {
+      "verdict": "PASS",
+      "note": "package declared READY; all findings closed; sentinel verified 3/3 breakages caught"
+    }
+  },
+  "ready_for_handoff": true
+}

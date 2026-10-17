@@ -27,9 +27,14 @@ from bs4.element import (
     Tag,
 )
 
+import legacy_projection_comparison
+
 EXTRACTION_VERSION_LEGACY = "motley-fool-main-text/1"
 EXTRACTION_VERSION = "motley-fool-main-text/2"
 MIN_CONTENT_CHARS = 200
+# Frozen ``motley-fool-main-text/1`` per-paragraph rule: the legacy
+# projection drops a block whose collapsed text is shorter than 5 chars.
+LEGACY_MIN_PARAGRAPH_CHARS = 5
 
 # Legacy v1 reference only: coarse whole-text drops. Never used to filter v2.
 SKIP_TEXT = (
@@ -255,11 +260,17 @@ def extract(page: bytes) -> ExtractionResult:
             state[DIAG_KEPT_SKIP] = True
     diagnostics.extend(sorted(key for key, present in state.items() if present))
 
-    legacy = _legacy_v1_reference(soup)
+    legacy_equal = legacy_projection_comparison.legacy_projection_matches(
+        soup,
+        title,
+        body,
+        block_tags=_BLOCK_TAGS,
+        skip_text=SKIP_TEXT,
+        min_paragraph_chars=LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=MIN_CONTENT_CHARS,
+    )
     version = (
-        EXTRACTION_VERSION_LEGACY
-        if legacy == (title, body)
-        else EXTRACTION_VERSION
+        EXTRACTION_VERSION_LEGACY if legacy_equal else EXTRACTION_VERSION
     )
     return ExtractionResult(
         title=title,
