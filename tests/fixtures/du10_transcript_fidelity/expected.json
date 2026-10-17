@@ -1,0 +1,72 @@
+{
+  "schema": "du10-transcript-fidelity-expected/1",
+  "expected_basis": "hand-derived from the fixture sources before any implementation change: one paragraph per owning block, whitespace-collapsed text joined by blank lines; independent of transcript_extraction output. version labels: /2 where recovered owner text makes the frozen v1 projection differ, /1 where the page stays byte-equal to it",
+  "cases": {
+    "qa_boundary_div_turns": {
+      "fixture": "qa_boundary_div_turns.html",
+      "title": "ACME Q3 2026 Earnings Call",
+      "paragraphs": [
+        "Prepared Remarks",
+        "CEO Jane Roe: Revenue grew 12 percent to 1.2 billion dollars this quarter, and we expanded adjusted gross margin across every reported segment.",
+        "Chairman Bob Coe: Thank you, Jane. Let me add context on the full year outlook before we open the line.",
+        "Question And Answer",
+        "Operator: We will now open the line for analyst questions.",
+        "Analyst Mary Chen, Harbor Securities: Can you detail the advertising pricing trend in the quarter?",
+        "Jane Roe: Pricing stabilized after the mix shift; we expect the same trend next quarter."
+      ],
+      "version": "motley-fool-main-text/2"
+    },
+    "table_participants": {
+      "fixture": "table_participants.html",
+      "title": "ACME Q3 2026 Earnings Call",
+      "paragraphs": [
+        "Role",
+        "Participant",
+        "Chief Executive Officer",
+        "Jane Roe",
+        "Chief Financial Officer",
+        "John Fahey",
+        "Total revenue was 1.2 billion dollars, up 12 percent year over year, with adjusted gross margin expanding across every reported segment of the business for the full quarter."
+      ],
+      "version": "motley-fool-main-text/2"
+    },
+    "cjk_qa_boundary": {
+      "fixture": "cjk_qa_boundary.html",
+      "title": "好未来 2026财年第二季度业绩电话会",
+      "paragraphs": [
+        "管理层陈述",
+        "彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比增长，线下学习中心扩张稳步推进，整体盈利能力持续改善，海外业务拓展与多元化布局也在按计划推进，研发投入保持强度。",
+        "问答环节",
+        "分析师: 请介绍学习设备业务的定价趋势以及全年毛利率的展望。",
+        "彭壮壮: 设备定价随产品结构变化有所下移，但周活跃率保持在80%左右，每台设备日均使用时长超过一小时，内容生态持续增强，管理层同时强调了人工智能能力在教学产品中的落地进展。"
+      ],
+      "version": "motley-fool-main-text/2"
+    },
+    "truncated_dangling_markup": {
+      "fixture": "truncated_dangling_markup.html",
+      "expected_error": "truncated_markup",
+      "note": "page cut inside an unfinished tag; extraction must fail closed instead of returning a seemingly complete transcript"
+    },
+    "speaker_glue_no_space": {
+      "fixture": "speaker_glue_no_space.html",
+      "title": "ACME Q3 2026 Earnings Call",
+      "paragraphs": [
+        "Operator:Good afternoon, and welcome to the ACME third quarter 2026 earnings conference call. At this time all participants are in a listen-only mode.",
+        "Jane Roe:Thank you, Operator. Revenue was 1.2 billion dollars, up 12 percent year over year, and we expanded adjusted margin across every reported segment."
+      ],
+      "version": "motley-fool-main-text/2",
+      "note": "source DOM carries no whitespace between the label and its speech; v2 preserves that byte-faithfully while the frozen v1 get_text(' ') projection injected a space at the tag boundary, so the divergence is real and the honest label is /2"
+    },
+    "br_timestamp_disclaimer": {
+      "fixture": "br_timestamp_disclaimer.html",
+      "title": "ACME Q3 2026 Earnings Call",
+      "paragraphs": [
+        "Oct. 29, 2025 at 5:30 p.m. ET",
+        "Jane Roe: First prepared line of the remarks. Second prepared line after a line break within the same block.",
+        "Forward-looking statements involve risks and uncertainties, and actual results may differ materially from those anticipated in these comments.",
+        "Revenue was 1.2 billion dollars, up 12 percent year over year, and free cash flow reached 180 million dollars in the quarter."
+      ],
+      "version": "motley-fool-main-text/1"
+    }
+  }
+}

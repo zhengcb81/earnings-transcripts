@@ -1,0 +1,202 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.9, pytest-9.1.1, pluggy-1.5.0 -- C:\Miniconda\python.exe
+cachedir: .pytest_cache
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+metadata: {'Python': '3.13.9', 'Platform': 'Windows-11-10.0.26300-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.5.0'}, 'Plugins': {'anyio': '4.13.0', 'Faker': '40.19.1', 'langsmith': '0.14.4', 'asyncio': '1.3.0', 'base-url': '2.1.0', 'benchmark': '5.2.3', 'cov': '7.0.0', 'html': '4.1.1', 'metadata': '3.1.1', 'mock': '3.15.1', 'playwright': '0.7.2', 'timeout': '2.4.0', 'xdist': '3.8.0'}, 'Base URL': ''}
+rootdir: C:\Users\郑曾波\Projects\earnings-transcripts-du10-txt-fidelity
+plugins: anyio-4.13.0, Faker-40.19.1, langsmith-0.14.4, asyncio-1.3.0, base-url-2.1.0, benchmark-5.2.3, cov-7.0.0, html-4.1.1, metadata-3.1.1, mock-3.15.1, playwright-0.7.2, timeout-2.4.0, xdist-3.8.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 10 items
+
+tests/test_du10_transcript_fidelity.py::test_recovered_owner_text_full_fidelity[qa_boundary_div_turns] FAILED [ 10%]
+tests/test_du10_transcript_fidelity.py::test_recovered_owner_text_full_fidelity[table_participants] FAILED [ 20%]
+tests/test_du10_transcript_fidelity.py::test_recovered_owner_text_full_fidelity[cjk_qa_boundary] FAILED [ 30%]
+tests/test_du10_transcript_fidelity.py::test_control_v1_equal_pages_stay_frozen[speaker_glue_no_space] PASSED [ 40%]
+tests/test_du10_transcript_fidelity.py::test_control_v1_equal_pages_stay_frozen[br_timestamp_disclaimer] PASSED [ 50%]
+tests/test_du10_transcript_fidelity.py::test_truncated_dangling_markup_fails_closed FAILED [ 60%]
+tests/test_du10_transcript_fidelity.py::test_lone_trailing_lt_is_text_not_truncation PASSED [ 70%]
+tests/test_du10_transcript_fidelity.py::test_missing_qa_heading_keeps_turn_order FAILED [ 80%]
+tests/test_du10_transcript_fidelity.py::test_cjk_literals_pass_through_untranslated FAILED [ 90%]
+tests/test_du10_transcript_fidelity.py::test_frozen_compatibility_surface_unchanged PASSED [100%]
+
+================================== FAILURES ===================================
+_______ test_recovered_owner_text_full_fidelity[qa_boundary_div_turns] ________
+
+case = 'qa_boundary_div_turns'
+
+    @pytest.mark.parametrize(
+        "case",
+        ["qa_boundary_div_turns", "table_participants", "cjk_qa_boundary"],
+    )
+    def test_recovered_owner_text_full_fidelity(case):
+        """Text inside h4/h5-style section headers, container divs, and table
+        cells is real transcript content: section boundaries, speaker turns, and
+        participant roles must survive extraction in document order."""
+>       _assert_case_fidelity(case, transcript_extraction.extract(_page(case)))
+
+tests\test_du10_transcript_fidelity.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = 'qa_boundary_div_turns'
+result = ExtractionResult(title='ACME Q3 2026 Earnings Call', body='Prepared Remarks\n\nCEO Jane Roe: Revenue grew 12 percent t...r the mix shift; we expect the same trend next quarter.', extraction_version='motley-fool-main-text/1', diagnostics=())
+
+    def _assert_case_fidelity(case: str, result) -> None:
+        expected = EXPECTED[case]
+        assert result.title == expected["title"], f"{case}: title drifted"
+>       assert result.body == "\n\n".join(expected["paragraphs"]), (
+            f"{case}: body drifted\n--- got ---\n{result.body!r}"
+        )
+E       AssertionError: qa_boundary_div_turns: body drifted
+E         --- got ---
+E         'Prepared Remarks\n\nCEO Jane Roe: Revenue grew 12 percent to 1.2 billion dollars this quarter, and we expanded adjusted gross margin across every reported segment.\n\nChairman Bob Coe: Thank you, Jane. Let me add context on the full year outlook before we open the line.\n\nJane Roe: Pricing stabilized after the mix shift; we expect the same trend next quarter.'
+E       assert 'Prepared Rem...next quarter.' == 'Prepared Rem...next quarter.'
+E         
+E           Prepared Remarks
+E           
+E           CEO Jane Roe: Revenue grew 12 percent to 1.2 billion dollars this quarter, and we expanded adjusted gross margin across every reported segment.
+E           
+E           Chairman Bob Coe: Thank you, Jane. Let me add context on the full year outlook before we open the line.
+E           ...
+E         
+E         ...Full output truncated (7 lines hidden), use '-vv' to show
+
+tests\test_du10_transcript_fidelity.py:61: AssertionError
+_________ test_recovered_owner_text_full_fidelity[table_participants] _________
+
+case = 'table_participants'
+
+    @pytest.mark.parametrize(
+        "case",
+        ["qa_boundary_div_turns", "table_participants", "cjk_qa_boundary"],
+    )
+    def test_recovered_owner_text_full_fidelity(case):
+        """Text inside h4/h5-style section headers, container divs, and table
+        cells is real transcript content: section boundaries, speaker turns, and
+        participant roles must survive extraction in document order."""
+>       _assert_case_fidelity(case, transcript_extraction.extract(_page(case)))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_du10_transcript_fidelity.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+page = b'<html><body><h1>ACME Q3 2026 Earnings Call</h1><main>\n<table>\n<tr><th>Role</th><th>Participant</th></tr>\n<tr><td>...ross margin expanding across every reported segment of the business for the full quarter.</p>\n</main></body></html>\n'
+
+    def extract(page: bytes) -> ExtractionResult:
+        soup = BeautifulSoup(page, "html.parser")
+        title_node = soup.find("h1")
+        title_runs: list[tuple[int, Tag, str]] = []
+        if title_node is not None:
+            _collect_runs(title_node, title_node, _is_droppable(title_node), title_runs, {})
+        title = " ".join(_paragraphs(title_runs))
+        main = soup.find("main")
+        if main is None:
+            raise ExtractionError("missing_main")
+    
+        runs: list[tuple[int, Tag, str]] = []
+        state: dict[str, bool] = {}
+        _collect_runs(main, None, _is_droppable(main), runs, state)
+        paragraphs = _paragraphs(runs)
+        body = "\n\n".join(paragraphs).strip()
+    
+        if not title:
+            raise ExtractionError("missing_title")
+        if len(body) < MIN_CONTENT_CHARS:
+>           raise ExtractionError("empty_body")
+E           transcript_extraction.ExtractionError: empty_body
+
+transcript_extraction.py:252: ExtractionError
+__________ test_recovered_owner_text_full_fidelity[cjk_qa_boundary] ___________
+
+case = 'cjk_qa_boundary'
+
+    @pytest.mark.parametrize(
+        "case",
+        ["qa_boundary_div_turns", "table_participants", "cjk_qa_boundary"],
+    )
+    def test_recovered_owner_text_full_fidelity(case):
+        """Text inside h4/h5-style section headers, container divs, and table
+        cells is real transcript content: section boundaries, speaker turns, and
+        participant roles must survive extraction in document order."""
+>       _assert_case_fidelity(case, transcript_extraction.extract(_page(case)))
+
+tests\test_du10_transcript_fidelity.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+case = 'cjk_qa_boundary'
+result = ExtractionResult(title='好未来 2026财年第二季度业绩电话会', body='管理层陈述\n\n彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比...%左右，每台设备日均使用时长超过一小时，内容生态持续增强，管理层同时强调了人工智能能力在教学产品中的落地进展。', extraction_version='motley-fool-main-text/1', diagnostics=())
+
+    def _assert_case_fidelity(case: str, result) -> None:
+        expected = EXPECTED[case]
+        assert result.title == expected["title"], f"{case}: title drifted"
+>       assert result.body == "\n\n".join(expected["paragraphs"]), (
+            f"{case}: body drifted\n--- got ---\n{result.body!r}"
+        )
+E       AssertionError: cjk_qa_boundary: body drifted
+E         --- got ---
+E         '管理层陈述\n\n彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比增长，线下学习中心扩张稳步推进，整体盈利能力持续改善，海外业务拓展与多元化布局也在按计划推进，研发投入保持强度。\n\n彭壮壮: 设备定价随产品结构变化有所下移，但周活跃率保持在80%左右，每台设备日均使用时长超过一小时，内容生态持续增强，管理层同时强调了人工智能能力在教学产品中的落地进展。'
+E       assert '管理层陈述\n\n彭壮壮...力在教学产品中的落地进展。' == '管理层陈述\n\n彭壮壮...力在教学产品中的落地进展。'
+E         
+E           管理层陈述
+E           
+E           彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比增长，线下学习中心扩张稳步推进，整体盈利能力持续改善，海外业务拓展与多元化布局也在按计划推进，研发投入保持强度。
+E           
+E         - 问答环节
+E         - ...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+tests\test_du10_transcript_fidelity.py:61: AssertionError
+_________________ test_truncated_dangling_markup_fails_closed _________________
+
+    def test_truncated_dangling_markup_fails_closed():
+        """A page cut off inside an unfinished tag must raise a typed extraction
+        error, never return a seemingly complete transcript."""
+>       with pytest.raises(ExtractionError) as excinfo:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ExtractionError
+
+tests\test_du10_transcript_fidelity.py:103: Failed
+__________________ test_missing_qa_heading_keeps_turn_order ___________________
+
+    def test_missing_qa_heading_keeps_turn_order():
+        """Without a Q&A section header the turns themselves still extract, in
+        document order: speaker structure never depended on the heading."""
+        filler = "The company delivered results above expectations across every reported segment this quarter. " * 2
+        page = (
+            "<html><body><h1>ACME Q3 2026 Earnings Call</h1><main>"
+            f"<p><strong>CEO Jane Roe:</strong> {filler}</p>"
+            "<div><strong>Operator:</strong> We will now open the line for analyst questions.</div>"
+            f"<p><strong>Jane Roe:</strong> Pricing stabilized after the mix shift. {filler}</p>"
+            "</main></body></html>"
+        )
+        result = transcript_extraction.extract(page.encode("utf-8"))
+        paragraphs = result.body.split("\n\n")
+        assert "Question And Answer" not in paragraphs
+        assert paragraphs[0].startswith("CEO Jane Roe:")
+>       assert paragraphs[1] == "Operator: We will now open the line for analyst questions."
+E       AssertionError: assert 'Jane Roe: Pr...this quarter.' == 'Operator: We...st questions.'
+E         
+E         - Operator: We will now open the line for analyst questions.
+E         + Jane Roe: Pricing stabilized after the mix shift. The company delivered results above expectations across every reported segment this quarter. The company delivered results above expectations across every reported segment this quarter.
+
+tests\test_du10_transcript_fidelity.py:137: AssertionError
+_________________ test_cjk_literals_pass_through_untranslated _________________
+
+    def test_cjk_literals_pass_through_untranslated():
+        """Original-language literals are never rewritten: every Chinese paragraph
+        survives verbatim and no translation is synthesized."""
+        result = transcript_extraction.extract(_page("cjk_qa_boundary"))
+        for paragraph in EXPECTED["cjk_qa_boundary"]["paragraphs"]:
+>           assert paragraph in result.body
+E           AssertionError: assert '问答环节' in '管理层陈述\n\n彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比增长，线下学习中心扩张稳步推进，整体盈利能力持续改善，海外业务拓展与多元化布局也在按计划推进，研发投入保持强度。\n\n彭壮壮: 设备定价随产品结构变化有所下移，但周活跃率保持在80%左右，每台设备日均使用时长超过一小时，内容生态持续增强，管理层同时强调了人工智能能力在教学产品中的落地进展。'
+E            +  where '管理层陈述\n\n彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比增长，线下学习中心扩张稳步推进，整体盈利能力持续改善，海外业务拓展与多元化布局也在按计划推进，研发投入保持强度。\n\n彭壮壮: 设备定价随产品结构变化有所下移，但周活跃率保持在80%左右，每台设备日均使用时长超过一小时，内容生态持续增强，管理层同时强调了人工智能能力在教学产品中的落地进展。' = ExtractionResult(title='好未来 2026财年第二季度业绩电话会', body='管理层陈述\n\n彭壮壮: 本季度净收入为8.614亿美元，同比增长39.1%，按人民币计算同比增长38.1%；学习设备业务收入同比增长，线下学习中心扩张稳步推进，整体盈利能力持续改善，海外业务拓展与多元化布局也在按计划推进，研发投入保持强度。\n\n彭壮壮: 设备定价随产品结构变化有所下移，但周活跃率保持在80%左右，每台设备日均使用时长超过一小时，内容生态持续增强，管理层同时强调了人工智能能力在教学产品中的落地进展。', extraction_version='motley-fool-main-text/1', diagnostics=()).body
+
+tests\test_du10_transcript_fidelity.py:146: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_du10_transcript_fidelity.py::test_recovered_owner_text_full_fidelity[qa_boundary_div_turns]
+FAILED tests/test_du10_transcript_fidelity.py::test_recovered_owner_text_full_fidelity[table_participants]
+FAILED tests/test_du10_transcript_fidelity.py::test_recovered_owner_text_full_fidelity[cjk_qa_boundary]
+FAILED tests/test_du10_transcript_fidelity.py::test_truncated_dangling_markup_fails_closed
+FAILED tests/test_du10_transcript_fidelity.py::test_missing_qa_heading_keeps_turn_order
+FAILED tests/test_du10_transcript_fidelity.py::test_cjk_literals_pass_through_untranslated
+========================= 6 failed, 4 passed in 0.58s =========================
