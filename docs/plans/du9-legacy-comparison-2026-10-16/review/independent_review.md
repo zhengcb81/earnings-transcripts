@@ -124,3 +124,36 @@ found, visit counts, parse/get_text counts)
 
 修复后本地全套（待第2轮独立复核确认）：du9 **205 passed**、DU7/ROOT **58 passed**、
 集中回归 **170 passed**、golden **10/10 matched**、ruff 全绿。
+
+## 第2轮（2026-10-16）
+
+reviewer_agent_id：agent_2654a408-ab25-4c35-8acf-edbc811806e2（fresh agent——
+第1轮 agent 实例在本平台不可恢复（SendMessage: no active local_agent task），
+已在本记录声明；两轮均独立于实施者）。
+reviewed_commit：`6a9ddc5`（含第1轮修复 `5dc4e00`）。
+
+Verdict：**FAIL**（1 high：R2-1）。
+
+### 审查者报告（要点原文）
+
+- 三个第1轮修复全部复核通过：丢弃链访问≈1.0×节点、墙钟30–120×优于冻结；
+  收据/测试确实覆盖；中间物化计数正确。
+- 自建fuzz 13,155+ 比较（skip跨块边界网格1,128例、ß/İ/ſ/Å/ﬀ casefold、
+  CData/Comment/PI/Doctype、hidden/ad/template、深混合链、等价侧+变异）
+  **0 分歧**；生产 1 parse / 0 get_text / 0 _all_strings；白名单干净；
+  `_legacy_v1_reference` 冻结函数 sha 与基线一致；测试质量检查
+  （恒True比较器 159/205 失败、恒False 25/205 失败）通过。
+- **R2-1（high）**：确认阶段（walk2）对**零direct文本的嵌套保留块**仍可
+  Θ(深度²)——所有祖先组合到同一文本，正文重复同长段落时全部完整确认
+  （kept_chain d=2400：2,888,402 访问=401×节点、精确4×倍增；比较器 3–6×
+  慢于冻结）；docstring/findings 的"确认子树互不重叠"断言被证伪；
+  建议：保留块计数预检 / 记忆化 / 补该形状测试 / 修正文档断言。
+
+### 处置
+
+| id | severity | cause | status | fix_commit | verification_receipt |
+|---|---|---|---|---|---|
+| R2-1 | high | 确认阶段对嵌套保留块重复走子树 Θ(深度²)；"子树互不重叠"断言被证伪 | fix_committed，待同agent复核 | `3dc576c` | 计数预检（长度不同即判）+ 仅最外层保留块DOM确认（构造性两两不重叠）+ 嵌套块按 `offset_in_parent` 从已验证祖先段落切片逐字节派生（零DOM重走，切片量被当前正文长度和约束）；R2-1三族×200/1200/2400 测试（nodes_visited≤10×nodes、full_confirmations≤1、oracle一致）；收据23形状零违规（kept_chain_2400: 7,201 vs 7,208节点）；另600页自建嵌套结构对抗fuzz 0分歧 |
+
+修复后本地全套（待第3轮独立复核确认）：du9 **214 passed**、DU7/ROOT **58 passed**、
+集中回归 **170 passed**、golden **10/10 matched**、ruff 全绿。
