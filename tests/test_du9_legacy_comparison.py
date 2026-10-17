@@ -31,6 +31,7 @@ from pathlib import Path
 
 import pytest
 from bs4 import BeautifulSoup
+from bs4.element import CData, NavigableString
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -97,8 +98,38 @@ def _sibling_page(count: int) -> bytes:
     return _main_page(_filler_main(paragraphs))
 
 
+_DROPPED_CHAINS = {
+    # every nested block is legacy-dropped: whitespace-only, shorter than
+    # five chars, or skip-text-tainted (the shape where a naive comparator
+    # re-walks every subtree without ever confirming a paragraph)
+    "empty": "<p>   </p>",
+    "short": "<p>ok.</p>",
+    "skip": "<p>Advertisement: this note is legacy-skipped text.</p>",
+}
+
+
+def _dropped_chain_page(chain: str, depth: int) -> bytes:
+    inner = _DROPPED_CHAINS[chain]
+    for _ in range(depth):
+        inner = f"<p>{inner}</p>"
+    return _main_page(_filler_main(inner))
+
+
 def _node_count(page: bytes) -> int:
     return sum(1 for _ in BeautifulSoup(page, "html.parser").descendants)
+
+
+def _max_text_piece(page: bytes) -> int:
+    """Largest single text piece any walk may materialize."""
+    soup = BeautifulSoup(page, "html.parser")
+    return max(
+        (
+            len(str(node))
+            for node in soup.descendants
+            if type(node) in (NavigableString, CData)
+        ),
+        default=0,
+    )
 
 
 def _actual_is_legacy(page: bytes) -> bool:
@@ -470,10 +501,13 @@ def test_block_iteration_order_matches_find_all(name):
     soup = BeautifulSoup(_MATRIX_PAGES[name], "html.parser")
     main = soup.find("main")
     expected = main.find_all(["p", "h2", "h3", "li"])
-    mine = list(legacy_projection_comparison._iter_legacy_blocks(
-        main, transcript_extraction._BLOCK_TAGS
-    ))
-    assert [id(block) for block in mine] == [id(block) for block in expected]
+    ordered, _facts = legacy_projection_comparison._collect_evidence(
+        main,
+        transcript_extraction._BLOCK_TAGS,
+        transcript_extraction.SKIP_TEXT,
+        None,
+    )
+    assert [id(block) for block in ordered] == [id(block) for block in expected]
 
 
 @pytest.mark.parametrize("depth", [200, 1200, 2400])
@@ -501,8 +535,58 @@ def test_comparator_visits_stay_linear_on_adjacent_deep_scales(depth, monkeypatc
         f"depth={depth}: comparator visited {stats.nodes_visited} nodes for "
         f"{nodes} DOM nodes"
     )
-    assert stats.max_intermediate_chars <= 512
+    assert stats.max_intermediate_chars <= _max_text_piece(page)
     assert stats.chars_compared <= len(result.title) + len(result.body) + 64
+
+
+@pytest.mark.parametrize("chain", sorted(_DROPPED_CHAINS))
+@pytest.mark.parametrize("depth", [200, 1200, 2400])
+def test_dropped_chain_comparator_visits_stay_linear(chain, depth, monkeypatch):
+    """Legacy-dropped nested chains (empty/short/skip) must not trigger
+    per-block subtree re-walks: every block is scanned from composed
+    evidence in one pass, never confirmed by materializing legacy text."""
+    page = _dropped_chain_page(chain, depth)
+    nodes = _node_count(page)
+    result = transcript_extraction.extract(page)
+    frozen = transcript_extraction._legacy_v1_reference(
+        BeautifulSoup(page, "html.parser")
+    )
+    expected = frozen == (result.title, result.body)
+    counters = _install_visit_counter(monkeypatch)
+    stats = legacy_projection_comparison.ComparisonStats()
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        BeautifulSoup(page, "html.parser"),
+        result.title,
+        result.body,
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    assert matched is expected
+    assert counters["get_text_calls"] == 0
+    assert counters["piece_yields"] == 0
+    assert stats.blocks_scanned >= depth, "every nested block must be scanned"
+    # only the flat filler paragraph may confirm; no chain block is materialized
+    assert stats.full_confirmations <= 1
+    assert stats.nodes_visited <= 10 * nodes, (
+        f"{chain} depth={depth}: comparator visited {stats.nodes_visited} "
+        f"nodes for {nodes} DOM nodes (subtree re-walk regression)"
+    )
+    assert stats.max_intermediate_chars <= _max_text_piece(page)
+
+
+@pytest.mark.parametrize("chain", sorted(_DROPPED_CHAINS))
+def test_dropped_chain_adjacent_scale_growth_is_linear(chain):
+    visited = {}
+    for depth in (200, 1200, 2400):
+        page = _dropped_chain_page(chain, depth)
+        stats = legacy_projection_comparison.ComparisonStats()
+        _compare_with_stats(page, stats)
+        visited[depth] = stats.nodes_visited
+    assert visited[1200] <= 8 * visited[200]
+    assert visited[2400] <= 2.5 * visited[1200]
 
 
 def test_comparator_adjacent_scale_growth_is_linear():
@@ -536,7 +620,8 @@ def test_deep_comparison_never_materializes_the_legacy_body():
         stats=stats,
     )
     assert matched is (frozen == (result.title, result.body)) is False
-    assert stats.max_intermediate_chars <= 512, (
+    assert stats.max_intermediate_chars <= _max_text_piece(page)
+    assert stats.max_intermediate_chars * 100 < legacy_body_len, (
         "comparison must never buffer the duplicated legacy body"
     )
     assert stats.nodes_visited <= 10 * _node_count(page)
@@ -554,7 +639,7 @@ def test_comparator_confirms_every_paragraph_on_equal_pages():
         result = transcript_extraction.extract(page)
         assert stats.full_confirmations == len(result.body.split("\n\n"))
         assert stats.nodes_visited <= 10 * _node_count(page)
-        assert stats.max_intermediate_chars <= 512
+        assert stats.max_intermediate_chars <= _max_text_piece(page)
         assert stats.chars_compared <= len(result.title) + len(result.body) + 64
 
 
@@ -654,7 +739,7 @@ def test_e2e_deep_fetch_reports_honest_version_with_bounded_comparison(
     assert parses["count"] == 1
     stats = captured["stats"]
     assert stats.nodes_visited <= 10 * _node_count(page)
-    assert stats.max_intermediate_chars <= 512
+    assert stats.max_intermediate_chars <= _max_text_piece(page)
     assert stats.chars_compared <= len(body) + 8192
 
     # the equal side keeps the legacy /1 label through the same real entry
