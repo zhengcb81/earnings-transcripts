@@ -10,7 +10,14 @@
 - Phase A：`tests/test_du10_transcript_fidelity.py` + 6 夹具 + expected.json（手工推导，机械回溯校验 ALL TRACEABLE 后才运行）。
 - RED 首跑 7 failed：其中 speaker_glue 期望 `/1` 是**作者期望值错误**——v1 `get_text(" ")` 在标签边界注入空格而 v2 保真原字节，页面诚实 `/2`；修正期望值并记录该发现（v1 曾隐式改写无空格粘连，v2 不改写）。
 - RED 终态 6 failed / 4 passed，精确对应 RC-1（3 个恢复夹具）、RC-2（截断 fail-closed）、缺失 Q&A 标题顺序、CJK 透传；4 个冻结钉定（胶水字节、br/时间戳/免责 `/1` 对照、孤立 `<`、冻结契约常量）通过。收据 `receipts/red_run.txt`。
-- Next: Phase B 实施。
+
+## 2026-10-17 会话 2（Phase B/C）
+
+- Phase B 提交 `71103cf`：`_V2_OWNERS`（v2 所有权扩展，comparator 仍收冻结 `_BLOCK_TAGS`）+ EOF 悬挂标记 `truncated_markup` fail-closed。DU10 10 passed；旧 DU7+DU9 284 passed。
+- 全仓回归：608 passed（不含时序敏感）+ test_batch_runtime/test_retrieval_cli_e2e 47 passed = 655 全绿；ruff `transcript_extraction.py tests/test_du10_transcript_fidelity.py` 全绿。
+- 真实语料只读验证：分母 = 6 家 43 份 `*_earnings_call.txt`；深检 3 份（MSFT EN 152¶、NVO EN 301¶、TAL 中企 90¶），段落回溯零失败；合成 MF 形状标记 + 真实内容往返逐段精确一致（MSFT/NVO/TAL 全 exact，诚实 `/2`）；CJK 头部字面完好。首轮往返夹具曾自插空格造成伪差，改为字节忠实拼接后全 exact（夹具缺陷非解析器缺陷）。
+- 清理：130 语料文件 SHA 不变；主树 `.workbuddy-ai/`、`eval_results.json` 哨兵不变；temp 残留 0。收据 `receipts/cleanup.md`。
+- Next: 冻结 HEAD → 独立审查 agent → PASS 后交接。
 
 ## 测试结果台账
 

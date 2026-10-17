@@ -32,17 +32,19 @@
 - 新增 `tests/test_du10_transcript_fidelity.py` RED 行为测试（RC-1/RC-2 + 冻结行为钉定），先证 RED。
 - RED 收据存 `receipts/red_run.txt`。
 
-### Phase B — 最小根因修复 — Status: pending
+### Phase B — 最小根因修复 — Status: complete
 - 解耦 v2 所有权集合（扩展块级所有权）与冻结 legacy 契约集合（`_BLOCK_TAGS` 原样传 comparator）。
 - EOF 悬挂标记截断检测 → `ExtractionError`（typed，沿用既有 error contract）。
 - 旧 goldens/DU9 兼容必须继续全绿；ruff lint。
+- 提交 `71103cf`；RED 6 failed → GREEN 10 passed；旧 284 + 相邻回归全绿。
 
-### Phase C — 全量样本与清理 — Status: pending
-- 本卡全量套件 + DU9 比较套件 + DU7 套件 + 相邻回归（transcript_api/artifact/audit/scraper/common）。
-- 真实本地样本只读验证：英文（MSFT/NVO）+ 中文或中英混合（TAL 等），核对正文可回溯原文件行、次序稳定；覆盖分母与未测项记录。
-- 清理 owned temp；核对 ET 主树未跟踪物与原始 TXT SHA 不变。
+### Phase C — 全量样本与清理 — Status: complete
+- 全仓 608 + 时序敏感 2 套件 47 = 655 passed；ruff 全绿。
+- 真实语料只读验证（`receipts/verify_real_corpus.py` → `real_corpus_verification.json`）：MSFT(EN,152¶)/NVO(EN,301¶)/TAL(中企,90¶) 段落回溯零失败、MF 形状合成标记往返逐段精确一致（诚实 /2）；130 文件 SHA 不变；CJK 头部字面完好。
+- 清理收据 `receipts/cleanup.md`：无临时残留、主树哨兵不变。
+- NOT_RUN：真实线上 MF HTML DOM（无本地缓存且卡禁下载）；中文母语来源 transcript 本地不存在；FMP JSON 真实载荷（需凭证）。
 
-### Phase D — 独立审查与交接 — Status: pending
+### Phase D — 独立审查与交接 — Status: in_progress
 - 冻结最终 HEAD；由不同 agent 审查代码/测试/定位/边界/无翻译/旧 goldens/目录保护/PWF。
 - 审查报告 PASS 且零未解决方可交接；否则修复后按最终 SHA 再审。
 - 产出 handoff.md/json + receipts。
