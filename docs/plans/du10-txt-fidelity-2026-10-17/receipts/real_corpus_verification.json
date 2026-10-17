@@ -1,0 +1,123 @@
+{
+ "corpus": {
+  "earnings_call_txt_total": 43,
+  "tickers": [
+   "FIG",
+   "MDB",
+   "MSFT",
+   "NVO",
+   "SNOW",
+   "TAL"
+  ]
+ },
+ "samples": [
+  {
+   "sample": "MSFT_Q1_2026_earnings_call.txt",
+   "kind": "EN",
+   "paragraphs": 152,
+   "paragraph_traceback_failures": [],
+   "speaker_turn_labels_detected": [
+    "ARPU",
+    "Amy E. Hood",
+    "Brad Zelnick",
+    "Brent Thill",
+    "Finance lease",
+    "Fungible fleet",
+    "Jonathan Neilson",
+    "Karl Keirstead",
+    "Kash Rangan",
+    "Keith Weiss",
+    "Mark Moerdler",
+    "Mark Murphy",
+    "Operator",
+    "Satya Nadella",
+    "Tokens per dollar per watt"
+   ],
+   "cjk_header_intact": true,
+   "full_call_section_present": true,
+   "roster_members_with_detected_turns": [
+    "Satya Nadella",
+    "Amy E. Hood",
+    "Jonathan Neilson"
+   ]
+  },
+  {
+   "sample": "NVO_Q2_2024_earnings_call.txt",
+   "kind": "EN",
+   "paragraphs": 301,
+   "paragraph_traceback_failures": [],
+   "speaker_turn_labels_detected": [
+    "Call participants",
+    "Duration",
+    "Prepared Remarks"
+   ],
+   "cjk_header_intact": true
+  },
+  {
+   "sample": "TAL_Q2_2026_earnings_call.txt",
+   "kind": "CN-company",
+   "paragraphs": 90,
+   "paragraph_traceback_failures": [],
+   "speaker_turn_labels_detected": [
+    "Blended ASP",
+    "Deferred Revenue",
+    "Felix Liu",
+    "Jackson Ding",
+    "Liping Zhao",
+    "Operator",
+    "Peiyou",
+    "Timothy Zhao",
+    "Yiran Sheng",
+    "Zhuangzhuang Peng"
+   ],
+   "cjk_header_intact": true
+  }
+ ],
+ "roundtrips": [
+  {
+   "sample": "MSFT_Q1_2026_earnings_call.txt",
+   "source_paragraphs": 152,
+   "extracted_paragraphs": 152,
+   "missing_source_paragraphs": [],
+   "order_identical": [
+    "Oct. 29, 2025 at 5:30 p.m. ET",
+    "Call participants",
+    "Chairman and Chief Executive Officer — S",
+    "Chief Financial Officer — Amy E. Hood",
+    "Chief Accounting Officer — Alice Jolla"
+   ],
+   "extraction_version": "motley-fool-main-text/2",
+   "exact_sequence_match": true
+  },
+  {
+   "sample": "NVO_Q2_2024_earnings_call.txt",
+   "source_paragraphs": 301,
+   "extracted_paragraphs": 301,
+   "missing_source_paragraphs": [],
+   "order_identical": [
+    "Novo Nordisk(NVO+0.14%)Q2 2024 Earnings ",
+    "Prepared Remarks",
+    "Questions and Answers",
+    "Call Participants",
+    "Prepared Remarks:"
+   ],
+   "extraction_version": "motley-fool-main-text/2",
+   "exact_sequence_match": true
+  },
+  {
+   "sample": "TAL_Q2_2026_earnings_call.txt",
+   "source_paragraphs": 90,
+   "extracted_paragraphs": 90,
+   "missing_source_paragraphs": [],
+   "order_identical": [
+    "Thursday, October 30, 2025 at 8 a.m. ET",
+    "CALL PARTICIPANTS",
+    "Chief Executive Officer — Zhuangzhuang P",
+    "Chief Financial Officer — Jackson Ding",
+    "Net Revenues-- $861.4 million, up 39.1% "
+   ],
+   "extraction_version": "motley-fool-main-text/2",
+   "exact_sequence_match": true
+  }
+ ]
+}

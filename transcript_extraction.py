@@ -1,10 +1,16 @@
 """Pure DOM-ownership extraction for Motley Fool transcript pages.
 
 One BeautifulSoup/DOM observation per call, original order, original language.
-Every text run is owned by its nearest structural block (p/h2/h3/li), so an
-ancestor and its child never double-emit the same run. Filtering is node-scoped
-(non-content elements, hidden content, evidenced ad/nav/sponsor containers);
-business text is never dropped for merely mentioning advertising words.
+Every text run is owned by its nearest block-level container (any standard
+block structure: headings at every level, paragraphs, list items, container
+div/section/article, table cells, quotes, definition and preformatted blocks),
+so an ancestor and its child never double-emit the same run and section
+boundaries, speaker turns, or table content carried by non-``p`` containers
+survive extraction. Filtering is node-scoped (non-content elements, hidden
+content, evidenced ad/nav/sponsor containers); business text is never dropped
+for merely mentioning advertising words. Input cut off inside an unfinished
+tag fails closed with ``ExtractionError`` instead of parsing to a seemingly
+complete transcript.
 
 The frozen legacy semantics (``motley-fool-main-text/1``) are kept as a
 reference projection over the same parsed DOM: when the new output is
@@ -48,6 +54,29 @@ SKIP_TEXT = (
 )
 
 _BLOCK_TAGS = frozenset({"p", "h2", "h3", "li"})
+
+# Frozen ``motley-fool-main-text/1`` block contract: the legacy projection and
+# the compatibility decision are defined over exactly these tags and must
+# never grow — ``legacy_projection_matches`` is called with this set below.
+#
+# v2 ownership: every standard block-level container owns its direct text
+# runs, so Q&A/section markers on heading levels beyond h2/h3, speaker turns
+# in container divs/sections, and table/list/quote content keep their text and
+# boundaries instead of being silently discarded. Extraction-internal only;
+# the frozen legacy contract above stays the compatibility baseline.
+_V2_OWNERS = _BLOCK_TAGS | frozenset({
+    "h1", "h4", "h5", "h6",
+    "div", "section", "article", "blockquote", "figure", "details",
+    "address", "hgroup", "center", "pre",
+    "ul", "ol", "dl", "dt", "dd",
+    "table", "caption", "td", "th",
+})
+
+# A page cut off inside an unfinished tag would parse with the incomplete tail
+# silently discarded and return a seemingly complete transcript; fail closed
+# instead. Only markup-looking tails (``<letter``, ``</``, ``<!``, ``<?``)
+# count, so a lone ``<`` in trailing text stays a text character.
+_DANGLING_MARKUP_RE = re.compile(rb"<[a-zA-Z/?!][^>]*\Z")
 
 _NON_CONTENT_TAGS = frozenset({
     "script", "style", "noscript", "template", "svg", "iframe", "object",
@@ -179,7 +208,7 @@ def _collect_runs(
                 runs.append((id(current_owner), current_owner, piece))
         elif isinstance(child, Tag):
             if current_dropped or _is_droppable(child):
-                if child.name in _BLOCK_TAGS or child.find(list(_BLOCK_TAGS)) is not None:
+                if child.name in _V2_OWNERS or child.find(list(_BLOCK_TAGS)) is not None:
                     state[DIAG_DROPPED_CONTAINER] = True
                 continue
             if child.name == "br":
@@ -187,9 +216,9 @@ def _collect_runs(
                     runs.append((id(current_owner), current_owner, "\n"))
                 continue
             child_owner = current_owner
-            if child.name in _BLOCK_TAGS:
+            if child.name in _V2_OWNERS:
                 child_owner = child
-                if current_owner is not None and current_owner.name in _BLOCK_TAGS:
+                if current_owner is not None and current_owner.name in _V2_OWNERS:
                     state[DIAG_NESTED_SUPPRESSED] = True
             stack.append((iter(child.children), child_owner, False))
 
@@ -229,7 +258,14 @@ def _legacy_v1_reference(soup: BeautifulSoup) -> tuple[str, str] | None:
     return title, body
 
 
+def _ends_in_unfinished_markup(page: bytes) -> bool:
+    _head, sep, tail = page.rpartition(b">")
+    return _DANGLING_MARKUP_RE.search(tail if sep else page) is not None
+
+
 def extract(page: bytes) -> ExtractionResult:
+    if _ends_in_unfinished_markup(page):
+        raise ExtractionError("truncated_markup")
     soup = BeautifulSoup(page, "html.parser")
     title_node = soup.find("h1")
     title_runs: list[tuple[int, Tag, str]] = []
