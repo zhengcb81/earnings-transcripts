@@ -66,10 +66,11 @@ ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_d
 
 - 首个行为 RED：5 failed / 152 passed（`a_first_behavior_red.txt`）——
   冻结回放、get_text调用、200/1200/2400层文本片线性界均以行为断言复现（非import级）。
-- du9 最终 **214 passed**（`b_du9_suite.txt`）：oracle矩阵24例+双fixture+120种子
+- du9 最终 **224 passed**（`b_du9_suite.txt`）：oracle矩阵24例+双fixture+120种子
   生成样本（双侧覆盖）+200/1200/2400层与兄弟对照+丢弃链3族×3深度+嵌套保留3族×
-  3深度+冻结函数源码钉+块序parity+真实入口E2E（假HTTP seam、0外网、0翻译、
-  单次DOM构建、数字不变、/1与/2双侧、TXT复用、失败零半文件、输入/配置SHA+mtime不变）。
+  3深度+star形状3深度（anchor步数界）+偏移地面真值哨兵7页+冻结函数源码钉+
+  块序parity+真实入口E2E（假HTTP seam、0外网、0翻译、单次DOM构建、数字不变、
+  /1与/2双侧、TXT复用、失败零半文件、输入/配置SHA+mtime不变）。
 - DU7/ROOT 集中 58 passed（`b_du7_root_suites.txt`）；跨模块集中回归 170 passed
   （`b_concentrated_regression.txt`）；golden check 10/10 matched（`b_golden_check.txt`，
   旧/1标签未动）；ruff 全绿（`b_ruff.txt`）。
@@ -79,13 +80,17 @@ ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_d
 
 ## 独立审查与整改（review/）
 
-强制独立审查共3轮（详见 `review/independent_review.md/json`）：
+强制独立审查进行至第4轮（详见 `review/independent_review.md/json`）：
 1. 第1轮 FAIL（R1-1 高：丢弃链 Θ(深度²)/R1-2 中：代价锚点盲区/R1-3 低：中间计数）→
    共享证据遍历修复（`5dc4e00`），fuzz 3,840页 0 分歧复核确认。
    round-1 agent实例平台不可恢复，第2轮起由fresh独立agent续审（均独立于实施者）。
 2. 第2轮 FAIL（R2-1 高：嵌套保留块确认 Θ(深度²)，"不重叠"断言证伪）→
    计数预检+最外层DOM确认+锚定切片派生修复（`3dc576c`），自建fuzz 13,155+ 0 分歧。
-3. 第3轮复核：见 `review/independent_review.md` 末节与 handoff.json
+3. 第3轮 FAIL（R3-1 中：anchor解析无路径压缩，star形状θ(n²)父链步 → 修复
+   `c407ce5` 全链缓存+`anchor_resolve_steps`断言+star测试；R3-2 中：正向派生
+   路径仓内无覆盖 → 已加偏移地面真值哨兵（7页，变异核验7/7拦截），并同审查agent
+   索要其声称的 /1+derived 212例最小反例）。
+4. 第4轮复核：进行中/见 `review/independent_review.md` 末节与 handoff.json
    `independent_review.final_status`（PASS 方才 READY）。
 
 ## 版本兼容表

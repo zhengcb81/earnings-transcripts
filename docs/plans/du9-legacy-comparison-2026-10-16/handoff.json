@@ -11,7 +11,8 @@
     "5dc4e00 fix: replace per-block subtree rescans with one shared evidence pass",
     "6a9ddc5 docs: record independent review round 1 findings and fix receipts",
     "3dc576c fix: anchor nested confirmations to verified ancestor paragraphs",
-    "38953ea docs: record independent review round 2 finding and fix receipts"
+    "38953ea docs: record independent review round 2 finding and fix receipts",
+    "c407ce5 fix: path-cache anchor resolution and pin resolve-step budget"
   ],
   "changed_paths": [
     "legacy_projection_comparison.py",
@@ -46,7 +47,7 @@
     {
       "argv": "python -m pytest tests/test_du9_legacy_comparison.py -q",
       "exit_code": 0,
-      "passed": 214,
+      "passed": 224,
       "failed": 0,
       "skipped": 0,
       "receipt": "receipts/b_du9_suite.txt"
@@ -78,7 +79,7 @@
     {
       "argv": "ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_du9_legacy_comparison.py",
       "exit_code": 0,
-      "passed": 0,
+      "passed": 224,
       "failed": 0,
       "skipped": 0,
       "receipt": "receipts/b_ruff.txt"
@@ -90,17 +91,18 @@
   "independent_expected_basis": "Every expectation is generated from two independent sides: the frozen transcript_extraction._legacy_v1_reference (function body byte-identical to baseline, used only as controlled oracle) and the actual v2 ExtractionResult of extract; the expected legacy label is frozen_v1 == (v2.title, v2.body). Hand matrix (24 pages), 2 fixtures, 120 seeded generated samples, adjacent-scale deep/sibling/dropped-chain/nested-kept shapes, and the goldens cover both equal and unequal sides; the new comparator is never compared against itself.",
   "cost_evidence": {
     "receipt": "receipts/c_e2e_cost_evidence.json",
-    "shapes": 23,
+    "shapes": 26,
     "violations_of_10x_node_bound": 0,
     "oracle_disagreements": 0,
     "pre_fix": "2403 get_text calls, 2883603 piece visits, duplicated legacy body materialized (78.6M chars at depth 2400)",
-    "post_fix_examples": "nested_text_2400: 4806 visits / 4812 nodes, 0 get_text, 1 DOM build; dropped_empty_2400: 2406 / 2412; kept_chain_2400: 7201 / 7208; wall-clock informational and at most the frozen replay on every shape"
+    "post_fix_examples": "nested_text_2400: 4806 visits / 4812 nodes, 0 get_text, 1 DOM build; dropped_empty_2400: 2406 / 2412; kept_chain_2400: 7201 / 7208; resolve_star_2400: 9603 visits / 7210 nodes with anchor_resolve_steps 4800 == blocks_scanned 4800; wall-clock informational and at most the frozen replay on every shape"
   },
   "known_limits": [
     "Linearity claims are algorithmic counters of the comparison module only; bs4 html.parser DOM construction remains linear-cost (pre-existing parser); the HTTP supervisor/worker hard-limit paths were not re-measured in this card - comparison linearity is not a whole-system hard realtime claim.",
     "Synthetic fixtures dominate; real Motley live pages not exercised (provider disabled by default).",
     "test_batch_runtime/test_retrieval_cli_e2e contain occasional timing-sensitive subprocess cases (observed isolated flake under load, green on isolated rerun; both failing cases never reach the extraction path). Out of this card's scope, unchanged.",
-    "Review rounds 2-3 continue on a fresh independent agent instance because the round-1 instance was not resumable on this platform (recorded in review/independent_review.md)."
+    "Review rounds 2-3 continue on a fresh independent agent instance because the round-1 instance was not resumable on this platform (recorded in review/independent_review.md).",
+    "Reviewer's disclosed tradeoff: flat equal pages are the comparator's worst constant-factor case (siblings_2000: 0.31s vs frozen 0.13s) with linear visits; informational wall-clock in the receipt."
   ],
   "not_run": [
     "Live Motley page section-by-section reading (provider disabled by default; not enabling production policy for the sake of card C).",
@@ -114,7 +116,7 @@
       "agent_7f887c6e-2676-4840-954e-1a15365921ef (round 1)",
       "agent_2654a408-ab25-4c35-8acf-edbc811806e2 (rounds 2-3; fresh instance continuing round 1 because the original instance was not resumable)"
     ],
-    "reviewed_commit": "PENDING_ROUND_3",
+    "reviewed_commit": "PENDING_ROUND_4",
     "report": "review/independent_review.md",
     "findings": [
       {
@@ -148,9 +150,25 @@
         "status": "fix_committed_pending_round_3",
         "fix_commit": "3dc576c",
         "verification_receipt": "count pre-check + outermost-only DOM confirmation + derived slice checks; nested-kept family tests; receipt 23 shapes zero violations; 600-page own adversarial fuzz 0 disagreements"
+      },
+      {
+        "id": "R3-1",
+        "severity": "medium",
+        "cause": "resolve_anchor walked raw parent links without path compression: theta(n^2) Python steps on a reachable star shape, invisible to nodes_visited",
+        "status": "fix_committed_pending_reverification",
+        "fix_commit": "c407ce5",
+        "verification_receipt": "path-cache every walked node + anchor_resolve_steps<=blocks_scanned assertion + star tests 200/1200/2400; receipt 26 shapes zero violations"
+      },
+      {
+        "id": "R3-2",
+        "severity": "medium",
+        "cause": "no in-repo page exercises decision=True through the derived path; offset corruption left the suite green; reviewer claims 212 such pages in their fuzz",
+        "status": "sentinel_committed_awaiting_reviewer_repro",
+        "fix_commit": null,
+        "verification_receipt": "test_offset_in_parent_is_the_frozen_text_slice (7 pages, mutation-checked 7/7 corruption catches) pins every offset against frozen get_text ground truth; derived-FALSE decisions pinned vs oracle; reviewer's minimal repro requested in round 4"
       }
     ],
-    "final_status": "PENDING_ROUND_3",
-    "unresolved_count": 1
+    "final_status": "PENDING_ROUND_4",
+    "unresolved_count": 2
   }
 }

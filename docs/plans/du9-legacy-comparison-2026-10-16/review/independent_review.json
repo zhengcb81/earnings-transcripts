@@ -70,16 +70,16 @@
           "severity": "medium",
           "cause": "resolve_anchor walked raw parent links without path compression: theta(n^2) Python steps on a reachable star shape, invisible to nodes_visited",
           "status": "fix_committed_pending_reverification",
-          "fix_commit": "PENDING_ROUND4",
+          "fix_commit": "c407ce5",
           "verification_receipt": "path-cache every walked node + anchor_resolve_steps<=blocks_scanned assertion + star tests 200/1200/2400; receipt 26 shapes zero violations (star_2400 steps==blocks, 0.22s vs frozen 2.69s)"
         },
         {
           "id": "R3-2",
           "severity": "medium",
           "cause": "no in-repo page exercises decision=True through the derived path; offset corruption (+1 everywhere) leaves du9 214 and goldens green; reviewer claims 212 such pages in their own fuzz",
-          "status": "open_awaiting_reviewer_repro",
+          "status": "sentinel_committed_awaiting_reviewer_repro",
           "fix_commit": null,
-          "verification_receipt": "author exhaustive search over 40k+ structured layouts plus 1000 adversarial fuzz pages found zero decision=True pages with derived_confirmations>=1; construction analysis points to a structural Xfull-partner obstacle; reviewer asked for a minimal repro before fixture addition"
+          "verification_receipt": "test_offset_in_parent_is_the_frozen_text_slice (7 pages incl. comment/CData at child-block boundaries) pins every offset against frozen get_text ground truth; mutation check: +1 offset corruption breaks the sentinel on 7/7 pages; derived-FALSE decisions pinned vs oracle by the nested-kept family tests; still awaiting reviewer's claimed /1+derived minimal repro or explicit retraction before fixture addition"
         }
       ],
       "final_status": "FAIL",

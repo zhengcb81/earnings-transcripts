@@ -731,6 +731,63 @@ def test_resolve_star_anchor_walks_stay_linear(depth, monkeypatch):
     assert stats.max_intermediate_chars <= _max_text_piece(page)
 
 
+_OFFSET_PAGES = {
+    "matrix_nested": _MATRIX_PAGES["nested_p"],
+    "matrix_nested_li": _MATRIX_PAGES["nested_li_p"],
+    "comment_before_child": _main_page(_filler_main(
+        "<p>alpha<!--disc-->beta before the child<p>nested child paragraph "
+        "with words</p>tail after the child</p>"
+    )),
+    "cdata_before_child": _main_page(_filler_main(
+        "<p>alpha <![CDATA[ raw payload ]]> beta before<p>nested child "
+        "paragraph with words</p>tail</p>"
+    )),
+    "kept_balanced": _nested_kept_balanced_page(8),
+    "kept_derived": _nested_kept_derived_page(8),
+    "resolve_star": _resolve_star_page(40),
+}
+
+
+@pytest.mark.parametrize("name", sorted(_OFFSET_PAGES))
+def test_offset_in_parent_is_the_frozen_text_slice(name):
+    """Direct ground-truth pin for the anchoring offsets: every block's
+    recorded offset must slice its frozen normalized text out of its block
+    parent's frozen normalized text (corrupting any offset breaks this)."""
+    page = _OFFSET_PAGES[name]
+    soup = BeautifulSoup(page, "html.parser")
+    main = soup.find("main")
+    ordered, evidence = legacy_projection_comparison._collect_evidence(
+        main,
+        transcript_extraction._BLOCK_TAGS,
+        transcript_extraction.SKIP_TEXT,
+        None,
+    )
+    by_id = {evidence[id(block)].block_id: block for block in ordered}
+    checked = 0
+    for block in ordered:
+        facts = evidence[id(block)]
+        if facts.parent_id is None:
+            continue
+        parent = by_id.get(facts.parent_id)
+        if parent is None:
+            continue
+        parent_text = " ".join(parent.get_text(" ", strip=True).split())
+        block_text = " ".join(block.get_text(" ", strip=True).split())
+        if not block_text:
+            continue
+        start = facts.offset_in_parent
+        end = start + len(block_text)
+        assert end <= len(parent_text), (
+            f"{name}: offset {start}+{len(block_text)} outside parent text"
+        )
+        assert parent_text[start:end] == block_text, (
+            f"{name}: offset {start} does not slice this block's text out of "
+            f"its parent ({parent_text[start:end]!r} != {block_text!r})"
+        )
+        checked += 1
+    assert checked >= 1, "no nested blocks with text to verify"
+
+
 def test_comparator_adjacent_scale_growth_is_linear():
     visited = {}
     for depth in (200, 1200, 2400):
