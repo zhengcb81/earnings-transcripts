@@ -192,3 +192,30 @@ Verdict：**FAIL**（2 medium：R3-1、R3-2）。
 
 修复后本地全套（待第4轮复核）：du9 **217 passed**、DU7/ROOT 58、集中回归 170、
 golden 10/10、ruff 全绿。
+
+## 第4轮（2026-10-16）——PASS
+
+reviewer_agent_id：agent_2654a408-ab25-4c35-8acf-edbc811806e2（同第2/3轮 agent）。
+reviewed_commit：`ea6983b`（含 R3-1 修复 `c407ce5` 与偏移哨兵 `ea6983b`）。
+
+Verdict：**PASS**（0 未解决）。
+
+- **R3-1 CLOSED**：star 形状 n=300..9600 六个规模 `anchor_resolve_steps ==
+  blocks_scanned` 恒等（1.00×），访问1.33×节点，n=9600 墙钟 0.288s vs 冻结
+  41.17s（143×）；另3个新攻击族（不相交污染链/每层保留链/star-of-stars）
+  步数恒等、parity 全过；其建议的步数断言已入测试。
+- **R3-2 RETRACTED（审查方撤回）**："212例 /1+derived" 系其fuzz把**冻结legacy
+  tuple**（及段落相同的变异）直接喂给比较器API所致，生产从不传入该元组——
+  其给出的显式反例：2个嵌套簇+2个skip污染段页面，冻结tuple → True
+  （full=2/derived=2），同DOM的v2元组 → False（oracle一致）。审查方独立确认
+  作者的结构性分析（嵌套保留对必然产生v2不发射的legacy段落；短段/SKIP补偿器
+  与保留段文本矛盾），并认定已提交的偏移地面真值哨兵即 R3-2 所求覆盖
+  （clean 224 / +1损坏 7例失败，7/7无误报）。
+- 新鲜种子 fuzz：17,812 比较 0 分歧；全部套件、边界（白名单、冻结sha
+  `85d1d45c…`、生产 1 parse/0 get_text）、文档收据全部与实测一致。
+
+审查方建议的两项收尾（作者随即实现，delta 复核请求见本轮之后）：
+冻结tuple正向完整性测试（含审查方原样页面 + 偏移损坏翻转断言）与模块
+docstring 的 derived-True 不可达性说明。
+
+**最终状态：审查 PASS，0 未解决问题。**

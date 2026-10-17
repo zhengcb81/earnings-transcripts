@@ -12,7 +12,8 @@
     "6a9ddc5 docs: record independent review round 1 findings and fix receipts",
     "3dc576c fix: anchor nested confirmations to verified ancestor paragraphs",
     "38953ea docs: record independent review round 2 finding and fix receipts",
-    "c407ce5 fix: path-cache anchor resolution and pin resolve-step budget"
+    "c407ce5 fix: path-cache anchor resolution and pin resolve-step budget",
+    "ea6983b test: pin anchor offsets to frozen text slices and update round-3 records"
   ],
   "changed_paths": [
     "legacy_projection_comparison.py",
@@ -47,7 +48,7 @@
     {
       "argv": "python -m pytest tests/test_du9_legacy_comparison.py -q",
       "exit_code": 0,
-      "passed": 224,
+      "passed": 226,
       "failed": 0,
       "skipped": 0,
       "receipt": "receipts/b_du9_suite.txt"
@@ -79,7 +80,7 @@
     {
       "argv": "ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_du9_legacy_comparison.py",
       "exit_code": 0,
-      "passed": 224,
+      "passed": 226,
       "failed": 0,
       "skipped": 0,
       "receipt": "receipts/b_ruff.txt"
@@ -116,7 +117,7 @@
       "agent_7f887c6e-2676-4840-954e-1a15365921ef (round 1)",
       "agent_2654a408-ab25-4c35-8acf-edbc811806e2 (rounds 2-3; fresh instance continuing round 1 because the original instance was not resumable)"
     ],
-    "reviewed_commit": "PENDING_ROUND_4",
+    "reviewed_commit": "ea6983b (round 4); final delta (frozen-tuple tests + docstring note) submitted for delta re-verification",
     "report": "review/independent_review.md",
     "findings": [
       {
@@ -155,7 +156,7 @@
         "id": "R3-1",
         "severity": "medium",
         "cause": "resolve_anchor walked raw parent links without path compression: theta(n^2) Python steps on a reachable star shape, invisible to nodes_visited",
-        "status": "fix_committed_pending_reverification",
+        "status": "closed_verified_round_4",
         "fix_commit": "c407ce5",
         "verification_receipt": "path-cache every walked node + anchor_resolve_steps<=blocks_scanned assertion + star tests 200/1200/2400; receipt 26 shapes zero violations"
       },
@@ -163,12 +164,17 @@
         "id": "R3-2",
         "severity": "medium",
         "cause": "no in-repo page exercises decision=True through the derived path; offset corruption left the suite green; reviewer claims 212 such pages in their fuzz",
-        "status": "sentinel_committed_awaiting_reviewer_repro",
+        "status": "retracted_by_reviewer_round_4",
         "fix_commit": null,
-        "verification_receipt": "test_offset_in_parent_is_the_frozen_text_slice (7 pages, mutation-checked 7/7 corruption catches) pins every offset against frozen get_text ground truth; derived-FALSE decisions pinned vs oracle; reviewer's minimal repro requested in round 4"
+        "verification_receipt": "reviewer retracted: the 212 /1+derived cases were frozen-tuple harness inputs, never production v2 outputs; structural impossibility independently confirmed; offset ground-truth pin endorsed (clean 224, +1 corruption fails exactly its 7 cases); frozen-tuple positive test added per reviewer's round-4 recommendation"
       }
     ],
-    "final_status": "PENDING_ROUND_4",
-    "unresolved_count": 2
+    "final_status": "PASS",
+    "unresolved_count": 0,
+    "round_4": {
+      "verdict": "PASS",
+      "fresh_seed_fuzz": "17812 comparisons, 0 disagreements",
+      "star_verification": "n=300..9600, anchor_resolve_steps == blocks_scanned at every size; n=9600 0.2881s vs frozen 41.17s"
+    }
   }
 }

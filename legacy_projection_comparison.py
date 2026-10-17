@@ -38,6 +38,11 @@ the legacy body is shorter than ``min_content_chars``, and both of those
 fail here on the same evidence (an equal body would share the already
 validated current length).
 
+For production v2 outputs the derived (slice) confirmation can only ever
+conclude inequality — a nested kept pair forces a legacy paragraph that v2
+never emits — while the True direction of that machinery is exercised in
+tests by feeding the frozen tuple itself to this function.
+
 Pure: no IO, no network, no configuration, and no second
 ``BeautifulSoup`` parse. ``stats`` is optional and exists so tests can prove
 the visit/materialization bounds.

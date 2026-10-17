@@ -788,6 +788,103 @@ def test_offset_in_parent_is_the_frozen_text_slice(name):
     assert checked >= 1, "no nested blocks with text to verify"
 
 
+def _frozen_tuple_positive_page() -> bytes:
+    """Reviewer round-4 fixture: nested kept clusters balanced by
+    skip-tainted paragraphs so the frozen tuple itself reaches the derived
+    confirmation path with a True decision."""
+    return _main_page(
+        "<main><p><p>shared core paragraph text used twice in the body</p></p>"
+        "<p><p>shared core paragraph text used twice in the body</p></p>"
+        "<p>advertisement filler text here now ok</p>"
+        "<p>advertisement filler text here now ok</p></main>"
+    )
+
+
+def test_frozen_tuple_drives_the_derived_true_direction(monkeypatch):
+    """True-direction completeness: fed the frozen v1 tuple itself, the
+    comparator answers True — and for nested kept pages it must do so
+    through the derived slice path (clean offsets); corrupting every offset
+    by +1 must break it."""
+    page = _frozen_tuple_positive_page()
+    soup = BeautifulSoup(page, "html.parser")
+    frozen = transcript_extraction._legacy_v1_reference(
+        BeautifulSoup(page, "html.parser")
+    )
+    assert frozen is not None
+    stats = legacy_projection_comparison.ComparisonStats()
+    matched = legacy_projection_comparison.legacy_projection_matches(
+        soup,
+        frozen[0],
+        frozen[1],
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        stats=stats,
+    )
+    assert matched is True
+    assert stats.derived_confirmations >= 1, (
+        "the frozen tuple must confirm through the derived slice path"
+    )
+    assert stats.full_confirmations <= 2
+
+    real_collect = legacy_projection_comparison._collect_evidence
+
+    def corrupting_collect(main, block_tags, skip_text, stats):
+        ordered, evidence = real_collect(main, block_tags, skip_text, stats)
+        for facts in evidence.values():
+            facts.offset_in_parent += 1
+        return ordered, evidence
+
+    monkeypatch.setattr(
+        legacy_projection_comparison, "_collect_evidence", corrupting_collect
+    )
+    corrupted = legacy_projection_comparison.legacy_projection_matches(
+        soup,
+        frozen[0],
+        frozen[1],
+        block_tags=transcript_extraction._BLOCK_TAGS,
+        skip_text=transcript_extraction.SKIP_TEXT,
+        min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+        min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+    )
+    assert corrupted is False, (
+        "offset corruption must flip the derived True decision"
+    )
+
+
+def test_frozen_tuple_completeness_across_samples():
+    """Fed the frozen tuple, every sample with a non-None frozen projection
+    must decide True (independent True-direction check of the equivalence)."""
+    pages = list(_MATRIX_PAGES.values())
+    pages.append((FIXTURES / "equal_flat.html").read_bytes())
+    pages.append((FIXTURES / "unequal_semantics.html").read_bytes())
+    pages.append(_frozen_tuple_positive_page())
+    pages.append(_nested_kept_derived_page(6))
+    pages.append(_resolve_star_page(30))
+    for iteration in range(30):
+        pages.append(_generated_page(random.Random(4242 + iteration)))
+    checked = 0
+    for page in pages:
+        frozen = transcript_extraction._legacy_v1_reference(
+            BeautifulSoup(page, "html.parser")
+        )
+        if frozen is None:
+            continue
+        matched = legacy_projection_comparison.legacy_projection_matches(
+            BeautifulSoup(page, "html.parser"),
+            frozen[0],
+            frozen[1],
+            block_tags=transcript_extraction._BLOCK_TAGS,
+            skip_text=transcript_extraction.SKIP_TEXT,
+            min_paragraph_chars=transcript_extraction.LEGACY_MIN_PARAGRAPH_CHARS,
+            min_content_chars=transcript_extraction.MIN_CONTENT_CHARS,
+        )
+        assert matched is True, "frozen tuple must always decide True"
+        checked += 1
+    assert checked >= 40
+
+
 def test_comparator_adjacent_scale_growth_is_linear():
     visited = {}
     for depth in (200, 1200, 2400):

@@ -66,9 +66,9 @@ ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_d
 
 - 首个行为 RED：5 failed / 152 passed（`a_first_behavior_red.txt`）——
   冻结回放、get_text调用、200/1200/2400层文本片线性界均以行为断言复现（非import级）。
-- du9 最终 **224 passed**（`b_du9_suite.txt`）：oracle矩阵24例+双fixture+120种子
+- du9 最终 **226 passed**（`b_du9_suite.txt`）：oracle矩阵24例+双fixture+120种子
   生成样本（双侧覆盖）+200/1200/2400层与兄弟对照+丢弃链3族×3深度+嵌套保留3族×
-  3深度+star形状3深度（anchor步数界）+偏移地面真值哨兵7页+冻结函数源码钉+
+  3深度+star形状3深度（anchor步数界）+偏移地面真值哨兵7页+冻结tuple正向完整性2测试+冻结函数源码钉+
   块序parity+真实入口E2E（假HTTP seam、0外网、0翻译、单次DOM构建、数字不变、
   /1与/2双侧、TXT复用、失败零半文件、输入/配置SHA+mtime不变）。
 - DU7/ROOT 集中 58 passed（`b_du7_root_suites.txt`）；跨模块集中回归 170 passed
@@ -90,8 +90,10 @@ ruff check legacy_projection_comparison.py transcript_extraction.py tests/test_d
    `c407ce5` 全链缓存+`anchor_resolve_steps`断言+star测试；R3-2 中：正向派生
    路径仓内无覆盖 → 已加偏移地面真值哨兵（7页，变异核验7/7拦截），并同审查agent
    索要其声称的 /1+derived 212例最小反例）。
-4. 第4轮复核：进行中/见 `review/independent_review.md` 末节与 handoff.json
-   `independent_review.final_status`（PASS 方才 READY）。
+4. 第4轮 **PASS（0未解决）**：R3-1 关闭（star n=300..9600 步数恒等、n=9600
+   0.288s vs 冻结41s）；R3-2 由审查方**撤回**（212例系冻结tuple harness输入、
+   非生产页；结构性不可能获独立确认；偏移哨兵获认可）。其建议的冻结tuple
+   正向完整性测试与docstring说明已实现（delta复核请求已提交同agent）。
 
 ## 版本兼容表
 
