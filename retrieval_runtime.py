@@ -29,6 +29,7 @@ from typing import Any
 from transcript_api import (
     DISCOVERY_RESULT_SCHEMA,
     MAX_BODY_BYTES,
+    MAX_FMP_RESPONSE_BYTES,
     MAX_SOURCE_PAYLOAD_RESULT_BYTES,
     RESULT_SCHEMA,
     RESULT_SCHEMA_WITH_SOURCE_PAYLOAD,
@@ -68,6 +69,20 @@ class RetrievalOutcome:
     usage: dict[str, Any] | None
     reason: str | None
     exit_code: int | None
+
+
+def _result_read_limit(payload: dict[str, Any], response_bytes_left: int | None) -> int:
+    """Conservative encoding allocation from actual source quotas, not a top cap."""
+    if not isinstance(payload, dict):
+        payload = {}
+    declared = payload.get("max_response_bytes")
+    limits = [value for value in (declared, response_bytes_left) if type(value) is int and value >= 0]
+    raw = min(limits) if limits else MAX_FMP_RESPONSE_BYTES
+    body = payload.get("max_body_bytes", MAX_BODY_BYTES)
+    body = min(body, raw) if type(body) is int and body >= 0 else raw
+    # Titles/text/candidates originate in the same raw bytes. JSON escaping is
+    # at most6x and base64 smaller; fixed protocol fields have ample overhead.
+    return 6 * (2 * body + raw) + 2 * 1024 * 1024
 
 
 def run_retrieval(
@@ -168,7 +183,7 @@ def run_retrieval(
         expected_request_id=_expected_request_id(operation, payload),
         expected_schemas=_expected_schemas(operation, include_source_payload),
         deadline=deadline,
-        max_bytes=MAX_RESULT_BYTES,
+        max_bytes=_result_read_limit(payload, response_bytes_left),
     )
     _remove_workdir(workdir)
     return RetrievalOutcome(result, usage, reason, exit_code)

@@ -53,7 +53,7 @@ def _operation_deadline(request: Any) -> float:
     """Remaining float seconds for one formal retrieval operation."""
     if isinstance(request, dict):
         value = request.get("timeout_seconds")
-        if type(value) is int and 1 <= value <= MAX_TIMEOUT_SECONDS:
+        if type(value) is int and value >= 1:
             return float(value)
     return float(MAX_TIMEOUT_SECONDS)
 

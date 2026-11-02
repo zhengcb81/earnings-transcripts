@@ -115,6 +115,8 @@ def audit_files(
         record["file_bytes"] = verdict.file_bytes
         record["file_sha256"] = verdict.file_sha256
         record["receipt_kind"] = verdict.receipt_kind
+        if verdict.diagnostics:
+            record["diagnostics"] = list(verdict.diagnostics)
         if write_receipts:
             record["receipt_action"] = _receipt_action(path, verdict)
         records.append(record)

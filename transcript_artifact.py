@@ -58,6 +58,7 @@ class ReceiptError(ValueError):
     def __init__(self, code: str, message: str) -> None:
         super().__init__(message)
         self.code = code
+        self.observation: dict | None = None
 
 
 @dataclass(frozen=True)
@@ -75,6 +76,7 @@ class ArtifactVerdict:
     file_bytes: int | None = None
     receipt_kind: str | None = None
     header: dict = field(default_factory=dict)
+    diagnostics: tuple[str, ...] = ()
 
 
 def receipt_path(txt_path: Path) -> Path:
@@ -227,10 +229,19 @@ def parse_receipt(raw: bytes) -> dict:
         ) from exc
     try:
         receipt = json.loads(text)
-    except json.JSONDecodeError as exc:
+    except (ValueError, RecursionError) as exc:
         raise ReceiptError(
             "receipt_invalid", f"receipt is not valid JSON: {exc}"
         ) from exc
+    try:
+        return _validate_receipt_fields(receipt)
+    except ReceiptError as exc:
+        if isinstance(receipt, dict):
+            exc.observation = receipt
+        raise
+
+
+def _validate_receipt_fields(receipt) -> dict:
     _require(isinstance(receipt, dict), "receipt must be a JSON object")
     _require(
         receipt.get("schema") == RECEIPT_SCHEMA,
@@ -312,13 +323,13 @@ def parse_receipt(raw: bytes) -> dict:
 def read_receipt(txt_path: Path) -> dict | None:
     """读取 sidecar 收据：不存在 → None；坏收据 → 抛 ``ReceiptError``。"""
     path = receipt_path(txt_path)
-    if not path.exists():
-        return None
     try:
+        if not path.exists():
+            return None
         raw = path.read_bytes()
-    except OSError as exc:
+        return parse_receipt(raw)
+    except (OSError, MemoryError) as exc:
         raise ReceiptError("receipt_unreadable", f"{path.name}: {exc}") from exc
-    return parse_receipt(raw)
 
 
 def write_atomic(path: Path, payload: bytes) -> None:
@@ -335,6 +346,37 @@ def write_atomic(path: Path, payload: bytes) -> None:
                 tmp_path.unlink()
             except OSError:
                 pass
+
+
+def _receipt_binding_conflict(observation: dict | None, *, ticker: str,
+                              period: tuple[int, int], file_sha: str, file_size: int,
+                              body_sha: str, body_size: int, expected_url: str | None):
+    """An incomplete note cannot contradict an explicit source pin."""
+    if not isinstance(observation, dict):
+        return None
+    value = observation.get("ticker")
+    if isinstance(value, str) and value.strip() and value.strip().upper() != ticker.upper():
+        return OUTCOME_IDENTITY_MISMATCH, "identity_mismatch"
+    year, quarter = observation.get("fiscal_year"), observation.get("fiscal_quarter")
+    if ((type(year) is int and 1900 <= year <= 9999 and year != period[0])
+            or (type(quarter) is int and 1 <= quarter <= 4 and quarter != period[1])):
+        return OUTCOME_PERIOD_MISMATCH, "period_mismatch"
+    label = observation.get("fiscal_period")
+    match = re.fullmatch(r"(20\d{2})-Q([1-4])", label) if isinstance(label, str) else None
+    if match and (int(match.group(1)), int(match.group(2))) != period:
+        return OUTCOME_PERIOD_MISMATCH, "period_mismatch"
+    url = observation.get("source_url")
+    if expected_url and isinstance(url, str) and url and url != expected_url:
+        return OUTCOME_IDENTITY_MISMATCH, "identity_mismatch"
+    for key, actual in (("file_sha256", file_sha), ("body_sha256", body_sha)):
+        value = observation.get(key)
+        if isinstance(value, str) and _SHA256_RE.fullmatch(value) and value != actual:
+            return OUTCOME_RECEIPT_MISMATCH, "receipt_mismatch"
+    for key, actual in (("file_bytes", file_size), ("body_bytes", body_size)):
+        value = observation.get(key)
+        if type(value) is int and value >= 0 and value != actual:
+            return OUTCOME_RECEIPT_MISMATCH, "receipt_mismatch"
+    return None
 
 
 def verify_stored_original(
@@ -408,34 +450,24 @@ def verify_stored_original(
     ):
         return ArtifactVerdict(OUTCOME_PERIOD_MISMATCH, "period_mismatch", **base)
 
+    observation = None
     try:
         receipt = read_receipt(txt_path)
+        observation = receipt
     except ReceiptError as exc:
-        return ArtifactVerdict(OUTCOME_RECEIPT_INVALID, exc.code, **base)
-
+        receipt = None
+        observation = exc.observation
+        base["diagnostics"] = (exc.code,)
+    conflict = _receipt_binding_conflict(
+        observation, ticker=ticker, period=(expected_year, expected_quarter),
+        file_sha=file_sha, file_size=file_size, body_sha=body_sha, body_size=body_size,
+        expected_url=expected_url or (header_url if header_url not in ("", "N/A") else None),
+    )
+    if conflict is not None:
+        return ArtifactVerdict(*conflict, **base)
     if receipt is not None:
         base["receipt_kind"] = receipt["kind"]
-        if receipt["ticker"].upper() != ticker.upper():
-            return ArtifactVerdict(
-                OUTCOME_IDENTITY_MISMATCH, "identity_mismatch", **base
-            )
-        if (receipt["fiscal_year"], receipt["fiscal_quarter"]) != (
-            expected_year,
-            expected_quarter,
-        ):
-            return ArtifactVerdict(OUTCOME_PERIOD_MISMATCH, "period_mismatch", **base)
-        if (
-            receipt["file_sha256"] != file_sha
-            or receipt["file_bytes"] != file_size
-            or receipt["body_sha256"] != body_sha
-            or receipt["body_bytes"] != body_size
-        ):
-            return ArtifactVerdict(OUTCOME_RECEIPT_MISMATCH, "receipt_mismatch", **base)
-        outcome = (
-            OUTCOME_VERIFIED
-            if receipt["kind"] == KIND_DOWNLOAD
-            else OUTCOME_LEGACY_UNVERIFIED
-        )
+        outcome = OUTCOME_VERIFIED if receipt["kind"] == KIND_DOWNLOAD else OUTCOME_LEGACY_UNVERIFIED
         return ArtifactVerdict(outcome, None, **base)
 
     identity_proven = bool(header_ticker) and header_ticker.upper() == ticker.upper()

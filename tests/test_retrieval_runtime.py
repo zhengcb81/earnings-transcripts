@@ -478,7 +478,7 @@ def test_worker_result_corrupted_at_exit_is_not_accepted(tmp_path):
     assert list(temp_root.iterdir()) == []
 
 
-def test_oversized_worker_result_is_not_accepted(tmp_path, monkeypatch):
+def test_legacy_result_constant_does_not_veto_explicit_operation_quota(tmp_path, monkeypatch):
     monkeypatch.setattr(retrieval_runtime, "MAX_RESULT_BYTES", 512)
     temp_root = tmp_path / "rt"
     temp_root.mkdir()
@@ -497,9 +497,9 @@ def test_oversized_worker_result_is_not_accepted(tmp_path, monkeypatch):
         launcher_spec=spec,
         temp_root=temp_root,
     )
-    assert outcome.reason == "worker_failure"
-    assert outcome.result is None
-    assert outcome.usage is None
+    assert outcome.reason is None
+    assert outcome.result is not None
+    assert outcome.usage is not None and outcome.usage["response_bytes_used"] <= 1024
     assert list(temp_root.iterdir()) == []
 
 

@@ -212,6 +212,11 @@ class _BudgetSession:
         self._budget = budget
         self.headers = inner.headers
 
+    @property
+    def remaining_response_bytes(self) -> int | None:
+        """The same actual operation/batch account, never another quota."""
+        return self._budget.response_bytes_left
+
     def constrain_response(self, limit: int) -> None:
         self._budget.constrain_response(limit)
 

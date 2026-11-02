@@ -882,10 +882,11 @@ def test_tampered_original_is_receipt_mismatch_and_keeps_bytes(
     assert entry["error_code"] == "receipt_mismatch"
 
 
-def test_bad_receipt_json_is_named_failure_and_original_kept(
+def test_bad_optional_receipt_is_diagnostic_and_original_reused(
     tmp_path, monkeypatch, capsys
 ):
-    """半写/坏 JSON 收据 → 具名 receipt_invalid，TXT 不动、收据不被“修好”。"""
+    """半写旁注只作诊断；原文保守复用，TXT和旁注均不修改。"""
+    monkeypatch.setattr(scraper, "load_config", lambda: {"paths": {"base_dir": str(tmp_path)}})
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
@@ -913,8 +914,10 @@ def test_bad_receipt_json_is_named_failure_and_original_kept(
         key=FAKE_KEY,
     )
     captured = capsys.readouterr()
-    assert rc2 == 1
-    assert "output_conflict/receipt_invalid" in captured.err
+    assert rc2 == 0
+    assert "receipt_invalid" in captured.err
+    entry = json.loads((out / "run_manifest.json").read_text(encoding="utf-8"))["entries"][0]
+    assert entry["status"] == "legacy_unverified" and entry["diagnostics"] == ["receipt_invalid"]
     assert get_urls(calls2) == []
     assert txt.read_bytes() == txt_before
     assert rpath.read_bytes() == b'{"schema": "et-local-text-receipt/1", "kind": "down'

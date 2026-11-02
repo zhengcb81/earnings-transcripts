@@ -391,73 +391,57 @@ def test_missing_receipt_is_none(tmp_path):
         b'{"schema": "et-local-text-receipt/1", "kind": "evil"}',
     ],
 )
-def test_bad_receipt_bytes_are_receipt_invalid(tmp_path, raw):
+def test_bad_receipt_bytes_are_non_authoritative_diagnostics(tmp_path, raw):
     txt = write_txt(tmp_path, make_text())
+    before = txt.read_bytes()
     receipt_path(txt).write_bytes(raw)
+    with pytest.raises(ReceiptError):
+        read_receipt(txt)  # Metadata parser remains strict.
     verdict = verify_stored_original(txt, ticker="ACME", quarter="Q3 2026")
-    assert (verdict.outcome, verdict.error_code) == (
-        "receipt_invalid",
-        "receipt_invalid",
-    )
+    assert verdict.outcome == "legacy_unverified" and verdict.error_code is None
+    assert verdict.receipt_kind is None and verdict.diagnostics == ("receipt_invalid",)
+    assert txt.read_bytes() == before and receipt_path(txt).read_bytes() == raw
 
 
-def test_receipt_schema_violations_are_invalid(tmp_path):
+def test_receipt_schema_notes_do_not_override_original_but_explicit_pins_still_bind(tmp_path):
     txt = write_txt(tmp_path, make_text())
-    valid = build_receipt(
-        kind=KIND_DOWNLOAD,
-        ticker="ACME",
-        fiscal_year=2026,
-        fiscal_quarter=3,
-        extraction_version=EXTRACTION_VERSION,
-        obtained_at="2026-10-06T00:00:00",
-        body_sha256="0" * 64,
-        body_bytes=1,
-        file_sha256="1" * 64,
-        file_bytes=2,
-    )
-    bad_variants = [
-        dict(valid, schema="nope/1"),
-        dict(valid, fiscal_period="2026-Q4"),
-        dict(valid, fiscal_quarter=5),
-        dict(valid, ticker=""),
-        dict(valid, body_sha256="zz"),
-        dict(valid, file_bytes=-1),
-        dict(valid, published_date="2026-01-01"),
-        dict(valid, obtained_at=None),  # download 缺取得时间
-        dict(valid, extraction_version=None),  # download 缺 extraction
-        dict(valid, provider=123),
+    valid = attach_receipt(txt, kind=KIND_DOWNLOAD)
+    variants = [
+        (dict(valid, schema="nope/1"), "legacy_unverified"),
+        (dict(valid, fiscal_period="2026-Q4"), "period_mismatch"),
+        (dict(valid, fiscal_quarter=5), "legacy_unverified"),
+        (dict(valid, ticker=""), "legacy_unverified"),
+        (dict(valid, body_sha256="zz"), "legacy_unverified"),
+        (dict(valid, file_bytes=-1), "legacy_unverified"),
+        (dict(valid, published_date="2026-01-01"), "legacy_unverified"),
+        (dict(valid, obtained_at=None), "legacy_unverified"),
+        (dict(valid, extraction_version=None), "legacy_unverified"),
+        (dict(valid, provider=123), "legacy_unverified"),
     ]
-    for variant in bad_variants:
-        receipt_path(txt).write_bytes(receipt_json_bytes(variant))
+    for variant, expected in variants:
+        encoded = receipt_json_bytes(variant)
+        receipt_path(txt).write_bytes(encoded)
+        with pytest.raises(ReceiptError):
+            parse_receipt(encoded)
         verdict = verify_stored_original(txt, ticker="ACME", quarter="Q3 2026")
-        assert (verdict.outcome, verdict.error_code) == (
-            "receipt_invalid",
-            "receipt_invalid",
-        ), variant
+        assert verdict.outcome == expected
+        assert verdict.receipt_kind is None and verdict.diagnostics == ("receipt_invalid",)
+        assert receipt_path(txt).read_bytes() == encoded
 
 
-def test_audit_receipt_must_not_fabricate_download_fields(tmp_path):
+def test_bad_audit_fields_never_become_download_provenance(tmp_path):
     txt = write_txt(tmp_path, make_text())
-    base = build_receipt(
-        kind=KIND_AUDIT_LEGACY,
-        ticker="ACME",
-        fiscal_year=2026,
-        fiscal_quarter=3,
-        body_sha256="0" * 64,
-        body_bytes=1,
-        file_sha256="1" * 64,
-        file_bytes=2,
-    )
-    for forged in (
-        dict(base, obtained_at="2026-10-06T00:00:00"),
-        dict(base, extraction_version=EXTRACTION_VERSION),
-    ):
-        receipt_path(txt).write_bytes(receipt_json_bytes(forged))
+    base = attach_receipt(txt, kind=KIND_AUDIT_LEGACY)
+    for forged in (dict(base, obtained_at="2026-10-06T00:00:00"),
+                   dict(base, extraction_version=EXTRACTION_VERSION)):
+        encoded = receipt_json_bytes(forged)
+        receipt_path(txt).write_bytes(encoded)
+        with pytest.raises(ReceiptError):
+            parse_receipt(encoded)
         verdict = verify_stored_original(txt, ticker="ACME", quarter="Q3 2026")
-        assert (verdict.outcome, verdict.error_code) == (
-            "receipt_invalid",
-            "receipt_invalid",
-        )
+        assert verdict.outcome == "legacy_unverified" and verdict.receipt_kind is None
+        assert verdict.diagnostics == ("receipt_invalid",)
+        assert receipt_path(txt).read_bytes() == encoded
 
 
 def test_parse_receipt_exposes_named_code():

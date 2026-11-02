@@ -577,8 +577,9 @@ def _finalize_existing(
 ) -> None:
     """已有原件：验证（身份/期间/字节/收据）后复用，绝不覆盖。
 
-    - 头部或收据与期望矛盾、文件损坏、收据坏/不匹配 → 具名
+    - 头部或收据与期望矛盾、文件损坏、收据实际绑定不匹配 → 具名
       ``output_conflict/<code>`` 失败，原件原样保留；
+    - 坏非权威旁注只记录diagnostics，不更改原件或升级verified；
     - download 收据逐项吻合 → ``reused``（verified）；无收据但头部可证明
       身份+期间且正文非空 → ``legacy_unverified``；
     - 证明不了身份/期间 → ``unknown``/``identity_missing``（非 verified reused）。
@@ -594,7 +595,7 @@ def _finalize_existing(
     )
     status = _ENTRY_STATUS_FOR_OUTCOME.get(verdict.outcome, "output_conflict")
     if verdict.outcome in (OUTCOME_VERIFIED, OUTCOME_LEGACY_UNVERIFIED):
-        _record_entry(
+        entry = _record_entry(
             entries,
             request_id=request_id,
             company=company,
@@ -603,6 +604,9 @@ def _finalize_existing(
             content_bytes=verdict.body_bytes,
             file=path,
         )
+        if verdict.diagnostics:
+            entry["diagnostics"] = list(verdict.diagnostics)
+            log.warning("local receipt observation unavailable: %s", ",".join(verdict.diagnostics))
         _maybe_translate(cfg, fn, path, translate_enabled)
         return
     if verdict.outcome == OUTCOME_IDENTITY_MISSING:

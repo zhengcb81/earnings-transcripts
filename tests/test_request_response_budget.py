@@ -179,7 +179,7 @@ def test_response_quota_is_optional_but_supplied_value_is_positive_nonbool_integ
     assert session.calls == []
 
 
-def test_128mib_operation_quota_does_not_change_single_response_hardcap(monkeypatch):
+def test_explicit_operation_quota_does_not_inherit_provider_default_hardcap(monkeypatch):
     monkeypatch.setattr(api, "MAX_FMP_RESPONSE_BYTES", 512)
     response = Chunks([padded_payload(1024)])
     budget = UsageCounter()
@@ -189,8 +189,8 @@ def test_128mib_operation_quota_does_not_change_single_response_hardcap(monkeypa
         session_factory=lambda: session,
         fmp_api_key=KEY,
     )
-    assert result["status"] == "content_too_large"
-    assert result["error_code"] == "byte_limit"
+    assert result["status"] == "fetched"
+    assert len(result["content_utf8"]) == 286
     assert budget.usage_snapshot()["response_bytes_used"] == 1024
     assert budget.usage_snapshot()["exhausted"] is None
     assert len(session._inner.calls) == 1

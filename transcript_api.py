@@ -204,12 +204,12 @@ def _validate_request(value: Any) -> dict[str, Any]:
         raise _InvalidRequest()
     if (
         type(value["timeout_seconds"]) is not int
-        or not 1 <= value["timeout_seconds"] <= MAX_TIMEOUT_SECONDS
+        or value["timeout_seconds"] < 1
     ):
         raise _InvalidRequest()
     if (
         type(value["max_body_bytes"]) is not int
-        or not 1 <= value["max_body_bytes"] <= MAX_BODY_BYTES
+        or value["max_body_bytes"] <= 0
     ):
         raise _InvalidRequest()
     if "max_response_bytes" in value and (
@@ -352,14 +352,15 @@ def _operation_session(session: Any, normalized: dict[str, Any]) -> Any:
     return session
 
 
-def _body_response_cap(normalized: dict[str, Any]) -> int:
-    # Legacy omitted-field callers keep their old body/raw coupling. With an
-    # explicit operation quota, HTML wrapper bytes and canonical text differ.
-    return (
-        MAX_BODY_BYTES
-        if "max_response_bytes" in normalized
-        else normalized["max_body_bytes"]
-    )
+def _operation_read_cap(session: Any, declared: int | None, default: int) -> int:
+    """Use one caller account; defaults apply only when no budget exists."""
+    remaining = session.remaining_response_bytes if isinstance(session, _BudgetSession) else None
+    limits = [value for value in (declared, remaining) if type(value) is int and value >= 0]
+    return min(limits) if limits else default
+
+
+def _body_response_cap(normalized: dict[str, Any], session: Any = None) -> int:
+    return _operation_read_cap(session, normalized.get("max_response_bytes"), normalized["max_body_bytes"])
 
 
 def _mime_type(response: requests.Response) -> str:
@@ -375,12 +376,10 @@ def _source_payload_fields(
     mime_type: str,
     effective_url: str,
 ) -> dict[str, Any]:
-    """Build a bounded, opt-in transport form of the exact response bytes."""
-    if not payload or len(payload) > MAX_FMP_RESPONSE_BYTES:
+    """Encode exact bytes already admitted by the operation read account."""
+    if not payload:
         raise _PayloadTooLarge()
     encoded = base64.b64encode(payload).decode("ascii")
-    if len(encoded) > MAX_SOURCE_PAYLOAD_RESULT_BYTES:
-        raise _PayloadTooLarge()
     return {
         "provider_payload_encoding": "base64",
         "provider_payload_base64": encoded,
@@ -616,13 +615,14 @@ def _read_fmp_payload(
             raise _ProviderFailure(f"provider_http_{response.status_code}")
         chunks: list[bytes] = []
         size = 0
+        max_bytes = _operation_read_cap(session, normalized.get("max_response_bytes"), MAX_FMP_RESPONSE_BYTES)
         for chunk in response.iter_content(chunk_size=64 * 1024):
             if time.monotonic() > deadline:
                 raise _DeadlineExceeded()
             if not chunk:
                 continue
             size += len(chunk)
-            if size > MAX_FMP_RESPONSE_BYTES:
+            if size > max_bytes:
                 raise _PayloadTooLarge()
             chunks.append(chunk)
         if time.monotonic() > deadline:
@@ -897,6 +897,7 @@ def fetch_transcript(
         eligible, excluded_after_as_of = _listing_candidate_selection(
             session, ticker, normalized["exchange"], normalized["as_of"], deadline,
             fiscal_period=(normalized["fiscal_year"], normalized["fiscal_quarter"]),
+            max_response_bytes=normalized.get("max_response_bytes"),
         )
         if not eligible:
             return _base_result(
@@ -921,7 +922,7 @@ def fetch_transcript(
             )
         candidate = next(iter(eligible.values()))
         page, final_url, mime_type = _read_bounded(
-            session, candidate["source_url"], deadline, _body_response_cap(normalized)
+            session, candidate["source_url"], deadline, _body_response_cap(normalized, session)
         )
         _check_url(final_url)
         if include_source_payload and mime_type not in (
@@ -1053,6 +1054,7 @@ def _listing_candidate_selection(
     deadline: float,
     *,
     fiscal_period: tuple[int, int] | None = None,
+    max_response_bytes: int | None = None,
 ) -> tuple[dict[str, dict[str, Any]], bool]:
     """Select validated metadata and retain why a target scope was excluded.
 
@@ -1065,7 +1067,8 @@ def _listing_candidate_selection(
     excluded_after_as_of = False
     for ex in exchanges:
         quote_url = f"https://{ALLOWED_HOST}/quote/{ex}/{ticker.lower()}/"
-        listing, _, _ = _read_bounded(session, quote_url, deadline, MAX_LISTING_BYTES)
+        listing, _, _ = _read_bounded(session, quote_url, deadline,
+            _operation_read_cap(session, max_response_bytes, MAX_LISTING_BYTES))
         for candidate in _candidate_urls(listing, ticker, quote_url):
             if fiscal_period is not None and candidate["period"] != fiscal_period:
                 continue
@@ -1167,7 +1170,7 @@ def list_transcript_candidates(
         or not request_id.strip()
         or len(request_id) > 128
         or type(timeout_seconds) is not int
-        or not 1 <= timeout_seconds <= MAX_TIMEOUT_SECONDS
+        or timeout_seconds < 1
         or type(download_authorized) is not bool
     ):
         result.update(status="invalid_request", error_code="request_schema")
@@ -1276,6 +1279,7 @@ def discover_transcripts(
             normalized["as_of"],
             deadline,
             fiscal_period=(normalized["fiscal_year"], normalized["fiscal_quarter"]),
+            max_response_bytes=normalized.get("max_response_bytes"),
         )
         candidates = _candidate_entries(
             eligible, ticker=normalized["ticker"], exchange=normalized["exchange"]
@@ -1515,7 +1519,7 @@ def fetch_transcript_candidate(
             session,
             candidate["source_url"],
             deadline,
-            _body_response_cap(normalized),
+            _body_response_cap(normalized, session),
         )
         safe_effective_url = _safe_effective_url(final_url)
         if safe_effective_url != candidate["source_url"]:
