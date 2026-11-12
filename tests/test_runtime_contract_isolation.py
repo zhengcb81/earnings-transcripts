@@ -330,6 +330,23 @@ def test_old_public_contract_imports_preserve_values_and_settings_identity():
     assert contracts.DISCOVERY_RESULT_SCHEMA == "earnings-transcript-discovery-result/1"
     assert contracts.REQUEST_SCHEMA == "earnings-transcript-request/1"
 
+    # Identity alone could pass through string interning. Prove there is no
+    # second definition: transcript_api only imports these names.
+    import ast
+
+    source = (ROOT / "transcript_api.py").read_text(encoding="utf-8")
+    assigned = {
+        target.id
+        for node in ast.walk(ast.parse(source))
+        if isinstance(node, (ast.Assign, ast.AnnAssign))
+        for target in (
+            node.targets if isinstance(node, ast.Assign) else [node.target]
+        )
+        if isinstance(target, ast.Name)
+    }
+    reexported = set(contracts.__dict__) | set(settings.__dict__)
+    assert not (assigned & {name for name in reexported if name.isupper()})
+
 
 # ── ET-01: refactored validation keeps the old accept/reject rules ──
 
