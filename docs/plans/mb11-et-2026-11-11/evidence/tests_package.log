@@ -5,14 +5,14 @@
 ........................................................................ [ 54%]
 ........................................................................ [ 65%]
 ........................................................................ [ 76%]
-........................................................................ [ 87%]
+........................................................................ [ 86%]
 ........................................................................ [ 97%]
-..F...........                                                           [100%]
+...F...........                                                          [100%]
 ================================== FAILURES ===================================
 __________ test_write_receipts_never_overwrites_conflicting_receipt ___________
 
-tmp_path = WindowsPath('C:/Users/郑曾波/AppData/Local/Temp/pytest-of-郑曾波/pytest-1402/test_write_receipts_never_over0')
-capsys = <_pytest.capture.CaptureFixture object at 0x000002794A3AA2D0>
+tmp_path = WindowsPath('C:/Users/郑曾波/AppData/Local/Temp/mb11-pytest-pkg-1794514450/test_write_receipts_never_over0')
+capsys = <_pytest.capture.CaptureFixture object at 0x0000018AB7825AD0>
 
     def test_write_receipts_never_overwrites_conflicting_receipt(tmp_path, capsys):
         root = tmp_path / "corpus"
@@ -30,8 +30,8 @@ tests\test_transcript_audit.py:199: AssertionError
 ---------------------------- Captured stdout call -----------------------------
 {
  "report_schema": "et-local-text-audit/1",
- "generated_at": "2026-11-12T19:52:07",
- "root": "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\pytest-of-郑曾波\\pytest-1402\\test_write_receipts_never_over0\\corpus",
+ "generated_at": "2026-11-12T20:18:12",
+ "root": "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\mb11-pytest-pkg-1794514450\\test_write_receipts_never_over0\\corpus",
  "write_receipts": true,
  "counts": {
   "legacy_unverified": 1
@@ -56,4 +56,4 @@ tests\test_transcript_audit.py:199: AssertionError
 }
 =========================== short test summary info ===========================
 FAILED tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt
-1 failed, 661 passed in 195.68s (0:03:15)
+1 failed, 662 passed in 236.42s (0:03:56)

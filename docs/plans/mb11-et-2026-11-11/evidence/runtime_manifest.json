@@ -1,16 +1,20 @@
 {
   "schema": "et-runtime-manifest/1",
   "source_root": "C:\\Users\\\u90d1\u66fe\u6ce2\\Projects\\mb11-et",
-  "source_commit": "3fc129cc6a07fedefcbb421c7d02ee9b34368474",
+  "source_commit": "8e116a4416762647e5aeca1616522a16ce46c8c2",
   "hash_form": "working-tree checkout bytes copied into the artifact (CRLF on this Windows checkout); git blobs are LF",
   "files": {
     "transcript_tool.py": {
-      "bytes": 12423,
-      "sha256": "cb3cb3e0632a5190a49ab5e7aeb27dad815b8fad0a4a3915ee7a792b0d20956f"
+      "bytes": 12422,
+      "sha256": "a4e58e06e777f10fbc684d9dc299451fdb2e95fca37939b625a76510f6877140"
     },
     "transcript_api.py": {
-      "bytes": 58084,
-      "sha256": "4b5659d2d329459a7e2eecbbe71a1324a9cb6574ebf604bf014a3b57aca4dc04"
+      "bytes": 51380,
+      "sha256": "8a9e75096f5b3d6b491d9129bf1e454e0f2947bbb66ca84ec824d850829bc72c"
+    },
+    "transcript_preflight.py": {
+      "bytes": 7558,
+      "sha256": "22036bf0b9e9ec4a71b995ea0767dcf6876f8752e2b266c9511322812f5a6afb"
     },
     "transcript_extraction.py": {
       "bytes": 12927,
@@ -45,5 +49,5 @@
       "sha256": "bc76b2f58e9a389c95d9c4951262457041e471c2efd3d626f4cc00c9db44a1fa"
     }
   },
-  "closure_basis": "transcript_tool.py import closure at candidate tip; legacy_projection_comparison.py is imported by transcript_extraction.py"
+  "closure_basis": "transcript_tool.py import closure at candidate tip; transcript_preflight.py is the pure validation/gate layer; legacy_projection_comparison.py is imported by transcript_extraction.py"
 }

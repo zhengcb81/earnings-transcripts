@@ -55,8 +55,20 @@
 - 复核时指出的剩余文档项：runtime 证据仍绑定 `99b37cd`（作者已在复核后重跑到 `3fc129c`）；`handoff.md`/`progress.md` 的 TBD 与 171 需回填。二者均已在最终文档提交中处理。
 - 非阻断备注：无效 `max_body_bytes`（非 int/负数）在有显式配额时由旧的 `body=raw` 变为 `body=min(10MiB, raw)`；该输入被 `_validate_request` 拒绝，不可达，方向更紧，接受。
 
+## 第三轮复核（preflight 迁移，审查 tip `60b1050`/`8e116a4`，结论：代码 PASS，交接清单需回填）
+
+第三轮 agent：`mb-et-auditor`（Explore，只读，agent-56b829fd-08a4-44b5-b540-9ff2aff7c6bc）。触发原因：第二轮后作者为满足 B4 的字面要求（HTTP/parser 仅在 worker provider 层加载），新增 `transcript_preflight.py` 把纯校验/gate 从 `transcript_api` 拆出。
+
+- **代码 PASS**：`3fc129c..60b1050` 只改 5 个文件（`transcript_api.py`、`transcript_preflight.py`、`transcript_tool.py`、两个测试），无其它运行逻辑改动；`_TICKER_RE`/`_InvalidRequest`/`_validate_request`/`_base_result`/`_provider_gate` 只在 preflight 定义，`transcript_api` 导入同一对象；无循环导入。
+- 新进程禁 `transcript_api`/`transcript_extraction`/`requests`/`bs4`：`import transcript_tool` 成功；FMP+HKEX fetch 请求 → rc=0、`unsupported_market`、`blocked_loaded=[]`；`--capabilities` rc=0、输出不变。
+- 公开面：16 个常量、settings、`provider_operation_capability`、`preflight_transcript_fetch` 均为同一对象；5 个内部名仍可从 `transcript_api` 访问。
+- 定向测试：88 passed in 9.40s。
+- 未引入新问题；唯一语义细节是 `test_provider_cost_capability.py` 的 patch 点随 gate 迁移到 `transcript_preflight`（已同步修改，属边界相关）。
+- 交接清单 GAP（已在最终文档提交修正）：`handoff.json.commit`/`pushed`/`changed_paths` 未绑定 `8e116a4`、diff 表与测试数字过期、B4 行仍写旧口径、`reviewed_code_commit` 未绑定新 tip、`evidence/INDEX.md` 与 RED 日志未入库。
+
 ## 结论
 
-- 阻断问题 0；两轮审查后的最终代码 tip `3fc129c` 通过复核。
+- 阻断问题 0；最终代码 tip `8e116a4` 通过第三轮复核（preflight 迁移代码 PASS，交接清单已在文档提交中回填）。
 - 交付状态：REVIEWED（作者已推送分支；未合 main，合并由 ROOT 执行）。
+
 

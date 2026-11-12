@@ -27,6 +27,11 @@
 16. 最终测试（tip `3fc129c`）：受影响 suite **173 passed in 111.89s**（`evidence/tests_affected.log`）；包级 `tests/` **661 passed, 1 failed in 195.68s**（`evidence/tests_package.log`，唯一失败为基线既有 audit 测试，见 `evidence/baseline_preexisting_failure.log`）。
 17. 最终 runtime artifact（tip `3fc129c`）：10 文件 / 138671 字节；空 cwd `--capabilities` exit 0、与基线逐字节相同（1597 bytes）；公开 `--request-stdin --include-source-payload --report-usage` + 测试 provider → fetched / `/2` / usage_complete=true / 1 request / 862 bytes；模块全部从 artifact 解析；临时目录完整删除。证据已更新 `evidence/runtime_manifest.json`、`evidence/runtime_verify.log`。
 18. 交付文档：`handoff.md`、`handoff.json`、`review.md` 与证据索引已回填；推送分支待执行。
+19. 逐条对照复核发现 B4 字面缺口：`transcript_tool` 的 fetch preflight 仍在父进程导入 `transcript_api`（连带 requests/bs4）。新增纯模块 `transcript_preflight.py`，把 `_validate_request`/`_provider_gate`/`_base_result`/`preflight_transcript_fetch`/`_InvalidRequest`/`_TICKER_RE` 迁出，`transcript_api` 兼容重导出；`transcript_tool` 改从纯模块导入。新增 `test_fetch_preflight_is_provider_import_free`；`test_provider_cost_capability.py` 的 patch 点随 gate 迁移。提交 `60b1050`，清理 `8e116a4`。
+20. 第三轮独立复核（tip `8e116a4`）：preflight 迁移代码 **PASS**（禁 provider 下 fetch preflight/`--capabilities` 均成功，公开面同一对象，无循环导入，定向 88 passed）；指出交接清单在代码变更后过期，已在最终文档提交修正。
+21. 最终测试（tip `8e116a4`，`--basetemp` 新目录）：受影响 suite **174 passed in 148.90s**（`evidence/tests_affected.log`）；包级 `tests/` **662 passed, 1 failed in 236.42s**（`evidence/tests_package.log`，唯一失败为基线既有 audit 测试）。
+22. 最终 runtime artifact（tip `8e116a4`）：11 文件 / 139524 字节；空 cwd `--capabilities` exit 0、与基线逐字节相同；公开 fetch 流程 fetched / `/2` / usage_complete=true / 1 request / 862 bytes；`transcript_preflight` 从 artifact 解析；临时目录删除。
+
 
 
 

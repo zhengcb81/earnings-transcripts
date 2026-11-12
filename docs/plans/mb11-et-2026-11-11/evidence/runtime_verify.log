@@ -6,13 +6,14 @@ All commands run with cwd = <scratch>/empty-cwd (empty directory), no PYTHONPATH
 
 ## 1. Artifact manifest
 
-Source commit: 3fc129cc6a07fedefcbb421c7d02ee9b34368474
-Files: 10 (138671 bytes). Hash form: working-tree checkout bytes copied into the artifact (CRLF on this Windows checkout); git blobs are LF
+Source commit: 8e116a4416762647e5aeca1616522a16ce46c8c2
+Files: 11 (139524 bytes). Hash form: working-tree checkout bytes copied into the artifact (CRLF on this Windows checkout); git blobs are LF
 
 | file | bytes | sha256 |
 |---|---|---|
-| transcript_tool.py | 12423 | cb3cb3e0632a5190a49ab5e7aeb27dad815b8fad0a4a3915ee7a792b0d20956f |
-| transcript_api.py | 58084 | 4b5659d2d329459a7e2eecbbe71a1324a9cb6574ebf604bf014a3b57aca4dc04 |
+| transcript_tool.py | 12422 | a4e58e06e777f10fbc684d9dc299451fdb2e95fca37939b625a76510f6877140 |
+| transcript_api.py | 51380 | 8a9e75096f5b3d6b491d9129bf1e454e0f2947bbb66ca84ec824d850829bc72c |
+| transcript_preflight.py | 7558 | 22036bf0b9e9ec4a71b995ea0767dcf6876f8752e2b266c9511322812f5a6afb |
 | transcript_extraction.py | 12927 | c6c7a0d4d5e411b616bc3a90a16158183ba83977cb6ac92fb14e1e73da591abd |
 | legacy_projection_comparison.py | 20213 | 2f9acacf6d11f23f495a530e4eba82997c3019d20124e2c8a9f6c0fb2051b661 |
 | retrieval_runtime.py | 8364 | 3c0a0e3d68bf8a2ca6ee7e25e610fc3d1bba7455fafd2e027ff6033ee066c0a4 |
@@ -61,18 +62,19 @@ Observed:
   },
   "usage_complete": true,
   "module_files": {
-    "transcript_protocol": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\artifact\\retrieval_protocol.py",
-    "transcript_contracts": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\artifact\\transcript_contracts.py",
-    "transcript_provider_settings": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\artifact\\transcript_provider_settings.py"
+    "transcript_protocol": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-2uhid76w\\artifact\\retrieval_protocol.py",
+    "transcript_contracts": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-2uhid76w\\artifact\\transcript_contracts.py",
+    "transcript_preflight": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-2uhid76w\\artifact\\transcript_preflight.py",
+    "transcript_provider_settings": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-2uhid76w\\artifact\\transcript_provider_settings.py"
   },
   "runtime_root_empty": true,
-  "cwd": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\empty-cwd"
+  "cwd": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-2uhid76w\\empty-cwd"
 }
 ```
 
 Assertions checked by this run:
 - rc == 0, status == fetched, schema_version == earnings-transcript-result/2
 - usage_complete == true, requests_used == 1
-- transcript_protocol / transcript_contracts / transcript_provider_settings resolved from the artifact
+- transcript_protocol / transcript_contracts / transcript_preflight / transcript_provider_settings resolved from the artifact
 - worker temp root is empty after the operation
 - cwd is the empty directory (no checkout dependency)

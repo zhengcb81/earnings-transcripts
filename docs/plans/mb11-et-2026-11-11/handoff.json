@@ -4,13 +4,14 @@
   "status": "REVIEWED",
   "repository_root": "C:/Users/郑曾波/Projects/mb11-et",
   "base_commit": "003c1c065109d0b02c7bd4de09ad3e8461a99c0e",
-  "commit": "3fc129cc6a07fedefcbb421c7d02ee9b34368474",
+  "commit": "8e116a4416762647e5aeca1616522a16ce46c8c2",
   "branch": "codex/mb11-et",
   "target_branch": "main",
   "pushed": true,
   "changed_paths": [
     "transcript_contracts.py",
     "transcript_provider_settings.py",
+    "transcript_preflight.py",
     "retrieval_protocol.py",
     "transcript_api.py",
     "retrieval_runtime.py",
@@ -20,40 +21,41 @@
     "tests/test_worker_result_budget_contract.py",
     "tests/test_retrieval_runtime.py",
     "tests/test_explicit_response_budget.py",
+    "tests/test_provider_cost_capability.py",
     "docs/plans/mb11-et-2026-11-11/"
   ],
   "requirements": [
     {
       "id": "ET-01",
       "result": "PASS",
-      "red_evidence": "New-process import guard: import retrieval_runtime -> ImportError: provider module blocked: transcript_api; import retrieval_worker -> ImportError: supervisor module blocked: retrieval_runtime; transcript_tool.py --capabilities -> provider module blocked: transcript_api.",
-      "green_evidence": "tests/test_runtime_contract_isolation.py (6 tests): supervisor imports with transcript_api/extraction/requests/bs4 blocked; worker dispatch with retrieval_runtime blocked; capabilities CLI provider-free with full golden; re-export identity + AST no-second-definition; settings isolation; protocol accept/reject semantics."
+      "red_evidence": "New-process import guard on baseline 003c1c0: import retrieval_runtime -> ImportError: provider module blocked: transcript_api (evidence/red_et01_supervisor_import.log); import retrieval_worker -> ImportError: supervisor module blocked: retrieval_runtime; transcript_tool --capabilities and fetch preflight -> provider module blocked.",
+      "green_evidence": "tests/test_runtime_contract_isolation.py (7 tests): supervisor imports with transcript_api/extraction/requests/bs4 blocked; worker dispatch with retrieval_runtime blocked; capabilities CLI provider-free with full golden; fetch preflight provider-free (unsupported_market decided in the parent); re-export identity + AST no-second-definition; settings isolation; protocol accept/reject semantics."
     },
     {
       "id": "ET-02",
       "result": "PASS",
-      "red_evidence": "Worker with legacy MAX_RESULT_BYTES shrunk to 64 bytes rejected a legal list result: rc=2 and no result.json (one-off reproduction). Later review found a second fixed cap in the derived formula for body-only requests (304 MiB); fixed in 9f362ea.",
-      "green_evidence": "tests/test_worker_result_budget_contract.py (5 tests): no legacy veto; limit formula follows explicit quota; base64/JSON overhead covered; body-only 400 MB quota yields >= 6*400MB; real response byte overrun still measured as content_too_large/byte_limit. Supervisor read bound and worker write bound call the same result_transfer_limit(payload, response_bytes_left)."
+      "red_evidence": "Worker with legacy MAX_RESULT_BYTES shrunk to 64 bytes rejected a legal list result: rc=2 and no result.json (evidence/red_et02_worker_veto.log). Review round 1 also found a second fixed cap in the derived formula for body-only requests (304 MiB); fixed in 9f362ea.",
+      "green_evidence": "tests/test_worker_result_budget_contract.py (5 tests): no legacy veto; limit formula follows explicit quota; body-only 400 MB quota yields >= 6*400MB; base64/JSON overhead covered; real response byte overrun still measured as content_too_large/byte_limit. Supervisor read bound and worker write bound call the same result_transfer_limit(payload, response_bytes_left)."
     }
   ],
   "public_contract_changes": [],
   "test_runs": [
     {
-      "command": "python -B -m pytest tests/test_retrieval_runtime.py tests/test_retrieval_cli_e2e.py tests/test_launch_capability_contract.py tests/test_provider_cost_capability.py tests/test_request_response_budget.py tests/test_batch_runtime.py tests/test_optional_local_receipt.py tests/test_explicit_response_budget.py tests/test_runtime_contract_isolation.py tests/test_worker_result_budget_contract.py -q -p no:cacheprovider",
+      "command": "python -B -m pytest tests/test_retrieval_runtime.py tests/test_retrieval_cli_e2e.py tests/test_launch_capability_contract.py tests/test_provider_cost_capability.py tests/test_request_response_budget.py tests/test_batch_runtime.py tests/test_optional_local_receipt.py tests/test_explicit_response_budget.py tests/test_runtime_contract_isolation.py tests/test_worker_result_budget_contract.py -q -p no:cacheprovider --basetemp=<fresh>",
       "exit_code": 0,
-      "passed": 173,
+      "passed": 174,
       "failed": 0,
       "skipped": 0,
-      "seconds": 111.89,
+      "seconds": 148.9,
       "log": "docs/plans/mb11-et-2026-11-11/evidence/tests_affected.log"
     },
     {
-      "command": "python -B -m pytest tests/ -q -p no:cacheprovider",
+      "command": "python -B -m pytest tests/ -q -p no:cacheprovider --basetemp=<fresh>",
       "exit_code": 1,
-      "passed": 661,
+      "passed": 662,
       "failed": 1,
       "skipped": 0,
-      "seconds": 195.68,
+      "seconds": 236.42,
       "log": "docs/plans/mb11-et-2026-11-11/evidence/tests_package.log"
     },
     {
@@ -63,7 +65,8 @@
       "failed": 0,
       "skipped": 0,
       "seconds": null,
-      "log": "docs/plans/mb11-et-2026-11-11/evidence/runtime_verify.log"
+      "log": "docs/plans/mb11-et-2026-11-11/evidence/runtime_verify.log",
+      "note": "No pytest count; exit code and byte-identical output are the assertions."
     },
     {
       "command": "runtime artifact: public --request-stdin --include-source-payload --report-usage via test provider (empty cwd)",
@@ -72,21 +75,23 @@
       "failed": 0,
       "skipped": 0,
       "seconds": null,
-      "log": "docs/plans/mb11-et-2026-11-11/evidence/runtime_verify.log"
+      "log": "docs/plans/mb11-et-2026-11-11/evidence/runtime_verify.log",
+      "note": "No pytest count; status/schema/usage assertions are in the log."
     }
   ],
   "independent_review": {
-    "reviewer": "Explore-1 (read-only agent)",
-    "reviewed_code_commit": "3fc129cc6a07fedefcbb421c7d02ee9b34368474",
+    "reviewer": "Explore-1 (read-only agent, rounds 1-2); mb-et-auditor/Explore-1 (round 3, agent-56b829fd-08a4-44b5-b540-9ff2aff7c6bc)",
+    "reviewed_code_commit": "8e116a4416762647e5aeca1616522a16ce46c8c2",
     "report": "review.md",
     "open_in_scope_findings": []
   },
   "environment_restored": true,
+  "environment_notes": "pytest used fresh --basetemp dirs (removed after the run); the runtime artifact scratch dir was created empty and removed. The repository has no new test outputs.",
   "network_calls": 0,
   "model_calls": 0,
   "out_of_scope_findings": [
     "tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt fails identically on baseline main 003c1c0 (evidence/baseline_preexisting_failure.log); pre-existing defect, not introduced by this card.",
-    "README.md file tree does not list the three new pure modules; docs-only follow-up, not required by the card write set."
+    "README.md file tree does not list the new pure modules (it already omits transcript_api/retrieval_*); docs-only follow-up, not required by the card write set."
   ],
   "next_root_action": "Fetch origin and review origin/codex/mb11-et against origin/main; in an independent integration worktree run the affected suite and the package CI once, then merge the delivery commit."
 }

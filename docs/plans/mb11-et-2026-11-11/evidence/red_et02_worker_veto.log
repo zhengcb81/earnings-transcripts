@@ -1,0 +1,3 @@
+baseline retrieval_worker.MAX_RESULT_BYTES shrunk to 64
+worker rc = 2
+result.json exists = False
