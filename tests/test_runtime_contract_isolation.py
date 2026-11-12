@@ -246,14 +246,52 @@ def test_capabilities_cli_is_provider_import_free():
 
     capability = json.loads(lines[0])
     assert capability["schema_version"] == "earnings-provider-capabilities/1"
-    assert set(capability["providers"]) == {"fmp", "motley_fool"}
     assert capability["providers"]["fmp"]["fetch"]["supported"] is True
     assert capability["providers"]["fmp"]["discover"]["supported"] is False
     assert capability["providers"]["motley_fool"]["fetch"]["enabled"] is False
-    assert capability["providers"]["motley_fool"]["fetch"]["supported"] is True
     assert capability["providers"]["fmp"]["fetch"]["supported_exchanges"] == [
         "auto", "nasdaq", "nyse"
     ]
+
+    # Full golden from the pure settings module: the provider-free CLI path must
+    # produce exactly the same descriptor, not a similar subset.
+    from transcript_provider_settings import (
+        DEFAULT_PROVIDER_SETTINGS,
+        provider_operation_capability,
+    )
+
+    expected = {
+        "schema_version": "earnings-provider-capabilities/1",
+        "providers": {
+            provider: {
+                operation: provider_operation_capability(
+                    provider, operation, settings=DEFAULT_PROVIDER_SETTINGS
+                )
+                for operation in ("fetch", "discover", "fetch-candidate")
+            }
+            for provider in ("fmp", "motley_fool")
+        },
+    }
+    assert capability == expected
+
+
+def test_explicit_provider_settings_do_not_pollute_the_shared_default():
+    """Settings are pure values: one caller's explicit settings stay local."""
+    from transcript_provider_settings import (
+        DEFAULT_PROVIDER_SETTINGS,
+        ProviderSettings,
+        provider_operation_capability,
+    )
+
+    baseline = provider_operation_capability("motley_fool", "fetch")
+    custom = ProviderSettings(motley_fool_enabled=True, fmp_enabled=False)
+    enabled = provider_operation_capability("motley_fool", "fetch", settings=custom)
+    assert enabled["enabled"] is True
+    assert baseline["enabled"] is False
+    assert provider_operation_capability("motley_fool", "fetch") == baseline
+    assert DEFAULT_PROVIDER_SETTINGS == ProviderSettings()
+    assert DEFAULT_PROVIDER_SETTINGS.motley_fool_enabled is False
+    assert DEFAULT_PROVIDER_SETTINGS.fmp_enabled is True
 
 
 def test_old_public_contract_imports_preserve_values_and_settings_identity():

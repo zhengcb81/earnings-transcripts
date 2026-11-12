@@ -29,7 +29,7 @@ from typing import Any
 from retrieval_protocol import (
     REQUEST_FILENAME,
     RESULT_FILENAME,
-    WORKER_PROTOCOL,
+    WORKER_PROTOCOL,  # re-exported: existing callers/tests read it here
     build_request_envelope,
     encode_envelope,
     expected_request_id,
