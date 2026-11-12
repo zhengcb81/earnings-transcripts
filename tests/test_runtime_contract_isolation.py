@@ -294,10 +294,62 @@ def test_explicit_provider_settings_do_not_pollute_the_shared_default():
     assert DEFAULT_PROVIDER_SETTINGS.fmp_enabled is True
 
 
+def test_fetch_preflight_is_provider_import_free():
+    """A rejected fetch is decided in the parent without provider/HTTP code."""
+    result = _run_script(
+        """
+        import io, json, sys
+        sys.path.insert(0, __ROOT__)
+
+        BLOCKED = ("transcript_api", "transcript_extraction", "requests", "bs4")
+
+        class Blocker:
+            def find_spec(self, name, path=None, target=None):
+                if name.split(".")[0] in BLOCKED:
+                    raise ImportError("provider module blocked: " + name)
+                return None
+
+        sys.meta_path.insert(0, Blocker())
+
+        import transcript_tool
+
+        request = {
+            "schema_version": "earnings-transcript-request/1",
+            "request_id": "iso-preflight-1",
+            "ticker": "MSFT",
+            "exchange": "HKEX",
+            "fiscal_year": 2026,
+            "fiscal_quarter": 3,
+            "as_of_date": "2026-07-30",
+            "provider": "fmp",
+            "download_authorized": True,
+            "timeout_seconds": 10,
+            "max_body_bytes": 1000000,
+        }
+        sys.stdin = io.StringIO(json.dumps(request))
+        out = io.StringIO()
+        sys.stdout = out
+        rc = transcript_tool.main(["--request-stdin"])
+        sys.__stdout__.write(json.dumps({
+            "rc": rc,
+            "result": json.loads(out.getvalue()),
+            "blocked_loaded": [n for n in BLOCKED if n in sys.modules],
+        }) + "\\n")
+        """
+    )
+    assert result.returncode == 0, result.stderr
+    observed = json.loads(result.stdout)
+    assert observed["rc"] == 0
+    assert observed["result"]["status"] == "unsupported"
+    assert observed["result"]["error_code"] == "unsupported_market"
+    assert observed["blocked_loaded"] == []
+
+
 def test_old_public_contract_imports_preserve_values_and_settings_identity():
     """Existing consumers keep importing from ``transcript_api``; no second copy."""
     import transcript_api as api
     import transcript_contracts as contracts
+    import transcript_preflight
     import transcript_provider_settings as settings
 
     for name in (
@@ -324,6 +376,7 @@ def test_old_public_contract_imports_preserve_values_and_settings_identity():
     assert api.DEFAULT_PROVIDER_SETTINGS is settings.DEFAULT_PROVIDER_SETTINGS
     assert api.provider_operation_capability is settings.provider_operation_capability
     assert api.EXCHANGES is settings.EXCHANGES
+    assert api.preflight_transcript_fetch is transcript_preflight.preflight_transcript_fetch
 
     assert contracts.RESULT_SCHEMA == "earnings-transcript-result/1"
     assert contracts.RESULT_SCHEMA_WITH_SOURCE_PAYLOAD == "earnings-transcript-result/2"

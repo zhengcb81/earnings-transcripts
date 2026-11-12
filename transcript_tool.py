@@ -228,10 +228,10 @@ def main(
         else:
             request = json.loads(raw)
             # Provider implementation is imported only on the paths that need
-            # it; ``--capabilities`` answers from the pure settings module.
+            # it; validation/gating is pure and stays in the parent.
             preflight = None
             if args.operation == "fetch":
-                from transcript_api import preflight_transcript_fetch
+                from transcript_preflight import preflight_transcript_fetch
 
                 preflight = preflight_transcript_fetch(
                     request,

@@ -42,8 +42,10 @@ def test_invalid_fee_ceiling_rejected_before_http(ceiling):
 
 
 def test_incrementally_charged_operation_does_not_use_zero_ceiling(monkeypatch):
-    import transcript_api
-    monkeypatch.setattr(transcript_api, "provider_operation_capability", lambda *a, **kw: {
+    # The provider gate moved to the pure preflight module (MB-ET); patch the
+    # capability source where the gate now resolves it.
+    import transcript_preflight
+    monkeypatch.setattr(transcript_preflight, "provider_operation_capability", lambda *a, **kw: {
         "enabled": True, "supported": True, "incremental_cost_usd": "0.25"}, raising=False)
     session = FakeSession({})
     result = fetch_transcript(make_request(provider="fmp", max_cost_usd="0.00"),
