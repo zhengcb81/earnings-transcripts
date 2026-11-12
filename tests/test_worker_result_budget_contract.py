@@ -144,6 +144,15 @@ def test_result_transfer_limit_follows_explicit_request_quota():
     )
     assert narrowed == 6 * (2 * 100_000 + 100_000) + 2 * 1024 * 1024
 
+    # The old fixed cap was 153_092_096 bytes (146 MiB). An explicit 200 MB
+    # response quota can legally produce a base64 envelope above it, so the
+    # legacy gate was reachable, not merely theoretical.
+    explicit = retrieval_protocol.result_transfer_limit(
+        {"max_response_bytes": 200_000_000, "max_body_bytes": 10_000_000},
+        200_000_000,
+    )
+    assert explicit > 153_092_096
+
 
 def test_transfer_limit_accounts_for_base64_and_json_escaping_overhead():
     raw = 4_000_000
