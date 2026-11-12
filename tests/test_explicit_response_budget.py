@@ -117,6 +117,10 @@ def test_supervisor_result_bound_tracks_the_explicit_operation_budget(tmp_path, 
     )
     assert outcome.result is not None and outcome.result["status"] == "fetched"
     expected = retrieval_protocol.result_transfer_limit(request, 100 * 1024 * 1024)
+    # Independent formula check: explicit raw quota + declared body quota.
+    assert expected == 6 * (
+        2 * request["max_body_bytes"] + 100 * 1024 * 1024
+    ) + 2 * 1024 * 1024
     assert observed and observed[0] == expected
     assert observed[0] > retrieval_protocol.result_transfer_limit({}, None)
     assert list((tmp_path / "workers").iterdir()) == []

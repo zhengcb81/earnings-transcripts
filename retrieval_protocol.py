@@ -61,9 +61,18 @@ def result_transfer_limit(
         for value in (declared, response_bytes_left)
         if type(value) is int and value >= 0
     ]
-    raw = min(limits) if limits else MAX_FMP_RESPONSE_BYTES
     body = payload.get("max_body_bytes", MAX_BODY_BYTES)
-    body = min(body, raw) if type(body) is int and body >= 0 else raw
+    if type(body) is not int or body < 0:
+        body = MAX_BODY_BYTES
+    if limits:
+        raw = min(limits)
+        body = min(body, raw)
+    else:
+        # No explicit response quota: the Motley Fool read cap is the body cap
+        # (``_body_response_cap``), while FMP keeps its own 16 MiB default. The
+        # raw term must cover both; clamping body to the FMP default would
+        # reintroduce a fixed cap for a larger explicit body quota.
+        raw = max(MAX_FMP_RESPONSE_BYTES, body)
     return JSON_ESCAPE_EXPANSION * (2 * body + raw) + PROTOCOL_OVERHEAD_BYTES
 
 

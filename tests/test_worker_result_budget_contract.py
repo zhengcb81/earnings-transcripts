@@ -188,6 +188,24 @@ def test_transfer_limit_accounts_for_base64_and_json_escaping_overhead():
     ) is False
 
 
+def test_body_only_quota_is_not_capped_by_the_default_response_ceiling():
+    """A body-only request must not inherit the FMP 16 MiB default as a cap.
+
+    The Motley Fool read cap is ``max_body_bytes`` (``_body_response_cap``), so
+    the derived result limit has to follow it. Clamping body to the FMP default
+    would reintroduce a fixed cap for an explicit larger body quota.
+
+    This is the honest low-memory RED for that branch: a worker-level
+    reproduction would need a legal result above the old formula's 304 MB
+    (16 MiB default + 2 MiB overhead), which the card forbids in daily CI.
+    The worker's use of this function is proven separately by
+    ``test_worker_result_has_no_fixed_legacy_representation_veto``.
+    """
+    limit = retrieval_protocol.result_transfer_limit({"max_body_bytes": 400_000_000}, None)
+    assert limit >= 6 * 400_000_000
+    assert limit > retrieval_protocol.result_transfer_limit({}, None)
+
+
 # ── ET-02: real quota overrun still wins over representation ────────
 
 

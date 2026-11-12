@@ -229,10 +229,15 @@ def main(
             request = json.loads(raw)
             # Provider implementation is imported only on the paths that need
             # it; ``--capabilities`` answers from the pure settings module.
-            from transcript_api import preflight_transcript_fetch
+            preflight = None
+            if args.operation == "fetch":
+                from transcript_api import preflight_transcript_fetch
 
-            preflight = preflight_transcript_fetch(request, result_schema=result_schema,
-                                                  settings=_provider_settings) if args.operation == "fetch" else None
+                preflight = preflight_transcript_fetch(
+                    request,
+                    result_schema=result_schema,
+                    settings=_provider_settings,
+                )
             fmp_api_key, credential_error = (None, None)
             if preflight is None and args.operation == "fetch" and isinstance(request, dict) and request.get("provider") == "fmp":
                 fmp_api_key, credential_error = _configured_fmp_key()
