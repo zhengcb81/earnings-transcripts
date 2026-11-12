@@ -11,6 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import pytest  # noqa: E402
+import retrieval_protocol  # noqa: E402
 import retrieval_runtime  # noqa: E402
 import transcript_tool  # noqa: E402
 import transcript_api as api  # noqa: E402
@@ -115,7 +116,9 @@ def test_supervisor_result_bound_tracks_the_explicit_operation_budget(tmp_path, 
         temp_root=tmp_path / "workers",
     )
     assert outcome.result is not None and outcome.result["status"] == "fetched"
-    assert observed and observed[0] > retrieval_runtime.MAX_RESULT_BYTES
+    expected = retrieval_protocol.result_transfer_limit(request, 100 * 1024 * 1024)
+    assert observed and observed[0] == expected
+    assert observed[0] > retrieval_protocol.result_transfer_limit({}, None)
     assert list((tmp_path / "workers").iterdir()) == []
 
 

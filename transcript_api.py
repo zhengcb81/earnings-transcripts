@@ -12,7 +12,6 @@ import html
 import json
 import re
 import time
-from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from decimal import Decimal, InvalidOperation
 from typing import Any, Callable
@@ -23,69 +22,30 @@ from bs4 import BeautifulSoup
 from retrieval_budget import BatchBudgetExceeded, UsageCounter, _BudgetSession
 
 import transcript_extraction
-
-REQUEST_SCHEMA = "earnings-transcript-request/1"
-RESULT_SCHEMA = "earnings-transcript-result/1"
-RESULT_SCHEMA_WITH_SOURCE_PAYLOAD = "earnings-transcript-result/2"
-DISCOVERY_RESULT_SCHEMA = "earnings-transcript-discovery-result/1"
-CANDIDATE_FETCH_REQUEST_SCHEMA = "earnings-transcript-candidate-fetch-request/1"
-EXTRACTION_VERSION_LEGACY = "motley-fool-main-text/1"
-EXTRACTION_VERSION = "motley-fool-main-text/2"
-ADAPTER_VERSION = "1.0.0"
-MAX_TIMEOUT_SECONDS = 60
-MAX_BODY_BYTES = 10 * 1024 * 1024
-MAX_LISTING_BYTES = 2 * 1024 * 1024
-MAX_FMP_RESPONSE_BYTES = 16 * 1024 * 1024
-MAX_SOURCE_PAYLOAD_RESULT_BYTES = 24 * 1024 * 1024
-MIN_CONTENT_CHARS = 200
-ALLOWED_HOST = "www.fool.com"
-FMP_ALLOWED_HOST = "financialmodelingprep.com"
-EXCHANGES = ("nasdaq", "nyse")
-
-
-@dataclass(frozen=True)
-class ProviderSettings:
-    """Reviewed runtime availability; request intent cannot enable a provider."""
-
-    motley_fool_enabled: bool = False
-    fmp_enabled: bool = True
-
-
-DEFAULT_PROVIDER_SETTINGS = ProviderSettings()
-
-
-def provider_operation_capability(
-    provider: str,
-    operation: str,
-    *,
-    settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
-) -> dict[str, Any]:
-    """Local operation/pricing metadata; account entitlement remains unknown.
-
-    FMP uses the existing account subscription/rate/bandwidth quota. A GET
-    neither purchases nor upgrades a plan, and has zero incremental request
-    charge: https://site.financialmodelingprep.com/pricing-plans . A provider
-    rejection must still be reported from the actual request.
-    """
-    supported = (provider == "fmp" and operation == "fetch") or (
-        provider == "motley_fool"
-        and operation in {"fetch", "discover", "fetch-candidate"}
-    )
-    enabled = {
-        "fmp": settings.fmp_enabled,
-        "motley_fool": settings.motley_fool_enabled,
-    }.get(provider, False)
-    return {
-        "provider": provider,
-        "operation": operation,
-        "enabled": enabled,
-        "supported": supported,
-        "incremental_cost_usd": "0" if supported else None,
-        "billing_model": "subscription_quota" if provider == "fmp" else "public_http",
-        "entitlement": "runtime_unknown",
-        "supported_markets": ["US"] if supported else [],
-        "supported_exchanges": ["auto", *EXCHANGES] if supported else [],
-    }
+from transcript_contracts import (
+    ADAPTER_VERSION,
+    ALLOWED_HOST,
+    CANDIDATE_FETCH_REQUEST_SCHEMA,
+    DISCOVERY_RESULT_SCHEMA,
+    EXTRACTION_VERSION,
+    EXTRACTION_VERSION_LEGACY,
+    FMP_ALLOWED_HOST,
+    MAX_BODY_BYTES,
+    MAX_FMP_RESPONSE_BYTES,
+    MAX_LISTING_BYTES,
+    MAX_SOURCE_PAYLOAD_RESULT_BYTES,
+    MAX_TIMEOUT_SECONDS,
+    MIN_CONTENT_CHARS,
+    REQUEST_SCHEMA,
+    RESULT_SCHEMA,
+    RESULT_SCHEMA_WITH_SOURCE_PAYLOAD,
+)
+from transcript_provider_settings import (
+    DEFAULT_PROVIDER_SETTINGS,
+    EXCHANGES,
+    ProviderSettings,
+    provider_operation_capability,
+)
 
 
 SKIP_TEXT = (

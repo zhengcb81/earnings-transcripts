@@ -20,16 +20,16 @@ from typing import Any, Callable
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import retrieval_runtime
-from transcript_api import (
-    DEFAULT_PROVIDER_SETTINGS,
+from transcript_contracts import (
     DISCOVERY_RESULT_SCHEMA,
     MAX_TIMEOUT_SECONDS,
+    RESULT_SCHEMA,
+    RESULT_SCHEMA_WITH_SOURCE_PAYLOAD,
+)
+from transcript_provider_settings import (
+    DEFAULT_PROVIDER_SETTINGS,
     ProviderSettings,
-    discover_transcripts,
-    fetch_transcript,
-    fetch_transcript_candidate,
     provider_operation_capability,
-    preflight_transcript_fetch,
 )
 
 
@@ -211,9 +211,9 @@ def main(
     result_schema = (
         DISCOVERY_RESULT_SCHEMA
         if args.operation == "discover"
-        else "earnings-transcript-result/2"
+        else RESULT_SCHEMA_WITH_SOURCE_PAYLOAD
         if args.include_source_payload
-        else "earnings-transcript-result/1"
+        else RESULT_SCHEMA
     )
     try:
         raw = sys.stdin.read(128 * 1024 + 1)
@@ -227,6 +227,10 @@ def main(
             )
         else:
             request = json.loads(raw)
+            # Provider implementation is imported only on the paths that need
+            # it; ``--capabilities`` answers from the pure settings module.
+            from transcript_api import preflight_transcript_fetch
+
             preflight = preflight_transcript_fetch(request, result_schema=result_schema,
                                                   settings=_provider_settings) if args.operation == "fetch" else None
             fmp_api_key, credential_error = (None, None)
@@ -255,6 +259,12 @@ def main(
                 )
             elif _session_factory is not None:
                 # Cooperative path: injected custom session (offline tests).
+                from transcript_api import (
+                    discover_transcripts,
+                    fetch_transcript,
+                    fetch_transcript_candidate,
+                )
+
                 provider_options: dict[str, Any] = {
                     "provider_settings": _provider_settings,
                     "session_factory": _session_factory,

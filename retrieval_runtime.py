@@ -26,33 +26,23 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from transcript_api import (
-    DISCOVERY_RESULT_SCHEMA,
-    MAX_BODY_BYTES,
-    MAX_FMP_RESPONSE_BYTES,
-    MAX_SOURCE_PAYLOAD_RESULT_BYTES,
-    RESULT_SCHEMA,
-    RESULT_SCHEMA_WITH_SOURCE_PAYLOAD,
-    DEFAULT_PROVIDER_SETTINGS,
-    ProviderSettings,
+from retrieval_protocol import (
+    REQUEST_FILENAME,
+    RESULT_FILENAME,
+    WORKER_PROTOCOL,
+    build_request_envelope,
+    encode_envelope,
+    expected_request_id,
+    expected_schemas,
+    parse_result_envelope,
+    result_transfer_limit,
 )
+from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
 
-WORKER_PROTOCOL = "et-retrieval-worker/1"
 WORKER_PATH = Path(__file__).resolve().parent / "retrieval_worker.py"
 # One fixed total for terminate → kill → wait; every wait in one reclamation
 # shares this window, no wait gets a fresh grace.
 CLEANUP_GRACE_SECONDS = 1.0
-MAX_REQUEST_FILE_BYTES = 4 * 1024 * 1024
-# JSON escaping expands a byte by at most 6x (\uXXXX for control characters).
-# content_utf8 and the extracted title are each bounded by one capped page;
-# the opt-in base64 payload (mutually exclusive with content_utf8) is bounded
-# by MAX_SOURCE_PAYLOAD_RESULT_BYTES. The ceiling never rejects a legal
-# maximum-size payload; normal results are kilobytes.
-MAX_RESULT_BYTES = (
-    6 * (2 * MAX_BODY_BYTES) + MAX_SOURCE_PAYLOAD_RESULT_BYTES + 2 * 1024 * 1024
-)
-_REQUEST_FILENAME = "request.json"
-_RESULT_FILENAME = "result.json"
 
 
 @dataclass(frozen=True)
@@ -69,20 +59,6 @@ class RetrievalOutcome:
     usage: dict[str, Any] | None
     reason: str | None
     exit_code: int | None
-
-
-def _result_read_limit(payload: dict[str, Any], response_bytes_left: int | None) -> int:
-    """Conservative encoding allocation from actual source quotas, not a top cap."""
-    if not isinstance(payload, dict):
-        payload = {}
-    declared = payload.get("max_response_bytes")
-    limits = [value for value in (declared, response_bytes_left) if type(value) is int and value >= 0]
-    raw = min(limits) if limits else MAX_FMP_RESPONSE_BYTES
-    body = payload.get("max_body_bytes", MAX_BODY_BYTES)
-    body = min(body, raw) if type(body) is int and body >= 0 else raw
-    # Titles/text/candidates originate in the same raw bytes. JSON escaping is
-    # at most6x and base64 smaller; fixed protocol fields have ample overhead.
-    return 6 * (2 * body + raw) + 2 * 1024 * 1024
 
 
 def run_retrieval(
@@ -129,30 +105,23 @@ def run_retrieval(
             dir=str(temp_root) if temp_root is not None else None,
         )
     )
-    request_path = workdir / _REQUEST_FILENAME
-    result_path = workdir / _RESULT_FILENAME
+    request_path = workdir / REQUEST_FILENAME
+    result_path = workdir / RESULT_FILENAME
 
-    envelope = {
-        "protocol": WORKER_PROTOCOL,
-        "operation": operation,
-        "payload": payload,
-        "include_source_payload": bool(include_source_payload),
-        "provider_settings": {
-            "motley_fool_enabled": bool(provider_settings.motley_fool_enabled),
-            "fmp_enabled": bool(provider_settings.fmp_enabled),
-        },
-        "budget": {
-            "seconds_remaining": float(remaining_seconds),
+    envelope = build_request_envelope(
+        operation,
+        payload,
+        include_source_payload=include_source_payload,
+        provider_settings=provider_settings,
+        budget={
+            "seconds_remaining": remaining_seconds,
             "requests_left": requests_left,
             "response_bytes_left": response_bytes_left,
         },
-        "launcher": (
-            {"factory": launcher, "spec": launcher_spec}
-            if launcher is not None
-            else None
-        ),
-    }
-    request_path.write_bytes(json.dumps(envelope, ensure_ascii=False).encode("utf-8"))
+        launcher=launcher,
+        launcher_spec=launcher_spec,
+    )
+    request_path.write_bytes(encode_envelope(envelope))
 
     env = os.environ.copy()
     if fmp_api_key:
@@ -180,31 +149,13 @@ def run_retrieval(
 
     result, usage, reason = _load_result_file(
         result_path,
-        expected_request_id=_expected_request_id(operation, payload),
-        expected_schemas=_expected_schemas(operation, include_source_payload),
+        expected_request_id=expected_request_id(operation, payload),
+        expected_schemas=expected_schemas(operation, include_source_payload),
         deadline=deadline,
-        max_bytes=_result_read_limit(payload, response_bytes_left),
+        max_bytes=result_transfer_limit(payload, response_bytes_left),
     )
     _remove_workdir(workdir)
     return RetrievalOutcome(result, usage, reason, exit_code)
-
-
-def _expected_request_id(operation: str, payload: Any) -> str | None:
-    if operation == "list":
-        return payload.get("request_id") if isinstance(payload, dict) else None
-    if isinstance(payload, dict) and isinstance(payload.get("request_id"), str):
-        return payload["request_id"]
-    return None
-
-
-def _expected_schemas(operation: str, include_source_payload: bool) -> set[str] | None:
-    if operation == "list":
-        return None  # internal listing helper, not a wire schema
-    if operation == "discover":
-        return {DISCOVERY_RESULT_SCHEMA}
-    if include_source_payload:
-        return {RESULT_SCHEMA_WITH_SOURCE_PAYLOAD}
-    return {RESULT_SCHEMA}
 
 
 def _wait_until(process: subprocess.Popen, deadline: float) -> bool:
@@ -256,25 +207,6 @@ def _remove_workdir(workdir: Path) -> None:
         _report_cleanup_failure(f"{exc}; keeping {workdir}")
 
 
-def _parse_usage(value: Any) -> dict[str, Any] | None:
-    if not isinstance(value, dict):
-        return None
-    requests_used = value.get("requests_used")
-    response_bytes_used = value.get("response_bytes_used")
-    exhausted = value.get("exhausted")
-    if type(requests_used) is not int or requests_used < 0:
-        return None
-    if type(response_bytes_used) is not int or response_bytes_used < 0:
-        return None
-    if exhausted is not None and not isinstance(exhausted, str):
-        return None
-    return {
-        "requests_used": requests_used,
-        "response_bytes_used": response_bytes_used,
-        "exhausted": exhausted,
-    }
-
-
 def _load_result_file(
     path: Path,
     *,
@@ -283,7 +215,11 @@ def _load_result_file(
     deadline: float,
     max_bytes: int,
 ) -> tuple[dict[str, Any] | None, dict[str, Any] | None, str | None]:
-    """Bounded read + identity/shape validation + post-read deadline check."""
+    """Bounded read + protocol validation + post-read deadline check.
+
+    The protocol module owns envelope identity/shape/usage rules; this function
+    only applies the file-size bound and the wall-clock deadline.
+    """
     try:
         size = path.stat().st_size
     except OSError:
@@ -294,24 +230,13 @@ def _load_result_file(
         envelope = json.loads(path.read_bytes())
     except (OSError, ValueError):
         return None, None, "worker_failure"
-    if not isinstance(envelope, dict) or envelope.get("protocol") != WORKER_PROTOCOL:
-        return None, None, "worker_failure"
-    usage = _parse_usage(envelope.get("usage"))
-    if usage is None:
-        return None, None, "worker_failure"
-    result = envelope.get("result")
-    if not isinstance(result, dict):
-        return None, usage, "worker_failure"
-    if (
-        expected_request_id is not None
-        and result.get("request_id") != expected_request_id
-    ):
-        return None, usage, "worker_failure"
-    if (
-        expected_schemas is not None
-        and result.get("schema_version") not in expected_schemas
-    ):
-        return None, usage, "worker_failure"
+    result, usage, reason = parse_result_envelope(
+        envelope,
+        expected_request_id=expected_request_id,
+        expected_schemas=expected_schemas,
+    )
+    if reason is not None:
+        return result, usage, reason
     if time.monotonic() > deadline:
         return None, usage, "deadline"
     return result, usage, None

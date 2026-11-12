@@ -5,12 +5,15 @@ path argument. It performs no translation, writes no official originals, spawns
 no further processes, and communicates solely through one bounded atomic
 result file in its own temp directory. Credentials reach it only through the
 process environment (``FMP_API_KEY``) and are never serialized.
+
+The request/result envelope definitions come from ``retrieval_protocol`` — this
+module must not import the supervisor. The provider implementation is imported
+here, in the worker process, and never becomes a parent-side dependency.
 """
 
 from __future__ import annotations
 
 import importlib
-import json
 import os
 import sys
 from pathlib import Path
@@ -21,10 +24,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import requests
 
 from retrieval_budget import BatchBudget, UsageCounter, _BudgetSession
-from retrieval_runtime import (
-    MAX_REQUEST_FILE_BYTES,
-    MAX_RESULT_BYTES,
-    WORKER_PROTOCOL,
+from retrieval_protocol import (
+    RESULT_FILENAME,
+    encode_result_envelope,
+    read_request_envelope,
+    result_within_limit,
 )
 from transcript_api import (
     ProviderSettings,
@@ -33,25 +37,6 @@ from transcript_api import (
     fetch_transcript_candidate,
     list_transcript_candidates,
 )
-
-_RESULT_FILENAME = "result.json"
-
-
-def _read_request(path: Path) -> dict[str, Any] | None:
-    try:
-        with path.open("rb") as handle:
-            raw = handle.read(MAX_REQUEST_FILE_BYTES + 1)
-    except OSError:
-        return None
-    if len(raw) > MAX_REQUEST_FILE_BYTES:
-        return None
-    try:
-        envelope = json.loads(raw)
-    except ValueError:
-        return None
-    if not isinstance(envelope, dict) or envelope.get("protocol") != WORKER_PROTOCOL:
-        return None
-    return envelope
 
 
 def _provider_settings(envelope: dict[str, Any]) -> ProviderSettings | None:
@@ -133,7 +118,7 @@ def main(argv: list[str]) -> int:
     if len(argv) != 1:
         return 2
     request_path = Path(argv[0])
-    envelope = _read_request(request_path)
+    envelope = read_request_envelope(request_path)
     if envelope is None:
         return 1
     settings = _provider_settings(envelope)
@@ -174,16 +159,13 @@ def main(argv: list[str]) -> int:
         return _BudgetSession(inner, budget)
 
     result = _dispatch(envelope, session_factory, settings)
-    envelope_out = {
-        "protocol": WORKER_PROTOCOL,
-        "usage": budget.usage_snapshot(),
-        "result": result,
-    }
-    data = json.dumps(envelope_out, ensure_ascii=False).encode("utf-8")
-    if len(data) > MAX_RESULT_BYTES:
+    data = encode_result_envelope(usage=budget.usage_snapshot(), result=result)
+    # Same derived allowance as the supervisor: this request's own quotas plus
+    # the computable encoding overhead, never one module-level fixed cap.
+    if not result_within_limit(data, envelope.get("payload"), response_bytes_left):
         return 2
-    result_path = request_path.parent / _RESULT_FILENAME
-    tmp_path = request_path.parent / f"{_RESULT_FILENAME}.tmp"
+    result_path = request_path.parent / RESULT_FILENAME
+    tmp_path = request_path.parent / f"{RESULT_FILENAME}.tmp"
     tmp_path.write_bytes(data)
     os.replace(tmp_path, result_path)
     return 0

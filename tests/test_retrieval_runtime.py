@@ -20,6 +20,7 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+import retrieval_protocol  # noqa: E402
 import retrieval_runtime  # noqa: E402
 from transcript_api import ProviderSettings  # noqa: E402
 from tests.test_transcript_api import (  # noqa: E402
@@ -478,8 +479,23 @@ def test_worker_result_corrupted_at_exit_is_not_accepted(tmp_path):
     assert list(temp_root.iterdir()) == []
 
 
-def test_legacy_result_constant_does_not_veto_explicit_operation_quota(tmp_path, monkeypatch):
-    monkeypatch.setattr(retrieval_runtime, "MAX_RESULT_BYTES", 512)
+def test_supervisor_has_no_fixed_result_representation_cap(tmp_path):
+    """The read bound is the protocol's derived limit, not a module constant.
+
+    ET-02: the old fixed constant (146 MiB) was consulted by the worker instead
+    of the operation's own quota. The supervisor must not keep a second cap and
+    the protocol must scale with the explicit request/budget.
+    """
+    assert not hasattr(retrieval_runtime, "MAX_RESULT_BYTES")
+    assert retrieval_runtime.WORKER_PROTOCOL == retrieval_protocol.WORKER_PROTOCOL
+    small = retrieval_protocol.result_transfer_limit(
+        {"max_response_bytes": 1_000, "max_body_bytes": 1_000}, 1_000
+    )
+    large = retrieval_protocol.result_transfer_limit(
+        {"max_response_bytes": 50_000_000, "max_body_bytes": 1_000}, 50_000_000
+    )
+    assert small < large
+
     temp_root = tmp_path / "rt"
     temp_root.mkdir()
     spec = fake_spec(
@@ -540,7 +556,7 @@ def test_result_file_loader_accepts_valid_envelope(tmp_path):
         expected_request_id="rt-list-001",
         expected_schemas=None,
         deadline=time.monotonic() + 30,
-        max_bytes=retrieval_runtime.MAX_RESULT_BYTES,
+        max_bytes=retrieval_protocol.result_transfer_limit({}, None),
     )
     assert reason is None
     assert usage == make_usage()
@@ -555,7 +571,7 @@ def test_result_file_after_deadline_is_not_accepted_as_fetched(tmp_path):
         expected_request_id="rt-list-001",
         expected_schemas=None,
         deadline=time.monotonic() - 1,
-        max_bytes=retrieval_runtime.MAX_RESULT_BYTES,
+        max_bytes=retrieval_protocol.result_transfer_limit({}, None),
     )
     assert reason == "deadline"
     assert result is None
@@ -611,7 +627,7 @@ def test_result_file_loader_rejects_untrusted_envelopes(tmp_path):
         result, usage, reason = retrieval_runtime._load_result_file(
             path,
             deadline=time.monotonic() + 30,
-            max_bytes=retrieval_runtime.MAX_RESULT_BYTES,
+            max_bytes=retrieval_protocol.result_transfer_limit({}, None),
             **kwargs,
         )
         assert reason == "worker_failure", mutation
@@ -625,7 +641,7 @@ def test_missing_result_file_is_worker_failure(tmp_path):
         expected_request_id=None,
         expected_schemas=None,
         deadline=time.monotonic() + 30,
-        max_bytes=retrieval_runtime.MAX_RESULT_BYTES,
+        max_bytes=retrieval_protocol.result_transfer_limit({}, None),
     )
     assert (result, usage, reason) == (None, None, "worker_failure")
 
