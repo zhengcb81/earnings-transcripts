@@ -1,0 +1,59 @@
+........................................................................ [ 10%]
+........................................................................ [ 21%]
+........................................................................ [ 32%]
+........................................................................ [ 43%]
+........................................................................ [ 54%]
+........................................................................ [ 65%]
+........................................................................ [ 76%]
+........................................................................ [ 87%]
+........................................................................ [ 97%]
+..F...........                                                           [100%]
+================================== FAILURES ===================================
+__________ test_write_receipts_never_overwrites_conflicting_receipt ___________
+
+tmp_path = WindowsPath('C:/Users/郑曾波/AppData/Local/Temp/pytest-of-郑曾波/pytest-1402/test_write_receipts_never_over0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002794A3AA2D0>
+
+    def test_write_receipts_never_overwrites_conflicting_receipt(tmp_path, capsys):
+        root = tmp_path / "corpus"
+        txt = seed(root, "ACME/ACME_Q3_2026_earnings_call.txt", make_text())
+        receipt_path(txt).write_bytes(b'{"schema": "et-local-text-receipt/1", "kind": "dow')
+        bad_before = receipt_path(txt).read_bytes()
+    
+        rc = audit_main(["--root", str(root), "--write-receipts"])
+    
+>       assert rc == 1  # 坏收据是具名失败
+        ^^^^^^^^^^^^^^
+E       assert 0 == 1
+
+tests\test_transcript_audit.py:199: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{
+ "report_schema": "et-local-text-audit/1",
+ "generated_at": "2026-11-12T19:52:07",
+ "root": "C:\\Users\\郑曾波\\AppData\\Local\\Temp\\pytest-of-郑曾波\\pytest-1402\\test_write_receipts_never_over0\\corpus",
+ "write_receipts": true,
+ "counts": {
+  "legacy_unverified": 1
+ },
+ "files": [
+  {
+   "file": "ACME\\ACME_Q3_2026_earnings_call.txt",
+   "outcome": "legacy_unverified",
+   "error_code": null,
+   "ticker": "ACME",
+   "quarter": "Q3 2026",
+   "body_bytes": 12,
+   "file_bytes": 280,
+   "file_sha256": "ea0627aa105b8069a5a9799c33e128b61d2b6350c1627e1b3a69ab48c0e61f49",
+   "receipt_kind": null,
+   "diagnostics": [
+    "receipt_invalid"
+   ],
+   "receipt_action": "exists"
+  }
+ ]
+}
+=========================== short test summary info ===========================
+FAILED tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt
+1 failed, 661 passed in 195.68s (0:03:15)

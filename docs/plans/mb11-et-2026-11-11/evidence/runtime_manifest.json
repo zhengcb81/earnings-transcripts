@@ -1,0 +1,49 @@
+{
+  "schema": "et-runtime-manifest/1",
+  "source_root": "C:\\Users\\\u90d1\u66fe\u6ce2\\Projects\\mb11-et",
+  "source_commit": "3fc129cc6a07fedefcbb421c7d02ee9b34368474",
+  "hash_form": "working-tree checkout bytes copied into the artifact (CRLF on this Windows checkout); git blobs are LF",
+  "files": {
+    "transcript_tool.py": {
+      "bytes": 12423,
+      "sha256": "cb3cb3e0632a5190a49ab5e7aeb27dad815b8fad0a4a3915ee7a792b0d20956f"
+    },
+    "transcript_api.py": {
+      "bytes": 58084,
+      "sha256": "4b5659d2d329459a7e2eecbbe71a1324a9cb6574ebf604bf014a3b57aca4dc04"
+    },
+    "transcript_extraction.py": {
+      "bytes": 12927,
+      "sha256": "c6c7a0d4d5e411b616bc3a90a16158183ba83977cb6ac92fb14e1e73da591abd"
+    },
+    "legacy_projection_comparison.py": {
+      "bytes": 20213,
+      "sha256": "2f9acacf6d11f23f495a530e4eba82997c3019d20124e2c8a9f6c0fb2051b661"
+    },
+    "retrieval_runtime.py": {
+      "bytes": 8364,
+      "sha256": "3c0a0e3d68bf8a2ca6ee7e25e610fc3d1bba7455fafd2e027ff6033ee066c0a4"
+    },
+    "retrieval_worker.py": {
+      "bytes": 6232,
+      "sha256": "b9d49cbe3efab57bc66ecc572ca38cf83777122d4959d3f86d99e6d9ae257f5a"
+    },
+    "retrieval_budget.py": {
+      "bytes": 8791,
+      "sha256": "81927eee1ac585bdb28ec053bfadc761fa053cddc5251870ed9e4ffe9af4595a"
+    },
+    "retrieval_protocol.py": {
+      "bytes": 8244,
+      "sha256": "847e7d1f0343cafa0d4f92d2f095fc6b67d6eed98f32d50b7592c9831f3db205"
+    },
+    "transcript_contracts.py": {
+      "bytes": 1216,
+      "sha256": "4fa8dcd9d12f0af2174733c51d354d19efbcd3deb835c6303db13ef85be4edb8"
+    },
+    "transcript_provider_settings.py": {
+      "bytes": 2177,
+      "sha256": "bc76b2f58e9a389c95d9c4951262457041e471c2efd3d626f4cc00c9db44a1fa"
+    }
+  },
+  "closure_basis": "transcript_tool.py import closure at candidate tip; legacy_projection_comparison.py is imported by transcript_extraction.py"
+}

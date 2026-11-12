@@ -1,0 +1,78 @@
+# ET runtime artifact verification
+
+Mode: explicit runtime manifest + temporary artifact copy (no wheel/installer exists in this repo).
+Scratch root: a newly created empty temp dir (initial listing: []); removed after the run.
+All commands run with cwd = <scratch>/empty-cwd (empty directory), no PYTHONPATH to the checkout.
+
+## 1. Artifact manifest
+
+Source commit: 3fc129cc6a07fedefcbb421c7d02ee9b34368474
+Files: 10 (138671 bytes). Hash form: working-tree checkout bytes copied into the artifact (CRLF on this Windows checkout); git blobs are LF
+
+| file | bytes | sha256 |
+|---|---|---|
+| transcript_tool.py | 12423 | cb3cb3e0632a5190a49ab5e7aeb27dad815b8fad0a4a3915ee7a792b0d20956f |
+| transcript_api.py | 58084 | 4b5659d2d329459a7e2eecbbe71a1324a9cb6574ebf604bf014a3b57aca4dc04 |
+| transcript_extraction.py | 12927 | c6c7a0d4d5e411b616bc3a90a16158183ba83977cb6ac92fb14e1e73da591abd |
+| legacy_projection_comparison.py | 20213 | 2f9acacf6d11f23f495a530e4eba82997c3019d20124e2c8a9f6c0fb2051b661 |
+| retrieval_runtime.py | 8364 | 3c0a0e3d68bf8a2ca6ee7e25e610fc3d1bba7455fafd2e027ff6033ee066c0a4 |
+| retrieval_worker.py | 6232 | b9d49cbe3efab57bc66ecc572ca38cf83777122d4959d3f86d99e6d9ae257f5a |
+| retrieval_budget.py | 8791 | 81927eee1ac585bdb28ec053bfadc761fa053cddc5251870ed9e4ffe9af4595a |
+| retrieval_protocol.py | 8244 | 847e7d1f0343cafa0d4f92d2f095fc6b67d6eed98f32d50b7592c9831f3db205 |
+| transcript_contracts.py | 1216 | 4fa8dcd9d12f0af2174733c51d354d19efbcd3deb835c6303db13ef85be4edb8 |
+| transcript_provider_settings.py | 2177 | bc76b2f58e9a389c95d9c4951262457041e471c2efd3d626f4cc00c9db44a1fa |
+
+## 2. Public capabilities command (empty cwd)
+
+Command:
+```
+env -u PYTHONPATH FMP_API_KEY=fake-artifact-key python -B ../artifact/transcript_tool.py --capabilities
+```
+Exit code: 0; stderr bytes: 0
+stdout: 1596 bytes; byte-identical to the baseline 003c1c0 command output
+```json
+{"schema_version":"earnings-provider-capabilities/1","providers":{"fmp":{"fetch":{"provider":"fmp","operation":"fetch","enabled":true,"supported":true,"incremental_cost_usd":"0","billing_model":"subscription_quota","entitlement":"runtime_unknown","supported_markets":["US"],"supported_exchanges":["auto","nasdaq","nyse"]},"discover":{"provider":"fmp","operation":"discover","enabled":true,"supported":false,"incremental_cost_usd":null,"billing_model":"subscription_quota","entitlement":"runtime_unknown","supported_markets":[],"supported_exchanges":[]},"fetch-candidate":{"provider":"fmp","operation":"fetch-candidate","enabled":true,"supported":false,"incremental_cost_usd":null,"billing_model":"subscription_quota","entitlement":"runtime_unknown","supported_markets":[],"supported_exchanges":[]}},"motley_fool":{"fetch":{"provider":"motley_fool","operation":"fetch","enabled":false,"supported":true,"incremental_cost_usd":"0","billing_model":"public_http","entitlement":"runtime_unknown","supported_markets":["US"],"supported_exchanges":["auto","nasdaq","nyse"]},"discover":{"provider":"motley_fool","operation":"discover","enabled":false,"supported":true,"incremental_cost_usd":"0","billing_model":"public_http","entitlement":"runtime_unknown","supported_markets":["US"],"supported_exchanges":["auto","nasdaq","nyse"]},"fetch-candidate":{"provider":"motley_fool","operation":"fetch-candidate","enabled":false,"supported":true,"incremental_cost_usd":"0","billing_model":"public_http","entitlement":"runtime_unknown","supported_markets":["US"],"supported_exchanges":["auto","nasdaq","nyse"]}}}}
+```
+
+## 3. Public request command through the artifact (test provider)
+
+Command:
+```
+PYTHONPATH=<scratch> FMP_API_KEY=fake-artifact-key python -B ../driver.py ../artifact <scratch>
+```
+The driver calls the public CLI arguments `--request-stdin --include-source-payload --report-usage`
+through `transcript_tool.main`; the HTTP transport is the pre-existing private launcher seam
+(`_retrieval_launcher`), pointed at a scratch-only `et_probe` module. No production backdoor was added.
+
+Driver exit code: 0; stderr bytes: 0
+
+Observed:
+```json
+{
+  "rc": 0,
+  "status": "fetched",
+  "schema_version": "earnings-transcript-result/2",
+  "request_id": "test-request-001",
+  "payload_len": 1152,
+  "usage": {
+    "requests_used": 1,
+    "response_bytes_used": 862,
+    "exhausted": null
+  },
+  "usage_complete": true,
+  "module_files": {
+    "transcript_protocol": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\artifact\\retrieval_protocol.py",
+    "transcript_contracts": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\artifact\\transcript_contracts.py",
+    "transcript_provider_settings": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\artifact\\transcript_provider_settings.py"
+  },
+  "runtime_root_empty": true,
+  "cwd": "C:\\Users\\\u90d1\u66fe\u6ce2\\AppData\\Local\\Temp\\mb11-et-runtime-hun8pw9_\\empty-cwd"
+}
+```
+
+Assertions checked by this run:
+- rc == 0, status == fetched, schema_version == earnings-transcript-result/2
+- usage_complete == true, requests_used == 1
+- transcript_protocol / transcript_contracts / transcript_provider_settings resolved from the artifact
+- worker temp root is empty after the operation
+- cwd is the empty directory (no checkout dependency)
