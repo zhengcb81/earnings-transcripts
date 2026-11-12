@@ -18,7 +18,6 @@ from typing import Any
 
 from transcript_contracts import REQUEST_SCHEMA, RESULT_SCHEMA
 from transcript_provider_settings import (
-    DEFAULT_PROVIDER_SETTINGS,
     EXCHANGES,
     ProviderSettings,
     provider_operation_capability,
