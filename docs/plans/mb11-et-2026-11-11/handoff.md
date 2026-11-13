@@ -186,3 +186,10 @@ RED 证据（基线 `003c1c0`，独立复跑）：`evidence/red_et01_supervisor_
 - 更新后的 ROOT 集成收据已随该提交推送；无代码合并遗留动作。
 - 原始转录及 .workbuddy-ai 未跟踪目录均保持原样；唯一整包基线失败仍是 baseline 003c1c0 可复现的收据冲突测试。
 - MB-ET 卡已完成，next=null。
+
+
+## ROOT 临时工区收尾（2026-11-13）
+
+- MB-ET 专用交付 worktree 与 ROOT 隔离集成 worktree 均在确认 clean、主线及 PWF 已推送后移除；远端分支保留。
+- 原仓 .workbuddy-ai 及原始转录资料保留，未执行抓取、翻译或模型调用。
+- 本卡无剩余 ROOT 操作。

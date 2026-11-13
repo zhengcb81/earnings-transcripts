@@ -50,3 +50,9 @@
 - main 与 origin/main 的最终 ROOT 收据 ref 为 ef7fb364da4c7f41217e3f83ea7fdcc38953394d。
 - 受影响主线 suite 174 passed，独审 PASS；整包唯一失败在旧基线 003c1c0 已复现。
 - 原始转录、工作记忆目录均未变更；MB-ET 无剩余接收动作。
+
+
+## ROOT 临时工区收尾（2026-11-13）
+
+- 回收已验收的 MB-ET delivery/integration worktree；远端代码与 PWF 收据保留。
+- .workbuddy-ai、原始电话会文档未改动；没有未跟踪文件需要清理。

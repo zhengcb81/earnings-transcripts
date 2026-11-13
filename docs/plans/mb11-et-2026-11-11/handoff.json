@@ -124,7 +124,11 @@
     "receipt_push_verified": true,
     "preserved_untracked": [
       ".workbuddy-ai/"
-    ]
+    ],
+    "delivery_worktree_removed": true,
+    "integration_worktree_removed": true,
+    "cleanup_date": "2026-11-13",
+    "next_root_action": "none; MB-ET mainline acceptance, push, and temporary worktree cleanup complete"
   },
   "changed_paths_scope": "Package delivery paths only; ROOT integration evidence is listed under root_integration.additional_paths.",
   "next": null
