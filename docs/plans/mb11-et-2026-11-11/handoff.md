@@ -177,3 +177,11 @@ git -C 'C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts' f
 ```
 
 在独立集成工区核对 `origin/main` 祖先关系与本卡写集合后，运行第 4 节 #1/#2 命令一次；冲突解决若改源码，测试与独审需绑定最终 tip。
+
+
+## ROOT 主线验收（2026-11-13）
+
+- 交付已并入 ET 的 main，当前代码 tip 为 22050ed325149fb87f56bef739cff4635efff4bf；本地 main 与 origin/main 一致。
+- ROOT 在当前主线重跑交接要求的 10 文件受影响 suite：174 passed / 0 failed / 0 skipped，99.48 秒；日志 evidence/tests_root_integration_20261113.log。临时 basetemp 为本轮新建目录，运行后已删除。
+- 整包交付测试为 662 passed / 1 failed；唯一失败 test_write_receipts_never_overwrites_conflicting_receipt 在基线 003c1c0 上复现，属于既有 audit 收据退出码问题；独审确认不是本包变更。
+- 原件转录 TXT 未被修改；未运行真实抓取、翻译或模型调用。主线代码早已推送，本次仅更新并推送交接收据。

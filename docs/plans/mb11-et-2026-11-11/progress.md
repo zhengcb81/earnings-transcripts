@@ -35,3 +35,11 @@
 
 
 
+
+
+## ROOT 主线验收（2026-11-13）
+
+- main 与 origin/main 同步于 22050ed325149fb87f56bef739cff4635efff4bf。
+- 当前主线受影响 suite：174 passed / 0 failed / 0 skipped，99.48 秒；证据 evidence/tests_root_integration_20261113.log。
+- 交付包的唯一整包失败是已在基线复现的 audit 收据冲突测试，不是本包回归；独审无未修 in-scope finding。
+- 下一步仅提交并推送本段 PWF 记录；保留仓内已有 .workbuddy-ai 未跟踪目录。

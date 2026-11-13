@@ -9,20 +9,20 @@
   "target_branch": "main",
   "pushed": true,
   "changed_paths": [
-    "transcript_contracts.py",
-    "transcript_provider_settings.py",
-    "transcript_preflight.py",
+    "docs/plans/mb11-et-2026-11-11/",
     "retrieval_protocol.py",
-    "transcript_api.py",
     "retrieval_runtime.py",
     "retrieval_worker.py",
-    "transcript_tool.py",
-    "tests/test_runtime_contract_isolation.py",
-    "tests/test_worker_result_budget_contract.py",
-    "tests/test_retrieval_runtime.py",
     "tests/test_explicit_response_budget.py",
     "tests/test_provider_cost_capability.py",
-    "docs/plans/mb11-et-2026-11-11/"
+    "tests/test_retrieval_runtime.py",
+    "tests/test_runtime_contract_isolation.py",
+    "tests/test_worker_result_budget_contract.py",
+    "transcript_api.py",
+    "transcript_contracts.py",
+    "transcript_preflight.py",
+    "transcript_provider_settings.py",
+    "transcript_tool.py"
   ],
   "requirements": [
     {
@@ -93,5 +93,32 @@
     "tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt fails identically on baseline main 003c1c0 (evidence/baseline_preexisting_failure.log); pre-existing defect, not introduced by this card.",
     "README.md file tree does not list the new pure modules (it already omits transcript_api/retrieval_*); docs-only follow-up, not required by the card write set."
   ],
-  "next_root_action": "Fetch origin and review origin/codex/mb11-et against origin/main; in an independent integration worktree run the affected suite and the package CI once, then merge the delivery commit."
+  "next_root_action": "Commit and push the ROOT integration PWF receipt; code is already merged to main and no product changes remain.",
+  "root_integration": {
+    "date": "2026-11-13",
+    "main_head_before_receipt": "22050ed325149fb87f56bef739cff4635efff4bf",
+    "target_branch": "main",
+    "local_matches_origin": true,
+    "affected_suite": {
+      "command": "C:/Miniconda/python -B -X utf8 -m pytest tests/test_retrieval_runtime.py tests/test_retrieval_cli_e2e.py tests/test_launch_capability_contract.py tests/test_provider_cost_capability.py tests/test_request_response_budget.py tests/test_batch_runtime.py tests/test_optional_local_receipt.py tests/test_explicit_response_budget.py tests/test_runtime_contract_isolation.py tests/test_worker_result_budget_contract.py -q -p no:cacheprovider --basetemp=<new unique temp>",
+      "exit_code": 0,
+      "passed": 174,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 99.48,
+      "log": "docs/plans/mb11-et-2026-11-11/evidence/tests_root_integration_20261113.log",
+      "temp_root_removed": true
+    },
+    "package_suite_known_baseline_failure": {
+      "test": "test_write_receipts_never_overwrites_conflicting_receipt",
+      "baseline_commit": "003c1c0",
+      "reproduced_before_package": true
+    },
+    "source_transcripts_modified": false,
+    "mainline_push_required_for_code": false,
+    "additional_paths": [
+      "docs/plans/mb11-et-2026-11-11/evidence/tests_root_integration_20261113.log"
+    ]
+  },
+  "changed_paths_scope": "Package delivery paths only; ROOT integration evidence is listed under root_integration.additional_paths."
 }
