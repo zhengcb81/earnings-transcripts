@@ -169,15 +169,8 @@ RED 证据（基线 `003c1c0`，独立复跑）：`evidence/red_et01_supervisor_
 
 - 安装/部署：无（本仓无安装器，本轮不部署）。
 - CI：仅本地包级 pytest，未接远端 CI。
-- 合并：未合 `main`，仅交付分支。
-- ROOT 下一步（一条可执行命令，输入为本卡分支与 `main`）：
-
-```powershell
-git -C 'C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts' fetch origin; git -C 'C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts' log --oneline origin/main..origin/codex/mb11-et
-```
-
-在独立集成工区核对 `origin/main` 祖先关系与本卡写集合后，运行第 4 节 #1/#2 命令一次；冲突解决若改源码，测试与独审需绑定最终 tip。
-
+- 合并：交付时仅有作者分支；代码已由 ROOT 并入 main，受影响主线测试和 PWF 收据均已通过并推送，最终状态见后文 ROOT 主线验收。
+本卡 ROOT 主线验收与 PWF 推送已完成，详见下节。
 
 ## ROOT 主线验收（2026-11-13）
 
@@ -185,3 +178,11 @@ git -C 'C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts' f
 - ROOT 在当前主线重跑交接要求的 10 文件受影响 suite：174 passed / 0 failed / 0 skipped，99.48 秒；日志 evidence/tests_root_integration_20261113.log。临时 basetemp 为本轮新建目录，运行后已删除。
 - 整包交付测试为 662 passed / 1 failed；唯一失败 test_write_receipts_never_overwrites_conflicting_receipt 在基线 003c1c0 上复现，属于既有 audit 收据退出码问题；独审确认不是本包变更。
 - 原件转录 TXT 未被修改；未运行真实抓取、翻译或模型调用。主线代码早已推送，本次仅更新并推送交接收据。
+
+
+## ROOT PWF 推送核对（2026-11-13）
+
+- ET main / origin/main 已同步到 receipt commit ef7fb364da4c7f41217e3f83ea7fdcc38953394d；主线受影响 suite 174 passed / 0 failed / 0 skipped。
+- 更新后的 ROOT 集成收据已随该提交推送；无代码合并遗留动作。
+- 原始转录及 .workbuddy-ai 未跟踪目录均保持原样；唯一整包基线失败仍是 baseline 003c1c0 可复现的收据冲突测试。
+- MB-ET 卡已完成，next=null。

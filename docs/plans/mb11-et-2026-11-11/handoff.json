@@ -118,7 +118,14 @@
     "mainline_push_required_for_code": false,
     "additional_paths": [
       "docs/plans/mb11-et-2026-11-11/evidence/tests_root_integration_20261113.log"
+    ],
+    "receipt_pushed": true,
+    "receipt_push_ref": "ef7fb364da4c7f41217e3f83ea7fdcc38953394d",
+    "receipt_push_verified": true,
+    "preserved_untracked": [
+      ".workbuddy-ai/"
     ]
   },
-  "changed_paths_scope": "Package delivery paths only; ROOT integration evidence is listed under root_integration.additional_paths."
+  "changed_paths_scope": "Package delivery paths only; ROOT integration evidence is listed under root_integration.additional_paths.",
+  "next": null
 }

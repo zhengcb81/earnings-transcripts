@@ -43,3 +43,10 @@
 - 当前主线受影响 suite：174 passed / 0 failed / 0 skipped，99.48 秒；证据 evidence/tests_root_integration_20261113.log。
 - 交付包的唯一整包失败是已在基线复现的 audit 收据冲突测试，不是本包回归；独审无未修 in-scope finding。
 - 下一步仅提交并推送本段 PWF 记录；保留仓内已有 .workbuddy-ai 未跟踪目录。
+
+
+## ROOT PWF 推送核对（2026-11-13）
+
+- main 与 origin/main 的最终 ROOT 收据 ref 为 ef7fb364da4c7f41217e3f83ea7fdcc38953394d。
+- 受影响主线 suite 174 passed，独审 PASS；整包唯一失败在旧基线 003c1c0 已复现。
+- 原始转录、工作记忆目录均未变更；MB-ET 无剩余接收动作。

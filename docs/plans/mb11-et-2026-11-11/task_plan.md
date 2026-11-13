@@ -45,3 +45,16 @@
 - 额度内输出不被固定表示帽拒绝；真实资源超额/超时/unknown 仍准确。
 - 安装/CLI/原语言行为不变；独审通过。
 - 公开 CLI 字段和 exit code 保持；FF 仍用原 CLI/wire，不要求 FF 导入新模块。
+
+
+## ROOT 并线收尾（2026-11-13）
+
+- [x] 交付代码已存在 ET main。
+- [x] 主线受影响 suite 174/174 通过，独审 PASS。
+- [x] ROOT PWF receipt 已提交推送，origin/main 已核实。
+- [x] 保留原始转录和 .workbuddy-ai。
+- 已知一个整包基线失败不属于本卡回归，按 handoff 记录保留。
+
+## Next Step
+
+无；MB-ET 已并入主线并推送。
