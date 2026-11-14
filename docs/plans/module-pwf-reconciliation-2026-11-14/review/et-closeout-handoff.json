@@ -12,7 +12,7 @@
     "branch": "main",
     "head": "08da5dca4f680457775e8184730fa4499a8d3dd5",
     "remote_head": "08da5dca4f680457775e8184730fa4499a8d3dd5",
-    "note": "head is the reviewed candidate commit (two commits on top of base 915f216: bba1b97 test constant extraction, 08da5dc the plan/workspace closeout). The independent review verdict is bound to this SHA. origin/main was verified to equal this SHA right after the reviewed push. One follow-up commit adds only the review receipt (et-closeout-review.md) and the pointer backfill in this file; use git log --oneline -3 to see it, and git diff --stat 08da5dc..HEAD to confirm the delta is the receipt only. See et-closeout-handoff.md section 10."
+    "note": "head/remote_head record the card's own checkpoint: after the round-1 PASS, the reviewed candidate 08da5dc was pushed and origin/main was verified equal to it (git reflog show origin/main shows the push sequence 915f216 -> 08da5dc -> 09a31d4 -> ...; the 08da5dc entry is that checkpoint). The reviewer-requested receipt commits after the checkpoint (09a31d4 review report + F-01..F-11 fixes, f76a168 root-plan receipt HEADs, then the N-01..N-05 precision fixes and this file's own carrier) advance the tip, and no commit can contain its own SHA, so the live remote tip must be read with git ls-remote origin refs/heads/main. The round-2 re-check returned PASS bound to f76a168 (et-closeout-review.md section 7). The delta 08da5dc..origin/main must contain review-receipt files only - verify with git diff --stat 08da5dc..origin/main. See et-closeout-handoff.md section 10."
   },
   "dispositions": [
     {
@@ -335,7 +335,7 @@
       "path": "docs/plans/**/{receipts,evidence,review}",
       "status": "EVIDENCE_KEEP",
       "reason": "Test receipts, independent-review reports and evidence indexes of the closed DU7/DU9/DU10/MB-ET deliveries; tracked in main.",
-      "evidence": "git ls-files docs/plans = 84 files, of which 31 under receipts/, 9 under evidence/, 4 under review/."
+      "evidence": "At the closeout base 915f216 (git ls-tree -r --name-only 915f216 -- docs/plans): 84 tracked files, of which 31 under receipts/, 9 under evidence/, 4 under review/. The closeout adds 3 files under docs/plans/module-pwf-reconciliation-2026-11-14/review/ (et-closeout-handoff.md, et-closeout-handoff.json, et-closeout-review.md), so the live counts are 87 total / 7 under review/."
     },
     {
       "kind": "repo_path",
@@ -379,8 +379,8 @@
       "reason": "config.json (line 6 of .gitignore) carries LLM API credentials and is deliberately never committed or printed; caches are rebuildable. The repo-root .benchmarks/ directory is empty, so git does not report it, and .ruff_cache/ lives in the parent container directory, not in this repo."
     },
     {
-      "path": "C:/Users/郑曾波/Projects/company-wiki (3 tracked files modified)",
-      "state": "modified: docs/plans/module-pwf-reconciliation-2026-11-14/review/cwp-closeout-handoff.json, cwp-closeout-handoff.md and cwp-closeout-review.md",
+      "path": "C:/Users/郑曾波/Projects/company-wiki (3 tracked files modified at the round-1 independent-review time)",
+      "state": "at the round-1 review: modified docs/plans/module-pwf-reconciliation-2026-11-14/review/cwp-closeout-handoff.json, cwp-closeout-handoff.md and cwp-closeout-review.md; CWP lane may have advanced since",
       "disposition": "not the ET lane's state - left untouched",
       "reason": "These are the CWP lane's own closeout receipts: their diff contains 0 hits for ET-related text and company-wiki has its own three CWP closeout commits from the same day. filing-fetch has 0 tracked modifications. The ET lane wrote nothing in either repository."
     }
@@ -413,8 +413,8 @@
   },
   "tests": [
     {
-      "command": "git diff --stat 915f216",
-      "result": "10 files: 4 root Markdown files plus this handoff's md and json plus 4 test files; no production module (transcript_api.py, transcript_preflight.py, transcript_tool.py, retrieval_*.py, scraper.py, transcript_extraction.py) is touched"
+      "command": "git diff --stat 915f216..08da5dc (the reviewed candidate)",
+      "result": "10 files: 4 root Markdown files plus this handoff's md and json plus 4 test files; no production module (transcript_api.py, transcript_preflight.py, transcript_tool.py, retrieval_*.py, scraper.py, transcript_extraction.py) is touched. The reviewer-requested receipt commits after the candidate add/modify review-receipt files only (11 files total at the round-2 re-check HEAD f76a168); verify the whole chain with git diff --stat 915f216..origin/main"
     },
     {
       "command": "AST value-equivalence check: parse base 915f216 and the working tree, resolve every credential-shaped keyword argument and dict item to its literal string (enumulation rule: the keyword-argument name or the dict key name contains key/secret/token/password/credential; module constants and cross-module imports are resolved to their defined value), compare the multisets",
@@ -464,7 +464,7 @@
   "independent_review": {
     "reviewer_agent": "independent review agent, not involved in the implementation (ZCode general-purpose sub-agent, read-only on every repository)",
     "reviewed_head": "08da5dca4f680457775e8184730fa4499a8d3dd5",
-    "result": "PASS - P0=0, P1=0, P2=12; the two receipt-level P2 items (JSON placeholder backfill, root plan summary wording) are closed in the review-receipt commit and the remaining P2 items are citation-precision fixes recorded in the same commit; no product code, wire or receipt number changed, so no gate or test re-run was required",
+    "result": "Round 1: PASS bound to 08da5dc - P0=0, P1=0, P2=12 (F-01..F-12). The requested fixes were committed as receipt commits and the same reviewer re-checked the chain: Round 2: PASS bound to f76a168 - F-01..F-12 all verified closed, 5 new P2 precision findings N-01..N-05 (stale receipt values caused by receipt commits landing after counts were recorded), fixed in the following receipt commit by time-anchoring every volatile value; no product code, wire or receipt number changed, so no gate or test re-run was required. Both rounds' details are in the report file.",
     "report_path": "docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-review.md"
   },
   "remaining_items": [

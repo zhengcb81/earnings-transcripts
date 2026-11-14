@@ -7,9 +7,9 @@
 > 状态快照：2026-11-14 · 仓库 `C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts` ·
 > 分支 `main` · remote `origin` = `https://github.com/zhengcb81/earnings-transcripts.git`。
 > - **本次收尾基线**：`915f216`（= 收尾前的 `origin/main`，也是最新一次主线收据提交）。
-> - **本次收尾交付序列**：`bba1b97`（测试假凭据常量清理）→ `08da5dc`（根计划收敛 + 交接 + 清理）→ `09a31d4`（独立审查收据）→ 收尾复核收据。
->   **最终 SHA 以交接文件的 `final.head` / `independent_review.reviewed_head` 为准**
->   （该 JSON 与承载它的提交是同一次提交，无法在自身内容里写自己的 SHA；用 `git log --oneline -3` 核对）。
+> - **本次收尾交付序列**：`bba1b97`（测试假凭据常量清理）→ `08da5dc`（根计划收敛 + 交接 + 清理，**round-1 独审 PASS 绑定的被审候选**）→ 其后均为 reviewer 要求的审查收据提交（`09a31d4`、`f76a168`、N-01…N-05 精度修正等）。
+> - **最新 tip 的权威读法**：`git log --oneline -6` 或 `git ls-remote origin refs/heads/main`。
+>   任何收据文件都无法包含承载它自己的提交的 SHA，因此本文件与交接 JSON 只记录**被审候选 SHA**（`08da5dc`）与**核对命令**，不记录会立刻过期的 tip 值；交接 JSON 的 `final.head` / `remote_head` 记录的是卡内「推送后确认远端 = 已审 HEAD」检查点的 `08da5dc`，其后的增量应只含审查收据文件（`git diff --stat 08da5dc..origin/main`）。
 > - **最近一次收尾**：[`docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`](docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md)（+ `.json` + `et-closeout-review.md`）。
 
 ---

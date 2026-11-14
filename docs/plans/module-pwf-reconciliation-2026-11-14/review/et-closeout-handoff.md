@@ -215,7 +215,7 @@ ET lane 未向 `company-wiki` 或 `filing-fetch` 写入任何内容（`filing-fe
 
 | # | 命令 / 检查 | 结果 |
 |---|---|---|
-| 1 | `git diff --stat 915f216` | **10 个文件**：4 个根 Markdown + 本交接的 md 与 json + 4 个测试文件；**生产模块（`transcript_api.py` / `transcript_preflight.py` / `transcript_tool.py` / `retrieval_*.py` / `scraper.py` / `transcript_extraction.py`）一行未动** |
+| 1 | `git diff --stat 915f216..08da5dc`（被审候选） | **10 个文件**：4 个根 Markdown + 本交接的 md 与 json + 4 个测试文件；**生产模块（`transcript_api.py` / `transcript_preflight.py` / `transcript_tool.py` / `retrieval_*.py` / `scraper.py` / `transcript_extraction.py`）一行未动**。此后的审查收据提交（`09a31d4`、`f76a168` 等）只增加/修正审查收据文件（审查时序列总数 11），最终以 `git diff --stat 08da5dc..origin/main` 实时核对 |
 | 1b | 取值等值校验（AST 解析 base 与工作树，解析每个凭据形参/字典项的实际字符串值后比对；口径：关键字实参名或字典键名含 key/secret/token/password/credential 的使用点，跨模块 import 的常量按定义值解析） | **PASS**：4 个文件的凭据形取值与 `915f216` **逐字节相同**。独立 reviewer 用更强的口径（全字符串字面量多重集比对）复现同一结论：**没有任何字面量值被新增或丢失**，只有重复内联字面量被去重到具名常量 |
 | 1c | `mimosa audit . --json --no-deps`（仓库预提交门禁同款整仓审计） | 清理前 **high 19 / low 8** → 清理后 **high 0 / low 8**（剩余 low 为 `random.sample` / `random.choice` / 一条注释，不阻断） |
 | 2 | `python -B -m pytest tests/ -q -p no:cacheprovider --basetemp <新建临时目录>`（整包） | rc=1，**1 failed, 662 passed in 196.73s**（与 2026-11-13 MB-ET ROOT 收尾的 `662 passed, 1 failed` 同一形状） |
@@ -249,8 +249,8 @@ ET lane 未向 `company-wiki` 或 `filing-fetch` 写入任何内容（`filing-fe
 | 项 | 值 |
 |---|---|
 | 审查者 | 未参与实施的独立 reviewer agent（只读；所有仓外临时脚本与 `--basetemp` 都放在仓外 scratch 目录并在审查结束后删除） |
-| 绑定 HEAD | `08da5dca4f680457775e8184730fa4499a8d3dd5`（`main`），base = `915f216` |
-| 结论 | **PASS** — P0 = 0，P1 = 0，P2 = 12 |
+| 绑定 HEAD | round-1：`08da5dca4f680457775e8184730fa4499a8d3dd5`（`main`），base = `915f216`；round-2 复核：`f76a1682aa488d71e6f998f12c59eb24651432b3` |
+| 结论 | round-1 **PASS** — P0 = 0，P1 = 0，P2 = 12；round-2 复核 **PASS** — F-01…F-12 全部关闭，另报 N-01…N-05 五项 P2 精度问题（共同根因：收据提交落在计数之后），已在后续收据提交中按时间锚定方式修正 |
 | 独立复核 | 整包回归实测 `1 failed, 662 passed`（唯一失败即声明的唯一下一步，且在基线 `003c1c0` 的解包树里同样复现）；受影响 4 文件 `119 passed`；`git branch --no-merged main` 为空、21 个 ref 全部是 `main` 祖先；15 个分支的 `--diff-filter=D` 与 `transcripts/` 差异均为 0；门禁在 `915f216` 解包副本里复现 `high 19`、在 HEAD 上复现 `high 0`；FF/CWP 的每一条断言都逐条打开源文件核对为真 |
 | P2 关闭情况 | F-01（JSON 占位符回填）与 F-02（根计划摘要表述）**已在本审查收据提交中修正**；F-03（章节交叉引用）、F-04（文件计数）、F-05（.gitignore 行号引用）、F-06（容器清单改为时点观察）、F-07（FF 折叠映射引用改指 `et_v2_contract.py:39-49`）、F-08（AST 口径写明）、F-09（`.planning/` lane 计划归类为历史）、F-10（补 `origin/HEAD` 处置）、F-11（记录 CWP lane 的 3 个 tracked 修改非 ET 所为）**已在本审查收据提交中修正**；F-12（校验脚本未随仓交付）**接受并记录理由**：卡不要求交付校验脚本，独立 reviewer 已用更强的口径（全字符串字面量多重集比对）独立重做并确认结论为真 |
 | 未能验证项 | 清理收据的 `file_count = 2183` / `bytes = 126336536` 是删除前测得的，目录已不存在，**无法复测**；reviewer 只能核对内部自洽（逐目录表求和 = 两个总计，逐位相符）并与仓库实测体积比对 |
@@ -275,12 +275,22 @@ ET lane 未向 `company-wiki` 或 `filing-fetch` 写入任何内容（`filing-fe
 
 ## 10. 提交与推送顺序（供 ROOT 核对）
 
-1. **候选最终 HEAD（C1）**：本轮全部改动（`README.md`、`task_plan.md`、`progress.md`、`findings.md`、本交接 md + json）一次提交。C1 的 SHA 即 `et-closeout-handoff.json` 中 `final.head`。
-2. **独立审查**：独立 agent 只读审查 C1 的完整变更与本交接，结论绑定 C1；审查报告写入同目录 `et-closeout-review.md`。
-3. **推送 C1**：推送后 `git rev-parse origin/main` **必须等于 C1**（= 已审 HEAD）。此为卡内「确认远端等于已审 HEAD」的核对点。
-4. **审查收据提交（C2）**：C2 只包含 `et-closeout-review.md`（及 `et-closeout-handoff.json` 中 `final.head` / `independent_review.reviewed_head` 的指针回填），**无任何产品改动**。ROOT 可用 `git diff --stat C1..C2` 核对该增量仅为审查收据文件，然后推送 C2。
+实际交付链（全部在 `main` 上，base = `915f216`）：
 
-> 说明：审查报告无法存在于「它所审查的那次提交」之内，因此已审 HEAD（C1）与最终远端 HEAD（C2）相差一个仅含审查收据的文档提交。ROOT 核对方式：`git show --stat C1` 看已审候选；`git diff --stat C1..C2` 看增量只含审查收据；`git rev-parse origin/main` 看最终远端。
+| 提交 | 内容 | 性质 |
+|---|---|---|
+| `bba1b97` | 测试假凭据字面量提取为具名常量（取值不变） | 收尾前置修复 |
+| `08da5dc` | 根计划收敛 + 本交接 md/json + 工区清理记录 | **C1 = 被审候选**（round-1 PASS 绑定此 SHA） |
+| `09a31d4` | 独立审查报告 + F-01…F-11 修正 + JSON 指针回填 | 审查收据（reviewer 要求） |
+| `f76a168` | 根计划快照与 MB-ET/DU10/DU9/DU7/ET-S3 收据 HEAD 刷新 | 审查收据（reviewer 要求） |
+| （后续） | 复审发现的 N-01…N-05 精度修正 + 复审收据 | 审查收据（reviewer 要求） |
+
+ROOT 核对方式（**SHA 自引用限制**：任何提交都不可能在自己内容里写自己的 SHA，因此本文件只记录「被审候选」与「核对命令」，不追逐最新 tip）：
+
+- `git show --stat 08da5dc` — 被审候选的完整变更（round-1 PASS 绑定的对象）。
+- `git diff --stat 08da5dc..origin/main` — 该增量应**只含审查收据文件**（`et-closeout-review.md`、本交接 md/json 的收据修正、根 `task_plan.md` 的收据 HEAD 刷新），无任何产品代码、wire 或收据数字变化。
+- `git ls-remote origin refs/heads/main` — **最终远端 tip 以这条命令的实时输出为准**；收尾当日的每一次推送后都核对了远端等于当时本地 tip（`git reflog show origin/main` 可见 `915f216 → 08da5dc → 09a31d4 → …` 的推送序列）。
+- `git log --oneline 915f216..origin/main` — 完整交付链与各提交角色。
 
 ---
 
