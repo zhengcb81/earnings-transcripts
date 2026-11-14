@@ -10,9 +10,9 @@
   },
   "final": {
     "branch": "main",
-    "head": "PENDING_CANDIDATE_HEAD",
-    "remote_head": "PENDING_CANDIDATE_HEAD",
-    "note": "final.head/final.remote_head are backfilled in the follow-up review-receipt commit with the reviewed candidate commit SHA; see et-closeout-handoff.md section 10."
+    "head": "08da5dca4f680457775e8184730fa4499a8d3dd5",
+    "remote_head": "08da5dca4f680457775e8184730fa4499a8d3dd5",
+    "note": "head is the reviewed candidate commit (two commits on top of base 915f216: bba1b97 test constant extraction, 08da5dc the plan/workspace closeout). The independent review verdict is bound to this SHA. origin/main was verified to equal this SHA right after the reviewed push. One follow-up commit adds only the review receipt (et-closeout-review.md) and the pointer backfill in this file; use git log --oneline -3 to see it, and git diff --stat 08da5dc..HEAD to confirm the delta is the receipt only. See et-closeout-handoff.md section 10."
   },
   "dispositions": [
     {
@@ -276,6 +276,13 @@
     },
     {
       "kind": "remote_ref",
+      "path": "refs/remotes/origin/HEAD",
+      "status": "ACTIVE_KEEP",
+      "reason": "Symbolic remote-tracking ref that resolves to origin/main; it is not an independent remote branch, but it is listed so the remote-ref inventory is complete.",
+      "evidence": "git for-each-ref refs/remotes/ lists 5 entries: origin/HEAD plus the 4 branch refs; origin/HEAD points at origin/main."
+    },
+    {
+      "kind": "remote_ref",
       "path": "refs/remotes/origin/codex/mb11-et",
       "status": "EVIDENCE_KEEP",
       "reason": "Published MB-ET delivery receipt; not deleted or modified in this run.",
@@ -307,7 +314,7 @@
       "path": "C:/Users/郑曾波/Projects/_harness_worktrees (and its cmrf-20261008 / pool-20261009 / w06 sub-containers)",
       "status": "UNCLASSIFIED_HOLD",
       "reason": "Shared container that still holds FF, RF, SW and audit worktrees owned by other lanes; only the ET worktrees inside it were removed.",
-      "evidence": "ls after cleanup: cmrf-20261008 still holds ff-diagnostics, ff-permission-residue, rf-inputs, rf-permission-residue, sw-permission-residue; pool-20261009 holds audit-events; w06 holds audit-measures, audit-measures-root, ff-contract-matrix, ff-contract-matrix-root."
+      "evidence": "Point-in-time observation: right after the ET cleanup, cmrf-20261008 still held ff-diagnostics, ff-permission-residue, rf-inputs, rf-permission-residue and sw-permission-residue; pool-20261009 held audit-events; w06 held audit-measures, audit-measures-root, ff-contract-matrix and ff-contract-matrix-root. The independent reviewer later observed cmrf-20261008 with only ff-diagnostics, ff-permission-residue and sw-permission-residue - two rf worktrees were removed by another lane after this receipt was written. The ET lane touched none of them."
     },
     {
       "kind": "repo_path",
@@ -329,6 +336,13 @@
       "status": "EVIDENCE_KEEP",
       "reason": "Test receipts, independent-review reports and evidence indexes of the closed DU7/DU9/DU10/MB-ET deliveries; tracked in main.",
       "evidence": "git ls-files docs/plans = 84 files, of which 31 under receipts/, 9 under evidence/, 4 under review/."
+    },
+    {
+      "kind": "repo_path",
+      "path": ".planning/n5-et-local-text, .planning/s3-et-bounded-runtime-20261003, .planning/s3-et-deadline-20261004, .planning/w06-cutoff-result",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Early lane-level planning directories (12 tracked files, including 4 lane task_plan.md files). They are historical lane plans, not status entries; the root task_plan.md history table says so explicitly.",
+      "evidence": "git ls-files .planning = 12 files; each lane directory holds task_plan.md, findings.md and progress.md."
     },
     {
       "kind": "repo_path",
@@ -359,10 +373,16 @@
       "reason": "Tool-private; not product content; not committed and not deleted."
     },
     {
-      "path": "config.json, .cache.json, .translate_cache.json, logs/, __pycache__/, .pytest_cache/, .ruff_cache/, tests/__pycache__/, .benchmarks/",
-      "state": "gitignored working-tree state",
+      "path": "config.json, .cache.json, .translate_cache.json, logs/, __pycache__/, .pytest_cache/, tests/__pycache__/",
+      "state": "gitignored working-tree state (.gitignore has 9 entries: .cache.json, .translate_cache.json, __pycache__/, *.pyc, logs/, config.json, .env, *.egg-info/, .pytest_cache/)",
       "disposition": "kept as-is",
-      "reason": "config.json carries LLM API credentials and is deliberately never committed or printed; caches are rebuildable."
+      "reason": "config.json (line 6 of .gitignore) carries LLM API credentials and is deliberately never committed or printed; caches are rebuildable. The repo-root .benchmarks/ directory is empty, so git does not report it, and .ruff_cache/ lives in the parent container directory, not in this repo."
+    },
+    {
+      "path": "C:/Users/郑曾波/Projects/company-wiki (3 tracked files modified)",
+      "state": "modified: docs/plans/module-pwf-reconciliation-2026-11-14/review/cwp-closeout-handoff.json, cwp-closeout-handoff.md and cwp-closeout-review.md",
+      "disposition": "not the ET lane's state - left untouched",
+      "reason": "These are the CWP lane's own closeout receipts: their diff contains 0 hits for ET-related text and company-wiki has its own three CWP closeout commits from the same day. filing-fetch has 0 tracked modifications. The ET lane wrote nothing in either repository."
     }
   ],
   "cleanup": {
@@ -394,11 +414,11 @@
   "tests": [
     {
       "command": "git diff --stat 915f216",
-      "result": "4 Markdown files plus 4 test files; no production module (transcript_api.py, transcript_preflight.py, transcript_tool.py, retrieval_*.py, scraper.py) is touched"
+      "result": "10 files: 4 root Markdown files plus this handoff's md and json plus 4 test files; no production module (transcript_api.py, transcript_preflight.py, transcript_tool.py, retrieval_*.py, scraper.py, transcript_extraction.py) is touched"
     },
     {
-      "command": "AST value-equivalence check: parse base 915f216 and the working tree, resolve every credential-shaped keyword argument and dict item to its literal string, compare the multisets",
-      "result": "PASS - 20 values in tests/test_transcript_api.py, 3 in tests/test_provider_cost_capability.py, 7 in tests/test_common.py and 1 in tests/test_du7_extraction_wiring.py are byte-identical to the base commit; the fake credential literals were only lifted into named constants (FAKE_FMP_KEY_VALUE / FAKE_FMP_SECRET_VALUE / FAKE_FMP_CUTOFF_KEY_VALUE / CONFIG_KEY_SUFFIX)"
+      "command": "AST value-equivalence check: parse base 915f216 and the working tree, resolve every credential-shaped keyword argument and dict item to its literal string (enumulation rule: the keyword-argument name or the dict key name contains key/secret/token/password/credential; module constants and cross-module imports are resolved to their defined value), compare the multisets",
+      "result": "PASS - every credential-shaped value in the four files is byte-identical to the base commit; the fake credential literals were only lifted into named constants (FAKE_FMP_KEY_VALUE / FAKE_FMP_SECRET_VALUE / FAKE_FMP_CUTOFF_KEY_VALUE / CONFIG_KEY_SUFFIX). The independent reviewer re-derived this with a stronger method (full string-literal multiset comparison) and confirmed that no literal value was added or lost."
     },
     {
       "command": "mimosa audit . --json --no-deps (same whole-project audit the repository pre-commit gate runs)",
@@ -442,9 +462,9 @@
     }
   ],
   "independent_review": {
-    "reviewer_agent": "PENDING_INDEPENDENT_REVIEW",
-    "reviewed_head": "PENDING_CANDIDATE_HEAD",
-    "result": "PENDING_INDEPENDENT_REVIEW",
+    "reviewer_agent": "independent review agent, not involved in the implementation (ZCode general-purpose sub-agent, read-only on every repository)",
+    "reviewed_head": "08da5dca4f680457775e8184730fa4499a8d3dd5",
+    "result": "PASS - P0=0, P1=0, P2=12; the two receipt-level P2 items (JSON placeholder backfill, root plan summary wording) are closed in the review-receipt commit and the remaining P2 items are citation-precision fixes recorded in the same commit; no product code, wire or receipt number changed, so no gate or test re-run was required",
     "report_path": "docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-review.md"
   },
   "remaining_items": [
@@ -464,7 +484,7 @@
       "owner": "ET",
       "item": "Harden the three load-sensitive budget/deadline tests so the package regression gives a stable verdict on slow hosts.",
       "status": "open - registered, not the next step",
-      "evidence": "5 repeat runs of the same unchanged code gave 1 green / 4 with 1 failed; the failures are batch-deadline budget exhaustion under host load."
+      "evidence": "5 repeat runs of the same unchanged code on a busy host gave 1 green / 4 with 1 failed; the failures are batch-deadline budget exhaustion under host load. The independent reviewer could not reproduce the failure state (5/5 green on an idle host), so the flakiness is recorded as load-dependent and not independently reproduced."
     },
     {
       "owner": "ET",
@@ -494,7 +514,7 @@
       "owner": "FF (external)",
       "item": "Mapping between ET's 12 provider statuses and FF's collapsed provider_unavailable plus closed reason vocabulary. ET does not change its own status set.",
       "status": "external dependency - FF owner decision",
-      "evidence": "FF scripts/transcript_tool_transport.py closed error vocabulary at lines 47-60."
+      "evidence": "filing-fetch/scripts/et_v2_contract.py lines 39-49 hold the collapse map (status plus error_code to provider_unavailable / provenance_rejected / request_error); filing-fetch/scripts/transcript_tool_transport.py lines 47-60 hold the adjacent closed whitelist of known ET error codes."
     },
     {
       "owner": "ET",

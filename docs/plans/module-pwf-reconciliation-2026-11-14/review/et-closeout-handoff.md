@@ -18,7 +18,7 @@
 | base 分支 / HEAD | `main` / `915f216f764e83012e8ce6f418111c9ef9eacace` |
 | base remote HEAD | `origin/main` = `915f216f764e83012e8ce6f418111c9ef9eacace` |
 | remote | `origin` = `https://github.com/zhengcb81/earnings-transcripts.git`（**有 remote**） |
-| final 分支 / HEAD | `main` / 见 §7「提交与推送顺序」；`base` 与 `final` 的 JSON 字段在 `et-closeout-handoff.json` |
+| final 分支 / HEAD | `main` / 见 §10「提交与推送顺序」；`base` 与 `final` 的 JSON 字段在 `et-closeout-handoff.json` |
 | 本轮改动性质 | 文档为主（`README.md`、`task_plan.md`、`progress.md`、`findings.md` + 本交接文件），外加**一处测试代码清理**：把 19 处假凭据字面量提取为具名常量（**取值逐字节不变**，见 §7） |
 | 非祖先本地 ref | **0**（`git branch --no-merged main` 输出为空） |
 | 注册 worktree | 12 → **1**（只剩 `main` 工区） |
@@ -134,16 +134,16 @@
 | `codex/root-w06-et-cutoff-20261011` | `d0ac42c` | 祖先于 `main` |
 | `codex/transcript-companion-adapter` | `4924d57` | 祖先于 `main`；2026-09-29 companion 期落点 |
 
-### 4.4 远端 ref（4 个）
+### 4.4 远端 ref（4 个分支 + 1 个符号引用）
 
-`origin/main` → `ACTIVE_KEEP`。`origin/codex/mb11-et`、`origin/codex/et-s3-deadline`、`origin/codex/et-s3-bounded-runtime` → `EVIDENCE_KEEP`（交付收据，本轮未删未改远端）。
+`origin/main` → `ACTIVE_KEEP`。`origin/codex/mb11-et`、`origin/codex/et-s3-deadline`、`origin/codex/et-s3-bounded-runtime` → `EVIDENCE_KEEP`（交付收据，本轮未删未改远端）。`refs/remotes/origin/HEAD` → `ACTIVE_KEEP`（指向 `origin/main` 的符号引用，不是独立远端分支）。
 
 ### 4.5 未在本卡候选内、但被本轮触及的路径
 
 | 路径 | 处置 | 依据 |
 |---|---|---|
 | `Projects/cwp-lanes-20261006`（容器） | `UNCLASSIFIED_HOLD` | 移除 ET 工区后已空，但归属是 CWP lane 容器目录，不在 ET 卡候选清单内，未查清其 owner 用途前**原样保留** |
-| `Projects/_harness_worktrees/{cmrf-20261008,pool-20261009,w06}`（容器） | `UNCLASSIFIED_HOLD` | 仍存放 FF / RF / SW / Audit 各仓工区，非 ET 所有；本轮只移除了其中的 ET 工区 |
+| `Projects/_harness_worktrees/{cmrf-20261008,pool-20261009,w06}`（容器） | `UNCLASSIFIED_HOLD` | 仍存放 FF / RF / SW / Audit 各仓工区，非 ET 所有；本轮只移除了其中的 ET 工区。**该清单是时点观察**：独立审查时 `cmrf-20261008` 已只剩 `ff-diagnostics`、`ff-permission-residue`、`sw-permission-residue`（另两个 rf 工区被别的 lane 事后移除），ET 未触碰 |
 | `Projects/earnings-transcripts/.mimosa/`、`.claude/`、`.mimocode/`、`.ruff_cache/` | `UNCLASSIFIED_HOLD` | 工具私有目录，不属 ET 交付内容，未触碰 |
 
 ### 4.6 仓内保留的原件 / 资料 / 收据
@@ -153,7 +153,8 @@
 | `transcripts/`（130 个 tracked 文件：6 家 43 份 `*_earnings_call.txt` 及派生物） | `EVIDENCE_KEEP` | 原始转录原件；`git ls-files transcripts` = 130；所有分支内容一致 |
 | `.workbuddy-ai/memory/`（4 个未跟踪文件） | `EVIDENCE_KEEP` | 工具私有用户笔记，卡内明确要求保留 |
 | `docs/plans/**/receipts/*`（31）、`**/evidence/*`（9）、`**/review/*`（4） | `EVIDENCE_KEEP` | 测试收据、独审报告、证据索引，已随主线 tracked |
-| `config.json`、`.cache.json`、`.translate_cache.json`、`logs/` | `ACTIVE_KEEP` | gitignored 运行态（含 LLM 凭证）；**未提交、未打印、未删除** |
+| `.planning/{n5-et-local-text,s3-et-bounded-runtime-20261003,s3-et-deadline-20261004,w06-cutoff-result}/` | `EVIDENCE_KEEP` | 早期 lane 级 PWF（12 个 tracked 文件，其中 4 个 lane `task_plan.md`）。**历史 lane 计划，不是状态入口**；根 `task_plan.md` 的历史表已明确这一点 |
+| `config.json`、`.cache.json`、`.translate_cache.json`、`logs/` | `ACTIVE_KEEP` | gitignored 运行态（`config.json` 含 LLM 凭证）；**未提交、未打印、未删除** |
 | `.mimosa/`（本轮会话由 harness hook 生成） | `ACTIVE_KEEP` | 未跟踪工具状态，未提交、未删除 |
 
 ---
@@ -173,6 +174,11 @@
 gitignored（`--ignored=matching`）：`.cache.json`、`.translate_cache.json`、`config.json`、`logs/`、`__pycache__/`、`.pytest_cache/`、`tests/__pycache__/`——全部保留原样，未进版本库。
 
 **无 dirty 工作树冲突**，与本卡写集合无重叠 → 本轮**无 `UNCLASSIFIED_HOLD` 写入冲突**，未覆盖任何在途改动。
+
+**本仓之外唯一可见的脏状态（不属于 ET lane）**：独立审查时 `company-wiki` 工作树有 3 个 tracked 文件处于 modified
+（`docs/plans/module-pwf-reconciliation-2026-11-14/review/cwp-closeout-handoff.{json,md}` 与 `cwp-closeout-review.md`）。
+经核对它们是 **CWP lane 自己的收尾收据**：diff 中 ET 相关字样命中数 **0**，且 `company-wiki` 当天已有 3 个独立的 CWP 收尾提交。
+ET lane 未向 `company-wiki` 或 `filing-fetch` 写入任何内容（`filing-fetch` 为 0 个 tracked 修改，仅有预先存在的 untracked 运行态）。
 
 ---
 
@@ -209,8 +215,8 @@ gitignored（`--ignored=matching`）：`.cache.json`、`.translate_cache.json`�
 
 | # | 命令 / 检查 | 结果 |
 |---|---|---|
-| 1 | `git diff --stat 915f216` | 只有 4 个 Markdown + 4 个测试文件；**生产模块（`transcript_api.py` / `transcript_preflight.py` / `transcript_tool.py` / `retrieval_*.py` / `scraper.py` 等）一行未动** |
-| 1b | 取值等值校验（AST 解析 base 与工作树，解析每个凭据形参/字典项的实际字符串值后比对） | **PASS**：`tests/test_transcript_api.py` 20 处、`tests/test_provider_cost_capability.py` 3 处、`tests/test_common.py` 7 处、`tests/test_du7_extraction_wiring.py` 1 处的凭据形取值与 `915f216` **逐字节相同** |
+| 1 | `git diff --stat 915f216` | **10 个文件**：4 个根 Markdown + 本交接的 md 与 json + 4 个测试文件；**生产模块（`transcript_api.py` / `transcript_preflight.py` / `transcript_tool.py` / `retrieval_*.py` / `scraper.py` / `transcript_extraction.py`）一行未动** |
+| 1b | 取值等值校验（AST 解析 base 与工作树，解析每个凭据形参/字典项的实际字符串值后比对；口径：关键字实参名或字典键名含 key/secret/token/password/credential 的使用点，跨模块 import 的常量按定义值解析） | **PASS**：4 个文件的凭据形取值与 `915f216` **逐字节相同**。独立 reviewer 用更强的口径（全字符串字面量多重集比对）复现同一结论：**没有任何字面量值被新增或丢失**，只有重复内联字面量被去重到具名常量 |
 | 1c | `mimosa audit . --json --no-deps`（仓库预提交门禁同款整仓审计） | 清理前 **high 19 / low 8** → 清理后 **high 0 / low 8**（剩余 low 为 `random.sample` / `random.choice` / 一条注释，不阻断） |
 | 2 | `python -B -m pytest tests/ -q -p no:cacheprovider --basetemp <新建临时目录>`（整包） | rc=1，**1 failed, 662 passed in 196.73s**（与 2026-11-13 MB-ET ROOT 收尾的 `662 passed, 1 failed` 同一形状） |
 | 3 | 定向复跑 `tests/test_transcript_audit.py -k conflicting` | rc=1，**1 failed**（断言 `rc == 1` 实际 `rc == 0`）→ 确定性既有缺陷，即根 PWF 的「唯一下一步」 |
@@ -225,12 +231,12 @@ gitignored（`--ignored=matching`）：`.cache.json`、`.translate_cache.json`�
 
 - `tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt` — 确定性失败（步骤 3 独立复现：断言 `rc == 1`，实际 `rc == 0`），基线 `003c1c0` 起可复现，MB-ET 卡已记录并明确未修（`docs/plans/mb11-et-2026-11-11/handoff.md:140`、`:146`）。**这就是根 PWF 的「唯一下一步」。**
 
-**时序敏感用例的负载敏感性（同一份代码、同一主机）**：本轮第一次整包运行（在假凭据清理之前、机器有其他负载）得到 `4 failed, 659 passed in 332.96s`，多出的 3 项是：
+**时序敏感用例的负载敏感性（同一份代码）**：本轮第一次整包运行（在假凭据清理之前、机器有其他负载）得到 `4 failed, 659 passed in 332.96s`，多出的 3 项是：
 
-- `tests/test_retrieval_cli_e2e.py::test_two_document_batch_second_gets_only_remaining_budget` — 5 次单跑只绿 1 次（`1 failed, 2 passed` × 4、`3 passed` × 1）。该用例给批处理 7 秒预算，慢主机上首份文档就吃掉预算，第二份正文请求未发出（`envelopes` 只有 2 条而非 3 条）。
+- `tests/test_retrieval_cli_e2e.py::test_two_document_batch_second_gets_only_remaining_budget` — 在**有负载**的机器上 5 次单跑只绿 1 次（`1 failed, 2 passed` × 4、`3 passed` × 1）。该用例给批处理 7 秒预算，慢主机上首份文档就吃掉预算，第二份正文请求未发出（`envelopes` 只有 2 条而非 3 条）。
 - `tests/test_explicit_response_budget.py::test_supervisor_result_bound_tracks_the_explicit_operation_budget` 与 `tests/test_retrieval_runtime.py::test_blocked_get_is_reaped_within_deadline_and_cleanup_grace` — 整包负载下失败，单跑通过。
 
-清理后、机器空闲时的整包复跑为 `1 failed, 662 passed`，这 3 项全部通过，说明它们是负载敏感而非功能缺陷。本轮未改这三个用例的任何代码。
+清理后、机器空闲时的整包复跑为 `1 failed, 662 passed`，这 3 项全部通过。**独立 reviewer 在空闲主机上连跑 5 次全部通过，未能复现失败态** —— 因此本项判定为「负载相关、失败态未独立复现」，不作为 PASS 依据。本轮未改这三个用例的任何代码。
 
 **未执行**：真实 provider 联网 / 付费调用（0 次）、翻译 / 模型调用（0 次）、真实抓取、FF / CWP / RF 仓的任何写入或测试。
 
@@ -238,11 +244,16 @@ gitignored（`--ignored=matching`）：`.cache.json`、`.translate_cache.json`�
 
 ## 8. 独立审查
 
-见同目录 `et-closeout-review.md`。
+完整报告见同目录 `et-closeout-review.md`。
 
-- 审查者：未参与实施的独立 agent（见该文件）。
-- 绑定 HEAD：见该文件与 `et-closeout-handoff.json` 的 `independent_review.reviewed_head`。
-- 结论：`et-closeout-review.md` 的最终 PASS/FAIL。
+| 项 | 值 |
+|---|---|
+| 审查者 | 未参与实施的独立 reviewer agent（只读；所有仓外临时脚本与 `--basetemp` 都放在仓外 scratch 目录并在审查结束后删除） |
+| 绑定 HEAD | `08da5dca4f680457775e8184730fa4499a8d3dd5`（`main`），base = `915f216` |
+| 结论 | **PASS** — P0 = 0，P1 = 0，P2 = 12 |
+| 独立复核 | 整包回归实测 `1 failed, 662 passed`（唯一失败即声明的唯一下一步，且在基线 `003c1c0` 的解包树里同样复现）；受影响 4 文件 `119 passed`；`git branch --no-merged main` 为空、21 个 ref 全部是 `main` 祖先；15 个分支的 `--diff-filter=D` 与 `transcripts/` 差异均为 0；门禁在 `915f216` 解包副本里复现 `high 19`、在 HEAD 上复现 `high 0`；FF/CWP 的每一条断言都逐条打开源文件核对为真 |
+| P2 关闭情况 | F-01（JSON 占位符回填）与 F-02（根计划摘要表述）**已在本审查收据提交中修正**；F-03（章节交叉引用）、F-04（文件计数）、F-05（.gitignore 行号引用）、F-06（容器清单改为时点观察）、F-07（FF 折叠映射引用改指 `et_v2_contract.py:39-49`）、F-08（AST 口径写明）、F-09（`.planning/` lane 计划归类为历史）、F-10（补 `origin/HEAD` 处置）、F-11（记录 CWP lane 的 3 个 tracked 修改非 ET 所为）**已在本审查收据提交中修正**；F-12（校验脚本未随仓交付）**接受并记录理由**：卡不要求交付校验脚本，独立 reviewer 已用更强的口径（全字符串字面量多重集比对）独立重做并确认结论为真 |
+| 未能验证项 | 清理收据的 `file_count = 2183` / `bytes = 126336536` 是删除前测得的，目录已不存在，**无法复测**；reviewer 只能核对内部自洽（逐目录表求和 = 两个总计，逐位相符）并与仓库实测体积比对 |
 
 ---
 
@@ -254,7 +265,7 @@ gitignored（`--ignored=matching`）：`.cache.json`、`.translate_cache.json`�
 2. `README.md` 一步式 `fetch` 表述限定 —— **本轮已完成**。
 3. 真实 Motley Fool 页面 DOM 适应性验收（live DOM adaptability）—— 需一次无凭证、无付费的公开页面小样本授权；**不得**为凑真实样本改生产 provider 开关或生产配置。
 4. 本质不可由 ET 单独消除的限制登记（无标记句中截断不可判定、CJK 母语原文本地不存在、真实线上 MF DOM 未下载重测）。
-5. 三个预算 / 截止日用例的时序稳健性（慢主机 flaky）——需单独立卡，不阻塞本轮交接。
+5. 三个预算 / 截止日用例的时序稳健性（慢主机 flaky，失败态未独立复现）——需单独立卡，不阻塞本轮交接。
 
 **外部 owner 依赖（不计为 ET 未完成）**：FMP endpoint entitlement（402，账户事实）、FMP 留存与再分发权利（**CWP/FF 的合规决策**，CWP importer 现无权利门）、G1e 跨仓端到端验收（**CWP ROOT 组合验收**）、FF 侧状态词表映射（**FF owner 自决**）。
 

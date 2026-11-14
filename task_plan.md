@@ -19,7 +19,7 @@
 | DU7 抽取 / DU9 legacy 比对 / DU10 TXT 保真 / ET-S3 deadline·runtime | **全部已完工并入 `main`**；PWF、收据、证据随主线保留在 `docs/plans/` |
 | 本仓 worktree | 12 → **1**（只剩 `main` 工区）。11 个已结案交付工区按收据删除，Git 历史与分支未动 |
 | 本仓非祖先本地 ref | **0**。除 `main` 外 15 个本地分支全部是 `main` 的祖先，保留为交付收据 |
-| ET 自身未完成项 | **只剩一条**，见下方「唯一下一步」 |
+| ET 自身未完成项 | **唯一下一步只有一条**，见下方；另有 2 条登记待办（真实 MF 页面 DOM 适应性验收、时序敏感用例稳健性）与 1 类本质不可消除的限制，见「ET 自身剩余项」 |
 | FF / CWP 侧待办 | 写在「消费端 owner 边界」，**不计入 ET 未完成**，由各该仓 owner 自行推进 |
 | 原件与用户资料 | 原样保留：`transcripts/`（130 个 tracked 原件/派生物）、`.workbuddy-ai/`（未跟踪，工具私有笔记）、gitignored 的 `config.json` / 缓存 / 日志 |
 | 仓库预提交门禁 | **已可正常提交**。原先 19 个 high「硬编码凭据」全部是测试里的假凭据字面量（不是真实凭据），已提取为具名常量且**取值逐字节不变**；`mimosa audit .` 复测 high 0 |
@@ -108,8 +108,9 @@
    `tests/test_retrieval_cli_e2e.py::test_two_document_batch_second_gets_only_remaining_budget`、
    `tests/test_explicit_response_budget.py::test_supervisor_result_bound_tracks_the_explicit_operation_budget`、
    `tests/test_retrieval_runtime.py::test_blocked_get_is_reaped_within_deadline_and_cleanup_grace`。
-   2026-11-14 实测：同一份代码、同一主机连跑 5 次，仅 1 次全绿（`1 failed, 2 passed` × 4、`3 passed` × 1）；
+   2026-11-14 实测：在**有其他负载**的机器上，同一份代码连跑 5 次只有 1 次全绿（`1 failed, 2 passed` × 4、`3 passed` × 1）；
    同日整包运行在负载下是 `4 failed, 659 passed`，机器空闲时是 `1 failed, 662 passed`。
+   独立 reviewer 在**空闲**主机上连跑 5 次**全部通过**，未能复现失败态 —— 即失败态是负载相关的，未被独立复现。
    这不是产品缺陷，也不是本次收尾引入（本次收尾只动了 Markdown 与 4 个测试文件的假凭据字面量提取，取值逐字节不变），
    但它会让整包回归在不同负载下给出不同结论，需在需要稳定门禁时单独立卡处理。
 
@@ -139,6 +140,7 @@
 | [`docs/plans/du9-legacy-comparison-2026-10-16/`](docs/plans/du9-legacy-comparison-2026-10-16/) | DU9 legacy 比对交付 PWF + ROOT 接收 |
 | [`docs/plans/du7-extraction-2026-10-16/`](docs/plans/du7-extraction-2026-10-16/) | DU7 抽取交付 PWF + ROOT 接收 |
 | [`docs/plans/module-pwf-reconciliation-2026-11-14/`](docs/plans/module-pwf-reconciliation-2026-11-14/) | 2026-11-14 跨模块 PWF/工区收尾的 ET 交接与独审 |
+| [`.planning/`](.planning/) | 早期 lane 级计划目录（`n5-et-local-text`、`s3-et-bounded-runtime-20261003`、`s3-et-deadline-20261004`、`w06-cutoff-result`）。**历史 lane 计划，不是状态入口**；其中的 `task_plan.md` 是各 lane 自己的执行计划，状态一律以本文件为准 |
 
 ### 已完成的历史阶段（不再列为待办）
 
