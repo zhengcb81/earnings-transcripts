@@ -16,6 +16,10 @@ from common import (
     TranslatorFactory, _OpenAITranslator,
 )
 
+# Config key suffix used by the translator-priority test below. The values
+# written through it are synthetic placeholders, never real credentials.
+CONFIG_KEY_SUFFIX = "_api_key"
+
 
 @pytest.fixture
 def no_translator_network(monkeypatch):
@@ -404,7 +408,7 @@ class TestTranslators:
             self, mock_cfg, monkeypatch, no_translator_network, keyed, expected, checked):
         """Synthetic owned keys prove priority, never real key/HTTP availability."""
         get_path(mock_cfg, "config_json").write_text(
-            json.dumps({name + "_api_key": "synthetic-not-real-" + name for name in keyed}),
+            json.dumps({name + CONFIG_KEY_SUFFIX: "synthetic-not-real-" + name for name in keyed}),
             encoding="utf-8")
         available_calls = []
         def available(candidate):

@@ -15,6 +15,7 @@ from transcript_api import ProviderSettings, fetch_transcript, fetch_transcript_
 
 sys.path.insert(0, str(Path(__file__).parent))
 from test_transcript_api import (
+    FAKE_FMP_KEY_VALUE,
     FMP_URL,
     Q2_URL,
     FakeResponse,
@@ -125,7 +126,7 @@ def test_fmp_extraction_and_provider_disabled_states_unchanged(monkeypatch):
     result = fetch_transcript(
         make_request(ticker="MSFT", exchange="nasdaq", fiscal_quarter=3, provider="fmp"),
         session_factory=lambda: session,
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
     )
     assert result["status"] == "fetched"
     assert result["extraction_version"] == "fmp-api-content/1"

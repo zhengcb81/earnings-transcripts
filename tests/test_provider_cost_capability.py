@@ -6,7 +6,14 @@ import sys
 
 import pytest
 
-from .test_transcript_api import FakeResponse, FakeSession, FMP_URL, fmp_payload, make_request
+from .test_transcript_api import (
+    FAKE_FMP_KEY_VALUE,
+    FakeResponse,
+    FakeSession,
+    FMP_URL,
+    fmp_payload,
+    make_request,
+)
 from transcript_api import ProviderSettings, fetch_transcript
 
 
@@ -27,7 +34,7 @@ def test_exact_subscription_fetch_accepts_explicit_zero_incremental_fee(ceiling)
     body = fmp_payload()
     session = FakeSession({FMP_URL: FakeResponse(FMP_URL, body, content_type="application/json")})
     result = fetch_transcript(make_request(ticker="MSFT", exchange="nasdaq", fiscal_quarter=3,
-        provider="fmp", max_cost_usd=ceiling), session_factory=lambda: session, fmp_api_key="fake-key")
+        provider="fmp", max_cost_usd=ceiling), session_factory=lambda: session, fmp_api_key=FAKE_FMP_KEY_VALUE)
     assert result["status"] == "fetched"
     assert len(session.calls) == 1
 
@@ -36,7 +43,7 @@ def test_exact_subscription_fetch_accepts_explicit_zero_incremental_fee(ceiling)
 def test_invalid_fee_ceiling_rejected_before_http(ceiling):
     session = FakeSession({})
     result = fetch_transcript(make_request(provider="fmp", max_cost_usd=ceiling),
-        session_factory=lambda: session, fmp_api_key="fake-key")
+        session_factory=lambda: session, fmp_api_key=FAKE_FMP_KEY_VALUE)
     assert result["status"] == "invalid_request"
     assert not session.calls
 
@@ -49,7 +56,7 @@ def test_incrementally_charged_operation_does_not_use_zero_ceiling(monkeypatch):
         "enabled": True, "supported": True, "incremental_cost_usd": "0.25"}, raising=False)
     session = FakeSession({})
     result = fetch_transcript(make_request(provider="fmp", max_cost_usd="0.00"),
-        session_factory=lambda: session, fmp_api_key="fake-key")
+        session_factory=lambda: session, fmp_api_key=FAKE_FMP_KEY_VALUE)
     assert result["error_code"] == "provider_cost_budget_exceeded"
     assert not session.calls
 

@@ -14,6 +14,13 @@ QUOTE_URL = "https://www.fool.com/quote/nyse/acme/"
 Q1_URL = "https://www.fool.com/earnings/call-transcripts/2026/05/01/acme-q1-2026-earnings-transcript/"
 Q2_URL = "https://www.fool.com/earnings/call-transcripts/2026/09/01/acme-q2-2026-earnings-transcript/"
 
+# Fake provider credentials for the in-process fake HTTP sessions below. They
+# are placeholders, never real keys; the tests assert that these exact values
+# never reach a result, a log or any output.
+FAKE_FMP_KEY_VALUE = "fake-key"
+FAKE_FMP_SECRET_VALUE = "fake-secret-for-test"
+FAKE_FMP_CUTOFF_KEY_VALUE = "fake-cutoff-key"
+
 
 def make_request(**updates):
     request = {
@@ -352,7 +359,7 @@ def test_fmp_fetches_exact_period_and_keeps_credentials_out_of_provenance():
     result = fetch_transcript(
         make_request(ticker="MSFT", exchange="nasdaq", fiscal_quarter=3, provider="fmp"),
         session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True),
-        fmp_api_key="fake-secret-for-test",
+        fmp_api_key=FAKE_FMP_SECRET_VALUE,
     )
     assert result["status"] == "fetched"
     assert result["provider"] == "fmp"
@@ -425,7 +432,7 @@ def test_fmp_opt_in_returns_exact_json_bytes_without_credentials_or_duplicate_te
     result = fetch_transcript(
         make_request(ticker="MSFT", exchange="nasdaq", fiscal_quarter=3, provider="fmp"),
         session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True),
-        fmp_api_key="fake-secret-for-test",
+        fmp_api_key=FAKE_FMP_SECRET_VALUE,
         include_source_payload=True,
     )
     assert result["status"] == "fetched"
@@ -450,7 +457,7 @@ def test_fmp_opt_in_rejects_non_json_payload_mime():
     result = fetch_transcript(
         make_request(ticker="MSFT", exchange="nasdaq", fiscal_quarter=3, provider="fmp"),
         session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True),
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
         include_source_payload=True,
     )
     assert result["status"] == "provenance_rejected"
@@ -471,7 +478,7 @@ def test_fmp_rejects_response_for_wrong_quarter():
     result = fetch_transcript(
         make_request(ticker="MSFT", exchange="nasdaq", provider="fmp", fiscal_quarter=3),
         session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True),
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
     )
     assert result["status"] == "provenance_rejected"
 
@@ -484,7 +491,7 @@ def test_fmp_excludes_call_after_requested_as_of_date():
             provider="fmp", as_of_date="2026-07-21",
         ),
         session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True),
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
     )
     assert result["status"] == "not_found"
     assert result["error_code"] == "call_after_as_of"
@@ -517,7 +524,7 @@ def test_fmp_enforces_canonical_content_byte_limit():
     result = fetch_transcript(
         make_request(provider="fmp", ticker="MSFT", exchange="nasdaq", fiscal_quarter=3, max_body_bytes=128),
         session_factory=lambda: session, provider_settings=ProviderSettings(motley_fool_enabled=True),
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
     )
     assert result["status"] == "content_too_large"
 
@@ -592,7 +599,7 @@ def test_fmp_missing_credentials_and_402_have_named_unavailable_results():
     no_intent = transcript_api.fetch_transcript(
         make_request(provider="fmp", download_authorized=False),
         session_factory=lambda: session,
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
     )
     assert no_intent["status"] == "not_authorized"
     assert no_intent["provider"] == "fmp"
@@ -600,7 +607,7 @@ def test_fmp_missing_credentials_and_402_have_named_unavailable_results():
 
     session = FakeSession({FMP_URL: FakeResponse(FMP_URL, b"", status_code=402)})
     denied = transcript_api.fetch_transcript(
-        request, session_factory=lambda: session, fmp_api_key="fake-key"
+        request, session_factory=lambda: session, fmp_api_key=FAKE_FMP_KEY_VALUE
     )
     assert denied["status"] == "unavailable"
     assert denied["error_code"] == "provider_entitlement_required"
@@ -614,7 +621,7 @@ def test_fmp_rate_limit_is_distinct_from_bad_provider_response():
     result = transcript_api.fetch_transcript(
         make_request(provider="fmp"),
         session_factory=lambda: session,
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
     )
     assert result["status"] == "rate_limited"
     assert result["error_code"] == "provider_http_429"
@@ -628,7 +635,7 @@ def test_fy_only_request_makes_zero_http_calls():
     request.pop("fiscal_quarter")
     session = FakeSession({})
     result = transcript_api.fetch_transcript(
-        request, session_factory=lambda: session, fmp_api_key="fake-key"
+        request, session_factory=lambda: session, fmp_api_key=FAKE_FMP_KEY_VALUE
     )
     assert result["status"] == "invalid_request"
     assert result["error_code"] == "request_schema"
@@ -647,7 +654,7 @@ def test_fmp_rejects_bad_effective_host_before_parsing_payload():
     result = transcript_api.fetch_transcript(
         make_request(ticker="MSFT", exchange="nasdaq", fiscal_quarter=3, provider="fmp"),
         session_factory=lambda: session,
-        fmp_api_key="fake-key",
+        fmp_api_key=FAKE_FMP_KEY_VALUE,
         include_source_payload=True,
     )
     assert result["status"] == "provenance_rejected"
@@ -661,7 +668,7 @@ def test_fmp_timeout_and_raw_response_limit_are_named_failures():
     request = make_request(provider="fmp", ticker="MSFT", exchange="nasdaq", fiscal_quarter=3)
     timed_out = FakeSession({FMP_URL: requests.Timeout()})
     timeout_result = transcript_api.fetch_transcript(
-        request, session_factory=lambda: timed_out, fmp_api_key="fake-key"
+        request, session_factory=lambda: timed_out, fmp_api_key=FAKE_FMP_KEY_VALUE
     )
     assert timeout_result["status"] == "deadline_exceeded"
     assert timeout_result["error_code"] == "provider_deadline"
@@ -674,7 +681,7 @@ def test_fmp_timeout_and_raw_response_limit_are_named_failures():
         )
     })
     size_result = transcript_api.fetch_transcript(
-        request, session_factory=lambda: oversized, fmp_api_key="fake-key",
+        request, session_factory=lambda: oversized, fmp_api_key=FAKE_FMP_KEY_VALUE,
         include_source_payload=True,
     )
     assert size_result["status"] == "content_too_large"
@@ -693,7 +700,7 @@ def test_same_exact_fmp_request_has_stable_content_identity():
             FMP_URL: FakeResponse(FMP_URL, payload, content_type="application/json")
         })
         result = transcript_api.fetch_transcript(
-            request, session_factory=lambda: session, fmp_api_key="fake-key",
+            request, session_factory=lambda: session, fmp_api_key=FAKE_FMP_KEY_VALUE,
             include_source_payload=True,
         )
         assert result["status"] == "fetched"
@@ -753,7 +760,7 @@ def _fmp_cutoff_result(payload, *, as_of="2026-07-21", include_payload=False):
             ticker="MSFT", exchange="nasdaq", fiscal_quarter=3,
             provider="fmp", as_of_date=as_of,
         ),
-        session_factory=lambda: session, fmp_api_key="fake-cutoff-key",
+        session_factory=lambda: session, fmp_api_key=FAKE_FMP_CUTOFF_KEY_VALUE,
         include_source_payload=include_payload,
     )
     assert len(session.calls) == 1
