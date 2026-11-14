@@ -5,8 +5,12 @@
 > 不再是并列入口，也不另建 `START_HERE`。
 >
 > 状态快照：2026-11-14 · 仓库 `C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts` ·
-> 分支 `main` · HEAD `915f216` · remote `origin` = `https://github.com/zhengcb81/earnings-transcripts.git` · `origin/main` = `915f216`。
-> 最近一次收尾：`docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`（+ `.json`）。
+> 分支 `main` · remote `origin` = `https://github.com/zhengcb81/earnings-transcripts.git`。
+> - **本次收尾基线**：`915f216`（= 收尾前的 `origin/main`，也是最新一次主线收据提交）。
+> - **本次收尾交付序列**：`bba1b97`（测试假凭据常量清理）→ `08da5dc`（根计划收敛 + 交接 + 清理）→ `09a31d4`（独立审查收据）→ 收尾复核收据。
+>   **最终 SHA 以交接文件的 `final.head` / `independent_review.reviewed_head` 为准**
+>   （该 JSON 与承载它的提交是同一次提交，无法在自身内容里写自己的 SHA；用 `git log --oneline -3` 核对）。
+> - **最近一次收尾**：[`docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`](docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md)（+ `.json` + `et-closeout-review.md`）。
 
 ---
 
@@ -135,10 +139,11 @@
 |---|---|
 | [`progress.md`](progress.md) | 2026-07 起的会话进度流水，**历史记录**；当前状态以本文件为准 |
 | [`findings.md`](findings.md) | 2026-07 起的发现流水，**历史记录**；当前状态以本文件为准 |
-| [`docs/plans/mb11-et-2026-11-11/`](docs/plans/mb11-et-2026-11-11/) | MB-ET 交付 PWF + handoff + 独审 + 证据（2026-11-13 结案） |
-| [`docs/plans/du10-txt-fidelity-2026-10-17/`](docs/plans/du10-txt-fidelity-2026-10-17/) | DU10 TXT 保真交付 PWF + ROOT 接收 |
-| [`docs/plans/du9-legacy-comparison-2026-10-16/`](docs/plans/du9-legacy-comparison-2026-10-16/) | DU9 legacy 比对交付 PWF + ROOT 接收 |
-| [`docs/plans/du7-extraction-2026-10-16/`](docs/plans/du7-extraction-2026-10-16/) | DU7 抽取交付 PWF + ROOT 接收 |
+| [`docs/plans/mb11-et-2026-11-11/`](docs/plans/mb11-et-2026-11-11/) | MB-ET 交付 PWF + handoff + 独审 + 证据（2026-11-13 结案）。**收据 HEAD**：代码 tip `8e116a4` → 交付分支 `codex/mb11-et` = `22050ed` → 并入主线的收据 `ef7fb36` → `571b021` → `915f216` |
+| [`docs/plans/du10-txt-fidelity-2026-10-17/`](docs/plans/du10-txt-fidelity-2026-10-17/) | DU10 TXT 保真交付 PWF + ROOT 接收。**收据 HEAD**：交付 `cb8e29c`（`codex/du10-et-txt-fidelity` tip），ROOT 接收见同目录 `ROOT_RECEPTION.md` |
+| [`docs/plans/du9-legacy-comparison-2026-10-16/`](docs/plans/du9-legacy-comparison-2026-10-16/) | DU9 legacy 比对交付 PWF + ROOT 接收。**收据 HEAD**：交付 `6d94c38`（`codex/du9-legacy-comparison-20261016` tip） |
+| [`docs/plans/du7-extraction-2026-10-16/`](docs/plans/du7-extraction-2026-10-16/) | DU7 抽取交付 PWF + ROOT 接收。**收据 HEAD**：作者交付 `511fe49` → ROOT 并线 `0cb7173`（`codex/root-du7-et-20261016` tip） |
+| （ET-S3 deadline / runtime，无独立 plan 目录） | ET-S3 收据 HEAD：`63c4090`（deadline）、`53e1e60`（bounded runtime），二者均已并入 `main` |
 | [`docs/plans/module-pwf-reconciliation-2026-11-14/`](docs/plans/module-pwf-reconciliation-2026-11-14/) | 2026-11-14 跨模块 PWF/工区收尾的 ET 交接与独审 |
 | [`.planning/`](.planning/) | 早期 lane 级计划目录（`n5-et-local-text`、`s3-et-bounded-runtime-20261003`、`s3-et-deadline-20261004`、`w06-cutoff-result`）。**历史 lane 计划，不是状态入口**；其中的 `task_plan.md` 是各 lane 自己的执行计划，状态一律以本文件为准 |
 
