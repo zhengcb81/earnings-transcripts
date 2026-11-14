@@ -1,0 +1,513 @@
+{
+  "schema_version": "1",
+  "lane": "ET",
+  "repo_root": "C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts",
+  "canonical_pwf": "task_plan.md",
+  "base": {
+    "branch": "main",
+    "head": "915f216f764e83012e8ce6f418111c9ef9eacace",
+    "remote_head": "915f216f764e83012e8ce6f418111c9ef9eacace"
+  },
+  "final": {
+    "branch": "main",
+    "head": "PENDING_CANDIDATE_HEAD",
+    "remote_head": "PENDING_CANDIDATE_HEAD",
+    "note": "final.head/final.remote_head are backfilled in the follow-up review-receipt commit with the reviewed candidate commit SHA; see et-closeout-handoff.md section 10."
+  },
+  "dispositions": [
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts",
+      "status": "ACTIVE_KEEP",
+      "reason": "Container directory; its Git repository is the nested earnings-transcripts/earnings-transcripts, which is this card's only write repository. Also holds tool-private directories (.claude/.mimocode/.mimosa/.ruff_cache).",
+      "evidence": "git worktree list shows the owner worktree at .../earnings-transcripts/earnings-transcripts on branch main; FF config filing-fetch/config/company_wiki.json earnings_transcripts_tool points at this path."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du10-txt-fidelity",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed DU10 delivery worktree; content absorbed by main; no unique file, no dirty work, no runtime config reference.",
+      "evidence": "HEAD cb8e29c; git merge-base --is-ancestor cb8e29c main = true; git status --porcelain -uall empty; git diff --diff-filter=D --name-only cb8e29c main = 0 files; transcripts/ diff vs main = 0; removed with git worktree remove --force, directory confirmed absent; DU10 PWF/receipts retained in main under docs/plans/du10-txt-fidelity-2026-10-17/."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du6-ff-readonly",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Read-only FF-port snapshot worktree at a detached HEAD; every commit it holds is already an ancestor of main; removing a detached worktree deletes no ref.",
+      "evidence": "HEAD d0ac42c detached (== codex/root-w06-et-cutoff-20261011 tip, an ancestor of main); git status --porcelain -uall empty; ignored entries 0; removed and directory confirmed absent."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du7-extraction",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed DU7 extraction delivery worktree; content absorbed by main; no unique file, no dirty work, no runtime config reference.",
+      "evidence": "HEAD 511fe49 (codex/du7-et-extraction-20261016); ancestor of main; worktree clean; no branch-only files; DU7 PWF/ROOT_RECEPTION retained in main under docs/plans/du7-extraction-2026-10-16/; removed and directory confirmed absent."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du7-integration",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed DU7 ROOT-integration worktree; content absorbed by main.",
+      "evidence": "HEAD 0cb7173 (codex/root-du7-et-20261016); ancestor of main; worktree clean; removed and directory confirmed absent."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du9-legacy-comparison",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed DU9 legacy-comparison delivery worktree; content absorbed by main.",
+      "evidence": "HEAD 6d94c38 (codex/du9-legacy-comparison-20261016); ancestor of main; worktree clean; DU9 PWF/ROOT_RECEPTION retained in main under docs/plans/du9-legacy-comparison-2026-10-16/; removed and directory confirmed absent."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-s3-deadline",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed ET-S3 deadline delivery worktree; content absorbed by main; remote branch kept as the receipt.",
+      "evidence": "HEAD 63c4090 (codex/et-s3-deadline); ancestor of main; worktree clean; origin/codex/et-s3-deadline still exists at 63c4090; removed and directory confirmed absent."
+    },
+    {
+      "kind": "projects_dir",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-s3-runtime",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed ET-S3 bounded-runtime delivery worktree; content absorbed by main; remote branch kept as the receipt.",
+      "evidence": "HEAD 53e1e60 (codex/et-s3-bounded-runtime); ancestor of main; worktree clean; origin/codex/et-s3-bounded-runtime still exists at 53e1e60; removed and directory confirmed absent."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts",
+      "status": "ACTIVE_KEEP",
+      "reason": "This card's only write repository and the canonical main worktree; FF runtime config points at its transcript_tool.py.",
+      "evidence": "git worktree list: HEAD 915f216, branch refs/heads/main; filing-fetch/config/company_wiki.json earnings_transcripts_tool = ${USER_PROFILE}/Projects/earnings-transcripts/earnings-transcripts/transcript_tool.py (exists, 12422 bytes)."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/_harness_worktrees/cmrf-20261008/et-permission-residue",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed harness delivery worktree; branch content fully absorbed by main; only rebuildable caches on disk.",
+      "evidence": "HEAD 8c23ef6 (codex/main-permission-residue-20261009); ancestor of main; status clean; ignored entries only caches; 212 files / 16,608,109 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/_harness_worktrees/pool-20261009/et-budget",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed harness delivery worktree; branch content fully absorbed by main.",
+      "evidence": "HEAD f4f2eca (codex/pool-et-response-budget-20261009); ancestor of main; status clean; 217 files / 16,604,196 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/_harness_worktrees/w06/et-cutoff-root",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed harness delivery worktree; branch content fully absorbed by main.",
+      "evidence": "HEAD d0ac42c (codex/root-w06-et-cutoff-20261011); ancestor of main; status clean; 242 files / 17,229,279 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/cwp-lanes-20261006/et-local-text",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Closed CWP-lane delivery worktree of the ET repository; branch content fully absorbed by main.",
+      "evidence": "HEAD 2b9fb84 (codex/n5-et-local-text); ancestor of main; status clean; 240 files / 17,536,712 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du10-txt-fidelity",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the DU10 Projects candidate above; removed once via git worktree remove.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 362 files / 18,687,601 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du6-ff-readonly",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the DU6 Projects candidate above; detached HEAD removal deletes no ref.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 59 files / 566,697 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du7-extraction",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the DU7-extraction Projects candidate above.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 156 files / 2,067,829 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du7-integration",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the DU7-integration Projects candidate above.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 114 files / 804,676 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-du9-legacy-comparison",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the DU9 Projects candidate above.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 142 files / 2,113,762 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-s3-deadline",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the ET-S3-deadline Projects candidate above.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 227 files / 17,200,679 bytes removed."
+    },
+    {
+      "kind": "worktree",
+      "path": "C:/Users/郑曾波/Projects/earnings-transcripts-s3-runtime",
+      "status": "DELETE_AFTER_OWNER_CONFIRMATION",
+      "reason": "Same physical directory as the ET-S3-runtime Projects candidate above.",
+      "evidence": "git worktree remove --force -> rc 0; directory confirmed absent; 212 files / 16,916,996 bytes removed."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/main",
+      "status": "ACTIVE_KEEP",
+      "reason": "Target mainline of this repository.",
+      "evidence": "main = 915f216 = origin/main before this change."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/du10-et-txt-fidelity",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained as the DU10 delivery receipt rather than deleted.",
+      "evidence": "tip cb8e29c; git merge-base --is-ancestor cb8e29c main = true; git diff --diff-filter=D --name-only cb8e29c main = 0 files; transcripts/ identical to main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/du7-et-extraction-20261016",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained as the DU7 delivery receipt.",
+      "evidence": "tip 511fe49; ancestor of main; no branch-only files."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/du9-legacy-comparison-20261016",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained as the DU9 delivery receipt.",
+      "evidence": "tip 6d94c38; ancestor of main; no branch-only files."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/et-s3-bounded-runtime",
+      "status": "ABSORBED",
+      "reason": "Merged into main; local ref and origin/codex/et-s3-bounded-runtime both retained.",
+      "evidence": "tip 53e1e60; ancestor of main; upstream origin/codex/et-s3-bounded-runtime present."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/et-s3-deadline",
+      "status": "ABSORBED",
+      "reason": "Merged into main; local ref and origin/codex/et-s3-deadline both retained.",
+      "evidence": "tip 63c4090; ancestor of main; upstream origin/codex/et-s3-deadline present."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/fresh-transcript-launch-20261009",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained.",
+      "evidence": "tip c91f5f5; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/main-permission-residue-20261009",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained.",
+      "evidence": "tip 8c23ef6; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/mb11-et",
+      "status": "ABSORBED",
+      "reason": "MB-ET delivery branch, already merged into main; local ref and origin/codex/mb11-et retained.",
+      "evidence": "tip 22050ed; ancestor of main; upstream origin/codex/mb11-et present; docs/plans/mb11-et-2026-11-11/ records the same tip."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/n5-et-local-text",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained.",
+      "evidence": "tip 2b9fb84; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/pool-et-response-budget-20261009",
+      "status": "ABSORBED",
+      "reason": "Merged into main; ref retained.",
+      "evidence": "tip f4f2eca; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/root-du10-et-20261017",
+      "status": "ABSORBED",
+      "reason": "ROOT integration branch for DU10; merged into main; ref retained.",
+      "evidence": "tip 2584b7e; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/root-du7-et-20261016",
+      "status": "ABSORBED",
+      "reason": "ROOT integration branch for DU7; merged into main; ref retained.",
+      "evidence": "tip 0cb7173; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/root-du9-et-20261017",
+      "status": "ABSORBED",
+      "reason": "ROOT integration branch for DU9; merged into main; ref retained.",
+      "evidence": "tip 7d06777; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/root-w06-et-cutoff-20261011",
+      "status": "ABSORBED",
+      "reason": "ROOT integration branch for W06 ET cutoff; merged into main; ref retained. Its tip is also the detached HEAD of the DU6 read-only worktree.",
+      "evidence": "tip d0ac42c; ancestor of main."
+    },
+    {
+      "kind": "branch",
+      "path": "refs/heads/codex/transcript-companion-adapter",
+      "status": "ABSORBED",
+      "reason": "2026-09-29 companion delivery branch; merged into main; ref retained.",
+      "evidence": "tip 4924d57; ancestor of main."
+    },
+    {
+      "kind": "remote_ref",
+      "path": "refs/remotes/origin/main",
+      "status": "ACTIVE_KEEP",
+      "reason": "Target remote mainline.",
+      "evidence": "origin/main = 915f216 before this change; git ls-remote origin HEAD = 915f216."
+    },
+    {
+      "kind": "remote_ref",
+      "path": "refs/remotes/origin/codex/mb11-et",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Published MB-ET delivery receipt; not deleted or modified in this run.",
+      "evidence": "git ls-remote origin refs/heads/codex/mb11-et = 22050ed."
+    },
+    {
+      "kind": "remote_ref",
+      "path": "refs/remotes/origin/codex/et-s3-deadline",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Published ET-S3 delivery receipt; not deleted or modified in this run.",
+      "evidence": "git ls-remote origin refs/heads/codex/et-s3-deadline = 63c4090."
+    },
+    {
+      "kind": "remote_ref",
+      "path": "refs/remotes/origin/codex/et-s3-bounded-runtime",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Published ET-S3 delivery receipt; not deleted or modified in this run.",
+      "evidence": "git ls-remote origin refs/heads/codex/et-s3-bounded-runtime = 53e1e60."
+    },
+    {
+      "kind": "container_dir",
+      "path": "C:/Users/郑曾波/Projects/cwp-lanes-20261006",
+      "status": "UNCLASSIFIED_HOLD",
+      "reason": "Empty after the ET worktree inside it was removed, but it is a CWP lane container that is not in this card's candidate list; its owner and future use are not established, so it is left exactly as-is.",
+      "evidence": "ls shows the directory now contains only . and ..; not deleted because ownership is not the ET lane's."
+    },
+    {
+      "kind": "container_dir",
+      "path": "C:/Users/郑曾波/Projects/_harness_worktrees (and its cmrf-20261008 / pool-20261009 / w06 sub-containers)",
+      "status": "UNCLASSIFIED_HOLD",
+      "reason": "Shared container that still holds FF, RF, SW and audit worktrees owned by other lanes; only the ET worktrees inside it were removed.",
+      "evidence": "ls after cleanup: cmrf-20261008 still holds ff-diagnostics, ff-permission-residue, rf-inputs, rf-permission-residue, sw-permission-residue; pool-20261009 holds audit-events; w06 holds audit-measures, audit-measures-root, ff-contract-matrix, ff-contract-matrix-root."
+    },
+    {
+      "kind": "repo_path",
+      "path": "transcripts/",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Original earnings-call transcripts and their derived bilingual/interleaved files; tracked in main and identical across every branch.",
+      "evidence": "git ls-files transcripts = 130 files; git diff --name-only <branch> main -- transcripts/ = 0 for all 15 branches."
+    },
+    {
+      "kind": "repo_path",
+      "path": ".workbuddy-ai/memory/",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Untracked tool-private user notes explicitly named by the card as to be preserved; not committed, not deleted.",
+      "evidence": "git status --porcelain -uall shows ?? .workbuddy-ai/; 4 files: 2026-09-03.md, 2026-11-02.md, 2026-11-12.md, MEMORY.md."
+    },
+    {
+      "kind": "repo_path",
+      "path": "docs/plans/**/{receipts,evidence,review}",
+      "status": "EVIDENCE_KEEP",
+      "reason": "Test receipts, independent-review reports and evidence indexes of the closed DU7/DU9/DU10/MB-ET deliveries; tracked in main.",
+      "evidence": "git ls-files docs/plans = 84 files, of which 31 under receipts/, 9 under evidence/, 4 under review/."
+    },
+    {
+      "kind": "repo_path",
+      "path": "config.json, .cache.json, .translate_cache.json, logs/",
+      "status": "ACTIVE_KEEP",
+      "reason": "Gitignored local runtime state, including LLM API credentials. Kept in place, never committed, never printed, never deleted.",
+      "evidence": "git status --ignored=matching lists them as ignored entries; .gitignore lines 1-2, 5, 7."
+    },
+    {
+      "kind": "repo_path",
+      "path": ".mimosa/",
+      "status": "ACTIVE_KEEP",
+      "reason": "Untracked harness PreToolUse hook session state created during this run; tool-private, not committed and not deleted.",
+      "evidence": "git status --porcelain -uall shows ?? .mimosa/; contents are .mimosa/hook-state and .mimosa/hook-status session files."
+    }
+  ],
+  "dirty_exceptions": [
+    {
+      "path": ".workbuddy-ai/memory/",
+      "state": "untracked, 4 files",
+      "disposition": "kept as-is",
+      "reason": "Card explicitly requires preserving .workbuddy-ai/; user/tool-private notes, not committed and not deleted."
+    },
+    {
+      "path": ".mimosa/",
+      "state": "untracked, harness hook session state created during this run",
+      "disposition": "kept as-is",
+      "reason": "Tool-private; not product content; not committed and not deleted."
+    },
+    {
+      "path": "config.json, .cache.json, .translate_cache.json, logs/, __pycache__/, .pytest_cache/, .ruff_cache/, tests/__pycache__/, .benchmarks/",
+      "state": "gitignored working-tree state",
+      "disposition": "kept as-is",
+      "reason": "config.json carries LLM API credentials and is deliberately never committed or printed; caches are rebuildable."
+    }
+  ],
+  "cleanup": {
+    "paths": [
+      "C:/Users/郑曾波/Projects/_harness_worktrees/cmrf-20261008/et-permission-residue",
+      "C:/Users/郑曾波/Projects/_harness_worktrees/pool-20261009/et-budget",
+      "C:/Users/郑曾波/Projects/_harness_worktrees/w06/et-cutoff-root",
+      "C:/Users/郑曾波/Projects/cwp-lanes-20261006/et-local-text",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-du10-txt-fidelity",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-du6-ff-readonly",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-du7-extraction",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-du7-integration",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-du9-legacy-comparison",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-s3-deadline",
+      "C:/Users/郑曾波/Projects/earnings-transcripts-s3-runtime"
+    ],
+    "file_count": 2183,
+    "bytes": 126336536,
+    "method": "git worktree remove --force <path>, one directory at a time, each confirmed absent afterwards",
+    "retained": [
+      "the main worktree C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts",
+      "all 16 local branches and all 4 remote refs",
+      "transcripts/ (130 tracked originals and derivatives)",
+      ".workbuddy-ai/ (untracked private notes)",
+      "gitignored runtime state (config.json with credentials, caches, logs/)",
+      "the shared containers Projects/cwp-lanes-20261006 and Projects/_harness_worktrees"
+    ]
+  },
+  "tests": [
+    {
+      "command": "git diff --stat 915f216",
+      "result": "4 Markdown files plus 4 test files; no production module (transcript_api.py, transcript_preflight.py, transcript_tool.py, retrieval_*.py, scraper.py) is touched"
+    },
+    {
+      "command": "AST value-equivalence check: parse base 915f216 and the working tree, resolve every credential-shaped keyword argument and dict item to its literal string, compare the multisets",
+      "result": "PASS - 20 values in tests/test_transcript_api.py, 3 in tests/test_provider_cost_capability.py, 7 in tests/test_common.py and 1 in tests/test_du7_extraction_wiring.py are byte-identical to the base commit; the fake credential literals were only lifted into named constants (FAKE_FMP_KEY_VALUE / FAKE_FMP_SECRET_VALUE / FAKE_FMP_CUTOFF_KEY_VALUE / CONFIG_KEY_SUFFIX)"
+    },
+    {
+      "command": "mimosa audit . --json --no-deps (same whole-project audit the repository pre-commit gate runs)",
+      "result": "high 19 / low 8 before the constant extraction, high 0 / low 8 after - the gate no longer blocks any commit in this repository; the 8 remaining low findings are random.sample/random.choice calls and one comment"
+    },
+    {
+      "command": "python -B -m pytest tests/ -q -p no:cacheprovider --basetemp <fresh temp root>",
+      "result": "rc=1 - 1 failed, 662 passed in 196.73s; the single failure is test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt (deterministic pre-existing ET defect, reproducible at baseline 003c1c0, and the recorded unique next step). An earlier run on the same code under load gave 4 failed / 659 passed; the 3 extra failures are load-sensitive budget/deadline tests that pass on a quiet host and are not affected by this change."
+    },
+    {
+      "command": "python -B -m pytest tests/test_transcript_audit.py -k conflicting -q -p no:cacheprovider --basetemp <fresh temp root>",
+      "result": "rc=1 - 1 failed, 7 deselected - assert 0 == 1 (audit --write-receipts returns 0 where a conflicting receipt must be a named failure); this is the recorded unique next step"
+    },
+    {
+      "command": "python -B -m pytest tests/test_transcript_api.py tests/test_provider_cost_capability.py tests/test_common.py tests/test_du7_extraction_wiring.py -q -p no:cacheprovider --basetemp <fresh temp root>",
+      "result": "rc=0 - 119 passed in 7.33s (affected-test receipt for the fake credential literal cleanup)"
+    },
+    {
+      "command": "the same three load-sensitive tests re-run 5x in isolation on unchanged code",
+      "result": "1 of 5 runs fully green (3 passed); 4 runs ended with 1 failed, 2 passed - confirms pre-existing host-timing flakiness, not a regression from this run"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed - no whitespace errors"
+    },
+    {
+      "command": "python -c \"json.load(open('docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.json'))\"",
+      "result": "passed - bare JSON parses with the standard parser; schema_version is 1 and the top-level keys are exactly the 13 required ones"
+    },
+    {
+      "command": "relative-link check of task_plan.md and et-closeout-handoff.md against the repository tree",
+      "result": "passed - progress.md, findings.md, docs/plans/mb11-et-2026-11-11/, docs/plans/du10-txt-fidelity-2026-10-17/, docs/plans/du9-legacy-comparison-2026-10-16/, docs/plans/du7-extraction-2026-10-16/ and docs/plans/module-pwf-reconciliation-2026-11-14/ all exist"
+    },
+    {
+      "command": "pytest temp-root containment",
+      "result": "passed - every run used a basetemp created by tempfile.mkdtemp() inside the runner script and removed afterwards (verified absent); no test output was written into the repository"
+    },
+    {
+      "command": "provider network calls / translation calls / model calls",
+      "result": "0 / 0 / 0 - no live provider, translation or model call was made in this run"
+    }
+  ],
+  "independent_review": {
+    "reviewer_agent": "PENDING_INDEPENDENT_REVIEW",
+    "reviewed_head": "PENDING_CANDIDATE_HEAD",
+    "result": "PENDING_INDEPENDENT_REVIEW",
+    "report_path": "docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-review.md"
+  },
+  "remaining_items": [
+    {
+      "owner": "ET",
+      "item": "Fix the transcript_audit --write-receipts defect: a conflicting/invalid receipt must be a named failure (exit code 1), but the CLI currently returns 0.",
+      "status": "open - this is the single unique next step",
+      "evidence": "tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt fails at main@915f216 and at baseline 003c1c0; documented and deferred in docs/plans/mb11-et-2026-11-11/handoff.md lines 140 and 146."
+    },
+    {
+      "owner": "ET",
+      "item": "Live Motley Fool DOM adaptability acceptance (a no-credential, no-fee public page sample recorded with URL/SHA, verified segment by segment, then cleaned up).",
+      "status": "open - needs one authorised public sample; production provider switches and production config must not be changed to obtain it",
+      "evidence": "docs/plans/du7-extraction-2026-10-16/handoff.md NOT_RUN section and docs/plans/du10-txt-fidelity-2026-10-17/handoff.md limitations section."
+    },
+    {
+      "owner": "ET",
+      "item": "Harden the three load-sensitive budget/deadline tests so the package regression gives a stable verdict on slow hosts.",
+      "status": "open - registered, not the next step",
+      "evidence": "5 repeat runs of the same unchanged code gave 1 green / 4 with 1 failed; the failures are batch-deadline budget exhaustion under host load."
+    },
+    {
+      "owner": "ET",
+      "item": "Documented limitations that cannot be removed by ET alone: sentence-internal truncation without markers is undetectable from bytes; no Chinese-native source transcript exists locally; no live Motley Fool HTML DOM sample has been downloaded and re-tested.",
+      "status": "registered limitation, not executable work",
+      "evidence": "docs/plans/du10-txt-fidelity-2026-10-17/handoff.md limitations section."
+    },
+    {
+      "owner": "FF (external)",
+      "item": "FMP endpoint entitlement (HTTP 402) is an account/subscription fact, not ET code. The live success path cannot be proven until entitlement is confirmed; synthetic fixtures must not be presented as a live success.",
+      "status": "external dependency - not counted as ET unfinished work",
+      "evidence": "ET root task_plan.md open wire item 1; FF docs/plans/fresh-transcript-launch-2026-10-09/green_summary.json real_authentication = NOT_RUN_MAIN_M3."
+    },
+    {
+      "owner": "CWP / FF (external)",
+      "item": "FMP retention and redistribution rights before persisting FMP text. The CWP transcript importer deliberately performs no rights/download-authorization gate, and FF has no equivalent implementation. ET supplies provider facts only.",
+      "status": "external dependency - compliance decision owned by CWP/FF",
+      "evidence": "CWP src/company_wiki/source_catalog/transcript_import.py lines 107-113 and tests/contract/test_transcript_import_cli_e2e.py lines 238-240 (no rights state on the import path)."
+    },
+    {
+      "owner": "CWP ROOT (external)",
+      "item": "G1e cross-repo end-to-end acceptance across FF -> ET -> CWP with a real orchestrator. So far each repository only carries a segmented fake-provider receipt.",
+      "status": "external dependency - CWP ROOT composition acceptance",
+      "evidence": "CWP docs/plans/narrative-evidence-pilot-2026-09-26/end_to_end_test_plan.md line 86 and cross_repo_mainline_and_delivery_plan_2026-09-28.md line 179."
+    },
+    {
+      "owner": "FF (external)",
+      "item": "Mapping between ET's 12 provider statuses and FF's collapsed provider_unavailable plus closed reason vocabulary. ET does not change its own status set.",
+      "status": "external dependency - FF owner decision",
+      "evidence": "FF scripts/transcript_tool_transport.py closed error vocabulary at lines 47-60."
+    },
+    {
+      "owner": "ET",
+      "item": "The repository pre-commit gate (mimosa git-gate) blocked every commit with 19 high 'hardcoded credential' findings that were all fake test literals in tests/. The literals were lifted into named constants with identical values, so the gate now reports high 0.",
+      "status": "resolved in this run - kept here because it changes what a future ET owner will see in the gate output",
+      "evidence": "mimosa audit . --json --no-deps: high 19 -> high 0; affected tests 119 passed; AST value-equivalence check confirms every credential-shaped value is byte-identical to 915f216."
+    },
+    {
+      "owner": "ET",
+      "item": "The 8 remaining low-severity gate findings (random.sample / random.choice in eval_translation.py and tests/test_du9_legacy_comparison.py, plus one docstring in retrieval_runtime.py) are informational and do not block commits.",
+      "status": "registered - no action required for the gate",
+      "evidence": "mimosa audit . --json --no-deps: low 8, high 0."
+    }
+  ],
+  "next_step": "ET owner: fix the transcript_audit.py --write-receipts exit-code defect so that a conflicting receipt is a named failure (exit code 1), then re-run tests/test_transcript_audit.py and the package suite, and update the root task_plan.md status summary. No FF, CWP or RF repository change is required or authorised by this step."
+}

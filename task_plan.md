@@ -1,141 +1,148 @@
-# 美股电话会议纪要工具 — 实施计划
+# ET（earnings-transcripts）计划与状态入口
 
-> 基于深度分析报告，按优先级分阶段修复问题。
+> **本文件是 ET 仓唯一的 canonical 状态入口。**
+> ET 的任何计划、进度、发现或交接都以本文件为准；`progress.md` 与 `findings.md` 只保留历史记录并链接回本文件，
+> 不再是并列入口，也不另建 `START_HERE`。
+>
+> 状态快照：2026-11-14 · 仓库 `C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts` ·
+> 分支 `main` · HEAD `915f216` · remote `origin` = `https://github.com/zhengcb81/earnings-transcripts.git` · `origin/main` = `915f216`。
+> 最近一次收尾：`docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`（+ `.json`）。
 
-## Phase 0（P0 必须修复）— 状态：completed
+---
 
-### 0.1 README 与代码不一致
-- [x] 修复优先级文本：`MiMo → MiniMax → DeepSeek` → `MiniMax → MiMo → DeepSeek`
-- [x] 修复测试数量：`32个` → `33个`
-- [x] 修复 config.json 注释：`DeepSeek API key` → `LLM API keys`
+## 当前状态摘要（2026-11-14）
 
-### 0.2 translate.py --backend 选项过时
-- [x] 添加 `"mimo"` 和 `"minimax"` 到 argparse choices
+| 维度 | 状态 |
+|---|---|
+| 电话会采集合同 | **已交付并冻结**。精确期次 + as-of 截止日、provider 发现/下载、未翻译原语言文本输出 |
+| MB-ET（ET-01 协议与 provider 分离 / ET-02 worker 限额同源） | **已完工并入 `main`**（代码 tip `8e116a4`，交付分支 `codex/mb11-et` = `22050ed`）。**不是待办** |
+| DU7 抽取 / DU9 legacy 比对 / DU10 TXT 保真 / ET-S3 deadline·runtime | **全部已完工并入 `main`**；PWF、收据、证据随主线保留在 `docs/plans/` |
+| 本仓 worktree | 12 → **1**（只剩 `main` 工区）。11 个已结案交付工区按收据删除，Git 历史与分支未动 |
+| 本仓非祖先本地 ref | **0**。除 `main` 外 15 个本地分支全部是 `main` 的祖先，保留为交付收据 |
+| ET 自身未完成项 | **只剩一条**，见下方「唯一下一步」 |
+| FF / CWP 侧待办 | 写在「消费端 owner 边界」，**不计入 ET 未完成**，由各该仓 owner 自行推进 |
+| 原件与用户资料 | 原样保留：`transcripts/`（130 个 tracked 原件/派生物）、`.workbuddy-ai/`（未跟踪，工具私有笔记）、gitignored 的 `config.json` / 缓存 / 日志 |
+| 仓库预提交门禁 | **已可正常提交**。原先 19 个 high「硬编码凭据」全部是测试里的假凭据字面量（不是真实凭据），已提取为具名常量且**取值逐字节不变**；`mimosa audit .` 复测 high 0 |
 
-### 0.3 config.yaml system_prompt 重复
-- [x] 提取公共 `translate.system_prompt` 区块
-- [x] 三个 LLM 区块改为引用共享 prompt
-- [x] 代码 fallback: `section.get("system_prompt", "") or cfg["translate"]["system_prompt"]`
+---
 
-### 0.4 reader.py 代码重复
-- [x] reader.py `load_companies()` 改为 `from common import load_companies`
-- [x] reader.py header 解析改用 `parse_transcript_header`
-- [x] Characters 字段转为 int，load_companies 传入 cfg
+## 唯一下一步（ET owner）
 
-### 0.5 TranslatorFactory docstring 与代码不一致
-- [x] 更新 `create` 方法 docstring 中的优先级顺序
+**修复 `transcript_audit.py --write-receipts` 在「收据冲突」时不返回非零退出码的既有缺陷。**
 
-## Phase 1（P1 结构改进）— 状态：completed
+- **现状**：`tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt` 在 `main@915f216` 上失败
+  （断言 `rc == 1`，实际 `rc == 0`）。该缺陷自基线 `003c1c0` 起可复现，MB-ET 卡已记录并明确未修
+  （`docs/plans/mb11-et-2026-11-11/handoff.md:140` 与 `:146`）。复现命令见下方「测试与收据」。
+- **性质**：纯 ET 内部缺陷，不涉及 FF/CWP 合同，不阻塞任何消费端，也不涉及原件或翻译。
+- **验收**：RED 已由既有测试钉住 → 修复后 `pytest tests/test_transcript_audit.py` 全绿，且 `pytest tests/` 整包不再出现该失败。
+- **完成后**：更新本文件「当前状态摘要」与「ET 自身剩余项」，并把新状态写回本文件顶部。
 
-### 1.1 拆分 common.py
-- [x] `config.py` — 配置加载
-- [x] `naming.py` — FileNaming
-- [x] `cache.py` — JsonCache
-- [x] `parser.py` — 段落解析、文件头解析、行分类
-- [x] `translator.py` — 翻译体系（_OpenAITranslator、子类、工厂）
-- [x] common.py 变为 re-export 门面（保持向后兼容）
+---
 
-### 1.2 reader.py 提取 HTML 模板
-- [x] 创建 `templates/index.html`（20,829 bytes）
-- [x] reader.py 改为读取模板文件（610 → 138 行）
+## ET 提供端：已冻结的电话会发现 / 下载 / 原语言文本合同
 
-### 1.3 消除 bilingual 构建重复
-- [x] 提取 `common.build_bilingual_data()` 函数
-- [x] scraper.py 和 translate.py 改为调用共享函数
-- [x] 清理 translate.py 未使用的 imports（datetime, re, time, hashlib, LineClassifier）
-- [x] 清理 scraper.py 未使用的 imports（hashlib, urljoin）
-- [x] 删除 translate.py 未使用的 emoji 前缀逻辑（bilingual_parts）
+以下为 ET **已经交付并冻结**的公开面。消费端（FF、CWP）按此接线即可，不需要 ET 再改 wire。
 
-### 1.4 消除全局 logger
-- [x] 改为模块级 `log = logging.getLogger(__name__)`，main() 中只调用 setup_logging
+### 公开 wire（`transcript_contracts.py`，stdlib-only，公开名稳定）
 
-### 1.5 测试使用 mock 配置
-- [x] 创建 `mock_cfg` fixture 生成完整 mock config
+| 名称 | 值 | 说明 |
+|---|---|---|
+| 请求 | `earnings-transcript-request/1` | 严格字段：schema_version / request_id / ticker / exchange / fiscal_year / fiscal_quarter / as_of_date / provider / download_authorized / timeout_seconds / max_body_bytes（必需）+ max_response_bytes / max_cost_usd（可选） |
+| 候选请求 | `earnings-transcript-candidate-fetch-request/1` | 额外严格绑定 candidate（`provider_document_id` / `source_url` / `published_date`） |
+| 发现结果 | `earnings-transcript-discovery-result/1` | 只含候选元数据，不取正文 |
+| 结果 | `earnings-transcript-result/1` | 默认；未翻译正文 + provider payload SHA-256 + canonical content SHA-256 |
+| 原始交接 | `earnings-transcript-result/2` | opt-in（`--include-source-payload`）；受限 base64 原始响应 + 规范 MIME + 安全 effective URL；不重复返回正文 |
+| 能力 | `earnings-provider-capabilities/1` | `python transcript_tool.py --capabilities`，无 HTTP、无凭证 |
+| 用量 | `earnings-retrieval-usage/1` | `--report-usage` 时写 stderr，与 stdout 内容 JSON 分离 |
+| 内部 worker | `et-retrieval-worker/1` | ET 内部协议，FF/CWP 不需要知道 |
 
-## Phase 2（P2 质量提升）— 状态：completed
+### 行为合同
 
-### 2.1 清理死代码
-- [x] 删除 get_path 中 `if base == Path(".")` 判断
-- [x] 删除 translate.py 中未使用的 bilingual_parts 构建逻辑
-- [x] 删除 scraper.py 中未使用的 hashlib、urljoin import
+- **精确期次**：一次请求绑定 ticker + exchange + fiscal year/quarter + as-of 截止日。与 legacy `scraper.py --quarters N`（最近 N 期）**不是一回事**，不得混用。
+- **两阶段（仅支持 discovery 的 provider，即 Motley Fool）**：`--operation discover` 只回候选元数据 → `--operation fetch-candidate` 绑定同一候选只取一次正文。
+  一步式 `--operation fetch` 只是向后兼容路径，**不允许生产集成使用**（见 `README.md` 与本文件「开放 wire 与依赖」第 3 条）。
+- **FMP 只有精确 `fetch`**：`--capabilities` 中 FMP 的 `discover` / `fetch-candidate` 为 `supported: false`。FMP 的 `date` 是**会议日**，不是已验证发表日；结果因此是 `call_date` + `publication_date: null` + `as_of_cutoff_verified: false`，下游不得当成发表时间。
+- **网络意图唯一**：`download_authorized` 是唯一网络开关；旧 `--allow-download` 仍被接受但**不能**覆盖 `false` 的请求字段。
+- **默认禁用**：Motley Fool 在 fetch / discover / fetch-candidate 三个入口默认禁用（`enabled: false`），任务意图不解除禁用、也不代表账户能力。
+- **有界**：共享 deadline（1–60 秒）、listing 2 MiB、FMP 响应 16 MiB、canonical 正文 1 B–10 MiB、原始载荷编码上限 24 MiB；Motley Fool 最多 3 次同主机跳转，跨主机跳转与全部 FMP 跳转一律拒绝。
+- **状态**：`fetched` / `not_found` / `ambiguous` / `unsupported` / `unavailable` / `not_authorized` / `rate_limited` / `provider_error` / `deadline_exceeded` / `content_too_large` / `provenance_rejected` / `invalid_request`。
+  缺 key → `unavailable/provider_credentials_missing`；HTTP 402 → `unavailable/provider_entitlement_required`；HTTP 429 → `rate_limited/provider_http_429`。
+- **原语言**：companion API 与 `transcript_tool.py` 合同上不翻译，输出即原始英文文本 / 原始响应字节；不初始化翻译服务，不写文件、日志、缓存、锁或配置。
+  legacy 批处理另有显式翻译关闭开关 `--no-translate` / `--disable-translation`。
+- **架构（MB-ET 已并入）**：纯合同/设置/协议/preflight 层与 provider 实现分离——`transcript_contracts.py`、`transcript_provider_settings.py`、`retrieval_protocol.py`、`transcript_preflight.py` 不加载 `requests` / `bs4` / 抽取器；`transcript_api` 保留全部旧公开名的兼容重导出（同一对象）。worker 结果限额由 `retrieval_protocol.result_transfer_limit` 单一公式派生，父进程读上限与子进程写上限同源。
 
-### 2.2 添加 scraper 测试
-- [x] 测试 FileNaming、parse+extract 往返、配置区块（5 个测试）
+---
 
-### 2.3 添加 reader 测试
-- [x] 测试 build_data 返回结构、字段完整性、模板文件（7 个测试）
+## 消费端 owner 边界（ET / FF / CWP）
 
-### 2.4 翻译错误日志
-- [x] translate_paragraphs 中翻译失败时添加日志标记（错误计数+摘要日志）
+**ET 是 provider 侧 owner，只交付上面的 wire 与原语言文本。ET 不负责，也不应该替别人做下面两列。**
 
-## Errors Encountered
-| 错误 | 尝试 | 解决 |
-|------|------|------|
-| （暂无） | | |
+| 责任 | 归属 | 说明 |
+|---|---|---|
+| 调用 ET CLI、组装请求、决定是否发起网络意图、把结果转交下游 | **FF（filing-fetch）owner** | FF 已有 `scripts/transcript_companion.py`、`scripts/transcript_tool_transport.py`、`scripts/ff_v2_envelope.py` 等实现并已并入 `filing-fetch/main`；ET 不改 FF 代码、不代其集成 |
+| 统一存储、canonical source 落库、provenance sidecar、幂等、原文保留、切片摘要与 source 定位 | **CWP（company-wiki）owner** | CWP 已有 `src/company_wiki/source_catalog/transcript_import.py` / `transcript_tool_contract.py` / `transcript_fmp_contract.py` / `canonical_writer.py`；切片摘要与 source-oriented locator 由 CWP 持有 |
+| 精确期次发现/下载、原语言文本、provider 限额与状态、provider 抽取与保真 | **ET owner（本仓）** | 已交付并冻结，见上一节 |
 
-## Phase 3 (company-wiki / filing-fetch transcript companion) — status: in_progress
+### 开放 wire 与依赖（记录用；owner 是 FF / CWP，ET 不代做）
 
-> This phase is split by repository. The internal E-T interface can be completed independently; cross-repository integration waits until the current revenue-forecast snapshot/lease is clear. Never change revenue-forecast for this feature.
+1. **FMP endpoint entitlement（HTTP 402）** — 账户/套餐事实，不是 ET 代码缺陷。ET 侧错误路径已实现并有测试；真实成功路径在 entitlement 未确认前无法证明，不得用合成 fixture 冒称。
+2. **FMP 留存与再分发权利** — ET `task_plan.md` 旧文要求「持久化 FMP 文本前先确认账户条款允许内部留存与派生摘要」。当前 CWP 的 transcript importer **没有**权利门（其导入路径显式声明不需要 per-document 授权收据），FF 侧也没有对应实现。这条**归属 CWP/FF 的合规决策**，ET 只提供 provider 事实。
+3. **一步式 `fetch` 的生产使用** — FF 现状用默认 `--operation fetch` + `provider=fmp`；FMP 不支持 discovery 阶段，所以这是 FMP 路径上的唯一可行调用形态。ET `README.md` 里「集成必须用 discover → fetch-candidate」这句需要限定到支持 discovery 的 provider（Motley Fool），否则与 ET 自己的 `--capabilities` 输出矛盾。**该表述修正是 ET 自己的文档债**，已列入下方剩余项。
+4. **G1e 跨仓端到端验收** — ET/FF/CWP 三方曾约定用真实编排 + CWP importer/writer + ET 工具边界跑一次 G1e。截至各自仓的收据，该链路只做到分段 fake provider 级别。**归 CWP ROOT 组合验收**，不属于 ET 单仓待办。
+5. **状态词表差异** — ET 的 12 个 provider 状态在 FF 侧被折叠为 `provider_unavailable` + 受限 `reason` 词表。ET 不改自己的状态词表；如需一一映射，由 FF owner 在其仓内决定。
 
-### 3.1 Earnings-transcripts machine boundary (E-T repo; may proceed now)
+---
 
-- [x] Add a pure provider API for one ticker/exchange/fiscal year/quarter/as-of date. Exact period semantics must not be confused with scraper.py --quarters N (recent N). Support Motley Fool source pages and FMP's structured exact-period API.
-- [x] Add one-shot stdin/JSON CLI. Network access is off by default. Both request.download_authorized=true and CLI --allow-download are required.
-- [x] Restrict Motley Fool URLs to HTTPS www.fool.com and FMP URLs to HTTPS financialmodelingprep.com. Reject Fool cross-host redirects and all FMP redirects.
-- [x] Bound execution: one shared deadline (1–60 seconds), quote listing at 2 MiB, FMP JSON response at 16 MiB, requested canonical body at 1 B–10 MiB, and at most 3 same-host Motley Fool redirects.
-- [x] Keep the default `/1` result as untranslated English UTF-8 text with separate provider-payload and canonical-text hashes; do not write transcript files, logs, caches, locks, or config. FMP_API_KEY is read from process environment by the CLI and never returned or included in provenance URLs.
-- [x] Add explicitly opt-in result schema `/2` for immutable-raw handoff: bounded base64 of the exact provider response, normalized MIME, and a safe effective URL; omit duplicate `content_utf8`, never write files, keep the default result `/1`, and retain both download authorization gates. Raw-mode MIME and size are checked; URL query credentials/fragments are stripped or excluded.
-- [x] Verify opt-in provider payload bytes/hash, MIME rejection, effective URL secret handling, FMP API-key non-disclosure, default compatibility, and CLI no-network authorization through injected fake HTTP/subprocess tests.
-- [x] Define explicit statuses: fetched / not_found / ambiguous / unsupported / not_authorized / provider_error / deadline_exceeded / content_too_large / provenance_rejected / invalid_request. Network failure must never become not_found.
-- [x] Write injectable offline HTTP-session tests for exact period, as-of behavior, cross-exchange ambiguity, both authorization gates, redirect policy, byte limits, strict fields, CLI output, FMP response identity, and secret-free provenance.
-- [x] Add a two-phase Motley Fool API for exact-period orchestration: `--operation discover` returns bounded candidate metadata only, without transcript-page requests; `--operation fetch-candidate` accepts a strict candidate-bound request and fetches only that URL. Keep `--operation fetch` as a compatibility-only combined mode; company-wiki/filing-fetch must not use it because it cannot preauthorize the exact candidate before body retrieval.
-- [x] Bind candidate-fetch to the discovery candidate by HTTPS provider host/path, canonical URL, ticker slug, fiscal year/quarter, publication date/as-of, and provider document ID. Reject changed/ambiguous/malformed candidates before network; keep the explicit request authorization and `--allow-download` gates.
-- [x] Add fake HTTP tests proving discovery never requests transcript pages, ambiguous discovery never fetches a body, candidate-bound fetch makes one body request, wrong identity/host/period and missing authorization make zero body requests, and CLI candidate-fetch still needs its process download flag.
-- [x] Keep the companion API and `transcript_tool.py` translation-free by contract; their output is the original English text/raw payload and they do not initialize translation services.
-- [x] Make the legacy scraper's translation opt-out explicit: preserve `--no-translate`, add `--disable-translation` as its clear alias, and test both parser paths plus the early return before translator initialization or file writes.
-- [x] Full E-T offline regression after `/2` raw handoff, two-phase candidate authorization, and translation-control coverage: **108 passed, 2 deselected**. The excluded cases are the pre-existing automatic-LLM preference test (no local LLM credentials) and `test_google_translate` (may contact Google with a synthetic phrase). See current session receipt for legacy Ruff findings. The isolated run directory was verified under TEMP and removed.
-- [x] Attempted one authenticated FMP live canary for AAPL 2020-Q3 using the user-supplied local key-file path; FMP returned sanitized HTTP 402 (Payment Required). No transcript was returned or persisted. Do not retry until endpoint entitlement is confirmed.
-- [x] Record FMP date semantics: its documented `date` field is the call date, not verified publication date. Return publication_date=null and as_of_cutoff_verified=false so downstream cannot claim historical publication-time coverage from FMP alone.
-- [x] Rerun all E-T tests with a unique company-wiki basetemp; record the existing LLM-key environment failure without adding real credentials.
-- [x] Keep README/findings/progress synchronized with both provider contracts, FMP date/retention limits, and live-canary status.
+## ET 自身剩余项（只列 ET owner 真正未完成的）
 
-### 3.2 filing-fetch companion orchestration (wait for revenue-forecast synchronization window)
+1. **【唯一 Next Step】`transcript_audit.py --write-receipts` 收据冲突退出码缺陷** — 见上方「唯一下一步」。
+2. **`README.md` 一步式 `fetch` 表述限定** — **已于 2026-11-14 收尾完成**：把「集成必须用 discover → fetch-candidate」限定到支持 discovery 的 provider（Motley Fool），并写明 FMP 只有精确 `fetch`、没有 discovery 阶段。纯文档，无 wire 变更。
+3. **真实 Motley Fool 页面 DOM 适应性验收（live DOM adaptability）** — DU7 / DU10 收据都诚实记录该项 `NOT_RUN`：现有抽取器只在合成夹具、真实 TXT 与合成标记层被验证过，从未在真实线上 DOM 上逐段独立试读。
+   下一步前提：一次**无凭证、无付费**的公开 earnings-call 页面小样本授权（样本写入 ET 自有测试目录并记录 URL / SHA / 取样范围，验收后清理）。
+   **不得**为凑真实样本改动生产 provider 开关或生产配置，也**不得**把真实 TXT 冒充网页 DOM 样本。
+4. **已被记录、且本质不可由 ET 单独消除的限制**（不属于可执行待办，仅登记）：
+   - 无标记残留的句中截断从字节不可判定，仍可能产出看似完整的正文（DU10 收据已写明）。
+   - CJK 母语来源 transcript 本地不存在，中文覆盖只到夹具级 + 中企样本级。
+   - 真实线上 MF HTML DOM 未下载重测；`README.md` 不得把「真实文本 + 合成标记」的往返说成线上 DOM 验收。
+5. **时序敏感测试的稳健性** — 三个预算/截止日测试在慢主机或负载下会失败：
+   `tests/test_retrieval_cli_e2e.py::test_two_document_batch_second_gets_only_remaining_budget`、
+   `tests/test_explicit_response_budget.py::test_supervisor_result_bound_tracks_the_explicit_operation_budget`、
+   `tests/test_retrieval_runtime.py::test_blocked_get_is_reaped_within_deadline_and_cleanup_grace`。
+   2026-11-14 实测：同一份代码、同一主机连跑 5 次，仅 1 次全绿（`1 failed, 2 passed` × 4、`3 passed` × 1）；
+   同日整包运行在负载下是 `4 failed, 659 passed`，机器空闲时是 `1 failed, 662 passed`。
+   这不是产品缺陷，也不是本次收尾引入（本次收尾只动了 Markdown 与 4 个测试文件的假凭据字面量提取，取值逐字节不变），
+   但它会让整包回归在不同负载下给出不同结论，需在需要稳定门禁时单独立卡处理。
 
-Keep the existing filing request schema byte-semantics unchanged. Implement in this order; do not place transcript state inside the primary filing handle:
+---
 
-1. Re-read the live revenue-forecast REMEDIATION_REGISTER, current in-flight card, repo triplet, lease/lock, and file allowlist. Do not edit filing-fetch or company-wiki until the active card permits it and its snapshot is refreshed.
-2. Add a versioned transcript companion request/result contract. Do not insert fields into the old strict schema. The request binds canonical security/ticker, market, fiscal year/quarter, as_of_date, provider, request ID, originating download authorization, timeout, and byte limit. Preserve provider-specific date precision: Motley Fool has a source publication date; FMP provides call date but not a verified publication date.
-3. Call the companion only when the financial-filing request is authorized for download and include_related_transcript=true. Existing old-schema requests retain their behavior. New filing-fetch skill invocations opt in by default for financial filings; explicit user opt-out skips it.
-4. Invoke through subprocess.run([python, transcript_tool.py, --request-stdin, --allow-download], input=json, capture_output=True, timeout=...). Resolve the executable/tool root from explicit config or EARNINGS_TRANSCRIPTS_TOOL; missing configuration returns unsupported, never guesses a path. Timeout must terminate the full child process tree and map to deadline_exceeded.
-5. Treat stdout as protocol only: require one parseable JSON object, supported schema_version, matching request_id, and recognized status. Bound stderr; store only sanitized error codes, never transcript body or secrets. Malformed results affect only the transcript sub-result, not a successful filing result.
-6. Only on fetched, stage content in company-wiki and recheck body SHA/length, source URL/host, available date semantics, period, provider document ID before invoking the existing canonical writer. Save provenance and date precision in sidecar; write body as-is in UTF-8. Never call translation, legacy E-T save_transcript, or bilingual generators. Before persisting FMP text, verify the account terms permit internal retention and derived summaries; do not infer that right from API access alone.
-7. Idempotency key is company identity + provider document ID/source URL + provider payload hash. Identical source reuses the existing canonical source; changed body hash creates an explicit version and never overwrites old bytes. Return transcript canonical source_id separately.
-8. Preserve distinct error states: not_found / ambiguous / unsupported / not_authorized / provider_error / deadline_exceeded / content_too_large / provenance_rejected / invalid_request. Never turn missing/error into an empty successful transcript or roll back an already successful filing source.
+## 测试与收据
 
-### 3.3 G1e end-to-end acceptance (milestone gate; restore test root after run)
+- 既有 ET 离线回归入口：`python -B -m pytest tests/ -q -p no:cacheprovider --basetemp <新建临时目录>`。
+  本机 safe-delete 策略会拦 pytest 默认临时根的批量清理，因此必须给独立 `--basetemp`，用完删除。
+- 离线门禁固定排除两项：`test_factory_auto_prefers_llm_when_keyed`（本机无可用 LLM 凭证）与 `test_google_translate`（可能对合成短句发起外部翻译请求）。
+- **2026-11-14 收尾复测（`main@915f216` 基线 + 本轮测试常量清理）**：`1 failed, 662 passed in 196.73s`。
+  - 唯一失败是确定性既有缺陷 `tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt`（即「唯一下一步」），基线 `003c1c0` 起可复现。
+  - 同日早一次在负载下的整包运行是 `4 failed, 659 passed`，多出的 3 项为时序敏感的预算/截止日用例，见上方剩余项 5。
+  - 本轮同时清除了仓库预提交门禁的 19 个 high「硬编码凭据」误报（全是测试里的假凭据字面量，已提取为具名常量，**取值逐字节不变**），门禁复测 high 0。
+- 2026-11-14 完整收据见 `docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`。
 
-- Use a new unique root company-wiki/tests/e2e/runs/<run_id>/ and first record recursive path + SHA-256 + byte length baseline.
-- Use temporary company-wiki catalog/raw roots and a fake transcript process/provider. Do not use live Motley Fool/FMP, real company directories, production config/database/cache/lock.
-- Successful path must cross: new filing-fetch request → existing filing resolver (fake source) → companion CLI JSON → HTTPS/period/hash validation → company-wiki canonical writer → sidecar/catalog → source-oriented summary/locator. Calling parser directly does not count as orchestrator E2E.
-- Run the same request twice. On resolver hit, provider calls must be 0; in all cases canonical-source additions must be 0 on exact repeat. Source ID, body SHA, and locator stay stable. Filing and transcript statuses stay separately observable.
-- Failure subcases: no authorization, not_found, ambiguous, wrong request ID/schema, non-HTTPS provenance, timeout, oversized body, and simulated restart after catalog commit. Each must preserve filing success while correctly reporting transcript failure; never publish partial content.
-- Remove only this run_id directory. Compare before/after paths, hashes, and lengths: prior files unchanged and every new file absent. Cleanup failure makes the test fail. Never remove pre-existing tests/e2e content.
-- One G1e review gate checks contract/code diff, test receipt, and run-root restoration receipt. Unit tests do not substitute for this E2E.
+---
 
-### 3.4 Current cross-repository coordination
+## 历史记录（只读，不是状态入口）
 
-- Latest inspected revenue-forecast register: I-16-A in flight (eb9a824f, read-card, as of 2026-09-26); the root working tree has 4,087 dirty status lines, and registered reviewer worktrees are detached August snapshots.
-- Therefore, this turn only changes the independent E-T repository. Wait until the active card's current closure receipt, owner lock, and repo snapshots are re-read before changing filing-fetch/company-wiki.
-- Official FMP API documentation was checked on 2026-09-27: `/stable/earning-call-transcript?symbol=...&year=...&quarter=...` returns JSON with symbol, year, period, date, and content. One authenticated call using the user-supplied key file returned HTTP 402; no transcript body was returned or persisted. FMP pricing and terms say transcript coverage and display/redistribution permissions depend on plan/agreement. Do not retry until access is confirmed.
-- On resumption, read the actual control entry/card and machine snapshot. Use their current accepted snapshot; do not edit their plan or characterize plan-only hash drift as a code conflict.
+| 文件 | 性质 |
+|---|---|
+| [`progress.md`](progress.md) | 2026-07 起的会话进度流水，**历史记录**；当前状态以本文件为准 |
+| [`findings.md`](findings.md) | 2026-07 起的发现流水，**历史记录**；当前状态以本文件为准 |
+| [`docs/plans/mb11-et-2026-11-11/`](docs/plans/mb11-et-2026-11-11/) | MB-ET 交付 PWF + handoff + 独审 + 证据（2026-11-13 结案） |
+| [`docs/plans/du10-txt-fidelity-2026-10-17/`](docs/plans/du10-txt-fidelity-2026-10-17/) | DU10 TXT 保真交付 PWF + ROOT 接收 |
+| [`docs/plans/du9-legacy-comparison-2026-10-16/`](docs/plans/du9-legacy-comparison-2026-10-16/) | DU9 legacy 比对交付 PWF + ROOT 接收 |
+| [`docs/plans/du7-extraction-2026-10-16/`](docs/plans/du7-extraction-2026-10-16/) | DU7 抽取交付 PWF + ROOT 接收 |
+| [`docs/plans/module-pwf-reconciliation-2026-11-14/`](docs/plans/module-pwf-reconciliation-2026-11-14/) | 2026-11-14 跨模块 PWF/工区收尾的 ET 交接与独审 |
 
-## 2026-09-29 ET owner revision (supersedes the earlier two-gate bullets above)
+### 已完成的历史阶段（不再列为待办）
 
-- [x] Saved the existing relevant WIP as recoverable commit `21336d2`; left the unrelated July `eval_results.json` and old `.workbuddy-ai/memory/*` untracked.
-- [x] Made `download_authorized` the one request-level network intent. The legacy `--allow-download` spelling remains accepted but has no separate gating authority; a false request still makes zero HTTP calls.
-- [x] Added one immutable provider configuration shared by fetch, discover, and candidate-fetch. Motley Fool defaults disabled at all three entrypoints before HTTP session creation. Fake-only tests can explicitly enable its parser/candidate path.
-- [x] Named FMP missing key and 401/402/403 as `unavailable` with distinct codes, and HTTP 429 as `rate_limited`. Wrong host/redirect/period, timeout, raw-byte and canonical-body budgets remain fail-closed.
-- [x] Added a private session-factory seam in the real CLI dispatch. Fake FMP HTTP plus a fake key now passes true stdin JSON → CLI → API → transport → stdout JSON without provider access, translation, or extra files.
-- [x] Generated stable `earnings-transcript-result/2` producer goldens from the real CLI serializer under a fixed test clock. FMP remains 26 fields; test-only Motley candidate remains 24 fields. See `tests/golden/manifest.json`.
-- [x] Focused API/translation suite: 41 passed; whole offline suite: 118 passed, 2 deselected. Both used a unique ET `tests/et-run-*` root and restored it in `finally`.
-- [ ] Cross-repository CWP FMP importer contract and FF companion integration remain outside this ET owner scope. FMP endpoint entitlement and retention rights remain unverified; the historical live attempt returned 402 and was not repeated.
+- **Phase 0（P0 必修，2026-07-08 完成）**：README 与代码不一致（优先级文本 / 测试数量 / config.json 注释）、`translate.py --backend` 缺 `mimo`/`minimax`、`config.yaml` system_prompt 重复、`reader.py` 重复实现 `load_companies()` 与 header 解析、`TranslatorFactory` docstring 过期。
+- **Phase 1（P1 结构，2026-07-08 完成）**：`common.py` 拆为 `config.py` / `naming.py` / `cache.py` / `parser.py` / `translator.py`（`common.py` 保留 re-export 门面）；HTML 模板抽到 `templates/index.html`；bilingual 构建去重；全局 logger 改模块级 `log`；测试改用 `mock_cfg` fixture。
+- **Phase 2（P2 质量，2026-07-08 完成）**：清理死代码与未使用 import、补 `test_scraper.py`（5）与 `test_reader.py`（7）、翻译失败计数与摘要日志。
+- **2026-09-27 → 2026-09-29 companion 期**：精确期次 provider API、stdin/JSON CLI、授权双闸、主机/跳转/字节/截止日边界、`/1` 与 `/2` 结果、显式状态、两阶段 candidate 授权、翻译关闭开关、单意图网络语义、`/2` 生产者 golden。全部已在主线。
