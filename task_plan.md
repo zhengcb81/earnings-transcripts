@@ -14,6 +14,13 @@
 
 ---
 
+## 2026-11-14 仓库收尾对账补充
+
+- PWF 更新前核对本地 `main` 与 `origin/main` 均为 `c777bf1ca82ba7cadf783dee4d0c7341dd48ec7b`；除 `main` 外的 15 个本地分支均为 `main` 祖先，当前只有 1 个注册工区，没有代码分支等待并线。
+- 删除的仅是根目录及测试目录中的生成性 Python/test 缓存（`.pytest_cache`、`__pycache__`，以及空的 `.benchmarks`）：47 个文件、815,153 bytes。源码、原始 transcript、计划/审查收据及 Git 分支均未动。
+- 主工区现有 8 个未跟踪文件仍保留：`.mimosa/` 下 4 个当前 hook session/status/lock 文件，以及 `.workbuddy-ai/memory/` 下 4 个用户/工具记忆文件。它们属于运行状态或记忆资料，不作为临时缓存删除。无 tracked/staged 代码改动。
+- 本轮只做仓库状态/PWF与缓存对账，不改 ET 产品代码；因此保留唯一下一步 `transcript_audit.py --write-receipts` 收据冲突退出码缺陷。未运行产品测试，文档通过 diff 与 Git 状态检查后提交并核对远端。
+
 ## 当前状态摘要（2026-11-14）
 
 | 维度 | 状态 |
