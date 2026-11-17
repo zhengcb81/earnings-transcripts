@@ -6,6 +6,12 @@ request's ``timeout_seconds`` becomes a hard wall-clock deadline enforced by
 process termination, not by cooperative blocking checks alone. The private
 ``_session_factory`` injection keeps the pure-Python cooperative path for
 offline tests; its blocking behavior is not the hard-deadline guarantee.
+
+Every terminal path publishes the same native final usage receipt when
+``--report-usage`` is given, including the paths that reject a request
+before any provider call. The optional feedback projection
+(``transcript_feedback``) only reads what this module already knows; it never
+changes stdout, stderr, the exit code or the retry behaviour.
 """
 
 from __future__ import annotations
@@ -20,6 +26,7 @@ from typing import Any, Callable
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import retrieval_runtime
+import transcript_feedback
 from transcript_contracts import (
     DISCOVERY_RESULT_SCHEMA,
     MAX_TIMEOUT_SECONDS,
@@ -68,7 +75,7 @@ def _supervised_result(
     launcher_spec: dict[str, Any] | None,
     temp_root: Path | None,
     fmp_api_key: str | None = None,
-) -> dict[str, Any]:
+) -> tuple[dict[str, Any], dict[str, Any]]:
     """Run one retrieval through the supervisor and map hard failures."""
     outcome = retrieval_runtime.run_retrieval(
         args.operation,
@@ -98,10 +105,8 @@ def _supervised_result(
         and outcome.usage is not None,
         "usage": outcome.usage,
     }
-    if args.report_usage:
-        sys.stderr.write(json.dumps(receipt, separators=(",", ":")) + "\n")
     if outcome.result is not None:
-        return outcome.result
+        return outcome.result, receipt
     request_id = request.get("request_id") if isinstance(request, dict) else None
     provider = "motley_fool"
     if isinstance(request, dict) and isinstance(request.get("provider"), str):
@@ -111,7 +116,7 @@ def _supervised_result(
         status, error_code = "deadline_exceeded", "provider_deadline"
     else:
         status, error_code = "provider_error", "retrieval_worker_failure"
-    return _wire_failure(result_schema, request_id, status, error_code, provider)
+    return _wire_failure(result_schema, request_id, status, error_code, provider), receipt
 
 
 def _configured_fmp_key() -> tuple[str | None, str | None]:
@@ -140,13 +145,24 @@ def _configured_fmp_key() -> tuple[str | None, str | None]:
     return value, None
 
 
-def _emit_preflight_usage(request: Any, args: argparse.Namespace) -> None:
-    if args.report_usage:
-        receipt = {"schema_version": "earnings-retrieval-usage/1",
-                   "request_id": request.get("request_id") if isinstance(request, dict) else None,
-                   "usage_complete": True,
-                   "usage": {"requests_used": 0, "response_bytes_used": 0, "exhausted": None}}
-        sys.stderr.write(json.dumps(receipt, separators=(",", ":")) + "\n")
+def _zero_usage_receipt(request: Any) -> dict[str, Any]:
+    """The native usage receipt of a run that made no provider request."""
+    return {
+        "schema_version": "earnings-retrieval-usage/1",
+        "request_id": request.get("request_id") if isinstance(request, dict) else None,
+        "usage_complete": True,
+        "usage": {"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+    }
+
+
+def _publish_usage_receipt(
+    receipt: dict[str, Any], report_usage: bool
+) -> dict[str, Any] | None:
+    """Write the native final usage receipt to stderr; return it when published."""
+    if not report_usage:
+        return None
+    sys.stderr.write(json.dumps(receipt, separators=(",", ":")) + "\n")
+    return receipt
 
 
 def main(
@@ -157,6 +173,7 @@ def main(
     _retrieval_launcher: str | None = None,
     _retrieval_spec: dict[str, Any] | None = None,
     _retrieval_temp_root: Path | None = None,
+    _feedback_recorder: Any = None,
 ) -> int:
     """Run the JSON boundary; private injection points are for offline tests only."""
     parser = argparse.ArgumentParser(
@@ -215,6 +232,9 @@ def main(
         if args.include_source_payload
         else RESULT_SCHEMA
     )
+    request: Any = None
+    native_receipt: dict[str, Any] | None = None
+    published_receipt: dict[str, Any] | None = None
     try:
         raw = sys.stdin.read(128 * 1024 + 1)
         if len(raw.encode("utf-8")) > 128 * 1024:
@@ -225,6 +245,8 @@ def main(
                 "request_too_large",
                 "motley_fool",
             )
+            native_receipt = _zero_usage_receipt(None)
+            published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
         else:
             request = json.loads(raw)
             # Provider implementation is imported only on the paths that need
@@ -243,10 +265,12 @@ def main(
                 fmp_api_key, credential_error = _configured_fmp_key()
             if preflight is not None:
                 result = preflight
-                _emit_preflight_usage(request, args)
+                native_receipt = _zero_usage_receipt(request)
+                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
             elif credential_error is not None:
                 result = _wire_failure(result_schema, request.get("request_id"), "unavailable", credential_error, "fmp")
-                _emit_preflight_usage(request, args)
+                native_receipt = _zero_usage_receipt(request)
+                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
             elif args.operation == "discover" and args.include_source_payload:
                 provider = "motley_fool"
                 request_id = None
@@ -262,6 +286,8 @@ def main(
                     "source_payload_not_valid_for_discovery",
                     provider,
                 )
+                native_receipt = _zero_usage_receipt(request)
+                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
             elif _session_factory is not None:
                 # Cooperative path: injected custom session (offline tests).
                 from transcript_api import (
@@ -291,7 +317,7 @@ def main(
                     )
             else:
                 # Production path: one internal worker under a hard deadline.
-                result = _supervised_result(
+                result, native_receipt = _supervised_result(
                     request,
                     args,
                     result_schema=result_schema,
@@ -301,10 +327,24 @@ def main(
                     temp_root=_retrieval_temp_root,
                     fmp_api_key=fmp_api_key,
                 )
+                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
     except (json.JSONDecodeError, UnicodeError):
         result = _wire_failure(
             result_schema, None, "invalid_request", "invalid_json", "motley_fool"
         )
+        native_receipt = _zero_usage_receipt(None)
+        published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+    transcript_feedback.emit_observations(
+        _feedback_recorder
+        if _feedback_recorder is not None
+        else transcript_feedback.recorder_from_env(),
+        request=request,
+        result=result,
+        operation=args.operation,
+        native_receipt=native_receipt,
+        published_receipt=published_receipt,
+        receipt_required=bool(args.report_usage),
+    )
     sys.stdout.write(
         json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"
     )

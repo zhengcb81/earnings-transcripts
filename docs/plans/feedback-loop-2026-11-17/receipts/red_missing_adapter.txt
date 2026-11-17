@@ -1,0 +1,29 @@
+FB-ET · RED receipt 1 — the new feedback adapter did not exist
+
+Base commit of this card: 6883623 ("docs: plan ET issue feedback and recovery").
+Working tree at capture time: the card's own changes only.
+
+1. The adapter module was absent at the base commit
+
+    $ git show 6883623:transcript_feedback.py
+    fatal: path 'transcript_feedback.py' exists on disk, but not in '6883623'
+
+2. The new offline test module imports that adapter at module scope, so at the
+   base commit the whole file fails to collect:
+
+    $ python -B -m pytest -q tests/test_feedback_observation.py
+    E   ModuleNotFoundError: No module named 'transcript_feedback'
+    (collected 0 items; 1 error)
+
+3. Same fact for the repair entry point and the issue-card import, which are
+   new files in this card:
+
+    $ git show 6883623:tools/replay_feedback_case.py
+    fatal: path 'tools/replay_feedback_case.py' exists on disk, but not in '6883623'
+    $ git show 6883623:tools/feedback_issue_cards.py
+    fatal: path 'tools/feedback_issue_cards.py' exists on disk, but not in '6883623'
+    $ git show 6883623:skills/repair-earnings-transcripts-issue/SKILL.md
+    fatal: path 'skills/repair-earnings-transcripts-issue/SKILL.md' exists on disk, but not in '6883623'
+
+This RED is reproduced by checking out the base commit and running the new
+test file there; the working tree was never modified to produce it.

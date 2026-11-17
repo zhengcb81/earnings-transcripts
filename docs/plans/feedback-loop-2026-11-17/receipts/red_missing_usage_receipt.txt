@@ -1,0 +1,41 @@
+FB-ET · RED receipt 2 — the confirmed ET defect: `--report-usage` published no
+native final usage receipt on two of the three early-rejection paths
+
+Defect: `transcript_tool.py --report-usage` promises exactly one native final
+usage receipt on stderr. At the base commit the receipt was published on the
+preflight rejection path but not on the two other terminal paths that also
+make zero provider requests. A consumer that reconciles provider cost from
+the receipt (filing-fetch) therefore cannot tell "no provider call happened"
+from "the tool crashed before it could report".
+
+Reproduction at the base commit 6883623 (the tree was extracted read-only with
+`git archive 6883623 | tar -x -C <scratch>`; the working tree was not touched):
+
+    $ echo "not json" | python -B transcript_tool.py --request-stdin --report-usage
+    {"schema_version":"earnings-transcript-result/1","request_id":null,"status":"invalid_request","error_code":"invalid_json","provider":"motley_fool"}
+    (stderr: empty — no usage receipt)
+
+    $ echo '{"...":"...","request_id":"r1",...}' | python -B transcript_tool.py --request-stdin --operation discover --include-source-payload --report-usage
+    {"schema_version":"earnings-transcript-discovery-result/1","request_id":"r1","status":"invalid_request","error_code":"source_payload_not_valid_for_discovery","provider":"fmp"}
+    (stderr: empty — no usage receipt)
+
+    $ echo '<request without fiscal_quarter>' | python -B transcript_tool.py --request-stdin --report-usage
+    {"schema_version":"earnings-retrieval-usage/1","request_id":"r1","usage_complete":true,"usage":{"requests_used":0,"response_bytes_used":0,"exhausted":null}}
+    {"schema_version":"earnings-transcript-result/1","request_id":"r1","status":"invalid_request","provider":"motley_fool","error_code":"request_schema"}
+    (stderr: one usage receipt — the structurally identical preflight path does publish it)
+
+All three runs make zero provider requests and all three exit 0. The asymmetry
+is inside one product, on one flag, on three sibling rejection paths.
+
+After the repair in this card (same commands, current tree):
+
+    $ echo "not json" | python -B transcript_tool.py --request-stdin --report-usage
+    {"schema_version":"earnings-retrieval-usage/1","request_id":null,"usage_complete":true,"usage":{"requests_used":0,"response_bytes_used":0,"exhausted":null}}
+    {"schema_version":"earnings-transcript-result/1","request_id":null,"status":"invalid_request","error_code":"invalid_json","provider":"motley_fool"}
+
+    $ echo '{"...":"...","request_id":"r1",...}' | python -B transcript_tool.py --request-stdin --operation discover --include-source-payload --report-usage
+    {"schema_version":"earnings-retrieval-usage/1","request_id":"r1","usage_complete":true,"usage":{"requests_used":0,"response_bytes_used":0,"exhausted":null}}
+    {"schema_version":"earnings-transcript-discovery-result/1","request_id":"r1","status":"invalid_request","error_code":"source_payload_not_valid_for_discovery","provider":"fmp"}
+
+The regression that pins this is
+`tests/test_feedback_observation.py::test_report_usage_publishes_a_receipt_on_every_terminal_path`.
