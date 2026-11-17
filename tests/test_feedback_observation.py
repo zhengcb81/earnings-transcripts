@@ -719,6 +719,41 @@ def test_the_observation_reference_points_at_the_detail_record(monkeypatch, tmp_
         assert "\\" not in record["details_ref"]
 
 
+def test_only_one_writer_reaches_the_sidecar(monkeypatch, tmp_path):
+    """The worker inherits the environment; it must not write the sidecar."""
+    forbid_translator(monkeypatch)
+    out_path = tmp_path / "feedback.jsonl"
+    monkeypatch.setenv(transcript_feedback.FEEDBACK_OUT_ENV, str(out_path))
+    monkeypatch.setenv(transcript_feedback.FEEDBACK_RUN_ID_ENV, "fb-one-writer")
+    monkeypatch.setenv(transcript_feedback.FEEDBACK_ATTEMPT_ID_ENV, "attempt-1")
+    calls_file = tmp_path / "calls.jsonl"
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
+    page = fmp_payload()
+    spec = fake_spec(
+        {FMP_URL: FakeResponse(FMP_URL, page, content_type="application/json")},
+        calls_file=calls_file,
+    )
+    request = fmp_request(request_id="fb-one-writer-001")
+    monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps(request)))
+    out, err = io.StringIO(), io.StringIO()
+    monkeypatch.setattr(sys, "stdout", out)
+    monkeypatch.setattr(sys, "stderr", err)
+    rc = transcript_tool.main(
+        ["--request-stdin", "--include-source-payload"],
+        _retrieval_launcher=LAUNCHER,
+        _retrieval_spec=spec,
+        _retrieval_temp_root=temp_root,
+    )
+
+    records = read_jsonl(out_path)
+    assert rc == 0
+    assert len(records) == 4
+    assert len({record["step_id"] for record in records}) == 1
+    assert all(record["run_id"] == "fb-one-writer" for record in records)
+    assert list(temp_root.iterdir()) == []
+
+
 def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
     """The replay is the only reproduction entry; it must never download."""
     import importlib.util
