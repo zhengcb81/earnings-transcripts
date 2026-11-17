@@ -60,6 +60,11 @@ class _FixedDateTime:
         return datetime(2026, 9, 29, 12, 0, 0, tzinfo=timezone.utc)
 
 
+#: The same fixed instant the producer goldens use, so a replayed case is
+#: byte-for-byte reproducible, timestamps included.
+FIXED_INSTANT = "2026-09-29T12:00:00Z"
+
+
 @dataclass(frozen=True)
 class ReplayCase:
     """One named fixture: a fixed request plus a fixed provider answer."""
@@ -300,6 +305,7 @@ def replay(
     old_stdout, old_stderr = sys.stdout, sys.stderr
     old_stdin = sys.stdin
     old_datetime = transcript_api.datetime
+    old_feedback_datetime = transcript_feedback.datetime
     old_key = os.environ.get("FMP_API_KEY")
     old_key_file = os.environ.get("FMP_API_KEY_FILE")
     out, err = io.StringIO(), io.StringIO()
@@ -314,6 +320,7 @@ def replay(
         else:
             os.environ["FMP_API_KEY"] = case.key
         transcript_api.datetime = _FixedDateTime
+        transcript_feedback.datetime = _FixedDateTime
         with _fault(case):
             if case.mode == "supervised":
                 temp_root = Path(tempfile.mkdtemp(prefix="et-replay-"))
@@ -350,6 +357,7 @@ def replay(
     finally:
         sys.stdin, sys.stdout, sys.stderr = old_stdin, old_stdout, old_stderr
         transcript_api.datetime = old_datetime
+        transcript_feedback.datetime = old_feedback_datetime
         if old_key is None:
             os.environ.pop("FMP_API_KEY", None)
         else:

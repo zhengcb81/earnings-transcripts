@@ -965,6 +965,33 @@ def test_a_damaged_observation_line_does_not_stop_the_import(tmp_path):
     assert "not_attributed" in card.read_text(encoding="utf-8")
 
 
+def test_the_controlled_replay_is_byte_for_byte_reproducible(tmp_path):
+    """Two replays of one named fixture produce the same bytes, clock included."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "et_replay_repro", ROOT / "tools" / "replay_feedback_case.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+
+    case = module.CASES["fmp-exact-period"]
+    first = module.replay(case, out_path=tmp_path / "first.jsonl")
+    second = module.replay(case, out_path=tmp_path / "second.jsonl")
+
+    assert (tmp_path / "first.jsonl").read_bytes() == (
+        tmp_path / "second.jsonl"
+    ).read_bytes()
+    assert (tmp_path / "first.jsonl.details.jsonl").read_bytes() == (
+        tmp_path / "second.jsonl.details.jsonl"
+    ).read_bytes()
+    assert first["native"] == second["native"]
+    assert first["details"][0]["started_at"] == module.FIXED_INSTANT
+    assert first["details"][1]["finished_at"] == module.FIXED_INSTANT
+
+
 def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
     """The replay is the only reproduction entry; it must never download."""
     import importlib.util
