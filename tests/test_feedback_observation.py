@@ -719,6 +719,32 @@ def test_the_observation_reference_points_at_the_detail_record(monkeypatch, tmp_
         assert "\\" not in record["details_ref"]
 
 
+def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
+    """The replay is the only reproduction entry; it must never download."""
+    import importlib.util
+    import socket
+
+    spec = importlib.util.spec_from_file_location(
+        "et_replay_feedback_case", ROOT / "tools" / "replay_feedback_case.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+
+    def refuse(*args: Any, **kwargs: Any) -> None:
+        raise AssertionError("the replay must not open a network connection")
+
+    monkeypatch.setattr(socket, "socket", refuse)
+    report = module.replay(
+        module.CASES["fmp-exact-period"], out_path=tmp_path / "feedback.jsonl"
+    )
+    assert report["matches_expected"] is True
+    assert report["golden"]["match"] is True
+    assert report["provider_calls"] == 1
+    assert read_jsonl(tmp_path / "feedback.jsonl")
+
+
 def test_the_public_evidence_of_the_host_is_carried_through(monkeypatch, tmp_path):
     """The host may name the public evidence of its run; it stays opaque."""
     recorder = recorder_for(tmp_path)
