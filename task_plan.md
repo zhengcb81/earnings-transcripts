@@ -1,5 +1,9 @@
 # ET（earnings-transcripts）计划与状态入口
 
+## 2026-11-17 · ET 自反馈并行线
+
+[FB-ET 施工卡与实施细则](docs/plans/feedback-loop-2026-11-17/FB-ET.md) 已就绪。ET 独立 harness 从真实公开 CLI、原生收据和本地 golden 开始，补反馈观察、可重放 issue、修理技能和离线回归；ROOT 负责派工、恢复与跨仓回告。本仓原有的 `transcript_audit.py --write-receipts` 收据冲突仍由原业务线推进。下方 11-14 快照中的“唯一下一步”指当时的业务线。
+
 > **本文件是 ET 仓唯一的 canonical 状态入口。**
 > ET 的任何计划、进度、发现或交接都以本文件为准；`progress.md` 与 `findings.md` 只保留历史记录并链接回本文件，
 > 不再是并列入口，也不另建 `START_HERE`。
