@@ -34,6 +34,7 @@ import hashlib
 import json
 import os
 import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -432,16 +433,36 @@ def build_details(
     operation: str,
     native_receipt: Any,
     published_receipt: Any,
+    phase: str = "finished",
+    branch: str | None = None,
+    started_at: str | None = None,
+    finished_at: str | None = None,
 ) -> dict[str, Any]:
-    """One credential-free detail record holding this run's native facts."""
+    """One credential-free detail record holding this run's native facts.
+
+    The record is this repository's own step log: it keeps the public
+    operation, the time, the native request id, the result, the branch the
+    run took, whether the run was retried or reused, the stable error type
+    and the reason chain. The ``started`` phase is written before the action
+    can end, so an interrupted run leaves a started record with no result.
+    """
+    error_code = result.get("error_code") if isinstance(result, Mapping) else None
     return {
         "schema_version": DETAIL_SCHEMA,
+        "phase": phase,
         "operation": operation,
+        "started_at": started_at,
+        "finished_at": finished_at,
+        "branch": branch,
+        "retried": False,
+        "reused": False,
         "request": _redacted_request(request),
         "result": _redacted_result(result),
         "requested_period": requested_period(request),
         "native_period": native_period(result),
         "content_reference": content_reference_state(result),
+        "error_type": error_code if _is_str(error_code) else None,
+        "reason_chain": [error_code] if _is_str(error_code) else [],
         "usage": {
             "native_receipt": native_receipt if isinstance(native_receipt, Mapping) else None,
             "published_receipt": (
@@ -449,6 +470,60 @@ def build_details(
             ),
         },
     }
+
+
+def now() -> str:
+    """The UTC time stamp of this run, second resolution."""
+    return (
+        datetime.now(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
+
+
+def begin_step(
+    recorder: FeedbackRecorder | None,
+    *,
+    request: Any,
+    operation: str,
+    branch: str | None = None,
+    evidence_ref: str | None = None,
+) -> dict[str, Any] | None:
+    """Record that the action started, before it can reach a terminal state.
+
+    A run that is interrupted after this record and before its result leaves
+    a started observation with no result: the final state is unknown, and an
+    unknown is reconciled rather than retried.
+    """
+    if recorder is None:
+        return None
+    try:
+        started_at = now()
+        details = build_details(
+            request=request,
+            result={},
+            operation=operation,
+            native_receipt=None,
+            published_receipt=None,
+            phase="started",
+            branch=branch,
+            started_at=started_at,
+        )
+        recorder.record(
+            step_id=_step_id(request, operation),
+            check_id="action-started",
+            expected="started",
+            actual="started",
+            disposition="expected",
+            evidence_ref=evidence_ref,
+            details=details,
+        )
+        return details
+    except Exception:  # pragma: no cover - defensive, never a crash
+        recorder.write_failures += 1
+        recorder.diagnostics.append("feedback_write_failed:projection_error")
+        return None
 
 
 class FeedbackRecorder:
@@ -709,6 +784,9 @@ def emit_observations(
     published_receipt: Any,
     receipt_required: bool,
     evidence_ref: str | None = None,
+    branch: str | None = None,
+    started_at: str | None = None,
+    finished_at: str | None = None,
 ) -> list[dict[str, Any]]:
     """Project this run's native facts into the cross-repository observation.
 
@@ -728,6 +806,10 @@ def emit_observations(
             operation=operation,
             native_receipt=native_receipt,
             published_receipt=published_receipt,
+            phase="finished",
+            branch=branch,
+            started_at=started_at,
+            finished_at=finished_at,
         )
         checks = (
             evaluate_outcome_naming(result),

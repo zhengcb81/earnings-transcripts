@@ -460,7 +460,7 @@ def test_feedback_enabled_and_disabled_publish_the_same_business_bytes(
     assert off[1] == on[1]
     assert off[2] == on[2]
     assert json.loads(off[1])["status"] == "fetched"
-    assert len(read_jsonl(tmp_path / "feedback.jsonl")) == 4
+    assert len(read_jsonl(tmp_path / "feedback.jsonl")) == 5
 
 
 def test_the_supervisor_receipt_is_identical_with_and_without_feedback(
@@ -506,7 +506,7 @@ def test_the_supervisor_receipt_is_identical_with_and_without_feedback(
     assert off_result.pop("retrieved_at") != ""
     assert on_result.pop("retrieved_at") != ""
     assert off_result == on_result
-    assert len(read_jsonl(tmp_path / "feedback.jsonl")) == 4
+    assert len(read_jsonl(tmp_path / "feedback.jsonl")) == 5
 
 
 def test_an_unwritable_sidecar_leaves_the_business_result_unchanged(
@@ -666,7 +666,7 @@ def test_a_replayed_observation_adds_no_second_line(monkeypatch, tmp_path):
     run_cooperative(monkeypatch, request, session, recorder=second)
     records = read_jsonl(tmp_path / "feedback.jsonl")
 
-    assert after_first == 4
+    assert after_first == 5
     assert len(records) == after_first
     assert len({(r["run_id"], r["attempt_id"], r["step_id"], r["check_id"]) for r in records}) == len(
         records
@@ -684,7 +684,7 @@ def test_the_details_record_keeps_the_native_facts_without_credentials(
 
     details = read_jsonl(tmp_path / "feedback.jsonl.details.jsonl")
     assert details
-    record = details[0]
+    record = [item for item in details if item["phase"] == "finished"][0]
     assert record["schema_version"] == "earnings-transcripts-feedback-detail/1"
     assert record["operation"] == "fetch"
     assert record["request"]["request_id"] == "fb-details-001"
@@ -695,12 +695,74 @@ def test_the_details_record_keeps_the_native_facts_without_credentials(
     assert record["result"]["provider"] == "fmp"
     assert record["result"]["provider_payload_sha256"]
     assert record["result"]["canonical_content_sha256"]
+    assert record["started_at"] and record["finished_at"]
+    assert record["retried"] is False
+    assert record["reused"] is False
+    assert record["branch"] == "provider"
+    assert record["error_type"] is None
+    assert record["reason_chain"] == []
 
     blob = json.dumps(details, ensure_ascii=False)
     assert FEEDBACK_FAKE_KEY not in blob
     assert "Management discussed customer demand" not in blob
     assert str(ROOT) not in blob
     assert "provider_payload_base64" not in blob
+
+
+def test_the_start_is_recorded_before_the_provider_is_called(monkeypatch, tmp_path):
+    """An interrupted run must leave a started record, not nothing."""
+    recorder = recorder_for(tmp_path)
+    request = fmp_request(request_id="fb-start-before-provider-001")
+    page = fmp_payload()
+    seen: dict[str, list[str]] = {}
+
+    class _WatchingSession(FakeSession):
+        def get(self, url: str, **kwargs: Any):
+            seen["checks"] = [
+                record["check_id"] for record in read_jsonl(tmp_path / "feedback.jsonl")
+            ]
+            return super().get(url, **kwargs)
+
+    session = _WatchingSession(
+        {FMP_URL: FakeResponse(FMP_URL, page, content_type="application/json")}
+    )
+    run_cooperative(monkeypatch, request, session, recorder=recorder)
+    assert seen["checks"] == ["action-started"]
+
+
+def test_the_observation_stream_separates_the_start_from_the_result(monkeypatch, tmp_path):
+    """An action that starts but never ends leaves a started record alone."""
+    recorder = recorder_for(tmp_path)
+    request = fmp_request(request_id="fb-start-result-001")
+    page = fmp_payload()
+    session = FakeSession({FMP_URL: FakeResponse(FMP_URL, page, content_type="application/json")})
+    run_cooperative(monkeypatch, request, session, recorder=recorder)
+
+    records = read_jsonl(tmp_path / "feedback.jsonl")
+    assert [record["check_id"] for record in records] == [
+        "action-started",
+        "outcome-naming",
+        "exact-period-ownership",
+        "content-reference",
+        "usage-accounting",
+    ]
+    started = records[0]
+    assert started["expected"] == "started"
+    assert started["actual"] == "started"
+    assert started["disposition"] == "expected"
+    assert all(record["step_id"] == "fb-start-result-001" for record in records)
+
+    details = read_jsonl(tmp_path / "feedback.jsonl.details.jsonl")
+    phases = {item["details_id"]: item["phase"] for item in details}
+    assert phases[started["details_ref"]] == "started"
+    assert all(
+        phases[record["details_ref"]] == "finished" for record in records[1:]
+    )
+    started_record = [
+        item for item in details if item["details_id"] == started["details_ref"]
+    ][0]
+    assert started_record["result"] == {}
+    assert started_record["operation"] == "fetch"
 
 
 def test_the_observation_reference_points_at_the_detail_record(monkeypatch, tmp_path):
@@ -748,7 +810,7 @@ def test_only_one_writer_reaches_the_sidecar(monkeypatch, tmp_path):
 
     records = read_jsonl(out_path)
     assert rc == 0
-    assert len(records) == 4
+    assert len(records) == 5
     assert len({record["step_id"] for record in records}) == 1
     assert all(record["run_id"] == "fb-one-writer" for record in records)
     assert list(temp_root.iterdir()) == []

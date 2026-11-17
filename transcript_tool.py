@@ -236,6 +236,13 @@ def main(
     request: Any = None
     native_receipt: dict[str, Any] | None = None
     published_receipt: dict[str, Any] | None = None
+    branch = "invalid-request"
+    recorder = (
+        _feedback_recorder
+        if _feedback_recorder is not None
+        else transcript_feedback.recorder_from_env()
+    )
+    started_at: str | None = None
     try:
         raw = sys.stdin.read(128 * 1024 + 1)
         if len(raw.encode("utf-8")) > 128 * 1024:
@@ -250,6 +257,13 @@ def main(
             published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
         else:
             request = json.loads(raw)
+            started_at = transcript_feedback.begin_step(
+                recorder,
+                request=request,
+                operation=args.operation,
+                evidence_ref=_feedback_evidence_ref,
+            )
+            started_at = started_at.get("started_at") if started_at else None
             # Provider implementation is imported only on the paths that need
             # it; validation/gating is pure and stays in the parent.
             preflight = None
@@ -266,10 +280,12 @@ def main(
                 fmp_api_key, credential_error = _configured_fmp_key()
             if preflight is not None:
                 result = preflight
+                branch = "preflight"
                 native_receipt = _zero_usage_receipt(request)
                 published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
             elif credential_error is not None:
                 result = _wire_failure(result_schema, request.get("request_id"), "unavailable", credential_error, "fmp")
+                branch = "credential"
                 native_receipt = _zero_usage_receipt(request)
                 published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
             elif args.operation == "discover" and args.include_source_payload:
@@ -287,6 +303,7 @@ def main(
                     "source_payload_not_valid_for_discovery",
                     provider,
                 )
+                branch = "discovery-source-payload"
                 native_receipt = _zero_usage_receipt(request)
                 published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
             elif _session_factory is not None:
@@ -301,6 +318,7 @@ def main(
                     "provider_settings": _provider_settings,
                     "session_factory": _session_factory,
                 }
+                branch = "provider"
                 if args.operation == "discover":
                     result = discover_transcripts(request, **provider_options)
                 elif args.operation == "fetch-candidate":
@@ -328,6 +346,7 @@ def main(
                     temp_root=_retrieval_temp_root,
                     fmp_api_key=fmp_api_key,
                 )
+                branch = "provider"
                 published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
     except (json.JSONDecodeError, UnicodeError):
         result = _wire_failure(
@@ -336,9 +355,7 @@ def main(
         native_receipt = _zero_usage_receipt(None)
         published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
     transcript_feedback.emit_observations(
-        _feedback_recorder
-        if _feedback_recorder is not None
-        else transcript_feedback.recorder_from_env(),
+        recorder,
         request=request,
         result=result,
         operation=args.operation,
@@ -346,6 +363,9 @@ def main(
         published_receipt=published_receipt,
         receipt_required=bool(args.report_usage),
         evidence_ref=_feedback_evidence_ref,
+        branch=branch,
+        started_at=started_at,
+        finished_at=transcript_feedback.now(),
     )
     sys.stdout.write(
         json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"
