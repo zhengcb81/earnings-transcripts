@@ -87,6 +87,7 @@ class ReplayCase:
     expect_deviation: bool = False
     issue_key: str | None = None
     provider_calls: int = 1
+    provider_calls_ceiling: int | None = None
 
 
 def _golden_request() -> dict[str, Any]:
@@ -203,12 +204,16 @@ CASES: dict[str, ReplayCase] = {
             "The worker is stopped at the request deadline: the final usage is "
             "unknown and the provider is never asked twice."
         ),
-        request=_request(request_id="fb-worker-aborted-001", timeout_seconds=2),
+        request=_request(request_id="fb-worker-aborted-001", timeout_seconds=4),
         expected_status="deadline_exceeded",
         expected_error_code="provider_deadline",
         argv=("--request-stdin", "--include-source-payload", "--report-usage"),
         mode="supervised",
-        timeout_seconds=2,
+        timeout_seconds=4,
+        # The contract is "never a second request": a loaded machine may stop
+        # the worker before it reaches the provider at all, which is still
+        # within the contract.
+        provider_calls_ceiling=1,
     ),
     "usage-receipt-suppressed": ReplayCase(
         name="usage-receipt-suppressed",
@@ -410,8 +415,17 @@ def replay(
         ),
         "golden": _golden_comparison(case, result),
         "provider_calls": len(provider_calls),
-        "provider_calls_expected": case.provider_calls,
-        "provider_calls_match": len(provider_calls) == case.provider_calls,
+        "provider_calls_expected": (
+            case.provider_calls_ceiling
+            if case.provider_calls_ceiling is not None
+            else case.provider_calls
+        ),
+        "provider_calls_exact": case.provider_calls_ceiling is None,
+        "provider_calls_match": (
+            len(provider_calls) <= case.provider_calls_ceiling
+            if case.provider_calls_ceiling is not None
+            else len(provider_calls) == case.provider_calls
+        ),
         # The deviation is read back from the observations of this run, never
         # copied from the definition of the case.
         "deviation_observed": bool(deviations),

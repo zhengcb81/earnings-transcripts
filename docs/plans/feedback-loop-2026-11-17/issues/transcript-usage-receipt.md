@@ -45,8 +45,9 @@ base commit, before the projection existed (see the reproduction below).
 
 Three ways, none of which contacts a provider:
 
-1. The defect at the base commit (the receipt is absent on two sibling
-   paths, present on the third):
+1. The defect at the base commit (the receipt is absent on all three
+   sibling terminal paths; the structurally identical preflight control
+   does publish one):
 
    ```
    echo "not json" | python -B transcript_tool.py --request-stdin --report-usage
@@ -101,8 +102,8 @@ Three ways, none of which contacts a provider:
   `tests/test_feedback_observation.py::test_a_published_receipt_on_an_early_rejection_is_projected_as_known`
 - contract effect: none. The result schema, the stdout/stderr split, the
   exit code, the receipt's shape and the "no retries" promise are unchanged;
-  the only difference is that a receipt now also appears on the two paths
-  that previously published none.
+  the only difference is that a receipt now also appears on the three
+  paths that previously published none.
 
 ## Consumer re-verification
 

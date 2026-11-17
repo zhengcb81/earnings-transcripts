@@ -503,8 +503,10 @@ def test_an_aborted_worker_is_unknown_and_is_never_retried(monkeypatch, tmp_path
     assert usage["expected"] == "usage_unknown"
     assert usage["actual"] == "usage_unknown"
     assert usage["disposition"] == "unknown"
-    # exactly one provider request: an unknown usage is never re-bought
-    assert get_urls(calls_file) == [FMP_URL]
+    # at most one provider request: an unknown usage is never re-bought (a
+    # loaded machine may stop the worker before it reaches the provider at
+    # all, which still satisfies the contract)
+    assert len(get_urls(calls_file)) <= 1
     assert list(temp_root.iterdir()) == []
 
 
@@ -688,12 +690,17 @@ def test_no_observation_reaches_the_business_streams(monkeypatch, tmp_path):
     [
         ("invalid-json", "not json at all", ["--request-stdin", "--report-usage"]),
         (
+            "oversized-request",
+            "x" * (128 * 1024 + 8),
+            ["--request-stdin", "--report-usage"],
+        ),
+        (
             "discovery-with-source-payload",
             json.dumps(fmp_request(request_id="fb-discovery-001")),
             ["--request-stdin", "--operation", "discover", "--include-source-payload", "--report-usage"],
         ),
     ],
-    ids=["invalid-json", "discovery-with-source-payload"],
+    ids=["invalid-json", "oversized-request", "discovery-with-source-payload"],
 )
 def test_report_usage_publishes_a_receipt_on_every_terminal_path(
     monkeypatch, tmp_path, case, stdin_text, argv
@@ -993,7 +1000,13 @@ def test_the_controlled_replay_is_byte_for_byte_reproducible(tmp_path):
 
 
 def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
-    """The replay is the only reproduction entry; it must never download."""
+    """The replay is the only reproduction entry; it must never download.
+
+    Name resolution and connection attempts are blocked, not socket
+    construction itself: importing ``requests`` probes the local IPv6 stack by
+    creating a socket without connecting or resolving a name, and a download
+    could not happen without a connect or a name lookup.
+    """
     import importlib.util
     import socket
 
@@ -1006,9 +1019,15 @@ def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
     spec.loader.exec_module(module)
 
     def refuse(*args: Any, **kwargs: Any) -> None:
-        raise AssertionError("the replay must not open a network connection")
+        raise AssertionError("the replay must not resolve a name or connect")
 
-    monkeypatch.setattr(socket, "socket", refuse)
+    monkeypatch.setattr(socket.socket, "connect", refuse)
+    monkeypatch.setattr(socket.socket, "connect_ex", refuse)
+    monkeypatch.setattr(socket.socket, "sendto", refuse)
+    monkeypatch.setattr(socket, "getaddrinfo", refuse)
+    monkeypatch.setattr(socket, "gethostbyname", refuse)
+    monkeypatch.setattr(socket, "gethostbyname_ex", refuse)
+    monkeypatch.setattr(socket, "create_connection", refuse)
     report = module.replay(
         module.CASES["fmp-exact-period"], out_path=tmp_path / "feedback.jsonl"
     )

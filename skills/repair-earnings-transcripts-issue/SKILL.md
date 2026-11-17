@@ -45,8 +45,10 @@ State, in the card's own terms, and verify each one:
 1. **Expected** — the contract word the check compares against.
 2. **Actual** — the result word this run produced.
 3. **Version** — the code and configuration version of the observed run.
-   The observation's `version` field names the projection version; the
-   reviewed source version belongs to the handoff, not to the observation.
+   The observation's `version` field names that **observed product version**
+   (the transcript tool version); the detail record's `projection_version`
+   names the feedback projection that wrote it; the reviewed source SHA
+   belongs to the handoff, not to the observation.
 4. **Real input source** — where the input genuinely came from: a live
    provider response, a recorded original, a fixed fixture, or a fault
    injection. A fixture is not a live fact and must never be reported as one.

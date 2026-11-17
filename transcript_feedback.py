@@ -10,11 +10,12 @@ numbers, severities and qualifiers behind them stay in this repository's own
 evidence.
 
 This module never changes the business contract. It writes only to the
-sidecar file named by ``RESEARCH_FEEDBACK_OUT`` and to that file's sibling
-details file; it never writes to stdout or stderr, never touches a transcript
-body, and never raises. A failed write is reported as an incomplete diagnostic
-on the recorder, so the caller keeps its own exit code, result, cost, original
-and retry behaviour.
+sidecar file named by ``RESEARCH_FEEDBACK_OUT``, to that file's sibling
+details file, and — best effort, when a write was refused — to the sibling
+diagnostics file; it never writes to stdout or stderr, never touches a
+transcript body, and never raises. A failed write is reported as an
+incomplete diagnostic on the recorder, so the caller keeps its own exit code,
+result, cost, original and retry behaviour.
 
 The observation line is a projection, not the log. The full native facts
 (request, provider answer, usage receipt) stay in this repository's run

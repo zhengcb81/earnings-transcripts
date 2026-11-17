@@ -4,7 +4,7 @@
 
 ## 一句话结论
 
-一次完成的电话会取数现在会留下四条可跨仓比较的观察（业务状态词、期次归属、内容引用、原生用量），本仓同时确认并修复了一个真实 ET 缺陷（`--report-usage` 在两条零 provider 请求的终态路径不发布原生用量收据），并交付了具名离线回放、幂等问题卡与修理技能。
+一次完成的电话会取数现在会留下五条可跨仓比较的观察（动作开始，以及业务状态词、期次归属、内容引用、原生用量四项结果检查），本仓同时确认并修复了一个真实 ET 缺陷（`--report-usage` 在三条零 provider 请求的终态路径不发布原生用量收据），并交付了具名离线回放、幂等问题卡与修理技能。
 
 ## 交付物与所在
 
@@ -22,7 +22,7 @@
 
 ## 本仓确认并修复的 ET 缺陷
 
-`--report-usage` 承诺在 stderr 上给出恰好一条原生最终用量收据。基线 `6883623` 上，preflight 拒绝路径发布收据，而另外两条同样零 provider 请求的终态路径（非法 JSON、超大请求、带 source payload 的 discovery）**不发布**。消费端（filing-fetch 按 `earnings-retrieval-usage/1` 对账用量）因此无法区分「本次没有调用 provider」与「工具没来得及报告」。修复后每条终态路径都发布恰好一条收据；结果 schema、退出码、收据形状与「不重试」承诺均不变。
+`--report-usage` 承诺在 stderr 上给出恰好一条原生最终用量收据。基线 `6883623` 上，preflight 拒绝路径与凭据错误路径发布收据，而另外三条同样零 provider 请求的终态路径（非法 JSON、超大请求、带 source payload 的 discovery）**不发布**。消费端（filing-fetch 按 `earnings-retrieval-usage/1` 对账用量）因此无法区分「本次没有调用 provider」与「工具没来得及报告」。修复后每条终态路径都发布恰好一条收据；结果 schema、退出码、收据形状与「不重试」承诺均不变。
 
 复现与修复前后的对比：[`receipts/red_missing_usage_receipt.txt`](receipts/red_missing_usage_receipt.txt)。
 

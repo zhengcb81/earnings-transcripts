@@ -11,7 +11,7 @@ FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本�
   观察与明细只写自己的 sidecar，从不进入 stdout/stderr，退出码、结果、收据与重试行为不变；
   sidecar 写失败只报「诊断不完整」，不改业务结果。
 - **本仓确认并修复的 ET 缺陷**：`--report-usage` 的原生最终用量收据原本只在 preflight 拒绝路径发布，
-  另外两条同样零 provider 请求的终态路径（非法 JSON、超大请求、带 source payload 的 discovery）不发布，
+  另外三条同样零 provider 请求的终态路径（非法 JSON、超大请求、带 source payload 的 discovery）不发布，
   消费端因此无法区分「没有调用 provider」与「工具没来得及报告」。修复后每条终态路径都发布恰好一条收据，
   结果 schema、退出码与收据形状不变。见
   [`issues/transcript-usage-receipt.md`](docs/plans/feedback-loop-2026-11-17/issues/transcript-usage-receipt.md)。
@@ -56,7 +56,7 @@ FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本�
 | 本仓 worktree | 12 → **1**（只剩 `main` 工区）。11 个已结案交付工区按收据删除，Git 历史与分支未动 |
 | 本仓非祖先本地 ref | **0**。除 `main` 外 15 个本地分支全部是 `main` 的祖先，保留为交付收据 |
 | ET 自身未完成项 | **唯一下一步只有一条**，见下方；另有 2 条登记待办（真实 MF 页面 DOM 适应性验收、时序敏感用例稳健性）与 1 类本质不可消除的限制，见「ET 自身剩余项」 |
-| FB-ET 自反馈接入（2026-11-17） | **已交付，待 ROOT 复验**。观察投影 `transcript_feedback.py` + `transcript_tool.py` 接线；具名回放 `tools/replay_feedback_case.py`；幂等卡导入 `tools/feedback_issue_cards.py`；修理技能 `skills/repair-earnings-transcripts-issue/SKILL.md`；离线回归 `tests/test_feedback_observation.py`。本卡确认并修复了 `--report-usage` 在两条零请求终态路径不发布用量收据的 ET 缺陷。交接与余项见 `docs/plans/feedback-loop-2026-11-17/handoff.md` |
+| FB-ET 自反馈接入（2026-11-17） | **已交付，待 ROOT 复验**。观察投影 `transcript_feedback.py` + `transcript_tool.py` 接线；具名回放 `tools/replay_feedback_case.py`；幂等卡导入 `tools/feedback_issue_cards.py`；修理技能 `skills/repair-earnings-transcripts-issue/SKILL.md`；离线回归 `tests/test_feedback_observation.py`。本卡确认并修复了 `--report-usage` 在三条零请求终态路径不发布用量收据的 ET 缺陷。交接与余项见 `docs/plans/feedback-loop-2026-11-17/handoff.md` |
 | FF / CWP 侧待办 | 写在「消费端 owner 边界」，**不计入 ET 未完成**，由各该仓 owner 自行推进 |
 | 原件与用户资料 | 原样保留：`transcripts/`（130 个 tracked 原件/派生物）、`.workbuddy-ai/`（未跟踪，工具私有笔记）、gitignored 的 `config.json` / 缓存 / 日志 |
 | 仓库预提交门禁 | **已可正常提交**。原先 19 个 high「硬编码凭据」全部是测试里的假凭据字面量（不是真实凭据），已提取为具名常量且**取值逐字节不变**；`mimosa audit .` 复测 high 0 |
