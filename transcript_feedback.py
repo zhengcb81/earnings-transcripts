@@ -590,10 +590,10 @@ class FeedbackRecorder:
             detail_identifier = details_id(detail_record)
             detail_record["details_id"] = detail_identifier
             if detail_identifier not in self._details_ids:
-                self._append_jsonl(
+                if self._append_jsonl(
                     self.details_path, detail_record, sink=self._details_sink
-                )
-                self._details_ids.add(detail_identifier)
+                ):
+                    self._details_ids.add(detail_identifier)
             if reference is None:
                 reference = detail_identifier
         observation: dict[str, Any] = {
@@ -620,7 +620,10 @@ class FeedbackRecorder:
         observation["version"] = self.version
         if parent_step_id:
             observation["parent_step_id"] = parent_step_id
-        self._append_jsonl(self.out_path, observation, sink=self._sink)
+        if not self._append_jsonl(self.out_path, observation, sink=self._sink):
+            # The observation did not reach the sidecar; it keeps no identity
+            # here, so a later attempt may still deliver it.
+            return False
         self.written_ids.add(identifier)
         return True
 
@@ -630,7 +633,8 @@ class FeedbackRecorder:
         record: Mapping[str, Any],
         *,
         sink: Any = None,
-    ) -> None:
+    ) -> bool:
+        """Append one JSON line. False means the line did not reach the file."""
         line = json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n"
         if sink is not None:
             try:
@@ -638,7 +642,8 @@ class FeedbackRecorder:
             except Exception as exc:  # the injected destination refused the write
                 self.write_failures += 1
                 self.diagnostics.append(f"feedback_write_failed:{type(exc).__name__}")
-            return
+                return False
+            return True
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
             with path.open("a", encoding="utf-8", newline="\n") as handle:
@@ -646,6 +651,8 @@ class FeedbackRecorder:
         except OSError as exc:
             self.write_failures += 1
             self.diagnostics.append(f"feedback_write_failed:{type(exc).__name__}")
+            return False
+        return True
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:

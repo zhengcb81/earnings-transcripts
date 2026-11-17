@@ -537,6 +537,29 @@ def test_an_unwritable_sidecar_leaves_the_business_result_unchanged(
     assert recorder.write_failures >= 1
     assert recorder.diagnostics
     assert not (tmp_path / "feedback.jsonl").exists()
+    # an observation that never reached the sidecar keeps no identity, so a
+    # later attempt may still deliver it
+    assert recorder.written_ids == set()
+
+
+def test_a_failed_write_reports_no_delivery():
+    def refuse(line: str) -> None:
+        raise PermissionError(13, "Access is denied")
+
+    recorder = transcript_feedback.FeedbackRecorder(
+        Path("unused-feedback.jsonl"),
+        run_id="fb-run-001",
+        attempt_id="fb-attempt-001",
+        sink=refuse,
+        details_sink=refuse,
+    )
+    assert (
+        recorder.record(step_id="step-1", check_id="check-1", expected="x", actual="x")
+        is False
+    )
+    assert recorder.write_failures == 1
+    assert recorder.diagnostics
+    assert recorder.written_ids == set()
 
 
 def test_no_observation_reaches_the_business_streams(monkeypatch, tmp_path):
