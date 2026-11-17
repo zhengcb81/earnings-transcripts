@@ -363,7 +363,7 @@ def test_a_fetch_claiming_a_foreign_period_is_a_deviation(monkeypatch, tmp_path)
     assert ownership["expected"] == "not_attributed"
     assert ownership["actual"] == "requested_period_attributed"
     assert ownership["issue_key"] == "transcript-period-attribution"
-    assert ownership["evidence_ref"]
+    assert ownership["details_ref"]
 
 
 # ── usage that cannot be known ──────────────────────────────────────
@@ -714,6 +714,30 @@ def test_the_observation_reference_points_at_the_detail_record(monkeypatch, tmp_
     details = read_jsonl(tmp_path / "feedback.jsonl.details.jsonl")
     identifiers = {record["details_id"] for record in details}
     for record in records:
-        assert record["evidence_ref"] in identifiers
-        assert "/" not in record["evidence_ref"]
-        assert "\\" not in record["evidence_ref"]
+        assert record["details_ref"] in identifiers
+        assert "/" not in record["details_ref"]
+        assert "\\" not in record["details_ref"]
+
+
+def test_the_public_evidence_of_the_host_is_carried_through(monkeypatch, tmp_path):
+    """The host may name the public evidence of its run; it stays opaque."""
+    recorder = recorder_for(tmp_path)
+    request = fmp_request(request_id="fb-evidence-001")
+    page = fmp_payload()
+    session = FakeSession({FMP_URL: FakeResponse(FMP_URL, page, content_type="application/json")})
+    monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps(request)))
+    out, err = io.StringIO(), io.StringIO()
+    monkeypatch.setattr(sys, "stdout", out)
+    monkeypatch.setattr(sys, "stderr", err)
+    transcript_tool.main(
+        ["--request-stdin", "--include-source-payload"],
+        _session_factory=lambda: session,
+        _feedback_recorder=recorder,
+        _feedback_evidence_ref="et-case:fmp-exact-period",
+    )
+
+    records = read_jsonl(tmp_path / "feedback.jsonl")
+    assert records
+    for record in records:
+        assert record["evidence_ref"] == "et-case:fmp-exact-period"
+        assert "details_ref" in record

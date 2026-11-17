@@ -585,6 +585,7 @@ class FeedbackRecorder:
             # A replayed event keeps its original identity and adds no line.
             return False
         reference = evidence_ref
+        detail_reference: str | None = None
         if details is not None:
             detail_record = dict(details)
             detail_identifier = details_id(detail_record)
@@ -594,8 +595,7 @@ class FeedbackRecorder:
                     self.details_path, detail_record, sink=self._details_sink
                 ):
                     self._details_ids.add(detail_identifier)
-            if reference is None:
-                reference = detail_identifier
+            detail_reference = detail_identifier
         observation: dict[str, Any] = {
             "schema_version": OBSERVATION_SCHEMA,
             "owner": self.owner,
@@ -618,6 +618,8 @@ class FeedbackRecorder:
         if reference:
             observation["evidence_ref"] = reference
         observation["version"] = self.version
+        if detail_reference:
+            observation["details_ref"] = detail_reference
         if parent_step_id:
             observation["parent_step_id"] = parent_step_id
         if not self._append_jsonl(self.out_path, observation, sink=self._sink):
@@ -706,11 +708,15 @@ def emit_observations(
     native_receipt: Any,
     published_receipt: Any,
     receipt_required: bool,
+    evidence_ref: str | None = None,
 ) -> list[dict[str, Any]]:
     """Project this run's native facts into the cross-repository observation.
 
     One observation per check, one independent object each. The projection
-    never touches stdout or stderr and never raises.
+    never touches stdout or stderr and never raises. ``evidence_ref`` is the
+    public evidence of this run — an opaque repository-local identifier the
+    host or the controlled replay entry already owns; the redacted detail
+    record is referenced separately through ``details_ref``.
     """
     if recorder is None:
         return []
@@ -740,6 +746,7 @@ def emit_observations(
                 actual=check["actual"],
                 disposition=check["disposition"],
                 issue_key=check.get("issue_key"),
+                evidence_ref=evidence_ref,
                 details=details,
             )
             emitted.append(check)

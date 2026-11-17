@@ -335,6 +335,7 @@ def replay(
                     _retrieval_spec=spec,
                     _retrieval_temp_root=temp_root,
                     _feedback_recorder=recorder,
+                    _feedback_evidence_ref=f"et-case:{case.name}",
                 )
                 provider_calls = get_urls(calls_file)
             else:
@@ -343,6 +344,7 @@ def replay(
                     list(case.argv),
                     _session_factory=lambda: session,
                     _feedback_recorder=recorder,
+                    _feedback_evidence_ref=f"et-case:{case.name}",
                 )
                 provider_calls = [url for url, _ in session.calls]
     finally:

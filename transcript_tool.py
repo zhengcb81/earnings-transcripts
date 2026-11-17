@@ -174,6 +174,7 @@ def main(
     _retrieval_spec: dict[str, Any] | None = None,
     _retrieval_temp_root: Path | None = None,
     _feedback_recorder: Any = None,
+    _feedback_evidence_ref: str | None = None,
 ) -> int:
     """Run the JSON boundary; private injection points are for offline tests only."""
     parser = argparse.ArgumentParser(
@@ -344,6 +345,7 @@ def main(
         native_receipt=native_receipt,
         published_receipt=published_receipt,
         receipt_required=bool(args.report_usage),
+        evidence_ref=_feedback_evidence_ref,
     )
     sys.stdout.write(
         json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"

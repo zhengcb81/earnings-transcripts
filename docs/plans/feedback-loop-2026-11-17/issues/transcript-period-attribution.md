@@ -37,10 +37,8 @@ below shows the refusal it produces.
 ## Occurrences
 
 <!-- occurrences:begin -->
-| run_id | attempt_id | step_id | check_id | expected | actual | disposition | evidence_ref |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| sample-deviation-msft | attempt-1 | fb-foreign-period-msft-2026q3 | exact-period-ownership | not_attributed | requested_period_attributed | deviation | fb-6bb66115ab00b834 |
-| sample-deviation-aapl | attempt-1 | fb-foreign-period-aapl-2025q2 | exact-period-ownership | not_attributed | requested_period_attributed | deviation | fb-3eaee46749a3b4d6 |
+| sample-deviation-aapl | attempt-1 | fb-foreign-period-aapl-2025q2 | exact-period-ownership | not_attributed | requested_period_attributed | deviation | et-case:fmp-foreign-period-fault-alt |
+| sample-deviation-msft | attempt-1 | fb-foreign-period-msft-2026q3 | exact-period-ownership | not_attributed | requested_period_attributed | deviation | et-case:fmp-foreign-period-fault |
 <!-- occurrences:end -->
 
 Two occurrences, two companies, two periods, one cause: the same

@@ -31,9 +31,7 @@ publish a receipt, so the flag behaved inconsistently inside one product.
 ## Occurrences
 
 <!-- occurrences:begin -->
-| run_id | attempt_id | step_id | check_id | expected | actual | disposition | evidence_ref |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| sample-deviation-usage-receipt | attempt-1 | test-request-001 | usage-accounting | usage_known | usage_missing | deviation | fb-08b769c4deaf7563 |
+| sample-deviation-usage-receipt | attempt-1 | test-request-001 | usage-accounting | usage_known | usage_missing | deviation | et-case:usage-receipt-suppressed |
 <!-- occurrences:end -->
 
 The occurrence above is the **pre-fix publication behaviour re-created** by
