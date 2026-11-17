@@ -28,6 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import retrieval_runtime
 import transcript_feedback
 from transcript_contracts import (
+    ADAPTER_VERSION,
     DISCOVERY_RESULT_SCHEMA,
     MAX_TIMEOUT_SECONDS,
     RESULT_SCHEMA,
@@ -38,6 +39,11 @@ from transcript_provider_settings import (
     ProviderSettings,
     provider_operation_capability,
 )
+
+#: The version of the product that a run observed. The observation names this
+#: version; the projection that wrote the observation names its own version in
+#: the detail record.
+PRODUCT_VERSION = f"earnings-transcripts-transcript-tool/{ADAPTER_VERSION}"
 
 
 def _wire_failure(
@@ -242,6 +248,11 @@ def main(
         if _feedback_recorder is not None
         else transcript_feedback.recorder_from_env()
     )
+    if recorder is not None:
+        # The observation names the version of the observed run, not the
+        # version of the projection that writes it.
+        recorder.version = PRODUCT_VERSION
+        transcript_feedback.set_active_recorder(recorder)
     started_at: str | None = None
     try:
         raw = sys.stdin.read(128 * 1024 + 1)

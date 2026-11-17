@@ -8,25 +8,27 @@
 
 ## Expected and actual
 
-- expected: `usage_known` — every terminal path publishes exactly one native
-  final usage receipt when `--report-usage` is given, so a consumer can
-  reconcile the provider cost of the run.
-- actual (before the fix): `usage_missing` — two of the three terminal paths
-  that reject a request before any provider call published no receipt at all.
+- expected: `usage_known` — every terminal path of a retrieval operation
+  publishes exactly one native final usage receipt when `--report-usage` is
+  given, so a consumer can reconcile the provider cost of the run.
+- actual (before the fix): `usage_missing` — three of the terminal paths
+  that reject a request before any provider call published no receipt at all:
+  the unparsable request, the oversized request and the discovery request
+  that asks for a source payload.
 - disposition: deviation (repaired in this card; the repaired code reports
   `usage_known` on the same paths)
 
 ## Impact
 
 The business result, the exit code and the provider behaviour were never
-affected: the three paths make zero provider requests, and the run still
-exits 0 with one protocol result on stdout. What was missing was the cost
-fact. A consumer that reconciles provider spend from the receipt (the
-filing-fetch owner reads `earnings-retrieval-usage/1`) saw no receipt on the
-invalid-JSON path and on the discovery-with-source-payload path, and could
-not distinguish "this run called no provider" from "the tool stopped before
-it could report". The structurally identical preflight rejection path did
-publish a receipt, so the flag behaved inconsistently inside one product.
+affected: those paths make zero provider requests, and the run still exits 0
+with one protocol result on stdout. What was missing was the cost fact. A
+consumer that reconciles provider spend from the receipt (the filing-fetch
+owner reads `earnings-retrieval-usage/1`) saw no receipt on those three
+paths and could not distinguish "this run called no provider" from "the tool
+stopped before it could report". The structurally identical preflight
+rejection path did publish a receipt, so the flag behaved inconsistently
+inside one product.
 
 ## Occurrences
 
@@ -73,13 +75,13 @@ Three ways, none of which contacts a provider:
 - responsible layer: **this repository**, the receipt boundary of the JSON
   entry `transcript_tool.py`. The provider adapter, the supervisor, the
   worker protocol and the consumer are not responsible.
-- proven: the receipt was published from exactly two sites — the supervisor
-  result and the preflight rejection — while three sibling terminal paths
-  returned before either site. The rejection paths that were not covered
-  were the oversized request, the unparsable request and the discovery
-  request that asks for a source payload. All of them make zero provider
-  requests, so the honest receipt is the zero-usage one the preflight path
-  already published.
+- proven: the receipt was published from exactly three sites — the
+  supervisor result, the preflight rejection and the credential error —
+  while three sibling terminal paths returned before any of them: the
+  oversized request, the unparsable request and the discovery request that
+  asks for a source payload. All of them make zero provider requests, so
+  the honest receipt is the zero-usage one the preflight path already
+  published.
 - proven: the repair is in the common responsible layer, not in one path.
   Every terminal path now builds the native receipt and publishes it through
   one site.

@@ -79,16 +79,35 @@ __all__ = ["import_observations", "list_cards", "main"]
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
+    """Read one JSONL file. A damaged line is skipped, never fatal."""
     if not path.is_file():
         return []
     records: list[dict[str, Any]] = []
     for line in path.read_text(encoding="utf-8").splitlines():
         if not line.strip():
             continue
-        record = json.loads(line)
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError:
+            continue
         if isinstance(record, dict):
             records.append(record)
     return records
+
+
+def _damaged_lines(path: Path) -> list[int]:
+    """The line numbers of one file that cannot be read as JSON."""
+    if not path.is_file():
+        return []
+    damaged: list[int] = []
+    for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            json.loads(line)
+        except json.JSONDecodeError:
+            damaged.append(number)
+    return damaged
 
 
 def _occurrence_key(record: dict[str, Any]) -> tuple[str, str, str, str]:
@@ -158,7 +177,14 @@ def import_observations(
         if record.get("disposition") == "deviation" and record.get("issue_key")
     ]
     cards_dir.mkdir(parents=True, exist_ok=True)
-    summary: dict[str, Any] = {"added": 0, "skipped": 0, "cards": {}}
+    summary: dict[str, Any] = {
+        "added": 0,
+        "skipped": 0,
+        "cards": {},
+        # A damaged line of one run is its own diagnostic; the other
+        # observations of the batch are processed independently.
+        "damaged_lines": _damaged_lines(observations_path),
+    }
     grouped: dict[str, list[dict[str, Any]]] = {}
     for record in deviations:
         grouped.setdefault(str(record["issue_key"]), []).append(record)

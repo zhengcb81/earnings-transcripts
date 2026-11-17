@@ -123,6 +123,15 @@ ISSUE_PERIOD_ATTRIBUTION = "transcript-period-attribution"
 ISSUE_CONTENT_REFERENCE = "transcript-content-reference"
 ISSUE_USAGE_RECEIPT = "transcript-usage-receipt"
 
+#: The stable names of the checks this projection emits. Every check carries
+#: its own name; nothing infers a name from the result words, because two
+#: different checks can produce the same words.
+CHECK_OUTCOME_NAMING = "outcome-naming"
+CHECK_PERIOD_OWNERSHIP = "exact-period-ownership"
+CHECK_CONTENT_REFERENCE = "content-reference"
+CHECK_USAGE_ACCOUNTING = "usage-accounting"
+CHECK_ACTION_STARTED = "action-started"
+
 MAX_SCANNED_BYTES = 8 * 1024 * 1024
 
 
@@ -253,6 +262,7 @@ def evaluate_outcome_naming(result: Any) -> dict[str, str]:
     status = result.get("status") if isinstance(result, Mapping) else None
     if not _is_str(status):
         return {
+            "check_id": CHECK_OUTCOME_NAMING,
             "expected": "documented_status",
             "actual": "undocumented_status",
             "disposition": "deviation",
@@ -263,6 +273,7 @@ def evaluate_outcome_naming(result: Any) -> dict[str, str]:
         mandated = reason_status(reason)
         if mandated is None:
             return {
+                "check_id": CHECK_OUTCOME_NAMING,
                 "expected": "documented_status",
                 "actual": "undocumented_status",
                 "disposition": "deviation",
@@ -273,6 +284,7 @@ def evaluate_outcome_naming(result: Any) -> dict[str, str]:
         expected = status if status in STATUS_VOCABULARY else "documented_status"
         if expected == "documented_status":
             return {
+                "check_id": CHECK_OUTCOME_NAMING,
                 "expected": "documented_status",
                 "actual": "undocumented_status",
                 "disposition": "deviation",
@@ -280,11 +292,13 @@ def evaluate_outcome_naming(result: Any) -> dict[str, str]:
             }
     if expected == status:
         return {
+            "check_id": CHECK_OUTCOME_NAMING,
             "expected": expected,
             "actual": status,
             "disposition": "expected",
         }
     return {
+        "check_id": CHECK_OUTCOME_NAMING,
         "expected": expected,
         "actual": status,
         "disposition": "deviation",
@@ -304,6 +318,7 @@ def evaluate_period_ownership(request: Any, result: Any) -> dict[str, str]:
     status = result.get("status") if isinstance(result, Mapping) else None
     if status != "fetched":
         return {
+            "check_id": CHECK_PERIOD_OWNERSHIP,
             "expected": "not_attributed",
             "actual": "not_attributed",
             "disposition": "expected",
@@ -311,6 +326,7 @@ def evaluate_period_ownership(request: Any, result: Any) -> dict[str, str]:
     period = native_period(result)
     if period is None:
         return {
+            "check_id": CHECK_PERIOD_OWNERSHIP,
             "expected": "unknown",
             "actual": "requested_period_attributed",
             "disposition": "unknown",
@@ -318,12 +334,14 @@ def evaluate_period_ownership(request: Any, result: Any) -> dict[str, str]:
     wanted = requested_period(request)
     if wanted is None or period != wanted:
         return {
+            "check_id": CHECK_PERIOD_OWNERSHIP,
             "expected": "not_attributed",
             "actual": "requested_period_attributed",
             "disposition": "deviation",
             "issue_key": ISSUE_PERIOD_ATTRIBUTION,
         }
     return {
+        "check_id": CHECK_PERIOD_OWNERSHIP,
         "expected": "requested_period_attributed",
         "actual": "requested_period_attributed",
         "disposition": "expected",
@@ -335,12 +353,18 @@ def evaluate_content_reference(result: Any) -> dict[str, str]:
     state = content_reference_state(result)
     if state == "reference_mismatch":
         return {
+            "check_id": CHECK_CONTENT_REFERENCE,
             "expected": "reference_matches_bytes",
             "actual": state,
             "disposition": "deviation",
             "issue_key": ISSUE_CONTENT_REFERENCE,
         }
-    return {"expected": state, "actual": state, "disposition": "expected"}
+    return {
+        "check_id": CHECK_CONTENT_REFERENCE,
+        "expected": state,
+        "actual": state,
+        "disposition": "expected",
+    }
 
 
 def evaluate_usage(
@@ -357,6 +381,7 @@ def evaluate_usage(
     """
     if not isinstance(native_receipt, Mapping):
         return {
+            "check_id": CHECK_USAGE_ACCOUNTING,
             "expected": "usage_unknown",
             "actual": "usage_unknown",
             "disposition": "unknown",
@@ -378,8 +403,14 @@ def evaluate_usage(
         actual = expected
     if actual == expected:
         disposition = "expected" if expected == "usage_known" else "unknown"
-        return {"expected": expected, "actual": actual, "disposition": disposition}
+        return {
+            "check_id": CHECK_USAGE_ACCOUNTING,
+            "expected": expected,
+            "actual": actual,
+            "disposition": disposition,
+        }
     return {
+        "check_id": CHECK_USAGE_ACCOUNTING,
         "expected": expected,
         "actual": actual,
         "disposition": "deviation",
@@ -463,6 +494,7 @@ def build_details(
         "content_reference": content_reference_state(result),
         "error_type": error_code if _is_str(error_code) else None,
         "reason_chain": [error_code] if _is_str(error_code) else [],
+        "projection_version": ADAPTER_VERSION,
         "usage": {
             "native_receipt": native_receipt if isinstance(native_receipt, Mapping) else None,
             "published_receipt": (
@@ -510,19 +542,23 @@ def begin_step(
             branch=branch,
             started_at=started_at,
         )
+        reference = evidence_ref
+        if not _is_str(reference) and isinstance(request, Mapping):
+            reference = request.get("request_id") if _is_str(
+                request.get("request_id")
+            ) else None
         recorder.record(
             step_id=_step_id(request, operation),
-            check_id="action-started",
+            check_id=CHECK_ACTION_STARTED,
             expected="started",
             actual="started",
             disposition="expected",
-            evidence_ref=evidence_ref,
+            evidence_ref=reference,
             details=details,
         )
         return details
     except Exception:  # pragma: no cover - defensive, never a crash
-        recorder.write_failures += 1
-        recorder.diagnostics.append("feedback_write_failed:projection_error")
+        recorder._note_failure("feedback_write_failed:projection_error")
         return None
 
 
@@ -556,11 +592,42 @@ class FeedbackRecorder:
         # host's permission model.
         self._sink = sink
         self._details_sink = details_sink
+        self.diagnostics_path = self.out_path.with_name(
+            self.out_path.name + ".diagnostics.jsonl"
+        )
         self.write_failures = 0
         self.diagnostics: list[str] = []
         self.written_ids: set[str] = set()
         self._details_ids: set[str] = set()
         self._scan_existing()
+
+    def _note_failure(self, kind: str) -> None:
+        """Record an incomplete diagnostic for the owning job to report.
+
+        The diagnostic is kept in memory for a job that drives this process
+        and, best effort, in a sibling file for a job that reads the run
+        directory afterwards. It never reaches stdout or stderr: the business
+        contract of the run stays exactly as it was.
+        """
+        self.write_failures += 1
+        self.diagnostics.append(kind)
+        try:
+            self.diagnostics_path.parent.mkdir(parents=True, exist_ok=True)
+            with self.diagnostics_path.open("a", encoding="utf-8", newline="\n") as handle:
+                handle.write(
+                    json.dumps(
+                        {
+                            "run_id": self.run_id,
+                            "attempt_id": self.attempt_id,
+                            "diagnostic": kind,
+                        },
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    )
+                    + "\n"
+                )
+        except OSError:
+            pass
 
     # ── reading what a previous attempt already wrote ──────────────
     def _scan_existing(self) -> None:
@@ -621,8 +688,7 @@ class FeedbackRecorder:
                 origin_owner=origin_owner,
             )
         except Exception as exc:  # pragma: no cover - defensive, never a crash
-            self.write_failures += 1
-            self.diagnostics.append(f"feedback_write_failed:{type(exc).__name__}")
+            self._note_failure(f"feedback_write_failed:{type(exc).__name__}")
             return False
 
     def _record(
@@ -640,14 +706,12 @@ class FeedbackRecorder:
         origin_owner: str | None,
     ) -> bool:
         if not all(_is_str(value) for value in (step_id, check_id, expected, actual)):
-            self.write_failures += 1
-            self.diagnostics.append("feedback_write_failed:invalid_observation")
+            self._note_failure("feedback_write_failed:invalid_observation")
             return False
         if disposition is None:
             disposition = "expected" if expected == actual else "deviation"
         if disposition not in DISPOSITIONS:
-            self.write_failures += 1
-            self.diagnostics.append("feedback_write_failed:invalid_disposition")
+            self._note_failure("feedback_write_failed:invalid_disposition")
             return False
         identifier = observation_id(
             owner=self.owner,
@@ -717,8 +781,7 @@ class FeedbackRecorder:
             try:
                 sink(line)
             except Exception as exc:  # the injected destination refused the write
-                self.write_failures += 1
-                self.diagnostics.append(f"feedback_write_failed:{type(exc).__name__}")
+                self._note_failure(f"feedback_write_failed:{type(exc).__name__}")
                 return False
             return True
         try:
@@ -726,8 +789,7 @@ class FeedbackRecorder:
             with path.open("a", encoding="utf-8", newline="\n") as handle:
                 handle.write(line)
         except OSError as exc:
-            self.write_failures += 1
-            self.diagnostics.append(f"feedback_write_failed:{type(exc).__name__}")
+            self._note_failure(f"feedback_write_failed:{type(exc).__name__}")
             return False
         return True
 
@@ -771,7 +833,23 @@ def recorder_from_env(environ: Mapping[str, str] | None = None) -> FeedbackRecor
     attempt_id = env.get(FEEDBACK_ATTEMPT_ID_ENV)
     if not _is_str(attempt_id):
         attempt_id = "attempt-1"
-    return FeedbackRecorder(raw.strip(), run_id=run_id, attempt_id=attempt_id)
+    recorder = FeedbackRecorder(raw.strip(), run_id=run_id, attempt_id=attempt_id)
+    set_active_recorder(recorder)
+    return recorder
+
+
+_ACTIVE_RECORDER: FeedbackRecorder | None = None
+
+
+def set_active_recorder(recorder: FeedbackRecorder | None) -> None:
+    """Remember this process's recorder so a job can read its diagnostics."""
+    global _ACTIVE_RECORDER
+    _ACTIVE_RECORDER = recorder
+
+
+def active_diagnostics() -> list[str]:
+    """The incomplete diagnostics of this process's recorder, if any."""
+    return list(_ACTIVE_RECORDER.diagnostics) if _ACTIVE_RECORDER is not None else []
 
 
 def emit_observations(
@@ -820,46 +898,30 @@ def emit_observations(
             ),
         )
         emitted: list[dict[str, Any]] = []
+        # Without a host-supplied reference the native request id is this run's
+        # public evidence: an opaque identifier of the native receipt, with no
+        # credential, path or command in it.
+        reference = evidence_ref
+        if not _is_str(reference) and isinstance(request, Mapping):
+            reference = request.get("request_id") if _is_str(
+                request.get("request_id")
+            ) else None
         for check in checks:
             recorder.record(
                 step_id=step_id,
-                check_id=_check_id_for(check),
+                check_id=check["check_id"],
                 expected=check["expected"],
                 actual=check["actual"],
                 disposition=check["disposition"],
                 issue_key=check.get("issue_key"),
-                evidence_ref=evidence_ref,
+                evidence_ref=reference,
                 details=details,
             )
             emitted.append(check)
         return emitted
     except Exception:  # pragma: no cover - defensive, never a crash
-        recorder.write_failures += 1
-        recorder.diagnostics.append("feedback_write_failed:projection_error")
+        recorder._note_failure("feedback_write_failed:projection_error")
         return []
-
-
-_CHECK_IDS = {
-    ISSUE_OUTCOME_NAMING: "outcome-naming",
-    ISSUE_PERIOD_ATTRIBUTION: "exact-period-ownership",
-    ISSUE_CONTENT_REFERENCE: "content-reference",
-    ISSUE_USAGE_RECEIPT: "usage-accounting",
-}
-
-def _check_id_for(check: Mapping[str, str]) -> str:
-    """The stable check name of one evaluated check."""
-    issue_key = check.get("issue_key")
-    if issue_key in _CHECK_IDS:
-        return _CHECK_IDS[issue_key]
-    expected = check.get("expected")
-    actual = check.get("actual")
-    if actual in ("usage_known", "usage_unknown", "usage_missing"):
-        return "usage-accounting"
-    if expected in ("not_attributed", "requested_period_attributed", "unknown"):
-        return "exact-period-ownership"
-    if actual in ("reference_matches_bytes", "reference_mismatch", "reference_absent"):
-        return "content-reference"
-    return "outcome-naming"
 
 
 def _step_id(request: Any, operation: str) -> str:

@@ -1,12 +1,16 @@
 FB-ET · RED receipt 2 — the confirmed ET defect: `--report-usage` published no
-native final usage receipt on two of the three early-rejection paths
+native final usage receipt on three of the terminal paths that make zero
+provider requests
 
 Defect: `transcript_tool.py --report-usage` promises exactly one native final
-usage receipt on stderr. At the base commit the receipt was published on the
-preflight rejection path but not on the two other terminal paths that also
-make zero provider requests. A consumer that reconciles provider cost from
-the receipt (filing-fetch) therefore cannot tell "no provider call happened"
-from "the tool crashed before it could report".
+usage receipt on stderr. At the base commit the receipt was published from
+three sites (the supervisor result, the preflight rejection and the
+credential error), while three terminal paths that also make zero provider
+requests published none: the unparsable request, the oversized request and
+the discovery request that asks for a source payload. A consumer that
+reconciles provider cost from the receipt (filing-fetch) therefore cannot
+tell "no provider call happened" from "the tool crashed before it could
+report".
 
 Reproduction at the base commit 6883623 (the tree was extracted read-only with
 `git archive 6883623 | tar -x -C <scratch>`; the working tree was not touched):

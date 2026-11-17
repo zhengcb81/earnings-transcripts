@@ -365,6 +365,18 @@ def replay(
     details = _read_jsonl(
         Path(str(out_path) + ".details.jsonl") if out_path is not None else None
     )
+    deviations = [
+        observation
+        for observation in observations
+        if observation.get("disposition") == "deviation"
+    ]
+    issue_keys = sorted(
+        {
+            str(observation["issue_key"])
+            for observation in deviations
+            if observation.get("issue_key")
+        }
+    )
     return {
         "case": case.name,
         "summary": case.summary,
@@ -390,8 +402,18 @@ def replay(
         ),
         "golden": _golden_comparison(case, result),
         "provider_calls": len(provider_calls),
-        "expect_deviation": case.expect_deviation,
-        "issue_key": case.issue_key,
+        "provider_calls_expected": case.provider_calls,
+        "provider_calls_match": len(provider_calls) == case.provider_calls,
+        # The deviation is read back from the observations of this run, never
+        # copied from the definition of the case.
+        "deviation_observed": bool(deviations),
+        "deviation_expected": case.expect_deviation,
+        "deviation_matches_expectation": (
+            bool(deviations) == case.expect_deviation
+            and (case.issue_key is None or case.issue_key in issue_keys)
+        ),
+        "issue_keys": issue_keys,
+        "issue_key_expected": case.issue_key,
         "observations": observations,
         "details": details,
         "stderr": err.getvalue(),
@@ -450,7 +472,12 @@ def main(argv: list[str] | None = None) -> int:
         out_path=out_path,
     )
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["matches_expected"] else 1
+    ok = (
+        report["matches_expected"]
+        and report["deviation_matches_expectation"]
+        and report["provider_calls_match"]
+    )
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

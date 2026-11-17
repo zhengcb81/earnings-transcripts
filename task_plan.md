@@ -1,8 +1,27 @@
 # ET（earnings-transcripts）计划与状态入口
 
-## 2026-11-17 · ET 自反馈并行线
+## 2026-11-17 · FB-ET 自反馈接入（已交付，待 ROOT 复验）
 
-[FB-ET 施工卡与实施细则](docs/plans/feedback-loop-2026-11-17/FB-ET.md) 已就绪。ET 独立 harness 从真实公开 CLI、原生收据和本地 golden 开始，补反馈观察、可重放 issue、修理技能和离线回归；ROOT 负责派工、恢复与跨仓回告。本仓原有的 `transcript_audit.py --write-receipts` 收据冲突仍由原业务线推进。下方 11-14 快照中的“唯一下一步”指当时的业务线。
+FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本仓的实施已完成，交接在
+[`docs/plans/feedback-loop-2026-11-17/handoff.md`](docs/plans/feedback-loop-2026-11-17/handoff.md)（+ `.json`）。
+
+- **本仓新能力**：`transcript_feedback.py` 把一次完成的取数步骤投影为 `feedback-observation/1`
+  观察（四个检查：业务状态词对已发布具名原因、请求期次对原生 provider 响应、内容引用对返回的原始字节、
+  原生最终用量对本次真正发布的收据）。输出位置由宿主用 `RESEARCH_FEEDBACK_OUT` 注入；
+  观察与明细只写自己的 sidecar，从不进入 stdout/stderr，退出码、结果、收据与重试行为不变；
+  sidecar 写失败只报「诊断不完整」，不改业务结果。
+- **本仓确认并修复的 ET 缺陷**：`--report-usage` 的原生最终用量收据原本只在 preflight 拒绝路径发布，
+  另外两条同样零 provider 请求的终态路径（非法 JSON、超大请求、带 source payload 的 discovery）不发布，
+  消费端因此无法区分「没有调用 provider」与「工具没来得及报告」。修复后每条终态路径都发布恰好一条收据，
+  结果 schema、退出码与收据形状不变。见
+  [`issues/transcript-usage-receipt.md`](docs/plans/feedback-loop-2026-11-17/issues/transcript-usage-receipt.md)。
+- **本仓交付物**：受控回放入口 `tools/replay_feedback_case.py`（只用具名 fixture，永不联网）、
+  幂等问题卡导入 `tools/feedback_issue_cards.py`、修理技能
+  [`skills/repair-earnings-transcripts-issue/SKILL.md`](skills/repair-earnings-transcripts-issue/SKILL.md)、
+  离线回归 `tests/test_feedback_observation.py`、本目录的收据/样本/问题卡。
+- **交给 ROOT 的**：跨仓复验与派工（ET 不能替消费端关单）；两张问题卡的消费端复验状态仍为 pending。
+- **不属于本卡**：`transcript_audit.py --write-receipts` 的收据冲突退出码缺陷仍由原 ET 业务线推进，
+  其写集合与本卡互不重叠。下方 11-14 快照中的「唯一下一步」指当时的业务线。
 
 > **本文件是 ET 仓唯一的 canonical 状态入口。**
 > ET 的任何计划、进度、发现或交接都以本文件为准；`progress.md` 与 `findings.md` 只保留历史记录并链接回本文件，
@@ -15,6 +34,8 @@
 > - **最新 tip 的权威读法**：`git log --oneline -6` 或 `git ls-remote origin refs/heads/main`。
 >   任何收据文件都无法包含承载它自己的提交的 SHA，因此本文件与交接 JSON 只记录**被审候选 SHA**（`08da5dc`）与**核对命令**，不记录会立刻过期的 tip 值；交接 JSON 的 `final.head` / `remote_head` 记录的是卡内「推送后确认远端 = 已审 HEAD」检查点的 `08da5dc`，其后的增量应只含审查收据文件（`git diff --stat 08da5dc..origin/main`）。
 > - **最近一次收尾**：[`docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`](docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md)（+ `.json` + `et-closeout-review.md`）。
+> - **FB-ET 自反馈线**：开工基线 `6883623`；实现提交 `59fc207`（投影 + 接线 + 收据边界修复 + 具名回放 +
+>   修理技能 + 离线回归），问题卡 `04f990f`，误开单修复 `df60513`；交接见本目录 `handoff.md`。
 
 ---
 
@@ -35,6 +56,7 @@
 | 本仓 worktree | 12 → **1**（只剩 `main` 工区）。11 个已结案交付工区按收据删除，Git 历史与分支未动 |
 | 本仓非祖先本地 ref | **0**。除 `main` 外 15 个本地分支全部是 `main` 的祖先，保留为交付收据 |
 | ET 自身未完成项 | **唯一下一步只有一条**，见下方；另有 2 条登记待办（真实 MF 页面 DOM 适应性验收、时序敏感用例稳健性）与 1 类本质不可消除的限制，见「ET 自身剩余项」 |
+| FB-ET 自反馈接入（2026-11-17） | **已交付，待 ROOT 复验**。观察投影 `transcript_feedback.py` + `transcript_tool.py` 接线；具名回放 `tools/replay_feedback_case.py`；幂等卡导入 `tools/feedback_issue_cards.py`；修理技能 `skills/repair-earnings-transcripts-issue/SKILL.md`；离线回归 `tests/test_feedback_observation.py`。本卡确认并修复了 `--report-usage` 在两条零请求终态路径不发布用量收据的 ET 缺陷。交接与余项见 `docs/plans/feedback-loop-2026-11-17/handoff.md` |
 | FF / CWP 侧待办 | 写在「消费端 owner 边界」，**不计入 ET 未完成**，由各该仓 owner 自行推进 |
 | 原件与用户资料 | 原样保留：`transcripts/`（130 个 tracked 原件/派生物）、`.workbuddy-ai/`（未跟踪，工具私有笔记）、gitignored 的 `config.json` / 缓存 / 日志 |
 | 仓库预提交门禁 | **已可正常提交**。原先 19 个 high「硬编码凭据」全部是测试里的假凭据字面量（不是真实凭据），已提取为具名常量且**取值逐字节不变**；`mimosa audit .` 复测 high 0 |
@@ -141,6 +163,15 @@
   - 同日早一次在负载下的整包运行是 `4 failed, 659 passed`，多出的 3 项为时序敏感的预算/截止日用例，见上方剩余项 5。
   - 本轮同时清除了仓库预提交门禁的 19 个 high「硬编码凭据」误报（全是测试里的假凭据字面量，已提取为具名常量，**取值逐字节不变**），门禁复测 high 0。
 - 2026-11-14 完整收据见 `docs/plans/module-pwf-reconciliation-2026-11-14/review/et-closeout-handoff.md`。
+- **2026-11-17 FB-ET 自反馈线复测**（基线 `6883623`，实现 `59fc207` + 误开单修复 `df60513`）：
+  定向组合 `tests/test_feedback_observation.py tests/test_retrieval_cli_e2e.py
+  tests/test_worker_result_budget_contract.py tests/test_optional_local_receipt.py` = **60 + 46 项全绿**
+  （其中 `test_feedback_observation.py` 60 项含 38 项「已发布结果词不得报偏差」参数化守卫）；
+  `tests/generate_transcript_goldens.py --check` = **10 goldens matched**；
+  整包 `pytest tests/` = **1 failed, 682 passed**，唯一失败仍是基线既有的
+  `tests/test_transcript_audit.py::test_write_receipts_never_overwrites_conflicting_receipt`
+  （已在基线 `6883623` 复现，属原 ET 业务线，不在本卡写集合内）。
+  反馈投影默认关闭，启用后 stdout 字节、stderr 字节与退出码与关闭时逐字节相同（回归已钉住）。
 
 ---
 

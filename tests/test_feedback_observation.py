@@ -185,7 +185,8 @@ def test_one_observation_carries_every_required_field(monkeypatch, tmp_path):
         assert record["attempt_id"] == "fb-attempt-001"
         assert record["step_id"] == "fb-fields-001"
         assert record["disposition"] in transcript_feedback.DISPOSITIONS
-        assert record["version"] == transcript_feedback.ADAPTER_VERSION
+        # the observation names the version of the observed run
+        assert record["version"] == transcript_tool.PRODUCT_VERSION
 
 
 # ── the legal FMP shapes ────────────────────────────────────────────
@@ -316,6 +317,109 @@ def test_an_undocumented_named_reason_is_a_deviation():
     assert verdict["disposition"] == "deviation"
     assert verdict["issue_key"] == "transcript-outcome-naming"
     assert verdict["actual"] == "undocumented_status"
+
+
+def test_the_default_result_schema_projects_every_check(monkeypatch, tmp_path):
+    """Without the source payload the checks still run, one name each."""
+    recorder = recorder_for(tmp_path)
+    request = fmp_request(request_id="fb-default-schema-001")
+    page = fmp_payload()
+    session = FakeSession({FMP_URL: FakeResponse(FMP_URL, page, content_type="application/json")})
+    rc, out, err = run_cooperative(
+        monkeypatch, request, session, argv=["--request-stdin"], recorder=recorder
+    )
+
+    result = json.loads(out)
+    assert rc == 0
+    assert err == ""
+    assert result["schema_version"] == "earnings-transcript-result/1"
+    records = read_jsonl(tmp_path / "feedback.jsonl")
+    assert [record["check_id"] for record in records] == [
+        "action-started",
+        "outcome-naming",
+        "exact-period-ownership",
+        "content-reference",
+        "usage-accounting",
+    ]
+    reference = checks_by_id(tmp_path / "feedback.jsonl")["content-reference"]
+    assert reference["actual"] == "reference_unverifiable"
+    assert reference["disposition"] == "expected"
+
+
+def test_the_owning_job_can_read_an_incomplete_diagnostic(monkeypatch, tmp_path):
+    """A refused sidecar write must be reported to the job, not swallowed."""
+    recorder = transcript_feedback.FeedbackRecorder(
+        tmp_path / "feedback.jsonl",
+        run_id="fb-run-001",
+        attempt_id="fb-attempt-001",
+    )
+    transcript_feedback.set_active_recorder(recorder)
+    monkeypatch.setattr(
+        transcript_feedback, "_ACTIVE_RECORDER", recorder, raising=False
+    )
+
+    def refuse(line: str) -> None:
+        raise PermissionError(13, "Access is denied")
+
+    recorder._sink = refuse
+    recorder._details_sink = refuse
+    request = fmp_request(request_id="fb-diagnostic-001")
+    page = fmp_payload()
+    session = FakeSession({FMP_URL: FakeResponse(FMP_URL, page, content_type="application/json")})
+    run_cooperative(monkeypatch, request, session, recorder=recorder)
+
+    assert recorder.write_failures >= 1
+    assert transcript_feedback.active_diagnostics()
+    reported = read_jsonl(tmp_path / "feedback.jsonl.diagnostics.jsonl")
+    assert reported
+    assert reported[0]["run_id"] == "fb-run-001"
+    assert reported[0]["diagnostic"].startswith("feedback_write_failed:")
+
+
+def test_every_status_and_reason_the_product_can_emit_is_documented():
+    """The vocabulary follows the product, not a hand-written guess."""
+    import ast
+
+    statuses: set[str] = set()
+    reasons: set[str] = set()
+    for name in ("transcript_api.py", "transcript_preflight.py", "transcript_tool.py"):
+        tree = ast.parse((ROOT / name).read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Call):
+                function = node.func
+                called = getattr(function, "id", None) or getattr(function, "attr", None)
+                # _base_result(request_id, status, ...) and
+                # _wire_failure(schema_version, request_id, status, ...)
+                # put the status word at a different position.
+                position = {"_base_result": 1, "_wire_failure": 2}.get(called)
+                if position is not None:
+                    if len(node.args) > position and isinstance(
+                        node.args[position], ast.Constant
+                    ):
+                        value = node.args[position].value
+                        if isinstance(value, str):
+                            statuses.add(value)
+                for keyword in node.keywords:
+                    if keyword.arg == "error_code" and isinstance(
+                        keyword.value, ast.Constant
+                    ):
+                        reasons.add(keyword.value.value)
+            elif isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if (
+                        isinstance(target, ast.Name)
+                        and target.id == "status"
+                        and isinstance(node.value, ast.Constant)
+                    ):
+                        statuses.add(node.value.value)
+    assert statuses, "the scan found no status word"
+    assert reasons, "the scan found no named reason"
+    undocumented_status = sorted(statuses - transcript_feedback.STATUS_VOCABULARY)
+    undocumented_reason = sorted(
+        reason for reason in reasons if transcript_feedback.reason_status(reason) is None
+    )
+    assert undocumented_status == []
+    assert undocumented_reason == []
 
 
 def test_an_entitlement_402_is_a_legal_refusal(monkeypatch, tmp_path):
@@ -542,12 +646,12 @@ def test_an_unwritable_sidecar_leaves_the_business_result_unchanged(
     assert recorder.written_ids == set()
 
 
-def test_a_failed_write_reports_no_delivery():
+def test_a_failed_write_reports_no_delivery(tmp_path):
     def refuse(line: str) -> None:
         raise PermissionError(13, "Access is denied")
 
     recorder = transcript_feedback.FeedbackRecorder(
-        Path("unused-feedback.jsonl"),
+        tmp_path / "unused-feedback.jsonl",
         run_id="fb-run-001",
         attempt_id="fb-attempt-001",
         sink=refuse,
@@ -701,6 +805,8 @@ def test_the_details_record_keeps_the_native_facts_without_credentials(
     assert record["branch"] == "provider"
     assert record["error_type"] is None
     assert record["reason_chain"] == []
+    # the detail record names the projection that wrote it
+    assert record["projection_version"] == transcript_feedback.ADAPTER_VERSION
 
     blob = json.dumps(details, ensure_ascii=False)
     assert FEEDBACK_FAKE_KEY not in blob
@@ -813,7 +919,50 @@ def test_only_one_writer_reaches_the_sidecar(monkeypatch, tmp_path):
     assert len(records) == 5
     assert len({record["step_id"] for record in records}) == 1
     assert all(record["run_id"] == "fb-one-writer" for record in records)
+    # without a host-supplied reference the native request id is the evidence
+    assert all(
+        record["evidence_ref"] == "fb-one-writer-001" for record in records
+    )
     assert list(temp_root.iterdir()) == []
+
+
+def test_a_damaged_observation_line_does_not_stop_the_import(tmp_path):
+    """One damaged line is its own diagnostic; the rest is processed."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "et_feedback_issue_cards", ROOT / "tools" / "feedback_issue_cards.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+
+    sidecar = tmp_path / "observations.jsonl"
+    good = {
+        "schema_version": "feedback-observation/1",
+        "owner": "earnings-transcripts",
+        "run_id": "run-damaged",
+        "attempt_id": "attempt-1",
+        "step_id": "step-1",
+        "check_id": "exact-period-ownership",
+        "expected": "not_attributed",
+        "actual": "requested_period_attributed",
+        "disposition": "deviation",
+        "issue_key": "transcript-period-attribution",
+    }
+    sidecar.write_text(
+        json.dumps(good) + "\n{not json\n" + json.dumps(good) + "\n", encoding="utf-8"
+    )
+    cards_dir = tmp_path / "issues"
+    summary = module.import_observations(sidecar, cards_dir=cards_dir)
+
+    assert summary["damaged_lines"] == [2]
+    assert summary["added"] == 1
+    assert summary["skipped"] == 1
+    card = cards_dir / "transcript-period-attribution.md"
+    assert card.is_file()
+    assert "not_attributed" in card.read_text(encoding="utf-8")
 
 
 def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
@@ -839,7 +988,18 @@ def test_the_controlled_replay_never_opens_a_socket(monkeypatch, tmp_path):
     assert report["matches_expected"] is True
     assert report["golden"]["match"] is True
     assert report["provider_calls"] == 1
+    assert report["provider_calls_match"] is True
+    assert report["deviation_observed"] is False
+    assert report["deviation_matches_expectation"] is True
     assert read_jsonl(tmp_path / "feedback.jsonl")
+
+    faulted = module.replay(
+        module.CASES["fmp-foreign-period-fault"],
+        out_path=tmp_path / "fault.jsonl",
+    )
+    assert faulted["deviation_observed"] is True
+    assert faulted["issue_keys"] == ["transcript-period-attribution"]
+    assert faulted["deviation_matches_expectation"] is True
 
 
 def test_the_public_evidence_of_the_host_is_carried_through(monkeypatch, tmp_path):
