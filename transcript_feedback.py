@@ -48,10 +48,16 @@ FEEDBACK_ATTEMPT_ID_ENV = "RESEARCH_FEEDBACK_ATTEMPT_ID"
 
 DISPOSITIONS = ("expected", "deviation", "unknown")
 
-#: The published status vocabulary of the transcript result contract.
+#: The published status vocabulary of the two result contracts. The
+#: transcript result (``earnings-transcript-result/1`` and ``/2``) and the
+#: discovery result (``earnings-transcript-discovery-result/1``) share every
+#: failure status and differ in their success status: ``fetched`` for a
+#: document, ``discovered`` for a candidate. A status outside this vocabulary
+#: is an undocumented status word.
 STATUS_VOCABULARY = frozenset(
     {
         "fetched",
+        "discovered",
         "not_found",
         "ambiguous",
         "unsupported",

@@ -30,10 +30,13 @@ from tests.test_retrieval_runtime import (  # noqa: E402
 )
 from tests.test_transcript_api import (  # noqa: E402
     FMP_URL,
+    Q2_URL,
+    QUOTE_URL,
     FakeResponse,
     FakeSession,
     fmp_payload,
     make_request,
+    quote_html,
 )
 
 # Fake provider credential for the in-process fake HTTP sessions below. It is
@@ -90,6 +93,7 @@ def run_cooperative(
     *,
     argv: list[str] | None = None,
     recorder: Any = None,
+    settings: Any = None,
 ) -> tuple[int, str, str]:
     """Run the public boundary on the cooperative (injected session) path."""
     monkeypatch.delenv("FMP_API_KEY_FILE", raising=False)
@@ -101,6 +105,7 @@ def run_cooperative(
     rc = transcript_tool.main(
         argv or ["--request-stdin", "--include-source-payload"],
         _session_factory=lambda: session,
+        _provider_settings=settings or transcript_api.ProviderSettings(),
         _feedback_recorder=recorder,
     )
     return rc, out.getvalue(), err.getvalue()
@@ -216,6 +221,101 @@ def test_a_legal_provider_shape_is_projected_as_expected(
     assert all(
         record["disposition"] != "deviation" for record in read_jsonl(tmp_path / "feedback.jsonl")
     )
+
+
+def test_a_legal_discovery_is_projected_as_expected(monkeypatch, tmp_path):
+    """A discovery that finds a candidate is a normal outcome, not a deviation."""
+    recorder = recorder_for(tmp_path)
+    request = make_request(request_id="fb-discovery-legal-001")
+    session = FakeSession({QUOTE_URL: FakeResponse(QUOTE_URL, quote_html(Q2_URL))})
+    rc, out, err = run_cooperative(
+        monkeypatch,
+        request,
+        session,
+        argv=["--request-stdin", "--operation", "discover"],
+        recorder=recorder,
+        settings=transcript_api.ProviderSettings(motley_fool_enabled=True),
+    )
+
+    result = json.loads(out)
+    assert rc == 0
+    assert err == ""
+    assert result["status"] == "discovered"
+    checks = checks_by_id(tmp_path / "feedback.jsonl")
+    assert checks["outcome-naming"]["expected"] == "discovered"
+    assert checks["outcome-naming"]["disposition"] == "expected"
+    assert all(
+        record["disposition"] != "deviation"
+        for record in read_jsonl(tmp_path / "feedback.jsonl")
+    )
+
+
+#: Every published outcome of the two result contracts. Each one is a normal
+#: end state of a real run, so none of them may be reported as a deviation.
+PUBLISHED_OUTCOMES = [
+    ("fetched", None),
+    ("discovered", None),
+    ("not_found", None),
+    ("not_found", "call_after_as_of"),
+    ("not_found", "publication_after_as_of"),
+    ("ambiguous", None),
+    ("unsupported", "provider_unavailable"),
+    ("unsupported", "unsupported_market"),
+    ("unsupported", "unsupported_exchange"),
+    ("unsupported", "candidate_discovery_unavailable"),
+    ("unsupported", "candidate_fetch_unavailable"),
+    ("unavailable", "provider_disabled"),
+    ("unavailable", "provider_credentials_missing"),
+    ("unavailable", "provider_credentials_file_unavailable"),
+    ("unavailable", "provider_credentials_file_invalid"),
+    ("unavailable", "provider_credentials_file_empty"),
+    ("unavailable", "provider_credentials_rejected"),
+    ("unavailable", "provider_entitlement_required"),
+    ("unavailable", "provider_entitlement_denied"),
+    ("unavailable", "provider_cost_unknown"),
+    ("unavailable", "provider_cost_budget_exceeded"),
+    ("not_authorized", None),
+    ("rate_limited", "provider_http_429"),
+    ("provider_error", "provider_http_500"),
+    ("provider_error", "provider_response"),
+    ("provider_error", "provider_credentials_leaked"),
+    ("provider_error", "unexpected_provider_failure"),
+    ("provider_error", "retrieval_worker_failure"),
+    ("deadline_exceeded", "provider_deadline"),
+    ("content_too_large", "byte_limit"),
+    ("provenance_rejected", "provider_identity_or_host"),
+    ("provenance_rejected", "candidate_effective_url_or_mime"),
+    ("invalid_request", "request_schema"),
+    ("invalid_request", "invalid_json"),
+    ("invalid_request", "request_too_large"),
+    ("invalid_request", "source_payload_flag"),
+    ("invalid_request", "source_payload_not_valid_for_discovery"),
+    ("invalid_request", "candidate_request_schema_or_identity"),
+]
+
+
+@pytest.mark.parametrize(
+    "status,reason",
+    PUBLISHED_OUTCOMES,
+    ids=[f"{status}-{reason or 'no-reason'}" for status, reason in PUBLISHED_OUTCOMES],
+)
+def test_no_published_outcome_is_projected_as_a_deviation(status, reason):
+    """A legal end state must never open an issue."""
+    result: dict[str, Any] = {"status": status}
+    if reason is not None:
+        result["error_code"] = reason
+    verdict = transcript_feedback.evaluate_outcome_naming(result)
+    assert verdict["disposition"] == "expected", verdict
+    assert verdict["expected"] == status
+
+
+def test_an_undocumented_named_reason_is_a_deviation():
+    verdict = transcript_feedback.evaluate_outcome_naming(
+        {"status": "fetched", "error_code": "a_reason_this_release_never_published"}
+    )
+    assert verdict["disposition"] == "deviation"
+    assert verdict["issue_key"] == "transcript-outcome-naming"
+    assert verdict["actual"] == "undocumented_status"
 
 
 def test_an_entitlement_402_is_a_legal_refusal(monkeypatch, tmp_path):
