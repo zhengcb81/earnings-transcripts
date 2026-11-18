@@ -17,6 +17,7 @@ changes stdout, stderr, the exit code or the retry behaviour.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import os
 import sys
@@ -71,6 +72,31 @@ def _operation_deadline(request: Any) -> float:
     return float(MAX_TIMEOUT_SECONDS)
 
 
+@contextlib.contextmanager
+def _worker_without_feedback_location() -> Any:
+    """Hand the worker an environment without the feedback location.
+
+    The parent has already built its recorder before the worker starts, so the
+    sidecar path and the run numbers mean nothing to the child. The supervisor
+    copies ``os.environ`` when it launches the worker, so clearing the three
+    feedback variables for the duration of the launch keeps exactly one writer
+    on the parent's file even if a worker path ever grew recording code of its
+    own. The parent's own environment is restored afterwards.
+    """
+    names = (
+        transcript_feedback.FEEDBACK_OUT_ENV,
+        transcript_feedback.FEEDBACK_RUN_ID_ENV,
+        transcript_feedback.FEEDBACK_ATTEMPT_ID_ENV,
+    )
+    saved = {name: os.environ.pop(name, None) for name in names}
+    try:
+        yield
+    finally:
+        for name, value in saved.items():
+            if value is not None:
+                os.environ[name] = value
+
+
 def _supervised_result(
     request: Any,
     args: argparse.Namespace,
@@ -83,25 +109,26 @@ def _supervised_result(
     fmp_api_key: str | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     """Run one retrieval through the supervisor and map hard failures."""
-    outcome = retrieval_runtime.run_retrieval(
-        args.operation,
-        request,
-        remaining_seconds=_operation_deadline(request),
-        requests_left=None,
-        response_bytes_left=(
-            request.get("max_response_bytes")
-            if isinstance(request, dict)
-            and type(request.get("max_response_bytes")) is int
-            and request["max_response_bytes"] > 0
-            else None
-        ),
-        include_source_payload=args.include_source_payload,
-        provider_settings=provider_settings,
-        fmp_api_key=fmp_api_key,
-        launcher=launcher,
-        launcher_spec=launcher_spec,
-        temp_root=temp_root,
-    )
+    with _worker_without_feedback_location():
+        outcome = retrieval_runtime.run_retrieval(
+            args.operation,
+            request,
+            remaining_seconds=_operation_deadline(request),
+            requests_left=None,
+            response_bytes_left=(
+                request.get("max_response_bytes")
+                if isinstance(request, dict)
+                and type(request.get("max_response_bytes")) is int
+                and request["max_response_bytes"] > 0
+                else None
+            ),
+            include_source_payload=args.include_source_payload,
+            provider_settings=provider_settings,
+            fmp_api_key=fmp_api_key,
+            launcher=launcher,
+            launcher_spec=launcher_spec,
+            temp_root=temp_root,
+        )
     # Keep acquisition diagnostics out of the immutable content schema.
     receipt = {
         "schema_version": "earnings-retrieval-usage/1",

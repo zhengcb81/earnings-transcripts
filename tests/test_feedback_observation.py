@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -144,6 +145,31 @@ def forbid_translator(monkeypatch: pytest.MonkeyPatch) -> None:
         pytest.fail("the transcript tool must never construct a translator")
 
     monkeypatch.setattr(translator.TranslatorFactory, "create", explode)
+
+
+WORKER_ENV_LAUNCHER = "tests.test_feedback_observation:worker_env_recorder"
+FEEDBACK_ENV_NAMES = (
+    transcript_feedback.FEEDBACK_OUT_ENV,
+    transcript_feedback.FEEDBACK_RUN_ID_ENV,
+    transcript_feedback.FEEDBACK_ATTEMPT_ID_ENV,
+)
+
+
+def worker_env_recorder(spec: dict[str, Any], context: dict[str, Any]) -> Any:
+    """Launcher entry that runs inside the worker: record what it inherited.
+
+    The worker never records an observation of its own, so this is the only
+    way to see the environment the child was actually started with.
+    """
+    from tests.test_retrieval_runtime import build_fake_session
+
+    record = spec.get("env_record_file")
+    if record:
+        Path(record).write_text(
+            json.dumps({name: os.environ.get(name) for name in FEEDBACK_ENV_NAMES}),
+            encoding="utf-8",
+        )
+    return build_fake_session(spec, context)
 
 
 # ── the frozen projection protocol ───────────────────────────────────
@@ -970,6 +996,52 @@ def test_a_damaged_observation_line_does_not_stop_the_import(tmp_path):
     card = cards_dir / "transcript-period-attribution.md"
     assert card.is_file()
     assert "not_attributed" in card.read_text(encoding="utf-8")
+
+
+def test_the_worker_is_started_without_the_feedback_location(monkeypatch, tmp_path):
+    """The prescribed one-writer mechanism: the child gets no sidecar path.
+
+    The parent has already built its recorder when it starts the worker, so
+    the child records nothing and cannot share the parent's file. The test
+    looks at the environment the child process really inherited, recorded by
+    the launcher from inside the worker.
+    """
+    forbid_translator(monkeypatch)
+    out_path = tmp_path / "feedback.jsonl"
+    monkeypatch.setenv(transcript_feedback.FEEDBACK_OUT_ENV, str(out_path))
+    monkeypatch.setenv(transcript_feedback.FEEDBACK_RUN_ID_ENV, "fb-run-parent")
+    monkeypatch.setenv(transcript_feedback.FEEDBACK_ATTEMPT_ID_ENV, "attempt-1")
+    monkeypatch.delenv("FMP_API_KEY_FILE", raising=False)
+    monkeypatch.setenv("FMP_API_KEY", FEEDBACK_FAKE_KEY)
+    record_path = tmp_path / "worker-env.json"
+    spec = fake_spec(
+        {FMP_URL: FakeResponse(FMP_URL, fmp_payload(), content_type="application/json")},
+        calls_file=tmp_path / "calls.jsonl",
+    )
+    spec["env_record_file"] = str(record_path)
+    temp_root = tmp_path / "rt"
+    temp_root.mkdir()
+    request = fmp_request(request_id="fb-worker-env-001")
+    monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps(request)))
+    out, err = io.StringIO(), io.StringIO()
+    monkeypatch.setattr(sys, "stdout", out)
+    monkeypatch.setattr(sys, "stderr", err)
+    rc = transcript_tool.main(
+        ["--request-stdin", "--include-source-payload"],
+        _retrieval_launcher=WORKER_ENV_LAUNCHER,
+        _retrieval_spec=spec,
+        _retrieval_temp_root=temp_root,
+    )
+
+    assert rc == 0
+    # the run really reached the provider inside the worker
+    assert json.loads(out.getvalue())["status"] == "fetched"
+    inherited = json.loads(record_path.read_text(encoding="utf-8"))
+    assert inherited == dict.fromkeys(FEEDBACK_ENV_NAMES)  # none of the three
+    # the parent keeps its own location and is the single writer of the file
+    assert os.environ[transcript_feedback.FEEDBACK_OUT_ENV] == str(out_path)
+    assert len(read_jsonl(out_path)) == 5
+    assert list(temp_root.iterdir()) == []
 
 
 def test_the_controlled_replay_is_byte_for_byte_reproducible(tmp_path):

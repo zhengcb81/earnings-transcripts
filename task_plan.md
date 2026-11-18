@@ -5,14 +5,16 @@
 FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本仓的实施已完成，交接在
 [`docs/plans/feedback-loop-2026-11-17/handoff.md`](docs/plans/feedback-loop-2026-11-17/handoff.md)（+ `.json`）。
 
-- **本仓新能力**：`transcript_feedback.py` 把一次完成的取数步骤投影为 `feedback-observation/1`
-  观察（四个检查：业务状态词对已发布具名原因、请求期次对原生 provider 响应、内容引用对返回的原始字节、
-  原生最终用量对本次真正发布的收据）。输出位置由宿主用 `RESEARCH_FEEDBACK_OUT` 注入；
-  观察与明细只写自己的 sidecar，从不进入 stdout/stderr，退出码、结果、收据与重试行为不变；
-  sidecar 写失败只报「诊断不完整」，不改业务结果。
-- **本仓确认并修复的 ET 缺陷**：`--report-usage` 的原生最终用量收据原本只在 preflight 拒绝路径发布，
-  另外三条同样零 provider 请求的终态路径（非法 JSON、超大请求、带 source payload 的 discovery）不发布，
-  消费端因此无法区分「没有调用 provider」与「工具没来得及报告」。修复后每条终态路径都发布恰好一条收据，
+- **本仓新能力**：`transcript_feedback.py` 把一次取数步骤投影为 `feedback-observation/1` 观察：
+  先记动作开始（`action-started`），再记四项结果检查（业务状态词对已发布具名原因、请求期次对原生 provider
+  响应、内容引用对返回的原始字节、原生最终用量对本次真正发布的收据）。输出位置由宿主用
+  `RESEARCH_FEEDBACK_OUT` 注入；观察与明细只写自己的 sidecar，从不进入 stdout/stderr，退出码、结果、
+  收据与重试行为不变；sidecar 写失败只报「诊断不完整」，不改业务结果。父进程启动 worker 时会清除
+  反馈环境量（卡片规定的单写者机制），父进程是 sidecar 的唯一写者。
+- **本仓确认并修复的 ET 缺陷**：`--report-usage` 的原生最终用量收据原本在三处发布
+  （preflight 拒绝路径、凭据错误路径、supervisor 结果），而另外三条同样零 provider 请求的终态路径
+  （非法 JSON、超大请求、带 source payload 的 discovery）不发布，
+  消费端因此无法区分「没有调用 provider」与「工具没来得及报告」。修复后每条取数终态路径都发布恰好一条收据，
   结果 schema、退出码与收据形状不变。见
   [`issues/transcript-usage-receipt.md`](docs/plans/feedback-loop-2026-11-17/issues/transcript-usage-receipt.md)。
 - **本仓交付物**：受控回放入口 `tools/replay_feedback_case.py`（只用具名 fixture，永不联网）、
