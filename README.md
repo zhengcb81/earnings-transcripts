@@ -188,7 +188,7 @@ SHA-256/UTF-8 字节数、头部身份/期间、sidecar 收据；头部 `Charact
 | 无收据，但头部 `Ticker`（或已知 URL）+ `Quarter` 可证明且正文非空 | `legacy_unverified`，保持原文件，rc 0 |
 | 证明不了身份/期间（仅 URL、无头部、缺 Quarter 等） | `unknown`/`identity_missing`（**非** verified reused），rc 0 |
 | 头部或收据与期望矛盾（错 ticker/错期间/URL 不符） | 具名 `output_conflict/identity_mismatch\\|period_mismatch`，原件保留，rc 1 |
-| 空文件/乱码/不可读/收据坏/收据哈希不符 | 具名 `output_conflict/empty_original\\|invalid_encoding\\|unreadable\\|receipt_invalid\\|receipt_mismatch`，原件保留，rc 1 |
+| 空文件/乱码/不可读/收据哈希不符 | 具名 `output_conflict/empty_original\\|invalid_encoding\\|unreadable\\|receipt_mismatch`，原件保留，rc 1 |
 | 原件缺失 | 下载并原子保存 + 同目录 `*.receipt.json` 小收据（临时文件失败 finally 清理） |
 | 加了 `--translate` 且缺译文 | 只补翻译，不重新下载；`unknown` 与冲突不派生翻译 |
 
@@ -213,7 +213,7 @@ python3 transcript_audit.py --write-receipts   # 显式：为可证明且无收�
 0 网络、0 翻译、0 外部 LLM，与批次复用同一套验证实现。`--write-receipts` 只加
 `audit-legacy` 收据（记录当前字节与头部可证明字段，`obtained_at`/`extraction_version`
 保持 null、不补造下载时来源），绝不改、删、覆盖 TXT 原件或已有收据。
-退出码：0 无具名失败；1 存在损坏/矛盾/坏收据。
+退出码：0 无具名失败；1 存在原件损坏或实际绑定矛盾。无法解析或读取的可选收据仅作诊断；原件独立证实身份和期间时仍为 `legacy_unverified`，不会标为已核验或覆盖原收据。
 
 翻译本身另有段落级缓存（`.translate_cache.json`，按内容 MD5 命中），
 仅在显式 `--translate` 时才会初始化。

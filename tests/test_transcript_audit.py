@@ -188,18 +188,40 @@ def test_write_receipts_adds_sidecar_without_touching_original(tmp_path, capsys)
     assert rpath.read_bytes() == receipt_before
 
 
-def test_write_receipts_never_overwrites_conflicting_receipt(tmp_path, capsys):
+def test_malformed_optional_receipt_is_diagnostic_and_unchanged(tmp_path, capsys):
     root = tmp_path / "corpus"
     txt = seed(root, "ACME/ACME_Q3_2026_earnings_call.txt", make_text())
     receipt_path(txt).write_bytes(b'{"schema": "et-local-text-receipt/1", "kind": "dow')
     bad_before = receipt_path(txt).read_bytes()
+    original_before = txt.read_bytes()
 
     rc = audit_main(["--root", str(root), "--write-receipts"])
 
-    assert rc == 1  # 坏收据是具名失败
-    assert receipt_path(txt).read_bytes() == bad_before  # 不修、不覆盖、不删
-    report = json.loads(capsys.readouterr().out)
-    assert report["files"][0]["receipt_action"] == "conflict"
+    assert rc == 0
+    assert receipt_path(txt).read_bytes() == bad_before
+    assert txt.read_bytes() == original_before
+    record, = json.loads(capsys.readouterr().out)["files"]
+    assert record["receipt_action"] == "exists"
+    assert record["outcome"] == "legacy_unverified"
+    assert record["receipt_kind"] is None
+    assert record["diagnostics"] == ["receipt_invalid"]
+
+
+def test_write_receipts_preserves_and_reports_an_actual_binding_conflict(tmp_path, capsys):
+    root = tmp_path / "corpus"
+    txt = seed(root, "ACME/ACME_Q3_2026_earnings_call.txt", make_text())
+    assert audit_main(["--root", str(root), "--write-receipts"]) == 0
+    capsys.readouterr()
+    saved_receipt = receipt_path(txt).read_bytes()
+    different_original = make_text(body="A different original.").encode("utf-8")
+    txt.write_bytes(different_original)
+
+    assert audit_main(["--root", str(root), "--write-receipts"]) == 1
+    record, = json.loads(capsys.readouterr().out)["files"]
+    assert record["outcome"] == "receipt_mismatch"
+    assert record["receipt_action"] == "conflict"
+    assert receipt_path(txt).read_bytes() == saved_receipt
+    assert txt.read_bytes() == different_original
 
 
 # ── 结构保证：0 网络 / 0 翻译 ─────────────────────────────────

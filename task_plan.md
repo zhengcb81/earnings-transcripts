@@ -1,9 +1,9 @@
 # ET（earnings-transcripts）计划与状态入口
 
-## 2026-11-17 · FB-ET 自反馈接入（已交付，待 ROOT 复验）
+## 2026-11-18 · FB-ET 自反馈接入（ROOT 已验收）
 
 FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本仓的实施已完成，交接在
-[`docs/plans/feedback-loop-2026-11-17/handoff.md`](docs/plans/feedback-loop-2026-11-17/handoff.md)（+ `.json`）。
+[`docs/plans/feedback-loop-2026-11-17/handoff.md`](docs/plans/feedback-loop-2026-11-17/handoff.md)。
 
 - **本仓新能力**：`transcript_feedback.py` 把取数步骤投影为 `feedback-observation/1` 观察：
   请求可解析时先记动作开始（`action-started`），再记四项结果检查（业务状态词对已发布具名原因、
@@ -24,8 +24,9 @@ FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本�
   [`skills/repair-earnings-transcripts-issue/SKILL.md`](skills/repair-earnings-transcripts-issue/SKILL.md)、
   离线回归 `tests/test_feedback_observation.py`、本目录的收据/样本/问题卡。
 - **交给 ROOT 的**：跨仓复验与派工（ET 不能替消费端关单）；两张问题卡的消费端复验状态仍为 pending。
-- **不属于本卡**：`transcript_audit.py --write-receipts` 的收据冲突退出码缺陷仍由原 ET 业务线推进，
-  其写集合与本卡互不重叠。下方 11-14 快照中的「唯一下一步」指当时的业务线。
+- **ROOT 复验**：737 项本仓测试及 10 份 golden 通过。历史红灯的根因是测试仍按旧策略
+  阻断损坏的可选收据；现回归固定「诊断并保留」和「实际字节不符仍拒绝」两个对照。
+  FF 的 ET 公开契约/传输 42 项离线通过；真实供应商与自动对账仍依总控计划。
 
 > **本文件是 ET 仓唯一的 canonical 状态入口。**
 > ET 的任何计划、进度、发现或交接都以本文件为准；`progress.md` 与 `findings.md` 只保留历史记录并链接回本文件，
@@ -60,7 +61,7 @@ FB-ET 施工卡（[卡](docs/plans/feedback-loop-2026-11-17/FB-ET.md)）在本�
 | 本仓 worktree | 12 → **1**（只剩 `main` 工区）。11 个已结案交付工区按收据删除，Git 历史与分支未动 |
 | 本仓非祖先本地 ref | **0**。除 `main` 外 15 个本地分支全部是 `main` 的祖先，保留为交付收据 |
 | ET 自身未完成项 | **唯一下一步只有一条**，见下方；另有 2 条登记待办（真实 MF 页面 DOM 适应性验收、时序敏感用例稳健性）与 1 类本质不可消除的限制，见「ET 自身剩余项」 |
-| FB-ET 自反馈接入（2026-11-17） | **已交付，待 ROOT 复验**。观察投影 `transcript_feedback.py` + `transcript_tool.py` 接线；具名回放 `tools/replay_feedback_case.py`；幂等卡导入 `tools/feedback_issue_cards.py`；修理技能 `skills/repair-earnings-transcripts-issue/SKILL.md`；离线回归 `tests/test_feedback_observation.py`。本卡确认并修复了 `--report-usage` 在三条零请求终态路径不发布用量收据的 ET 缺陷。交接与余项见 `docs/plans/feedback-loop-2026-11-17/handoff.md` |
+| FB-ET 自反馈接入（2026-11-17） | **ROOT 已验收**。观察投影 `transcript_feedback.py` + `transcript_tool.py` 接线；具名回放 `tools/replay_feedback_case.py`；幂等卡导入 `tools/feedback_issue_cards.py`；修理技能 `skills/repair-earnings-transcripts-issue/SKILL.md`；离线回归 `tests/test_feedback_observation.py`。本卡确认并修复了 `--report-usage` 在三条零请求终态路径不发布用量收据的 ET 缺陷。交接与余项见 `docs/plans/feedback-loop-2026-11-17/handoff.md` |
 | FF / CWP 侧待办 | 写在「消费端 owner 边界」，**不计入 ET 未完成**，由各该仓 owner 自行推进 |
 | 原件与用户资料 | 原样保留：`transcripts/`（130 个 tracked 原件/派生物）、`.workbuddy-ai/`（未跟踪，工具私有笔记）、gitignored 的 `config.json` / 缓存 / 日志 |
 | 仓库预提交门禁 | **已可正常提交**。原先 19 个 high「硬编码凭据」全部是测试里的假凭据字面量（不是真实凭据），已提取为具名常量且**取值逐字节不变**；`mimosa audit .` 复测 high 0 |
