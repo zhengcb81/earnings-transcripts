@@ -16,7 +16,6 @@
 
 from __future__ import annotations
 
-import argparse
 import json
 import re
 import sys
@@ -24,6 +23,7 @@ from datetime import datetime
 from pathlib import Path
 
 from config import get_path, load_config
+import transcript_feedback
 from transcript_artifact import (
     FAILURE_OUTCOMES,
     OUTCOME_LEGACY_UNVERIFIED,
@@ -42,8 +42,8 @@ REPORT_NAME = "transcript_audit_report.json"
 REPORT_SCHEMA = "et-local-text-audit/1"
 
 
-def build_argument_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
+def build_argument_parser() -> transcript_feedback.RefusalCapturingParser:
+    parser = transcript_feedback.RefusalCapturingParser(
         description="ET 本地原件只读 audit（与批次复用同一验证实现；默认零写入）"
     )
     parser.add_argument(
@@ -163,46 +163,78 @@ def _ensure_utf8_stdout() -> None:
 
 def main(argv: list[str] | None = None) -> int:
     _ensure_utf8_stdout()
+    # 普通启动在参数解析与副作用之前建立本次身份：根缺失、配置缺失与逐文件
+    # 失败都按本次 ID 可查；导出失败绝不改变业务原返回。
+    recorder = transcript_feedback.recorder_from_env()
     parser = build_argument_parser()
-    args = parser.parse_args(argv)
     try:
-        cfg = load_config()
-    except FileNotFoundError as exc:
-        print(f"error: {exc}", file=sys.stderr)
-        return EXIT_FAILURE
-    root = (args.root or get_path(cfg, "transcripts_dir")).resolve()
-    if not root.is_dir():
-        print(f"error: transcripts_root_missing: {root}", file=sys.stderr)
-        return EXIT_FAILURE
+        try:
+            args = parser.parse_args(argv)
+        except transcript_feedback.InvocationRefusal as refusal:
+            return transcript_feedback.refuse_invocation(
+                parser,
+                refusal,
+                recorder,
+                entry="transcript_audit",
+                stage="argument-parsing",
+                refusal_code="invalid_cli_arguments",
+                location="transcript_audit.py#parse_args",
+            )
+        try:
+            cfg = load_config()
+        except FileNotFoundError as exc:
+            transcript_feedback.emit_invocation_refusal(
+                recorder,
+                entry="transcript_audit",
+                stage="config-load",
+                refusal_code="config_unavailable",
+                location="transcript_audit.py#main",
+            )
+            print(f"error: {exc}", file=sys.stderr)
+            return EXIT_FAILURE
+        root = (args.root or get_path(cfg, "transcripts_dir")).resolve()
+        if not root.is_dir():
+            transcript_feedback.emit_invocation_refusal(
+                recorder,
+                entry="transcript_audit",
+                stage="input-resolution",
+                refusal_code="input_root_missing",
+                location="transcript_audit.py#main",
+            )
+            print(f"error: transcripts_root_missing: {root}", file=sys.stderr)
+            return EXIT_FAILURE
 
-    naming = cfg.get("naming", {})
-    suffix = naming.get("english_suffix", "_earnings_call")
-    ext = naming.get("english_ext", ".txt")
-    records = audit_files(
-        root, cfg=cfg, suffix=suffix, ext=ext, write_receipts=args.write_receipts
-    )
-    report = build_report(root, records, args.write_receipts)
-    failures = sum(1 for record in records if record["outcome"] in FAILURE_OUTCOMES)
+        naming = cfg.get("naming", {})
+        suffix = naming.get("english_suffix", "_earnings_call")
+        ext = naming.get("english_ext", ".txt")
+        records = audit_files(
+            root, cfg=cfg, suffix=suffix, ext=ext, write_receipts=args.write_receipts
+        )
+        transcript_feedback.emit_stored_original_audit(recorder, records)
+        report = build_report(root, records, args.write_receipts)
+        failures = sum(1 for record in records if record["outcome"] in FAILURE_OUTCOMES)
 
-    if args.report_dir is not None:
-        report_path = args.report_dir.resolve() / REPORT_NAME
-        write_atomic(
-            report_path,
-            json.dumps(report, ensure_ascii=False, indent=1).encode("utf-8"),
-        )
-        summary = "  ".join(
-            f"{key}={value}" for key, value in sorted(report["counts"].items())
-        )
-        print(f"audit: files={len(records)}  {summary}")
-        print(f"report: {report_path}")
-    else:
-        print(json.dumps(report, ensure_ascii=False, indent=1))
-    if failures:
-        print(
-            f"error: audit_failures: {failures} file(s) named-failed", file=sys.stderr
-        )
-        return EXIT_FAILURE
-    return EXIT_OK
+        if args.report_dir is not None:
+            report_path = args.report_dir.resolve() / REPORT_NAME
+            write_atomic(
+                report_path,
+                json.dumps(report, ensure_ascii=False, indent=1).encode("utf-8"),
+            )
+            summary = "  ".join(
+                f"{key}={value}" for key, value in sorted(report["counts"].items())
+            )
+            print(f"audit: files={len(records)}  {summary}")
+            print(f"report: {report_path}")
+        else:
+            print(json.dumps(report, ensure_ascii=False, indent=1))
+        if failures:
+            print(
+                f"error: audit_failures: {failures} file(s) named-failed", file=sys.stderr
+            )
+            return EXIT_FAILURE
+        return EXIT_OK
+    finally:
+        transcript_feedback.finalize_delivery(recorder)
 
 
 if __name__ == "__main__":

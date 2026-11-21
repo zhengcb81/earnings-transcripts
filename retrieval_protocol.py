@@ -31,6 +31,11 @@ from transcript_contracts import (
 WORKER_PROTOCOL = "et-retrieval-worker/1"
 REQUEST_FILENAME = "request.json"
 RESULT_FILENAME = "result.json"
+#: The child's own sanitized failure diagnostic, written before any non-zero
+#: exit. The parent reads it after the wait and merges it into the detail
+#: record once; it never reaches the public stdout/stderr contracts.
+WORKER_ERROR_FILENAME = "worker_error.json"
+WORKER_ERROR_SCHEMA = "et-retrieval-worker-error/1"
 MAX_REQUEST_FILE_BYTES = 4 * 1024 * 1024
 
 # JSON escaping expands one byte by at most 6x (\uXXXX for control characters);

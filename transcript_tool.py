@@ -78,20 +78,28 @@ def _worker_without_feedback_location() -> Any:
 
     The parent has already built its recorder before the worker starts, so the
     sidecar path and the run numbers mean nothing to the child. The supervisor
-    copies ``os.environ`` when it launches the worker, so clearing the three
-    feedback variables for the duration of the launch keeps exactly one writer
-    on the parent's file even if a worker path ever grew recording code of its
-    own. The parent's own environment is restored afterwards.
+    copies ``os.environ`` when it launches the worker, so clearing the feedback
+    variables and setting the explicit disable switch for the duration of the
+    launch keeps exactly one writer on the parent's location even if a worker
+    path ever grew recording code of its own. The parent's own environment is
+    restored afterwards.
     """
     names = (
         transcript_feedback.FEEDBACK_OUT_ENV,
         transcript_feedback.FEEDBACK_RUN_ID_ENV,
         transcript_feedback.FEEDBACK_ATTEMPT_ID_ENV,
+        transcript_feedback.FEEDBACK_DIR_ENV,
     )
     saved = {name: os.environ.pop(name, None) for name in names}
+    saved_disabled = os.environ.pop(transcript_feedback.FEEDBACK_DISABLED_ENV, None)
+    os.environ[transcript_feedback.FEEDBACK_DISABLED_ENV] = "1"
     try:
         yield
     finally:
+        if saved_disabled is not None:
+            os.environ[transcript_feedback.FEEDBACK_DISABLED_ENV] = saved_disabled
+        else:
+            os.environ.pop(transcript_feedback.FEEDBACK_DISABLED_ENV, None)
         for name, value in saved.items():
             if value is not None:
                 os.environ[name] = value
@@ -107,8 +115,12 @@ def _supervised_result(
     launcher_spec: dict[str, Any] | None,
     temp_root: Path | None,
     fmp_api_key: str | None = None,
-) -> tuple[dict[str, Any], dict[str, Any]]:
-    """Run one retrieval through the supervisor and map hard failures."""
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any] | None]:
+    """Run one retrieval through the supervisor and map hard failures.
+
+    The third value is the supervisor's sanitized child diagnostic; it joins
+    the detail record only and never the wire result or the receipt.
+    """
     with _worker_without_feedback_location():
         outcome = retrieval_runtime.run_retrieval(
             args.operation,
@@ -138,8 +150,8 @@ def _supervised_result(
         and outcome.usage is not None,
         "usage": outcome.usage,
     }
-    if outcome.result is not None:
-        return outcome.result, receipt
+    if outcome.result is not None and outcome.reason is None:
+        return outcome.result, receipt, getattr(outcome, "diagnostics", None)
     request_id = request.get("request_id") if isinstance(request, dict) else None
     provider = "motley_fool"
     if isinstance(request, dict) and isinstance(request.get("provider"), str):
@@ -149,7 +161,11 @@ def _supervised_result(
         status, error_code = "deadline_exceeded", "provider_deadline"
     else:
         status, error_code = "provider_error", "retrieval_worker_failure"
-    return _wire_failure(result_schema, request_id, status, error_code, provider), receipt
+    return (
+        _wire_failure(result_schema, request_id, status, error_code, provider),
+        receipt,
+        getattr(outcome, "diagnostics", None),
+    )
 
 
 def _configured_fmp_key() -> tuple[str | None, str | None]:
@@ -210,7 +226,21 @@ def main(
     _feedback_evidence_ref: str | None = None,
 ) -> int:
     """Run the JSON boundary; private injection points are for offline tests only."""
-    parser = argparse.ArgumentParser(
+    # The run's identity and its recorder exist before any parsing or side
+    # effect, so even a refused invocation is observable. A parent-passed run
+    # number is associated as-is; a direct start generates its own recoverable
+    # identity and saves under the owner's durable state root.
+    recorder = (
+        _feedback_recorder
+        if _feedback_recorder is not None
+        else transcript_feedback.recorder_from_env()
+    )
+    if recorder is not None:
+        # The observation names the version of the observed run, not the
+        # version of the projection that writes it.
+        recorder.version = PRODUCT_VERSION
+        transcript_feedback.set_active_recorder(recorder)
+    parser = transcript_feedback.RefusalCapturingParser(
         description="Fetch one exact-period untranslated earnings transcript."
     )
     entry = parser.add_mutually_exclusive_group(required=True)
@@ -241,7 +271,20 @@ def main(
         action="store_true",
         help="Opt in to a bounded base64 original provider response; never writes files.",
     )
-    args = parser.parse_args(argv)
+    try:
+        args = parser.parse_args(argv)
+    except transcript_feedback.InvocationRefusal as refusal:
+        code = transcript_feedback.refuse_invocation(
+            parser,
+            refusal,
+            recorder,
+            entry="transcript_tool",
+            stage="argument-parsing",
+            refusal_code="invalid_cli_arguments",
+            location="transcript_tool.py#parse_args",
+        )
+        transcript_feedback.finalize_delivery(recorder)
+        return code
     if args.capabilities:
         result = {
             "schema_version": "earnings-provider-capabilities/1",
@@ -269,17 +312,8 @@ def main(
     request: Any = None
     native_receipt: dict[str, Any] | None = None
     published_receipt: dict[str, Any] | None = None
+    worker_diagnostics: dict[str, Any] | None = None
     branch = "invalid-request"
-    recorder = (
-        _feedback_recorder
-        if _feedback_recorder is not None
-        else transcript_feedback.recorder_from_env()
-    )
-    if recorder is not None:
-        # The observation names the version of the observed run, not the
-        # version of the projection that writes it.
-        recorder.version = PRODUCT_VERSION
-        transcript_feedback.set_active_recorder(recorder)
     started_at: str | None = None
     try:
         raw = sys.stdin.read(128 * 1024 + 1)
@@ -374,7 +408,7 @@ def main(
                     )
             else:
                 # Production path: one internal worker under a hard deadline.
-                result, native_receipt = _supervised_result(
+                result, native_receipt, worker_diagnostics = _supervised_result(
                     request,
                     args,
                     result_schema=result_schema,
@@ -404,10 +438,12 @@ def main(
         branch=branch,
         started_at=started_at,
         finished_at=transcript_feedback.now(),
+        worker_diagnostics=worker_diagnostics,
     )
     sys.stdout.write(
         json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"
     )
+    transcript_feedback.finalize_delivery(recorder)
     return 0
 
 

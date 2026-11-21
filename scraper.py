@@ -57,6 +57,7 @@ from retrieval_budget import (
     _BudgetSession,  # noqa: F401  re-exported for the budget unit tests
 )
 from retrieval_runtime import RetrievalOutcome, run_retrieval
+import transcript_feedback
 from transcript_api import (
     CANDIDATE_FETCH_REQUEST_SCHEMA,
     DEFAULT_PROVIDER_SETTINGS,
@@ -959,8 +960,8 @@ def _report(budget: BatchBudget, entries: list[dict[str, Any]]) -> int:
 # ──────────────────────────────────────────────
 # CLI
 # ──────────────────────────────────────────────
-def build_argument_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
+def build_argument_parser() -> transcript_feedback.RefusalCapturingParser:
+    parser = transcript_feedback.RefusalCapturingParser(
         description="美股电话会议纪要有限批次采集（transcript_api 薄编排，默认原语言）"
     )
     parser.add_argument("--ticker", help="只处理指定股票代码")
@@ -1274,55 +1275,95 @@ def main(
     _retrieval_temp_root: Path | None = None,
 ) -> int:
     """CLI entry; private injection points are for offline tests only."""
+    # 普通启动在参数解析与副作用之前建立本次身份：被拒绝的调用同样可观察，
+    # 导出失败绝不改变业务原返回。
+    recorder = transcript_feedback.recorder_from_env()
     parser = build_argument_parser()
-    args = parser.parse_args(argv)
-
-    error = _validate_args(args)
-    if error:
-        print(f"error: {error}", file=sys.stderr)
-        return EXIT_USAGE
     try:
-        periods = parse_periods(args.periods) if args.periods else None
-    except ValueError as exc:
-        print(f"error: invalid --periods token: {exc.args[0]}", file=sys.stderr)
-        return EXIT_USAGE
-    translate_enabled = bool(args.translate)
+        try:
+            args = parser.parse_args(argv)
+        except transcript_feedback.InvocationRefusal as refusal:
+            return transcript_feedback.refuse_invocation(
+                parser,
+                refusal,
+                recorder,
+                entry="scraper",
+                stage="argument-parsing",
+                refusal_code="invalid_cli_arguments",
+                location="scraper.py#parse_args",
+            )
 
-    try:
-        cfg = load_config()
-    except FileNotFoundError as exc:
-        print(f"error: {exc}", file=sys.stderr)
-        return EXIT_FAILURE
-    if args.output is not None:
-        cfg = _cfg_with_output(cfg, args.output.resolve())
-    transcripts_root = get_path(cfg, "transcripts_dir")
+        error = _validate_args(args)
+        if error:
+            transcript_feedback.emit_invocation_refusal(
+                recorder,
+                entry="scraper",
+                stage="argument-validation",
+                refusal_code="invalid_argument_value",
+                location="scraper.py#_validate_args",
+                argument="--periods" if error.startswith("invalid --periods") else None,
+            )
+            print(f"error: {error}", file=sys.stderr)
+            return EXIT_USAGE
+        try:
+            periods = parse_periods(args.periods) if args.periods else None
+        except ValueError as exc:
+            transcript_feedback.emit_invocation_refusal(
+                recorder,
+                entry="scraper",
+                stage="argument-validation",
+                refusal_code="invalid_argument_value",
+                location="scraper.py#parse_periods",
+                argument="--periods",
+            )
+            print(f"error: invalid --periods token: {exc.args[0]}", file=sys.stderr)
+            return EXIT_USAGE
+        translate_enabled = bool(args.translate)
 
-    if _companies is not None:
-        companies = _companies
-    else:
-        companies = load_companies(cfg, filter_ticker=args.ticker)
-    if not companies:
-        print("error: no companies found in companies.txt", file=sys.stderr)
-        return EXIT_FAILURE
+        try:
+            cfg = load_config()
+        except FileNotFoundError as exc:
+            transcript_feedback.emit_invocation_refusal(
+                recorder,
+                entry="scraper",
+                stage="config-load",
+                refusal_code="config_unavailable",
+                location="scraper.py#main",
+            )
+            print(f"error: {exc}", file=sys.stderr)
+            return EXIT_FAILURE
+        if args.output is not None:
+            cfg = _cfg_with_output(cfg, args.output.resolve())
+        transcripts_root = get_path(cfg, "transcripts_dir")
 
-    if args.dry_run:
-        return _run_dry_plan(
-            cfg, args, companies, periods, transcripts_root, translate_enabled
+        if _companies is not None:
+            companies = _companies
+        else:
+            companies = load_companies(cfg, filter_ticker=args.ticker)
+        if not companies:
+            print("error: no companies found in companies.txt", file=sys.stderr)
+            return EXIT_FAILURE
+
+        if args.dry_run:
+            return _run_dry_plan(
+                cfg, args, companies, periods, transcripts_root, translate_enabled
+            )
+        retrieval_ctx = _RetrievalContext(
+            launcher=_retrieval_launcher,
+            launcher_spec=_retrieval_spec,
+            temp_root=_retrieval_temp_root,
+            api_key=args.api_key or None,
         )
-    retrieval_ctx = _RetrievalContext(
-        launcher=_retrieval_launcher,
-        launcher_spec=_retrieval_spec,
-        temp_root=_retrieval_temp_root,
-        api_key=args.api_key or None,
-    )
-    if args.list:
-        return _run_list(
-            args, companies, periods, retrieval_ctx, _provider_settings
+        if args.list:
+            return _run_list(
+                args, companies, periods, retrieval_ctx, _provider_settings
+            )
+        return _run_batch(
+            cfg, args, companies, periods, retrieval_ctx, _provider_settings,
+            translate_enabled,
         )
-    return _run_batch(
-        cfg, args, companies, periods, retrieval_ctx, _provider_settings,
-        translate_enabled,
-    )
+    finally:
+        transcript_feedback.finalize_delivery(recorder)
 
 
 if __name__ == "__main__":
