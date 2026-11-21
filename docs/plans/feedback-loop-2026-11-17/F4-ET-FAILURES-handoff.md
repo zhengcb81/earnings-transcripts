@@ -11,7 +11,7 @@
 - **工作目录**：`C:/Users/郑曾波/Projects/earnings-transcripts/earnings-transcripts`；发布线 `main`，远端 `https://github.com/zhengcb81/earnings-transcripts.git`。
 - **开工基线**：审计基线 `61fe94e201eee0f253a1084b9876d023820ea01c`；开工 HEAD `0bfa07b9350eaa5f2259d286373cecb571099d07`（`docs(pwf): dispatch ET ordinary-failure feedback coverage`，即本卡派工提交）。
 - **开工时 `git status --short --branch`**：`## main...origin/main`，仅 `?? .mimosa/`、`?? .workbuddy-ai/`（卡片声明的已有工具目录，全程保留、未提交）；无在途修改，与卡面一致。
-- **本卡写集合**（相对开工 HEAD）：修改 7 个源文件 — `transcript_feedback.py`（投影/持久化/发布）、`retrieval_runtime.py`（stderr 捕获 + 脱敏诊断）、`retrieval_worker.py`（阶段 + 失败诊断）、`retrieval_protocol.py`（worker 诊断常量）、`transcript_tool.py`、`scraper.py`、`transcript_audit.py`（入口接线）；新增 `tests/test_f4_ordinary_failures.py`（14 项）、RED 回执、直启 bundle 样例与本交接。
+- **本卡写集合**（相对开工 HEAD）：修改 7 个源文件 — `transcript_feedback.py`（投影/持久化/发布）、`retrieval_runtime.py`（stderr 捕获 + 脱敏诊断）、`retrieval_worker.py`（阶段 + 失败诊断）、`retrieval_protocol.py`（worker 诊断常量）、`transcript_tool.py`、`scraper.py`、`transcript_audit.py`（入口接线）；新增 `tests/test_f4_ordinary_failures.py`（17 项）、RED 回执、直启 bundle 样例与本交接。
 - **最终源码 SHA（候选提交）**：`44e2a2716ecbc27d509acee31c38dd02d9475139`（`main`，`Make ordinary entries, bad TXT and worker failures reproducible`）。交接提交见本文件末尾。
 
 ## 对应原发生 → 修复
@@ -24,10 +24,10 @@
 ## RED → GREEN 实测
 
 - **RED**（实现前，`tests/test_f4_ordinary_failures.py` 全量）：**9 failed / 5 passed**，回执 [`receipts/red_f4_ordinary_failures.txt`](receipts/red_f4_ordinary_failures.txt)。5 个通过项是卡内要求的正控与对照：bad-wire 既有观察、合法空根审计、402、漏发布用量、强停后 started 行只登记一次（既有去重语义）。
-- **GREEN**（实现后）：`tests/test_f4_ordinary_failures.py` **14 passed**。
+- **GREEN**（实现后）：`tests/test_f4_ordinary_failures.py` **17 passed**。
 - **规定回归**：`python -B -m pytest -q tests/test_feedback_owner.py tests/test_feedback_observation.py tests/test_retrieval_cli_e2e.py tests/test_worker_result_budget_contract.py tests/test_transcript_audit.py` = **101 passed**。
-- **全量**：`python -B -m pytest -q tests/` = **760 passed / 0 failed**（开工基线 744 + 本卡 16）。
-- **Ruff**（本卡改动文件 8 个）：**All checks passed**（`retrieval_runtime.py` 的两个协议常量重导出标了 `# noqa: F401`，`tests/test_retrieval_runtime.py` 依赖该重导出）。Black：本机 black 版本对未改动文件（如 `common.py`、`config.py`）同样报重排，属版本差异而非本卡引入；本卡不重排并行作者代码。
+- **全量**：`python -B -m pytest -q tests/` = **761 passed / 0 failed**（开工基线 744 + 本卡 17）。
+- **Ruff**（本卡改动文件 8 个）：**All checks passed**（`retrieval_runtime.py` 中 `WORKER_PROTOCOL` 重导出标了 `# noqa: F401`，`tests/test_retrieval_runtime.py` 依赖该重导出；`WORKER_ERROR_FILENAME` 确有使用，不加 noqa）。Black：本机 black 版本对未改动文件（如 `common.py`、`config.py`）同样报重排，属版本差异而非本卡引入；本卡不重排并行作者代码。
 - **Mimosa 预提交门禁**：通过（仅 low 级提示：`eval_translation.py`/`tests/test_du9_legacy_comparison.py` 的随机数用法与 `retrieval_runtime.py:3` 的命令注入启发式 —— 第 3 行是基线 `61fe94e2` 逐字相同的文档字符串，属预存误报，本卡未引入）。
 
 ## 冷读复现（第二个进程，直接可跑）
@@ -81,7 +81,7 @@ worker 失败明细示例的生成命令：`python -B tools/run_request_budget_e
 | 1 | MAJOR | 同身份并发生产者会重复登记原发生：显式 OUT 与直启 bundle 两种模式各出现重复行（`obs=10 unique=5`），重复永久留在持久存储并每次重新发布 | `transcript_feedback.py` 新增同身份跨进程写锁 `<pending>.identity-lock`（目录锁，超 60s 的僵尸锁自动回收）；`_record()` 在锁内重新扫描 sink 后再做 check-then-append；`DeliveryRecorder.publish()` 按 `(run_id, attempt_id, step_id, check_id)` 去重并只发布被观察引用的明细；`_drain_pending()` 同样在锁内只投递被引用明细。新回归 `test_concurrent_same_identity_producers_register_once`（3 并发真实子进程 × 两种模式，断言 5 行且 5 个唯一身份） |
 | 2 | MINOR | launcher 工厂失败时 worker 阶段被记成 `dispatch`，失败阶段无法独立恢复 | `retrieval_worker.py` 的 `session_factory` 去掉 `try/finally`，`phase="dispatch"` 只在工厂成功返回后设置，异常路径保留 `launcher`；回归改为显式断言 `worker_phase == "launcher"` |
 | 3 | MINOR | Ruff 未净（`WORKER_PROTOCOL` 重导出报 F401），交接却称已通过 | 两个协议常量重导出加 `# noqa: F401`（该重导出被 `tests/test_retrieval_runtime.py` 使用，必须保留）；交接该行改为按实际结果陈述 |
-| 4 | NOTE | 调用方可控标识逐字进入公开产物：URL 查询串、伪造 traceback 文本可经 `request_id`/`ticker` 进入观察与明细 | 新增 `safe_public_word()`：≤128 字且无空白/`:`/`/`/`?`/`#`/`&`/`=`/`\` 才原样发布，否则发布 `redacted-<sha256[:16]>` 稳定摘要词；应用于公开 `step_id`、`evidence_ref`、明细请求事实的 `request_id`/`ticker`，以及明细内嵌收据副本的 `request_id`（stderr 上的业务收据保持原样）。新回归 `test_unsafe_request_id_is_published_as_a_digest_word` |
+| 4 | NOTE | 调用方可控标识逐字进入公开产物：URL 查询串、伪造 traceback 文本可经 `request_id`/`ticker` 进入观察与明细 | 新增 `safe_public_word()`：≤128 字且无空白/`/`/`?`/`#`/`&`/`=`/`\` 才原样发布，否则发布 `redacted-<sha256[:16]>` 稳定摘要词（冒号仍属安全字符，本仓 `et-case:<name>` 形状不变）；应用于公开 `step_id`、`evidence_ref`、明细请求事实的 `request_id`/`ticker`，以及明细内嵌收据副本的 `request_id`（stderr 上的业务收据保持原样）。新回归 `test_unsafe_request_id_is_published_as_a_digest_word` |
 | 5 | NOTE | 同身份重跑在明细文件留下孤儿行（无观察引用） | 随 #1 一并修复：投递与发布都只处理被观察引用的明细 |
 | 6 | NOTE | 交接 Markdown 占位符未填 | 本文件：候选 SHA、测试计数、Ruff 与 Mimosa 事实、样例复现命令、审查结论均按实际填写 |
 | 7 | NOTE | 写入不完整诊断无生产消费方 | `active_diagnostics()` / `write_failures` 记入本文件"边界"一节：所有可写介质不可用时由驱动作业读取，业务返回逐字节不变 |
@@ -106,7 +106,24 @@ Ruff 全净；不安全 `request_id`/`ticker`/明细内嵌收据副本全部转�
 | 6 | NOTE | 拒绝明细里的 `argument: "--periods"` 是静态选项名 | 保留：它是卡内要求的"发生位置"常量，用户输入值（`not-a-period`）从不发布 |
 
 最终源码版本：`44e2a2716ecbc27d509acee31c38dd02d9475139`（第二轮 PASS 所绑定的版本）；
-其后仅为本次交接的收据提交（交接 Markdown、样例、PWF 状态入口），不含产品代码改动。
+其后为关闭两项 MINOR 的收据提交 `01e3a772575613036962cfb292c3e52d6d964244`（`transcript_feedback.py`
+两处证据引用消毒 + 字符集调整、取锁预算收紧、多余 noqa 移除、三份样例重生成、
+新回归 `test_host_supplied_evidence_ref_is_published_safely`、交接 Markdown、PWF 状态入口）。
+
+### 第三轮最终确认的状态
+
+审查员对 `01e3a772` 的第三轮最终确认因 **Token Plan 用量上限（错误 2056）** 中断，未能出结论。
+两项 MINOR 关闭由本方按执行验证收口（逐项实测，不依赖既有声明）：
+
+- 消毒回归 + 并发回归 + worker 阶段回归：`tests/test_f4_ordinary_failures.py` 17 项全过
+  （含 `test_host_supplied_evidence_ref_is_published_safely`、`test_unsafe_request_id_is_published_as_a_digest_word`、
+  `test_concurrent_same_identity_producers_register_once`、`test_worker_loss_exit_state_is_preserved`）；
+- 全量 `python -B -m pytest -q tests/` = **761 passed / 0 failed**；改动文件 Ruff **All checks passed**；
+- 样例复现：按交接命令重跑，bundle 字段级一致（仅 `details_ref` 随明细时间戳变化）、`.ready` 逐字节一致；
+- 冒烟遗留清理：本机默认状态根的临时产物已删除。
+
+**额度恢复后的待办**：请审查员对 `01e3a772` 做一次简短复核（范围 = 本节列出的收据提交增量：
+evidence_ref 消毒行为、锁预算延迟语义、noqa/样例一致性），确认无新发现后本卡即完全收口。
 
 ## 边界与未竟事项
 

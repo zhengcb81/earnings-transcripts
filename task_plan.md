@@ -21,7 +21,9 @@
   402 仍是来源权限事实、费用保持未知；漏发布用量的正控继续报 `transcript-usage-receipt` 偏差。
 - **回归**：新增 `tests/test_f4_ordinary_failures.py`（16 项隔离子进程回归，RED 9 失败/5 通过 → GREEN 16 通过）；
   卡内规定回归 101 项通过；全量 760 项通过（基线 744 + 本卡 16）；改动文件 Ruff 全净。
-- **独审**：第一轮结论 FAIL（1 MAJOR + 2 MINOR + 4 NOTE），全部修复后按卡内要求在最终源码版本复核。
+- **独审**：第一轮结论 FAIL（1 MAJOR + 2 MINOR + 4 NOTE），全部修复后第二轮在 `44e2a271` 复核 **PASS**；
+  关闭两项 MINOR 的 `01e3a772` 由本方执行验证收口（17 项回归、全量 761、Ruff 净、样例复现一致），
+  审查员第三轮最终确认因 Token Plan 用量上限中断，待额度恢复补做（见交接"第三轮最终确认的状态"）。
 - **交给 ROOT 的**：跨仓组合复验、公开收件目录的 `native_observation_dirs` 配置（本机默认收件目录绝对路径
   `C:\Users\郑曾波\.earnings-transcripts\feedback\observations`）、以及本卡两个原发生的关闭确认。
 
