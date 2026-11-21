@@ -125,6 +125,22 @@ Ruff 全净；不安全 `request_id`/`ticker`/明细内嵌收据副本全部转�
 **额度恢复后的待办**：请审查员对 `01e3a772` 做一次简短复核（范围 = 本节列出的收据提交增量：
 evidence_ref 消毒行为、锁预算延迟语义、noqa/样例一致性），确认无新发现后本卡即完全收口。
 
+## 拒绝门禁审视（卡内 C 节要求）
+
+四个普通拒绝逐一按业务目的审视过门禁必要性，结论均为**必要门禁、如实留痕、无需修复**：
+`--operation bad`（choices 白名单，非法取值）、`--periods not-a-period`（精确期次 token 语法）、
+TXT 审计根缺失（无输入即无从审计）、config 缺失（仓库配置是审计实现的前提）。没有任何
+"正常请求被误拒"的情形，因此无需在本仓 PWF 记减门方案；全部按 `expected`/`refusal_recorded` 留痕。
+
+## 调用数与清理结果
+
+- 本卡全部隔离运行零外网（sitecustomize 审计钩子阻断）、零下载、零翻译、零付费调用；唯一涉及的
+  402 案由离线假传输回放，`paid_calls=0`（`tools/run_request_budget_e2e.py` 自证字段）。
+- 全量 pytest 的临时目录由 pytest 自行回收；e2e harness 断言 `temporary_root_restored=true`、
+  `worker_temp_empty=true`；测试结束后无残留目录（`test_no_stray_temp_roots_outside_the_test_root` 钉住）。
+- 实现期间的冒烟与调试在本机默认状态根落过 3210 个测试残留文件，收尾时已全部删除，默认状态根
+  恢复为会话前不存在的状态；`.mimosa/`、`.workbuddy-ai/` 两个并行工具目录全程未动。
+
 ## 边界与未竟事项
 
 - `--capabilities` 仍不产生任何观察（无 retrieval 步）；scraper 批量运行本身不新增逐项观察（本卡范围仅普通入口拒绝），失败逐项归并将随 ROOT 后续派工进入原修复途径。
