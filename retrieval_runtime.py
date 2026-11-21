@@ -37,7 +37,7 @@ from typing import Any
 from retrieval_protocol import (
     REQUEST_FILENAME,
     RESULT_FILENAME,
-    WORKER_ERROR_FILENAME,  # noqa: F401  re-exported: the parent reads what the child wrote
+    WORKER_ERROR_FILENAME,  # re-exported: the parent reads what the child wrote
     WORKER_PROTOCOL,  # noqa: F401  re-exported: existing callers/tests read it here
     build_request_envelope,
     encode_envelope,

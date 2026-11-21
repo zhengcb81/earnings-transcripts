@@ -206,14 +206,23 @@ COMPLETION_SUCCESS_STATUSES = frozenset({"fetched", "discovered"})
 
 MAX_SCANNED_BYTES = 8 * 1024 * 1024
 
+#: The same-identity writer lock: how long a process waits for a busy lock
+#: before it defers the delivery to the next attempt, and how long a lock
+#: untouched by its owner survives before it is treated as abandoned.
+IDENTITY_LOCK_ATTEMPTS = 12
+IDENTITY_LOCK_SLEEP_SECONDS = 0.02
+IDENTITY_LOCK_STALE_SECONDS = 60
+
 
 def _is_str(value: Any) -> bool:
     return isinstance(value, str) and value != ""
 
 
 #: Characters that would smuggle URL queries, paths or forged stderr text
-#: through a public identifier word.
-_UNSAFE_PUBLIC_WORD = re.compile(r"[\s:/?#&=\\]")
+#: through a public identifier word. A colon stays allowed: the repository's
+#: own opaque evidence references use ``et-case:<name>``, and every URL
+#: shape still carries at least one of the characters below.
+_UNSAFE_PUBLIC_WORD = re.compile(r"[\s/?#&=\\]")
 
 
 def safe_public_word(value: Any, *, fallback: str) -> str | None:
@@ -710,7 +719,7 @@ def begin_step(
             branch=branch,
             started_at=started_at,
         )
-        reference = evidence_ref
+        reference = safe_public_word(evidence_ref, fallback="evidence")
         if not _is_str(reference) and isinstance(request, Mapping):
             reference = safe_public_word(request.get("request_id"), fallback="request")
         recorder.record(
@@ -850,19 +859,20 @@ class FeedbackRecorder:
         running under the same owner/run/attempt can never both believe they
         are registering an occurrence first. Acquisition retries briefly,
         reaps a lock left behind by a killed process, and then proceeds
-        unlocked — never deadlocks, never crashes.
+        unlocked — never deadlocks, never crashes. A lock that stays busy
+        defers the delivery of the next attempt instead of losing it.
         """
         path = self.identity_lock_path
         if path is None:
             return None
-        for _ in range(40):
+        for _ in range(IDENTITY_LOCK_ATTEMPTS):
             try:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.mkdir()
                 return path
             except FileExistsError:
                 self._reap_stale_identity_lock(path)
-                time.sleep(0.025)
+                time.sleep(IDENTITY_LOCK_SLEEP_SECONDS)
             except OSError:
                 return None
         return None
@@ -871,7 +881,7 @@ class FeedbackRecorder:
     def _reap_stale_identity_lock(path: Path) -> None:
         """A lock left behind by a killed process must not block recovery forever."""
         try:
-            if time.time() - path.stat().st_mtime > 60:
+            if time.time() - path.stat().st_mtime > IDENTITY_LOCK_STALE_SECONDS:
                 path.rmdir()
         except OSError:
             pass
@@ -1533,8 +1543,10 @@ def emit_observations(
         emitted: list[dict[str, Any]] = []
         # Without a host-supplied reference the native request id is this run's
         # public evidence: an opaque identifier of the native receipt, with no
-        # credential, path or command in it.
-        reference = evidence_ref
+        # credential, path or command in it. A host-supplied reference is
+        # published under the same rule, so an unsafe value can never carry a
+        # URL query or forged text into a public artifact.
+        reference = safe_public_word(evidence_ref, fallback="evidence")
         if not _is_str(reference) and isinstance(request, Mapping):
             reference = safe_public_word(request.get("request_id"), fallback="request")
         for check in checks:

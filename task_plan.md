@@ -1,5 +1,30 @@
 # ET（earnings-transcripts）计划与状态入口
 
+## 2026-11-21 · ET F4 普通入口、坏 TXT 与 worker 失败可复现
+
+本仓按 [F4-ET-FAILURES 施工卡](docs/plans/feedback-loop-2026-11-17/F4-ET-FAILURES.md) 关闭总控运行号
+`f4-coverage-audit-20261121` 的两条 ET 原发生（中央档案 `failure-coverage-20261121.jsonl` 第 10、11 行）。
+交接在 [`docs/plans/feedback-loop-2026-11-17/F4-ET-FAILURES-handoff.md`](docs/plans/feedback-loop-2026-11-17/F4-ET-FAILURES-handoff.md)。
+
+- **本仓新能力**：普通入口在参数解析与副作用之前建立本次身份并登记本次 recorder，于是
+  `transcript_tool.py --operation bad`、`scraper.py --periods not-a-period`、`transcript_audit.py --root <缺失>`
+  三类普通拒绝各发布一条 `invocation-refusal` 观察（明细带拒绝原因、发生阶段与本仓相对位置，无 argv）；
+  本地原件审计按原报告的相对文件引用逐文件发布 `stored-original-audit` 观察，损坏 TXT 的解码损坏原因
+  （`invalid_encoding`）可查，同批成功文件同样可查，电话会正文零进入反馈。
+- **worker 失败语义**：supervisor 把子进程 stderr 收进自己的临时目录并合并脱敏诊断（退出码、失败阶段、
+  异常类型链、子进程 pid、结果文件加载失败词），只进父进程写的那一条 finished 明细；原生用量收据形状与
+  退出码不变，费用未知仍是未知。exit 7、超时、结果文件损坏三种同外层不同内因可冷读分辨。
+- **落盘与交付**：记录先存本机 owner 持久状态根再确认；直启（未传 `RESEARCH_FEEDBACK_OUT`）向公开收件目录
+  原子发布 `feedback-<32 位小写 hex>.jsonl` + 同名明细 + `.ready` 就绪标记；同身份并发生产者与补投在共享
+  写锁下只登记一次原发生，补投不产生第二份 bundle；显式 OUT 保持 F4-ET 既有单次文件语义。
+- **业务契约不变**：原生 CLI 的 usage 文本、stdout、退出码、收据与文件操作逐字节不变（`--capabilities` 仍零观察）；
+  402 仍是来源权限事实、费用保持未知；漏发布用量的正控继续报 `transcript-usage-receipt` 偏差。
+- **回归**：新增 `tests/test_f4_ordinary_failures.py`（16 项隔离子进程回归，RED 9 失败/5 通过 → GREEN 16 通过）；
+  卡内规定回归 101 项通过；全量 760 项通过（基线 744 + 本卡 16）；改动文件 Ruff 全净。
+- **独审**：第一轮结论 FAIL（1 MAJOR + 2 MINOR + 4 NOTE），全部修复后按卡内要求在最终源码版本复核。
+- **交给 ROOT 的**：跨仓组合复验、公开收件目录的 `native_observation_dirs` 配置（本机默认收件目录绝对路径
+  `C:\Users\郑曾波\.earnings-transcripts\feedback\observations`）、以及本卡两个原发生的关闭确认。
+
 ## 2026-11-20 ET F4 原始用量恢复
 
 本仓增加 [F4 运行和交接](docs/plans/feedback-loop-2026-11-17/F4-ET.md)。从原冻结终态为已知用量补发公开披露，通过本仓事务收据保留原请求、尝试、复验和回告。缺原证据以及未知金额仍按原状态处理。下一步由 ROOT 接生产配置并作组合验收。

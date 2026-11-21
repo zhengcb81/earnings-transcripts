@@ -775,6 +775,58 @@ def test_unsafe_request_id_is_published_as_a_digest_word(tmp_path):
     )
 
 
+def test_host_supplied_evidence_ref_is_published_safely(tmp_path, monkeypatch):
+    """宿主传入的公开证据同样受消毒规则约束：URL 查询不逐字进入公开产物，
+    本仓自己的不透明证据引用（``et-case:<name>``）保持原样。"""
+    import io
+    from unittest.mock import patch
+
+    import transcript_tool
+
+    case = e2e_case_dir(tmp_path, "host-evidence")
+    out_path = case / "observations.jsonl"
+    request = discover_request("f4-host-evidence-001")
+    monkeypatch.setenv("RESEARCH_FEEDBACK_OUT", str(out_path))
+    monkeypatch.setenv("RESEARCH_FEEDBACK_RUN_ID", "f4-host-evidence")
+    monkeypatch.setenv("RESEARCH_FEEDBACK_ATTEMPT_ID", "one")
+    monkeypatch.setenv(
+        "RESEARCH_FEEDBACK_STATE_ROOT", str(tmp_path / "state-host-evidence")
+    )
+
+    def run(reference):
+        out, err = io.StringIO(), io.StringIO()
+        with (
+            patch.object(sys, "stdin", io.StringIO(json.dumps(request))),
+            patch.object(sys, "stdout", out),
+            patch.object(sys, "stderr", err),
+        ):
+            rc = transcript_tool.main(
+                DISCOVER_ARGV[1:],
+                _feedback_evidence_ref=reference,
+            )
+        assert rc == 0
+        rows = read_jsonl(out_path.parent / (out_path.name))
+        return rows
+
+    hostile = run("https://evil.example/q?token=abc123")
+    blob = json.dumps(hostile, ensure_ascii=False)
+    assert "evil.example" not in blob
+    assert "token=abc123" not in blob
+    assert hostile
+    assert all(
+        str(row.get("evidence_ref", "")).startswith("evidence-")
+        for row in hostile
+        if row.get("evidence_ref")
+    )
+
+    # 本仓不透明证据引用原样发布（既有冻结样例依赖这个形状）。
+    out_path.write_bytes(b"")
+    legitimate = run("et-case:f4-host-evidence")
+    assert {
+        row["evidence_ref"] for row in legitimate if row.get("evidence_ref")
+    } == {"et-case:f4-host-evidence"}
+
+
 def test_started_only_cut_point_is_recovered_without_new_requests(tmp_path):
     """仅开始截止点：进程在开始记录落盘后被强停，第二个进程对账不新增请求，
     开始发生只登记一次。"""
