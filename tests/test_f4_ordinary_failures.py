@@ -25,6 +25,8 @@ import sys
 import time
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
 
@@ -136,9 +138,21 @@ def run_entry(
         check=False,
     )
 
+def inspection_path(path: Path) -> Path:
+    """Use the host file API independently of ET when inspecting test artifacts."""
+    if os.name != "nt":
+        return path
+    text = os.path.abspath(path)
+    if text.startswith(("\\\\?\\", "\\\\.\\")):
+        return Path(text)
+    if text.startswith("\\\\"):
+        return Path("\\\\?\\UNC\\" + text[2:])
+    return Path("\\\\?\\" + text)
+
 
 def second_process_readback(env: dict, out_path: Path) -> dict:
     """Read one sidecar pair back from a second, independent Python process."""
+    out_path = inspection_path(out_path)
     result = run_entry(
         env,
         ["-c", READBACK_SCRIPT, str(out_path), str(out_path) + ".details.jsonl"],
@@ -150,7 +164,7 @@ def second_process_readback(env: dict, out_path: Path) -> dict:
 
 def read_jsonl(path: Path) -> list[dict]:
     try:
-        raw = path.read_bytes()
+        raw = inspection_path(path).read_bytes()
     except OSError:
         return []
     rows = []
@@ -906,9 +920,9 @@ def test_direct_start_publication_covers_three_configurations(tmp_path):
     env_out["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "one"
     completed = run_entry(env_out, DISCOVER_ARGV, stdin=stdin, cwd=case)
     assert completed.returncode == 0
-    assert (out_root / "observations.jsonl").is_file()
-    assert (out_root / "observations.jsonl.details.jsonl").is_file()
-    assert not (out_root / "inbox").exists()
+    assert (inspection_path(out_root) / "observations.jsonl").is_file()
+    assert (inspection_path(out_root) / "observations.jsonl.details.jsonl").is_file()
+    assert not (inspection_path(out_root) / "inbox").exists()
 
     # 组二：仅 DIR —— 公开收件目录收到 bundle + ready。
     dir_root = tmp_path / "cfg-dir"
@@ -921,7 +935,7 @@ def test_direct_start_publication_covers_three_configurations(tmp_path):
     assert completed.returncode == 0
     bundles = sorted(
         path
-        for path in (dir_root / "inbox").glob("feedback-*.jsonl")
+        for path in inspection_path(dir_root / "inbox").glob("feedback-*.jsonl")
         if not path.name.endswith(".details.jsonl")
     )
     assert len(bundles) == 1
@@ -951,7 +965,7 @@ def test_direct_start_publication_covers_three_configurations(tmp_path):
     env_default["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "one"
     completed = run_entry(env_default, DISCOVER_ARGV, stdin=stdin, cwd=case)
     assert completed.returncode == 0
-    default_inbox = default_root / "observations"
+    default_inbox = inspection_path(default_root / "observations")
     default_bundles = sorted(
         path
         for path in default_inbox.glob("feedback-*.jsonl")
@@ -1069,3 +1083,153 @@ def test_no_stray_temp_roots_outside_the_test_root(tmp_path):
     assert result["summary"]["temporary_root_restored"] is True
     assert result["summary"]["worker_temp_empty"] is True
     assert result["summary"]["paid_calls"] == 0
+
+
+
+@pytest.mark.parametrize("target", ("out", "dir", "default"))
+def test_ordinary_refusal_in_deep_state_survives_cold_read_and_ack(tmp_path, target):
+    env = make_env(tmp_path)
+    root = tmp_path
+    while len(str(root)) < 375:
+        root /= "nested-feedback-owner-state"
+    env["RESEARCH_FEEDBACK_STATE_ROOT"] = str(root / "state")
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "deep-state"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "original"
+    if target == "out":
+        logical_output = root / "sidecar" / "observation.jsonl"
+        env["RESEARCH_FEEDBACK_OUT"] = str(logical_output)
+    else:
+        inbox = root / "state" / "observations"
+        if target == "dir":
+            inbox = root / "configured-inbox"
+            env["RESEARCH_FEEDBACK_DIR"] = str(inbox)
+        inbox = inspection_path(inbox)
+
+    def refuse():
+        return run_entry(env, [ROOT / "transcript_tool.py", "--operation", "invalid"])
+
+    failed = refuse()
+    assert failed.returncode == 2
+    assert b"invalid choice" in failed.stderr
+    if target == "out":
+        bundle = inspection_path(logical_output)
+    else:
+        markers = list(inbox.glob("feedback-*.ready"))
+        assert len(markers) == 1
+        marker = markers[0]
+        mark = json.loads(marker.read_bytes())
+        assert (mark["owner"], mark["run_id"], mark["attempt_id"]) == (
+            "earnings-transcripts", "deep-state", "original",
+        )
+        bundle = marker.with_suffix(".jsonl")
+    first = second_process_readback(env, bundle)
+    rows = rows_for_check(first["observations"], "invocation-refusal")
+    assert len(rows) == 1
+    (cause,) = first["details"]
+    assert rows[0]["details_ref"] == cause["details_id"]
+    assert (cause["entry"], cause["refusal_code"]) == ("transcript_tool", "invalid_cli_arguments")
+    assert len(list(bundle.parent.glob("*.diagnostics.jsonl"))) == 0
+    assert second_process_readback(env, bundle) == first
+
+    if target != "out":
+        # Simulate the consumer acknowledging and taking its data away.
+        # A new producer under the same identity must see the ACK even at depth.
+        marker.with_suffix(".ack").write_bytes(b"confirmed")
+        marker.unlink()
+        bundle.unlink()
+        bundle.with_name(bundle.name + ".details.jsonl").unlink()
+        assert refuse().returncode == 2
+        assert marker.with_suffix(".ack").is_file()
+        assert not marker.exists() and not bundle.exists()
+
+
+def test_deep_owner_port_reconciles_and_cold_reads_the_existing_ledger(tmp_path):
+    from tests.test_feedback_owner import action, copy_case, occurrence, row_for
+
+    env = make_env(tmp_path)
+    root = tmp_path
+    while len(str(root)) < 375:
+        root /= "nested-owner-ledger"
+    disk_root = inspection_path(root)
+    disk_root.mkdir(parents=True)
+    physical_sidecar = copy_case(disk_root, "deviation-usage-receipt")
+    row = row_for(physical_sidecar, "usage-accounting")
+    identifier = occurrence(row)
+    args = [
+        ROOT / "tools" / "feedback_owner.py",
+        "--db",
+        root / "ledger #% 证.sqlite",
+        "--sidecar-dir",
+        root,
+    ]
+
+    def invoke(argv, payload=None):
+        body = json.dumps(payload).encode("utf8") if payload else b""
+        proc = run_entry(env, [*args, *argv], stdin=body)
+        assert proc.returncode == 0, (proc.stdout, proc.stderr)
+        return json.loads(proc.stdout)
+
+    request = action("triage", [identifier], {"observation": row, "occurrence_id": identifier})
+    receipt = invoke(["triage"], request)
+    assert receipt["result"]["decision"] == "repair"
+    for _ in range(2):
+        recovered = invoke(["get-action", request["action_id"]])
+        assert recovered["receipt"]["result"] == receipt["result"]
+
+
+def test_late_failure_is_published_from_complete_native_journals(tmp_path):
+    env = make_env(tmp_path)
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "rolling"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "one"
+    first = run_entry(env, [ROOT / "transcript_tool.py", "--request-stdin"], stdin=b"{")
+    assert first.returncode == 0
+
+    state = inspection_path(Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]))
+    pending = state / "pending" / "rolling--one.jsonl"
+    for journal in (pending, pending.with_name(pending.name + ".details.jsonl")):
+        assert journal.is_file()
+        # Legal trailing JSON whitespace models a large historical journal
+        # without changing or manufacturing a single historical fact.
+        with journal.open("ab") as stream:
+            stream.write(b" " * (8 * 1024 * 1024) + b"\n")
+
+    second = run_entry(env, [ROOT / "scraper.py", "--periods", "not-a-period"])
+    assert second.returncode == 2
+    markers = list((state / "observations").glob("feedback-*.ready"))
+    assert len(markers) == 1
+    bundle = markers[0].with_suffix(".jsonl")
+    saved = second_process_readback(env, bundle)
+    initial = rows_for_check(saved["observations"], "outcome-naming")
+    assert len(initial) == 1 and initial[0]["actual"] == "invalid_request"
+    late = rows_for_check(saved["observations"], "invocation-refusal")
+    assert len(late) == 1
+    by_ref = {detail["details_id"]: detail for detail in saved["details"]}
+    assert by_ref[late[0]["details_ref"]]["entry"] == "scraper"
+
+
+def test_two_refusal_sites_in_one_attempt_survive_replay_of_legacy_receipt(tmp_path):
+    env = make_env(tmp_path)
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "shared"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "one"
+    output = tmp_path / "shared.jsonl"
+    env["RESEARCH_FEEDBACK_OUT"] = str(output)
+    transcript_cli = [ROOT / "transcript_tool.py", "--operation", "invalid"]
+    scraper_cli = [ROOT / "scraper.py", "--periods", "not-a-period"]
+
+    assert run_entry(env, transcript_cli).returncode == 2
+    (receipt,) = read_jsonl(output)
+    # This is exactly the legacy public key on disk before the upgrade.
+    receipt["step_id"] = "cli-refusal"
+    inspection_path(output).write_text(json.dumps(receipt) + "\n", encoding="utf-8")
+    for argv in (transcript_cli, scraper_cli, scraper_cli):
+        assert run_entry(env, argv).returncode == 2
+
+    saved = second_process_readback(env, output)
+    rows = rows_for_check(saved["observations"], "invocation-refusal")
+    assert len(rows) == 2
+    assert rows[0] == receipt
+    by_ref = {detail["details_id"]: detail for detail in saved["details"]}
+    assert {by_ref[row["details_ref"]]["refusal_code"] for row in rows} == {
+        "invalid_cli_arguments", "invalid_argument_value",
+    }
+    assert rows[0]["step_id"] != rows[1]["step_id"]

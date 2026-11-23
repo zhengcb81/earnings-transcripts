@@ -72,6 +72,20 @@ FEEDBACK_DIR_ENV = "RESEARCH_FEEDBACK_DIR"
 FEEDBACK_DISABLED_ENV = "RESEARCH_FEEDBACK_DISABLED"
 FEEDBACK_STATE_ROOT_ENV = "RESEARCH_FEEDBACK_STATE_ROOT"
 
+
+def storage_path(value: str | os.PathLike[str]) -> Path:
+    """Resolve Windows I/O names once for files, siblings, locks and SQLite."""
+    path = Path(value)
+    if os.name != "nt":
+        return path
+    absolute = os.path.abspath(path)
+    if absolute.startswith(("\\\\?\\", "\\\\.\\")):
+        return Path(absolute)
+    if absolute.startswith("\\\\"):
+        return Path("\\\\?\\UNC\\" + absolute[2:])
+    return Path("\\\\?\\" + absolute)
+
+
 def default_state_root() -> Path:
     """The owner's own machine default: ``~/.earnings-transcripts/feedback``.
 
@@ -204,8 +218,6 @@ SOURCE_UNAVAILABLE_STATUSES = frozenset(
 )
 COMPLETION_SUCCESS_STATUSES = frozenset({"fetched", "discovered"})
 
-MAX_SCANNED_BYTES = 8 * 1024 * 1024
-
 #: The same-identity writer lock: how long a process waits for a busy lock
 #: before it defers the delivery to the next attempt, and how long a lock
 #: untouched by its owner survives before it is treated as abandoned.
@@ -253,6 +265,15 @@ def details_id(details: Mapping[str, Any]) -> str:
     """A content-derived id for one detail record."""
     raw = json.dumps(details, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return "fb-" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+
+
+def _refusal_step(detail: Mapping[str, Any]) -> str:
+    """Retries share a site, independent entry points keep their own occurrence."""
+    site = {
+        key: detail.get(key)
+        for key in ("entry", "stage", "refusal_code", "location", "argument")
+    }
+    return f"{REFUSAL_STEP_ID}-{details_id(site)}"
 
 
 def requested_period(request: Any) -> str | None:
@@ -754,9 +775,9 @@ class FeedbackRecorder:
         pending_path: str | os.PathLike[str] | None = None,
         identity_lock_path: str | os.PathLike[str] | None = None,
     ) -> None:
-        self.out_path = Path(out_path)
+        self.out_path = storage_path(out_path)
         self.details_path = (
-            Path(details_path)
+            storage_path(details_path)
             if details_path is not None
             else self.out_path.with_name(self.out_path.name + ".details.jsonl")
         )
@@ -772,12 +793,12 @@ class FeedbackRecorder:
         # The owner's own durable pending store: when the intended sink cannot
         # take a record, the record is saved here first and redelivered by a
         # later process running under the same identity.
-        self.pending_path = Path(pending_path) if pending_path is not None else None
+        self.pending_path = storage_path(pending_path) if pending_path is not None else None
         # Cross-process serialization point for same-identity writers: every
         # check-then-append of one occurrence identity happens under this lock
         # so two concurrent producers can never both believe they are first.
         self.identity_lock_path = (
-            Path(identity_lock_path) if identity_lock_path is not None else None
+            storage_path(identity_lock_path) if identity_lock_path is not None else None
         )
         self.diagnostics_path = self.out_path.with_name(
             self.out_path.name + ".diagnostics.jsonl"
@@ -823,6 +844,7 @@ class FeedbackRecorder:
 
     # ── reading what a previous attempt already wrote ──────────────
     def _scan_existing(self) -> None:
+        legacy_refusals: set[str] = set()
         for path, sink in (
             (self.out_path, self.written_ids),
             (self.details_path, self._details_ids),
@@ -842,8 +864,30 @@ class FeedbackRecorder:
                             check_id=str(record.get("check_id", "")),
                         )
                     )
+                    if (
+                        record.get("step_id") == REFUSAL_STEP_ID
+                        and record.get("check_id") == CHECK_INVOCATION_REFUSAL
+                        and record.get("owner") == self.owner
+                        and record.get("run_id") == self.run_id
+                        and record.get("attempt_id") == self.attempt_id
+                        and isinstance(record.get("details_ref"), str)
+                    ):
+                        legacy_refusals.add(record["details_ref"])
                 else:
-                    sink.add(str(record.get("details_id", "")))
+                    detail_ref = str(record.get("details_id", ""))
+                    sink.add(detail_ref)
+                    if detail_ref in legacy_refusals:
+                        # Index an old generic key as the exact public refusal
+                        # site it describes, without modifying its saved bytes.
+                        self.written_ids.add(
+                            observation_id(
+                                owner=self.owner,
+                                run_id=self.run_id,
+                                attempt_id=self.attempt_id,
+                                step_id=_refusal_step(record),
+                                check_id=CHECK_INVOCATION_REFUSAL,
+                            )
+                        )
 
     # ── the owner's own durable pending store ──────────────────────
     @property
@@ -1153,25 +1197,33 @@ class FeedbackRecorder:
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
-    """Read one bounded JSONL file; unreadable content yields no record."""
+    """Read complete records over the full journal, including after a torn line."""
+    records: list[dict[str, Any]] = []
     try:
-        if not path.is_file():
-            return []
-        raw = path.read_bytes()[:MAX_SCANNED_BYTES]
+        with path.open(encoding="utf-8", errors="replace") as stream:
+            for line in stream:
+                if not line.strip():
+                    continue
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if isinstance(record, dict):
+                    records.append(record)
     except OSError:
         return []
-    records: list[dict[str, Any]] = []
-    for line in raw.decode("utf-8", errors="replace").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            record = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if isinstance(record, dict):
-            records.append(record)
     return records
+
+
+def _content_matches(path: Path, expected: bytes) -> bool:
+    """Compare the complete published content without a second full-size copy."""
+    view = memoryview(expected)
+    chunk = 64 * 1024
+    with path.open("rb") as stream:
+        for offset in range(0, len(view), chunk):
+            if stream.read(chunk) != view[offset : offset + chunk]:
+                return False
+        return not stream.read(1)
 
 
 def run_identity(environ: Mapping[str, str] | None = None) -> tuple[str, str]:
@@ -1286,7 +1338,7 @@ class DeliveryRecorder(FeedbackRecorder):
         **kwargs: Any,
     ) -> None:
         super().__init__(out_path, run_id=run_id, attempt_id=attempt_id, **kwargs)
-        self.inbox_dir = Path(inbox_dir)
+        self.inbox_dir = storage_path(inbox_dir)
         raw = "|".join((self.owner, self.run_id, self.attempt_id))
         self.delivery_hex = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:32]
         self._recover_bundle()
@@ -1311,10 +1363,8 @@ class DeliveryRecorder(FeedbackRecorder):
         try:
             return (
                 self.ready_path.is_file()
-                and self.bundle_path.is_file()
-                and self.bundle_details_path.is_file()
-                and self.bundle_path.read_bytes()[:MAX_SCANNED_BYTES] == bundle
-                and self.bundle_details_path.read_bytes()[:MAX_SCANNED_BYTES] == details
+                and _content_matches(self.bundle_path, bundle)
+                and _content_matches(self.bundle_details_path, details)
             )
         except OSError:
             return False
@@ -1616,7 +1666,7 @@ def emit_invocation_refusal(
         },
     )
     recorder.record(
-        step_id=REFUSAL_STEP_ID,
+        step_id=_refusal_step(details),
         check_id=CHECK_INVOCATION_REFUSAL,
         expected="refusal_recorded",
         actual="refusal_recorded",

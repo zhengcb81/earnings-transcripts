@@ -10,6 +10,7 @@ import sqlite3
 import sys
 from contextlib import closing
 from pathlib import Path
+from urllib.parse import quote
 
 # The fixed deployment command also works when invoked by absolute script path.
 ROOT = Path(__file__).resolve().parents[1]
@@ -152,9 +153,9 @@ def _version(publication):
 
 class OwnerRuntime:
     def __init__(self, db, sidecars, sidecar_dir):
-        self.db = db
-        self.sidecars = sidecars
-        self.sidecar_dir = sidecar_dir
+        self.db = feedback.storage_path(db)
+        self.sidecars = [feedback.storage_path(path) for path in sidecars]
+        self.sidecar_dir = feedback.storage_path(sidecar_dir) if sidecar_dir else None
 
     def _original(self, row):
         """Bind the exact immutable observation to its native terminal detail."""
@@ -211,9 +212,10 @@ class OwnerRuntime:
     def read(self, key):
         if not _is_digest(key) or not self.db.is_file():
             return None
-        with closing(
-            sqlite3.connect(self.db.resolve().as_uri() + "?mode=ro", uri=True)
-        ) as connection:
+        # Quote the native filename as URI data, including Windows UNC or
+        # extended-path markers. Read-only lookup must never create a database.
+        uri = "file:" + quote(str(self.db.absolute()), safe="/") + "?mode=ro"
+        with closing(sqlite3.connect(uri, uri=True)) as connection:
             return self._get(connection, key)
 
     def reconcile(self, body):
