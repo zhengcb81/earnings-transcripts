@@ -16,7 +16,7 @@
 
 ## 公开端口
 
-宿主配置固定 argv 前缀 `[python, "-B", "<ET 根>/tools/feedback_owner.py", "--db", "<ET 数据根>/owner.sqlite", "--sidecar-dir", "<ET 数据根>/observations"]`。单次交接也可传可重复的 `--sidecar FILE`。数据目录和命令由部署给定，来文仅承载公开动作和不透明引用。用独占 ET 回执库保存原提交、结果和本仓补发版本。
+宿主配置固定 argv 前缀 `[python, "-B", "<ET 根>/tools/feedback_owner.py", "--db", "<ET 数据根>/owner.sqlite", "--sidecar-dir", "<ET 数据根>/observations"]`。存在两个或更多原始观察目录时，对每个目录重复 `--sidecar-dir DIR`；单次交接也可传可重复的 `--sidecar FILE`。数据目录和命令由部署给定，来文仅承载公开动作和不透明引用。用独占 ET 回执库保存原提交、结果和本仓补发版本。
 
 | 命令 | 结果 |
 |---|---|
@@ -40,3 +40,7 @@
 ## Next Step
 
 ROOT 组合使用实际宿主作业 ID 和本仓 `get-action` 复验落盘丢回复与再导入，按 filing-fetch 公开用量合同核对同一原生回执。通过后发布候选并登记实际部署版本。
+
+## 2026-11-23 补验 owner 原始证据路由
+
+总控的投递收件与 owner 的冷读是两个步骤。ET 原生收件目录与历史总控旁路分开时，在现有 owner 命令的 `--sidecar-dir` 后继续追加独立 ET 目录。旧版 CLI 只保留最后一个参数，使用两份真实历史样例复现了单目录都可查、双目录时早先目录的原发生返回 `unknown`。通过可重复配置后，两份记录都能经新进程从原目录查回。原来的单目录 CLI、可重复的 `--sidecar FILE` 及 `OwnerRuntime(..., sidecar_dir=...)` 保持兼容。复验比较两个请求的原生回执、文件原字节与无 SQLite 或供应商工作副作用。

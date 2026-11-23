@@ -152,21 +152,22 @@ def _version(publication):
 
 
 class OwnerRuntime:
-    def __init__(self, db, sidecars, sidecar_dir):
+    def __init__(self, db, sidecars, sidecar_dir=None, *, sidecar_dirs=()):
         self.db = feedback.storage_path(db)
         self.sidecars = [feedback.storage_path(path) for path in sidecars]
-        self.sidecar_dir = feedback.storage_path(sidecar_dir) if sidecar_dir else None
+        directories = (sidecar_dir, *sidecar_dirs) if sidecar_dir else sidecar_dirs
+        self.sidecar_dirs = tuple(dict.fromkeys(feedback.storage_path(path) for path in directories))
 
     def _original(self, row):
         """Bind the exact immutable observation to its native terminal detail."""
         scope = tuple(row[field] for field in IDENTITY[:-1])
         paths = list(self.sidecars)
-        if self.sidecar_dir is not None:
-            paths.extend(
-                path
-                for path in sorted(self.sidecar_dir.glob("*.jsonl"))
-                if not path.name.endswith((".details.jsonl", ".diagnostics.jsonl"))
-            )
+        paths.extend(
+            path
+            for directory in self.sidecar_dirs
+            for path in sorted(directory.glob("*.jsonl"))
+            if not path.name.endswith((".details.jsonl", ".diagnostics.jsonl"))
+        )
         checks, terminal_paths = {}, []
         for path in dict.fromkeys(paths):
             for saved in _rows(path):
@@ -411,14 +412,17 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--db", required=True, type=Path)
     parser.add_argument("--sidecar", action="append", type=Path, default=[])
-    parser.add_argument("--sidecar-dir", type=Path)
+    parser.add_argument(
+        "--sidecar-dir", action="append", type=Path, default=[],
+        help="read original observations from this directory; may be repeated",
+    )
     commands = parser.add_subparsers(dest="action", required=True)
     for action in (*ACTIONS, "reconcile"):
         commands.add_parser(action)
     for action in ("get-action", "get-usage"):
         commands.add_parser(action).add_argument("action_id")
     args = parser.parse_args(argv)
-    owner = OwnerRuntime(args.db, args.sidecar, args.sidecar_dir)
+    owner = OwnerRuntime(args.db, args.sidecar, sidecar_dirs=args.sidecar_dir)
     try:
         if args.action in ("get-action", "get-usage"):
             receipt = owner.read(args.action_id)

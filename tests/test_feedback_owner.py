@@ -15,6 +15,7 @@ from pathlib import Path
 import pytest
 
 import transcript_feedback as feedback
+from tools.feedback_owner import OwnerRuntime
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLES = ROOT / "docs" / "plans" / "feedback-loop-2026-11-17" / "samples"
@@ -349,3 +350,40 @@ def test_known_metered_request_preserves_original_usage_and_unknown_price(
         "receipt": {"request": old_input, "result": triage},
     }
     assert call(host, sidecar, "reconcile", check)["result"]["cost_state"] == "unknown"
+
+
+def test_owner_reads_original_observations_in_two_configured_directories(tmp_path, host):
+    supervised = tmp_path / "supervised"
+    native = tmp_path / "native"
+    supervised.mkdir()
+    native.mkdir()
+    cases = (
+        copy_case(supervised, "deviation-usage-receipt"),
+        copy_case(native, "unknown-usage"),
+    )
+    originals = {path: path.read_bytes() for folder in (supervised, native) for path in folder.iterdir()}
+    db, env = host
+    commands = [
+        sys.executable, "-B", str(ROOT / "tools" / "feedback_owner.py"),
+        "--db", str(db),
+        "--sidecar-dir", str(supervised),
+        "--sidecar-dir", str(native),
+        "reconcile",
+    ]
+
+    for sidecar in cases:
+        row = row_for(sidecar, feedback.CHECK_ACTION_STARTED)
+        key = occurrence(row)
+        body = {"occurrence_id": key, "observation": row}
+        request = action("reconcile", [key], body)
+        expected = call(host, sidecar, "reconcile", request)
+        assert expected["state"] == "done"
+        assert OwnerRuntime(db, [], sidecar_dir=sidecar.parent).reconcile(body) == expected
+        result = subprocess.run(
+            commands, cwd=tmp_path, env=env, input=json.dumps(request).encode("utf-8"),
+            capture_output=True, check=True, timeout=15,
+        )
+        assert not result.stderr
+        assert json.loads(result.stdout) == expected
+    assert not db.exists()
+    assert {path: path.read_bytes() for path in originals} == originals
