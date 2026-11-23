@@ -1196,9 +1196,11 @@ def test_late_failure_is_published_from_complete_native_journals(tmp_path):
     second = run_entry(env, [ROOT / "scraper.py", "--periods", "not-a-period"])
     assert second.returncode == 2
     markers = list((state / "observations").glob("feedback-*.ready"))
-    assert len(markers) == 1
-    bundle = markers[0].with_suffix(".jsonl")
-    saved = second_process_readback(env, bundle)
+    saved = {"observations": [], "details": []}
+    for marker in markers:
+        group = second_process_readback(env, marker.with_suffix(".jsonl"))
+        for key in saved:
+            saved[key].extend(group[key])
     initial = rows_for_check(saved["observations"], "outcome-naming")
     assert len(initial) == 1 and initial[0]["actual"] == "invalid_request"
     late = rows_for_check(saved["observations"], "invocation-refusal")
@@ -1233,3 +1235,128 @@ def test_two_refusal_sites_in_one_attempt_survive_replay_of_legacy_receipt(tmp_p
         "invalid_cli_arguments", "invalid_argument_value",
     }
     assert rows[0]["step_id"] != rows[1]["step_id"]
+
+
+@pytest.mark.parametrize("publication", ("explicit", "inbox"))
+def test_unavailable_details_recover_from_native_copy(publication, tmp_path):
+    env = make_env(tmp_path)
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "detail-loss"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "original"
+    state = inspection_path(Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]))
+    if publication == "explicit":
+        sink = inspection_path(tmp_path) / "observations.jsonl"
+        env["RESEARCH_FEEDBACK_OUT"] = str(tmp_path / sink.name)
+    else:
+        sink = state / "pending" / "detail-loss--original.jsonl"
+    details_sink = sink.with_name(sink.name + ".details.jsonl")
+    details_sink.mkdir(parents=True)
+    failed = run_entry(env, [ROOT / "transcript_tool.py", "--operation", "invalid"])
+    assert failed.returncode == 2
+    (original,) = read_jsonl(sink)
+    assert original["check_id"] == "invocation-refusal"
+    inbox = state / "observations"
+    if publication == "inbox":
+        assert list(inbox.glob("*.ready")) == []
+
+    details_sink.rmdir()
+    for _ in range(2):
+        recovery = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"])
+        assert recovery.returncode == 0
+        if publication == "explicit":
+            published = sink
+        else:
+            (ready,) = inbox.glob("*.ready")
+            marker = json.loads(ready.read_bytes())
+            assert (marker["observations"], marker["details"]) == (1, 1)
+            published = ready.with_suffix(".jsonl")
+        saved = second_process_readback(env, published)
+        assert saved["observations"] == [original]
+        (detail,) = saved["details"]
+        assert detail["details_id"] == original["details_ref"]
+        assert detail["refusal_code"] == "invalid_cli_arguments"
+
+
+def test_scraper_empty_company_selection_preserves_exit_and_cold_reason(tmp_path):
+    env = make_env(tmp_path)
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "empty-selection"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "first"
+    (tmp_path / "companies.txt").write_text("", encoding="utf-8")
+    # Give the actual CLI an isolated configuration. Its argument checks,
+    # ticker matching and company reader remain live.
+    guard = Path(env["PYTHONPATH"]) / "sitecustomize.py"
+    with guard.open("a", encoding="utf-8") as script:
+        script.write(
+            "import config, os\n"
+            "config.load_config = lambda: {'paths': {'base_dir': os.getcwd(), "
+            "'transcripts_dir': 'transcripts', 'companies_file': 'companies.txt'}}\n"
+        )
+    env["PYTHONPATH"] = os.pathsep.join((env["PYTHONPATH"], str(ROOT)))
+    for _ in range(2):
+        result = run_entry(env, [ROOT / "scraper.py", "--dry-run", "--ticker", "TEST"], cwd=tmp_path)
+        assert result.returncode == 1
+        assert b"no companies found in companies.txt" in result.stderr
+    state = inspection_path(Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]))
+    (marker,) = (state / "observations").glob("*.ready")
+    saved = second_process_readback(env, marker.with_suffix(".jsonl"))
+    (row,) = rows_for_check(saved["observations"], "invocation-refusal")
+    (cause,) = saved["details"]
+    assert row["details_ref"] == cause["details_id"]
+    assert row["disposition"] == "expected"
+    assert cause["entry"] == "scraper"
+    assert cause["refusal_code"] == "empty_company_selection"
+    assert cause["stage"] == "company-selection"
+
+
+def test_ack_only_confirms_its_delivered_occurrences(tmp_path):
+    import hashlib
+
+    env = make_env(tmp_path)
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "one-run"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "one-attempt"
+    state = inspection_path(Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]))
+    inbox = state / "observations"
+    original = [ROOT / "transcript_tool.py", "--operation", "invalid"]
+    second = [ROOT / "scraper.py", "--periods", "not-a-period"]
+    third = [ROOT / "transcript_audit.py", "--root", tmp_path / "missing"]
+    assert run_entry(env, original).returncode == 2
+    (marker,) = inbox.glob("*.ready")
+    original_bundle = marker.with_suffix(".jsonl")
+    original_bytes = original_bundle.read_bytes()
+    original_detail = original_bundle.with_name(original_bundle.name + ".details.jsonl")
+    original_details = original_detail.read_bytes()
+    ack = marker.with_suffix(".ack")
+    marker.rename(ack)
+    original_ack = ack.read_bytes()
+
+    for argv, exit_code in [(original, 2), (second, 2), (third, 1), (second, 2)]:
+        assert run_entry(env, argv).returncode == exit_code
+
+    def read_late():
+        causes = []
+        for ready in inbox.glob("*.ready"):
+            mark = json.loads(ready.read_bytes())
+            path = ready.with_suffix(".jsonl")
+            details = path.with_name(path.name + ".details.jsonl")
+            assert mark["observations_sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
+            assert mark["details_sha256"] == hashlib.sha256(details.read_bytes()).hexdigest()
+            payload = second_process_readback(env, path)
+            for row in payload["observations"]:
+                cause = next(d for d in payload["details"] if d["details_id"] == row["details_ref"])
+                causes.append(cause["refusal_code"])
+        return sorted(causes)
+
+    assert read_late() == ["input_root_missing", "invalid_argument_value"]
+    ready_paths = sorted(inbox.glob("*.ready"))
+    # Simulate termination after data was written but before its ready marker.
+    interrupted = ready_paths[-1]
+    recovered_mark = interrupted.read_bytes()
+    interrupted.unlink()
+    assert run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"]).returncode == 0
+    assert interrupted.read_bytes() == recovered_mark
+    for ready in ready_paths:
+        ready.rename(ready.with_suffix(".ack"))
+    assert run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"]).returncode == 0
+    assert list(inbox.glob("*.ready")) == []
+    assert original_bundle.read_bytes() == original_bytes
+    assert original_detail.read_bytes() == original_details
+    assert ack.read_bytes() == original_ack

@@ -39,7 +39,7 @@ keeps the single-run file and its existing detail format, and wins over
 ``RESEARCH_FEEDBACK_DIR``. A pending record that outlived its process is
 redelivered read-only by a later process running under the same
 owner/run/attempt identity; the same occurrence is registered exactly once,
-and ROOT's ``.ack`` mark stops redelivery. Write failures never change the
+and ROOT's ``.ack`` confirms only the occurrences in that delivery. Write failures never change the
 business return.
 """
 
@@ -970,10 +970,14 @@ class FeedbackRecorder:
                 for record in saved_details
                 if isinstance(record, Mapping) and _is_str(record.get("details_id"))
             ]
+            self._scan_existing()
             referenced_details = {
-                str(record.get("details_ref"))
-                for record in pending_observations
-                if _is_str(record.get("details_ref"))
+                record["details_ref"]
+                for record in (*pending_observations, *_read_jsonl(self.out_path))
+                if record.get("owner") == self.owner
+                and record.get("run_id") == self.run_id
+                and record.get("attempt_id") == self.attempt_id
+                and _is_str(record.get("details_ref"))
             }
             missing_observations = []
             seen_observations: set[str] = set()
@@ -1008,7 +1012,8 @@ class FeedbackRecorder:
                 if self._append_jsonl(self.details_path, record):
                     self._details_ids.add(str(record["details_id"]))
                     delivered += 1
-            if delivered == len(missing_observations) + len(missing_details):
+            unbound = any(row["details_id"] not in referenced_details for row in pending_details)
+            if not unbound and delivered == len(missing_observations) + len(missing_details):
                 # Every deliverable saved record reached the sink; the pending
                 # copy is done.
                 for path in (self.pending_path, self._pending_details_path):
@@ -1324,8 +1329,9 @@ class DeliveryRecorder(FeedbackRecorder):
     with its sanitized details sibling and, only after both are in place, the
     same-basename ``.ready`` mark. The delivery hex is derived from the
     identity, so a redelivery under the same owner/run/attempt converges on
-    the same bundle name and the same occurrence is registered exactly once.
-    ROOT owns the ``.ack`` confirmation mark; the owner never writes it.
+    the same bundle name. A later distinct occurrence has its own stable
+    delivery, so an ACK never exhausts a still-running attempt. ROOT owns
+    the ``.ack`` confirmation mark.
     """
 
     def __init__(
@@ -1341,7 +1347,7 @@ class DeliveryRecorder(FeedbackRecorder):
         self.inbox_dir = storage_path(inbox_dir)
         raw = "|".join((self.owner, self.run_id, self.attempt_id))
         self.delivery_hex = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:32]
-        self._recover_bundle()
+        self.publish()
 
     @property
     def bundle_path(self) -> Path:
@@ -1359,100 +1365,139 @@ class DeliveryRecorder(FeedbackRecorder):
     def ack_path(self) -> Path:
         return self.inbox_dir / f"feedback-{self.delivery_hex}.ack"
 
-    def _delivered_intact(self, bundle: bytes, details: bytes) -> bool:
+    def _base_members(self, rows: Mapping[str, Mapping[str, Any]]) -> set[str]:
+        """Freeze the first delivery once, even when its public files are taken."""
+        index = self.out_path.with_name(self.out_path.name + ".delivery.json")
         try:
-            return (
-                self.ready_path.is_file()
-                and _content_matches(self.bundle_path, bundle)
-                and _content_matches(self.bundle_details_path, details)
-            )
-        except OSError:
-            return False
+            saved = json.loads(index.read_bytes())
+        except (FileNotFoundError, ValueError):
+            saved = None
+        if isinstance(saved, dict):
+            occurrences = saved.get("occurrences")
+            if isinstance(occurrences, list) and all(isinstance(key, str) for key in occurrences):
+                return set(occurrences)
 
-    def _recover_bundle(self) -> None:
-        """Redeliver a pending bundle a dead process left behind."""
-        try:
-            if self.ack_path.exists():
-                return
-            self.publish()
-        except OSError as exc:
-            self._note_failure(f"feedback_delivery_failed:{type(exc).__name__}")
+        base = self.bundle_path
+        ready = self.ready_path
+        ack = self.ack_path
+        if not ready.is_file() and not ack.is_file():
+            members = set(rows)
+        else:
+            # An earlier ET version had no local membership file. Bind its
+            # surviving public bytes, or its original marker if the host took them.
+            members = {
+                self._occurrence(record)
+                for record in _read_jsonl(base)
+                if self._own_observation(record)
+            }
+            if not members:
+                try:
+                    mark = json.loads((ack if ack.is_file() else ready).read_bytes())
+                except (FileNotFoundError, ValueError):
+                    mark = {}
+                if isinstance(mark, dict):
+                    steps = mark.get("step_ids")
+                    if isinstance(steps, list):
+                        candidates = {key for key, row in rows.items() if row["step_id"] in steps}
+                        if len(candidates) == mark.get("observations"):
+                            members = candidates
+                if not members:
+                    # Without old bytes or identifying receipt, keep native facts
+                    # available under deterministic occurrence IDs for host dedup.
+                    self._note_failure("legacy_delivery_membership_unknown")
+        _atomic_write(index, json.dumps({"occurrences": sorted(members)}).encode("utf8"))
+        return members
+
+    def _own_observation(self, record: Mapping[str, Any]) -> bool:
+        return (
+            record.get("schema_version") == OBSERVATION_SCHEMA
+            and record.get("owner") == self.owner
+            and record.get("run_id") == self.run_id
+            and record.get("attempt_id") == self.attempt_id
+        )
+
+    def _occurrence(self, record: Mapping[str, Any]) -> str:
+        return observation_id(
+            owner=self.owner, run_id=self.run_id, attempt_id=self.attempt_id,
+            step_id=str(record.get("step_id", "")), check_id=str(record.get("check_id", "")),
+        )
+
+    def _publish_group(
+        self,
+        delivery: str,
+        rows: list[Mapping[str, Any]],
+        details: Mapping[str, Mapping[str, Any]],
+    ) -> bool:
+        bundle = self.inbox_dir / f"feedback-{delivery}.jsonl"
+        if bundle.with_suffix(".ack").is_file():
+            return True
+        references = dict.fromkeys(
+            row["details_ref"] for row in rows if _is_str(row.get("details_ref"))
+        )
+        if any(reference not in details for reference in references):
+            self._note_failure("feedback_delivery_incomplete:missing_details")
+            return False
+        data = _jsonl_bytes(rows)
+        evidence = _jsonl_bytes([details[reference] for reference in references])
+        sidecar = bundle.with_name(bundle.name + ".details.jsonl")
+        ready = bundle.with_suffix(".ready")
+        if ready.is_file():
+            try:
+                if _content_matches(bundle, data) and _content_matches(sidecar, evidence):
+                    return True
+            except FileNotFoundError:
+                pass  # restore the same immutable group from its native journal
+        # A consumer can atomically rename ready to ack between the two
+        # lookups. Recheck before reconstructing its already-taken files.
+        if bundle.with_suffix(".ack").is_file():
+            return True
+        self.inbox_dir.mkdir(parents=True, exist_ok=True)
+        _atomic_write(bundle, data)
+        _atomic_write(sidecar, evidence)
+        mark = {
+            "schema_version": "feedback-delivery-ready/1",
+            "owner": self.owner,
+            "run_id": self.run_id,
+            "attempt_id": self.attempt_id,
+            "step_ids": sorted({row["step_id"] for row in rows}),
+            "observations": len(rows),
+            "details": len(references),
+            "observations_sha256": hashlib.sha256(data).hexdigest(),
+            "details_sha256": hashlib.sha256(evidence).hexdigest(),
+        }
+        if not bundle.with_suffix(".ack").is_file():
+            _atomic_write(ready, _jsonl_bytes([mark]))
+        return True
 
     def publish(self) -> bool:
-        """Publish saved records as one bundle; idempotent, never raises.
-
-        Rows are deduplicated by occurrence identity under the same-identity
-        lock, and a detail is published only when a published observation
-        references it, so concurrent same-identity producers or re-runs can
-        never make one occurrence appear twice in the public bundle.
-        """
+        """Deliver unseen occurrences without reopening a previously taken bundle."""
         lock = self._acquire_identity_lock()
         try:
             if lock is None and self.identity_lock_path is not None:
-                return True  # another same-identity process is publishing now
-            if self.ack_path.exists():
                 return True
-            raw_rows = [
-                record
-                for record in _read_jsonl(self.out_path)
-                if isinstance(record, Mapping)
-                and record.get("schema_version") == OBSERVATION_SCHEMA
-            ]
-            unique_rows: dict[tuple[str, str, str, str], Mapping[str, Any]] = {}
-            for record in raw_rows:
-                key = (
-                    str(record.get("run_id", "")),
-                    str(record.get("attempt_id", "")),
-                    str(record.get("step_id", "")),
-                    str(record.get("check_id", "")),
-                )
-                unique_rows.setdefault(key, record)
-            rows = list(unique_rows.values())
+            rows: dict[str, Mapping[str, Any]] = {}
+            for row in _read_jsonl(self.out_path):
+                if self._own_observation(row):
+                    rows.setdefault(self._occurrence(row), row)
             if not rows:
                 return True
-            referenced_details = {
-                str(record.get("details_ref"))
-                for record in rows
-                if _is_str(record.get("details_ref"))
+            details = {
+                row["details_id"]: row for row in _read_jsonl(self.details_path)
+                if _is_str(row.get("details_id"))
             }
-            unique_details: dict[str, Mapping[str, Any]] = {}
-            for record in _read_jsonl(self.details_path):
-                if not isinstance(record, Mapping) or not _is_str(
-                    record.get("details_id")
-                ):
-                    continue
-                identifier = str(record["details_id"])
-                if identifier not in referenced_details or identifier in unique_details:
-                    continue
-                unique_details[identifier] = record
-            details = list(unique_details.values())
-            bundle = _jsonl_bytes(rows)
-            details_bytes = _jsonl_bytes(details)
-            if self._delivered_intact(bundle, details_bytes):
-                return True
-            self.inbox_dir.mkdir(parents=True, exist_ok=True)
-            _atomic_write(self.bundle_path, bundle)
-            _atomic_write(self.bundle_details_path, details_bytes)
-            mark = {
-                "schema_version": "feedback-delivery-ready/1",
-                "owner": self.owner,
-                "run_id": self.run_id,
-                "attempt_id": self.attempt_id,
-                "step_ids": sorted(
-                    {str(record.get("step_id", "")) for record in rows}
-                ),
-                "observations": len(rows),
-                "details": len(details),
-            }
-            _atomic_write(
-                self.ready_path,
-                json.dumps(mark, ensure_ascii=False, separators=(",", ":")).encode(
-                    "utf-8"
-                )
-                + b"\n",
-            )
-            return True
-        except OSError as exc:
+            base = self._base_members(rows)
+            original = [row for identifier, row in rows.items() if identifier in base]
+            delivered = self._publish_group(self.delivery_hex, original, details) if original else True
+            for identifier, row in rows.items():
+                if identifier not in base:
+                    # One deterministic successor per late occurrence. Its ACK
+                    # covers exactly that key, even if the host consumes the data.
+                    seed = f"{self.delivery_hex}/{identifier}".encode("ascii")
+                    successor = hashlib.sha256(seed).hexdigest()[:32]
+                    if not self._publish_group(successor, [row], details):
+                        delivered = False
+            return delivered
+        except (OSError, ValueError, TypeError, KeyError) as exc:
             self._note_failure(f"feedback_delivery_failed:{type(exc).__name__}")
             return False
         finally:
@@ -1520,6 +1565,7 @@ def recorder_from_env(
             run_id=run_id,
             attempt_id=attempt_id,
             inbox_dir=inbox_path(env),
+            pending_path=root / "recovery" / pending_observations.name,
             identity_lock_path=_identity_lock_for(pending_observations),
         )
     set_active_recorder(recorder)

@@ -1341,6 +1341,14 @@ def main(
         else:
             companies = load_companies(cfg, filter_ticker=args.ticker)
         if not companies:
+            transcript_feedback.emit_invocation_refusal(
+                recorder,
+                entry="scraper",
+                stage="company-selection",
+                refusal_code="empty_company_selection",
+                location="scraper.py#main",
+                argument="--ticker" if args.ticker else None,
+            )
             print("error: no companies found in companies.txt", file=sys.stderr)
             return EXIT_FAILURE
 
