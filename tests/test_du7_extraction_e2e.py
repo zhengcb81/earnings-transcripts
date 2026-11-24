@@ -57,6 +57,12 @@ def _page(name: str) -> bytes:
     return (FIXTURES / f"{name}.html").read_bytes()
 
 
+@pytest.fixture(autouse=True)
+def _no_feedback_writes(monkeypatch: pytest.MonkeyPatch) -> None:
+    """批量业务回归不验证反馈旁路：本机状态根必须零写入。"""
+    monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
+
+
 def _forbid_translator(monkeypatch: pytest.MonkeyPatch) -> None:
     import translator
 

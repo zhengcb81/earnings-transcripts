@@ -181,6 +181,76 @@ CHECK_USAGE_ACCOUNTING = "usage-accounting"
 CHECK_ACTION_STARTED = "action-started"
 CHECK_INVOCATION_REFUSAL = "invocation-refusal"
 CHECK_STORED_ORIGINAL = "stored-original-audit"
+#: The stable check of one batch item's own terminal outcome: its stage, its
+#: result, whether it was dispatched and its original metering state.
+CHECK_BATCH_ITEM = "batch-item"
+#: The stable check of the whole batch's own terminal outcome: its real exit
+#: code, its manifest and its measured budget.
+CHECK_BATCH_OUTCOME = "batch-outcome"
+
+#: The stable step id of the whole batch. Every item names it as its parent
+#: step, so one run's items stay together without sharing an identity.
+BATCH_STEP_ID = "batch"
+
+#: The owner-approved rule signature of an undocumented batch item status.
+ISSUE_BATCH_ITEM = "transcript-batch-item"
+
+#: The documented terminal outcomes of one batch item. A status outside this
+#: vocabulary is an undocumented outcome word.
+BATCH_ITEM_STATUSES = frozenset(
+    {
+        "fetched",
+        "discovered",
+        "reused",
+        "legacy_unverified",
+        "unknown",
+        "output_conflict",
+        "not_found",
+        "ambiguous",
+        "not_dispatched",
+        "provider_error",
+        "unavailable",
+        "not_authorized",
+        "rate_limited",
+        "unsupported",
+        "deadline_exceeded",
+        "content_too_large",
+        "provenance_rejected",
+        "invalid_request",
+        "period_unresolved",
+        "output_limit",
+    }
+)
+
+#: The batch item outcomes that are legitimate empty results: the period has
+#: no call, so the run did its job and nothing is missing.
+BATCH_ITEM_EMPTY_STATUSES = frozenset({"not_found", "ambiguous"})
+
+#: The batch item outcomes that mean the item did not obtain its document.
+#: A legal empty result (``not_found``/``ambiguous``) is not one of them.
+BATCH_ITEM_FAILURE_STATUSES = frozenset(
+    {
+        "provider_error",
+        "unavailable",
+        "not_authorized",
+        "rate_limited",
+        "unsupported",
+        "deadline_exceeded",
+        "content_too_large",
+        "provenance_rejected",
+        "invalid_request",
+        "period_unresolved",
+        "output_conflict",
+        "output_limit",
+        "unknown",
+    }
+)
+
+#: The batch item outcomes that completed their work: the document is in
+#: hand, whether it was fetched or an original was reused.
+BATCH_ITEM_SUCCESS_STATUSES = frozenset(
+    {"fetched", "discovered", "reused", "legacy_unverified"}
+)
 
 #: The stable step id of one refused ordinary invocation; the owning entry is
 #: a word inside the detail record, never a path or command.
@@ -378,6 +448,49 @@ def reason_status(reason: Any) -> str | None:
     if reason.startswith("provider_http_"):
         return "provider_error"
     return None
+
+
+def evaluate_batch_item(status: Any) -> dict[str, str]:
+    """Check one batch item's own outcome word against the documented set.
+
+    A documented word is a fact: the item ended in a state the batch
+    vocabulary names, whether that state is a success, a legal empty result
+    or a named failure. An undocumented word is a deviation.
+    """
+    word = status if _is_str(status) else "unknown"
+    if word in BATCH_ITEM_STATUSES:
+        return {
+            "check_id": CHECK_BATCH_ITEM,
+            "expected": word,
+            "actual": word,
+            "disposition": "expected",
+        }
+    return {
+        "check_id": CHECK_BATCH_ITEM,
+        "expected": "documented_status",
+        "actual": word,
+        "disposition": "deviation",
+        "issue_key": ISSUE_BATCH_ITEM,
+    }
+
+
+def evaluate_published_checks(
+    request: Any,
+    result: Any,
+    native_receipt: Any,
+    published_receipt: Any,
+    *,
+    receipt_required: bool,
+) -> tuple[dict[str, str], ...]:
+    """The four published checks of one retrieval step, in their frozen order."""
+    return (
+        evaluate_outcome_naming(result),
+        evaluate_period_ownership(request, result),
+        evaluate_content_reference(result),
+        evaluate_usage(
+            native_receipt, published_receipt, receipt_required=receipt_required
+        ),
+    )
 
 
 def evaluate_outcome_naming(result: Any) -> dict[str, str]:
@@ -719,12 +832,16 @@ def begin_step(
     operation: str,
     branch: str | None = None,
     evidence_ref: str | None = None,
+    parent_step_id: str | None = None,
+    terminal_check_id: str | None = None,
+    failure_prefix: str = "feedback_write_failed",
 ) -> dict[str, Any] | None:
     """Record that the action started, before it can reach a terminal state.
 
     A run that is interrupted after this record and before its result leaves
     a started observation with no result: the final state is unknown, and an
-    unknown is reconciled rather than retried.
+    unknown is reconciled rather than retried. ``terminal_check_id`` names
+    the check that ends this step, so a consumer can pair the two rows.
     """
     if recorder is None:
         return None
@@ -751,10 +868,12 @@ def begin_step(
             disposition="expected",
             evidence_ref=reference,
             details=details,
+            parent_step_id=parent_step_id,
+            terminal_check_id=terminal_check_id,
         )
         return details
     except Exception:  # pragma: no cover - defensive, never a crash
-        recorder._note_failure("feedback_write_failed:projection_error")
+        recorder._note_failure(f"{failure_prefix}:projection_error")
         return None
 
 
@@ -1057,6 +1176,7 @@ class FeedbackRecorder:
         details: Mapping[str, Any] | None = None,
         parent_step_id: str | None = None,
         origin_owner: str | None = None,
+        terminal_check_id: str | None = None,
     ) -> bool:
         """Append one observation. Returns True when a new line was written.
 
@@ -1076,6 +1196,7 @@ class FeedbackRecorder:
                 details=details,
                 parent_step_id=parent_step_id,
                 origin_owner=origin_owner,
+                terminal_check_id=terminal_check_id,
             )
         except Exception as exc:  # pragma: no cover - defensive, never a crash
             self._note_failure(f"feedback_write_failed:{type(exc).__name__}")
@@ -1094,6 +1215,7 @@ class FeedbackRecorder:
         details: Mapping[str, Any] | None,
         parent_step_id: str | None,
         origin_owner: str | None,
+        terminal_check_id: str | None = None,
     ) -> bool:
         if not all(_is_str(value) for value in (step_id, check_id, expected, actual)):
             self._note_failure("feedback_write_failed:invalid_observation")
@@ -1162,6 +1284,8 @@ class FeedbackRecorder:
                 observation["details_ref"] = detail_reference
             if parent_step_id:
                 observation["parent_step_id"] = parent_step_id
+            if terminal_check_id:
+                observation["terminal_check_id"] = terminal_check_id
             if not self._append_jsonl(self.out_path, observation, sink=self._sink):
                 # The observation did not reach the sidecar; it keeps no identity
                 # here, so a later attempt may still deliver it. Save it under the
@@ -1776,9 +1900,253 @@ def emit_stored_original_audit(
         )
 
 
+class BatchJournal:
+    """The batch path's per-item observation writer.
+
+    One batch item is one company and period. Its native request ID is its
+    step identity: the started row is written before the item may reach the
+    provider, and the terminal rows when the item ends. A sibling item can
+    never overwrite a finished one, because every step identity is distinct
+    and every occurrence is registered exactly once.
+
+    The journal never raises and never changes the business contract: a
+    refused sidecar is reported as an incomplete diagnostic on the recorder,
+    and the batch keeps its own stdout, exit code, manifest and originals.
+    """
+
+    def __init__(self, recorder: FeedbackRecorder | None) -> None:
+        self.recorder = recorder
+        self._items: list[dict[str, Any]] = []
+        self._planned: list[dict[str, Any]] = []
+        self._run: dict[str, Any] = {}
+        self._started: dict[str, str] = {}
+
+    # ── a gate that refused ──────────────────────────────────────────
+    def refusal(
+        self,
+        *,
+        entry: str,
+        stage: str,
+        refusal_code: str,
+        location: str,
+        argument: str | None = None,
+    ) -> None:
+        """Record a gate that refused, with the code the gate itself named.
+
+        The refusal is a fact of the run: it keeps the gate's own code and
+        never changes the business return.
+        """
+        emit_invocation_refusal(
+            self.recorder,
+            entry=entry,
+            stage=stage,
+            refusal_code=refusal_code,
+            location=location,
+            argument=argument,
+        )
+
+    # ── planning ────────────────────────────────────────────────────
+    def plan(self, item: dict[str, Any]) -> None:
+        """Record one item the batch intends to process."""
+        self._planned.append(
+            {"ticker": item.get("ticker"), "fiscal_period": item.get("fiscal_period")}
+        )
+
+    # ── one item ─────────────────────────────────────────────────────
+    def begin(
+        self,
+        *,
+        operation: str,
+        request: Any,
+    ) -> None:
+        """Write the started row of one item, before it may reach a provider."""
+        if self.recorder is None:
+            return
+        try:
+            details = begin_step(
+                self.recorder,
+                request=request,
+                operation=operation,
+                branch="batch-item",
+                parent_step_id=BATCH_STEP_ID,
+                terminal_check_id=CHECK_BATCH_ITEM,
+                failure_prefix="batch_feedback_failed",
+            )
+            if details is not None:
+                started_at = details.get("started_at")
+                request_id = request.get("request_id") if isinstance(request, Mapping) else None
+                if _is_str(request_id) and _is_str(started_at):
+                    self._started[request_id] = started_at
+        except Exception as exc:  # pragma: no cover - defensive, never a crash
+            self.recorder._note_failure(f"batch_feedback_failed:{type(exc).__name__}")
+
+    def complete(
+        self,
+        *,
+        operation: str,
+        request: Any,
+        result: Any,
+        usage: Any,
+        worker: Any,
+        item: dict[str, Any],
+        branch: str = "batch-item",
+    ) -> None:
+        """Write one item's terminal rows: its own outcome and its details.
+
+        Every terminal row of the item shares one detail record, so a later
+        process reads the item's stage, result, reason chain, dispatch fact
+        and metering state from a single reference. A dispatched item also
+        carries the four published provider checks of the same attempt; an
+        item that never reached the provider carries none, because there is
+        no provider result to judge.
+        """
+        if self.recorder is None:
+            return
+        try:
+            facts = dict(item)
+            self._items.append(facts)
+            facts.setdefault("item_index", len(self._items))
+            if facts.get("answer_bytes") is None and isinstance(usage, Mapping):
+                facts["answer_bytes"] = usage.get("response_bytes_used")
+            is_dispatched = bool(facts.get("dispatched"))
+            native_receipt = _usage_receipt(request, usage)
+            request_id = request.get("request_id") if isinstance(request, Mapping) else None
+            details = build_details(
+                request=request,
+                result=result,
+                operation=operation,
+                native_receipt=native_receipt,
+                published_receipt=None,
+                phase="finished",
+                branch=branch,
+                started_at=self._started.get(request_id) if _is_str(request_id) else None,
+                finished_at=now(),
+                attempted=is_dispatched,
+                worker=worker,
+                extra={"batch_item": facts},
+            )
+            step = _step_id(request, operation)
+            reference = safe_public_word(facts.get("request_id"), fallback="request")
+            recorder = self.recorder
+            if is_dispatched and isinstance(result, Mapping) and result.get("status"):
+                for check in evaluate_published_checks(
+                    request, result, native_receipt, None, receipt_required=False
+                ):
+                    recorder.record(
+                        step_id=step,
+                        check_id=check["check_id"],
+                        expected=check["expected"],
+                        actual=check["actual"],
+                        disposition=check["disposition"],
+                        issue_key=check.get("issue_key"),
+                        evidence_ref=reference,
+                        details=details,
+                        parent_step_id=BATCH_STEP_ID,
+                    )
+            check = evaluate_batch_item(facts.get("status"))
+            recorder.record(
+                step_id=step,
+                check_id=CHECK_BATCH_ITEM,
+                expected=check["expected"],
+                actual=check["actual"],
+                disposition=check["disposition"],
+                issue_key=check.get("issue_key"),
+                evidence_ref=reference,
+                details=details,
+                parent_step_id=BATCH_STEP_ID,
+            )
+        except Exception as exc:  # pragma: no cover - defensive, never a crash
+            self.recorder._note_failure(f"batch_feedback_failed:{type(exc).__name__}")
+
+    # ── the whole batch ──────────────────────────────────────────────
+    def note_run(
+        self,
+        *,
+        mode: str,
+        source: str,
+        periods: Any,
+        companies: int,
+        manifest: Any = None,
+        budget: Any = None,
+        exhausted: str | None = None,
+    ) -> None:
+        """Record the run facts the whole-batch outcome is judged against."""
+        self._run = {
+            "mode": mode,
+            "source": source,
+            "periods": list(periods or []),
+            "companies": companies,
+            "manifest": manifest,
+            "budget": budget,
+            "exhausted": exhausted,
+        }
+
+    def summary(self, exit_code: int) -> None:
+        """Write the whole batch's own outcome: its real exit code and ledger."""
+        if self.recorder is None:
+            return
+        try:
+            by_status: dict[str, int] = {}
+            for item in self._items:
+                status = str(item.get("status") or "unknown")
+                by_status[status] = by_status.get(status, 0) + 1
+            reached = {
+                (item.get("ticker"), item.get("fiscal_period")) for item in self._items
+            }
+            not_reached = [
+                item
+                for item in self._planned
+                if (item.get("ticker"), item.get("fiscal_period")) not in reached
+            ]
+            batch = dict(self._run)
+            batch.update(
+                {
+                    "exit_code": exit_code,
+                    "items": {"total": len(self._items), "by_status": by_status},
+                    "not_reached": not_reached,
+                }
+            )
+            details = build_details(
+                request={},
+                result={},
+                operation="batch",
+                native_receipt=None,
+                published_receipt=None,
+                phase="finished",
+                branch="batch",
+                extra={"batch": batch},
+            )
+            self.recorder.record(
+                step_id=BATCH_STEP_ID,
+                check_id=CHECK_BATCH_OUTCOME,
+                expected="exit:0",
+                actual=f"exit:{exit_code}",
+                disposition="expected" if exit_code == 0 else "deviation",
+                evidence_ref=BATCH_STEP_ID,
+                details=details,
+            )
+        except Exception as exc:  # pragma: no cover - defensive, never a crash
+            self.recorder._note_failure(f"batch_feedback_failed:{type(exc).__name__}")
+
+
+def _usage_receipt(request: Any, usage: Any) -> dict[str, Any]:
+    """The native usage receipt of one item, in the published shape.
+
+    ``usage_complete`` says whether the measurement is known. An item whose
+    worker ended without a usage report keeps the receipt with an unknown
+    usage: zero is never substituted for an unmeasured request.
+    """
+    request_id = request.get("request_id") if isinstance(request, Mapping) else None
+    return {
+        "schema_version": "earnings-retrieval-usage/1",
+        "request_id": request_id,
+        "usage_complete": isinstance(usage, Mapping),
+        "usage": usage if isinstance(usage, Mapping) else None,
+    }
+
+
 class InvocationRefusal(Exception):
     """One refused ordinary invocation, raised before argparse exits."""
-
     def __init__(self, message: str) -> None:
         super().__init__(message)
         self.message = message

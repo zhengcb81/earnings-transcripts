@@ -22,6 +22,13 @@ from retrieval_protocol import parse_usage  # noqa: E402
 OWNER = feedback.OWNER
 ACTIONS = ("triage", "repair", "replay", "report")
 IDENTITY = ("owner", "origin_owner", "run_id", "attempt_id", "step_id", "check_id")
+#: The checks that can end one step: the transcript result, one batch item and
+#: the whole batch.
+TERMINAL_CHECKS = (
+    feedback.CHECK_OUTCOME_NAMING,
+    feedback.CHECK_BATCH_ITEM,
+    feedback.CHECK_BATCH_OUTCOME,
+)
 PUBLICATION = "et-usage-publication/1"
 GENERATION = "usage-recovery-v1"
 HEX = re.compile(r"[a-f0-9]{64}")
@@ -116,6 +123,39 @@ def _finished_detail(path, reference):
     return None
 
 
+def _terminal_detail(detail, step_id):
+    """The native usage receipt of one step, whatever its terminal check is.
+
+    A transcript step reports the receipt of its own request; a batch item
+    reports the receipt of the one request that item dispatched. A receipt
+    whose usage is unknown stays unknown: zero is never substituted.
+    """
+    stored = detail.get("usage")
+    request = detail.get("request")
+    if not isinstance(stored, dict) or not isinstance(request, dict):
+        return None
+    receipt = stored.get("native_receipt")
+    if not isinstance(receipt, dict):
+        return None
+    usage = parse_usage(receipt.get("usage"))
+    request_id = request.get("request_id")
+    if (
+        (request_id is not None and not isinstance(request_id, str))
+        or step_id != (request_id or f"{detail.get('operation')}-without-request-id")
+        or receipt.get("schema_version") != "earnings-retrieval-usage/1"
+        or receipt.get("request_id") != request_id
+        or receipt.get("usage_complete") is not True
+        or usage is None
+    ):
+        return None
+    return {
+        "schema_version": receipt["schema_version"],
+        "request_id": request_id,
+        "usage_complete": True,
+        "usage": usage,
+    }
+
+
 def _native_usage(detail, step_id):
     stored = detail.get("usage")
     request = detail.get("request")
@@ -181,12 +221,16 @@ class OwnerRuntime:
                 prior = checks.setdefault(check, saved)
                 if prior != saved:
                     return None, None
-                if check == feedback.CHECK_OUTCOME_NAMING:
+                if check in TERMINAL_CHECKS:
                     terminal_paths.append(path)
         original = checks.get(row["check_id"])
         if original != row:
             return None, None
-        terminal = checks.get(feedback.CHECK_OUTCOME_NAMING)
+        terminal = None
+        for candidate in TERMINAL_CHECKS:
+            if candidate in checks:
+                terminal = checks[candidate]
+                break
         if terminal is None or not isinstance(terminal.get("details_ref"), str):
             return original, None
         for field in ("schema_version", "version", "evidence_ref"):
@@ -219,6 +263,37 @@ class OwnerRuntime:
         with closing(sqlite3.connect(uri, uri=True)) as connection:
             return self._get(connection, key)
 
+    @staticmethod
+    def _batch_outcome_status(batch):
+        """The job status of the whole batch, from its own exit code.
+
+        A batch that finished with no failure succeeded; one that a limit cut
+        short was interrupted; every other exit is a failure.
+        """
+        exit_code = batch.get("exit_code")
+        if exit_code == 0:
+            return "succeeded"
+        if exit_code == 3:
+            return "interrupted"
+        return "failed"
+
+    @staticmethod
+    def _batch_job_status(item):
+        """The job status of one batch item, from its own outcome word.
+
+        A batch item that obtained its document succeeded; one that was
+        explicitly not dispatched was interrupted; every other documented
+        outcome failed. An undocumented outcome word stays unconfirmed.
+        """
+        status = item.get("status")
+        if status in feedback.BATCH_ITEM_SUCCESS_STATUSES:
+            return "succeeded"
+        if status == "not_dispatched":
+            return "interrupted"
+        if status in feedback.BATCH_ITEM_STATUSES:
+            return "failed"
+        return "unconfirmed"
+
     def reconcile(self, body):
         row = body.get("observation")
         occurrence = _occurrence(row)
@@ -227,12 +302,21 @@ class OwnerRuntime:
         original, detail = self._original(row)
         if original is None:
             return {"state": "unknown"}
-        result = detail.get("result") if detail else None
+        item = detail.get("batch_item") if isinstance(detail, dict) else None
+        batch = detail.get("batch") if isinstance(detail, dict) else None
+        result = detail.get("result") if isinstance(detail, dict) else None
         status = result.get("status") if isinstance(result, dict) else None
-        job = "unconfirmed"
-        if isinstance(status, str) and status in feedback.STATUS_VOCABULARY:
-            job = "succeeded" if status in ("fetched", "discovered") else "failed"
-        native = _native_usage(detail, original["step_id"]) if detail else None
+        if isinstance(batch, dict):
+            job = self._batch_outcome_status(batch)
+        elif isinstance(item, dict):
+            job = self._batch_job_status(item)
+        else:
+            job = "unconfirmed"
+            if isinstance(status, str) and status in feedback.STATUS_VOCABULARY:
+                job = "succeeded" if status in ("fetched", "discovered") else "failed"
+        native = (
+            _terminal_detail(detail, original["step_id"]) if detail else None
+        )
         no_provider = native is not None and (
             native["usage"]["requests_used"]
             == native["usage"]["response_bytes_used"]

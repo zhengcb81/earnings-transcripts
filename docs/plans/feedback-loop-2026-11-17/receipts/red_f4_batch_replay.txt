@@ -1,0 +1,28 @@
+F4-ET-BATCH-REPLAY · RED 回执（实现前，基线源码）
+
+日期：2026-11-24
+基线：main@f2512176baf1642f534649291a235487ea9d6d3d（git archive 提取到独立临时目录，
+未触碰工作区；对脏树不用 stash）。
+
+1) 基线行为复现（实现前探针，真实 scraper.main 子进程 + 真实 supervisor + 真实 worker，
+   私有 launcher 接缝，全离线；状态根映射到临时目录）：
+   - 两期 HTTP 500：退出 1，manifest 两条 provider_error/provider_http_500，两次夹具请求，
+     反馈端零文件（状态根、收件目录均无产物）——正是施工卡的基线。
+   - 两期 HTTP 200 空列表：退出 0，两条 not_found，反馈端零文件。
+   - --max-requests 1：退出 3，第二期连账本条目都没有（manifest 仅一条）。
+   - 批次硬截止（ stall + --max-seconds）：退出 3，用量 unknown，第二期无账本条目。
+   → 基线复现命令：见交接（同 harness，无修复源码）。
+
+2) 新回归套件在基线源码上的结果（RED）：
+   $ python -B -m pytest -q tests/test_f4_batch_replay.py
+   E   AttributeError: module 'transcript_feedback' has no attribute 'CHECK_BATCH_ITEM'
+   ERROR tests/test_f4_batch_replay.py - AttributeError
+   !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+   1 error in 1.89s
+   → 修复前套件在收集期即失败：卡内规定的逐项检查（batch-item / batch-outcome）、
+     BatchJournal 与 owner 的批量查证入口在基线中不存在。
+
+3) GREEN（最终源码，工作目录）：
+   $ python -B -m pytest -q tests/test_f4_batch_replay.py
+   31 passed in 149.34s（首绿 2026-11-24）
+   全量：$ python -B -m pytest -q tests/  → 803 passed / 0 failed（312.96s）

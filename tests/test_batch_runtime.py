@@ -59,6 +59,8 @@ def run_main(
     temp_root: Path | None = None,
 ) -> int:
     """Dispatch through the real CLI entry with the private worker seam."""
+    # 批量业务回归不验证反馈旁路：本机状态根必须零写入。
+    monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
     if key is None:
         monkeypatch.delenv("FMP_API_KEY", raising=False)
     else:
@@ -1118,7 +1120,11 @@ def test_manifest_records_requests_without_key_or_body(
 
 
 def _run_cli_subprocess(*args: str) -> subprocess.CompletedProcess:
-    env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
+    env = {
+        **os.environ,
+        "PYTHONIOENCODING": "utf-8",
+        "RESEARCH_FEEDBACK_DISABLED": "1",
+    }
     return subprocess.run(
         [sys.executable, str(ROOT / "scraper.py"), *args],
         cwd=str(ROOT),

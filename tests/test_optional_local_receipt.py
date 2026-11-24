@@ -64,6 +64,7 @@ def test_actual_receipt_checksum_mismatch_never_becomes_verified(tmp_path):
 
 
 def test_actual_cli_reuses_bad_note_original_without_llm_or_download(tmp_path, monkeypatch):
+    monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
     out = tmp_path / "out"
     txt = write_txt(out / "ACME", make_text())
     note = receipt_path(txt)

@@ -24,6 +24,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import math
@@ -58,6 +59,7 @@ from retrieval_budget import (
 )
 from retrieval_runtime import RetrievalOutcome, run_retrieval
 import transcript_feedback
+from transcript_feedback import BatchJournal
 from transcript_api import (
     CANDIDATE_FETCH_REQUEST_SCHEMA,
     DEFAULT_PROVIDER_SETTINGS,
@@ -288,6 +290,247 @@ def _record_entry(
         elapsed_seconds,
     )
     return entry
+
+
+# ──────────────────────────────────────────────
+# 逐项观测：每个工作项的原生身份、阶段、结果与计量
+# ──────────────────────────────────────────────
+#: 一条原因为「解析阶段失败」而不是「请求阶段失败」时的原因码。
+_PARSE_STAGE_REASONS = frozenset(
+    {
+        "provider_response",
+        "provider_identity_or_host",
+        "candidate_effective_url_or_mime",
+        "provider_credentials_leaked",
+    }
+)
+
+
+def _item_request(
+    request_id: str, company: dict, fiscal_period: str | None
+) -> dict[str, Any]:
+    """The native request facts of one item, for the feedback detail.
+
+    Only the stable identity fields: no path, no credential, no raw argv.
+    """
+    request: dict[str, Any] = {
+        "request_id": request_id,
+        "ticker": company["ticker"],
+        "exchange": company.get("exchange") or "auto",
+    }
+    if fiscal_period:
+        year, _, quarter = fiscal_period.partition("-Q")
+        if year.isdigit() and quarter.isdigit():
+            request["fiscal_year"] = int(year)
+            request["fiscal_quarter"] = int(quarter)
+    return request
+
+
+def _stage_for(status: str, error_code: str | None) -> str:
+    """这一项结束在哪个真实阶段：抓取、解析还是 TXT 保存。"""
+    if status in ("fetched", "reused", "legacy_unverified", "output_conflict", "unknown"):
+        return "save"
+    if error_code in _PARSE_STAGE_REASONS:
+        return "parse"
+    return "fetch"
+
+
+def _observe_fetched(
+    journal: BatchJournal | None,
+    *,
+    entry: dict[str, Any],
+    operation: str,
+    request: dict[str, Any] | None,
+    result: dict[str, Any],
+    usage: dict[str, Any] | None,
+    worker: dict[str, Any] | None,
+) -> None:
+    """一个真正到过提供方的项：它的原阶段、原结果与原计量都在这里。"""
+    if journal is None:
+        return
+    status = entry.get("status")
+    error_code = entry.get("error_code")
+    _observe_item(
+        journal,
+        entry=entry,
+        operation=operation,
+        request=request or {},
+        result=result,
+        dispatched=True,
+        usage=usage,
+        worker=worker,
+        stage=_stage_for(str(status), error_code),
+    )
+
+
+def _observe_interrupted(
+    journal: BatchJournal | None,
+    *,
+    entry: dict[str, Any],
+    operation: str,
+    request: dict[str, Any] | None,
+    result: dict[str, Any],
+    usage: dict[str, Any] | None,
+    worker: dict[str, Any] | None,
+    stopped_by: str,
+) -> None:
+    """一个已经派发、但没有走完的项：用量未知，绝不用零代替。"""
+    if journal is None:
+        return
+    _observe_item(
+        journal,
+        entry=entry,
+        operation=operation,
+        request=request or {},
+        result=result,
+        dispatched=True,
+        usage=usage,
+        worker=worker,
+        stage=_stage_for(str(entry.get("status")), entry.get("error_code")),
+        stopped_by=stopped_by,
+        ledger_entry=False,
+        branch="interrupted",
+    )
+
+
+def _observe_not_dispatched(
+    journal: BatchJournal | None,
+    *,
+    company: dict,
+    fiscal: str | None,
+    request_id: str,
+    reason: str,
+) -> None:
+    """一个明确没有派发的项：计量已知为零请求、零字节，费用不适用。"""
+    if journal is None:
+        return
+    request = _item_request(request_id, company, fiscal)
+    _observe_item(
+        journal,
+        entry={
+            "request_id": request_id,
+            "ticker": company["ticker"],
+            "exchange": company.get("exchange") or "auto",
+            "fiscal_period": fiscal,
+            "status": "not_dispatched",
+            "error_code": reason,
+            "elapsed_seconds": 0.0,
+        },
+        operation="fetch",
+        request=request,
+        result={"status": "not_dispatched", "error_code": reason},
+        dispatched=False,
+        usage={"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+        worker=None,
+        stage="fetch",
+        ledger_entry=False,
+        stopped_by=reason,
+        branch="not-dispatched",
+    )
+
+
+def _write_batch_outcome(
+    journal: BatchJournal | None,
+    *,
+    mode: str,
+    source: str,
+    periods: list[tuple[int, int]] | None,
+    companies: int,
+    exit_code: int,
+    budget: BatchBudget | None,
+    manifest: dict[str, Any] | None,
+) -> None:
+    """写下一批的整体结果：真实退出码、原 manifest 引用与计量。"""
+    if journal is None:
+        return
+    journal.note_run(
+        mode=mode,
+        source=source,
+        periods=[fiscal_label(year, quarter) for year, quarter in (periods or [])],
+        companies=companies,
+        manifest=manifest,
+        budget=budget.report() if budget is not None else None,
+        exhausted=budget.exhausted if budget is not None else None,
+    )
+    journal.summary(exit_code)
+
+
+def _observe_local(
+    journal: BatchJournal | None,
+    entry: dict[str, Any],
+    *,
+    company: dict,
+    stage: str,
+) -> None:
+    """一个只在本机判定的项：没有发出任何请求，计量已知为零。"""
+    if journal is None:
+        return
+    request = _item_request(entry["request_id"], company, entry.get("fiscal_period"))
+    _observe_item(
+        journal,
+        entry=entry,
+        operation="local",
+        request=request,
+        result={"status": entry["status"], "error_code": entry.get("error_code")},
+        dispatched=False,
+        usage={"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+        worker=None,
+        stage=stage,
+    )
+
+
+def _observe_item(
+    journal: BatchJournal | None,
+    *,
+    entry: dict[str, Any],
+    operation: str,
+    request: dict[str, Any],
+    result: dict[str, Any],
+    dispatched: bool,
+    usage: dict[str, Any] | None,
+    worker: dict[str, Any] | None,
+    stage: str,
+    ledger_entry: bool = True,
+    stopped_by: str | None = None,
+    answer_bytes: int | None = None,
+    candidate_count: int | None = None,
+    branch: str = "batch-item",
+) -> None:
+    """把一个工作项的原生终态写入反馈旁路。
+
+    这里只写旁路：业务 stdout、退出码、manifest 与原件一个字节都不变。
+    路径只留文件名，完整路径仍在本仓的 manifest 里。
+    """
+    if journal is None:
+        return
+    facts: dict[str, Any] = {
+        "request_id": entry.get("request_id"),
+        "ticker": entry.get("ticker"),
+        "exchange": entry.get("exchange"),
+        "fiscal_period": entry.get("fiscal_period"),
+        "operation": operation,
+        "stage": stage,
+        "dispatched": dispatched,
+        "status": entry.get("status"),
+        "error_code": entry.get("error_code"),
+        "ledger_entry": ledger_entry,
+        "stopped_by": stopped_by,
+        "answer_bytes": answer_bytes,
+        "content_bytes": entry.get("content_bytes"),
+        "canonical_sha256": entry.get("canonical_content_sha256"),
+        "file": Path(entry["file"]).name if entry.get("file") else None,
+        "candidate_count": candidate_count,
+        "elapsed_seconds": entry.get("elapsed_seconds"),
+    }
+    journal.complete(
+        operation=operation,
+        request=request,
+        result=result,
+        usage=usage,
+        worker=worker,
+        item=facts,
+        branch=branch,
+    )
 
 
 # ──────────────────────────────────────────────
@@ -575,6 +818,7 @@ def _finalize_existing(
     expected_url: str | None,
     entries: list[dict[str, Any]],
     translate_enabled: bool,
+    journal: BatchJournal | None = None,
 ) -> None:
     """已有原件：验证（身份/期间/字节/收据）后复用，绝不覆盖。
 
@@ -608,6 +852,7 @@ def _finalize_existing(
         if verdict.diagnostics:
             entry["diagnostics"] = list(verdict.diagnostics)
             log.warning("local receipt observation unavailable: %s", ",".join(verdict.diagnostics))
+        _observe_local(journal, entry, company=company, stage="save")
         _maybe_translate(cfg, fn, path, translate_enabled)
         return
     if verdict.outcome == OUTCOME_IDENTITY_MISSING:
@@ -620,7 +865,7 @@ def _finalize_existing(
             f"error: {company['ticker']} {fiscal}: output_conflict/{verdict.error_code}",
             file=sys.stderr,
         )
-    _record_entry(
+    entry = _record_entry(
         entries,
         request_id=request_id,
         company=company,
@@ -630,6 +875,7 @@ def _finalize_existing(
         content_bytes=verdict.body_bytes,
         file=path,
     )
+    _observe_local(journal, entry, company=company, stage="save")
 
 
 def _finalize_fetched(
@@ -645,17 +891,32 @@ def _finalize_fetched(
     budget: BatchBudget,
     request_id: str,
     elapsed: float,
+    journal: BatchJournal | None = None,
+    request: dict[str, Any] | None = None,
+    usage: dict[str, Any] | None = None,
+    worker: dict[str, Any] | None = None,
+    operation: str = "fetch",
 ) -> str:
     """Store a fetched result or record its named outcome; returns 'budget' to stop."""
+    if (
+        operation == "fetch"
+        and isinstance(request, dict)
+        and request.get("schema_version") == CANDIDATE_FETCH_REQUEST_SCHEMA
+    ):
+        operation = "fetch-candidate"
     status = result["status"]
     if status != "fetched":
         print(
             f"error: {company['ticker']} {fiscal}: {status}/{result.get('error_code') or '-'}",
             file=sys.stderr,
         )
-        _record_entry(
+        entry = _record_entry(
             entries, request_id=request_id, company=company, fiscal_period=fiscal,
             status=status, error_code=result.get("error_code"), elapsed_seconds=elapsed,
+        )
+        _observe_fetched(
+            journal, entry=entry, operation=operation, request=request, result=result,
+            usage=usage, worker=worker,
         )
         if status in _PROVIDER_SCOPE_STATUSES:
             return "stop"
@@ -680,7 +941,7 @@ def _finalize_fetched(
             f"error: {company['ticker']} {fiscal}: output_conflict/existing_original",
             file=sys.stderr,
         )
-    _record_entry(
+    entry = _record_entry(
         entries, request_id=request_id, company=company, fiscal_period=fiscal,
         status=store_status,
         error_code="existing_original_conflict" if store_status == "output_conflict" else None,
@@ -688,11 +949,32 @@ def _finalize_fetched(
         canonical_sha256=result.get("canonical_content_sha256"),
         file=path, elapsed_seconds=elapsed,
     )
+    _observe_fetched(
+        journal, entry=entry, operation=operation, request=request, result=result,
+        usage=usage, worker=worker,
+    )
     if store_status == "fetched":
         _maybe_translate(cfg, fn, path, translate_enabled)
     return ""
 
 
+
+def _interrupted_result(outcome: RetrievalOutcome) -> dict[str, Any]:
+    """The named outcome of an attempt that was dispatched but never finished.
+
+    The batch stopped on a limit while this attempt was in flight: the
+    provider may already have been asked, and the usage of that attempt is
+    unknown unless the worker reported it.
+    """
+    if outcome.reason == "deadline":
+        return {"status": "deadline_exceeded", "error_code": "provider_deadline"}
+    result = outcome.result
+    if isinstance(result, dict) and result.get("status"):
+        return {
+            "status": result["status"],
+            "error_code": result.get("error_code"),
+        }
+    return {"status": "provider_error", "error_code": "retrieval_worker_failure"}
 def _process_fool_company(
     *,
     cfg: dict,
@@ -706,52 +988,89 @@ def _process_fool_company(
     entries: list[dict[str, Any]],
     transcripts_root: Path,
     translate_enabled: bool,
+    journal: BatchJournal | None = None,
 ) -> str:
     """Metadata listing → explicit periods → candidate fetch. Returns '' | 'budget' | 'stop'."""
     ticker = company["ticker"]
     exchange = company.get("exchange") or "auto"
     listing_request_id = new_request_id()
     listing_started = time.monotonic()
-    sup = _supervise(
-        budget, ctx, provider_settings, "list",
-        {
-            "ticker": ticker,
-            "exchange": exchange,
-            "as_of_date": date.today().isoformat(),
-            "request_id": listing_request_id,
-            "timeout_seconds": _request_timeout(budget),
-            "download_authorized": True,
-        },
-    )
+    listing_request = {
+        "request_id": listing_request_id,
+        "ticker": ticker,
+        "exchange": exchange,
+        "as_of_date": date.today().isoformat(),
+        "timeout_seconds": _request_timeout(budget),
+        "download_authorized": True,
+    }
+    if journal is not None:
+        journal.plan({"ticker": ticker, "fiscal_period": None})
+        journal.begin(operation="list", request=listing_request)
+    sup = _supervise(budget, ctx, provider_settings, "list", listing_request)
     if sup is None or budget.exhausted:
+        if journal is not None:
+            _observe_not_dispatched(
+                journal, company=company, fiscal=None, request_id=listing_request_id,
+                reason=budget.exhausted or "request_limit",
+            )
         return "budget"
     if sup.result is None:
         print(
             f"error: {ticker}: provider_error/retrieval_worker_failure",
             file=sys.stderr,
         )
-        _record_entry(
+        entry = _record_entry(
             entries, request_id=listing_request_id, company=company, fiscal_period=None,
             status="provider_error", error_code="retrieval_worker_failure",
             elapsed_seconds=time.monotonic() - listing_started,
         )
+        _observe_fetched(
+            journal, entry=entry, operation="list", request=listing_request,
+            result={"status": "provider_error", "error_code": "retrieval_worker_failure"},
+            usage=sup.usage, worker=sup.diagnostics,
+        )
         return "stop"
     listing = sup.result
     listing_status = listing["status"]
-    if listing_status not in ("discovered", "not_found"):
+    listing_failed = listing_status not in ("discovered", "not_found")
+    if listing_failed:
         print(
             f"error: {ticker}: {listing_status}/{listing.get('error_code') or '-'}",
             file=sys.stderr,
         )
-        _record_entry(
+        entry = _record_entry(
             entries, request_id=listing_request_id, company=company, fiscal_period=None,
             status=listing_status, error_code=listing.get("error_code"),
             elapsed_seconds=time.monotonic() - listing_started,
         )
+    else:
+        entry = None
+    if journal is not None:
+        _observe_item(
+            journal,
+            entry={
+                "request_id": listing_request_id,
+                "ticker": ticker,
+                "exchange": exchange,
+                "fiscal_period": None,
+                "status": listing_status,
+                "error_code": listing.get("error_code"),
+                "elapsed_seconds": round(time.monotonic() - listing_started, 3),
+            },
+            operation="list",
+            request=listing_request,
+            result={"status": listing_status, "error_code": listing.get("error_code")},
+            dispatched=True,
+            usage=sup.usage,
+            worker=sup.diagnostics,
+            stage="discovery",
+            ledger_entry=listing_failed,
+            candidate_count=len(listing.get("candidates", [])),
+        )
+    if listing_failed:
         if listing_status in _PROVIDER_SCOPE_STATUSES:
             return "stop"
         return ""
-
     candidates = listing["candidates"]
     if periods is None:
         resolved, unresolved = _expand_recent(candidates, args.quarters or 1)
@@ -764,11 +1083,12 @@ def _process_fool_company(
                 f"error: {ticker}: period_unresolved: recent quarters require explicit FY/Q metadata",
                 file=sys.stderr,
             )
-            _record_entry(
+            entry = _record_entry(
                 entries, request_id=new_request_id(), company=company, fiscal_period=None,
                 status="period_unresolved", error_code="need_explicit_periods",
                 elapsed_seconds=time.monotonic() - listing_started,
             )
+            _observe_local(journal, entry, company=company, stage="discovery")
             return ""
     else:
         resolved = periods
@@ -788,20 +1108,22 @@ def _process_fool_company(
             )
             _finalize_existing(
                 cfg, fn, company, label, fiscal, path, expected_url,
-                entries, translate_enabled,
+                entries, translate_enabled, journal=journal,
             )
             continue
         if not period_candidates:
-            _record_entry(
+            entry = _record_entry(
                 entries, request_id=new_request_id(), company=company, fiscal_period=fiscal,
                 status="not_found",
             )
+            _observe_local(journal, entry, company=company, stage="discovery")
             continue
         if len(period_candidates) > 1:
-            _record_entry(
+            entry = _record_entry(
                 entries, request_id=new_request_id(), company=company, fiscal_period=fiscal,
                 status="ambiguous",
             )
+            _observe_local(journal, entry, company=company, stage="discovery")
             continue
 
         candidate = period_candidates[0]
@@ -817,22 +1139,50 @@ def _process_fool_company(
             "published_date": candidate["published_date"],
         }
         started = time.monotonic()
+        if journal is not None:
+            journal.begin(operation="fetch-candidate", request=request)
         sup = _supervise(
             budget, ctx, provider_settings, "fetch-candidate", request
         )
         elapsed = time.monotonic() - started
         if sup is None or budget.exhausted:
+            if journal is not None:
+                if sup is None:
+                    _observe_not_dispatched(
+                        journal, company=company, fiscal=fiscal, request_id=request_id,
+                        reason=budget.exhausted or "request_limit",
+                    )
+                else:
+                    _observe_interrupted(
+                        journal,
+                        entry={
+                            "request_id": request_id,
+                            "ticker": ticker,
+                            "exchange": exchange,
+                            "fiscal_period": fiscal,
+                            "elapsed_seconds": round(elapsed, 3),
+                            **_interrupted_result(sup),
+                        },
+                        operation="fetch-candidate",
+                        request=request,
+                        result=_interrupted_result(sup),
+                        usage=sup.usage,
+                        worker=sup.diagnostics,
+                        stopped_by=budget.exhausted,
+                    )
             return "budget"
         if sup.result is None:
             _finalize_fetched(
                 cfg, fn, company, label, fiscal,
                 {"status": "provider_error", "error_code": "retrieval_worker_failure"},
                 entries, translate_enabled, transcripts_root, budget, request_id, elapsed,
+                journal=journal, request=request, usage=sup.usage, worker=sup.diagnostics,
             )
             return "stop"
         outcome = _finalize_fetched(
             cfg, fn, company, label, fiscal, sup.result, entries,
             translate_enabled, transcripts_root, budget, request_id, elapsed,
+            journal=journal, request=request, usage=sup.usage, worker=sup.diagnostics,
         )
         if outcome:
             return outcome
@@ -851,6 +1201,7 @@ def _process_fmp_company(
     entries: list[dict[str, Any]],
     transcripts_root: Path,
     translate_enabled: bool,
+    journal: BatchJournal | None = None,
 ) -> str:
     """Exact-period FMP fetches; no discovery endpoint exists, so periods must be explicit."""
     ticker = company["ticker"]
@@ -860,10 +1211,13 @@ def _process_fmp_company(
             return "budget"
         label = quarter_label(year, quarter)
         fiscal = fiscal_label(year, quarter)
+        if journal is not None:
+            journal.plan({"ticker": ticker, "fiscal_period": fiscal})
         path = find_english_file(fn, ticker, label, transcripts_root)
         if path.exists():
             _finalize_existing(
-                cfg, fn, company, label, fiscal, path, None, entries, translate_enabled
+                cfg, fn, company, label, fiscal, path, None, entries, translate_enabled,
+                journal=journal,
             )
             continue
         request = _base_request(
@@ -872,20 +1226,48 @@ def _process_fmp_company(
         )
         request_id = request["request_id"]
         started = time.monotonic()
+        if journal is not None:
+            journal.begin(operation="fetch", request=request)
         sup = _supervise(budget, ctx, provider_settings, "fetch", request)
         elapsed = time.monotonic() - started
         if sup is None or budget.exhausted:
+            if journal is not None:
+                if sup is None:
+                    _observe_not_dispatched(
+                        journal, company=company, fiscal=fiscal, request_id=request_id,
+                        reason=budget.exhausted or "request_limit",
+                    )
+                else:
+                    _observe_interrupted(
+                        journal,
+                        entry={
+                            "request_id": request_id,
+                            "ticker": ticker,
+                            "exchange": exchange,
+                            "fiscal_period": fiscal,
+                            "elapsed_seconds": round(elapsed, 3),
+                            **_interrupted_result(sup),
+                        },
+                        operation="fetch",
+                        request=request,
+                        result=_interrupted_result(sup),
+                        usage=sup.usage,
+                        worker=sup.diagnostics,
+                        stopped_by=budget.exhausted,
+                    )
             return "budget"
         if sup.result is None:
             _finalize_fetched(
                 cfg, fn, company, label, fiscal,
                 {"status": "provider_error", "error_code": "retrieval_worker_failure"},
                 entries, translate_enabled, transcripts_root, budget, request_id, elapsed,
+                journal=journal, request=request, usage=sup.usage, worker=sup.diagnostics,
             )
             return "stop"
         outcome = _finalize_fetched(
             cfg, fn, company, label, fiscal, sup.result, entries,
             translate_enabled, transcripts_root, budget, request_id, elapsed,
+            journal=journal, request=request, usage=sup.usage, worker=sup.diagnostics,
         )
         if outcome:
             return outcome
@@ -1083,6 +1465,7 @@ def _run_list(
     periods: list[tuple[int, int]] | None,
     ctx: _RetrievalContext,
     provider_settings: ProviderSettings,
+    journal: BatchJournal | None = None,
 ) -> int:
     """metadata-only 列表：零正文、零写入；metadata 请求计入批次额度。"""
     if args.source == "fmp":
@@ -1091,11 +1474,27 @@ def _run_list(
                 "error: period_unresolved: --source fmp has no metadata listing; pass explicit --periods",
                 file=sys.stderr,
             )
+            if journal is not None:
+                journal.refusal(
+                    entry="scraper",
+                    stage="listing-capability",
+                    refusal_code="period_unresolved",
+                    location="scraper.py#_run_list",
+                    argument="--source",
+                )
         else:
             print(
                 "error: candidate_discovery_unavailable: --source fmp has no metadata-only listing",
                 file=sys.stderr,
             )
+            if journal is not None:
+                journal.refusal(
+                    entry="scraper",
+                    stage="listing-capability",
+                    refusal_code="candidate_discovery_unavailable",
+                    location="scraper.py#_run_list",
+                    argument="--source",
+                )
         return EXIT_FAILURE
 
     budget = BatchBudget(
@@ -1109,34 +1508,110 @@ def _run_list(
     print("=" * 70)
     for company in companies:
         ticker = company["ticker"]
+        listing_request_id = new_request_id()
+        listing_request = {
+            "request_id": listing_request_id,
+            "ticker": ticker,
+            "exchange": company.get("exchange") or "auto",
+            "as_of_date": today,
+            "timeout_seconds": _request_timeout(budget),
+            "download_authorized": True,
+        }
+        if journal is not None:
+            journal.plan({"ticker": ticker, "fiscal_period": None})
+            journal.begin(operation="list", request=listing_request)
         sup = _supervise(
-            budget, ctx, provider_settings, "list",
-            {
-                "ticker": ticker,
-                "exchange": company.get("exchange") or "auto",
-                "as_of_date": today,
-                "request_id": new_request_id(),
-                "timeout_seconds": _request_timeout(budget),
-                "download_authorized": True,
-            },
+            budget, ctx, provider_settings, "list", listing_request
         )
         if sup is None or budget.exhausted:
             print(f"  exit: limit_exceeded: {budget.exhausted}")
+            if journal is not None:
+                _observe_not_dispatched(
+                    journal, company=company, fiscal=None, request_id=listing_request_id,
+                    reason=budget.exhausted or "request_limit",
+                )
+                _write_batch_outcome(
+                    journal, mode="list", source=args.source, periods=periods,
+                    companies=len(companies), exit_code=EXIT_PARTIAL, budget=budget,
+                    manifest=None,
+                )
             return EXIT_PARTIAL
         if sup.result is None:
             print(
                 f"error: {ticker}: provider_error/retrieval_worker_failure",
                 file=sys.stderr,
             )
+            if journal is not None:
+                _observe_item(
+                    journal,
+                    entry={
+                        "request_id": listing_request_id,
+                        "ticker": ticker,
+                        "exchange": listing_request["exchange"],
+                        "fiscal_period": None,
+                        "status": "provider_error",
+                        "error_code": "retrieval_worker_failure",
+                        "elapsed_seconds": 0.0,
+                    },
+                    operation="list",
+                    request=listing_request,
+                    result={
+                        "status": "provider_error",
+                        "error_code": "retrieval_worker_failure",
+                    },
+                    dispatched=True,
+                    usage=sup.usage,
+                    worker=sup.diagnostics,
+                    stage="discovery",
+                    ledger_entry=False,
+                )
+                _write_batch_outcome(
+                    journal, mode="list", source=args.source, periods=periods,
+                    companies=len(companies), exit_code=EXIT_FAILURE, budget=budget,
+                    manifest=None,
+                )
             return EXIT_FAILURE  # unknown usage stops the listing
         listing = sup.result
-        if listing["status"] not in ("discovered", "not_found"):
+        listing_status = listing["status"]
+        listing_failed = listing_status not in ("discovered", "not_found")
+        if journal is not None:
+            _observe_item(
+                journal,
+                entry={
+                    "request_id": listing_request_id,
+                    "ticker": ticker,
+                    "exchange": listing_request["exchange"],
+                    "fiscal_period": None,
+                    "status": listing_status,
+                    "error_code": listing.get("error_code"),
+                    "elapsed_seconds": 0.0,
+                },
+                operation="list",
+                request=listing_request,
+                result={
+                    "status": listing_status,
+                    "error_code": listing.get("error_code"),
+                },
+                dispatched=True,
+                usage=sup.usage,
+                worker=sup.diagnostics,
+                stage="discovery",
+                ledger_entry=False,
+                candidate_count=len(listing.get("candidates", [])),
+            )
+        if listing_failed:
             print(
-                f"error: {ticker}: {listing['status']}/{listing.get('error_code') or '-'}",
+                f"error: {ticker}: {listing_status}/{listing.get('error_code') or '-'}",
                 file=sys.stderr,
             )
             failed = True
-            if listing["status"] in _PROVIDER_SCOPE_STATUSES:
+            if listing_status in _PROVIDER_SCOPE_STATUSES:
+                if journal is not None:
+                    _write_batch_outcome(
+                        journal, mode="list", source=args.source, periods=periods,
+                        companies=len(companies), exit_code=EXIT_FAILURE, budget=budget,
+                        manifest=None,
+                    )
                 return EXIT_FAILURE
             continue
         candidates = listing["candidates"]
@@ -1152,6 +1627,31 @@ def _run_list(
                     file=sys.stderr,
                 )
                 failed = True
+                if journal is not None:
+                    unresolved_id = new_request_id()
+                    _observe_item(
+                        journal,
+                        entry={
+                            "request_id": unresolved_id,
+                            "ticker": ticker,
+                            "exchange": listing_request["exchange"],
+                            "fiscal_period": None,
+                            "status": "period_unresolved",
+                            "error_code": "need_explicit_periods",
+                            "elapsed_seconds": 0.0,
+                        },
+                        operation="list",
+                        request=_item_request(unresolved_id, company, None),
+                        result={
+                            "status": "period_unresolved",
+                            "error_code": "need_explicit_periods",
+                        },
+                        dispatched=False,
+                        usage={"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+                        worker=None,
+                        stage="discovery",
+                        ledger_entry=False,
+                    )
                 continue
             wanted = {fiscal_label(y, q) for y, q in resolved}
         else:
@@ -1166,8 +1666,13 @@ def _run_list(
                     f"  {candidate['fiscal_period']:10s}  {candidate['published_date']}  "
                     f"{candidate['source_url']}"
                 )
-    print("=" * 70)
-    return EXIT_FAILURE if failed else EXIT_OK
+    exit_code = EXIT_FAILURE if failed else EXIT_OK
+    if journal is not None:
+        _write_batch_outcome(
+            journal, mode="list", source=args.source, periods=periods,
+            companies=len(companies), exit_code=exit_code, budget=budget, manifest=None,
+        )
+    return exit_code
 
 
 def _run_batch(
@@ -1178,6 +1683,7 @@ def _run_batch(
     ctx: _RetrievalContext,
     provider_settings: ProviderSettings,
     translate_enabled: bool,
+    journal: BatchJournal | None = None,
 ) -> int:
     if args.source == "fmp" and periods is None:
         print(
@@ -1185,6 +1691,14 @@ def _run_batch(
             "(no metadata discovery for recent-N)",
             file=sys.stderr,
         )
+        if journal is not None:
+            journal.refusal(
+                entry="scraper",
+                stage="period-resolution",
+                refusal_code="period_unresolved",
+                location="scraper.py#_run_batch",
+                argument="--source",
+            )
         return EXIT_FAILURE
 
     transcripts_root = get_path(cfg, "transcripts_dir")
@@ -1200,6 +1714,13 @@ def _run_batch(
             f"确认没有其它实例后删除锁文件重试：{lock_file}"
         )
         print(f"\n{msg}\n", file=sys.stderr)
+        if journal is not None:
+            journal.refusal(
+                entry="scraper",
+                stage="instance-lock",
+                refusal_code="instance_lock_held",
+                location="scraper.py#_run_batch",
+            )
         return EXIT_USAGE
 
     budget: BatchBudget | None = None
@@ -1207,6 +1728,7 @@ def _run_batch(
     entries: list[dict[str, Any]] = []
     started_at = datetime.now().isoformat(timespec="seconds")
     exit_code = EXIT_FAILURE
+    manifest_facts: dict[str, Any] | None = None
     try:
         transcripts_root.mkdir(parents=True, exist_ok=True)
         logs_dir.mkdir(parents=True, exist_ok=True)
@@ -1227,6 +1749,7 @@ def _run_batch(
                     provider_settings=provider_settings, entries=entries,
                     transcripts_root=transcripts_root,
                     translate_enabled=translate_enabled,
+                    journal=journal,
                 )
             else:
                 outcome = _process_fmp_company(
@@ -1235,6 +1758,7 @@ def _run_batch(
                     provider_settings=provider_settings, entries=entries,
                     transcripts_root=transcripts_root,
                     translate_enabled=translate_enabled,
+                    journal=journal,
                 )
             if outcome in ("budget", "stop"):
                 break
@@ -1256,12 +1780,25 @@ def _run_batch(
     finally:
         try:
             _write_manifest(transcripts_root, args, budget, entries, started_at, periods)
+            manifest_facts = {
+                "reference": MANIFEST_NAME,
+                "sha256": hashlib.sha256(
+                    (transcripts_root / MANIFEST_NAME).read_bytes()
+                ).hexdigest(),
+                "entries": len(entries),
+            }
         except Exception as exc:
             print(f"error: manifest_write_failed: {exc}", file=sys.stderr)
         for handler in list(log.handlers):
             handler.close()
             log.removeHandler(handler)
         lock.release()
+    if journal is not None:
+        _write_batch_outcome(
+            journal, mode="batch", source=args.source, periods=periods,
+            companies=len(companies), exit_code=exit_code, budget=budget,
+            manifest=manifest_facts,
+        )
     return exit_code
 
 
@@ -1278,6 +1815,8 @@ def main(
     # 普通启动在参数解析与副作用之前建立本次身份：被拒绝的调用同样可观察，
     # 导出失败绝不改变业务原返回。
     recorder = transcript_feedback.recorder_from_env()
+    # 逐项观测与普通拒绝共用同一个 recorder：一个位置只有一个写者。
+    journal = transcript_feedback.BatchJournal(recorder)
     parser = build_argument_parser()
     try:
         try:
@@ -1364,11 +1903,11 @@ def main(
         )
         if args.list:
             return _run_list(
-                args, companies, periods, retrieval_ctx, _provider_settings
+                args, companies, periods, retrieval_ctx, _provider_settings, journal
             )
         return _run_batch(
             cfg, args, companies, periods, retrieval_ctx, _provider_settings,
-            translate_enabled,
+            translate_enabled, journal,
         )
     finally:
         transcript_feedback.finalize_delivery(recorder)

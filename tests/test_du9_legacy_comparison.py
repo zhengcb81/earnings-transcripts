@@ -951,6 +951,12 @@ OLD_V1_TEXT = (
 )
 
 
+@pytest.fixture(autouse=True)
+def _no_feedback_writes(monkeypatch: pytest.MonkeyPatch) -> None:
+    """批量业务回归不验证反馈旁路：本机状态根必须零写入。"""
+    monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
+
+
 def _forbid_translator(monkeypatch: pytest.MonkeyPatch) -> None:
     import scraper
     import translator

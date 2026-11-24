@@ -289,6 +289,7 @@ def test_two_document_batch_second_gets_only_remaining_budget(
     tmp_path, monkeypatch, capsys
 ):
     forbid_translator(monkeypatch)
+    monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
     out = tmp_path / "out"
     keep = out / "ACME" / "ACME_Q3_2026_earnings_call.txt"
     keep.parent.mkdir(parents=True)
