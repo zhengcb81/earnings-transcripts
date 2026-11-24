@@ -19,7 +19,7 @@
 - **基线复现**（实现前探针，真实 `scraper.main` 子进程 + 真实 supervisor + 真实 worker，私有 launcher 接缝，全离线，状态根映射临时目录）：两期 HTTP 500 → 退出 1、manifest 两条 `provider_error/provider_http_500`、两次夹具请求、**反馈端零文件**；两期 HTTP 200 空列表 → 退出 0、两项 `not_found`、零反馈文件；`--max-requests 1` 与批次硬截止的"已开始项"**连账本条目都没有**（manifest 缺失该期）。回执：[`receipts/red_f4_batch_replay.txt`](receipts/red_f4_batch_replay.txt)。
 - **RED**：新套件在基线源码（`git archive` 提取的干净副本，不用 stash）上收集即失败——`AttributeError: module 'transcript_feedback' has no attribute 'CHECK_BATCH_ITEM'`。
 - **GREEN**：`tests/test_f4_batch_replay.py` **31 passed**（独立审查复跑 135.56s）。
-- **受影响回归**：`test_batch_runtime + test_feedback_owner + test_feedback_observation + test_retrieval_cli_e2e + test_worker_result_budget_contract + test_transcript_audit` = **142 passed**；六个文件 + 新套件合计 318 项通过（另有 1 项为**上卡遗留**偶发，见下节）。
+- **受影响回归**：`test_batch_runtime + test_feedback_owner + test_feedback_observation + test_retrieval_cli_e2e + test_worker_result_budget_contract + test_transcript_audit` = **142 passed**；另跑五个批量业务 harness（`test_batch_runtime`、`test_retrieval_cli_e2e`、`test_du7_extraction_e2e`、`test_du9_legacy_comparison`、`test_optional_local_receipt`）+ `test_f4_ordinary_failures` = **317 passed + 1 项上卡遗留偶发**（318 收集，见下节）。
 - **全量**：`python -B -m pytest -q tests/` = **803 passed / 0 failed**（312.96s）。
 - **Ruff**（九个改动文件）：**All checks passed**。`git diff --check` 干净。
 - **Mimosa 预提交门禁**：通过；仅**预存** low 提示（`eval_translation.py`、`tests/test_du9_legacy_comparison.py` 随机数用法，`retrieval_runtime.py:3` 命令注入启发式——均为基线已报、上卡已记录的项，本卡未引入）。按门禁要求如实说明：该扫描覆盖不完整，不能解释为项目安全。
@@ -88,15 +88,28 @@ python -B tools/feedback_owner.py --db <临时目录>\owner.sqlite `
 - owner 对账：两项 failed/unknown；重放同答；伪造终态 `state=unknown`；**不建库**（只读证实）。
 - 对抗加测（独审自选、实现者未跑）：小写 ticker 两期 500 对照 EQUAL；未知 ticker `ZZZZ` → 退出 1、`empty_company_selection` 拒绝一行、业务文件对照 EQUAL；取走成品 + `--capabilities` 补投（ACK 模拟）→ **不重发**，pending 存储保留原行与 `.delivery.json`——同一发生恰投递一次。
 
-### 审查发现与关闭（本轮全部修完）
+### 审查发现与关闭（全部在候选源码内修完，最终源码复审确认）
 
-| # | 级别 | 发现 | 关闭方式（落 `65e82f6` 之后的复审提交） |
+| # | 级别 | 发现 | 关闭方式 |
 |---|---|---|---|
-| 1 | minor | `transcript_feedback.py` 常量块 `CHECK_BATCH_ITEM`/`CHECK_BATCH_OUTCOME` 各定义两次 | 删除重复块（复审提交） |
-| 2 | minor | 死参数：`BatchJournal.begin(item=)`、`complete(dispatched=)`、`_observe_fetched(stopped_by=)` 无任何调用方使用 | 三处签名收紧，单测同步 |
-| 3 | minor | 卡内交付物"交接 Markdown + 提交推送"当时缺失 | 本文件与提交即关闭 |
+| 1 | minor | `transcript_feedback.py` 常量块 `CHECK_BATCH_ITEM`/`CHECK_BATCH_OUTCOME` 各定义两次 | 删除重复块——**已包含在候选提交 `65e82f6` 内** |
+| 2 | minor | 死参数：`BatchJournal.begin(item=)`、`complete(dispatched=)`、`_observe_fetched(stopped_by=)` 无任何调用方使用 | 三处签名收紧，单测同步——**已包含在候选提交 `65e82f6` 内** |
+| 3 | minor | 卡内交付物"交接 Markdown + 提交推送"当时缺失 | 本文件与交接提交 `6ee1844` 关闭 |
 | 4 | note | `.mimosa/`、`.workbuddy-ai/` 未 gitignore | 维持上两卡惯例：既有工具目录，保留不提交 |
 | 5 | note | 合法空结果（`not_found`）对账为 `job_status=failed` | 维持与普通入口既有 owner 语义一致（transcript 步同判 failed）；disposition=expected 已区分"合法空"，记录于此供分诊使用 |
+
+### 收尾复审（最终提交 `6ee1844`）
+
+第一轮的 minor 修复已含于候选提交 `65e82f6`；修复后本仓复跑新套件 31 passed、owner 8 passed、Ruff 全净。独审 agent 对最终提交按缩小范围（两处 minor 关闭 + 关键正反例）做了收尾复审，**结论 PASS（4/4）**：
+
+1. 重复常量块：工作树与 `git show 65e82f6` 各核一次，`CHECK_BATCH_ITEM`/`CHECK_BATCH_OUTCOME` 各恰一处定义——第一轮的重复块从未进入任何提交；
+2. 死参数：`begin`/`complete`/`_observe_fetched` 收紧后签名确认，全部 6 处 `begin(` 调用只传 `operation`/`request`，`stopped_by` 仅存于合法消费它的三个函数；
+3. 最终提交上新套件 **31 passed**（111.48s，HEAD==origin/main 经 `git rev-parse` 核实）、Ruff 全净；
+4. 交接事实核对：除本节数字修正（318 → 142+317+1 两次运行的准确表述，由独审核出）外，独审逐项确认交接与其实测一致（31 passed/135.56s、142 回归、对照 EQUAL、13 行冷读、假密钥零出现、对账三态、ACK 补投不重发、flake ~2/20 两树同签名）。
+
+### 每项可定位性与可复现性
+
+分母表中的每一项都**可按原身份定位**（原生 request ID 即步骤身份，第二进程经公开 owner 命令只读查回）且**可离线复现**（同一夹具 + 私有 launcher 接缝，零外网；固定身份样例见冷读一节）。无"可定位但缺复现条件"或"仍无反馈"的项；批次硬截止下的用量按原样保留 unknown，不以零代替。
 
 ### 上卡遗留复现报告（移交 ROOT 裁决）
 
