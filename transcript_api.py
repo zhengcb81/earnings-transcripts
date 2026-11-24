@@ -10,6 +10,7 @@ import base64
 import hashlib
 import html
 import json
+import logging
 import re
 import time
 from datetime import date, datetime, timezone
@@ -53,6 +54,8 @@ from transcript_preflight import (
     _validate_request,
     preflight_transcript_fetch,
 )
+
+_logger = logging.getLogger(__name__)
 
 
 SKIP_TEXT = (
@@ -801,7 +804,14 @@ def fetch_transcript(
             result_schema=result_schema,
             error_code="provider_deadline",
         )
-    except Exception:
+    except Exception as exc:
+        _logger.error(
+            "unexpected_provider_failure in fetch_transcript (provider=%s, request_id=%s, exc_type=%s)",
+            provider,
+            request_id,
+            type(exc).__name__,
+            exc_info=True,
+        )
         return _base_result(
             request_id,
             "provider_error",
@@ -1139,7 +1149,14 @@ def discover_transcripts(
             result_schema=DISCOVERY_RESULT_SCHEMA,
             error_code="provider_deadline",
         )
-    except Exception:
+    except Exception as exc:
+        _logger.error(
+            "unexpected_provider_failure in discover_transcripts (provider=%s, request_id=%s, exc_type=%s)",
+            provider,
+            request_id,
+            type(exc).__name__,
+            exc_info=True,
+        )
         return _base_result(
             request_id,
             "provider_error",
@@ -1401,7 +1418,14 @@ def fetch_transcript_candidate(
             result_schema=result_schema,
             error_code="provider_deadline",
         )
-    except Exception:
+    except Exception as exc:
+        _logger.error(
+            "unexpected_provider_failure in fetch_transcript (provider=%s, request_id=%s, exc_type=%s)",
+            provider,
+            request_id,
+            type(exc).__name__,
+            exc_info=True,
+        )
         return _base_result(
             request_id,
             "provider_error",

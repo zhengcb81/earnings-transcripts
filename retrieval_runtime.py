@@ -23,6 +23,7 @@ process environment), and never changes any request/response schema.
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 import shutil
@@ -48,6 +49,11 @@ from retrieval_protocol import (
 )
 from transcript_feedback import FEEDBACK_DISABLED_ENV
 from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
+
+_logger = logging.getLogger(__name__)
+_SECRET_REDACT_RE = re.compile(
+    r"(?i)(api[_-]?key|token|secret|authorization|password)(\s*[:=]\s*)([^\s,;\"']+)"
+)
 
 WORKER_PATH = Path(__file__).resolve().parent / "retrieval_worker.py"
 # One fixed total for terminate → kill → wait; every wait in one reclamation
@@ -92,11 +98,24 @@ def _final_stderr_type(stderr_path: Path) -> str | None:
         line = line.strip()
         if not line:
             continue
-        if "/" in line or "\\" in line:
-            return None  # a path-bearing line is never a sanitized fact
         match = _STDERR_EXCEPTION_RE.match(line)
-        return match.group(1) if match else None
+        if match:
+            return match.group(1)
+        if "/" in line or "\\" in line:
+            return None  # a non-exception path-bearing line is never a sanitized fact
+        return None
     return None
+
+
+def _redacted_stderr_tail(stderr_path: Path) -> str:
+    try:
+        raw = stderr_path.read_bytes()[-MAX_STDERR_TAIL_BYTES:]
+    except OSError:
+        return ""
+    text = raw.decode("utf-8", errors="replace").strip()
+    if not text:
+        return ""
+    return _SECRET_REDACT_RE.sub(r"\1\2[REDACTED]", text)
 
 
 def _read_worker_error(workdir: Path) -> dict[str, Any]:
@@ -130,6 +149,18 @@ def _child_diagnostics(
 ) -> dict[str, Any]:
     """One sanitized diagnostic dict for this supervised retrieval."""
     child = _read_worker_error(workdir)
+    stderr_type = _final_stderr_type(stderr_path)
+    redacted_tail = _redacted_stderr_tail(stderr_path)
+    if redacted_tail or exit_code not in (None, 0):
+        _logger.error(
+            "retrieval worker failure stage=%s detail=%s exit_code=%s worker_phase=%s stderr_type=%s stderr_tail=%s",
+            stage,
+            detail,
+            exit_code,
+            child.get("worker_phase"),
+            stderr_type,
+            redacted_tail[-2048:] if redacted_tail else "<empty>",
+        )
     return {
         "supervisor_stage": stage,
         "supervisor_detail": detail,
@@ -137,7 +168,7 @@ def _child_diagnostics(
         "worker_pid": None,
         "worker_phase": child.get("worker_phase"),
         "worker_exceptions": child.get("worker_exceptions"),
-        "worker_stderr_type": _final_stderr_type(stderr_path),
+        "worker_stderr_type": stderr_type,
         "load_failure": None,
     }
 
