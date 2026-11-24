@@ -30,7 +30,7 @@ import tempfile
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal, TypedDict
 
 from retrieval_diagnostics import read_exception_trace, safe_exception_types
 from retrieval_protocol import (
@@ -50,12 +50,18 @@ from transcript_feedback import FEEDBACK_DISABLED_ENV
 from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
 
 _logger = logging.getLogger(__name__)
-_WORKER_PHASES = {"envelope", "budget", "launcher", "dispatch", "encode", "write"}
+_WORKER_PHASES = {"envelope", "budget", "bootstrap", "launcher", "dispatch", "encode", "write"}
 
 WORKER_PATH = Path(__file__).resolve().parent / "retrieval_worker.py"
 # One fixed total for terminate → kill → wait; every wait in one reclamation
 # shares this window, no wait gets a fresh grace.
 CLEANUP_GRACE_SECONDS = 1.0
+
+
+class _CleanupFailure(TypedDict):
+    stage: Literal["remove_workdir", "exit_unconfirmed"]
+    exception_type: str | None
+    errno: int | None
 
 
 @dataclass(frozen=True)
@@ -66,7 +72,7 @@ class RetrievalOutcome:
     cannot be trusted. ``usage`` is the internal consumption report, or
     ``None`` when it is unknown (never substitute zero). ``reason`` is
     ``None`` | ``"deadline"`` | ``"worker_failure"``. ``diagnostics`` is the
-    sanitized supervisor/child diagnostic, or ``None`` on a trusted result.
+    sanitized supervisor/child diagnostic, or ``None`` on normal completion.
     """
 
     result: dict[str, Any] | None
@@ -102,11 +108,12 @@ def _child_diagnostics(
     exit_code: int | None,
     stage: str,
     detail: str | None = None,
+    log_to_console: bool = True,
 ) -> dict[str, Any]:
     """One sanitized diagnostic dict for this supervised retrieval."""
     child = _read_worker_error(workdir)
     exceptions = child.get("worker_exceptions") or []
-    if exceptions or exit_code not in (None, 0):
+    if log_to_console and (exceptions or exit_code not in (None, 0)):
         _logger.error(
             "retrieval worker failure stage=%s detail=%s exit_code=%s worker_phase=%s exception_trace=%s",
             stage,
@@ -141,6 +148,7 @@ def run_retrieval(
     launcher: str | None = None,
     launcher_spec: dict[str, Any] | None = None,
     temp_root: Path | None = None,
+    log_worker_diagnostics: bool = True,
 ) -> RetrievalOutcome:
     """Run one provider retrieval in a worker under one absolute deadline.
 
@@ -220,28 +228,43 @@ def run_retrieval(
             exit_code=process.returncode,
             stage=stage,
             detail=detail,
+            log_to_console=log_worker_diagnostics,
         ) | {"worker_pid": process.pid}
+
+    def finish(
+        result: dict[str, Any] | None,
+        usage: dict[str, Any] | None,
+        reason: str | None,
+        diagnostics: dict[str, Any] | None,
+        *,
+        exit_confirmed: bool = True,
+    ) -> RetrievalOutcome:
+        cleanup = (
+            _remove_workdir(workdir) if exit_confirmed
+            else _CleanupFailure(stage="exit_unconfirmed", exception_type=None, errno=None)
+        )
+        if cleanup is not None:
+            if diagnostics is None:
+                diagnostics = child_diagnostics("cleanup")
+            diagnostics["cleanup_failure"] = cleanup
+            if log_worker_diagnostics:
+                print(
+                    "error: retrieval_cleanup_failed: "
+                    f"stage={cleanup['stage']} exception_type={cleanup['exception_type']} "
+                    f"errno={cleanup['errno']}",
+                    file=sys.stderr,
+                )
+        return RetrievalOutcome(result, usage, reason, process.returncode, diagnostics)
 
     if not _wait_until(process, deadline):
         stopped = _stop_process(process)
         diagnostics = child_diagnostics(
             "deadline", None if stopped else "exit_unconfirmed"
         )
-        if not stopped:
-            _report_cleanup_failure(
-                f"worker exit unconfirmed within grace; keeping {workdir}"
-            )
-            return RetrievalOutcome(None, None, "deadline", None, diagnostics)
-        _remove_workdir(workdir)
-        return RetrievalOutcome(
-            None, None, "deadline", process.returncode, diagnostics
-        )
+        return finish(None, None, "deadline", diagnostics, exit_confirmed=stopped)
 
-    exit_code = process.returncode
-    if exit_code != 0:
-        diagnostics = child_diagnostics("worker_exit")
-        _remove_workdir(workdir)
-        return RetrievalOutcome(None, None, "worker_failure", exit_code, diagnostics)
+    if process.returncode != 0:
+        return finish(None, None, "worker_failure", child_diagnostics("worker_exit"))
 
     result, usage, reason = _load_result_file(
         result_path,
@@ -259,15 +282,13 @@ def run_retrieval(
                 result_path, max_bytes=result_transfer_limit(payload, response_bytes_left)
             )
         )
-        _remove_workdir(workdir)
-        return RetrievalOutcome(result, usage, reason, exit_code, diagnostics)
+        return finish(result, usage, reason, diagnostics)
     diagnostics = (
         child_diagnostics("provider_error")
         if result is not None and result.get("error_code") == "unexpected_provider_failure"
         else None
     )
-    _remove_workdir(workdir)
-    return RetrievalOutcome(result, usage, None, exit_code, diagnostics)
+    return finish(result, usage, None, diagnostics)
 
 
 def _wait_until(process: subprocess.Popen, deadline: float) -> bool:
@@ -305,18 +326,20 @@ def _stop_process(process: subprocess.Popen) -> bool:
     return process.poll() is not None
 
 
-def _report_cleanup_failure(detail: str) -> None:
-    print(f"error: retrieval_cleanup_failed: {detail}", file=sys.stderr)
-
-
-def _remove_workdir(workdir: Path) -> None:
-    """Delete this operation's temp results only after exit is confirmed."""
+def _remove_workdir(workdir: Path) -> _CleanupFailure | None:
+    """Reclaim this operation's temp results, retaining only structural failure facts."""
     try:
         shutil.rmtree(workdir)
     except FileNotFoundError:
-        return
+        return None
     except OSError as exc:
-        _report_cleanup_failure(f"{exc}; keeping {workdir}")
+        types = safe_exception_types([type(exc).__name__])
+        return _CleanupFailure(
+            stage="remove_workdir",
+            exception_type=types[0] if types else "OSError",
+            errno=exc.errno if type(exc.errno) is int else None,
+        )
+    return None
 
 
 def _result_load_cause(path: Path, *, max_bytes: int) -> str:

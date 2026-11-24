@@ -139,6 +139,9 @@ def _supervised_result(
             fmp_api_key=fmp_api_key,
             launcher=launcher,
             launcher_spec=launcher_spec,
+            # Machine callers decode stderr as the usage receipt. F4 still
+            # receives the same diagnostics through the supervised outcome.
+            log_worker_diagnostics=not args.report_usage,
             temp_root=temp_root,
         )
     # Keep acquisition diagnostics out of the immutable content schema.

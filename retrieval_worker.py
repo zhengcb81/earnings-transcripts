@@ -18,11 +18,10 @@ import json
 import os
 import sys
 from pathlib import Path
+from types import ModuleType
 from typing import Any, Callable
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-import requests
 
 from retrieval_budget import BatchBudget, UsageCounter, _BudgetSession
 from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace
@@ -34,13 +33,7 @@ from retrieval_protocol import (
     read_request_envelope,
     result_within_limit,
 )
-from transcript_api import (
-    ProviderSettings,
-    discover_transcripts,
-    fetch_transcript,
-    fetch_transcript_candidate,
-    list_transcript_candidates,
-)
+from transcript_provider_settings import ProviderSettings
 
 
 def _provider_settings(envelope: dict[str, Any]) -> ProviderSettings | None:
@@ -82,12 +75,16 @@ def _dispatch(
     envelope: dict[str, Any],
     session_factory: Callable[[], Any],
     settings: ProviderSettings,
+    *,
+    provider_api: ModuleType | None = None,
 ) -> dict[str, Any]:
+    if provider_api is None:
+        provider_api = importlib.import_module("transcript_api")
     operation = envelope.get("operation")
     payload = envelope.get("payload")
     include_source_payload = bool(envelope.get("include_source_payload"))
     if operation == "fetch":
-        return fetch_transcript(
+        return provider_api.fetch_transcript(
             payload,
             session_factory=session_factory,
             fmp_api_key=os.environ.get("FMP_API_KEY"),
@@ -95,13 +92,13 @@ def _dispatch(
             provider_settings=settings,
         )
     if operation == "discover":
-        return discover_transcripts(
+        return provider_api.discover_transcripts(
             payload,
             session_factory=session_factory,
             provider_settings=settings,
         )
     if operation == "fetch-candidate":
-        return fetch_transcript_candidate(
+        return provider_api.fetch_transcript_candidate(
             payload,
             session_factory=session_factory,
             include_source_payload=include_source_payload,
@@ -110,7 +107,7 @@ def _dispatch(
     if operation == "list":
         if not isinstance(payload, dict):
             raise ValueError("list payload must be an object")
-        return list_transcript_candidates(
+        return provider_api.list_transcript_candidates(
             **payload,
             session_factory=session_factory,
             provider_settings=settings,
@@ -182,6 +179,12 @@ def main(argv: list[str]) -> int:
         context = {"workdir": str(request_path.parent)}
         launcher_spec = (envelope.get("launcher") or {}).get("spec")
 
+        # Dependency loading can fail before a session starts. Keep this phase
+        # inside the same structural diagnostics path as other worker faults.
+        phase[0] = "bootstrap"
+        provider_api = importlib.import_module("transcript_api")
+        from requests import Session
+
         def session_factory() -> Any:
             # The failing stage must survive the exception: the phase word
             # stays "launcher" when the factory itself raises, and only a
@@ -190,14 +193,14 @@ def main(argv: list[str]) -> int:
             inner = (
                 factory(launcher_spec, context)
                 if factory is not None
-                else requests.Session()
+                else Session()
             )
             phase[0] = "dispatch"
             return _BudgetSession(inner, budget)
 
         phase[0] = "dispatch"
         with capture_provider_failure() as provider_trace:
-            result = _dispatch(envelope, session_factory, settings)
+            result = _dispatch(envelope, session_factory, settings, provider_api=provider_api)
         if provider_trace:
             _write_error_diagnostic(request_path, phase[0], provider_trace)
         phase[0] = "encode"
