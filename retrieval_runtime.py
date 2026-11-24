@@ -8,12 +8,10 @@ then reads the bounded atomic result file. A result that finishes after the
 deadline is never accepted as fetched, and a worker that dies without a
 trustworthy usage report is recorded as unknown consumption.
 
-The worker's stderr is captured into its own workdir file (never a pipe, so a
-chatty child can never block) together with the child's sanitized failure
-diagnostic; after the wait the parent merges both into one bounded
-diagnostic dict on the outcome. The child occurrence is merged exactly once,
-by the process that owns the detail record; the diagnostics never change the
-public stdout/stderr or the usage semantics.
+The child records structural failure details in its private workdir. Its raw
+stderr may contain a provider's request data and is discarded at launch. The
+parent reads and logs the diagnostic after the wait; only the owner merges it
+into the detail record. This leaves public results and usage semantics intact.
 
 The worker envelope is internal: it never appears on the public tool stdout,
 never carries credentials (the FMP key travels only through the controlled
@@ -25,7 +23,6 @@ from __future__ import annotations
 import json
 import logging
 import os
-import re
 import shutil
 import subprocess
 import sys
@@ -35,10 +32,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from retrieval_diagnostics import read_exception_trace, safe_exception_types
 from retrieval_protocol import (
     REQUEST_FILENAME,
     RESULT_FILENAME,
     WORKER_ERROR_FILENAME,  # re-exported: the parent reads what the child wrote
+    WORKER_ERROR_SCHEMA,
     WORKER_PROTOCOL,  # noqa: F401  re-exported: existing callers/tests read it here
     build_request_envelope,
     encode_envelope,
@@ -51,22 +50,12 @@ from transcript_feedback import FEEDBACK_DISABLED_ENV
 from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
 
 _logger = logging.getLogger(__name__)
-_SECRET_REDACT_RE = re.compile(
-    r"(?i)(api[_-]?key|token|secret|authorization|password)(\s*[:=]\s*)([^\s,;\"']+)"
-)
+_WORKER_PHASES = {"envelope", "budget", "launcher", "dispatch", "encode", "write"}
 
 WORKER_PATH = Path(__file__).resolve().parent / "retrieval_worker.py"
 # One fixed total for terminate → kill → wait; every wait in one reclamation
 # shares this window, no wait gets a fresh grace.
 CLEANUP_GRACE_SECONDS = 1.0
-#: Bounded read of the captured child stderr; only the final exception type
-#: word survives sanitization, never the raw text.
-MAX_STDERR_TAIL_BYTES = 8 * 1024
-#: An exception-looking final line, kept as its bare type word.
-_STDERR_EXCEPTION_RE = re.compile(
-    r"^([A-Za-z_][A-Za-z0-9_.]*(?:Error|Exception|Exit|Interrupt|Warning))"
-    r"(?::[^\n]*)?$"
-)
 
 
 @dataclass(frozen=True)
@@ -87,88 +76,54 @@ class RetrievalOutcome:
     diagnostics: dict[str, Any] | None = field(default=None)
 
 
-def _final_stderr_type(stderr_path: Path) -> str | None:
-    """The bare exception type of the child's final traceback line, if any."""
-    try:
-        raw = stderr_path.read_bytes()[-MAX_STDERR_TAIL_BYTES:]
-    except OSError:
-        return None
-    text = raw.decode("utf-8", errors="replace")
-    for line in reversed(text.splitlines()):
-        line = line.strip()
-        if not line:
-            continue
-        match = _STDERR_EXCEPTION_RE.match(line)
-        if match:
-            return match.group(1)
-        if "/" in line or "\\" in line:
-            return None  # a non-exception path-bearing line is never a sanitized fact
-        return None
-    return None
-
-
-def _redacted_stderr_tail(stderr_path: Path) -> str:
-    try:
-        raw = stderr_path.read_bytes()[-MAX_STDERR_TAIL_BYTES:]
-    except OSError:
-        return ""
-    text = raw.decode("utf-8", errors="replace").strip()
-    if not text:
-        return ""
-    return _SECRET_REDACT_RE.sub(r"\1\2[REDACTED]", text)
-
-
 def _read_worker_error(workdir: Path) -> dict[str, Any]:
     """The child's own sanitized diagnostic; unreadable stays unknown."""
     try:
-        raw = (workdir / WORKER_ERROR_FILENAME).read_bytes()[:MAX_STDERR_TAIL_BYTES]
-        payload = json.loads(raw)
-    except (OSError, ValueError):
+        payload = json.loads((workdir / WORKER_ERROR_FILENAME).read_bytes())
+    except (OSError, ValueError, RecursionError):
         return {}
-    if not isinstance(payload, dict):
+    if not isinstance(payload, dict) or payload.get("schema_version") != WORKER_ERROR_SCHEMA:
         return {}
     phase = payload.get("phase")
-    exceptions = payload.get("exception_types")
-    return {
-        "worker_phase": phase if isinstance(phase, str) else None,
-        "worker_exceptions": (
-            [name for name in exceptions if isinstance(name, str)]
-            if isinstance(exceptions, list)
-            else None
-        ),
+    trace = read_exception_trace(payload.get("exception_trace"))
+    exceptions = [fact["type"] for fact in trace] or safe_exception_types(payload.get("exception_types"))
+    result = {
+        "worker_phase": phase if isinstance(phase, str) and phase in _WORKER_PHASES else None,
+        "worker_exceptions": exceptions,
     }
+    if trace:
+        result["worker_exception_trace"] = trace
+    return result
 
 
 def _child_diagnostics(
     *,
     workdir: Path,
-    stderr_path: Path,
     exit_code: int | None,
     stage: str,
     detail: str | None = None,
 ) -> dict[str, Any]:
     """One sanitized diagnostic dict for this supervised retrieval."""
     child = _read_worker_error(workdir)
-    stderr_type = _final_stderr_type(stderr_path)
-    redacted_tail = _redacted_stderr_tail(stderr_path)
-    if redacted_tail or exit_code not in (None, 0):
+    exceptions = child.get("worker_exceptions") or []
+    if exceptions or exit_code not in (None, 0):
         _logger.error(
-            "retrieval worker failure stage=%s detail=%s exit_code=%s worker_phase=%s stderr_type=%s stderr_tail=%s",
+            "retrieval worker failure stage=%s detail=%s exit_code=%s worker_phase=%s exception_trace=%s",
             stage,
             detail,
             exit_code,
             child.get("worker_phase"),
-            stderr_type,
-            redacted_tail[-2048:] if redacted_tail else "<empty>",
+            child.get("worker_exception_trace", exceptions),
         )
     return {
         "supervisor_stage": stage,
         "supervisor_detail": detail,
         "worker_exit_code": exit_code,
         "worker_pid": None,
-        "worker_phase": child.get("worker_phase"),
-        "worker_exceptions": child.get("worker_exceptions"),
-        "worker_stderr_type": stderr_type,
+        "worker_phase": None,
+        "worker_exceptions": None,
+        **child,
+        "worker_stderr_type": exceptions[0] if exceptions else None,
         "load_failure": None,
     }
 
@@ -229,7 +184,6 @@ def run_retrieval(
     )
     request_path = workdir / REQUEST_FILENAME
     result_path = workdir / RESULT_FILENAME
-    stderr_path = workdir / "worker_stderr.log"
 
     envelope = build_request_envelope(
         operation,
@@ -253,27 +207,20 @@ def run_retrieval(
     # recording code of its own must stay silent. Cleared here for every
     # launch, on top of the caller's own clearing.
     env[FEEDBACK_DISABLED_ENV] = "1"
-    worker_pid = None
-    with stderr_path.open("wb") as stderr_stream:
-        process = subprocess.Popen(
-            [sys.executable, "-u", str(WORKER_PATH), str(request_path)],
-            stdout=subprocess.DEVNULL,
-            stderr=stderr_stream,
-            env=env,
-        )
-        worker_pid = process.pid
-    # The parent's own handle is closed here — the child keeps its inherited
-    # one — so the workdir can be reclaimed right after the wait on platforms
-    # that refuse to delete an open file.
+    process = subprocess.Popen(
+        [sys.executable, "-u", str(WORKER_PATH), str(request_path)],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        env=env,
+    )
 
     def child_diagnostics(stage: str, detail: str | None = None) -> dict[str, Any]:
         return _child_diagnostics(
             workdir=workdir,
-            stderr_path=stderr_path,
             exit_code=process.returncode,
             stage=stage,
             detail=detail,
-        ) | {"worker_pid": worker_pid}
+        ) | {"worker_pid": process.pid}
 
     if not _wait_until(process, deadline):
         stopped = _stop_process(process)
@@ -314,8 +261,13 @@ def run_retrieval(
         )
         _remove_workdir(workdir)
         return RetrievalOutcome(result, usage, reason, exit_code, diagnostics)
+    diagnostics = (
+        child_diagnostics("provider_error")
+        if result is not None and result.get("error_code") == "unexpected_provider_failure"
+        else None
+    )
     _remove_workdir(workdir)
-    return RetrievalOutcome(result, usage, None, exit_code)
+    return RetrievalOutcome(result, usage, None, exit_code, diagnostics)
 
 
 def _wait_until(process: subprocess.Popen, deadline: float) -> bool:

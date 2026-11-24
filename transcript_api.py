@@ -1,7 +1,7 @@
 """Bounded, side-effect-free provider API for exact-period earnings transcripts.
 
 The API extracts an untranslated text body from a public Motley Fool transcript
-page. It does not read project config, write files, translate, cache, or log.
+page. It never reads project config, writes files, translates, or caches.
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ from urllib.parse import parse_qsl, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 from retrieval_budget import BatchBudgetExceeded, UsageCounter, _BudgetSession
+from retrieval_diagnostics import log_provider_failure
 
 import transcript_extraction
 from transcript_contracts import (
@@ -805,13 +806,7 @@ def fetch_transcript(
             error_code="provider_deadline",
         )
     except Exception as exc:
-        _logger.error(
-            "unexpected_provider_failure in fetch_transcript (provider=%s, request_id=%s, exc_type=%s)",
-            provider,
-            request_id,
-            type(exc).__name__,
-            exc_info=True,
-        )
+        log_provider_failure(_logger, "fetch_transcript", provider, request_id, exc)
         return _base_result(
             request_id,
             "provider_error",
@@ -917,6 +912,7 @@ def _map_listing_failure(request_id: str, exc: Exception) -> dict[str, Any]:
         status, error_code = "deadline_exceeded", "provider_deadline"
     else:
         status, error_code = "provider_error", "unexpected_provider_failure"
+        log_provider_failure(_logger, "list_transcript_candidates", "motley_fool", request_id, exc)
     return {
         "status": status,
         "request_id": request_id,
@@ -1150,13 +1146,7 @@ def discover_transcripts(
             error_code="provider_deadline",
         )
     except Exception as exc:
-        _logger.error(
-            "unexpected_provider_failure in discover_transcripts (provider=%s, request_id=%s, exc_type=%s)",
-            provider,
-            request_id,
-            type(exc).__name__,
-            exc_info=True,
-        )
+        log_provider_failure(_logger, "discover_transcripts", provider, request_id, exc)
         return _base_result(
             request_id,
             "provider_error",
@@ -1419,13 +1409,7 @@ def fetch_transcript_candidate(
             error_code="provider_deadline",
         )
     except Exception as exc:
-        _logger.error(
-            "unexpected_provider_failure in fetch_transcript (provider=%s, request_id=%s, exc_type=%s)",
-            provider,
-            request_id,
-            type(exc).__name__,
-            exc_info=True,
-        )
+        log_provider_failure(_logger, "fetch_transcript_candidate", provider, request_id, exc)
         return _base_result(
             request_id,
             "provider_error",

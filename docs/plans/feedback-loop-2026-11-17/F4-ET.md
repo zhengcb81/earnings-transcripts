@@ -2,6 +2,8 @@
 
 **2026-11-24 当前施工入口**为[批量电话会逐项复原](F4-ET-BATCH-REPLAY-handoff.md)。这份交接关闭上一卡的余项——批量路径逐公司、逐期次的终态现在按原 request ID 可跨进程冷读，owner 查证支持 `not_applicable`/`unknown`/`unconfirmed`。下文保留原运行端口与此前验收范围。
 
+2026-11-24 的 S1 诊断脱敏和复验单独记录在[本仓回执](S1-04-diagnostic-redaction.md)。
+
 2026-11-23 的 Windows 深路径、长日志尾部和同一运行多处拒绝的修正见[本仓交接补充](F4-ET-FAILURES-handoff.md#2026-11-23-总控复验补充)。
 
 明细恢复、空公司选择、已确认后晚到发生和宿主摘要字段见[最终补投及 ACK 复验](F4-ET-FAILURES-handoff.md#2026-11-23-最终补投及-ack-复验)。

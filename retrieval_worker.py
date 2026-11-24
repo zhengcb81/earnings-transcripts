@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import requests
 
 from retrieval_budget import BatchBudget, UsageCounter, _BudgetSession
+from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace
 from retrieval_protocol import (
     RESULT_FILENAME,
     WORKER_ERROR_FILENAME,
@@ -117,29 +118,16 @@ def _dispatch(
     raise ValueError(f"unknown operation: {operation!r}")
 
 
-def _exception_chain(exc: BaseException) -> list[str]:
-    """The sanitized exception type chain: type names only, never messages."""
-    names: list[str] = []
-    seen: set[int] = set()
-    current: BaseException | None = exc
-    while current is not None and id(current) not in seen and len(names) < 8:
-        seen.add(id(current))
-        names.append(type(current).__name__)
-        current = current.__cause__ or current.__context__
-    return names
-
-
-def _write_error_diagnostic(request_path: Path, phase: str, exceptions: list[str] | None) -> None:
-    """Leave one sanitized diagnostic in the workdir before a failing exit.
-
-    The parent owns the details and merges this once after the wait. It holds
-    only the stage word and the exception type chain: no message text, no
-    path, no payload.
-    """
+def _write_error_diagnostic(
+    request_path: Path, phase: str, trace: list[ExceptionFact] | None,
+) -> None:
+    """Save only the stage and exception facts, including caught provider errors."""
+    trace = trace or []
     payload = {
         "schema_version": WORKER_ERROR_SCHEMA,
         "phase": phase,
-        "exception_types": exceptions or [],
+        "exception_types": [fact["type"] for fact in trace],
+        "exception_trace": trace,
     }
     try:
         target = request_path.parent / WORKER_ERROR_FILENAME
@@ -156,8 +144,8 @@ def main(argv: list[str]) -> int:
     request_path = Path(argv[0])
     phase = ["envelope"]
 
-    def failing(code: int, exceptions: list[str] | None = None) -> int:
-        _write_error_diagnostic(request_path, phase[0], exceptions)
+    def failing(code: int) -> int:
+        _write_error_diagnostic(request_path, phase[0], None)
         return code
 
     try:
@@ -208,7 +196,10 @@ def main(argv: list[str]) -> int:
             return _BudgetSession(inner, budget)
 
         phase[0] = "dispatch"
-        result = _dispatch(envelope, session_factory, settings)
+        with capture_provider_failure() as provider_trace:
+            result = _dispatch(envelope, session_factory, settings)
+        if provider_trace:
+            _write_error_diagnostic(request_path, phase[0], provider_trace)
         phase[0] = "encode"
         data = encode_result_envelope(usage=budget.usage_snapshot(), result=result)
         # Same derived allowance as the supervisor: this request's own quotas plus
@@ -222,7 +213,7 @@ def main(argv: list[str]) -> int:
         os.replace(tmp_path, result_path)
         return 0
     except BaseException as exc:
-        _write_error_diagnostic(request_path, phase[0], _exception_chain(exc))
+        _write_error_diagnostic(request_path, phase[0], exception_trace(exc))
         raise
 
 
