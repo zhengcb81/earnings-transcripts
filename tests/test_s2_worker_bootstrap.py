@@ -81,6 +81,9 @@ def refuse_network(event, args):
     if event in ("socket.connect", "socket.getaddrinfo", "socket.sendto"):
         Path(os.environ["ET_S2_NETWORK_MARKER"]).touch()
         raise RuntimeError("network blocked by the ET S2 test")
+    if (event == "os.rename" and os.environ.get("ET_S5_DENY_DIAGNOSTIC")
+            and Path(args[1]).name == "worker_error.json"):
+        raise PermissionError(13, "FAKE_ET_S5_WRITE_DENIED", "FAKE_ET_S5_PATH")
 
 sys.addaudithook(refuse_network)
 
@@ -258,3 +261,53 @@ def test_cleanup_error_preserves_fetched_transcript_and_known_receipt(tmp_path, 
             assert leftover.name.startswith("et-retrieval-") and not leftover.is_symlink()
             shutil.rmtree(leftover)
     assert list(runtime.iterdir()) == []
+
+
+@pytest.mark.parametrize("dependency, deny_diagnostic, deny_log", [
+    ("retrieval_budget", False, False),
+    ("requests", True, False),
+    ("retrieval_budget", False, True),
+])
+def test_worker_stderr_fallback_keeps_machine_receipt_and_cold_evidence(
+    tmp_path, dependency, deny_diagnostic, deny_log,
+):
+    env = isolated_env(tmp_path, dependency)
+    if deny_diagnostic:
+        env["ET_S5_DENY_DIAGNOSTIC"] = "1"
+    if deny_log:
+        (tmp_path / "state").mkdir()
+        (tmp_path / "state" / "logs").write_bytes(b"blocked")
+    runtime = tmp_path / "runtime"
+    request = make_request(
+        provider="motley_fool", request_id=f"et-s5-{dependency}", timeout_seconds=12,
+    )
+    completed = run(
+        env, tmp_path, ["-c", PRODUCER, runtime, "--report-usage"],
+        stdin=json.dumps(request).encode(),
+    )
+    assert json.loads(completed.stdout)["error_code"] == "retrieval_worker_failure"
+    receipt = {
+        "schema_version": "earnings-retrieval-usage/1",
+        "request_id": request["request_id"],
+        "usage_complete": False,
+        "usage": None,
+    }
+    assert completed.stderr == json.dumps(receipt, separators=(",", ":")).encode() + os.linesep.encode()
+    readback = second_process_readback(env, tmp_path / "observations.jsonl")
+    finished, = (item for item in readback["details"] if item["phase"] == "finished")
+    worker = finished["worker"]
+    assert worker["worker_stderr_type"] == "ModuleNotFoundError"
+    assert worker["worker_exit_code"] == 1
+    assert worker["worker_phase"] is None
+    if deny_diagnostic:
+        assert worker["worker_diagnostic_write_error"] == "PermissionError"
+    path = tmp_path / "state" / "logs" / "runtime_errors.log"
+    log = b"" if deny_log else path.read_bytes()
+    if deny_log:
+        assert not path.exists()
+    else:
+        assert b"ModuleNotFoundError" in log and b"et-s2-startup" in log
+    assert b"FAKE_ET_" not in log + completed.stdout + completed.stderr + json.dumps(readback).encode()
+    assert (tmp_path / "import-attempts.txt").read_bytes() == b"import-attempt\n"
+    assert not (tmp_path / "unexpected-network").exists()
+    assert not list(runtime.iterdir())

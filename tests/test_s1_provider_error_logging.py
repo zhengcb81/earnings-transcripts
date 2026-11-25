@@ -79,6 +79,20 @@ def assert_private_data_absent(surface):
     assert str(ROOT) not in surface
 
 
+@pytest.mark.parametrize(("source", "basename"), [
+    (r"C:\FAKE_ARBITRARY_987\retry-worker.py", "retry-worker.py"),
+    ("<frozen importlib._bootstrap>", "<frozen importlib._bootstrap>"),
+])
+def test_trace_keeps_portable_filename_without_path_or_source(source, basename):
+    from retrieval_diagnostics import exception_trace, read_exception_trace
+
+    with pytest.raises(RuntimeError) as captured:
+        exec(compile("raise RuntimeError('FAKE_ARBITRARY_987')", source, "exec"), {})
+    trace = read_exception_trace(exception_trace(captured.value))
+    assert trace[0]["frames"][-1] == {"file": basename, "line": 1, "function": "<module>"}
+    assert "FAKE_ARBITRARY_987" not in json.dumps(trace)
+
+
 @pytest.mark.parametrize("operation", ["fetch", "list"])
 def test_unexpected_provider_failure_retains_identity_and_cause_without_exception_text(caplog, operation):
     with caplog.at_level(logging.ERROR, logger="transcript_api"):

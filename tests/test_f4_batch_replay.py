@@ -1850,8 +1850,8 @@ def test_dry_run_stays_zero_http_and_zero_write(short_root):
 def test_unwritable_feedback_location_keeps_the_business_return(short_root):
     """A failure of the feedback side channel does not change the business
     result: with an unwritable single file the records are saved in the
-    owner's durable store instead, and the exit code, stdout/stderr, manifest
-    and text are the ones the feedback-off run produced."""
+    owner's durable store. The human stderr gets one safe advisory, while
+    the exit code, business output, manifest and text match the feedback-off run."""
     reference = new_case(short_root, "unwritable-off")
     reference_env = make_env(reference)
     reference_env["RESEARCH_FEEDBACK_OUT"] = ""
@@ -1870,6 +1870,10 @@ def test_unwritable_feedback_location_keeps_the_business_return(short_root):
             env=case_env,
         )
         facts.append(business_facts(case, completed))
+    warnings = [line for line in facts[1]["stderr"] if line.startswith("warning: et_feedback_incomplete")]
+    warning, = warnings
+    assert re.fullmatch(r"warning: et_feedback_incomplete \([A-Za-z_]+\)", warning)
+    facts[1]["stderr"].remove(warning)
     assert facts[0] == facts[1]
     assert facts[0]["exit"] == 1
     assert not (blocked / "sink" / "observations.jsonl").exists()
@@ -1880,6 +1884,9 @@ def test_unwritable_feedback_location_keeps_the_business_return(short_root):
         for row in read_rows(path)
     ]
     assert len([row for row in saved if row["check_id"] == ITEM]) == 2
+    native_log = (blocked / "state" / "logs" / "runtime_errors.log").read_text(encoding="utf-8")
+    assert "feedback_sidecar_failure" in native_log
+    assert "blocked" not in native_log and OFFLINE_KEY not in native_log
 
 
 @pytest.mark.parametrize(

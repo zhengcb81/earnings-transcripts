@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
+import builtins
 from collections.abc import Iterator
 from contextlib import contextmanager
 from contextvars import ContextVar
 from hashlib import sha256
 import logging
-from pathlib import Path
+from pathlib import PureWindowsPath
 import re
-from typing import TypedDict
+from threading import Thread
+from typing import BinaryIO, TypedDict
 
 
 class Frame(TypedDict):
@@ -25,9 +27,17 @@ class ExceptionFact(TypedDict):
 
 
 _TYPE = re.compile(r"[A-Za-z_][A-Za-z_0-9]{0,127}")
-_FILE = re.compile(r"[A-Za-z_][A-Za-z_0-9.]{0,127}")
+_FILE = re.compile(r"(?:[A-Za-z_0-9][A-Za-z_0-9.-]{0,127}|<frozen [A-Za-z_][A-Za-z_0-9.]{0,118}>)")
 _FUNCTION = re.compile(r"(?:[A-Za-z_][A-Za-z_0-9]{0,127}|<[a-z]+>)")
 _RELATIONS = {"raised", "cause", "context"}
+_BUILTIN_ERRORS = {
+    name.encode("ascii"): name
+    for name, value in vars(builtins).items()
+    if isinstance(value, type) and issubclass(value, BaseException)
+}
+_DIAGNOSTIC_WRITE_PREFIX = b"ET worker diagnostic write failed: "
+_TRACEBACK_HEADER = b"Traceback (most recent call last):"
+_NATIVE_FAILURE_PREFIXES = (b"Fatal Python error:", b"Windows fatal exception:")
 _capture: ContextVar[list[ExceptionFact] | None] = ContextVar(
     "retrieval_provider_failure", default=None,
 )
@@ -78,7 +88,7 @@ def exception_trace(error: BaseException) -> list[ExceptionFact]:
         trace = BaseException.__traceback__.__get__(current)
         while trace is not None:
             code = trace.tb_frame.f_code
-            file, function = Path(code.co_filename).name, code.co_name
+            file, function = PureWindowsPath(code.co_filename).name, code.co_name
             if _matches(_FILE, file) and _matches(_FUNCTION, function):
                 frames.append(Frame(file=file, line=trace.tb_lineno, function=function))
             trace = trace.tb_next
@@ -96,6 +106,46 @@ def exception_trace(error: BaseException) -> list[ExceptionFact]:
         else:
             current, relation = BaseException.__context__.__get__(current), "context"
     return facts
+
+
+class WorkerStderr:
+    """Drain the child pipe without forwarding or storing any stderr bytes."""
+
+    def __init__(self, stream: BinaryIO) -> None:
+        self.type_hint: str | None = None
+        self.diagnostic_write_error: str | None = None
+        self._reader = Thread(target=self._drain, args=(stream,), daemon=True)
+        self._reader.start()
+
+    def _drain(self, stream: BinaryIO) -> None:
+        in_traceback = False
+        continuation = False
+        try:
+            with stream:
+                while chunk := stream.readline(4096):
+                    if not continuation:
+                        line = chunk.rstrip(b"\r\n")
+                        if line.startswith(_DIAGNOSTIC_WRITE_PREFIX):
+                            self.diagnostic_write_error = _BUILTIN_ERRORS.get(
+                                line.removeprefix(_DIAGNOSTIC_WRITE_PREFIX)
+                            )
+                        elif line.startswith(_NATIVE_FAILURE_PREFIXES):
+                            self.type_hint = "NativeFailure"
+                        elif line == _TRACEBACK_HEADER:
+                            in_traceback = True
+                        elif in_traceback and not line.startswith((b" ", b"\t")):
+                            label = _BUILTIN_ERRORS.get(line.partition(b":")[0])
+                            if label is not None:
+                                self.type_hint = label
+                                in_traceback = False
+                    continuation = not chunk.endswith(b"\n")
+        except (OSError, ValueError):
+            pass
+
+    def finish(self) -> None:
+        # Worker code spawns no children. Keep even unexpected pipe ownership
+        # from delaying recovery indefinitely after the worker exits.
+        self._reader.join(timeout=0.1)
 
 
 @contextmanager

@@ -57,10 +57,16 @@ def run_main(
     companies: list[dict] | None = None,
     key: str | None = None,
     temp_root: Path | None = None,
+    feedback_out: Path | None = None,
 ) -> int:
     """Dispatch through the real CLI entry with the private worker seam."""
-    # 批量业务回归不验证反馈旁路：本机状态根必须零写入。
-    monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
+    if feedback_out is None:
+        # 批量业务回归不验证反馈旁路：本机状态根必须零写入。
+        monkeypatch.setenv("RESEARCH_FEEDBACK_DISABLED", "1")
+    else:
+        monkeypatch.delenv("RESEARCH_FEEDBACK_DISABLED", raising=False)
+        monkeypatch.setenv("RESEARCH_FEEDBACK_OUT", str(feedback_out))
+        monkeypatch.setenv("RESEARCH_FEEDBACK_STATE_ROOT", str(feedback_out.parent / "et-state"))
     if key is None:
         monkeypatch.delenv("FMP_API_KEY", raising=False)
     else:
@@ -930,10 +936,14 @@ def test_interrupted_receipt_write_keeps_original_and_reports_legacy(
 ):
     """收据写入中断：原件已落盘不丢，下次按 legacy 头部证明保守报告。"""
 
-    def boom(*args, **kwargs):
-        raise OSError("disk full")
+    original_write = scraper.write_atomic
 
-    monkeypatch.setattr(scraper, "write_atomic", boom)
+    def refuse_receipt(path, payload):
+        if path.name.endswith(".receipt.json"):
+            raise OSError("receipt destination unavailable")
+        return original_write(path, payload)
+
+    monkeypatch.setattr(scraper, "write_atomic", refuse_receipt)
     out = tmp_path / "out"
     rc = run_main(
         monkeypatch,
@@ -1114,6 +1124,37 @@ def test_manifest_records_requests_without_key_or_body(
     assert "Management discussed customer demand" not in captured.out + captured.err
     if calls_file.exists():
         assert FAKE_KEY not in calls_file.read_text(encoding="utf-8")
+
+
+def test_manifest_write_failure_exits_nonzero_and_keeps_fetched_original(
+    tmp_path, monkeypatch, capsys,
+):
+    out = tmp_path / "out"
+    (out / "run_manifest.json").mkdir(parents=True)
+    calls_file = tmp_path / "calls.jsonl"
+    observations = tmp_path / "observations.jsonl"
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls_file,
+        responses={FMP_URL: FakeResponse(
+            FMP_URL, fmp_payload(symbol="ACME"), content_type="application/json",
+        )},
+        key=FAKE_KEY,
+        feedback_out=observations,
+    )
+    assert rc == scraper.EXIT_FAILURE
+    captured = capsys.readouterr()
+    assert "exit: failure: manifest_write_failed" in captured.out
+    assert "manifest_write_failed" in captured.err
+    assert str(out) not in next(line for line in captured.err.splitlines() if "manifest_write_failed" in line)
+    assert len(list(out.rglob("*_earnings_call.txt"))) == 1
+    assert get_urls(calls_file) == [FMP_URL]
+    detail, = (row for row in read_records(observations.with_suffix(".jsonl.details.jsonl"))
+               if row["operation"] == "batch" and row["phase"] == "finished")
+    assert detail["reason_chain"] == ["manifest_write_failed"]
+    assert detail["batch"]["exit_code"] == scraper.EXIT_FAILURE
+    assert detail["batch"]["manifest"] is None
 
 
 # ── real subprocess exit paths (offline-safe by construction) ──────

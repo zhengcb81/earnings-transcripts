@@ -117,6 +117,7 @@ def _dispatch(
 
 def _write_error_diagnostic(
     request_path: Path, phase: str, trace: list[ExceptionFact] | None,
+    *, failure_code: str | None = None,
 ) -> None:
     """Save only the stage and exception facts, including caught provider errors."""
     trace = trace or []
@@ -126,13 +127,20 @@ def _write_error_diagnostic(
         "exception_types": [fact["type"] for fact in trace],
         "exception_trace": trace,
     }
+    if failure_code is not None:
+        payload["failure_code"] = failure_code
     try:
         target = request_path.parent / WORKER_ERROR_FILENAME
         tmp_path = request_path.parent / f"{WORKER_ERROR_FILENAME}.tmp"
         tmp_path.write_bytes(json.dumps(payload).encode("utf-8"))
         os.replace(tmp_path, target)
-    except OSError:
-        pass
+    except OSError as exc:
+        # The supervisor consumes only this known exception category from its
+        # private pipe. No path, message, provider data or credential follows.
+        try:
+            print(f"ET worker diagnostic write failed: {type(exc).__name__}", file=sys.stderr)
+        except (OSError, ValueError):
+            pass
 
 
 def main(argv: list[str]) -> int:
@@ -141,33 +149,33 @@ def main(argv: list[str]) -> int:
     request_path = Path(argv[0])
     phase = ["envelope"]
 
-    def failing(code: int) -> int:
-        _write_error_diagnostic(request_path, phase[0], None)
+    def failing(code: int, reason: str) -> int:
+        _write_error_diagnostic(request_path, phase[0], None, failure_code=reason)
         return code
 
     try:
         envelope = read_request_envelope(request_path)
         if envelope is None:
-            return failing(1)
+            return failing(1, "invalid_request_envelope")
         settings = _provider_settings(envelope)
         if settings is None:
-            return failing(1)
+            return failing(1, "invalid_provider_settings")
 
         phase[0] = "budget"
         budget_cfg = envelope.get("budget")
         if not isinstance(budget_cfg, dict):
-            return failing(1)
+            return failing(1, "invalid_budget")
         seconds_remaining = budget_cfg.get("seconds_remaining")
         requests_left = budget_cfg.get("requests_left")
         response_bytes_left = budget_cfg.get("response_bytes_left")
         if not isinstance(seconds_remaining, (int, float)) or seconds_remaining < 0:
-            return failing(1)
+            return failing(1, "invalid_budget_seconds")
 
         if any(
             value is not None and (type(value) is not int or value < 0)
             for value in (requests_left, response_bytes_left)
         ):
-            return failing(1)
+            return failing(1, "invalid_budget_quota")
         if requests_left is not None or response_bytes_left is not None:
             budget: BatchBudget | UsageCounter = BatchBudget(
                 requests_left, float(seconds_remaining), response_bytes_left, 0
@@ -208,7 +216,7 @@ def main(argv: list[str]) -> int:
         # Same derived allowance as the supervisor: this request's own quotas plus
         # the computable encoding overhead, never one module-level fixed cap.
         if not result_within_limit(data, envelope.get("payload"), response_bytes_left):
-            return failing(2)
+            return failing(2, "result_transfer_limit")
         phase[0] = "write"
         result_path = request_path.parent / RESULT_FILENAME
         tmp_path = request_path.parent / f"{RESULT_FILENAME}.tmp"

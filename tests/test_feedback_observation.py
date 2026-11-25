@@ -694,6 +694,19 @@ def test_a_failed_write_reports_no_delivery(tmp_path):
     assert recorder.written_ids == set()
 
 
+def test_atomic_publish_propagates_keyboard_interrupt_and_reclaims_temp(tmp_path, monkeypatch):
+    def interrupt(_original, _destination):
+        raise KeyboardInterrupt
+
+    target = tmp_path / "observations.jsonl"
+    target.write_bytes(b"earlier durable record\n")
+    monkeypatch.setattr(transcript_feedback.os, "replace", interrupt)
+    with pytest.raises(KeyboardInterrupt):
+        transcript_feedback._atomic_write(target, b"new observation\n")
+    assert target.read_bytes() == b"earlier durable record\n"
+    assert list(tmp_path.iterdir()) == [target]
+
+
 def test_no_observation_reaches_the_business_streams(monkeypatch, tmp_path):
     recorder = recorder_for(tmp_path)
     request = fmp_request(request_id="fb-streams-001")

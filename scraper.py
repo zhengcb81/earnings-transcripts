@@ -55,9 +55,10 @@ from common import (
 from retrieval_budget import (
     BatchBudget,
     BatchBudgetExceeded,
-    BudgetSession as _BudgetSession,  # compatibility for existing budget callers
+    BudgetSession as _BudgetSession,  # noqa: F401 - compatibility for existing budget callers
 )
 from retrieval_runtime import RetrievalOutcome, run_retrieval
+from runtime_logging import rotating_file_handler, warn_optional_failure
 import transcript_feedback
 from transcript_feedback import BatchJournal
 from transcript_api import (
@@ -117,6 +118,7 @@ class _RetrievalContext:
     launcher_spec: dict[str, Any] | None = None
     temp_root: Path | None = None
     api_key: str | None = None
+    diagnostic_identity: tuple[str, str] | None = None
 
 
 def _supervise(
@@ -148,6 +150,7 @@ def _supervise(
         launcher=ctx.launcher,
         launcher_spec=ctx.launcher_spec,
         temp_root=ctx.temp_root,
+        diagnostic_identity=ctx.diagnostic_identity,
     )
     budget.apply_usage(outcome.usage)
     if outcome.reason == "deadline":
@@ -248,10 +251,13 @@ def _configure_run_logging(cfg: dict, log_file: Path) -> None:
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(formatter)
     log.addHandler(stream_handler)
-    log_file.parent.mkdir(parents=True, exist_ok=True)
-    file_handler = logging.FileHandler(log_file, encoding="utf-8")
-    file_handler.setFormatter(formatter)
-    log.addHandler(file_handler)
+    try:
+        file_handler = rotating_file_handler(log_file)
+    except OSError as exc:
+        warn_optional_failure("et_log_setup_failed", type(exc).__name__)
+    else:
+        file_handler.setFormatter(formatter)
+        log.addHandler(file_handler)
 
 
 def _record_entry(
@@ -439,6 +445,7 @@ def _write_batch_outcome(
     exit_code: int,
     budget: BatchBudget | None,
     manifest: dict[str, Any] | None,
+    publication_failure: str | None = None,
 ) -> None:
     """写下一批的整体结果：真实退出码、原 manifest 引用与计量。"""
     if journal is None:
@@ -451,6 +458,7 @@ def _write_batch_outcome(
         manifest=manifest,
         budget=budget.report() if budget is not None else None,
         exhausted=budget.exhausted if budget is not None else None,
+        publication_failure=publication_failure,
     )
     journal.summary(exit_code)
 
@@ -1281,7 +1289,7 @@ def _write_manifest(
     entries: list[dict[str, Any]],
     started_at: str,
     periods: list[tuple[int, int]] | None,
-) -> None:
+) -> dict[str, Any]:
     manifest = {
         "manifest_version": "et-batch-manifest/1",
         "started_at": started_at,
@@ -1293,13 +1301,14 @@ def _write_manifest(
         "budget": budget.report() if budget is not None else None,
         "entries": entries,
     }
-    transcripts_root.mkdir(parents=True, exist_ok=True)
-    (transcripts_root / MANIFEST_NAME).write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8"
-    )
+    payload = json.dumps(manifest, ensure_ascii=False, indent=1).replace("\n", os.linesep).encode("utf-8")
+    write_atomic(transcripts_root / MANIFEST_NAME, payload)
+    return {"reference": MANIFEST_NAME, "sha256": hashlib.sha256(payload).hexdigest(), "entries": len(entries)}
 
 
-def _report(budget: BatchBudget, entries: list[dict[str, Any]]) -> int:
+def _report(
+    budget: BatchBudget, entries: list[dict[str, Any]], *, publication_failed: bool = False,
+) -> int:
     print("=" * 70)
     print("BATCH REPORT")
     print("=" * 70)
@@ -1326,7 +1335,10 @@ def _report(budget: BatchBudget, entries: list[dict[str, Any]]) -> int:
             f"response_bytes={report['response_bytes_used']}/{report['max_response_bytes']}  "
             f"output_bytes={report['output_bytes_used']}/{report['max_output_bytes']}"
         )
-    if budget.exhausted:
+    if publication_failed:
+        print("  exit: failure: manifest_write_failed")
+        code = EXIT_FAILURE
+    elif budget.exhausted:
         print(f"  exit: limit_exceeded: {budget.exhausted}")
         code = EXIT_PARTIAL
     elif any(entry["status"] in _ERROR_STATUSES for entry in entries):
@@ -1729,9 +1741,10 @@ def _run_batch(
     started_at = datetime.now().isoformat(timespec="seconds")
     exit_code = EXIT_FAILURE
     manifest_facts: dict[str, Any] | None = None
+    publication_failure: str | None = None
+    report_ready = False
     try:
         transcripts_root.mkdir(parents=True, exist_ok=True)
-        logs_dir.mkdir(parents=True, exist_ok=True)
         _configure_run_logging(cfg, logs_dir / "scraper.log")
         budget = BatchBudget(
             args.max_requests, args.max_seconds,
@@ -1764,7 +1777,7 @@ def _run_batch(
                 break
 
         save_summary(cfg, fn, companies, transcripts_root)
-        exit_code = _report(budget, entries)
+        report_ready = True
     except BatchBudgetExceeded:
         log.warning("batch budget exceeded: %s", budget.exhausted if budget else "unknown")
         if budget is not None and fn is not None:
@@ -1772,32 +1785,35 @@ def _run_batch(
                 save_summary(cfg, fn, companies, transcripts_root)
             except Exception:
                 pass
-            exit_code = _report(budget, entries)
+            report_ready = True
     except Exception as exc:
         print(f"error: unexpected_batch_failure: {exc}", file=sys.stderr)
         log.exception("unexpected batch failure")
         exit_code = EXIT_FAILURE
     finally:
         try:
-            _write_manifest(transcripts_root, args, budget, entries, started_at, periods)
-            manifest_facts = {
-                "reference": MANIFEST_NAME,
-                "sha256": hashlib.sha256(
-                    (transcripts_root / MANIFEST_NAME).read_bytes()
-                ).hexdigest(),
-                "entries": len(entries),
-            }
+            manifest_facts = _write_manifest(transcripts_root, args, budget, entries, started_at, periods)
         except Exception as exc:
-            print(f"error: manifest_write_failed: {exc}", file=sys.stderr)
-        for handler in list(log.handlers):
-            handler.close()
-            log.removeHandler(handler)
-        lock.release()
+            publication_failure = type(exc).__name__
+            print(f"error: manifest_write_failed ({publication_failure})", file=sys.stderr)
+            transcript_feedback.record_local_failure(
+                "manifest_write_failed",
+                {"exception_type": publication_failure, "entry_count": len(entries)},
+                identity=ctx.diagnostic_identity,
+            )
+        finally:
+            for handler in list(log.handlers):
+                handler.close()
+                log.removeHandler(handler)
+            lock.release()
+    if report_ready and budget is not None:
+        exit_code = _report(budget, entries, publication_failed=publication_failure is not None)
     if journal is not None:
         _write_batch_outcome(
             journal, mode="batch", source=args.source, periods=periods,
             companies=len(companies), exit_code=exit_code, budget=budget,
             manifest=manifest_facts,
+            publication_failure=publication_failure,
         )
     return exit_code
 
@@ -1900,6 +1916,7 @@ def main(
             launcher_spec=_retrieval_spec,
             temp_root=_retrieval_temp_root,
             api_key=args.api_key or None,
+            diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else None,
         )
         if args.list:
             return _run_list(
@@ -1911,6 +1928,7 @@ def main(
         )
     finally:
         transcript_feedback.finalize_delivery(recorder)
+        transcript_feedback.warn_incomplete_feedback(recorder)
 
 
 if __name__ == "__main__":

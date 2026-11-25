@@ -60,6 +60,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
+from runtime_logging import append_failure, warn_optional_failure
+
 OBSERVATION_SCHEMA = "feedback-observation/1"
 DETAIL_SCHEMA = "earnings-transcripts-feedback-detail/1"
 OWNER = "earnings-transcripts"
@@ -958,8 +960,12 @@ class FeedbackRecorder:
                     )
                     + "\n"
                 )
-        except OSError:
-            pass
+        except OSError as exc:
+            record_local_failure(
+                "feedback_sidecar_failure",
+                {"kind": kind, "exception_type": type(exc).__name__},
+                identity=(self.run_id, self.attempt_id),
+            )
 
     # ── reading what a previous attempt already wrote ──────────────
     def _scan_existing(self) -> None:
@@ -1389,6 +1395,32 @@ def state_root(environ: Mapping[str, str] | None = None) -> Path | None:
         return None
 
 
+def record_local_failure(
+    event: str, facts: Mapping[str, object], *, identity: tuple[str, str] | None = None,
+) -> bool:
+    """Keep already-structured owner facts even when the F4 inbox is unavailable."""
+    if os.getenv(FEEDBACK_DISABLED_ENV, "").strip() or os.getenv(FEEDBACK_OUT_ENV) == "":
+        return False
+    root = state_root()
+    if root is None:
+        return False
+    run_id, attempt_id = identity or run_identity()
+    try:
+        return append_failure(
+            storage_path(root / "logs" / "runtime_errors.log"),
+            {
+                "at": now(),
+                "owner": OWNER,
+                "run_id": safe_public_word(run_id, fallback="run"),
+                "attempt_id": safe_public_word(attempt_id, fallback="attempt"),
+                "event": event,
+                "facts": facts,
+            },
+        )
+    except (OSError, RuntimeError, ValueError):
+        return False
+
+
 def _safe_identity_part(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]", "_", value) or "unnamed"
 
@@ -1430,18 +1462,20 @@ def _atomic_write(path: Path, payload: bytes) -> None:
     handle_fd, temp_name = tempfile.mkstemp(
         dir=str(path.parent), prefix="." + path.name + ".", suffix=".tmp"
     )
+    replaced = False
     try:
         with os.fdopen(handle_fd, "wb") as handle:
             handle.write(payload)
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(temp_name, path)
-    except BaseException:
-        try:
-            os.unlink(temp_name)
-        except OSError:
-            pass
-        raise
+        replaced = True
+    finally:
+        if not replaced:
+            try:
+                os.unlink(temp_name)
+            except OSError:
+                pass
 
 
 class DeliveryRecorder(FeedbackRecorder):
@@ -1710,6 +1744,13 @@ def active_diagnostics() -> list[str]:
     return list(_ACTIVE_RECORDER.diagnostics) if _ACTIVE_RECORDER is not None else []
 
 
+def warn_incomplete_feedback(recorder: FeedbackRecorder | None) -> None:
+    """Expose an incomplete sidecar on human CLI stderr only."""
+    if recorder is not None and recorder.diagnostics:
+        kind = recorder.diagnostics[-1].split(":")[-1]
+        warn_optional_failure("et_feedback_incomplete", kind)
+
+
 def emit_observations(
     recorder: FeedbackRecorder | None,
     *,
@@ -1819,6 +1860,14 @@ def emit_invocation_refusal(
     """
     if recorder is None:
         return
+    refusal = {
+        "entry": entry,
+        "refusal_code": refusal_code,
+        "stage": stage,
+        "location": location,
+        "argument": argument,
+    }
+    record_local_failure("invocation_refusal", refusal, identity=(recorder.run_id, recorder.attempt_id))
     details = build_details(
         request={},
         result={},
@@ -1827,13 +1876,7 @@ def emit_invocation_refusal(
         published_receipt=None,
         phase="refused",
         branch="refusal",
-        extra={
-            "entry": entry,
-            "refusal_code": refusal_code,
-            "stage": stage,
-            "location": location,
-            "argument": argument,
-        },
+        extra=refusal,
     )
     recorder.record(
         step_id=_refusal_step(details),
@@ -2069,6 +2112,7 @@ class BatchJournal:
         manifest: Any = None,
         budget: Any = None,
         exhausted: str | None = None,
+        publication_failure: str | None = None,
     ) -> None:
         """Record the run facts the whole-batch outcome is judged against."""
         self._run = {
@@ -2080,6 +2124,10 @@ class BatchJournal:
             "budget": budget,
             "exhausted": exhausted,
         }
+        if publication_failure is not None:
+            self._run["publication_failure"] = {
+                "code": "manifest_write_failed", "exception_type": publication_failure,
+            }
 
     def summary(self, exit_code: int) -> None:
         """Write the whole batch's own outcome: its real exit code and ledger."""
@@ -2116,6 +2164,9 @@ class BatchJournal:
                 branch="batch",
                 extra={"batch": batch},
             )
+            if "publication_failure" in batch:
+                details["error_type"] = "manifest_write_failed"
+                details["reason_chain"] = ["manifest_write_failed"]
             self.recorder.record(
                 step_id=BATCH_STEP_ID,
                 check_id=CHECK_BATCH_OUTCOME,

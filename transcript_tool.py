@@ -17,7 +17,6 @@ changes stdout, stderr, the exit code or the retry behaviour.
 from __future__ import annotations
 
 import argparse
-import contextlib
 import json
 import os
 import sys
@@ -72,39 +71,6 @@ def _operation_deadline(request: Any) -> float:
     return float(MAX_TIMEOUT_SECONDS)
 
 
-@contextlib.contextmanager
-def _worker_without_feedback_location() -> Any:
-    """Hand the worker an environment without the feedback location.
-
-    The parent has already built its recorder before the worker starts, so the
-    sidecar path and the run numbers mean nothing to the child. The supervisor
-    copies ``os.environ`` when it launches the worker, so clearing the feedback
-    variables and setting the explicit disable switch for the duration of the
-    launch keeps exactly one writer on the parent's location even if a worker
-    path ever grew recording code of its own. The parent's own environment is
-    restored afterwards.
-    """
-    names = (
-        transcript_feedback.FEEDBACK_OUT_ENV,
-        transcript_feedback.FEEDBACK_RUN_ID_ENV,
-        transcript_feedback.FEEDBACK_ATTEMPT_ID_ENV,
-        transcript_feedback.FEEDBACK_DIR_ENV,
-    )
-    saved = {name: os.environ.pop(name, None) for name in names}
-    saved_disabled = os.environ.pop(transcript_feedback.FEEDBACK_DISABLED_ENV, None)
-    os.environ[transcript_feedback.FEEDBACK_DISABLED_ENV] = "1"
-    try:
-        yield
-    finally:
-        if saved_disabled is not None:
-            os.environ[transcript_feedback.FEEDBACK_DISABLED_ENV] = saved_disabled
-        else:
-            os.environ.pop(transcript_feedback.FEEDBACK_DISABLED_ENV, None)
-        for name, value in saved.items():
-            if value is not None:
-                os.environ[name] = value
-
-
 def _supervised_result(
     request: Any,
     args: argparse.Namespace,
@@ -115,35 +81,36 @@ def _supervised_result(
     launcher_spec: dict[str, Any] | None,
     temp_root: Path | None,
     fmp_api_key: str | None = None,
+    diagnostic_identity: tuple[str, str] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any] | None]:
     """Run one retrieval through the supervisor and map hard failures.
 
     The third value is the supervisor's sanitized child diagnostic; it joins
     the detail record only and never the wire result or the receipt.
     """
-    with _worker_without_feedback_location():
-        outcome = retrieval_runtime.run_retrieval(
-            args.operation,
-            request,
-            remaining_seconds=_operation_deadline(request),
-            requests_left=None,
-            response_bytes_left=(
-                request.get("max_response_bytes")
-                if isinstance(request, dict)
-                and type(request.get("max_response_bytes")) is int
-                and request["max_response_bytes"] > 0
-                else None
-            ),
-            include_source_payload=args.include_source_payload,
-            provider_settings=provider_settings,
-            fmp_api_key=fmp_api_key,
-            launcher=launcher,
-            launcher_spec=launcher_spec,
-            # Machine callers decode stderr as the usage receipt. F4 still
-            # receives the same diagnostics through the supervised outcome.
-            log_worker_diagnostics=not args.report_usage,
-            temp_root=temp_root,
-        )
+    outcome = retrieval_runtime.run_retrieval(
+        args.operation,
+        request,
+        remaining_seconds=_operation_deadline(request),
+        requests_left=None,
+        response_bytes_left=(
+            request.get("max_response_bytes")
+            if isinstance(request, dict)
+            and type(request.get("max_response_bytes")) is int
+            and request["max_response_bytes"] > 0
+            else None
+        ),
+        include_source_payload=args.include_source_payload,
+        provider_settings=provider_settings,
+        fmp_api_key=fmp_api_key,
+        launcher=launcher,
+        launcher_spec=launcher_spec,
+        # Machine callers decode stderr as the usage receipt. F4 and the
+        # ET-owned local log still receive the supervised diagnostics.
+        log_worker_diagnostics=not args.report_usage,
+        temp_root=temp_root,
+        diagnostic_identity=diagnostic_identity,
+    )
     # Keep acquisition diagnostics out of the immutable content schema.
     receipt = {
         "schema_version": "earnings-retrieval-usage/1",
@@ -420,6 +387,7 @@ def main(
                     launcher_spec=_retrieval_spec,
                     temp_root=_retrieval_temp_root,
                     fmp_api_key=fmp_api_key,
+                    diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else None,
                 )
                 branch = "provider"
                 published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)

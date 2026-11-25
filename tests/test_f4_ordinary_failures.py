@@ -310,6 +310,13 @@ def test_ordinary_entry_refusals_are_observable(tmp_path):
         assert OFFLINE_KEY not in blob
         assert str(tmp_path) not in blob
         assert "--operation" not in blob
+        native_log = (tmp_path / "state" / "logs" / "runtime_errors.log").read_text(encoding="utf-8")
+        observed = [row for row in map(json.loads, native_log.splitlines())
+                    if row["run_id"] == f"f4-{name}"]
+        local, = observed
+        assert local["event"] == "invocation_refusal"
+        assert local["facts"]["refusal_code"] == record["refusal_code"]
+        assert OFFLINE_KEY not in native_log and str(tmp_path) not in native_log
 
     # 拒绝码与发生位置逐案核对。
     bad_cli = second_process_readback(env, tmp_path / "bad-cli" / "observations.jsonl")

@@ -8,10 +8,10 @@ then reads the bounded atomic result file. A result that finishes after the
 deadline is never accepted as fetched, and a worker that dies without a
 trustworthy usage report is recorded as unknown consumption.
 
-The child records structural failure details in its private workdir. Its raw
-stderr may contain a provider's request data and is discarded at launch. The
-parent reads and logs the diagnostic after the wait; only the owner merges it
-into the detail record. This leaves public results and usage semantics intact.
+The child records structural failure details in its private workdir. The
+parent drains stderr and retains only known exception categories as a fallback
+when those details are unavailable. Raw stderr is never stored or forwarded.
+Only the owner merges diagnostics into the local log and feedback record.
 
 The worker envelope is internal: it never appears on the public tool stdout,
 never carries credentials (the FMP key travels only through the controlled
@@ -32,7 +32,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal, TypedDict
 
-from retrieval_diagnostics import read_exception_trace, safe_exception_types
+from retrieval_diagnostics import WorkerStderr, read_exception_trace, safe_exception_types
 from retrieval_protocol import (
     REQUEST_FILENAME,
     RESULT_FILENAME,
@@ -46,11 +46,22 @@ from retrieval_protocol import (
     parse_result_envelope,
     result_transfer_limit,
 )
-from transcript_feedback import FEEDBACK_DISABLED_ENV
+from transcript_feedback import (
+    FEEDBACK_ATTEMPT_ID_ENV,
+    FEEDBACK_DIR_ENV,
+    FEEDBACK_DISABLED_ENV,
+    FEEDBACK_OUT_ENV,
+    FEEDBACK_RUN_ID_ENV,
+    record_local_failure,
+)
 from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
 
 _logger = logging.getLogger(__name__)
 _WORKER_PHASES = {"envelope", "budget", "bootstrap", "launcher", "dispatch", "encode", "write"}
+_WORKER_REFUSALS = {
+    "invalid_request_envelope", "invalid_provider_settings", "invalid_budget",
+    "invalid_budget_seconds", "invalid_budget_quota", "result_transfer_limit",
+}
 
 WORKER_PATH = Path(__file__).resolve().parent / "retrieval_worker.py"
 # One fixed total for terminate → kill → wait; every wait in one reclamation
@@ -97,6 +108,9 @@ def _read_worker_error(workdir: Path) -> dict[str, Any]:
         "worker_phase": phase if isinstance(phase, str) and phase in _WORKER_PHASES else None,
         "worker_exceptions": exceptions,
     }
+    reason = payload.get("failure_code")
+    if isinstance(reason, str) and reason in _WORKER_REFUSALS:
+        result["worker_failure_code"] = reason
     if trace:
         result["worker_exception_trace"] = trace
     return result
@@ -109,20 +123,26 @@ def _child_diagnostics(
     stage: str,
     detail: str | None = None,
     log_to_console: bool = True,
+    stderr: WorkerStderr,
 ) -> dict[str, Any]:
     """One sanitized diagnostic dict for this supervised retrieval."""
     child = _read_worker_error(workdir)
     exceptions = child.get("worker_exceptions") or []
+    if exit_code is not None:
+        stderr.finish()
+    stderr_type = exceptions[0] if exceptions else stderr.type_hint
     if log_to_console and (exceptions or exit_code not in (None, 0)):
         _logger.error(
-            "retrieval worker failure stage=%s detail=%s exit_code=%s worker_phase=%s exception_trace=%s",
+            "retrieval worker failure stage=%s detail=%s exit_code=%s worker_phase=%s "
+            "stderr_type=%s exception_trace=%s",
             stage,
             detail,
             exit_code,
             child.get("worker_phase"),
+            stderr_type,
             child.get("worker_exception_trace", exceptions),
         )
-    return {
+    diagnostics = {
         "supervisor_stage": stage,
         "supervisor_detail": detail,
         "worker_exit_code": exit_code,
@@ -130,9 +150,12 @@ def _child_diagnostics(
         "worker_phase": None,
         "worker_exceptions": None,
         **child,
-        "worker_stderr_type": exceptions[0] if exceptions else None,
+        "worker_stderr_type": stderr_type,
         "load_failure": None,
     }
+    if stderr.diagnostic_write_error is not None:
+        diagnostics["worker_diagnostic_write_error"] = stderr.diagnostic_write_error
+    return diagnostics
 
 
 def run_retrieval(
@@ -149,6 +172,7 @@ def run_retrieval(
     launcher_spec: dict[str, Any] | None = None,
     temp_root: Path | None = None,
     log_worker_diagnostics: bool = True,
+    diagnostic_identity: tuple[str, str] | None = None,
 ) -> RetrievalOutcome:
     """Run one provider retrieval in a worker under one absolute deadline.
 
@@ -212,15 +236,19 @@ def run_retrieval(
     if fmp_api_key:
         env["FMP_API_KEY"] = fmp_api_key
     # The parent owns every feedback location; a worker path that ever grew
-    # recording code of its own must stay silent. Cleared here for every
-    # launch, on top of the caller's own clearing.
+    # recording code of its own must stay silent. Only the child copy is
+    # changed, so simultaneous callers keep their own parent identity.
+    for name in (FEEDBACK_OUT_ENV, FEEDBACK_RUN_ID_ENV, FEEDBACK_ATTEMPT_ID_ENV, FEEDBACK_DIR_ENV):
+        env.pop(name, None)
     env[FEEDBACK_DISABLED_ENV] = "1"
     process = subprocess.Popen(
-        [sys.executable, "-u", str(WORKER_PATH), str(request_path)],
+        [sys.executable, "-u", "-X", "faulthandler", str(WORKER_PATH), str(request_path)],
         stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
+        stderr=subprocess.PIPE,
         env=env,
     )
+    assert process.stderr is not None  # Popen created the dedicated pipe above.
+    stderr = WorkerStderr(process.stderr)
 
     def child_diagnostics(stage: str, detail: str | None = None) -> dict[str, Any]:
         return _child_diagnostics(
@@ -229,6 +257,7 @@ def run_retrieval(
             stage=stage,
             detail=detail,
             log_to_console=log_worker_diagnostics,
+            stderr=stderr,
         ) | {"worker_pid": process.pid}
 
     def finish(
@@ -254,6 +283,10 @@ def run_retrieval(
                     f"errno={cleanup['errno']}",
                     file=sys.stderr,
                 )
+        if diagnostics is not None:
+            record_local_failure("retrieval_worker", diagnostics, identity=diagnostic_identity)
+        elif exit_confirmed:
+            stderr.finish()
         return RetrievalOutcome(result, usage, reason, process.returncode, diagnostics)
 
     if not _wait_until(process, deadline):

@@ -3,6 +3,8 @@
 import logging
 from pathlib import Path
 
+from runtime_logging import rotating_file_handler, warn_optional_failure
+
 
 def load_config(config_path: Path = None) -> dict:
     """加载 config.yaml，返回嵌套 dict。"""
@@ -29,8 +31,10 @@ def setup_logging(cfg: dict, log_file: str = None) -> logging.Logger:
 
     handlers = [logging.StreamHandler()]
     if log_file:
-        Path(log_file).parent.mkdir(parents=True, exist_ok=True)
-        handlers.append(logging.FileHandler(log_file, encoding="utf-8"))
+        try:
+            handlers.append(rotating_file_handler(Path(log_file)))
+        except OSError as exc:
+            warn_optional_failure("et_log_setup_failed", type(exc).__name__)
 
     logging.basicConfig(level=level, format=fmt, handlers=handlers)
     return logging.getLogger()
