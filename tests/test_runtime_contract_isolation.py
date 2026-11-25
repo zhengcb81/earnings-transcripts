@@ -477,3 +477,34 @@ def test_protocol_refactor_preserves_request_id_schema_usage_and_deadline(tmp_pa
         assert reason == "worker_failure", name
         assert result is None, name
         assert seen_usage == (None if name in ("wrong_protocol", "bad_usage") else usage), name
+
+
+def test_worker_and_provider_consume_the_published_budget_and_preflight():
+    import retrieval_budget
+    import retrieval_worker
+    import transcript_api
+    import transcript_preflight
+    from decimal import Decimal
+
+    assert retrieval_worker.BudgetSession is retrieval_budget.BudgetSession
+    assert transcript_api.BudgetSession is retrieval_budget.BudgetSession
+    assert retrieval_budget._BudgetSession is retrieval_budget.BudgetSession
+
+    for name in ("InvalidRequest", "validate_request", "build_result", "check_provider_request", "is_valid_ticker"):
+        assert getattr(transcript_api, name) is getattr(transcript_preflight, name)
+
+    assert transcript_preflight.is_valid_ticker("BRK.B")
+    assert not transcript_preflight.is_valid_ticker("BRK B")
+    result = transcript_preflight.check_provider_request(
+        "fixture", "unknown-provider", operation="fetch",
+        result_schema=transcript_api.RESULT_SCHEMA,
+        settings=transcript_api.DEFAULT_PROVIDER_SETTINGS,
+        cost_limit=Decimal("0"),
+    )
+    assert result == {
+        "schema_version": transcript_api.RESULT_SCHEMA,
+        "request_id": "fixture",
+        "status": "unsupported",
+        "provider": "unknown-provider",
+        "error_code": "provider_unavailable",
+    }

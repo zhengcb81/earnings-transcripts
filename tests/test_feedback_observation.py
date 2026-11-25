@@ -414,10 +414,10 @@ def test_every_status_and_reason_the_product_can_emit_is_documented():
             if isinstance(node, ast.Call):
                 function = node.func
                 called = getattr(function, "id", None) or getattr(function, "attr", None)
-                # _base_result(request_id, status, ...) and
+                # build_result(request_id, status, ...) and
                 # _wire_failure(schema_version, request_id, status, ...)
                 # put the status word at a different position.
-                position = {"_base_result": 1, "_wire_failure": 2}.get(called)
+                position = {"build_result": 1, "_wire_failure": 2}.get(called)
                 if position is not None:
                     if len(node.args) > position and isinstance(
                         node.args[position], ast.Constant

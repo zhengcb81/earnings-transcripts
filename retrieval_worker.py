@@ -23,7 +23,7 @@ from typing import Any, Callable
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from retrieval_budget import BatchBudget, UsageCounter, _BudgetSession
+from retrieval_budget import BatchBudget, BudgetSession, UsageCounter
 from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace
 from retrieval_protocol import (
     RESULT_FILENAME,
@@ -196,7 +196,7 @@ def main(argv: list[str]) -> int:
                 else Session()
             )
             phase[0] = "dispatch"
-            return _BudgetSession(inner, budget)
+            return BudgetSession(inner, budget)
 
         phase[0] = "dispatch"
         with capture_provider_failure() as provider_trace:

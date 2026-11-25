@@ -204,7 +204,7 @@ class _BudgetResponse:
         self._inner.close()
 
 
-class _BudgetSession:
+class BudgetSession:
     """Delegating session that enforces the quota before every HTTP GET."""
 
     def __init__(self, inner: Any, budget: Any):
@@ -227,3 +227,7 @@ class _BudgetSession:
 
     def close(self) -> None:
         self._inner.close()
+
+
+# Existing package-era imports refer to the same accounting adapter.
+_BudgetSession = BudgetSession

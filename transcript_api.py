@@ -19,7 +19,7 @@ from urllib.parse import parse_qsl, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
-from retrieval_budget import BatchBudgetExceeded, UsageCounter, _BudgetSession
+from retrieval_budget import BatchBudgetExceeded, BudgetSession, UsageCounter
 from retrieval_diagnostics import log_provider_failure
 
 import transcript_extraction
@@ -48,12 +48,12 @@ from transcript_provider_settings import (
     provider_operation_capability,
 )
 from transcript_preflight import (
-    _InvalidRequest,
-    _TICKER_RE,
-    _base_result,
-    _provider_gate,
-    _validate_request,
-    preflight_transcript_fetch,
+    InvalidRequest,
+    build_result,
+    check_provider_request,
+    is_valid_ticker,
+    preflight_transcript_fetch as preflight_transcript_fetch,
+    validate_request,
 )
 
 _logger = logging.getLogger(__name__)
@@ -121,15 +121,15 @@ def _operation_session(session: Any, normalized: dict[str, Any]) -> Any:
     limit = normalized.get("max_response_bytes")
     if limit is None:
         return session
-    if not isinstance(session, _BudgetSession):
-        session = _BudgetSession(session, UsageCounter())
+    if not isinstance(session, BudgetSession):
+        session = BudgetSession(session, UsageCounter())
     session.constrain_response(limit)
     return session
 
 
 def _operation_read_cap(session: Any, declared: int | None, default: int) -> int:
     """Use one caller account; defaults apply only when no budget exists."""
-    remaining = session.remaining_response_bytes if isinstance(session, _BudgetSession) else None
+    remaining = session.remaining_response_bytes if isinstance(session, BudgetSession) else None
     limits = [value for value in (declared, remaining) if type(value) is int and value >= 0]
     return min(limits) if limits else default
 
@@ -479,7 +479,7 @@ def _fetch_fmp_transcript(
     if not isinstance(data, list):
         raise _ProviderFailure()
     if not data:
-        return _base_result(
+        return build_result(
             request_id,
             "not_found",
             provider="fmp",
@@ -518,7 +518,7 @@ def _fetch_fmp_transcript(
         matches.append({"call_date": call_date, "content": content})
 
     if len(matches) > 1:
-        return _base_result(
+        return build_result(
             request_id,
             "ambiguous",
             provider="fmp",
@@ -528,7 +528,7 @@ def _fetch_fmp_transcript(
         )
     match = matches[0]
     if match["call_date"] > normalized["as_of"]:
-        return _base_result(
+        return build_result(
             request_id,
             "not_found",
             provider="fmp",
@@ -575,7 +575,7 @@ def _fetch_fmp_transcript(
         )
     else:
         result_fields["content_utf8"] = match["content"]
-    return _base_result(
+    return build_result(
         request_id,
         "fetched",
         provider="fmp",
@@ -600,16 +600,16 @@ def fetch_transcript(
     """
     request_id = request.get("request_id") if isinstance(request, dict) else None
     if type(include_source_payload) is not bool:
-        return _base_result(
+        return build_result(
             request_id, "invalid_request", error_code="source_payload_flag"
         )
     result_schema = (
         RESULT_SCHEMA_WITH_SOURCE_PAYLOAD if include_source_payload else RESULT_SCHEMA
     )
     try:
-        normalized = _validate_request(request)
-    except _InvalidRequest:
-        return _base_result(
+        normalized = validate_request(request)
+    except InvalidRequest:
+        return build_result(
             request_id,
             "invalid_request",
             result_schema=result_schema,
@@ -617,14 +617,14 @@ def fetch_transcript(
         )
     request_id = normalized["request_id"]
     if not normalized["download_authorized"]:
-        return _base_result(
+        return build_result(
             request_id,
             "not_authorized",
             provider=normalized["provider"],
             result_schema=result_schema,
         )
     provider = normalized["provider"]
-    gate = _provider_gate(
+    gate = check_provider_request(
         request_id,
         provider,
         operation="fetch",
@@ -638,7 +638,7 @@ def fetch_transcript(
     if provider == "fmp" and (
         not isinstance(fmp_api_key, str) or not fmp_api_key.strip()
     ):
-        return _base_result(
+        return build_result(
             request_id,
             "unavailable",
             provider="fmp",
@@ -675,7 +675,7 @@ def fetch_transcript(
             max_response_bytes=normalized.get("max_response_bytes"),
         )
         if not eligible:
-            return _base_result(
+            return build_result(
                 request_id,
                 "not_found",
                 result_schema=result_schema,
@@ -685,7 +685,7 @@ def fetch_transcript(
                    if excluded_after_as_of else {}),
             )
         if len(eligible) > 1:
-            return _base_result(
+            return build_result(
                 request_id,
                 "ambiguous",
                 result_schema=result_schema,
@@ -734,14 +734,14 @@ def fetch_transcript(
             )
         else:
             result_fields["content_utf8"] = body
-        return _base_result(
+        return build_result(
             request_id,
             "fetched",
             result_schema=result_schema,
             **result_fields,
         )
     except _DeadlineExceeded:
-        return _base_result(
+        return build_result(
             request_id,
             "deadline_exceeded",
             provider=provider,
@@ -750,7 +750,7 @@ def fetch_transcript(
         )
     except BatchBudgetExceeded as exc:
         status, error_code = _quota_failure(exc)
-        return _base_result(
+        return build_result(
             request_id,
             status,
             provider=provider,
@@ -758,7 +758,7 @@ def fetch_transcript(
             error_code=error_code,
         )
     except _PayloadTooLarge:
-        return _base_result(
+        return build_result(
             request_id,
             "content_too_large",
             provider=provider,
@@ -766,7 +766,7 @@ def fetch_transcript(
             error_code="byte_limit",
         )
     except _ProvenanceRejected:
-        return _base_result(
+        return build_result(
             request_id,
             "provenance_rejected",
             provider=provider,
@@ -774,7 +774,7 @@ def fetch_transcript(
             error_code="provider_identity_or_host",
         )
     except _ProviderUnavailable as exc:
-        return _base_result(
+        return build_result(
             request_id,
             "unavailable",
             provider=provider,
@@ -782,7 +782,7 @@ def fetch_transcript(
             error_code=exc.error_code,
         )
     except _RateLimited:
-        return _base_result(
+        return build_result(
             request_id,
             "rate_limited",
             provider=provider,
@@ -790,7 +790,7 @@ def fetch_transcript(
             error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
-        return _base_result(
+        return build_result(
             request_id,
             "provider_error",
             provider=provider,
@@ -798,7 +798,7 @@ def fetch_transcript(
             error_code=exc.error_code,
         )
     except requests.Timeout:
-        return _base_result(
+        return build_result(
             request_id,
             "deadline_exceeded",
             provider=provider,
@@ -807,7 +807,7 @@ def fetch_transcript(
         )
     except Exception as exc:
         log_provider_failure(_logger, "fetch_transcript", provider, request_id, exc)
-        return _base_result(
+        return build_result(
             request_id,
             "provider_error",
             provider=provider,
@@ -941,7 +941,7 @@ def list_transcript_candidates(
     result: dict[str, Any] = {"request_id": request_id, "candidates": []}
     if (
         not isinstance(ticker, str)
-        or not _TICKER_RE.fullmatch(ticker.strip().upper())
+        or not is_valid_ticker(ticker.strip().upper())
         or exchange not in ("auto", *EXCHANGES)
         or not isinstance(request_id, str)
         or not request_id.strip()
@@ -1010,9 +1010,9 @@ def discover_transcripts(
     """
     request_id = request.get("request_id") if isinstance(request, dict) else None
     try:
-        normalized = _validate_request(request)
-    except _InvalidRequest:
-        return _base_result(
+        normalized = validate_request(request)
+    except InvalidRequest:
+        return build_result(
             request_id,
             "invalid_request",
             result_schema=DISCOVERY_RESULT_SCHEMA,
@@ -1021,13 +1021,13 @@ def discover_transcripts(
     request_id = normalized["request_id"]
     provider = normalized["provider"]
     if not normalized["download_authorized"]:
-        return _base_result(
+        return build_result(
             request_id,
             "not_authorized",
             provider=provider,
             result_schema=DISCOVERY_RESULT_SCHEMA,
         )
-    gate = _provider_gate(
+    gate = check_provider_request(
         request_id,
         provider,
         operation="discover",
@@ -1067,7 +1067,7 @@ def discover_transcripts(
             status = "ambiguous"
         else:
             status = "discovered"
-        return _base_result(
+        return build_result(
             request_id,
             status,
             provider=provider,
@@ -1081,7 +1081,7 @@ def discover_transcripts(
                if not candidates and excluded_after_as_of else {}),
         )
     except _DeadlineExceeded:
-        return _base_result(
+        return build_result(
             request_id,
             "deadline_exceeded",
             provider=provider,
@@ -1090,7 +1090,7 @@ def discover_transcripts(
         )
     except BatchBudgetExceeded as exc:
         status, error_code = _quota_failure(exc)
-        return _base_result(
+        return build_result(
             request_id,
             status,
             provider=provider,
@@ -1098,7 +1098,7 @@ def discover_transcripts(
             error_code=error_code,
         )
     except _PayloadTooLarge:
-        return _base_result(
+        return build_result(
             request_id,
             "content_too_large",
             provider=provider,
@@ -1106,7 +1106,7 @@ def discover_transcripts(
             error_code="byte_limit",
         )
     except _ProvenanceRejected:
-        return _base_result(
+        return build_result(
             request_id,
             "provenance_rejected",
             provider=provider,
@@ -1114,7 +1114,7 @@ def discover_transcripts(
             error_code="provider_identity_or_host",
         )
     except _ProviderUnavailable as exc:
-        return _base_result(
+        return build_result(
             request_id,
             "unavailable",
             provider=provider,
@@ -1122,7 +1122,7 @@ def discover_transcripts(
             error_code=exc.error_code,
         )
     except _RateLimited:
-        return _base_result(
+        return build_result(
             request_id,
             "rate_limited",
             provider=provider,
@@ -1130,7 +1130,7 @@ def discover_transcripts(
             error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
-        return _base_result(
+        return build_result(
             request_id,
             "provider_error",
             provider=provider,
@@ -1138,7 +1138,7 @@ def discover_transcripts(
             error_code=exc.error_code,
         )
     except requests.Timeout:
-        return _base_result(
+        return build_result(
             request_id,
             "deadline_exceeded",
             provider=provider,
@@ -1147,7 +1147,7 @@ def discover_transcripts(
         )
     except Exception as exc:
         log_provider_failure(_logger, "discover_transcripts", provider, request_id, exc)
-        return _base_result(
+        return build_result(
             request_id,
             "provider_error",
             provider=provider,
@@ -1185,12 +1185,12 @@ def _validate_candidate_fetch_request(
         or not top_level_fields.issubset(value)
         or set(value) - top_level_fields - {"max_response_bytes"}
     ):
-        raise _InvalidRequest()
+        raise InvalidRequest()
     if value["schema_version"] != CANDIDATE_FETCH_REQUEST_SCHEMA:
-        raise _InvalidRequest()
+        raise InvalidRequest()
     candidate = value["candidate"]
     if not isinstance(candidate, dict) or set(candidate) != candidate_fields:
-        raise _InvalidRequest()
+        raise InvalidRequest()
     base_request = {
         key: value[key]
         for key in top_level_fields
@@ -1199,29 +1199,29 @@ def _validate_candidate_fetch_request(
     if "max_response_bytes" in value:
         base_request["max_response_bytes"] = value["max_response_bytes"]
     base_request["schema_version"] = REQUEST_SCHEMA
-    normalized = _validate_request(base_request)
+    normalized = validate_request(base_request)
     for key in candidate_fields:
         if not isinstance(candidate[key], str) or not candidate[key].strip():
-            raise _InvalidRequest()
+            raise InvalidRequest()
     if normalized["provider"] != "motley_fool":
         return normalized, candidate
     source_url = candidate["source_url"]
     try:
         _check_url(source_url)
     except _ProvenanceRejected as exc:
-        raise _InvalidRequest() from exc
+        raise InvalidRequest() from exc
     parsed = urlparse(source_url)
     if parsed.query or parsed.fragment:
-        raise _InvalidRequest()
+        raise InvalidRequest()
     match = _TRANSCRIPT_PATH_RE.fullmatch(parsed.path)
     if not match:
-        raise _InvalidRequest()
+        raise InvalidRequest()
     year_text, month_text, day_text, slug = match.groups()
     try:
         published = date(int(year_text), int(month_text), int(day_text))
         supplied_date = date.fromisoformat(candidate["published_date"])
     except ValueError as exc:
-        raise _InvalidRequest() from exc
+        raise InvalidRequest() from exc
     expected_period = (normalized["fiscal_year"], normalized["fiscal_quarter"])
     ticker_slug = normalized["ticker"].lower().replace(".", "-")
     if (
@@ -1233,7 +1233,7 @@ def _validate_candidate_fetch_request(
         or candidate["provider_document_id"] != parsed.path.rstrip("/")
         or source_url != f"https://{ALLOWED_HOST}{parsed.path.rstrip('/')}/"
     ):
-        raise _InvalidRequest()
+        raise InvalidRequest()
     return normalized, candidate
 
 
@@ -1247,7 +1247,7 @@ def fetch_transcript_candidate(
     """Fetch one already-discovered Motley Fool candidate; never discovers here."""
     request_id = request.get("request_id") if isinstance(request, dict) else None
     if type(include_source_payload) is not bool:
-        return _base_result(
+        return build_result(
             request_id, "invalid_request", error_code="source_payload_flag"
         )
     result_schema = (
@@ -1255,8 +1255,8 @@ def fetch_transcript_candidate(
     )
     try:
         normalized, candidate = _validate_candidate_fetch_request(request)
-    except _InvalidRequest:
-        return _base_result(
+    except InvalidRequest:
+        return build_result(
             request_id,
             "invalid_request",
             result_schema=result_schema,
@@ -1265,13 +1265,13 @@ def fetch_transcript_candidate(
     request_id = normalized["request_id"]
     provider = normalized["provider"]
     if not normalized["download_authorized"]:
-        return _base_result(
+        return build_result(
             request_id,
             "not_authorized",
             provider=provider,
             result_schema=result_schema,
         )
-    gate = _provider_gate(
+    gate = check_provider_request(
         request_id,
         provider,
         operation="fetch-candidate",
@@ -1336,7 +1336,7 @@ def fetch_transcript_candidate(
             )
         else:
             result_fields["content_utf8"] = body
-        return _base_result(
+        return build_result(
             request_id,
             "fetched",
             provider=provider,
@@ -1344,7 +1344,7 @@ def fetch_transcript_candidate(
             **result_fields,
         )
     except _DeadlineExceeded:
-        return _base_result(
+        return build_result(
             request_id,
             "deadline_exceeded",
             provider=provider,
@@ -1353,7 +1353,7 @@ def fetch_transcript_candidate(
         )
     except BatchBudgetExceeded as exc:
         status, error_code = _quota_failure(exc)
-        return _base_result(
+        return build_result(
             request_id,
             status,
             provider=provider,
@@ -1361,7 +1361,7 @@ def fetch_transcript_candidate(
             error_code=error_code,
         )
     except _PayloadTooLarge:
-        return _base_result(
+        return build_result(
             request_id,
             "content_too_large",
             provider=provider,
@@ -1369,7 +1369,7 @@ def fetch_transcript_candidate(
             error_code="byte_limit",
         )
     except _ProvenanceRejected:
-        return _base_result(
+        return build_result(
             request_id,
             "provenance_rejected",
             provider=provider,
@@ -1377,7 +1377,7 @@ def fetch_transcript_candidate(
             error_code="candidate_effective_url_or_mime",
         )
     except _ProviderUnavailable as exc:
-        return _base_result(
+        return build_result(
             request_id,
             "unavailable",
             provider=provider,
@@ -1385,7 +1385,7 @@ def fetch_transcript_candidate(
             error_code=exc.error_code,
         )
     except _RateLimited:
-        return _base_result(
+        return build_result(
             request_id,
             "rate_limited",
             provider=provider,
@@ -1393,7 +1393,7 @@ def fetch_transcript_candidate(
             error_code="provider_http_429",
         )
     except _ProviderFailure as exc:
-        return _base_result(
+        return build_result(
             request_id,
             "provider_error",
             provider=provider,
@@ -1401,7 +1401,7 @@ def fetch_transcript_candidate(
             error_code=exc.error_code,
         )
     except requests.Timeout:
-        return _base_result(
+        return build_result(
             request_id,
             "deadline_exceeded",
             provider=provider,
@@ -1410,7 +1410,7 @@ def fetch_transcript_candidate(
         )
     except Exception as exc:
         log_provider_failure(_logger, "fetch_transcript_candidate", provider, request_id, exc)
-        return _base_result(
+        return build_result(
             request_id,
             "provider_error",
             provider=provider,

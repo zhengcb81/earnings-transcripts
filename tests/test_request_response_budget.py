@@ -473,6 +473,10 @@ def test_cleanup_failure_keeps_primary_byte_reason_and_observed_usage(
 ):
     rt = tmp_path / "rt"
     rt.mkdir()
+    out_path = tmp_path / "cleanup-observations.jsonl"
+    monkeypatch.setenv("RESEARCH_FEEDBACK_OUT", str(out_path))
+    monkeypatch.setenv("RESEARCH_FEEDBACK_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.delenv("RESEARCH_FEEDBACK_DISABLED", raising=False)
     response = StallResponse(
         FMP_URL, padded_payload(), content_type="application/json", split_chunks=1
     )
@@ -490,16 +494,26 @@ def test_cleanup_failure_keeps_primary_byte_reason_and_observed_usage(
             key=KEY,
         )
     result = json.loads(out)
-    receipt = json.loads(
-        next(line for line in err.splitlines() if line.startswith("{"))
-    )
+    # The machine usage stream remains one exact JSON receipt.
+    receipt = json.loads(err)
     assert rc == 0 and result["status"] == "content_too_large"
     assert result["error_code"] == "byte_limit"
     assert receipt["usage_complete"] is True
     assert receipt["usage"] == dict(
         requests_used=1, response_bytes_used=20386, exhausted="response_bytes"
     )
-    assert "retrieval_cleanup_failed" in err
+    detail_text = out_path.with_name(out_path.name + ".details.jsonl").read_text(encoding="utf-8")
+    finished, = (
+        detail
+        for detail in map(json.loads, detail_text.splitlines())
+        if detail["phase"] == "finished"
+    )
+    assert finished["worker"]["cleanup_failure"] == {
+        "stage": "remove_workdir", "exception_type": "OSError", "errno": None,
+    }
+    assert finished["usage"]["native_receipt"] == receipt
+    assert finished["usage"]["published_receipt"] == receipt
+    assert "owned fixture temporarily locked" not in detail_text + err
     # The parent truthfully leaves its owned workdir if deletion failed. The
     # surrounding pytest TEMP owner removes it after this assertion.
     assert len(list(rt.iterdir())) == 1

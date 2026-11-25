@@ -55,7 +55,7 @@ from common import (
 from retrieval_budget import (
     BatchBudget,
     BatchBudgetExceeded,
-    _BudgetSession,  # noqa: F401  re-exported for the budget unit tests
+    BudgetSession as _BudgetSession,  # compatibility for existing budget callers
 )
 from retrieval_runtime import RetrievalOutcome, run_retrieval
 import transcript_feedback
