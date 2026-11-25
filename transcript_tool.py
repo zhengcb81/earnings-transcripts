@@ -256,6 +256,8 @@ def main(
         transcript_feedback.finalize_delivery(recorder)
         return code
     if args.capabilities:
+        # Holdover work can be republished without starting a retrieval.
+        transcript_feedback.finalize_delivery(recorder)
         result = {
             "schema_version": "earnings-provider-capabilities/1",
             "providers": {

@@ -30,3 +30,6 @@ jobs:
           tests/test_batch_runtime.py::test_manifest_write_failure_exits_nonzero_and_keeps_fetched_original
           tests/test_f4_batch_replay.py::test_unwritable_feedback_location_keeps_the_business_return
           tests/test_f4_ordinary_failures.py::test_ordinary_entry_refusals_are_observable
+          tests/test_f4_ordinary_failures.py::test_concurrent_same_identity_producers_register_once
+          tests/test_f4_ordinary_failures.py::test_join_keeps_first_delivery_unfrozen_until_one_producer_finishes
+          tests/test_f4_ordinary_failures.py::test_direct_started_journal_survives_hard_stop_and_republishes_once

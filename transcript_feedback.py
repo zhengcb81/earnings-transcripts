@@ -1490,6 +1490,9 @@ class DeliveryRecorder(FeedbackRecorder):
     the same bundle name. A later distinct occurrence has its own stable
     delivery, so an ACK never exhausts a still-running attempt. ROOT owns
     the ``.ack`` confirmation mark.
+
+    Construction recovers private journals. Only the owner completion or an
+    explicit recovery command publishes an immutable view of those journals.
     """
 
     def __init__(
@@ -1505,7 +1508,6 @@ class DeliveryRecorder(FeedbackRecorder):
         self.inbox_dir = storage_path(inbox_dir)
         raw = "|".join((self.owner, self.run_id, self.attempt_id))
         self.delivery_hex = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:32]
-        self.publish()
 
     @property
     def bundle_path(self) -> Path:
@@ -1688,6 +1690,8 @@ def recorder_from_env(
     (``RESEARCH_FEEDBACK_DIR`` or ``<state root>/observations``).
     ``RESEARCH_FEEDBACK_DISABLED`` turns everything off; the supervisor sets it
     for worker children so exactly one process ever writes a location.
+    Commands finish public delivery explicitly. Opening the recorder can recover
+    private state without freezing another writer's uncompleted journal.
     """
     env = os.environ if environ is None else environ
     disabled = env.get(FEEDBACK_DISABLED_ENV)

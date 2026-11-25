@@ -759,6 +759,44 @@ def test_concurrent_same_identity_producers_register_once(tmp_path):
         assert len(identities) == len(set(identities)), (mode, identities)
 
 
+def test_join_keeps_first_delivery_unfrozen_until_one_producer_finishes(tmp_path):
+    """A new writer may find a sibling's started row before it has a result."""
+    import transcript_feedback as feedback
+
+    inbox = tmp_path / "inbox"
+    env = {
+        "RESEARCH_FEEDBACK_DIR": str(inbox),
+        "RESEARCH_FEEDBACK_STATE_ROOT": str(tmp_path / "state"),
+        "RESEARCH_FEEDBACK_RUN_ID": "f4-overlap",
+        "RESEARCH_FEEDBACK_ATTEMPT_ID": "one",
+    }
+    first = feedback.recorder_from_env(env)
+    request = discover_request("f4-overlap-001")
+    started = feedback.begin_step(first, request=request, operation="discover")
+    assert started is not None
+    second = feedback.recorder_from_env(env)
+    assert not list(inbox.glob("*.ready"))
+
+    receipt = {
+        "schema_version": "earnings-retrieval-usage/1",
+        "request_id": request["request_id"],
+        "usage_complete": True,
+        "usage": {"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+    }
+    feedback.emit_observations(
+        second, request=request,
+        result={"request_id": request["request_id"], "status": "invalid_request",
+                "error_code": "source_payload_not_valid_for_discovery"},
+        operation="discover", native_receipt=receipt, published_receipt=receipt,
+        receipt_required=True, branch="discovery-source-payload",
+    )
+    feedback.finalize_delivery(second)
+    feedback.finalize_delivery(first)
+    bundle, = (path for path in inbox.glob("feedback-*.jsonl")
+               if not path.name.endswith(".details.jsonl"))
+    assert len(read_jsonl(bundle)) == 5
+
+
 def test_unsafe_request_id_is_published_as_a_digest_word(tmp_path):
     """调用方可控的标识不得把 URL 查询或伪造 stderr 文本带进公开产物：
     不安全取值发布为稳定摘要词，业务身份仍可跨进程复现。"""
@@ -906,6 +944,63 @@ def test_started_only_cut_point_is_recovered_without_new_requests(tmp_path):
         if "check_id" in row
     ]
     assert len(identities) == len(set(identities))
+
+
+def test_direct_started_journal_survives_hard_stop_and_republishes_once(tmp_path):
+    env = make_env(tmp_path)
+    env["RESEARCH_FEEDBACK_RUN_ID"] = "et-direct-hard-stop"
+    env["RESEARCH_FEEDBACK_ATTEMPT_ID"] = "one"
+    state = Path(env["RESEARCH_FEEDBACK_STATE_ROOT"])
+    journal = state / "pending" / "et-direct-hard-stop--one.jsonl"
+    script = """
+import time
+import transcript_feedback
+import transcript_tool
+
+begin = transcript_feedback.begin_step
+def stage_then_wait(*args, **kwargs):
+    begin(*args, **kwargs)
+    time.sleep(30)
+    raise AssertionError("parent did not stop this synthetic process")
+
+transcript_feedback.begin_step = stage_then_wait
+raise SystemExit(transcript_tool.main([
+    "--request-stdin", "--operation", "discover", "--include-source-payload", "--report-usage",
+]))
+"""
+    process = subprocess.Popen(
+        [PYTHON, "-B", "-c", script], cwd=ROOT, env=env,
+        stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+    )
+    try:
+        assert process.stdin is not None
+        process.stdin.write(json.dumps(discover_request("no-provider-start")).encode("utf-8"))
+        process.stdin.close()
+        deadline = time.monotonic() + 15
+        rows = []
+        while time.monotonic() < deadline and process.poll() is None:
+            rows = read_jsonl(journal)
+            if rows_for_check(rows, "action-started"):
+                break
+            time.sleep(0.05)
+        assert len(rows_for_check(rows, "action-started")) == 1
+        assert not list((state / "observations").glob("*.ready"))
+    finally:
+        if process.poll() is None:
+            process.kill()
+        process.wait(timeout=10)
+
+    for _ in range(2):
+        recovery = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"])
+        assert recovery.returncode == 0 and recovery.stderr == b""
+        assert json.loads(recovery.stdout)["schema_version"] == "earnings-provider-capabilities/1"
+    marker, = (state / "observations").glob("*.ready")
+    recovered = second_process_readback(env, marker.with_suffix(".jsonl"))
+    assert recovered["observations"] == rows
+    assert len(recovered["details"]) == 1
+    assert recovered["details"][0]["phase"] == "started"
+    assert recovered["details"][0]["usage"]["published_receipt"] is None
 
 
 # ── 直启发布接口：显式 OUT、仅 DIR、默认状态根三组隔离运行 ────────
