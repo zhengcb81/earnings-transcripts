@@ -14,16 +14,17 @@ match when one exists. The old golden files are read, never rewritten.
 from __future__ import annotations
 
 import argparse
-import contextlib
+import base64
+import hashlib
 import io
 import json
 import os
 import sys
 import tempfile
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -239,40 +240,42 @@ CASES: dict[str, ReplayCase] = {
 }
 
 
-@contextlib.contextmanager
-def _foreign_period_fault(period: tuple[int, int]) -> Iterator[None]:
-    """Make the provider adapter accept any period as the requested one."""
-    original = transcript_api._fmp_period
-    transcript_api._fmp_period = lambda item: period
-    try:
-        yield
-    finally:
-        transcript_api._fmp_period = original
-
-
-@contextlib.contextmanager
-def _suppressed_receipt() -> Iterator[None]:
-    """Re-create the pre-fix behaviour: the promised receipt is not published."""
-    original = transcript_tool._publish_usage_receipt
-
-    def _silent(receipt: dict[str, Any], report_usage: bool) -> None:
-        return None
-
-    transcript_tool._publish_usage_receipt = _silent
-    try:
-        yield
-    finally:
-        transcript_tool._publish_usage_receipt = original
-
-
 def _session(case: ReplayCase) -> FakeSession:
+    payload = case.payload if case.payload is not None else b""
+    if case.fault_period is not None:
+        # Produce a valid native result through the normal period reader first.
+        # The independent owner-port fixture below then attaches another period's bytes.
+        year, quarter = case.fault_period
+        items = json.loads(payload)
+        for item in items:
+            item["year"] = year
+            item["period"] = f"Q{quarter}"
+        payload = json.dumps(items).encode("utf-8")
     response = FakeResponse(
-        FMP_URL,
-        case.payload if case.payload is not None else b"",
-        status_code=case.http_status,
-        content_type=case.content_type,
+        FMP_URL, payload, status_code=case.http_status, content_type=case.content_type,
     )
     return FakeSession({FMP_URL: response})
+
+
+def _cooperative_fetch(case: ReplayCase):
+    if case.fault_period is None:
+        return None
+    payload = case.payload
+    assert payload is not None
+
+    def fetch(request: Any, **kwargs) -> dict[str, Any]:
+        result = transcript_api.fetch_transcript(request, **kwargs)
+        assert result.get("status") == "fetched"
+        return {
+            **result,
+            "provider_payload_base64": base64.b64encode(payload).decode("ascii"),
+            "provider_payload_sha256": hashlib.sha256(payload).hexdigest(),
+        }
+    return fetch
+
+
+def _no_receipt(receipt: dict[str, Any], report_usage: bool) -> None:
+    return None
 
 
 def _golden_comparison(case: ReplayCase, result: dict[str, Any]) -> dict[str, Any]:
@@ -326,39 +329,41 @@ def replay(
             os.environ["FMP_API_KEY"] = case.key
         transcript_api.datetime = _FixedDateTime
         transcript_feedback.datetime = _FixedDateTime
-        with _fault(case):
-            if case.mode == "supervised":
-                temp_root = Path(tempfile.mkdtemp(prefix="et-replay-"))
-                calls_file = temp_root / "calls.jsonl"
-                spec = fake_spec(
-                    {
-                        FMP_URL: StallResponse(
-                            FMP_URL,
-                            case.payload if case.payload is not None else b"",
-                            stall_in_get=True,
-                            content_type=case.content_type,
-                        )
-                    },
-                    calls_file=calls_file,
-                )
-                exit_code = transcript_tool.main(
-                    list(case.argv),
-                    _retrieval_launcher=LAUNCHER,
-                    _retrieval_spec=spec,
-                    _retrieval_temp_root=temp_root,
-                    _feedback_recorder=recorder,
-                    _feedback_evidence_ref=f"et-case:{case.name}",
-                )
-                provider_calls = get_urls(calls_file)
-            else:
-                session = _session(case)
-                exit_code = transcript_tool.main(
-                    list(case.argv),
-                    _session_factory=lambda: session,
-                    _feedback_recorder=recorder,
-                    _feedback_evidence_ref=f"et-case:{case.name}",
-                )
-                provider_calls = [url for url, _ in session.calls]
+        if case.mode == "supervised":
+            temp_root = Path(tempfile.mkdtemp(prefix="et-replay-"))
+            calls_file = temp_root / "calls.jsonl"
+            spec = fake_spec(
+                {
+                    FMP_URL: StallResponse(
+                        FMP_URL,
+                        case.payload if case.payload is not None else b"",
+                        stall_in_get=True,
+                        content_type=case.content_type,
+                    )
+                },
+                calls_file=calls_file,
+            )
+            exit_code = transcript_tool.main(
+                list(case.argv),
+                _retrieval_launcher=LAUNCHER,
+                _retrieval_spec=spec,
+                _retrieval_temp_root=temp_root,
+                _feedback_recorder=recorder,
+                _feedback_evidence_ref=f"et-case:{case.name}",
+                _usage_publisher=_no_receipt if case.fault_suppress_receipt else None,
+            )
+            provider_calls = get_urls(calls_file)
+        else:
+            session = _session(case)
+            exit_code = transcript_tool.main(
+                list(case.argv),
+                _session_factory=lambda: session,
+                _cooperative_fetch=_cooperative_fetch(case),
+                _feedback_recorder=recorder,
+                _feedback_evidence_ref=f"et-case:{case.name}",
+                _usage_publisher=_no_receipt if case.fault_suppress_receipt else None,
+            )
+            provider_calls = [url for url, _ in session.calls]
     finally:
         sys.stdin, sys.stdout, sys.stderr = old_stdin, old_stdout, old_stderr
         transcript_api.datetime = old_datetime
@@ -440,14 +445,6 @@ def replay(
         "details": details,
         "stderr": err.getvalue(),
     }
-
-
-def _fault(case: ReplayCase) -> contextlib.AbstractContextManager[Any]:
-    if case.fault_suppress_receipt:
-        return _suppressed_receipt()
-    if case.fault_period is None:
-        return contextlib.nullcontext()
-    return _foreign_period_fault(case.fault_period)
 
 
 def _read_jsonl(path: Path | None) -> list[dict[str, Any]]:

@@ -14,7 +14,8 @@ from pathlib import Path
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
-from common import load_companies, parse_transcript_header, load_config, get_path
+from config import get_path, load_companies, load_config
+from parser import parse_transcript_header
 
 _BASE_DIR = Path(__file__).parent
 __TEMPLATE_FILE = _BASE_DIR / "templates" / "index.html"

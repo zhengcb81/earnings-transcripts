@@ -77,6 +77,19 @@ from pathlib import Path
 import sys
 
 def refuse_network(event, args):
+    fail_stage = os.environ.get("ET_SUPERVISOR_DENY")
+    if (fail_stage == "prepare_workdir" and event == "os.mkdir"
+            and Path(args[0]).name.startswith("et-retrieval-")):
+        # A full volume is terminal. tempfile may retry PermissionError on Windows.
+        raise OSError(28, "Authorization: Bearer FAKE_ET_PARENT_CREDENTIAL", "FAKE_ET_PARENT_PATH")
+    if (
+        (fail_stage == "write_request" and event == "open"
+            and isinstance(args[0], str) and Path(args[0]).name == "request.json"
+            and args[2] & os.O_WRONLY)
+        or (fail_stage == "start_worker" and event == "subprocess.Popen"
+            and "retrieval_worker.py" in str(args[1]))
+    ):
+        raise PermissionError(13, "Authorization: Bearer FAKE_ET_PARENT_CREDENTIAL", "FAKE_ET_PARENT_PATH")
     # HTTP libraries may create a socket only to check local IPv6 support.
     if event in ("socket.connect", "socket.getaddrinfo", "socket.sendto"):
         Path(os.environ["ET_S2_NETWORK_MARKER"]).touch()
@@ -101,6 +114,23 @@ class MissingDependency:
         return None
 
 sys.meta_path.insert(0, MissingDependency())
+
+if (os.environ.get("ET_RUNTIME_HOLD") and Path(sys.argv[0]).name == "retrieval_worker.py"):
+    import time
+    from lock import SingleInstanceLock
+    import requests
+
+    def fake_get(self, *args, **kwargs):
+        root = Path(os.environ["ET_RUNTIME_HOLD"])
+        with SingleInstanceLock(root / "worker-alive.lock"):
+            with (root / "worker-dispatches.txt").open("a", encoding="utf-8") as stream:
+                stream.write("dispatched\\n")
+            cutoff = time.monotonic() + 30
+            while not (root / "release-worker").exists() and time.monotonic() < cutoff:
+                time.sleep(0.02)
+            raise RuntimeError("synthetic request held in flight")
+
+    requests.Session.get = fake_get
 """
 
 
@@ -145,6 +175,135 @@ def isolated_env(tmp_path: Path, dependency: str = "") -> dict[str, str]:
         ET_S2_NETWORK_MARKER=str(tmp_path / "unexpected-network"),
     )
     return env
+
+
+@pytest.mark.parametrize("stage, feedback_disabled", [
+    ("prepare_workdir", False), ("write_request", False),
+    ("start_worker", False), ("start_worker", True),
+])
+def test_parent_start_failure_proves_zero_requests_and_keeps_public_protocol(
+    tmp_path, stage, feedback_disabled,
+):
+    env = isolated_env(tmp_path)
+    env["ET_SUPERVISOR_DENY"] = stage
+    env["FMP_API_KEY"] = "FAKE_ET_PARENT_CREDENTIAL"
+    if feedback_disabled:
+        env["RESEARCH_FEEDBACK_DISABLED"] = "1"
+    request = make_request(provider="fmp", exchange="nasdaq", request_id="et-parent-failure", timeout_seconds=12)
+    completed = subprocess.run(
+        [sys.executable, "-B", str(ROOT / "transcript_tool.py"), "--request-stdin", "--report-usage"],
+        input=json.dumps(request).encode(), capture_output=True, cwd=tmp_path, env=env,
+        timeout=20, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0), check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    response = json.loads(completed.stdout)
+    assert (response["status"], response["error_code"]) == ("provider_error", "retrieval_worker_failure")
+    receipt = json.loads(completed.stderr)
+    assert receipt == {
+        "schema_version": "earnings-retrieval-usage/1",
+        "request_id": "et-parent-failure",
+        "usage_complete": True,
+        "usage": {"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+    }
+    assert not (tmp_path / "unexpected-network").exists()
+    assert not list(tmp_path.glob("et-retrieval-*"))
+    path = tmp_path / "state" / "logs" / "runtime_errors.log"
+    logs = path.read_bytes()
+    records = [json.loads(line) for line in logs.splitlines()]
+    terminal = next(record for record in records if record["event"] == "retrieval_worker")
+    assert (terminal["run_id"], terminal["attempt_id"]) == ("et-s2-startup", "one")
+    facts = terminal["facts"]
+    assert (facts["supervisor_stage"], facts["provider_activity"]) == (stage, "not_started")
+    assert facts["supervisor_exception_trace"][0]["type"] == (
+        "OSError" if stage == "prepare_workdir" else "PermissionError"
+    )
+    out = tmp_path / "observations.jsonl"
+    public = completed.stdout + completed.stderr + logs
+    if feedback_disabled:
+        assert not out.exists()
+    else:
+        first, second = (second_process_readback(env, out) for _ in range(2))
+        assert first == second
+        finished, = (item for item in first["details"] if item["phase"] == "finished")
+        assert finished["worker"]["supervisor_stage"] == stage
+        assert finished["completion"]["attempted"] is False
+        row, = (item for item in first["observations"] if item["check_id"] == "usage-accounting")
+        row = {**row, "origin_owner": row["owner"]}
+        key = occurrence(row)
+        query = action("reconcile", [key], {"occurrence_id": key, "observation": row})
+        owner = run(
+            env, tmp_path, [ROOT / "tools/feedback_owner.py", "--db", tmp_path / "unused.db",
+                            "--sidecar", out, "reconcile"], stdin=json.dumps(query).encode(),
+        )
+        assert json.loads(owner.stdout)["result"]["cost_state"] == "not_applicable"
+        assert not (tmp_path / "unused.db").exists()
+        public += owner.stdout + json.dumps(first).encode()
+    assert b"FAKE_ET_PARENT" not in public
+
+
+def test_worker_stops_after_parent_hard_stop_and_cold_read_keeps_possible_dispatch(tmp_path):
+    import atexit
+    import time
+
+    from lock import SingleInstanceLock
+
+    env = isolated_env(tmp_path)
+    env["FMP_API_KEY"] = "FAKE_ET_PARENT_CREDENTIAL"
+    env["ET_RUNTIME_HOLD"] = str(tmp_path)
+    request = make_request(provider="fmp", exchange="nasdaq", request_id="et-kill-active", timeout_seconds=30)
+    lock = SingleInstanceLock(tmp_path / "worker-alive.lock")
+    process = subprocess.Popen(
+        [sys.executable, "-B", str(ROOT / "transcript_tool.py"), "--request-stdin", "--report-usage"],
+        cwd=tmp_path, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+    )
+    started = tmp_path / "worker-dispatches.txt"
+    try:
+        process.stdin.write(json.dumps(request).encode())
+        process.stdin.close()
+        deadline = time.monotonic() + 20
+        while not started.is_file() and process.poll() is None and time.monotonic() < deadline:
+            time.sleep(0.03)
+        assert started.read_text(encoding="utf-8").splitlines() == ["dispatched"]
+        process.kill()
+        process.wait(timeout=8)
+        deadline = time.monotonic() + 8
+        while not (released := lock.acquire()[0]) and time.monotonic() < deadline:
+            time.sleep(0.03)
+        assert released, "the original request worker survived loss of its supervisor"
+        lock.release()
+        command = [ROOT / "tools/feedback_owner.py", "runtime-history", "--run-id", "et-s2-startup",
+                   "--attempt-id", "one", "--step-id", "et-kill-active"]
+        first, second = (json.loads(run(env, tmp_path, command).stdout) for _ in range(2))
+        assert first == second and first["status"] == "found"
+        phases = {row["phase"] for row in first["events"]}
+        assert {"worker_start_requested", "provider_phase_entered", "supervisor_disconnected"} <= phases
+        assert first["events"][-1]["usage"] is None
+        started_observation, = second_process_readback(env, tmp_path / "observations.jsonl")["observations"]
+        assert started_observation["check_id"] == "action-started"
+        row = {**started_observation, "origin_owner": started_observation["owner"]}
+        key = occurrence(row)
+        query = action("reconcile", [key], {"occurrence_id": key, "observation": row})
+        reconcile = [ROOT / "tools/feedback_owner.py", "--db", tmp_path / "unused.db",
+                     "--sidecar", tmp_path / "observations.jsonl", "reconcile"]
+        reads = [json.loads(run(env, tmp_path, reconcile, stdin=json.dumps(query).encode()).stdout)
+                 for _ in range(2)]
+        assert reads[0] == reads[1]
+        assert reads[0]["result"]["job_status"] == "interrupted"
+        assert reads[0]["result"]["cost_state"] == "unknown"
+        assert not (tmp_path / "unused.db").exists()
+        assert started.read_text(encoding="utf-8").splitlines() == ["dispatched"]
+        assert not list(tmp_path.glob("et-retrieval-*"))
+        assert not (tmp_path / "unexpected-network").exists()
+    finally:
+        (tmp_path / "release-worker").touch()
+        lock.release()
+        atexit.unregister(lock.release)
+        if process.poll() is None:
+            process.kill()
+            process.wait(timeout=8)
+        process.stdout.close()
+        process.stderr.close()
 
 
 @pytest.mark.parametrize("dependency, report_usage", [("requests", True), ("bs4", True), ("requests", False)])

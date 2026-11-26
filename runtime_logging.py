@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import atexit
+from datetime import datetime, timezone
 import json
 import logging
 from logging.handlers import RotatingFileHandler
@@ -11,6 +12,7 @@ import sys
 from typing import Mapping
 
 from lock import SingleInstanceLock
+from runtime_scope import OWNER, run_identity, safe_public_word, state_root, storage_path
 
 
 def warn_optional_failure(kind: str, exception_type: str) -> None:
@@ -57,7 +59,25 @@ def append_failure(path: Path, payload: Mapping[str, object]) -> bool:
                 return not handler.failed
             finally:
                 handler.close()
-    except (OSError, RuntimeError, ValueError):
+    except (OSError, RuntimeError, TypeError, ValueError):
         return False
     finally:
         atexit.unregister(lock.release)
+
+
+def record_local_failure(
+    event: str, facts: Mapping[str, object], *, identity: tuple[str, str] | None = None,
+) -> bool:
+    """Persist structural owner facts independently of F4 delivery."""
+    root = state_root()
+    if root is None:
+        return False
+    run_id, attempt_id = identity or run_identity()
+    return append_failure(storage_path(root / "logs" / "runtime_errors.log"), {
+        "at": datetime.now(timezone.utc).isoformat(),
+        "owner": OWNER,
+        "run_id": safe_public_word(run_id, fallback="run"),
+        "attempt_id": safe_public_word(attempt_id, fallback="attempt"),
+        "event": event,
+        "facts": facts,
+    })

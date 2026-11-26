@@ -23,7 +23,9 @@ from parser import (
 
 # 翻译
 from translator import (
-    _OpenAITranslator, MiMoTranslator, MiniMaxTranslator, DeepSeekTranslator,
+    OpenAITranslator, MiMoTranslator, MiniMaxTranslator, DeepSeekTranslator,
     TranslatorFactory, GoogleTranslator,
     text_hash, translate_paragraphs,
 )
+
+_OpenAITranslator = OpenAITranslator

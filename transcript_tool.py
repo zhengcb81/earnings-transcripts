@@ -27,6 +27,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import retrieval_runtime
 import transcript_feedback
+from retrieval_lifecycle import RetrievalTrace
+from runtime_scope import public_request, run_identity, safe_public_word, step_id
 from transcript_contracts import (
     ADAPTER_VERSION,
     DISCOVERY_RESULT_SCHEMA,
@@ -115,9 +117,10 @@ def _supervised_result(
     receipt = {
         "schema_version": "earnings-retrieval-usage/1",
         "request_id": request.get("request_id") if isinstance(request, dict) else None,
-        "usage_complete": outcome.result is not None
-        and outcome.reason is None
-        and outcome.usage is not None,
+        "usage_complete": outcome.usage is not None and (
+            (outcome.result is not None and outcome.reason is None)
+            or outcome.reason == "worker_not_started"
+        ),
         "usage": outcome.usage,
     }
     if outcome.result is not None and outcome.reason is None:
@@ -194,22 +197,21 @@ def main(
     _retrieval_temp_root: Path | None = None,
     _feedback_recorder: Any = None,
     _feedback_evidence_ref: str | None = None,
+    _cooperative_fetch: Callable[..., dict[str, Any]] | None = None,
+    _usage_publisher: Callable[[dict[str, Any], bool], dict[str, Any] | None] | None = None,
 ) -> int:
-    """Run the JSON boundary; private injection points are for offline tests only."""
-    # The run's identity and its recorder exist before any parsing or side
-    # effect, so even a refused invocation is observable. A parent-passed run
-    # number is associated as-is; a direct start generates its own recoverable
-    # identity and saves under the owner's durable state root.
-    recorder = (
-        _feedback_recorder
-        if _feedback_recorder is not None
-        else transcript_feedback.recorder_from_env()
-    )
-    if recorder is not None:
-        # The observation names the version of the observed run, not the
-        # version of the projection that writes it.
-        recorder.version = PRODUCT_VERSION
-        transcript_feedback.set_active_recorder(recorder)
+    """Run the JSON boundary with explicit seams for isolated fixtures."""
+    def initialize_recorder():
+        recorder = (
+            _feedback_recorder
+            if _feedback_recorder is not None
+            else transcript_feedback.recorder_from_env()
+        )
+        if recorder is not None:
+            recorder.version = PRODUCT_VERSION
+            transcript_feedback.set_active_recorder(recorder)
+        return recorder
+
     parser = transcript_feedback.RefusalCapturingParser(
         description="Fetch one exact-period untranslated earnings transcript."
     )
@@ -219,6 +221,10 @@ def main(
         "--capabilities",
         action="store_true",
         help="Local operation/pricing metadata; no provider requests.",
+    )
+    entry.add_argument(
+        "--flush-observations", action="store_true",
+        help="Republish saved observations for the configured run/attempt; no provider requests.",
     )
     parser.add_argument(
         "--report-usage",
@@ -244,6 +250,7 @@ def main(
     try:
         args = parser.parse_args(argv)
     except transcript_feedback.InvocationRefusal as refusal:
+        recorder = initialize_recorder()
         code = transcript_feedback.refuse_invocation(
             parser,
             refusal,
@@ -253,11 +260,14 @@ def main(
             refusal_code="invalid_cli_arguments",
             location="transcript_tool.py#parse_args",
         )
+        identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity()
+        RetrievalTrace.create("transcript-tool", None, identity).emit(
+            "invocation_refused", exit_code=code, reason="invalid_cli_arguments",
+            usage={"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+        )
         transcript_feedback.finalize_delivery(recorder)
         return code
     if args.capabilities:
-        # Holdover work can be republished without starting a retrieval.
-        transcript_feedback.finalize_delivery(recorder)
         result = {
             "schema_version": "earnings-provider-capabilities/1",
             "providers": {
@@ -274,6 +284,14 @@ def main(
             json.dumps(result, ensure_ascii=False, separators=(",", ":")) + "\n"
         )
         return 0
+    recorder = initialize_recorder()
+    if args.flush_observations:
+        transcript_feedback.finalize_delivery(recorder)
+        return 0
+    identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity()
+    invocation = RetrievalTrace.create("transcript-tool", None, identity)
+    invocation.emit("invocation_started", requested_operation=args.operation, usage=None)
+    publish_usage = _usage_publisher if _usage_publisher is not None else _publish_usage_receipt
     result_schema = (
         DISCOVERY_RESULT_SCHEMA
         if args.operation == "discover"
@@ -298,9 +316,11 @@ def main(
                 "motley_fool",
             )
             native_receipt = _zero_usage_receipt(None)
-            published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+            published_receipt = publish_usage(native_receipt, args.report_usage)
         else:
             request = json.loads(raw)
+            invocation.emit("input_parsed", request=public_request(request),
+                            retrieval_step_id=step_id(request, args.operation))
             started_at = transcript_feedback.begin_step(
                 recorder,
                 request=request,
@@ -326,12 +346,12 @@ def main(
                 result = preflight
                 branch = "preflight"
                 native_receipt = _zero_usage_receipt(request)
-                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+                published_receipt = publish_usage(native_receipt, args.report_usage)
             elif credential_error is not None:
                 result = _wire_failure(result_schema, request.get("request_id"), "unavailable", credential_error, "fmp")
                 branch = "credential"
                 native_receipt = _zero_usage_receipt(request)
-                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+                published_receipt = publish_usage(native_receipt, args.report_usage)
             elif args.operation == "discover" and args.include_source_payload:
                 provider = "motley_fool"
                 request_id = None
@@ -349,7 +369,7 @@ def main(
                 )
                 branch = "discovery-source-payload"
                 native_receipt = _zero_usage_receipt(request)
-                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+                published_receipt = publish_usage(native_receipt, args.report_usage)
             elif _session_factory is not None:
                 # Cooperative path: injected custom session (offline tests).
                 from transcript_api import (
@@ -372,7 +392,8 @@ def main(
                         **provider_options,
                     )
                 else:
-                    result = fetch_transcript(
+                    cooperative_fetch = _cooperative_fetch if _cooperative_fetch is not None else fetch_transcript
+                    result = cooperative_fetch(
                         request,
                         fmp_api_key=fmp_api_key,
                         include_source_payload=args.include_source_payload,
@@ -389,16 +410,26 @@ def main(
                     launcher_spec=_retrieval_spec,
                     temp_root=_retrieval_temp_root,
                     fmp_api_key=fmp_api_key,
-                    diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else None,
+                    diagnostic_identity=identity,
                 )
-                branch = "provider"
-                published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+                branch = (
+                    "worker-startup" if (worker_diagnostics or {}).get("provider_activity") == "not_started"
+                    else "provider"
+                )
+                published_receipt = publish_usage(native_receipt, args.report_usage)
     except (json.JSONDecodeError, UnicodeError):
         result = _wire_failure(
             result_schema, None, "invalid_request", "invalid_json", "motley_fool"
         )
         native_receipt = _zero_usage_receipt(None)
-        published_receipt = _publish_usage_receipt(native_receipt, args.report_usage)
+        published_receipt = publish_usage(native_receipt, args.report_usage)
+    invocation.emit(
+        "invocation_finished", exit_code=0, branch=branch,
+        result_status=safe_public_word(result.get("status"), fallback="status"),
+        reason=safe_public_word(result.get("error_code"), fallback="reason"),
+        usage=native_receipt.get("usage") if native_receipt else None,
+        usage_complete=bool(native_receipt and native_receipt.get("usage_complete")),
+    )
     transcript_feedback.emit_observations(
         recorder,
         request=request,

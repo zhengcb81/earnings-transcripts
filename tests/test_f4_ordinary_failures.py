@@ -664,13 +664,17 @@ def test_pending_delivery_survives_unwritable_sink_and_is_redelivered_once(tmp_p
     assert rows_for_check(saved, "action-started")
     assert rows_for_check(saved, "outcome-naming")
 
-    # 另起两个进程补投同一待投递项（--capabilities 不发起任何请求）。
+    # 另起两个进程补投同一待投递项（--flush-observations 不发起任何请求）。
     env2 = dict(env)
     env2["RESEARCH_FEEDBACK_OUT"] = str(tmp_path / "restored" / "observations.jsonl")
+    capabilities = run_entry(env2, [ROOT / "transcript_tool.py", "--capabilities"], cwd=case)
+    assert capabilities.returncode == 0
+    assert json.loads(capabilities.stdout)["schema_version"] == "earnings-provider-capabilities/1"
+    assert not (tmp_path / "restored").exists()
     for index in (2, 3):
-        completed = run_entry(env2, [ROOT / "transcript_tool.py", "--capabilities"], cwd=case)
+        completed = run_entry(env2, [ROOT / "transcript_tool.py", "--flush-observations"], cwd=case)
         assert completed.returncode == 0
-        assert "earnings-provider-capabilities/1" in completed.stdout.decode("utf-8")
+        assert completed.stdout == b""
 
     delivered = read_jsonl(tmp_path / "restored" / "observations.jsonl")
     identities = [
@@ -933,7 +937,7 @@ def test_started_only_cut_point_is_recovered_without_new_requests(tmp_path):
     assert not rows_for_check(rows, "outcome-naming")
 
     # 第二个进程按同一身份只读对账：不重跑业务、不新增请求、不重复登记。
-    completed = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"], cwd=case)
+    completed = run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"], cwd=case)
     assert completed.returncode == 0
     rows_after = read_jsonl(out_path)
     assert len(rows_for_check(rows_after, "action-started")) == 1
@@ -992,9 +996,9 @@ raise SystemExit(transcript_tool.main([
         process.wait(timeout=10)
 
     for _ in range(2):
-        recovery = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"])
+        recovery = run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"])
         assert recovery.returncode == 0 and recovery.stderr == b""
-        assert json.loads(recovery.stdout)["schema_version"] == "earnings-provider-capabilities/1"
+        assert recovery.stdout == b""
     marker, = (state / "observations").glob("*.ready")
     recovered = second_process_readback(env, marker.with_suffix(".jsonl"))
     assert recovered["observations"] == rows
@@ -1100,8 +1104,8 @@ def test_bundle_redelivery_never_duplicates_and_respects_ack(tmp_path):
     )[0]
     original = bundle.read_bytes()
 
-    # 回告丢失窗口：重跑同身份入口（--capabilities），同名 bundle 内容不变。
-    completed = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"], cwd=case)
+    # 回告丢失窗口：重跑同身份入口（--flush-observations），同名 bundle 内容不变。
+    completed = run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"], cwd=case)
     assert completed.returncode == 0
     assert sorted(
         path
@@ -1124,7 +1128,7 @@ def test_bundle_redelivery_never_duplicates_and_respects_ack(tmp_path):
     # ROOT 确认标记（.ack）后：owner 不再补投。
     ack = bundle.parent / (bundle.name[: -len(".jsonl")] + ".ack")
     ack.write_text("confirmed", encoding="utf-8")
-    completed = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"], cwd=case)
+    completed = run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"], cwd=case)
     assert completed.returncode == 0
     assert bundle.read_bytes() == original
 
@@ -1362,7 +1366,7 @@ def test_unavailable_details_recover_from_native_copy(publication, tmp_path):
 
     details_sink.rmdir()
     for _ in range(2):
-        recovery = run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"])
+        recovery = run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"])
         assert recovery.returncode == 0
         if publication == "explicit":
             published = sink
@@ -1453,11 +1457,11 @@ def test_ack_only_confirms_its_delivered_occurrences(tmp_path):
     interrupted = ready_paths[-1]
     recovered_mark = interrupted.read_bytes()
     interrupted.unlink()
-    assert run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"]).returncode == 0
+    assert run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"]).returncode == 0
     assert interrupted.read_bytes() == recovered_mark
     for ready in ready_paths:
         ready.rename(ready.with_suffix(".ack"))
-    assert run_entry(env, [ROOT / "transcript_tool.py", "--capabilities"]).returncode == 0
+    assert run_entry(env, [ROOT / "transcript_tool.py", "--flush-observations"]).returncode == 0
     assert list(inbox.glob("*.ready")) == []
     assert original_bundle.read_bytes() == original_bytes
     assert original_detail.read_bytes() == original_details

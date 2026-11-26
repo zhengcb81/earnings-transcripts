@@ -57,8 +57,10 @@ from retrieval_budget import (
     BatchBudgetExceeded,
     BudgetSession as _BudgetSession,  # noqa: F401 - compatibility for existing budget callers
 )
+from retrieval_diagnostics import exception_trace
 from retrieval_runtime import RetrievalOutcome, run_retrieval
-from runtime_logging import rotating_file_handler, warn_optional_failure
+from runtime_logging import record_local_failure, rotating_file_handler, warn_optional_failure
+from runtime_scope import run_identity
 import transcript_feedback
 from transcript_feedback import BatchJournal
 from transcript_api import (
@@ -341,6 +343,10 @@ def _stage_for(status: str, error_code: str | None) -> str:
     return "fetch"
 
 
+def _could_have_dispatched(diagnostics: dict[str, Any] | None) -> bool:
+    return (diagnostics or {}).get("provider_activity") != "not_started"
+
+
 def _observe_fetched(
     journal: BatchJournal | None,
     *,
@@ -362,7 +368,7 @@ def _observe_fetched(
         operation=operation,
         request=request or {},
         result=result,
-        dispatched=True,
+        dispatched=_could_have_dispatched(worker),
         usage=usage,
         worker=worker,
         stage=_stage_for(str(status), error_code),
@@ -389,7 +395,7 @@ def _observe_interrupted(
         operation=operation,
         request=request or {},
         result=result,
-        dispatched=True,
+        dispatched=_could_have_dispatched(worker),
         usage=usage,
         worker=worker,
         stage=_stage_for(str(entry.get("status")), entry.get("error_code")),
@@ -446,6 +452,7 @@ def _write_batch_outcome(
     budget: BatchBudget | None,
     manifest: dict[str, Any] | None,
     publication_failure: str | None = None,
+    execution_failure: list[dict] | None = None,
 ) -> None:
     """写下一批的整体结果：真实退出码、原 manifest 引用与计量。"""
     if journal is None:
@@ -459,6 +466,7 @@ def _write_batch_outcome(
         budget=budget.report() if budget is not None else None,
         exhausted=budget.exhausted if budget is not None else None,
         publication_failure=publication_failure,
+        execution_failure=execution_failure,
     )
     journal.summary(exit_code)
 
@@ -1068,7 +1076,7 @@ def _process_fool_company(
             operation="list",
             request=listing_request,
             result={"status": listing_status, "error_code": listing.get("error_code")},
-            dispatched=True,
+            dispatched=_could_have_dispatched(sup.diagnostics),
             usage=sup.usage,
             worker=sup.diagnostics,
             stage="discovery",
@@ -1571,7 +1579,7 @@ def _run_list(
                         "status": "provider_error",
                         "error_code": "retrieval_worker_failure",
                     },
-                    dispatched=True,
+                    dispatched=_could_have_dispatched(sup.diagnostics),
                     usage=sup.usage,
                     worker=sup.diagnostics,
                     stage="discovery",
@@ -1604,7 +1612,7 @@ def _run_list(
                     "status": listing_status,
                     "error_code": listing.get("error_code"),
                 },
-                dispatched=True,
+                dispatched=_could_have_dispatched(sup.diagnostics),
                 usage=sup.usage,
                 worker=sup.diagnostics,
                 stage="discovery",
@@ -1742,6 +1750,7 @@ def _run_batch(
     exit_code = EXIT_FAILURE
     manifest_facts: dict[str, Any] | None = None
     publication_failure: str | None = None
+    execution_failure: list[dict] | None = None
     report_ready = False
     try:
         transcripts_root.mkdir(parents=True, exist_ok=True)
@@ -1787,8 +1796,12 @@ def _run_batch(
                 pass
             report_ready = True
     except Exception as exc:
-        print(f"error: unexpected_batch_failure: {exc}", file=sys.stderr)
-        log.exception("unexpected batch failure")
+        execution_failure = exception_trace(exc)
+        print(f"error: unexpected_batch_failure ({execution_failure[0]['type']})", file=sys.stderr)
+        record_local_failure(
+            "unexpected_batch_failure", {"trace": execution_failure}, identity=ctx.diagnostic_identity,
+        )
+        log.error("unexpected batch failure trace=%s", execution_failure)
         exit_code = EXIT_FAILURE
     finally:
         try:
@@ -1796,7 +1809,7 @@ def _run_batch(
         except Exception as exc:
             publication_failure = type(exc).__name__
             print(f"error: manifest_write_failed ({publication_failure})", file=sys.stderr)
-            transcript_feedback.record_local_failure(
+            record_local_failure(
                 "manifest_write_failed",
                 {"exception_type": publication_failure, "entry_count": len(entries)},
                 identity=ctx.diagnostic_identity,
@@ -1814,6 +1827,7 @@ def _run_batch(
             companies=len(companies), exit_code=exit_code, budget=budget,
             manifest=manifest_facts,
             publication_failure=publication_failure,
+            execution_failure=execution_failure,
         )
     return exit_code
 
@@ -1916,7 +1930,7 @@ def main(
             launcher_spec=_retrieval_spec,
             temp_root=_retrieval_temp_root,
             api_key=args.api_key or None,
-            diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else None,
+            diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity(),
         )
         if args.list:
             return _run_list(

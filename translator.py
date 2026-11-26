@@ -10,7 +10,7 @@ from config import get_path
 from cache import JsonCache
 
 
-class _OpenAITranslator:
+class OpenAITranslator:
     """OpenAI 兼容 API 翻译基类（MiMo / MiniMax / DeepSeek 共用）。"""
 
     # 子类需覆盖
@@ -88,7 +88,10 @@ class _OpenAITranslator:
         return self._backend_name
 
 
-class MiMoTranslator(_OpenAITranslator):
+_OpenAITranslator = OpenAITranslator  # Compatibility for existing callers of the facade.
+
+
+class MiMoTranslator(OpenAITranslator):
     """小米 MiMo LLM 翻译。"""
     _backend_name = "mimo"
     _config_key = "mimo"
@@ -97,7 +100,7 @@ class MiMoTranslator(_OpenAITranslator):
     _default_model = "mimo-v2.5-pro"
 
 
-class MiniMaxTranslator(_OpenAITranslator):
+class MiniMaxTranslator(OpenAITranslator):
     """MiniMax LLM 翻译。"""
     _backend_name = "minimax"
     _config_key = "minimax"
@@ -110,7 +113,7 @@ class MiniMaxTranslator(_OpenAITranslator):
         return text
 
 
-class DeepSeekTranslator(_OpenAITranslator):
+class DeepSeekTranslator(OpenAITranslator):
     """DeepSeek LLM 翻译。"""
     _backend_name = "deepseek"
     _config_key = "deepseek"

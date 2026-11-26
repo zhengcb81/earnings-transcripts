@@ -385,6 +385,32 @@ def test_expired_batch_budget_starts_no_worker(tmp_path):
     assert not calls_file.exists()
 
 
+def test_batch_supervisor_passes_only_the_unspent_original_deadline(monkeypatch):
+    import retrieval_budget
+    from retrieval_runtime import RetrievalOutcome
+    from types import SimpleNamespace
+
+    clock = SimpleNamespace(now=100.0)
+    monkeypatch.setattr(retrieval_budget, "time", SimpleNamespace(monotonic=lambda: clock.now))
+    calls = []
+
+    def launch(operation, payload, *, remaining_seconds, requests_left, **options):
+        calls.append((remaining_seconds, requests_left))
+        if len(calls) == 1:
+            clock.now += 4.0
+            return RetrievalOutcome({}, {"requests_used": 1, "response_bytes_used": 20}, None, 0)
+        return RetrievalOutcome(None, None, "deadline", 1)
+
+    monkeypatch.setattr(scraper, "run_retrieval", launch)
+    budget = scraper.BatchBudget(5, 10.0, 1024, 1024)
+    context = scraper._RetrievalContext()
+    assert scraper._supervise(budget, context, ENABLED_FOOL, "list", {}).reason is None
+    assert scraper._supervise(budget, context, ENABLED_FOOL, "list", {}).reason == "deadline"
+    assert scraper._supervise(budget, context, ENABLED_FOOL, "list", {}) is None
+    assert calls == [(10.0, 5), (6.0, 4)]
+    assert budget.exhausted == "batch_deadline" and budget.usage_unknown
+
+
 def test_batch_max_requests_stops_batch_with_named_partial(
     tmp_path, monkeypatch, capsys
 ):
@@ -1155,6 +1181,39 @@ def test_manifest_write_failure_exits_nonzero_and_keeps_fetched_original(
     assert detail["reason_chain"] == ["manifest_write_failed"]
     assert detail["batch"]["exit_code"] == scraper.EXIT_FAILURE
     assert detail["batch"]["manifest"] is None
+
+
+def test_unexpected_batch_exception_leaves_a_redacted_native_cause(tmp_path, monkeypatch, capsys):
+    out = tmp_path / "out"
+    calls = tmp_path / "calls.jsonl"
+    observations = tmp_path / "observations.jsonl"
+
+    def fail_summary(*args, **kwargs):
+        raise OSError(13, "Authorization: Bearer FAKE_ET_BATCH_TEXT", "FAKE_ET_BATCH_PATH")
+
+    monkeypatch.setattr(scraper, "save_summary", fail_summary)
+    rc = run_main(
+        monkeypatch,
+        ["--source", "fmp", "--periods", "2026Q3", "--output", str(out)],
+        calls_file=calls,
+        responses={FMP_URL: FakeResponse(FMP_URL, fmp_payload(symbol="ACME"), content_type="application/json")},
+        key=FAKE_KEY,
+        feedback_out=observations,
+    )
+    assert rc == scraper.EXIT_FAILURE
+    streams = capsys.readouterr()
+    assert "unexpected_batch_failure" in streams.err
+    assert "FAKE_ET_BATCH" not in streams.out + streams.err
+    assert len(list(out.rglob("*_earnings_call.txt"))) == 1
+    assert get_urls(calls) == [FMP_URL]
+    rows = read_records(tmp_path / "et-state" / "logs" / "runtime_errors.log")
+    error, = (row for row in rows if row["event"] == "unexpected_batch_failure")
+    assert error["facts"]["trace"][0]["type"] in ("OSError", "PermissionError")
+    assert "FAKE_ET_BATCH" not in json.dumps(rows)
+    detail, = (row for row in read_records(observations.with_suffix(".jsonl.details.jsonl"))
+               if row["operation"] == "batch" and row["phase"] == "finished")
+    assert detail["reason_chain"] == ["unexpected_batch_failure"]
+    assert detail["batch"]["execution_failure"]["trace"] == error["facts"]["trace"]
 
 
 # ── real subprocess exit paths (offline-safe by construction) ──────

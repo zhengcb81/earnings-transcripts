@@ -55,46 +55,31 @@ import re
 import sys
 import tempfile
 import time
-import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
-from runtime_logging import append_failure, warn_optional_failure
+from runtime_logging import record_local_failure as record_local_failure, warn_optional_failure
+from runtime_scope import (
+    FEEDBACK_ATTEMPT_ID_ENV as FEEDBACK_ATTEMPT_ID_ENV,
+    FEEDBACK_DIR_ENV as FEEDBACK_DIR_ENV,
+    FEEDBACK_DISABLED_ENV as FEEDBACK_DISABLED_ENV,
+    FEEDBACK_OUT_ENV as FEEDBACK_OUT_ENV,
+    FEEDBACK_RUN_ID_ENV as FEEDBACK_RUN_ID_ENV,
+    FEEDBACK_STATE_ROOT_ENV as FEEDBACK_STATE_ROOT_ENV,
+    OWNER as OWNER,
+    default_state_root as default_state_root,
+    public_request as _redacted_request,
+    run_identity as run_identity,
+    safe_public_word as safe_public_word,
+    state_root as state_root,
+    step_id as _step_id,
+    storage_path as storage_path,
+)
 
 OBSERVATION_SCHEMA = "feedback-observation/1"
 DETAIL_SCHEMA = "earnings-transcripts-feedback-detail/1"
-OWNER = "earnings-transcripts"
 ADAPTER_VERSION = "earnings-transcripts-feedback/1.0.0"
-
-FEEDBACK_OUT_ENV = "RESEARCH_FEEDBACK_OUT"
-FEEDBACK_RUN_ID_ENV = "RESEARCH_FEEDBACK_RUN_ID"
-FEEDBACK_ATTEMPT_ID_ENV = "RESEARCH_FEEDBACK_ATTEMPT_ID"
-FEEDBACK_DIR_ENV = "RESEARCH_FEEDBACK_DIR"
-FEEDBACK_DISABLED_ENV = "RESEARCH_FEEDBACK_DISABLED"
-FEEDBACK_STATE_ROOT_ENV = "RESEARCH_FEEDBACK_STATE_ROOT"
-
-
-def storage_path(value: str | os.PathLike[str]) -> Path:
-    """Resolve Windows I/O names once for files, siblings, locks and SQLite."""
-    path = Path(value)
-    if os.name != "nt":
-        return path
-    absolute = os.path.abspath(path)
-    if absolute.startswith(("\\\\?\\", "\\\\.\\")):
-        return Path(absolute)
-    if absolute.startswith("\\\\"):
-        return Path("\\\\?\\UNC\\" + absolute[2:])
-    return Path("\\\\?\\" + absolute)
-
-
-def default_state_root() -> Path:
-    """The owner's own machine default: ``~/.earnings-transcripts/feedback``.
-
-    Resolved lazily, so importing this module never depends on a resolvable
-    home directory; only a run that actually uses the default does.
-    """
-    return Path.home() / ".earnings-transcripts" / "feedback"
 
 DISPOSITIONS = ("expected", "deviation", "unknown")
 
@@ -300,29 +285,6 @@ IDENTITY_LOCK_STALE_SECONDS = 60
 
 def _is_str(value: Any) -> bool:
     return isinstance(value, str) and value != ""
-
-
-#: Characters that would smuggle URL queries, paths or forged stderr text
-#: through a public identifier word. A colon stays allowed: the repository's
-#: own opaque evidence references use ``et-case:<name>``, and every URL
-#: shape still carries at least one of the characters below.
-_UNSAFE_PUBLIC_WORD = re.compile(r"[\s/?#&=\\]")
-
-
-def safe_public_word(value: Any, *, fallback: str) -> str | None:
-    """One publication-safe identifier word.
-
-    A bounded value free of URL/whitespace/path punctuation is published
-    as-is; anything else — a URL with a query string, a forged traceback
-    line, an oversized string — becomes a stable digest word, so the
-    identity stays reproducible across processes without publishing the
-    unsafe content.
-    """
-    if not _is_str(value):
-        return None
-    if len(value) <= 128 and not _UNSAFE_PUBLIC_WORD.search(value):
-        return value
-    return f"{fallback}-{hashlib.sha256(value.encode('utf-8')).hexdigest()[:16]}"
 
 
 def observation_id(
@@ -687,32 +649,6 @@ def source_availability_state(result: Any) -> str | None:
     if status in SOURCE_UNAVAILABLE_STATUSES:
         return "source_unavailable"
     return "source_unknown"
-
-
-def _redacted_request(request: Any) -> dict[str, Any]:
-    """The request facts a reproduction needs, without any other field."""
-    if not isinstance(request, Mapping):
-        return {}
-    keep = (
-        "request_id",
-        "ticker",
-        "exchange",
-        "fiscal_year",
-        "fiscal_quarter",
-        "as_of_date",
-        "provider",
-        "download_authorized",
-    )
-    redacted: dict[str, Any] = {}
-    for name in keep:
-        if name not in request:
-            continue
-        value = request[name]
-        if name in ("request_id", "ticker"):
-            value = safe_public_word(value, fallback="redacted")
-        if value is not None:
-            redacted[name] = value
-    return redacted
 
 
 def _redacted_result(result: Any) -> dict[str, Any]:
@@ -1361,66 +1297,6 @@ def _content_matches(path: Path, expected: bytes) -> bool:
         return not stream.read(1)
 
 
-def run_identity(environ: Mapping[str, str] | None = None) -> tuple[str, str]:
-    """This run's (run_id, attempt_id), host-supplied as-is or generated.
-
-    A generated identity is recoverable across processes: it names the owner's
-    pending store and binds every observation, so a later process can reconcile
-    and redeliver by the same identity. Two concurrent tasks each get their own.
-    """
-    env = os.environ if environ is None else environ
-    run_id = env.get(FEEDBACK_RUN_ID_ENV)
-    if not _is_str(run_id):
-        run_id = "run-" + uuid.uuid4().hex[:12]
-    attempt_id = env.get(FEEDBACK_ATTEMPT_ID_ENV)
-    if not _is_str(attempt_id):
-        attempt_id = "attempt-1"
-    return run_id, attempt_id
-
-
-def state_root(environ: Mapping[str, str] | None = None) -> Path | None:
-    """The owner's own durable state root, or ``None`` when unresolvable.
-
-    A home-less process (no ``USERPROFILE``/``HOME``) has no durable root; the
-    run then keeps its business return untouched and publishes nothing rather
-    than crashing on feedback.
-    """
-    env = os.environ if environ is None else environ
-    raw = env.get(FEEDBACK_STATE_ROOT_ENV)
-    if _is_str(raw) and raw.strip():
-        return Path(raw.strip())
-    try:
-        return default_state_root()
-    except (RuntimeError, OSError):
-        return None
-
-
-def record_local_failure(
-    event: str, facts: Mapping[str, object], *, identity: tuple[str, str] | None = None,
-) -> bool:
-    """Keep already-structured owner facts even when the F4 inbox is unavailable."""
-    if os.getenv(FEEDBACK_DISABLED_ENV, "").strip() or os.getenv(FEEDBACK_OUT_ENV) == "":
-        return False
-    root = state_root()
-    if root is None:
-        return False
-    run_id, attempt_id = identity or run_identity()
-    try:
-        return append_failure(
-            storage_path(root / "logs" / "runtime_errors.log"),
-            {
-                "at": now(),
-                "owner": OWNER,
-                "run_id": safe_public_word(run_id, fallback="run"),
-                "attempt_id": safe_public_word(attempt_id, fallback="attempt"),
-                "event": event,
-                "facts": facts,
-            },
-        )
-    except (OSError, RuntimeError, ValueError):
-        return False
-
-
 def _safe_identity_part(value: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]", "_", value) or "unnamed"
 
@@ -1832,20 +1708,6 @@ def emit_observations(
         return []
 
 
-def _step_id(request: Any, operation: str) -> str:
-    """The native stable identifier of the step this observation belongs to.
-
-    A caller-controlled request id is published only as a safe word; a
-    URL-shaped or otherwise unsafe value becomes a stable digest word, so the
-    step identity stays reproducible without republishing the unsafe text.
-    """
-    if isinstance(request, Mapping):
-        request_id = safe_public_word(request.get("request_id"), fallback="request")
-        if request_id is not None:
-            return request_id
-    return f"{operation}-without-request-id"
-
-
 def emit_invocation_refusal(
     recorder: FeedbackRecorder | None,
     *,
@@ -2117,6 +1979,7 @@ class BatchJournal:
         budget: Any = None,
         exhausted: str | None = None,
         publication_failure: str | None = None,
+        execution_failure: list[dict] | None = None,
     ) -> None:
         """Record the run facts the whole-batch outcome is judged against."""
         self._run = {
@@ -2131,6 +1994,10 @@ class BatchJournal:
         if publication_failure is not None:
             self._run["publication_failure"] = {
                 "code": "manifest_write_failed", "exception_type": publication_failure,
+            }
+        if execution_failure is not None:
+            self._run["execution_failure"] = {
+                "code": "unexpected_batch_failure", "trace": execution_failure,
             }
 
     def summary(self, exit_code: int) -> None:
@@ -2171,6 +2038,9 @@ class BatchJournal:
             if "publication_failure" in batch:
                 details["error_type"] = "manifest_write_failed"
                 details["reason_chain"] = ["manifest_write_failed"]
+            if "execution_failure" in batch:
+                details["error_type"] = details["error_type"] or "unexpected_batch_failure"
+                details["reason_chain"].append("unexpected_batch_failure")
             self.recorder.record(
                 step_id=BATCH_STEP_ID,
                 check_id=CHECK_BATCH_OUTCOME,

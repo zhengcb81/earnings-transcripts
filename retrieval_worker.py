@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from retrieval_budget import BatchBudget, BudgetSession, UsageCounter
 from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace
+from retrieval_lifecycle import RetrievalTrace, WorkerLifetime
 from retrieval_protocol import (
     RESULT_FILENAME,
     WORKER_ERROR_FILENAME,
@@ -147,6 +148,8 @@ def main(argv: list[str]) -> int:
     if len(argv) != 1:
         return 2
     request_path = Path(argv[0])
+    trace = RetrievalTrace.from_environment()
+    lifetime = WorkerLifetime(request_path, trace) if trace is not None else None
     phase = ["envelope"]
 
     def failing(code: int, reason: str) -> int:
@@ -207,12 +210,19 @@ def main(argv: list[str]) -> int:
             return BudgetSession(inner, budget)
 
         phase[0] = "dispatch"
+        if lifetime is not None:
+            lifetime.activity = "possibly_dispatched"
+            lifetime.trace.emit("provider_phase_entered", provider_activity=lifetime.activity, usage=None)
         with capture_provider_failure() as provider_trace:
             result = _dispatch(envelope, session_factory, settings, provider_api=provider_api)
         if provider_trace:
             _write_error_diagnostic(request_path, phase[0], provider_trace)
         phase[0] = "encode"
-        data = encode_result_envelope(usage=budget.usage_snapshot(), result=result)
+        usage = budget.usage_snapshot()
+        if lifetime is not None:
+            lifetime.usage = usage
+            lifetime.trace.emit("provider_returned", provider_activity=lifetime.activity, usage=usage)
+        data = encode_result_envelope(usage=usage, result=result)
         # Same derived allowance as the supervisor: this request's own quotas plus
         # the computable encoding overhead, never one module-level fixed cap.
         if not result_within_limit(data, envelope.get("payload"), response_bytes_left):

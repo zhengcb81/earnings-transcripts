@@ -28,11 +28,13 @@ import subprocess
 import sys
 import tempfile
 import time
+from contextlib import suppress
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal, TypedDict
 
-from retrieval_diagnostics import WorkerStderr, read_exception_trace, safe_exception_types
+from retrieval_diagnostics import WorkerStderr, exception_trace, read_exception_trace, safe_exception_types
+from retrieval_lifecycle import TRACE_ENV, RetrievalTrace
 from retrieval_protocol import (
     REQUEST_FILENAME,
     RESULT_FILENAME,
@@ -46,13 +48,16 @@ from retrieval_protocol import (
     parse_result_envelope,
     result_transfer_limit,
 )
-from transcript_feedback import (
+from runtime_logging import record_local_failure
+from runtime_scope import (
     FEEDBACK_ATTEMPT_ID_ENV,
     FEEDBACK_DIR_ENV,
     FEEDBACK_DISABLED_ENV,
     FEEDBACK_OUT_ENV,
     FEEDBACK_RUN_ID_ENV,
-    record_local_failure,
+    public_request,
+    run_identity,
+    safe_public_word,
 )
 from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
 
@@ -82,7 +87,7 @@ class RetrievalOutcome:
     ``result`` is the existing wire result, or ``None`` when the worker outcome
     cannot be trusted. ``usage`` is the internal consumption report, or
     ``None`` when it is unknown (never substitute zero). ``reason`` is
-    ``None`` | ``"deadline"`` | ``"worker_failure"``. ``diagnostics`` is the
+    ``None`` | ``"deadline"`` | ``"worker_failure"`` | ``"worker_not_started"``. ``diagnostics`` is the
     sanitized supervisor/child diagnostic, or ``None`` on normal completion.
     """
 
@@ -183,8 +188,11 @@ def run_retrieval(
     A response-only operation must not silently become unlimited.
     """
     deadline = time.monotonic() + max(0.0, remaining_seconds)
+    diagnostic_identity = diagnostic_identity or run_identity()
+    trace = RetrievalTrace.create(operation, payload, diagnostic_identity)
+    history_written = trace.emit("started", request=public_request(payload), usage=None)
     if remaining_seconds <= 0:
-        return RetrievalOutcome(
+        outcome = RetrievalOutcome(
             result=None,
             usage={
                 "requests_used": 0,
@@ -204,53 +212,16 @@ def run_retrieval(
                 "load_failure": None,
             },
         )
+        trace.emit("supervisor_finished", result_status="deadline_exceeded",
+                   provider_activity="not_started", usage=outcome.usage)
+        return outcome
 
-    if temp_root is not None:
-        temp_root = Path(temp_root)
-        temp_root.mkdir(parents=True, exist_ok=True)
-    workdir = Path(
-        tempfile.mkdtemp(
-            prefix="et-retrieval-",
-            dir=str(temp_root) if temp_root is not None else None,
-        )
-    )
-    request_path = workdir / REQUEST_FILENAME
-    result_path = workdir / RESULT_FILENAME
-
-    envelope = build_request_envelope(
-        operation,
-        payload,
-        include_source_payload=include_source_payload,
-        provider_settings=provider_settings,
-        budget={
-            "seconds_remaining": remaining_seconds,
-            "requests_left": requests_left,
-            "response_bytes_left": response_bytes_left,
-        },
-        launcher=launcher,
-        launcher_spec=launcher_spec,
-    )
-    request_path.write_bytes(encode_envelope(envelope))
-
-    env = os.environ.copy()
-    if fmp_api_key:
-        env["FMP_API_KEY"] = fmp_api_key
-    # The parent owns every feedback location; a worker path that ever grew
-    # recording code of its own must stay silent. Only the child copy is
-    # changed, so simultaneous callers keep their own parent identity.
-    for name in (FEEDBACK_OUT_ENV, FEEDBACK_RUN_ID_ENV, FEEDBACK_ATTEMPT_ID_ENV, FEEDBACK_DIR_ENV):
-        env.pop(name, None)
-    env[FEEDBACK_DISABLED_ENV] = "1"
-    process = subprocess.Popen(
-        [sys.executable, "-u", "-X", "faulthandler", str(WORKER_PATH), str(request_path)],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.PIPE,
-        env=env,
-    )
-    assert process.stderr is not None  # Popen created the dedicated pipe above.
-    stderr = WorkerStderr(process.stderr)
+    workdir: Path | None = None
+    process: subprocess.Popen | None = None
+    stderr: WorkerStderr | None = None
 
     def child_diagnostics(stage: str, detail: str | None = None) -> dict[str, Any]:
+        assert workdir is not None and process is not None and stderr is not None
         return _child_diagnostics(
             workdir=workdir,
             exit_code=process.returncode,
@@ -268,10 +239,15 @@ def run_retrieval(
         *,
         exit_confirmed: bool = True,
     ) -> RetrievalOutcome:
-        cleanup = (
-            _remove_workdir(workdir) if exit_confirmed
-            else _CleanupFailure(stage="exit_unconfirmed", exception_type=None, errno=None)
-        )
+        if process is not None and process.stdin is not None:
+            with suppress(OSError):
+                process.stdin.close()
+        cleanup = None
+        if workdir is not None:
+            cleanup = (
+                _remove_workdir(workdir) if exit_confirmed
+                else _CleanupFailure(stage="exit_unconfirmed", exception_type=None, errno=None)
+            )
         if cleanup is not None:
             if diagnostics is None:
                 diagnostics = child_diagnostics("cleanup")
@@ -283,11 +259,85 @@ def run_retrieval(
                     f"errno={cleanup['errno']}",
                     file=sys.stderr,
                 )
+        if stderr is not None and diagnostics is None and exit_confirmed:
+            stderr.finish()
+        recorded = trace.emit(
+            "supervisor_finished",
+            result_status=safe_public_word(result.get("status"), fallback="status") if result else None,
+            outcome=reason or "completed",
+            usage=usage,
+            worker_exit_code=process.returncode if process else None,
+            provider_activity=("not_started" if process is None else "possibly_dispatched"),
+            diagnostics=diagnostics,
+        )
+        if not (recorded and history_written):
+            diagnostics = {**(diagnostics or {}), "lifecycle_log_unavailable": True}
         if diagnostics is not None:
             record_local_failure("retrieval_worker", diagnostics, identity=diagnostic_identity)
-        elif exit_confirmed:
-            stderr.finish()
-        return RetrievalOutcome(result, usage, reason, process.returncode, diagnostics)
+        return RetrievalOutcome(result, usage, reason, process.returncode if process else None, diagnostics)
+
+    # Prepare, stage the envelope and launch within the same attempt as the
+    # worker result. No provider activity is possible until Popen succeeds.
+    stage = "prepare_workdir"
+    try:
+        if temp_root is not None:
+            temp_root = Path(temp_root)
+            temp_root.mkdir(parents=True, exist_ok=True)
+        workdir = Path(tempfile.mkdtemp(
+            prefix="et-retrieval-", dir=str(temp_root) if temp_root is not None else None,
+        ))
+        stage = "write_request"
+        request_path = workdir / REQUEST_FILENAME
+        result_path = workdir / RESULT_FILENAME
+        envelope = build_request_envelope(
+            operation,
+            payload,
+            include_source_payload=include_source_payload,
+            provider_settings=provider_settings,
+            budget={
+                "seconds_remaining": remaining_seconds,
+                "requests_left": requests_left,
+                "response_bytes_left": response_bytes_left,
+            },
+            launcher=launcher,
+            launcher_spec=launcher_spec,
+        )
+        request_path.write_bytes(encode_envelope(envelope))
+
+        stage = "start_worker"
+        env = os.environ.copy()
+        if fmp_api_key:
+            env["FMP_API_KEY"] = fmp_api_key
+        # Only the owning parent can publish feedback artifacts.
+        for name in (FEEDBACK_OUT_ENV, FEEDBACK_RUN_ID_ENV, FEEDBACK_ATTEMPT_ID_ENV, FEEDBACK_DIR_ENV):
+            env.pop(name, None)
+        env[FEEDBACK_DISABLED_ENV] = "1"
+        env[TRACE_ENV] = trace.environment()
+        history_written = trace.emit("worker_start_requested", usage=None) and history_written
+        process = subprocess.Popen(
+            [sys.executable, "-u", "-X", "faulthandler", str(WORKER_PATH), str(request_path)],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
+            env=env,
+        )
+    except (OSError, TypeError, ValueError) as error:
+        exception_facts = exception_trace(error)
+        diagnostics = {
+            "supervisor_stage": stage,
+            "supervisor_exception_trace": exception_facts,
+            "provider_activity": "not_started",
+            "worker_exit_code": None,
+            "worker_pid": None,
+        }
+        if log_worker_diagnostics:
+            _logger.error("retrieval worker did not start stage=%s exception_trace=%s", stage, exception_facts)
+        return finish(
+            None, {"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
+            "worker_not_started", diagnostics,
+        )
+    assert process.stderr is not None
+    stderr = WorkerStderr(process.stderr)
 
     if not _wait_until(process, deadline):
         stopped = _stop_process(process)

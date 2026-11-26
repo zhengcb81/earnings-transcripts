@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 import transcript_feedback as feedback  # noqa: E402
 from retrieval_protocol import parse_usage  # noqa: E402
+from retrieval_lifecycle import read_history  # noqa: E402
 
 OWNER = feedback.OWNER
 ACTIONS = ("triage", "repair", "replay", "report")
@@ -314,6 +315,10 @@ class OwnerRuntime:
             job = "unconfirmed"
             if isinstance(status, str) and status in feedback.STATUS_VOCABULARY:
                 job = "succeeded" if status in ("fetched", "discovered") else "failed"
+            elif original.get("check_id") == feedback.CHECK_ACTION_STARTED:
+                history = read_history(original["run_id"], original["attempt_id"], original["step_id"])
+                if history["events"] and history["events"][-1].get("phase") == "supervisor_disconnected":
+                    job = "interrupted"
         native = (
             _terminal_detail(detail, original["step_id"]) if detail else None
         )
@@ -494,7 +499,7 @@ class OwnerRuntime:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--db", required=True, type=Path)
+    parser.add_argument("--db", type=Path)
     parser.add_argument("--sidecar", action="append", type=Path, default=[])
     parser.add_argument(
         "--sidecar-dir", action="append", type=Path, default=[],
@@ -505,7 +510,16 @@ def main(argv=None):
         commands.add_parser(action)
     for action in ("get-action", "get-usage"):
         commands.add_parser(action).add_argument("action_id")
+    history = commands.add_parser("runtime-history", help="cold read of a native retrieval attempt")
+    history.add_argument("--run-id", required=True)
+    history.add_argument("--attempt-id", required=True)
+    history.add_argument("--step-id")
     args = parser.parse_args(argv)
+    if args.action == "runtime-history":
+        print(_json(read_history(args.run_id, args.attempt_id, args.step_id)))
+        return 0
+    if args.db is None:
+        parser.error("--db is required for feedback actions")
     owner = OwnerRuntime(args.db, args.sidecar, sidecar_dirs=args.sidecar_dir)
     try:
         if args.action in ("get-action", "get-usage"):

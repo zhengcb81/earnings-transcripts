@@ -34,6 +34,26 @@ def _run_script(source: str, *args: str) -> subprocess.CompletedProcess:
     )
 
 
+def test_local_reader_loads_without_the_legacy_facade_or_translation_stack():
+    result = _run_script(
+        """
+        import sys
+        sys.path.insert(0, __ROOT__)
+
+        class Blocker:
+            def find_spec(self, name, path=None, target=None):
+                if name.split(".")[0] in {"common", "translator", "openai", "translatepy"}:
+                    raise ImportError("reader reached translation or legacy facade")
+                return None
+
+        sys.meta_path.insert(0, Blocker())
+        import reader
+        assert reader.ReaderHandler.build_data
+        """
+    )
+    assert result.returncode == 0, result.stderr
+
+
 # ── ET-01: supervisor imports no provider implementation ────────────
 
 

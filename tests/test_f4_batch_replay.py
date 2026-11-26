@@ -309,7 +309,7 @@ def start_batch(
 def redeliver(env: dict) -> subprocess.CompletedProcess:
     """Another process under the same identity that requests nothing."""
     return subprocess.run(
-        [PYTHON, "-B", str(ROOT / "transcript_tool.py"), "--capabilities"],
+        [PYTHON, "-B", str(ROOT / "transcript_tool.py"), "--flush-observations"],
         capture_output=True,
         env=env,
         cwd=str(ROOT),
