@@ -11,6 +11,7 @@ from pathlib import Path
 from threading import Thread
 from typing import Any
 
+from retrieval_process import kill_worker_group
 from retrieval_protocol import REQUEST_FILENAME, RESULT_FILENAME, WORKER_ERROR_FILENAME
 from runtime_logging import append_failure
 from runtime_scope import OWNER, run_identity, safe_public_word, state_root, step_id, storage_path
@@ -134,4 +135,8 @@ class WorkerLifetime:
             self.trace.emit("supervisor_disconnected", provider_activity=self.activity,
                             usage=self.usage, cleanup_error=cleanup)
         finally:
-            os._exit(1)
+            try:
+                if os.name != "nt" and os.getpgrp() == os.getpid():
+                    kill_worker_group(os.getpid())
+            finally:
+                os._exit(1)

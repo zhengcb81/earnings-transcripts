@@ -27,6 +27,8 @@ jobs:
           python -m pytest -q --tb=short
           tests/test_s1_provider_error_logging.py tests/test_s2_worker_bootstrap.py
           tests/test_feedback_observation.py tests/test_runtime_contract_isolation.py
+          tests/test_reader.py::test_homepage_serves_real_template_and_company_data
+          tests/test_retrieval_runtime.py::test_deadline_reaps_real_descendant_and_keeps_headless_worker
           tests/test_batch_runtime.py::test_manifest_write_failure_exits_nonzero_and_keeps_fetched_original
           tests/test_batch_runtime.py::test_unexpected_batch_exception_leaves_a_redacted_native_cause
           tests/test_f4_batch_replay.py::test_unwritable_feedback_location_keeps_the_business_return

@@ -18,7 +18,7 @@ from config import get_path, load_companies, load_config
 from parser import parse_transcript_header
 
 _BASE_DIR = Path(__file__).parent
-__TEMPLATE_FILE = _BASE_DIR / "templates" / "index.html"
+_TEMPLATE_FILE = _BASE_DIR / "templates" / "index.html"
 
 
 class ReaderHandler(BaseHTTPRequestHandler):

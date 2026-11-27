@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import base64
 import json
+import os
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -33,6 +35,27 @@ from tests.test_transcript_api import (  # noqa: E402
 LAUNCHER = "tests.test_retrieval_runtime:build_fake_session"
 ENABLED_FOOL = ProviderSettings(motley_fool_enabled=True)
 STARTUP_MARGIN = 10.0
+
+
+DESCENDANT_PROBE = """
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, sys.argv[1])
+from lock import SingleInstanceLock
+
+root = Path(sys.argv[2])
+lock = SingleInstanceLock(root / "descendant.lock")
+assert lock.acquire()[0]
+try:
+    (root / "descendant-started").touch()
+    deadline = time.monotonic() + 25
+    while not (root / "release-descendant").exists() and time.monotonic() < deadline:
+        time.sleep(0.02)
+finally:
+    lock.release()
+"""
 
 
 # ── private launcher seam (runs inside the worker) ──────────────────
@@ -109,6 +132,27 @@ def _serialize_responses(responses: dict[str, Any]) -> dict[str, Any]:
 
 def build_fake_session(spec: dict[str, Any], context: dict[str, Any]):
     """Launcher entry imported by the worker; installed only through the seam."""
+    if root := spec.get("descendant_probe"):
+        marker = Path(root) / "descendant-started"
+        descendant = subprocess.Popen(
+            [sys.executable, "-B", "-c", DESCENDANT_PROBE, str(ROOT), root],
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        deadline = time.monotonic() + 5
+        while not marker.exists() and descendant.poll() is None and time.monotonic() < deadline:
+            time.sleep(0.02)
+        if not marker.exists():
+            descendant.kill()
+            descendant.wait(timeout=3)
+            raise RuntimeError("test descendant never acquired its process lock")
+        if os.name == "nt":
+            import ctypes
+
+            (Path(root) / "worker-console").write_text(
+                str(bool(ctypes.windll.kernel32.GetConsoleWindow())), encoding="ascii"
+            )
     if spec.get("build_failure"):
         kind, _, argument = str(spec["build_failure"]).partition(":")
         if kind == "SystemExit":
@@ -331,6 +375,35 @@ def test_blocked_get_is_reaped_within_deadline_and_cleanup_grace(tmp_path):
     )
     assert get_urls(calls_file) == [QUOTE_URL]  # explicit blocking marker
     assert list(temp_root.iterdir()) == []  # per-worker temp result removed
+
+
+def test_deadline_reaps_real_descendant_and_keeps_headless_worker(tmp_path, monkeypatch):
+    from lock import SingleInstanceLock
+
+    monkeypatch.setenv("RESEARCH_FEEDBACK_STATE_ROOT", str(tmp_path / "state"))
+    spec = fake_spec({QUOTE_URL: StallResponse(QUOTE_URL, stall_in_get=True)})
+    spec["descendant_probe"] = str(tmp_path)
+    lock = SingleInstanceLock(tmp_path / "descendant.lock")
+    try:
+        outcome = retrieval_runtime.run_retrieval(
+            "list", list_params(), remaining_seconds=6.0,
+            requests_left=4, response_bytes_left=8 * 1024 * 1024,
+            provider_settings=ENABLED_FOOL, launcher=LAUNCHER, launcher_spec=spec,
+            temp_root=tmp_path / "work",
+        )
+        assert (tmp_path / "descendant-started").exists()
+        assert outcome.reason == "deadline" and outcome.usage is None
+        assert outcome.exit_code is not None
+        assert not list((tmp_path / "work").iterdir())
+        deadline = time.monotonic() + 2
+        while not (released := lock.acquire()[0]) and time.monotonic() < deadline:
+            time.sleep(0.02)
+        assert released, "descendant still holds its process lock after worker termination"
+        if os.name == "nt":
+            assert (tmp_path / "worker-console").read_text(encoding="ascii") == "False"
+    finally:
+        (tmp_path / "release-descendant").touch()
+        lock.release()
 
 
 def test_successful_retrieval_returns_result_usage_and_cleans_temp(tmp_path):

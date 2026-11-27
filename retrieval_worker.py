@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from retrieval_budget import BatchBudget, BudgetSession, UsageCounter
 from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace
 from retrieval_lifecycle import RetrievalTrace, WorkerLifetime
+from retrieval_process import enter_windows_job
 from retrieval_protocol import (
     RESULT_FILENAME,
     WORKER_ERROR_FILENAME,
@@ -149,14 +150,19 @@ def main(argv: list[str]) -> int:
         return 2
     request_path = Path(argv[0])
     trace = RetrievalTrace.from_environment()
-    lifetime = WorkerLifetime(request_path, trace) if trace is not None else None
-    phase = ["envelope"]
+    phase = ["process_scope"]
 
     def failing(code: int, reason: str) -> int:
         _write_error_diagnostic(request_path, phase[0], None, failure_code=reason)
         return code
 
     try:
+        # The supervised worker must join its job before loading provider code
+        # or creating any descendants. Direct module calls have no supervisor.
+        if trace is not None:
+            enter_windows_job()
+        lifetime = WorkerLifetime(request_path, trace) if trace is not None else None
+        phase[0] = "envelope"
         envelope = read_request_envelope(request_path)
         if envelope is None:
             return failing(1, "invalid_request_envelope")

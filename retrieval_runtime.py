@@ -3,8 +3,8 @@
 One retrieval operation is executed by one internal worker subprocess
 (``retrieval_worker.py``). The parent starts a monotonic deadline when the
 formal operation starts, waits with exactly that remaining float budget,
-terminates then kills the worker inside a single fixed cleanup grace, and only
-then reads the bounded atomic result file. A result that finishes after the
+stops the worker tree of an expired operation inside a fixed cleanup grace, and
+only then reads the bounded atomic result file. A result that finishes after the
 deadline is never accepted as fetched, and a worker that dies without a
 trustworthy usage report is recorded as unknown consumption.
 
@@ -35,6 +35,7 @@ from typing import Any, Literal, TypedDict
 
 from retrieval_diagnostics import WorkerStderr, exception_trace, read_exception_trace, safe_exception_types
 from retrieval_lifecycle import TRACE_ENV, RetrievalTrace
+from retrieval_process import worker_launch_options, kill_worker_group
 from retrieval_protocol import (
     REQUEST_FILENAME,
     RESULT_FILENAME,
@@ -62,20 +63,19 @@ from runtime_scope import (
 from transcript_provider_settings import DEFAULT_PROVIDER_SETTINGS, ProviderSettings
 
 _logger = logging.getLogger(__name__)
-_WORKER_PHASES = {"envelope", "budget", "bootstrap", "launcher", "dispatch", "encode", "write"}
+_WORKER_PHASES = {"envelope", "budget", "bootstrap", "launcher", "dispatch", "encode", "write", "process_scope"}
 _WORKER_REFUSALS = {
     "invalid_request_envelope", "invalid_provider_settings", "invalid_budget",
     "invalid_budget_seconds", "invalid_budget_quota", "result_transfer_limit",
 }
 
 WORKER_PATH = Path(__file__).resolve().parent / "retrieval_worker.py"
-# One fixed total for terminate → kill → wait; every wait in one reclamation
-# shares this window, no wait gets a fresh grace.
+# Reaping a stopped worker shares one fixed cleanup window.
 CLEANUP_GRACE_SECONDS = 1.0
 
 
 class _CleanupFailure(TypedDict):
-    stage: Literal["remove_workdir", "exit_unconfirmed"]
+    stage: Literal["remove_workdir", "exit_unconfirmed", "stop_descendants"]
     exception_type: str | None
     errno: int | None
 
@@ -243,7 +243,14 @@ def run_retrieval(
             with suppress(OSError):
                 process.stdin.close()
         cleanup = None
-        if workdir is not None:
+        if process is not None and exit_confirmed:
+            try:
+                kill_worker_group(process.pid)
+            except OSError as error:
+                cleanup = _CleanupFailure(
+                    stage="stop_descendants", exception_type=type(error).__name__, errno=error.errno
+                )
+        if workdir is not None and cleanup is None:
             cleanup = (
                 _remove_workdir(workdir) if exit_confirmed
                 else _CleanupFailure(stage="exit_unconfirmed", exception_type=None, errno=None)
@@ -320,6 +327,7 @@ def run_retrieval(
             stdout=subprocess.DEVNULL,
             stderr=subprocess.PIPE,
             env=env,
+            **worker_launch_options(),
         )
     except (OSError, TypeError, ValueError) as error:
         exception_facts = exception_trace(error)
@@ -384,29 +392,15 @@ def _wait_until(process: subprocess.Popen, deadline: float) -> bool:
 
 
 def _stop_process(process: subprocess.Popen) -> bool:
-    """terminate, then kill if needed — all waits share one grace window."""
+    """Hard-stop the owned tree and give the OS one bounded interval to reap it."""
     grace_deadline = time.monotonic() + CLEANUP_GRACE_SECONDS
-    try:
-        process.terminate()
-    except OSError:
-        pass
-    killed = False
-    while True:
-        try:
-            remaining = grace_deadline - time.monotonic()
-            if remaining <= 0:
-                break
-            process.wait(timeout=remaining)
-            return True
-        except subprocess.TimeoutExpired:
-            if killed:
-                continue
-            killed = True
-            try:
-                process.kill()
-            except OSError:
-                pass
-    return process.poll() is not None
+    with suppress(OSError):
+        kill_worker_group(process.pid)
+    # On Windows, the worker's own job handle closes when this process exits.
+    # On POSIX this also covers a failed group signal to the direct child.
+    with suppress(OSError):
+        process.kill()
+    return _wait_until(process, grace_deadline)
 
 
 def _remove_workdir(workdir: Path) -> _CleanupFailure | None:

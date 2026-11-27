@@ -7,6 +7,9 @@ import pytest
 from pathlib import Path
 
 import sys
+from http.client import HTTPConnection
+from http.server import HTTPServer
+from threading import Thread
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from reader import ReaderHandler
@@ -16,6 +19,32 @@ from common import load_config, load_companies
 @pytest.fixture
 def cfg():
     return load_config()
+
+
+def test_homepage_serves_real_template_and_company_data(tmp_path, monkeypatch):
+    (tmp_path / "companies.txt").write_text("TEST|测试公司|Example Inc|nasdaq\n", encoding="utf-8")
+    monkeypatch.setattr("reader.load_config", lambda: {
+        "paths": {
+            "base_dir": str(tmp_path),
+            "companies_file": "companies.txt",
+            "transcripts_dir": "transcripts",
+        },
+    })
+    with HTTPServer(("127.0.0.1", 0), ReaderHandler) as server:
+        thread = Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        client = HTTPConnection(*server.server_address, timeout=5)
+        try:
+            for route in ("/", "/index.html"):
+                client.request("GET", route)
+                response = client.getresponse()
+                assert response.status == 200
+                assert response.headers["Content-Type"] == "text/html; charset=utf-8"
+                assert "测试公司" in response.read().decode("utf-8")
+        finally:
+            client.close()
+            server.shutdown()
+            thread.join(5)
 
 
 class TestReaderHandler:
