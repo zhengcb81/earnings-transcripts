@@ -1,0 +1,17 @@
+{
+  "schema": "s6-test-policy/1",
+  "platforms": {
+    "linux": {
+      "roots": [
+        "tests"
+      ],
+      "markexpr": "not live"
+    },
+    "windows": {
+      "roots": [
+        "tests"
+      ],
+      "markexpr": "not live"
+    }
+  }
+}

@@ -6,7 +6,8 @@ Usage:
   python3 make_interleaved.py --ticker MSFT # 只处理指定公司
 """
 
-import json, re, argparse
+import argparse
+import json
 from pathlib import Path
 
 from common import load_config, get_path, FileNaming, LineClassifier
@@ -67,7 +68,7 @@ def make_interleaved(cfg: dict, json_path: Path) -> Path:
             lines.append(f"  \U0001f464 {en}")
             lines.append(f"     {zh}")
         elif ptype == 'header':
-            lines.append(f"")
+            lines.append("")
             lines.append(f"  \u2501\u2501 {en} \u2501\u2501")
             lines.append(f"  \u2501\u2501 {zh} \u2501\u2501")
         else:

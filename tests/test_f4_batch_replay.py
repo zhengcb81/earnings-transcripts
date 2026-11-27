@@ -325,6 +325,7 @@ def kill_tree(process: subprocess.Popen) -> None:
             subprocess.run(
                 ["taskkill", "/PID", str(process.pid), "/T", "/F"],
                 capture_output=True,
+                creationflags=subprocess.CREATE_NO_WINDOW,
                 check=False,
                 timeout=60,
             )

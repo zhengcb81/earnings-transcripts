@@ -6,13 +6,16 @@ Usage: python3 translate.py              # 翻译所有
        python3 translate.py --backend google # 强制用Google
 """
 
-import json, logging, argparse, sys
+import argparse
+import json
+import logging
+import sys
 from pathlib import Path
 
 from common import (
     load_config, get_path, setup_logging,
     FileNaming, JsonCache,
-    split_paragraphs, text_hash,
+    split_paragraphs,
     parse_transcript_header, extract_body,
     TranslatorFactory, translate_paragraphs,
     build_bilingual_data, SingleInstanceLock,
@@ -63,7 +66,6 @@ def main():
     # Load config
     cfg = load_config()
     fn = FileNaming(cfg)
-    transcripts_dir = get_path(cfg, "transcripts_dir")
 
     setup_logging(cfg)
 

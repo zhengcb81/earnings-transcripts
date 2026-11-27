@@ -6,13 +6,12 @@ Then open http://localhost:8765 in browser
 """
 
 import json
-import re
 import argparse
 import webbrowser
 import threading
 from pathlib import Path
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse
 
 from config import get_path, load_companies, load_config
 from parser import parse_transcript_header
@@ -124,7 +123,7 @@ def main():
     server = HTTPServer(("127.0.0.1", args.port), ReaderHandler)
     url = f"http://localhost:{args.port}"
     print(f"阅读器已启动: {url}")
-    print(f"按 Ctrl+C 退出")
+    print("按 Ctrl+C 退出")
 
     if not args.no_browser:
         threading.Timer(1.0, lambda: webbrowser.open(url)).start()

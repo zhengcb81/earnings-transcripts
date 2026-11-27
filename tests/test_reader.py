@@ -2,7 +2,6 @@
 tests/test_reader.py - Reader 模块测试
 """
 
-import json
 import pytest
 from pathlib import Path
 
@@ -13,7 +12,7 @@ from threading import Thread
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from reader import ReaderHandler
-from common import load_config, load_companies
+from common import load_config
 
 
 @pytest.fixture

@@ -14,12 +14,10 @@ import re
 import time
 import argparse
 from pathlib import Path
-from datetime import datetime
 
 from common import (
-    load_config, get_path, extract_body, split_paragraphs,
+    load_config, extract_body, split_paragraphs,
     MiMoTranslator, MiniMaxTranslator, DeepSeekTranslator,
-    TranslatorFactory,
 )
 
 
@@ -171,7 +169,7 @@ def llm_judge(judge_translator, en: str, zh: str) -> dict:
 def run_evaluation(cfg: dict, n_samples: int = 9, judge_name: str = "mimo"):
     transcripts_dir = Path(__file__).parent / "transcripts"
     print(f"{'='*70}")
-    print(f"翻译质量评测 - MiMo vs MiniMax vs DeepSeek")
+    print("翻译质量评测 - MiMo vs MiniMax vs DeepSeek")
     print(f"{'='*70}")
     print(f"样本数: {n_samples}, 裁判: {judge_name}")
     print()
@@ -189,7 +187,6 @@ def run_evaluation(cfg: dict, n_samples: int = 9, judge_name: str = "mimo"):
         "minimax": MiniMaxTranslator(cfg),
         "deepseek": DeepSeekTranslator(cfg),
     }
-    judge = translators.get(judge_name) or translators["mimo"]
 
     # 检查可用性
     for name, t in list(translators.items()):

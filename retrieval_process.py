@@ -6,6 +6,7 @@ import ctypes
 import os
 import signal
 import subprocess
+import sys
 from ctypes import wintypes
 
 
@@ -17,7 +18,7 @@ def worker_launch_options() -> dict[str, bool | int]:
 
 def kill_worker_group(pid: int) -> None:
     """On POSIX the worker is a session leader and owns this process group."""
-    if os.name != "nt":
+    if sys.platform != "win32":
         try:
             os.killpg(pid, signal.SIGKILL)
         except ProcessLookupError:

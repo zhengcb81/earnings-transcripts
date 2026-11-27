@@ -273,10 +273,14 @@ python3 reader.py --port 9000          # 自定义端口
 ## 测试
 
 ```bash
-python3 -m pytest tests/ -v
+python -m pytest tests/ -m "not live" --strict-markers --capture=sys -q -rfsx --tb=short
 ```
 
-234个单元测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
+Ubuntu 和 Windows 的工程检查使用 Python 3.12，并从 `tests/` 自动发现并执行离线测试。`live` 标记仅用于依赖真实外部服务或账号的用例。现有合成供应商、环回 HTTP 和已跟踪原文用例都进入离线流程。Windows 使用 Python 标准流捕获，保留子进程的原生句柄。静态检查覆盖生产和测试代码，类型检查以 Python 3.10 为运行版本，先覆盖检索及运行时契约。使用 Python 3.10 时，可运行同一测试命令，或先运行 `python -B transcript_tool.py --help` 和 `python -m compileall -q -l . tools` 确认安装入口与语法。
+
+每个 CI 系统各收集一次并执行一次完整离线测试。执行清单与 `quality/test_policy.json` 的测试根和过滤表达式核对，跳过或只收集的用例不算通过。源码检查由 `python -m quality.source_checks` 扫描所有顶层生产模块与 `tools/`。存量问题以 `2f7e03d` 生成的基线追踪，参考工具版本为 `b11d45f4`。
+
+测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
 transcript解析、翻译器、阅读器数据构建、单实例锁、summary 按磁盘生成、
 **批次限额（请求/秒/累计字节/输出字节）**、**精确期间 vs recent-N**、
 **provider disabled 与 FMP list/dry-run 零 HTTP**、**原件复用与

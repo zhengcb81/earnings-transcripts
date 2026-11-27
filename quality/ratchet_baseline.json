@@ -1,0 +1,235 @@
+{
+  "constant_shapes": {
+    "legacy_projection_comparison.py:_STRING_TYPES": "fa5a26b4978232403ed044607fa259cbcefb00a1ce4a83dbb1a47a4b929acfad",
+    "retrieval_diagnostics.py:_FILE": "79e254742a68566d03d01c5c0792508b741660daacb7e14371e9ed36fddef5b9",
+    "retrieval_diagnostics.py:_FUNCTION": "9dabc6c95e6b2ee683ea8e9dad09d277fdcd996105df73f7b99a19b5088f7c95",
+    "retrieval_diagnostics.py:_NATIVE_FAILURE_PREFIXES": "7474a4a71a27690f742f82e9c31a6798a66d6dff38e8d93f762c3b7026c1e73b",
+    "retrieval_diagnostics.py:_RELATIONS": "c386c090ddffd1fc1b56f402a53c383a49844a2e86a91e31dba95cc9d7b56157",
+    "retrieval_diagnostics.py:_TYPE": "efbfdf9ba1d3e504e108074cd089ef127a65872a4cd089c88c8b0ae489769011",
+    "retrieval_lifecycle.py:_WORK_FILES": "94e91e4335f755636ed80d7c731fafdbff22e74ccdcbd6ad0ed2ef6434aaa570",
+    "retrieval_runtime.py:_WORKER_PHASES": "b0c16932c1ecbf53c651afcaf750d6b495c74e41ed3bf7fb5a5cc523b14d3d43",
+    "retrieval_runtime.py:_WORKER_REFUSALS": "8753d143eb8def4c563b480765567f5bcf5af0226b43fe00778a714020e21631",
+    "runtime_scope.py:_UNSAFE_PUBLIC_WORD": "ab3992550c8e32f838deb39082ed39bdb2631bf7c11aa663cc39af186e2be1ed",
+    "scraper.py:_ENTRY_STATUS_FOR_OUTCOME": "37bef02b5b04721590c8590179eacbca4b136372c2f871a15a86cad12f6779ea",
+    "scraper.py:_ERROR_STATUSES": "de2c36e4c1bfe1dcd9420686fa99fe31f4fe4c62f41291993c824ee47530f371",
+    "scraper.py:_FISCAL_LABEL_RE": "46ddb47ee0a88ab1b3673e35296d9065d0a2fc917cf89014afa9b7ba71fd21b3",
+    "scraper.py:_PARSE_STAGE_REASONS": "449c137ee2758d22d89960ea561652c64175d1f19405322667bba735b471afb0",
+    "scraper.py:_PERIOD_TOKEN_RE": "77d9afd143e6e956c8c645fbbd308ff5d75341e01abd842731a7dc13887a6a47",
+    "scraper.py:_PROVIDER_SCOPE_STATUSES": "e24a7612400589f65cfd89739b7af0f325816f312c40fb81e3dd7f13b3fba30d",
+    "tools/feedback_owner.py:ACTIONS": "8325ab4721143cfd85f27e766d495b7df254cc04912c6a5751cd0b8b54a2b737",
+    "tools/feedback_owner.py:HEX": "a5a9f106c6a6795a6e55f73f19e43aa2dc07f6ec16df61a57a1f91c3f7194de2",
+    "tools/feedback_owner.py:IDENTITY": "48e92f9243276fbef60a399519baf99517eab082bd6883c4cc98348666dbabb1",
+    "tools/feedback_owner.py:TERMINAL_CHECKS": "96a3d727cdb7192d37c0dc6c673265889c7eb0b935110fe9b379955eb33d378c",
+    "tools/replay_feedback_case.py:CASES": "89b64ffed229060b52f4ec62cdcec17badabd2356f4d2c781a556b4801b56494",
+    "transcript_api.py:SKIP_TEXT": "ede22d82692107237509059b775fec0b2987c3dbde12f780d8075a8e49d25a6f",
+    "transcript_api.py:_PERIOD_PATTERNS": "e065bb02589255397fdbb35b0ec54b5882cdea0923dce98df0251952d8c56f4b",
+    "transcript_api.py:_TRANSCRIPT_PATH_RE": "0fb91f63d4d2d990243d427b83fef8ac5be4c73aa8bc24cddb10f718b11e40ce",
+    "transcript_artifact.py:FAILURE_OUTCOMES": "e8b988f8800c7f5332f9063d558a635054781ea788702d4500e7d70934b639b4",
+    "transcript_artifact.py:_LABEL_RE": "65d10ce5b2c8ca72ebbd3682ffa138602f831080744af5d9a77e9f0ff8ff3ca9",
+    "transcript_artifact.py:_SHA256_RE": "3bf51338077a849562afb4706960cadaab58f26e87e9c58c739db4cda0e0b45a",
+    "transcript_extraction.py:SKIP_TEXT": "ede22d82692107237509059b775fec0b2987c3dbde12f780d8075a8e49d25a6f",
+    "transcript_extraction.py:_AD_ATTRIBUTES": "066a2f86eac1053c15801d03979731224ec0b75690d03010e9cb99c5640adb7c",
+    "transcript_extraction.py:_BLOCK_TAGS": "b1ab0cc24567911e5ce10fdbce5dac7861618d86f468fae0c9c0c4e654400660",
+    "transcript_extraction.py:_EXPLICIT_UI_MARKERS": "5a893cac44340e5af2e0728d573b57f2da9ddb400917b0434b3d914be95bec53",
+    "transcript_extraction.py:_FALSE_MARKERS": "6a97201b71e9fa3c5dfc30a9689bbc9b73912f6c8d0c804f07a740b820dec57c",
+    "transcript_extraction.py:_HIDDEN_STYLE_RE": "53323de27d3a2b74903e82dded3d4d952cd19458af77ae77e8c14e5b60d410d7",
+    "transcript_extraction.py:_MARKUP_PREFIX_RE": "23aee8ac0fd1a28cea66eccdc9f989979b25ab18aa7ce80f34e7a9ddad5f4cfd",
+    "transcript_extraction.py:_NON_CONTENT_TAGS": "8bed0de66a67179b390df81dcee43d14f0dd669bc3e43528853bcfda8cc7d018",
+    "transcript_extraction.py:_PROMOTION_MARKERS": "f97a81b86cc09883165b030953803be8a6ce9ce7e2446e11b82ccbae784ba5d5",
+    "transcript_extraction.py:_ROLE_TOKENS": "fb7ccdce568125b55bd2303803a3ec09d5c85308786968075f1731664b8149c5",
+    "transcript_extraction.py:_SKIPPED_STRING_TYPES": "37aa91b03f1d223f36ffcde5fdd6031ca5e35ff7d231fb2c3ee76934252f3c70",
+    "transcript_extraction.py:_TOKEN_SPLIT_RE": "7624bc1384b5852a48de9622ae79899bee6918de68fdb4bfce9644bb4fcd1e0b",
+    "transcript_extraction.py:_UI_STRUCTURES": "27949839e85a9f95281794ab1d000c0b88d7770cd49247f5b2fbffee7dc24e98",
+    "transcript_feedback.py:AUDIT_OUTCOME_VOCABULARY": "f6d8b375159456a8061303096f7f5996f3b5e6c971488de07263aa798e538e00",
+    "transcript_feedback.py:BATCH_ITEM_EMPTY_STATUSES": "264f29beea62224836e7f466c9adab2a8ce56c17473d14ef41d63ab3ed7088e0",
+    "transcript_feedback.py:BATCH_ITEM_FAILURE_STATUSES": "47d2528553673d1e6c3056dd86b9bf0f031e355244d382611da769ddac4a000a",
+    "transcript_feedback.py:BATCH_ITEM_STATUSES": "14fec01114af7a915e03d4628224b3dbd54495d10727a73dcd5d95a2d2283310",
+    "transcript_feedback.py:BATCH_ITEM_SUCCESS_STATUSES": "f089a5e2b045ecf02148492007f39da709979818382c1a42f0ff602e390b89d3",
+    "transcript_feedback.py:COMPLETION_SUCCESS_STATUSES": "9c50a81a04d13fb05c43e1651df5665f583f4e8e8889d08588298b40e1dd037d",
+    "transcript_feedback.py:DISPOSITIONS": "051d81e0346d3420581cdfe2cc5a9165b33a396619713d24e2db206292872a2e",
+    "transcript_feedback.py:REASON_STATUS": "6f5cba1fe26c5ce4322df40e4b8f37961403ae41d01a173c27f23819dc1d2baa",
+    "transcript_feedback.py:SOURCE_UNAVAILABLE_STATUSES": "7cf27d3abf9089bfee3d32124f2afbb9e8dac96dd33c79f88a4dc08a02bb9b08",
+    "transcript_feedback.py:STATUS_VOCABULARY": "f2b6e3f6c694ac5f90e51e853cc7b75108794c3b781c5073cf11de67b341b40f",
+    "transcript_preflight.py:_TICKER_RE": "8f8e9a9657355949c8ba42e04a44be389b3870bf0a788f70a1ec48410e6e99b8",
+    "transcript_provider_settings.py:DEFAULT_PROVIDER_SETTINGS": "b609ba70aa859d5fb8f81348207de39b8d5ae775715d880e8f02bc01a863da57",
+    "transcript_provider_settings.py:EXCHANGES": "d339989e5bc839244f72fd721d92bcf1827eff56268260f588cc437f4fc325f0"
+  },
+  "findings": [
+    {
+      "count": 1,
+      "path": "retrieval_diagnostics.py",
+      "rule": "AT-05",
+      "signal": "shared-context-variable:_capture"
+    },
+    {
+      "count": 1,
+      "path": "scraper.py",
+      "rule": "AT-06",
+      "signal": "deferred-import:make_interleaved"
+    },
+    {
+      "count": 1,
+      "path": "transcript_tool.py",
+      "rule": "AT-06",
+      "signal": "deferred-import:transcript_api"
+    },
+    {
+      "count": 1,
+      "path": "transcript_tool.py",
+      "rule": "AT-06",
+      "signal": "deferred-import:transcript_preflight"
+    },
+    {
+      "count": 1,
+      "path": "translate.py",
+      "rule": "AT-06",
+      "signal": "deferred-import:make_interleaved"
+    },
+    {
+      "count": 1,
+      "path": "retrieval_worker.py",
+      "rule": "AT-08",
+      "signal": "path-injection-shim"
+    },
+    {
+      "count": 1,
+      "path": "scraper.py",
+      "rule": "AT-08",
+      "signal": "test-injection-parameter:main"
+    },
+    {
+      "count": 1,
+      "path": "tools/feedback_owner.py",
+      "rule": "AT-08",
+      "signal": "path-injection-shim"
+    },
+    {
+      "count": 1,
+      "path": "tools/replay_feedback_case.py",
+      "rule": "AT-08",
+      "signal": "path-injection-shim"
+    },
+    {
+      "count": 2,
+      "path": "tools/replay_feedback_case.py",
+      "rule": "AT-08",
+      "signal": "production-tests-import"
+    },
+    {
+      "count": 1,
+      "path": "tools/run_request_budget_e2e.py",
+      "rule": "AT-08",
+      "signal": "path-injection-shim"
+    },
+    {
+      "count": 2,
+      "path": "tools/run_request_budget_e2e.py",
+      "rule": "AT-08",
+      "signal": "production-tests-import"
+    },
+    {
+      "count": 1,
+      "path": "transcript_tool.py",
+      "rule": "AT-08",
+      "signal": "path-injection-shim"
+    },
+    {
+      "count": 1,
+      "path": "transcript_tool.py",
+      "rule": "AT-08",
+      "signal": "test-injection-parameter:main"
+    },
+    {
+      "count": 1,
+      "path": "eval_translation.py",
+      "rule": "AT-11",
+      "signal": "silent-broad-except"
+    },
+    {
+      "count": 1,
+      "path": "retrieval_runtime.py",
+      "rule": "AT-11",
+      "signal": "logged-error-without-stack"
+    },
+    {
+      "count": 5,
+      "path": "scraper.py",
+      "rule": "AT-11",
+      "signal": "logged-error-without-stack"
+    },
+    {
+      "count": 1,
+      "path": "scraper.py",
+      "rule": "AT-11",
+      "signal": "silent-broad-except"
+    },
+    {
+      "count": 1,
+      "path": "tools/feedback_owner.py",
+      "rule": "AT-11",
+      "signal": "handler-prints-to-machine-stdout"
+    },
+    {
+      "count": 4,
+      "path": "transcript_api.py",
+      "rule": "AT-11",
+      "signal": "silent-broad-except"
+    },
+    {
+      "count": 1,
+      "path": "translate.py",
+      "rule": "AT-11",
+      "signal": "logged-error-without-stack"
+    },
+    {
+      "count": 1,
+      "path": "translator.py",
+      "rule": "AT-11",
+      "signal": "logged-error-without-stack"
+    },
+    {
+      "count": 2,
+      "path": "translator.py",
+      "rule": "AT-11",
+      "signal": "silent-broad-except"
+    }
+  ],
+  "schema": "s6-static-baseline/1",
+  "source_files": [
+    "cache.py",
+    "common.py",
+    "config.py",
+    "eval_translation.py",
+    "legacy_projection_comparison.py",
+    "lock.py",
+    "make_interleaved.py",
+    "naming.py",
+    "parser.py",
+    "reader.py",
+    "retrieval_budget.py",
+    "retrieval_diagnostics.py",
+    "retrieval_lifecycle.py",
+    "retrieval_process.py",
+    "retrieval_protocol.py",
+    "retrieval_runtime.py",
+    "retrieval_worker.py",
+    "runtime_logging.py",
+    "runtime_scope.py",
+    "scraper.py",
+    "tools/feedback_issue_cards.py",
+    "tools/feedback_owner.py",
+    "tools/replay_feedback_case.py",
+    "tools/run_request_budget_e2e.py",
+    "transcript_api.py",
+    "transcript_artifact.py",
+    "transcript_audit.py",
+    "transcript_contracts.py",
+    "transcript_extraction.py",
+    "transcript_feedback.py",
+    "transcript_preflight.py",
+    "transcript_provider_settings.py",
+    "transcript_tool.py",
+    "translate.py",
+    "translator.py"
+  ]
+}
