@@ -278,7 +278,7 @@ python -m pytest tests/ -m "not live" --strict-markers --capture=sys -q -rfsx --
 
 Ubuntu 和 Windows 的工程检查使用 Python 3.12，并从 `tests/` 自动发现并执行离线测试。`live` 标记仅用于依赖真实外部服务或账号的用例。现有合成供应商、环回 HTTP 和已跟踪原文用例都进入离线流程。Windows 使用 Python 标准流捕获，保留子进程的原生句柄。静态检查覆盖生产和测试代码，类型检查以 Python 3.10 为运行版本，先覆盖检索及运行时契约。使用 Python 3.10 时，可运行同一测试命令，或先运行 `python -B transcript_tool.py --help` 和 `python -m compileall -q -l . tools` 确认安装入口与语法。
 
-每个 CI 系统各收集一次并执行一次完整离线测试。执行清单与 `quality/test_policy.json` 的测试根和过滤表达式核对，跳过或只收集的用例不算通过。源码检查由 `python -m quality.source_checks` 扫描所有顶层生产模块与 `tools/`。存量问题以 `2f7e03d` 生成的基线追踪，参考工具版本为 `b11d45f4`。
+每个 CI 系统各收集一次完整清单。离线测试按测试节点 ID 稳定分成三个并行组，每个用例只执行一次。汇总执行清单与 `quality/test_policy.json` 的测试根和过滤表达式核对，跳过或只收集的用例不算通过。源码检查由 `python -m quality.source_checks` 扫描所有顶层生产模块与 `tools/`。存量问题以 `2f7e03d` 生成的基线追踪，参考工具版本为 `b11d45f4`。
 
 测试覆盖：配置加载、公司解析、文件命名、缓存、行分类、段落解析、哈希、
 transcript解析、翻译器、阅读器数据构建、单实例锁、summary 按磁盘生成、
@@ -415,7 +415,7 @@ Statuses are fetched, not_found, ambiguous, unsupported, unavailable, not_author
 
 The exact request accepts optional `max_cost_usd` as non-negative decimal text with at most two decimal places (default `"0"` for legacy callers). Unknown or above-ceiling incremental prices fail before HTTP. Fee ceilings do not replace the byte limit, timeout or explicit requested network intent.
 
-`--capabilities` reads provider metadata without opening the delivery journal. Run `python transcript_tool.py --flush-observations` with the original `RESEARCH_FEEDBACK_RUN_ID` and `RESEARCH_FEEDBACK_ATTEMPT_ID` to republish owner evidence. The operation uses the already recorded run.
+`--capabilities` reads provider metadata without opening the delivery journal. Run `python transcript_tool.py --flush-observations` with the original `RESEARCH_FEEDBACK_RUN_ID` and `RESEARCH_FEEDBACK_ATTEMPT_ID` to republish owner evidence. The operation uses the already recorded run and completes without a stdout response. Disabling feedback delivery suppresses the pending and outgoing feedback packets. The local retrieval trace still keeps the native provider checkpoint.
 
 `python tools/feedback_owner.py runtime-history --run-id RUN --attempt-id ATTEMPT --step-id STEP` reads the owner’s retained request, process and usage events. The step argument is optional. Ordinary starts, provider dispatch boundaries and interrupted runs use the same identity as their F4 evidence. When workspace creation, envelope writing or process launch fails before the worker starts, the native usage receipt records zero. After possible dispatch, preserve unknown usage until confirmed by the original run.
 

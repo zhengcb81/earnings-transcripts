@@ -41,6 +41,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
+NO_CONSOLE = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 try:
     import msvcrt
@@ -275,6 +276,8 @@ def run_batch(
             *argv,
         ],
         capture_output=True,
+        stdin=subprocess.DEVNULL,
+        creationflags=NO_CONSOLE,
         env=env,
         cwd=str(ROOT),
         timeout=timeout,
@@ -302,6 +305,7 @@ def start_batch(
         stdin=subprocess.DEVNULL,
         env=env,
         cwd=str(ROOT),
+        creationflags=NO_CONSOLE,
         **options,
     )
 
@@ -311,6 +315,8 @@ def redeliver(env: dict) -> subprocess.CompletedProcess:
     return subprocess.run(
         [PYTHON, "-B", str(ROOT / "transcript_tool.py"), "--flush-observations"],
         capture_output=True,
+        stdin=subprocess.DEVNULL,
+        creationflags=NO_CONSOLE,
         env=env,
         cwd=str(ROOT),
         timeout=60,
@@ -325,7 +331,7 @@ def kill_tree(process: subprocess.Popen) -> None:
             subprocess.run(
                 ["taskkill", "/PID", str(process.pid), "/T", "/F"],
                 capture_output=True,
-                creationflags=subprocess.CREATE_NO_WINDOW,
+                creationflags=NO_CONSOLE,
                 check=False,
                 timeout=60,
             )
@@ -565,6 +571,7 @@ def owner(
         [*argv, kind],
         input=json.dumps(payload).encode("utf-8") if payload is not None else b"",
         capture_output=True,
+        creationflags=NO_CONSOLE,
         cwd=str(case),
         env=env,
         timeout=60,
@@ -1657,7 +1664,8 @@ def test_hard_stop_between_items_leaves_completed_item_and_unconfirmed_item(
     for _ in range(2):
         again = redeliver(env)
         assert again.returncode == 0, again.stderr
-        assert b"earnings-provider-capabilities/1" in again.stdout
+        assert again.stdout == b""
+        assert again.stderr == b""
     again_rows, again_details = out_rows(out_path) if mode == "out" else delivered(case)
     assert_once_each(again_rows)
     key = lambda row: (row["step_id"], row["check_id"])  # noqa: E731
@@ -1818,7 +1826,10 @@ def test_business_output_is_identical_with_and_without_feedback(short_root, off)
             )
             facts.append(business_facts(case, completed))
         assert facts[0] == facts[1], name
-        assert not (silent / "state").exists()
+        assert not pending_store(silent).exists()
+        assert not inbox(silent).exists()
+        local_trace = read_rows(silent / "state" / "logs" / "runtime_retrieval.log")
+        assert any(row["phase"] == "provider_phase_entered" for row in local_trace)
         rows, _ = delivered(ordinary)
         assert len([row for row in rows if row["check_id"] == ITEM]) == 2
 

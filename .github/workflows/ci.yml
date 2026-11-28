@@ -12,6 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest, windows-latest]
+        shard: [0, 1, 2]
         include:
           - os: ubuntu-latest
             platform: linux
@@ -28,38 +30,51 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install ET test and check dependencies
-        run: python -m pip install pytest requests beautifulsoup4 lxml openai translatepy pyyaml ruff==0.15.18 mypy==1.19.0
-      - name: Check source and test lint
-        run: ruff check . --extend-exclude docs,.planning
-      - name: Compile entry points and test code
-        run: python -m compileall -q -l . tools tests
-      - name: Check typed retrieval and runtime contracts
-        run: >-
-          python -m mypy --python-version 3.10 --explicit-package-bases --follow-imports=silent
-          retrieval_budget.py retrieval_protocol.py retrieval_process.py
-          runtime_scope.py transcript_contracts.py
-      - name: Check ET source boundaries
-        run: python -m quality.source_checks
-      - name: Record offline test inventory
+      - name: Install ET test dependencies
+        run: python -m pip install pytest requests beautifulsoup4 lxml openai translatepy pyyaml
+      - name: Verify source on one runner
+        if: matrix.shard == 0 && matrix.platform == 'linux'
+        run: |
+          python -m pip install ruff==0.15.18 mypy==1.19.0
+          ruff check . --extend-exclude docs,.planning
+          python -m compileall -q -l . tools tests
+          python -m mypy --python-version 3.10 --explicit-package-bases --follow-imports=silent retrieval_budget.py retrieval_protocol.py retrieval_process.py runtime_scope.py transcript_contracts.py
+          python -m quality.source_checks
+      - name: Record canonical offline test inventory
+        if: matrix.shard == 0
         run: >-
           python -m pytest tests/ -m "not live" --strict-markers --collect-only -q
           -p quality.anti_trick_gate_spec.pytest_probe
-          --s6-revision "${{ github.sha }}" --s6-evidence s6-inventory.json
-      - name: Exercise all offline tests
+          --s6-revision "${{ github.sha }}" --s6-evidence "s6-inventory-${{ matrix.platform }}.json"
+      - name: Exercise the offline test shard
         run: >-
           python -m pytest tests/ -m "not live" --strict-markers --capture=sys -q -rfsx --tb=short
+          -p quality.shards --et-shard "${{ matrix.shard }}/3"
           -p quality.anti_trick_gate_spec.pytest_probe
-          --s6-revision "${{ github.sha }}" --s6-evidence s6-execution.json
-      - name: Verify executed offline coverage
+          --s6-revision "${{ github.sha }}" --s6-evidence "s6-execution-${{ matrix.platform }}-${{ matrix.shard }}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: et-test-evidence-${{ matrix.platform }}-${{ matrix.shard }}
+          path: s6-*.json
+          retention-days: 7
+          if-no-files-found: error
+
+  coverage:
+    needs: contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: et-test-evidence-*
+          path: evidence
+          merge-multiple: true
+      - name: Bind actual execution to both canonical inventories
         run: >-
           python -m quality.anti_trick_gate_spec coverage
           --revision "${{ github.sha }}" --policy quality/test_policy.json
-          --platform "${{ matrix.platform }}" s6-inventory.json s6-execution.json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: et-test-evidence-${{ matrix.platform }}
-          path: |
-            s6-inventory.json
-            s6-execution.json
-          retention-days: 7
+          --platform linux --platform windows evidence/*.json
