@@ -24,9 +24,11 @@ jobs:
       PYTHONDONTWRITEBYTECODE: "1"
       PYTHONUTF8: "1"
       PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
-      RESEARCH_FEEDBACK_STATE_ROOT: ${{ runner.temp }}/et-feedback
+      TEST_REVISION: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TEST_REVISION }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -41,17 +43,21 @@ jobs:
           python -m mypy --python-version 3.10 --explicit-package-bases --follow-imports=silent retrieval_budget.py retrieval_protocol.py retrieval_process.py runtime_scope.py transcript_contracts.py
           python -m quality.source_checks
       - name: Record canonical offline test inventory
+        env:
+          RESEARCH_FEEDBACK_STATE_ROOT: ${{ runner.temp }}/et-feedback
         if: matrix.shard == 0
         run: >-
           python -m pytest tests/ -m "not live" --strict-markers --collect-only -q
           -p quality.anti_trick_gate_spec.pytest_probe
-          --s6-revision "${{ github.sha }}" --s6-evidence "s6-inventory-${{ matrix.platform }}.json"
+          --s6-revision "${{ env.TEST_REVISION }}" --s6-evidence "s6-inventory-${{ matrix.platform }}.json"
       - name: Exercise the offline test shard
+        env:
+          RESEARCH_FEEDBACK_STATE_ROOT: ${{ runner.temp }}/et-feedback
         run: >-
           python -m pytest tests/ -m "not live" --strict-markers --capture=sys -q -rfsx --tb=short
           -p quality.shards --et-shard "${{ matrix.shard }}/3"
           -p quality.anti_trick_gate_spec.pytest_probe
-          --s6-revision "${{ github.sha }}" --s6-evidence "s6-execution-${{ matrix.platform }}-${{ matrix.shard }}.json"
+          --s6-revision "${{ env.TEST_REVISION }}" --s6-evidence "s6-execution-${{ matrix.platform }}-${{ matrix.shard }}.json"
       - uses: actions/upload-artifact@v4
         with:
           name: et-test-evidence-${{ matrix.platform }}-${{ matrix.shard }}
@@ -63,8 +69,12 @@ jobs:
     needs: contracts
     runs-on: ubuntu-latest
     timeout-minutes: 4
+    env:
+      TEST_REVISION: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TEST_REVISION }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -76,5 +86,5 @@ jobs:
       - name: Bind actual execution to both canonical inventories
         run: >-
           python -m quality.anti_trick_gate_spec coverage
-          --revision "${{ github.sha }}" --policy quality/test_policy.json
+          --revision "${{ env.TEST_REVISION }}" --policy quality/test_policy.json
           --platform linux --platform windows evidence/*.json
