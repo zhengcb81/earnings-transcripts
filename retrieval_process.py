@@ -9,9 +9,12 @@ import subprocess
 import sys
 from ctypes import wintypes
 
+if sys.platform == "win32":
+    from ctypes import WinError
+
 
 def worker_launch_options() -> dict[str, bool | int]:
-    if os.name == "nt":
+    if sys.platform == "win32":
         return {"creationflags": subprocess.CREATE_NO_WINDOW}
     return {"start_new_session": True}
 
@@ -57,36 +60,34 @@ def enter_windows_job() -> None:
     clean up before the worker exits. A direct hard kill also closes the handle,
     so children cannot escape cancellation merely by outliving the worker.
     """
-    if os.name != "nt":
-        return
+    if sys.platform == "win32":
+        kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel.CreateJobObjectW.argtypes = [ctypes.c_void_p, wintypes.LPCWSTR]
+        kernel.CreateJobObjectW.restype = wintypes.HANDLE
+        kernel.SetInformationJobObject.argtypes = [
+            wintypes.HANDLE, ctypes.c_int, ctypes.c_void_p, wintypes.DWORD,
+        ]
+        kernel.SetInformationJobObject.restype = wintypes.BOOL
+        kernel.AssignProcessToJobObject.argtypes = [wintypes.HANDLE, wintypes.HANDLE]
+        kernel.AssignProcessToJobObject.restype = wintypes.BOOL
+        kernel.GetCurrentProcess.argtypes = []
+        kernel.GetCurrentProcess.restype = wintypes.HANDLE
+        kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+        kernel.CloseHandle.restype = wintypes.BOOL
 
-    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
-    kernel.CreateJobObjectW.argtypes = [ctypes.c_void_p, wintypes.LPCWSTR]
-    kernel.CreateJobObjectW.restype = wintypes.HANDLE
-    kernel.SetInformationJobObject.argtypes = [
-        wintypes.HANDLE, ctypes.c_int, ctypes.c_void_p, wintypes.DWORD,
-    ]
-    kernel.SetInformationJobObject.restype = wintypes.BOOL
-    kernel.AssignProcessToJobObject.argtypes = [wintypes.HANDLE, wintypes.HANDLE]
-    kernel.AssignProcessToJobObject.restype = wintypes.BOOL
-    kernel.GetCurrentProcess.argtypes = []
-    kernel.GetCurrentProcess.restype = wintypes.HANDLE
-    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
-    kernel.CloseHandle.restype = wintypes.BOOL
-
-    job = kernel.CreateJobObjectW(None, None)
-    if not job:
-        raise ctypes.WinError(ctypes.get_last_error())
-    try:
-        limits = _ExtendedLimits()
-        limits.basic.flags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
-        extended_limit_information = 9  # JobObjectExtendedLimitInformation
-        if not kernel.SetInformationJobObject(
-            job, extended_limit_information, ctypes.byref(limits), ctypes.sizeof(limits)
-        ):
-            raise ctypes.WinError(ctypes.get_last_error())
-        if not kernel.AssignProcessToJobObject(job, kernel.GetCurrentProcess()):
-            raise ctypes.WinError(ctypes.get_last_error())
-    except OSError:
-        kernel.CloseHandle(job)
-        raise
+        job = kernel.CreateJobObjectW(None, None)
+        if not job:
+            raise WinError(ctypes.get_last_error())
+        try:
+            limits = _ExtendedLimits()
+            limits.basic.flags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+            extended_limit_information = 9  # JobObjectExtendedLimitInformation
+            if not kernel.SetInformationJobObject(
+                job, extended_limit_information, ctypes.byref(limits), ctypes.sizeof(limits)
+            ):
+                raise WinError(ctypes.get_last_error())
+            if not kernel.AssignProcessToJobObject(job, kernel.GetCurrentProcess()):
+                raise WinError(ctypes.get_last_error())
+        except OSError:
+            kernel.CloseHandle(job)
+            raise

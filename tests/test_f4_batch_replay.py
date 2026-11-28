@@ -964,7 +964,7 @@ def test_first_period_failure_is_not_covered_by_second_period_success(short_root
         "fetched",
     )
     stored = case / "out" / "MSFT" / "MSFT_Q1_2026_earnings_call.txt"
-    assert Path(second["file"]) == stored
+    assert Path(second["file"]).samefile(stored)
     original = stored.read_text(encoding="utf-8")
     assert "Ticker: MSFT\n" in original and "Source: fmp_api\n" in original
     assert "Management discussed customer demand" in original
@@ -1584,10 +1584,10 @@ def test_hard_stop_between_items_leaves_completed_item_and_unconfirmed_item(
 ):
     """The first period's terminal state is on disk while the next one has not
     finished: the isolated process is hard-stopped. A new process finds the
-    completed first period and the unconfirmed second one by their original
-    identity; two queries answer the same, a repeated delivery adds no
-    business call, and no terminal state is invented for the unconfirmed
-    item. The second sample is an ordinary company with an ordinary success."""
+    completed first period and the dispatched second one by their original
+    identity. A durable worker disconnect can confirm interruption, but it
+    cannot confirm costs or invent a completed item. A repeated delivery adds
+    no business call. The second sample is an ordinary company with an ordinary success."""
     case = new_case(short_root, f"hard-stop-{ticker}-{mode}")
     env = make_env(case)
     out_path = None
@@ -1647,16 +1647,46 @@ def test_hard_stop_between_items_leaves_completed_item_and_unconfirmed_item(
     assert done_answer == expect_reconcile(
         done, job_status=job_status, cost_state="unknown", status="cost_unknown"
     )
-    unknown_answer = reconcile(case, query, started[unconfirmed], **where)
-    assert unknown_answer == expect_reconcile(
-        unconfirmed, job_status="unconfirmed", cost_state="unknown", status="cost_unknown"
-    )
+    lifecycle = case / "state" / "logs" / "runtime_retrieval.log"
+
+    def second_item_status() -> str:
+        # The independently owned worker can append its disconnect while an
+        # owner lookup is running. Only the original attempt's durable event
+        # can change its job status; the same call is still unmetered.
+        events = [
+            row for row in read_rows(lifecycle)
+            if row.get("run_id") == "f4-hard-stop"
+            and row.get("attempt_id") == "one"
+            and row.get("step_id") == unconfirmed
+        ]
+        assert any(row.get("phase") == "provider_phase_entered" for row in events)
+        if events[-1].get("phase") == "supervisor_disconnected":
+            return "interrupted"
+        return "unconfirmed"
+
+    def read_second_item() -> dict:
+        before = second_item_status()
+        answer = reconcile(case, query, started[unconfirmed], **where)
+        after = second_item_status()
+        assert answer in [
+            expect_reconcile(
+                unconfirmed, job_status=status, cost_state="unknown", status="cost_unknown"
+            )
+            for status in (before, after)
+        ]
+        return answer
+
+    unknown_answer = read_second_item()
     # The unconfirmed item has no terminal state: a forged one is not found.
     forged = {**started[unconfirmed], "check_id": ITEM, "expected": "fetched", "actual": "fetched"}
     assert reconcile(case, query, forged, **where) == {"state": "unknown"}
-    # Asking again answers the same; the reconciliation is read-only.
+    # Reconciliation is read-only; only late evidence from the original worker
+    # can improve the incomplete item's job status.
     assert reconcile(case, query, completed[done], **where) == done_answer
-    assert reconcile(case, query, started[unconfirmed], **where) == unknown_answer
+    again_answer = read_second_item()
+    if again_answer != unknown_answer:
+        assert unknown_answer["result"]["job_status"] == "unconfirmed"
+        assert again_answer["result"]["job_status"] == "interrupted"
     assert not (case / "owner.sqlite").exists()
 
     # A repeated delivery: two more processes under the same identity that
