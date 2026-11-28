@@ -18,13 +18,31 @@ FEEDBACK_DISABLED_ENV = "RESEARCH_FEEDBACK_DISABLED"
 FEEDBACK_STATE_ROOT_ENV = "RESEARCH_FEEDBACK_STATE_ROOT"
 
 _UNSAFE_PUBLIC_WORD = re.compile(r"[\s/?#&=\\]")
+_AUTH = re.compile(r"(?i)\b(bearer|basic)\s+[^\s,;\"'<>]+")
+_COOKIE = re.compile(r"(?im)(\b(?:set-cookie|cookie)[\"']?\s*:\s*)[^\r\n]*(?:\r?\n[ \t]+[^\r\n]*)*")
+_USERINFO = re.compile(r"(?i)(https?://)[^/@\s\"'<>]+@")
+_CREDENTIAL = re.compile(
+    r"(?i)(\b(?:[\w-]*[-_])?(?:api[-_]?key|token|password|secret|credential)\b[\"']?\s*[:=]\s*)"
+    r"(?:\"[^\"]*\"|'[^']*'|[^\s&,;<>]+)"
+)
+_CLI_SECRET = re.compile(r"(?i)(--(?:[\w-]*[-_])?(?:api[-_]?key|token|password|secret|credential)\b[\s=]+)[^\s,<>]+")
+_PREFIX = re.compile(r"(?<![\w])(?:sk-|tvly-|ghp_|AIza)[A-Za-z0-9_-]{8,}")
+
+
+def redact_text(value: str) -> str:
+    value = _AUTH.sub(r"\1 [REDACTED]", value)
+    value = _COOKIE.sub(r"\1[REDACTED]", value)
+    value = _USERINFO.sub(r"\1[REDACTED]@", value)
+    value = _CREDENTIAL.sub(r"\1[REDACTED]", value)
+    value = _CLI_SECRET.sub(r"\1[REDACTED]", value)
+    return _PREFIX.sub("[REDACTED]", value)
 
 
 def safe_public_word(value: Any, *, fallback: str) -> str | None:
     """Keep an opaque word or hash an arbitrary value without publishing it."""
     if not isinstance(value, str) or not value:
         return None
-    if len(value) <= 128 and not _UNSAFE_PUBLIC_WORD.search(value):
+    if len(value) <= 128 and not _UNSAFE_PUBLIC_WORD.search(value) and redact_text(value) == value:
         return value
     return f"{fallback}-{hashlib.sha256(value.encode('utf-8', errors='surrogatepass')).hexdigest()[:16]}"
 
@@ -71,11 +89,17 @@ def default_state_root() -> Path:
     return Path.home() / ".earnings-transcripts" / "feedback"
 
 
+def _host_identity(value: str, kind: str) -> str:
+    if redact_text(value) == value:
+        return value
+    return f"{kind}-{hashlib.sha256(value.encode('utf-8', errors='surrogatepass')).hexdigest()[:16]}"
+
+
 def run_identity(environ: Mapping[str, str] | None = None) -> tuple[str, str]:
     env = os.environ if environ is None else environ
-    return env.get(FEEDBACK_RUN_ID_ENV) or "run-" + uuid.uuid4().hex[:12], (
-        env.get(FEEDBACK_ATTEMPT_ID_ENV) or "attempt-1"
-    )
+    run = env.get(FEEDBACK_RUN_ID_ENV) or "run-" + uuid.uuid4().hex[:12]
+    attempt = env.get(FEEDBACK_ATTEMPT_ID_ENV) or "attempt-1"
+    return _host_identity(run, "run"), _host_identity(attempt, "attempt")
 
 
 def state_root(environ: Mapping[str, str] | None = None) -> Path | None:

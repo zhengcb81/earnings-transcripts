@@ -3,7 +3,7 @@
 import logging
 from pathlib import Path
 
-from runtime_logging import rotating_file_handler, warn_optional_failure
+from runtime_logging import EntryDiagnostics, configure_run_logging
 
 
 def load_config(config_path: Path = None) -> dict:
@@ -23,21 +23,9 @@ def get_path(cfg: dict, key: str) -> Path:
     return base / cfg["paths"][key]
 
 
-def setup_logging(cfg: dict, log_file: str = None) -> logging.Logger:
+def setup_logging(cfg: dict, log_file: str = None, *, runtime: EntryDiagnostics | None = None) -> logging.Logger:
     """根据配置初始化日志。"""
-    log_cfg = cfg.get("logging", {})
-    fmt = log_cfg.get("format", "%(asctime)s [%(levelname)s] %(message)s")
-    level = getattr(logging, log_cfg.get("level", "INFO").upper(), logging.INFO)
-
-    handlers = [logging.StreamHandler()]
-    if log_file:
-        try:
-            handlers.append(rotating_file_handler(Path(log_file)))
-        except OSError as exc:
-            warn_optional_failure("et_log_setup_failed", type(exc).__name__)
-
-    logging.basicConfig(level=level, format=fmt, handlers=handlers)
-    return logging.getLogger()
+    return configure_run_logging(cfg.get("logging", {}), Path(log_file) if log_file else None, runtime=runtime)
 
 
 def load_companies(cfg: dict, filter_ticker: str = None) -> list[dict]:

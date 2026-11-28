@@ -33,7 +33,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal, TypedDict
 
-from retrieval_diagnostics import WorkerStderr, exception_trace, read_exception_trace, safe_exception_types
+from retrieval_diagnostics import WorkerStderr, exception_trace, log_exception_trace, read_exception_trace, safe_exception_types
 from retrieval_lifecycle import TRACE_ENV, RetrievalTrace
 from retrieval_process import worker_launch_options, kill_worker_group
 from retrieval_protocol import (
@@ -132,9 +132,12 @@ def _child_diagnostics(
 ) -> dict[str, Any]:
     """One sanitized diagnostic dict for this supervised retrieval."""
     child = _read_worker_error(workdir)
-    exceptions = child.get("worker_exceptions") or []
     if exit_code is not None:
         stderr.finish()
+    if not child.get("worker_exception_trace") and stderr.exception_trace:
+        child["worker_exception_trace"] = stderr.exception_trace
+        child["worker_exceptions"] = [fact["type"] for fact in stderr.exception_trace]
+    exceptions = child.get("worker_exceptions") or []
     stderr_type = exceptions[0] if exceptions else stderr.type_hint
     if log_to_console and (exceptions or exit_code not in (None, 0)):
         _logger.error(
@@ -339,7 +342,7 @@ def run_retrieval(
             "worker_pid": None,
         }
         if log_worker_diagnostics:
-            _logger.error("retrieval worker did not start stage=%s exception_trace=%s", stage, exception_facts)
+            log_exception_trace(_logger, logging.ERROR, "retrieval worker did not start stage=%s", error, stage)
         return finish(
             None, {"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
             "worker_not_started", diagnostics,

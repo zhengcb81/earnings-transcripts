@@ -6,15 +6,18 @@ Usage:
   python3 make_interleaved.py --ticker MSFT # 只处理指定公司
 """
 
-import argparse
 import json
 from pathlib import Path
 
 from common import load_config, get_path, FileNaming, LineClassifier
+from runtime_logging import DiagnosticArgumentParser, EntryDiagnostics
+from transcript_feedback import observed_entry
 
 
-def make_interleaved(cfg: dict, json_path: Path) -> Path:
+def make_interleaved(cfg: dict, json_path: Path, *, runtime: EntryDiagnostics | None = None) -> Path:
     """Generate interleaved txt from bilingual JSON."""
+    if runtime is not None:
+        runtime.stage = "read-bilingual"
     data = json.loads(json_path.read_text(encoding="utf-8"))
     meta = data.get("meta", {})
     pairs = data.get("pairs", [])
@@ -85,19 +88,24 @@ def make_interleaved(cfg: dict, json_path: Path) -> Path:
     # Save using FileNaming
     fn = FileNaming(cfg)
     out_path = fn.bilingual_to_interleaved(json_path)
+    if runtime is not None:
+        runtime.stage = "interleaved-write"
     out_path.write_text("\n".join(lines), encoding="utf-8")
     return out_path
 
 
-def main():
-    parser = argparse.ArgumentParser(description="生成中英夹排TXT")
+@observed_entry("make_interleaved")
+def main(argv=None, *, runtime: EntryDiagnostics):
+    parser = DiagnosticArgumentParser(description="生成中英夹排TXT")
     parser.add_argument("--ticker", help="只处理指定股票")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
+    runtime.begin("config-load")
     cfg = load_config()
     fn = FileNaming(cfg)
     transcripts_dir = get_path(cfg, "transcripts_dir")
 
+    runtime.stage = "input-selection"
     if args.ticker:
         bilingual_files = fn.find_bilingual_files(args.ticker.upper())
         dirs = sorted(set(f.parent for f in bilingual_files))
@@ -111,7 +119,7 @@ def main():
             continue
         print(f"{d.name}: {len(jsons)} file(s)")
         for jf in jsons:
-            out = make_interleaved(cfg, jf)
+            out = make_interleaved(cfg, jf, runtime=runtime)
             if out:
                 print(f"  \u2713 {out.name} ({out.stat().st_size:,} bytes)")
                 total += 1
@@ -120,4 +128,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

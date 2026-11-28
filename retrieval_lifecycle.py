@@ -79,7 +79,8 @@ def read_history(run_id: str, attempt_id: str, step: str | None = None) -> dict[
     step = safe_public_word(step, fallback="request")
     events = []
     unavailable = False
-    for name in (_LOG + ".2", _LOG + ".1", _LOG):
+    logs = (_LOG, "runtime_errors.log") if step is None else (_LOG,)
+    for name in (log + suffix for log in logs for suffix in (".2", ".1", "")):
         try:
             with storage_path(root / "logs" / name).open("rb") as stream:
                 for line in stream:
@@ -90,11 +91,16 @@ def read_history(run_id: str, attempt_id: str, step: str | None = None) -> dict[
                     if (isinstance(row, dict) and row.get("owner") == OWNER
                             and row.get("run_id") == run_id and row.get("attempt_id") == attempt_id
                             and (step is None or row.get("step_id") == step)):
+                        if name.startswith("runtime_errors.log"):
+                            if row.get("event") not in {"invocation_failure", "invocation_refusal", "translation_failure"}:
+                                continue
+                            row["phase"] = row["event"]
                         events.append(row)
         except FileNotFoundError:
             continue
         except OSError:
             unavailable = True
+    events.sort(key=lambda row: row.get("at", ""))
     return {"status": "found" if events else "unavailable" if unavailable else "absent", "events": events}
 
 

@@ -8,6 +8,8 @@ import time
 
 from config import get_path
 from cache import JsonCache
+from retrieval_diagnostics import exception_trace, log_exception_trace
+from runtime_logging import EntryDiagnostics, record_local_failure
 
 
 class OpenAITranslator:
@@ -63,7 +65,9 @@ class OpenAITranslator:
                 max_tokens=self.test_tokens,
             )
             return r.choices is not None and len(r.choices) > 0
-        except Exception:
+        except Exception as error:
+            record_local_failure("translation_failure", {"entry": "translation", "stage": "translation-availability",
+                                                           "backend": self.name, "exception_trace": exception_trace(error)})
             return False
 
     def _postprocess(self, text: str) -> str:
@@ -175,7 +179,9 @@ class GoogleTranslator:
         try:
             r = self.translator.translate(self.test_text, self.target)
             return bool(r.result)
-        except Exception:
+        except Exception as error:
+            record_local_failure("translation_failure", {"entry": "translation", "stage": "translation-availability",
+                                                           "backend": self.name, "exception_trace": exception_trace(error)})
             return False
 
     def translate(self, text: str) -> str:
@@ -198,6 +204,7 @@ def translate_paragraphs(
     translator,
     cfg: dict,
     logger: logging.Logger = None,
+    *, runtime: EntryDiagnostics | None = None,
 ) -> list[str]:
     """
     翻译段落列表，带缓存。
@@ -232,8 +239,14 @@ def translate_paragraphs(
             result = translator.translate(p)
             cache.set(h, result)
             results.append(result)
-        except Exception as e:
-            log.warning(f"  Translate error [{i}]: {e}")
+        except Exception as error:
+            trace = log_exception_trace(log, logging.WARNING, "  Translate error [%s]", error, i)
+            facts = {"entry": "translation", "stage": "translation-provider", "backend": translator.name,
+                     "paragraph": i, "exception_trace": trace}
+            if runtime is not None:
+                runtime.record("translation_failure", facts)
+            else:
+                record_local_failure("translation_failure", facts)
             results.append(p)
             errors.append(i)
 

@@ -28,7 +28,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import retrieval_runtime
 import transcript_feedback
 from retrieval_lifecycle import RetrievalTrace
-from runtime_scope import public_request, run_identity, safe_public_word, step_id
+from runtime_logging import EntryDiagnostics
+from runtime_scope import public_request, safe_public_word, step_id
 from transcript_contracts import (
     ADAPTER_VERSION,
     DISCOVERY_RESULT_SCHEMA,
@@ -187,9 +188,11 @@ def _publish_usage_receipt(
     return receipt
 
 
+@transcript_feedback.observed_entry("transcript_tool")
 def main(
     argv: list[str] | None = None,
     *,
+    runtime: EntryDiagnostics,
     _session_factory: Callable[[], Any] | None = None,
     _provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
     _retrieval_launcher: str | None = None,
@@ -205,9 +208,10 @@ def main(
         recorder = (
             _feedback_recorder
             if _feedback_recorder is not None
-            else transcript_feedback.recorder_from_env()
+            else transcript_feedback.recorder_from_env(identity=runtime.identity)
         )
         if recorder is not None:
+            runtime.identity = (recorder.run_id, recorder.attempt_id)
             recorder.version = PRODUCT_VERSION
             transcript_feedback.set_active_recorder(recorder)
         return recorder
@@ -259,8 +263,9 @@ def main(
             stage="argument-parsing",
             refusal_code="invalid_cli_arguments",
             location="transcript_tool.py#parse_args",
+            runtime=runtime,
         )
-        identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity()
+        identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else runtime.identity
         RetrievalTrace.create("transcript-tool", None, identity).emit(
             "invocation_refused", exit_code=code, reason="invalid_cli_arguments",
             usage={"requests_used": 0, "response_bytes_used": 0, "exhausted": None},
@@ -288,7 +293,7 @@ def main(
     if args.flush_observations:
         transcript_feedback.finalize_delivery(recorder)
         return 0
-    identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity()
+    identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else runtime.identity
     invocation = RetrievalTrace.create("transcript-tool", None, identity)
     invocation.emit("invocation_started", requested_operation=args.operation, usage=None)
     publish_usage = _usage_publisher if _usage_publisher is not None else _publish_usage_receipt
@@ -305,6 +310,7 @@ def main(
     worker_diagnostics: dict[str, Any] | None = None
     branch = "invalid-request"
     started_at: str | None = None
+    runtime.begin("input-decode")
     try:
         raw = sys.stdin.read(128 * 1024 + 1)
         if len(raw.encode("utf-8")) > 128 * 1024:
@@ -319,6 +325,7 @@ def main(
             published_receipt = publish_usage(native_receipt, args.report_usage)
         else:
             request = json.loads(raw)
+            runtime.stage = "request-validation"
             invocation.emit("input_parsed", request=public_request(request),
                             retrieval_step_id=step_id(request, args.operation))
             started_at = transcript_feedback.begin_step(
@@ -339,6 +346,7 @@ def main(
                     result_schema=result_schema,
                     settings=_provider_settings,
                 )
+            runtime.stage = "provider-credentials"
             fmp_api_key, credential_error = (None, None)
             if preflight is None and args.operation == "fetch" and isinstance(request, dict) and request.get("provider") == "fmp":
                 fmp_api_key, credential_error = _configured_fmp_key()
@@ -382,6 +390,7 @@ def main(
                     "provider_settings": _provider_settings,
                     "session_factory": _session_factory,
                 }
+                runtime.stage = "provider-dispatch"
                 branch = "provider"
                 if args.operation == "discover":
                     result = discover_transcripts(request, **provider_options)
@@ -401,6 +410,7 @@ def main(
                     )
             else:
                 # Production path: one internal worker under a hard deadline.
+                runtime.stage = "provider-dispatch"
                 result, native_receipt, worker_diagnostics = _supervised_result(
                     request,
                     args,
@@ -417,7 +427,8 @@ def main(
                     else "provider"
                 )
                 published_receipt = publish_usage(native_receipt, args.report_usage)
-    except (json.JSONDecodeError, UnicodeError):
+    except (json.JSONDecodeError, UnicodeError) as exc:
+        transcript_feedback.report_entry_failure("transcript_tool", "input-decode", exc, expected=True, publish=False, runtime=runtime)
         result = _wire_failure(
             result_schema, None, "invalid_request", "invalid_json", "motley_fool"
         )

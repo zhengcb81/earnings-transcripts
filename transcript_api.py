@@ -815,12 +815,15 @@ def fetch_transcript(
             error_code="unexpected_provider_failure",
         )
     finally:
-        if session is not None:
-            try:
-                session.close()
-            except Exception:
-                pass
+        _close_provider_session(session, "fetch_transcript", provider, request_id)
 
+
+def _close_provider_session(session: requests.Session | None, operation: str, provider: str, request_id: str) -> None:
+    if session is not None:
+        try:
+            session.close()
+        except Exception as error:
+            log_provider_failure(_logger, operation, provider, request_id, error, cleanup=True)
 
 def _listing_candidate_selection(
     session: requests.Session,
@@ -989,11 +992,7 @@ def list_transcript_candidates(
     except Exception as exc:
         return _map_listing_failure(request_id, exc)
     finally:
-        if session is not None:
-            try:
-                session.close()
-            except Exception:
-                pass
+        _close_provider_session(session, "list_transcript_candidates", "motley_fool", request_id)
 
 
 def discover_transcripts(
@@ -1155,11 +1154,7 @@ def discover_transcripts(
             error_code="unexpected_provider_failure",
         )
     finally:
-        if session is not None:
-            try:
-                session.close()
-            except Exception:
-                pass
+        _close_provider_session(session, "discover_transcripts", provider, request_id)
 
 
 def _validate_candidate_fetch_request(
@@ -1418,8 +1413,4 @@ def fetch_transcript_candidate(
             error_code="unexpected_provider_failure",
         )
     finally:
-        if session is not None:
-            try:
-                session.close()
-            except Exception:
-                pass
+        _close_provider_session(session, "fetch_transcript_candidate", provider, request_id)

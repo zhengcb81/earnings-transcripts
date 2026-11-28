@@ -7,6 +7,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from contextvars import ContextVar
 from hashlib import sha256
+import json
 import logging
 from pathlib import PureWindowsPath
 import re
@@ -29,13 +30,14 @@ class ExceptionFact(TypedDict):
 _TYPE = re.compile(r"[A-Za-z_][A-Za-z_0-9]{0,127}")
 _FILE = re.compile(r"(?:[A-Za-z_0-9][A-Za-z_0-9.-]{0,127}|<frozen [A-Za-z_][A-Za-z_0-9.]{0,118}>)")
 _FUNCTION = re.compile(r"(?:[A-Za-z_][A-Za-z_0-9]{0,127}|<[a-z]+>)")
-_RELATIONS = {"raised", "cause", "context"}
+_RELATIONS = {"raised", "cause", "context", "cleanup"}
 _BUILTIN_ERRORS = {
     name.encode("ascii"): name
     for name, value in vars(builtins).items()
     if isinstance(value, type) and issubclass(value, BaseException)
 }
 _DIAGNOSTIC_WRITE_PREFIX = b"ET worker diagnostic write failed: "
+_TYPED_WORKER_PREFIX = b"ET worker exception fact: "
 _TRACEBACK_HEADER = b"Traceback (most recent call last):"
 _NATIVE_FAILURE_PREFIXES = (b"Fatal Python error:", b"Windows fatal exception:")
 _capture: ContextVar[list[ExceptionFact] | None] = ContextVar(
@@ -80,9 +82,11 @@ def exception_trace(error: BaseException) -> list[ExceptionFact]:
     """Preserve the exception types and frame locations, never args or source lines."""
     facts: list[ExceptionFact] = []
     seen = set()
-    current: BaseException | None = error
-    relation = "raised"
-    while current is not None and id(current) not in seen:
+    pending = [(error, "raised")]
+    while pending:
+        current, relation = pending.pop()
+        if id(current) in seen:
+            continue
         seen.add(id(current))
         frames = []
         trace = BaseException.__traceback__.__get__(current)
@@ -99,13 +103,18 @@ def exception_trace(error: BaseException) -> list[ExceptionFact]:
             frames=frames,
         ))
         cause = BaseException.__cause__.__get__(current)
+        context = BaseException.__context__.__get__(current)
+        if context is not None and context is not cause:
+            pending.append((context, "context"))
         if cause is not None:
-            current, relation = cause, "cause"
-        elif BaseException.__suppress_context__.__get__(current):
-            current = None
-        else:
-            current, relation = BaseException.__context__.__get__(current), "context"
+            pending.append((cause, "cause"))
     return facts
+
+
+def worker_trace_line(fact: ExceptionFact) -> str:
+    """Private pipe framing when the worker cannot persist its full envelope."""
+    terminal = {**fact, "frames": fact["frames"][-1:]}
+    return _TYPED_WORKER_PREFIX.decode("ascii") + json.dumps(terminal, ensure_ascii=True)
 
 
 class WorkerStderr:
@@ -113,6 +122,7 @@ class WorkerStderr:
 
     def __init__(self, stream: BinaryIO) -> None:
         self.type_hint: str | None = None
+        self.exception_trace: list[ExceptionFact] = []
         self.diagnostic_write_error: str | None = None
         self._reader = Thread(target=self._drain, args=(stream,), daemon=True)
         self._reader.start()
@@ -129,6 +139,12 @@ class WorkerStderr:
                             self.diagnostic_write_error = _BUILTIN_ERRORS.get(
                                 line.removeprefix(_DIAGNOSTIC_WRITE_PREFIX)
                             )
+                        elif line.startswith(_TYPED_WORKER_PREFIX):
+                            try:
+                                payload = json.loads(line.removeprefix(_TYPED_WORKER_PREFIX))
+                            except (ValueError, RecursionError):
+                                continue
+                            self.exception_trace.extend(read_exception_trace([payload]))
                         elif line.startswith(_NATIVE_FAILURE_PREFIXES):
                             self.type_hint = "NativeFailure"
                         elif line == _TRACEBACK_HEADER:
@@ -159,15 +175,29 @@ def capture_provider_failure() -> Iterator[list[ExceptionFact]]:
         _capture.reset(token)
 
 
-def log_provider_failure(
-    logger: logging.Logger, operation: str, provider: str, request_id: str, error: BaseException,
-) -> None:
+def log_exception_trace(
+    logger: logging.Logger, level: int, label: str, error: BaseException, *arguments: object,
+) -> list[ExceptionFact]:
+    """Log typed, detached traceback data instead of rendering exception text."""
     trace = exception_trace(error)
+    logger.log(level, label + " exception_trace=%s", *arguments, trace)
+    return trace
+
+
+def log_provider_failure(
+    logger: logging.Logger, operation: str, provider: str, request_id: str, error: BaseException, *,
+    cleanup: bool = False,
+) -> None:
+    raw_reference = request_id.encode("utf-8", "surrogatepass") if isinstance(request_id, str) else b""
+    reference = sha256(raw_reference).hexdigest()[:16]
+    label = ("provider_cleanup_failure" if cleanup else "unexpected_provider_failure")
+    trace = log_exception_trace(logger, logging.WARNING if cleanup else logging.ERROR,
+                                label + " operation=%s provider=%s request_ref=%s",
+                                error, operation, provider, reference)
     captured = _capture.get()
     if captured is not None:
-        captured[:] = trace
-    reference = sha256(request_id.encode("utf-8", "surrogatepass")).hexdigest()[:16]
-    logger.error(
-        "unexpected_provider_failure operation=%s provider=%s request_ref=%s exception_trace=%s",
-        operation, provider, reference, trace,
-    )
+        if cleanup and trace:
+            trace[0]["relation"] = "cleanup"
+            captured.extend(trace)
+        else:
+            captured[:] = trace

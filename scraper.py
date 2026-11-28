@@ -57,10 +57,10 @@ from retrieval_budget import (
     BatchBudgetExceeded,
     BudgetSession as _BudgetSession,  # noqa: F401 - compatibility for existing budget callers
 )
-from retrieval_diagnostics import exception_trace
+from retrieval_diagnostics import exception_trace, log_exception_trace
 from retrieval_runtime import RetrievalOutcome, run_retrieval
-from runtime_logging import record_local_failure, rotating_file_handler, warn_optional_failure
-from runtime_scope import run_identity
+from runtime_logging import EntryDiagnostics, configure_run_logging, record_local_failure
+from runtime_scope import redact_text
 import transcript_feedback
 from transcript_feedback import BatchJournal
 from transcript_api import (
@@ -239,27 +239,9 @@ def _base_request(
     }
 
 
-def _configure_run_logging(cfg: dict, log_file: Path) -> None:
-    """Per-run logging for this entry only (no global basicConfig side effects)."""
-    log_cfg = cfg.get("logging", {})
-    formatter = logging.Formatter(
-        log_cfg.get("format", "%(asctime)s [%(levelname)s] %(message)s")
-    )
-    log.setLevel(getattr(logging, log_cfg.get("level", "INFO").upper(), logging.INFO))
-    log.propagate = False
-    for handler in list(log.handlers):
-        handler.close()
-        log.removeHandler(handler)
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(formatter)
-    log.addHandler(stream_handler)
-    try:
-        file_handler = rotating_file_handler(log_file)
-    except OSError as exc:
-        warn_optional_failure("et_log_setup_failed", type(exc).__name__)
-    else:
-        file_handler.setFormatter(formatter)
-        log.addHandler(file_handler)
+def _configure_run_logging(cfg: dict, log_file: Path, runtime: EntryDiagnostics | None) -> None:
+    """Capture all ET components in the batch's existing file log."""
+    configure_run_logging(cfg.get("logging", {}), log_file, runtime=runtime)
 
 
 def _record_entry(
@@ -759,14 +741,14 @@ def _store_original(
             try:
                 write_atomic(receipt_path(path), receipt_bytes)
             except OSError as exc:
-                log.warning("receipt_write_failed: %s: %s", path.name, exc)
+                log_exception_trace(log, logging.WARNING, "receipt_write_failed", exc)
         return ("fetched", path)
     finally:
         if tmp_path is not None and tmp_path.exists():
             try:
                 tmp_path.unlink()
-            except OSError:
-                pass
+            except OSError as error:
+                log_exception_trace(log, logging.WARNING, "partial_original_cleanup_failed", error)
 
 
 def translate_after_download(cfg: dict, fn: FileNaming, english_path: Path, skip: bool = False):
@@ -799,8 +781,8 @@ def translate_after_download(cfg: dict, fn: FileNaming, english_path: Path, skip
         txt_path = make_interleaved(cfg, bilingual_path)
         if txt_path:
             log.info("  Interleaved saved: %s", txt_path.name)
-    except Exception as e:
-        log.warning("  Interleaved generation failed: %s", e)
+    except Exception as error:
+        log_exception_trace(log, logging.WARNING, "interleaved_generation_failed", error)
 
     return bilingual_path
 
@@ -814,7 +796,7 @@ def _maybe_translate(cfg: dict, fn: FileNaming, english_path: Path, translate_en
     try:
         translate_after_download(cfg, fn, english_path, skip=False)
     except Exception as exc:
-        log.warning("translation failed for %s: %s", english_path.name, exc)
+        log_exception_trace(log, logging.WARNING, "translation_after_download_failed", exc)
 
 
 _ENTRY_STATUS_FOR_OUTCOME = {
@@ -1704,6 +1686,7 @@ def _run_batch(
     provider_settings: ProviderSettings,
     translate_enabled: bool,
     journal: BatchJournal | None = None,
+    *, runtime: EntryDiagnostics | None = None,
 ) -> int:
     if args.source == "fmp" and periods is None:
         print(
@@ -1754,7 +1737,7 @@ def _run_batch(
     report_ready = False
     try:
         transcripts_root.mkdir(parents=True, exist_ok=True)
-        _configure_run_logging(cfg, logs_dir / "scraper.log")
+        _configure_run_logging(cfg, logs_dir / "scraper.log", runtime)
         budget = BatchBudget(
             args.max_requests, args.max_seconds,
             args.max_response_bytes, args.max_output_bytes,
@@ -1787,21 +1770,22 @@ def _run_batch(
 
         save_summary(cfg, fn, companies, transcripts_root)
         report_ready = True
-    except BatchBudgetExceeded:
-        log.warning("batch budget exceeded: %s", budget.exhausted if budget else "unknown")
+    except BatchBudgetExceeded as error:
+        log_exception_trace(log, logging.WARNING, "batch budget exceeded: %s", error,
+                            budget.exhausted if budget else "unknown")
         if budget is not None and fn is not None:
             try:
                 save_summary(cfg, fn, companies, transcripts_root)
-            except Exception:
-                pass
-            report_ready = True
+            except Exception as error:
+                log_exception_trace(log, logging.WARNING, "batch_summary_failed", error)
+            else:
+                report_ready = True
     except Exception as exc:
-        execution_failure = exception_trace(exc)
+        execution_failure = log_exception_trace(log, logging.ERROR, "unexpected batch failure", exc)
         print(f"error: unexpected_batch_failure ({execution_failure[0]['type']})", file=sys.stderr)
         record_local_failure(
             "unexpected_batch_failure", {"trace": execution_failure}, identity=ctx.diagnostic_identity,
         )
-        log.error("unexpected batch failure trace=%s", execution_failure)
         exit_code = EXIT_FAILURE
     finally:
         try:
@@ -1811,7 +1795,7 @@ def _run_batch(
             print(f"error: manifest_write_failed ({publication_failure})", file=sys.stderr)
             record_local_failure(
                 "manifest_write_failed",
-                {"exception_type": publication_failure, "entry_count": len(entries)},
+                {"exception_type": publication_failure, "entry_count": len(entries), "exception_trace": exception_trace(exc)},
                 identity=ctx.diagnostic_identity,
             )
         finally:
@@ -1832,9 +1816,11 @@ def _run_batch(
     return exit_code
 
 
+@transcript_feedback.observed_entry("scraper")
 def main(
     argv: list[str] | None = None,
     *,
+    runtime: EntryDiagnostics,
     _provider_settings: ProviderSettings = DEFAULT_PROVIDER_SETTINGS,
     _companies: list[dict] | None = None,
     _retrieval_launcher: str | None = None,
@@ -1844,7 +1830,7 @@ def main(
     """CLI entry; private injection points are for offline tests only."""
     # 普通启动在参数解析与副作用之前建立本次身份：被拒绝的调用同样可观察，
     # 导出失败绝不改变业务原返回。
-    recorder = transcript_feedback.recorder_from_env()
+    recorder = transcript_feedback.recorder_from_env(identity=runtime.identity)
     # 逐项观测与普通拒绝共用同一个 recorder：一个位置只有一个写者。
     journal = transcript_feedback.BatchJournal(recorder)
     parser = build_argument_parser()
@@ -1860,6 +1846,7 @@ def main(
                 stage="argument-parsing",
                 refusal_code="invalid_cli_arguments",
                 location="scraper.py#parse_args",
+                runtime=runtime,
             )
 
         error = _validate_args(args)
@@ -1870,9 +1857,10 @@ def main(
                 stage="argument-validation",
                 refusal_code="invalid_argument_value",
                 location="scraper.py#_validate_args",
+                runtime=runtime,
                 argument="--periods" if error.startswith("invalid --periods") else None,
             )
-            print(f"error: {error}", file=sys.stderr)
+            print(redact_text(f"error: {error}"), file=sys.stderr)
             return EXIT_USAGE
         try:
             periods = parse_periods(args.periods) if args.periods else None
@@ -1883,12 +1871,14 @@ def main(
                 stage="argument-validation",
                 refusal_code="invalid_argument_value",
                 location="scraper.py#parse_periods",
+                runtime=runtime,
                 argument="--periods",
             )
-            print(f"error: invalid --periods token: {exc.args[0]}", file=sys.stderr)
+            print(redact_text(f"error: invalid --periods token: {exc.args[0]}"), file=sys.stderr)
             return EXIT_USAGE
         translate_enabled = bool(args.translate)
 
+        runtime.begin("config-load", persist=not (args.dry_run or args.list))
         try:
             cfg = load_config()
         except FileNotFoundError as exc:
@@ -1898,9 +1888,11 @@ def main(
                 stage="config-load",
                 refusal_code="config_unavailable",
                 location="scraper.py#main",
+                runtime=runtime,
             )
-            print(f"error: {exc}", file=sys.stderr)
+            print(redact_text(f"error: {exc}"), file=sys.stderr)
             return EXIT_FAILURE
+        runtime.stage = "company-selection"
         if args.output is not None:
             cfg = _cfg_with_output(cfg, args.output.resolve())
         transcripts_root = get_path(cfg, "transcripts_dir")
@@ -1916,11 +1908,13 @@ def main(
                 stage="company-selection",
                 refusal_code="empty_company_selection",
                 location="scraper.py#main",
+                runtime=runtime,
                 argument="--ticker" if args.ticker else None,
             )
             print("error: no companies found in companies.txt", file=sys.stderr)
             return EXIT_FAILURE
 
+        runtime.stage = "batch-plan" if args.dry_run else "metadata-discovery" if args.list else "batch-execution"
         if args.dry_run:
             return _run_dry_plan(
                 cfg, args, companies, periods, transcripts_root, translate_enabled
@@ -1930,7 +1924,7 @@ def main(
             launcher_spec=_retrieval_spec,
             temp_root=_retrieval_temp_root,
             api_key=args.api_key or None,
-            diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity(),
+            diagnostic_identity=(recorder.run_id, recorder.attempt_id) if recorder is not None else runtime.identity,
         )
         if args.list:
             return _run_list(
@@ -1938,7 +1932,7 @@ def main(
             )
         return _run_batch(
             cfg, args, companies, periods, retrieval_ctx, _provider_settings,
-            translate_enabled, journal,
+            translate_enabled, journal, runtime=runtime,
         )
     finally:
         transcript_feedback.finalize_delivery(recorder)

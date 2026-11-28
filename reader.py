@@ -6,7 +6,7 @@ Then open http://localhost:8765 in browser
 """
 
 import json
-import argparse
+import sys
 import webbrowser
 import threading
 from pathlib import Path
@@ -15,6 +15,8 @@ from urllib.parse import urlparse
 
 from config import get_path, load_companies, load_config
 from parser import parse_transcript_header
+from runtime_logging import DiagnosticArgumentParser, EntryDiagnostics
+from transcript_feedback import observed_entry, report_entry_failure
 
 _BASE_DIR = Path(__file__).parent
 _TEMPLATE_FILE = _BASE_DIR / "templates" / "index.html"
@@ -22,18 +24,40 @@ _TEMPLATE_FILE = _BASE_DIR / "templates" / "index.html"
 
 class ReaderHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        parsed = urlparse(self.path)
-        if parsed.path == '/' or parsed.path == '/index.html':
-            self.serve_index()
-        elif parsed.path == '/api/data':
-            self.serve_data()
-        else:
+        route = urlparse(self.path).path
+        if route not in {"/", "/index.html", "/api/data"}:
             self.send_error(404)
+            return
+        self._route = route
+        self._stage = "read-transcripts"
+        self._response_started = False
+        try:
+            if route == "/api/data":
+                self.serve_data()
+            else:
+                self.serve_index()
+        except Exception as error:
+            self._report_request_failure(self._stage, error)
+            if not self._response_started:
+                try:
+                    self.send_error(500, "Reader request failed")
+                except OSError as send_error:
+                    self._report_request_failure("send-error-response", send_error)
+
+    def _report_request_failure(self, stage, error, *, expected=False):
+        runtime = getattr(getattr(self, "server", None), "runtime", None)
+        report_entry_failure("reader", stage, error, expected=expected,
+                             route=getattr(self, "_route", None), runtime=runtime)
+        if runtime is not None:
+            runtime.flush_warnings()
 
     def serve_index(self):
         data = self.build_data()
+        self._stage = "read-template"
         html_template = _TEMPLATE_FILE.read_text(encoding="utf-8")
         html = html_template.replace('/*__DATA__*/{}/*__END__*/', json.dumps(data, ensure_ascii=False))
+        self._stage = "send-response"
+        self._response_started = True
         self.send_response(200)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         self.end_headers()
@@ -41,6 +65,8 @@ class ReaderHandler(BaseHTTPRequestHandler):
 
     def serve_data(self):
         data = self.build_data()
+        self._stage = "send-response"
+        self._response_started = True
         self.send_response(200)
         self.send_header('Content-Type', 'application/json; charset=utf-8')
         self.end_headers()
@@ -91,18 +117,12 @@ class ReaderHandler(BaseHTTPRequestHandler):
                 if not bilingual_path.exists():
                     # Also try .txt for old format
                     bilingual_path = f.parent / f.name.replace("_earnings_call", "_bilingual")
-                if bilingual_path.exists():
-                    bcontent = bilingual_path.read_text(encoding="utf-8")
-                    if bilingual_path.suffix == ".json":
-                        try:
-                            entry["bilingual_data"] = json.loads(bcontent)
-                        except (json.JSONDecodeError, OSError):
-                            entry["bilingual_data"] = None
-                    else:
-                        # Old text format - skip
-                        entry["bilingual_data"] = None
-                else:
-                    entry["bilingual_data"] = None
+                entry["bilingual_data"] = None
+                if bilingual_path.suffix == ".json" and bilingual_path.exists():
+                    try:
+                        entry["bilingual_data"] = json.loads(bilingual_path.read_text(encoding="utf-8"))
+                    except (ValueError, OSError) as error:
+                        self._report_request_failure("optional-bilingual", error, expected=True)
 
                 entries.append(entry)
 
@@ -114,26 +134,39 @@ class ReaderHandler(BaseHTTPRequestHandler):
         pass  # Suppress HTTP logs
 
 
-def main():
-    parser = argparse.ArgumentParser(description="美股电话会议纪要阅读器")
+class ReaderServer(HTTPServer):
+    def handle_error(self, request, client_address):
+        error = sys.exc_info()[1]
+        if error is not None:
+            report_entry_failure("reader", "http-connection", error, runtime=self.runtime)
+            self.runtime.flush_warnings()
+
+
+@observed_entry("reader")
+def main(argv=None, *, runtime: EntryDiagnostics):
+    parser = DiagnosticArgumentParser(description="美股电话会议纪要阅读器")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--no-browser", action="store_true")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
-    server = HTTPServer(("127.0.0.1", args.port), ReaderHandler)
-    url = f"http://localhost:{args.port}"
-    print(f"阅读器已启动: {url}")
-    print("按 Ctrl+C 退出")
+    runtime.begin("server-bind")
+    with ReaderServer(("127.0.0.1", args.port), ReaderHandler) as server:
+        server.runtime = runtime
+        url = f"http://localhost:{server.server_port}"
+        print(f"阅读器已启动: {url}", flush=True)
+        print("按 Ctrl+C 退出", flush=True)
+        if not args.no_browser:
+            launch = threading.Timer(1.0, webbrowser.open, args=(url,))
+            launch.daemon = True
+            launch.start()
 
-    if not args.no_browser:
-        threading.Timer(1.0, lambda: webbrowser.open(url)).start()
-
-    try:
-        server.serve_forever()
-    except KeyboardInterrupt:
-        print("\n已退出")
-        server.server_close()
+        runtime.stage = "serve-http"
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            print("\n已退出")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

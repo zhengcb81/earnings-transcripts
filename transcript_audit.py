@@ -24,6 +24,7 @@ from pathlib import Path
 
 from config import get_path, load_config
 import transcript_feedback
+from runtime_logging import EntryDiagnostics
 from transcript_artifact import (
     FAILURE_OUTCOMES,
     OUTCOME_LEGACY_UNVERIFIED,
@@ -161,11 +162,12 @@ def _ensure_utf8_stdout() -> None:
         reconfigure(encoding="utf-8")
 
 
-def main(argv: list[str] | None = None) -> int:
+@transcript_feedback.observed_entry("transcript_audit")
+def main(argv: list[str] | None = None, *, runtime: EntryDiagnostics) -> int:
     _ensure_utf8_stdout()
     # 普通启动在参数解析与副作用之前建立本次身份：根缺失、配置缺失与逐文件
     # 失败都按本次 ID 可查；导出失败绝不改变业务原返回。
-    recorder = transcript_feedback.recorder_from_env()
+    recorder = transcript_feedback.recorder_from_env(identity=runtime.identity)
     parser = build_argument_parser()
     try:
         try:
@@ -179,7 +181,9 @@ def main(argv: list[str] | None = None) -> int:
                 stage="argument-parsing",
                 refusal_code="invalid_cli_arguments",
                 location="transcript_audit.py#parse_args",
+                runtime=runtime,
             )
+        runtime.begin("config-load")
         try:
             cfg = load_config()
         except FileNotFoundError as exc:
@@ -189,9 +193,11 @@ def main(argv: list[str] | None = None) -> int:
                 stage="config-load",
                 refusal_code="config_unavailable",
                 location="transcript_audit.py#main",
+                runtime=runtime,
             )
             print(f"error: {exc}", file=sys.stderr)
             return EXIT_FAILURE
+        runtime.stage = "input-resolution"
         root = (args.root or get_path(cfg, "transcripts_dir")).resolve()
         if not root.is_dir():
             transcript_feedback.emit_invocation_refusal(
@@ -200,6 +206,7 @@ def main(argv: list[str] | None = None) -> int:
                 stage="input-resolution",
                 refusal_code="input_root_missing",
                 location="transcript_audit.py#main",
+                runtime=runtime,
             )
             print(f"error: transcripts_root_missing: {root}", file=sys.stderr)
             return EXIT_FAILURE
@@ -207,6 +214,7 @@ def main(argv: list[str] | None = None) -> int:
         naming = cfg.get("naming", {})
         suffix = naming.get("english_suffix", "_earnings_call")
         ext = naming.get("english_ext", ".txt")
+        runtime.stage = "stored-original-audit"
         records = audit_files(
             root, cfg=cfg, suffix=suffix, ext=ext, write_receipts=args.write_receipts
         )
@@ -215,6 +223,7 @@ def main(argv: list[str] | None = None) -> int:
         failures = sum(1 for record in records if record["outcome"] in FAILURE_OUTCOMES)
 
         if args.report_dir is not None:
+            runtime.stage = "report-write"
             report_path = args.report_dir.resolve() / REPORT_NAME
             write_atomic(
                 report_path,

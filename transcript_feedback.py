@@ -56,10 +56,13 @@ import sys
 import tempfile
 import time
 from datetime import datetime, timezone
+from functools import wraps
 from pathlib import Path
 from typing import Any, Mapping
 
-from runtime_logging import record_local_failure as record_local_failure, warn_optional_failure
+from retrieval_diagnostics import exception_trace
+from runtime_logging import EntryDiagnostics, record_local_failure as record_local_failure, track_entry, warn_optional_failure
+from runtime_scope import redact_text
 from runtime_scope import (
     FEEDBACK_ATTEMPT_ID_ENV as FEEDBACK_ATTEMPT_ID_ENV,
     FEEDBACK_DIR_ENV as FEEDBACK_DIR_ENV,
@@ -1554,7 +1557,7 @@ def finalize_delivery(recorder: FeedbackRecorder | None) -> None:
 
 
 def recorder_from_env(
-    environ: Mapping[str, str] | None = None,
+    environ: Mapping[str, str] | None = None, *, identity: tuple[str, str] | None = None,
 ) -> FeedbackRecorder | None:
     """Build the recorder of this run, or ``None`` when feedback is off.
 
@@ -1574,7 +1577,7 @@ def recorder_from_env(
     if _is_str(disabled) and disabled.strip():
         return None
     raw = env.get(FEEDBACK_OUT_ENV)
-    run_id, attempt_id = run_identity(env)
+    run_id, attempt_id = identity or run_identity(env)
     root = state_root(env)
     if isinstance(raw, str) and raw.strip():
         pending_observations, _pending_details = (
@@ -1716,6 +1719,8 @@ def emit_invocation_refusal(
     refusal_code: str,
     location: str,
     argument: str | None = None,
+    runtime: EntryDiagnostics | None = None,
+    error: BaseException | None = None,
 ) -> None:
     """Record one refused ordinary invocation: reason and place, honestly.
 
@@ -1724,8 +1729,6 @@ def emit_invocation_refusal(
     repository-relative location live in the detail record; raw argv never
     does.
     """
-    if recorder is None:
-        return
     refusal = {
         "entry": entry,
         "refusal_code": refusal_code,
@@ -1733,7 +1736,15 @@ def emit_invocation_refusal(
         "location": location,
         "argument": argument,
     }
-    record_local_failure("invocation_refusal", refusal, identity=(recorder.run_id, recorder.attempt_id))
+    if error is not None:
+        refusal["exception_trace"] = exception_trace(error)
+    if runtime is not None:
+        runtime.record("invocation_refusal", refusal)
+    else:
+        identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity()
+        record_local_failure("invocation_refusal", refusal, identity=identity)
+    if recorder is None:
+        return
     details = build_details(
         request={},
         result={},
@@ -2099,6 +2110,7 @@ def refuse_invocation(
     refusal_code: str,
     location: str,
     argument: str | None = None,
+    runtime: EntryDiagnostics | None = None,
 ) -> int:
     """Emit argparse's native refusal output plus the missing observation.
 
@@ -2106,7 +2118,7 @@ def refuse_invocation(
     without raising.
     """
     parser.print_usage(sys.stderr)
-    sys.stderr.write(f"{parser.prog}: error: {refusal.message}\n")
+    sys.stderr.write(f"{parser.prog}: error: {redact_text(refusal.message)}\n")
     emit_invocation_refusal(
         recorder,
         entry=entry,
@@ -2114,5 +2126,78 @@ def refuse_invocation(
         refusal_code=refusal_code,
         location=location,
         argument=argument,
+        runtime=runtime,
+        error=refusal,
     )
     return 2
+
+
+def report_entry_failure(
+    entry: str, stage: str, error: BaseException, *,
+    expected: bool = False, publish: bool = True, runtime: EntryDiagnostics | None = None,
+    **evidence: Any,
+) -> None:
+    """Record an actual entry failure without reissuing an operation."""
+    trace = exception_trace(error)
+    identity = runtime.identity if runtime is not None else run_identity()
+    facts = {
+        "entry": entry, "stage": stage,
+        "refusal_code": "invalid_cli_arguments" if expected and stage == "argument-parsing" else "runtime_failure",
+        "location": entry + "#entry", "exception_trace": trace, **evidence,
+    }
+    record_local_failure("invocation_failure", facts, identity=identity,
+                         report=runtime.write_failed if runtime is not None else None)
+    if not publish:
+        return
+    try:
+        recorder = _ACTIVE_RECORDER
+        if recorder is None or (recorder.run_id, recorder.attempt_id) != identity:
+            recorder = recorder_from_env(identity=identity)
+    except (OSError, RuntimeError, ValueError) as delivery_error:
+        record_local_failure("entry_delivery_failure", {
+            "entry": entry, "stage": "feedback-open", "exception_trace": exception_trace(delivery_error),
+        }, identity=identity)
+        return
+    if recorder is None:
+        return
+    details = build_details(
+        request={}, result={}, operation="cli", native_receipt=None,
+        published_receipt=None, phase="failed", branch="invocation", extra=facts,
+    )
+    recorder.record(
+        step_id=_refusal_step(details), check_id=CHECK_INVOCATION_REFUSAL,
+        expected="completed", actual="refused" if expected else "failed",
+        disposition="expected" if expected else "deviation", details=details,
+    )
+    finalize_delivery(recorder)
+
+
+def observed_entry(entry: str, *, owner: bool = False):
+    """Share startup identity, exception projection and the human fallback."""
+    def decorate(main):
+        @wraps(main)
+        def run(*args, **kwargs):
+            supplied = args[0] if args else kwargs.get("argv")
+            argv = sys.argv[1:] if supplied is None else supplied
+            machine_usage = entry == "transcript_tool" and "--report-usage" in argv
+            with track_entry(entry) as diagnostics:
+                try:
+                    return main(*args, **kwargs, runtime=diagnostics)
+                except SystemExit as error:
+                    if error.code:
+                        report_entry_failure(entry, diagnostics.stage, error,
+                                             expected=error.code == 2, publish=not owner, runtime=diagnostics)
+                    raise
+                except KeyboardInterrupt as error:
+                    report_entry_failure(entry, diagnostics.stage, error, publish=not owner, runtime=diagnostics)
+                    raise
+                except Exception as error:
+                    report_entry_failure(entry, diagnostics.stage, error, publish=not owner, runtime=diagnostics)
+                    if not machine_usage and sys.stderr is not None:
+                        sys.stderr.write(f"error: {entry}: {type(error).__name__} ({diagnostics.stage})\n")
+                    return 1
+                finally:
+                    if not machine_usage:
+                        diagnostics.flush_warnings()
+        return run
+    return decorate

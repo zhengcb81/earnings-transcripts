@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import argparse
 import hashlib
 import json
 import re
@@ -19,6 +18,8 @@ if str(ROOT) not in sys.path:
 import transcript_feedback as feedback  # noqa: E402
 from retrieval_protocol import parse_usage  # noqa: E402
 from retrieval_lifecycle import read_history  # noqa: E402
+from runtime_logging import DiagnosticArgumentParser, EntryDiagnostics  # noqa: E402
+from runtime_scope import state_root  # noqa: E402
 
 OWNER = feedback.OWNER
 ACTIONS = ("triage", "repair", "replay", "report")
@@ -497,8 +498,9 @@ class OwnerRuntime:
             return {"result": result}
 
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
+@feedback.observed_entry("feedback_owner", owner=True)
+def main(argv=None, *, runtime: EntryDiagnostics):
+    parser = DiagnosticArgumentParser(description=__doc__)
     parser.add_argument("--db", type=Path)
     parser.add_argument("--sidecar", action="append", type=Path, default=[])
     parser.add_argument(
@@ -515,12 +517,14 @@ def main(argv=None):
     history.add_argument("--attempt-id", required=True)
     history.add_argument("--step-id")
     args = parser.parse_args(argv)
+    runtime.begin(args.action, persist=args.action in ACTIONS and state_root() is not None)
     if args.action == "runtime-history":
         print(_json(read_history(args.run_id, args.attempt_id, args.step_id)))
         return 0
     if args.db is None:
         parser.error("--db is required for feedback actions")
     owner = OwnerRuntime(args.db, args.sidecar, sidecar_dirs=args.sidecar_dir)
+    exit_code = 0
     try:
         if args.action in ("get-action", "get-usage"):
             receipt = owner.read(args.action_id)
@@ -542,11 +546,12 @@ def main(argv=None):
             payload = owner.dispatch(
                 args.action, json.load(sys.stdin, object_pairs_hook=_unique)
             )
-        print(_json(payload))
     except (ValueError, OSError, sqlite3.Error, RecursionError) as error:
-        print(_json({"state": "unknown", "error_type": type(error).__name__}))
-        return 2
-    return 0
+        feedback.report_entry_failure("feedback_owner", args.action, error, publish=False, runtime=runtime)
+        payload = {"state": "unknown", "error_type": type(error).__name__}
+        exit_code = 2
+    print(_json(payload))
+    return exit_code
 
 
 if __name__ == "__main__":

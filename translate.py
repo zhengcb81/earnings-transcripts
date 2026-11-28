@@ -6,7 +6,6 @@ Usage: python3 translate.py              # 翻译所有
        python3 translate.py --backend google # 强制用Google
 """
 
-import argparse
 import json
 import logging
 import sys
@@ -21,11 +20,17 @@ from common import (
     build_bilingual_data, SingleInstanceLock,
 )
 
+from runtime_logging import DiagnosticArgumentParser, EntryDiagnostics
+from runtime_scope import state_root
+from transcript_feedback import observed_entry, report_entry_failure
+
 log = logging.getLogger(__name__)
 
 
 # ── Main translate function ──
-def translate_transcript(cfg: dict, fn: FileNaming, filepath: Path, cache: JsonCache, backend) -> Path:
+def translate_transcript(
+    cfg: dict, fn: FileNaming, filepath: Path, cache: JsonCache, backend, *, runtime: EntryDiagnostics | None = None,
+) -> Path:
     content = filepath.read_text(encoding="utf-8")
     header_meta = parse_transcript_header(content)
     body = extract_body(content)
@@ -36,7 +41,7 @@ def translate_transcript(cfg: dict, fn: FileNaming, filepath: Path, cache: JsonC
     log.info(f"  {len(paragraphs)} paragraphs, backend={backend.name}")
 
     # Translate using common translate_paragraphs
-    translated = translate_paragraphs(paragraphs, cache, backend, cfg, log)
+    translated = translate_paragraphs(paragraphs, cache, backend, cfg, log, runtime=runtime)
 
     # Build and save bilingual JSON
     bilingual_data = build_bilingual_data(header_meta, paragraphs, translated, backend.name)
@@ -47,29 +52,33 @@ def translate_transcript(cfg: dict, fn: FileNaming, filepath: Path, cache: JsonC
     # Generate interleaved txt
     try:
         from make_interleaved import make_interleaved
-        txt_path = make_interleaved(cfg, out_path)
+        txt_path = make_interleaved(cfg, out_path, runtime=runtime)
         if txt_path:
             log.info(f"  Interleaved: {txt_path.name}")
-    except Exception as e:
-        log.warning(f"  Interleaved failed: {e}")
+    except Exception as error:
+        report_entry_failure("translate", "optional-interleaved", error, runtime=runtime)
 
     return out_path
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Transcript翻译器")
+@observed_entry("translate")
+def main(argv=None, *, runtime: EntryDiagnostics):
+    parser = DiagnosticArgumentParser(description="Transcript翻译器")
     parser.add_argument("--ticker", help="只翻译指定股票")
     parser.add_argument("--backend", choices=["minimax", "mimo", "deepseek", "google", "auto"], default="auto")
     parser.add_argument("--force", action="store_true", help="重译已存在的中英对照文件")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     # Load config
+    runtime.begin("config-load")
     cfg = load_config()
     fn = FileNaming(cfg)
 
-    setup_logging(cfg)
+    root = state_root()
+    setup_logging(cfg, str(root / "logs" / "translation.log") if root is not None else None, runtime=runtime)
 
     # 单实例锁：与 scraper 共用同一把锁，避免并发写同一批文件
+    runtime.stage = "batch-lock"
     lock_file = get_path(cfg, "lock_file")
     ok, holder = SingleInstanceLock(lock_file).acquire()
     if not ok:
@@ -83,11 +92,13 @@ def main():
         sys.exit(2)
 
     # Cache
+    runtime.stage = "cache-open"
     cache_path = get_path(cfg, "translate_cache")
     cache = JsonCache(cache_path)
     log.info(f"Cache: {len(cache)} entries")
 
     # Init backend
+    runtime.stage = "translation-backend"
     backend = TranslatorFactory.create(cfg, args.backend)
     log.info(f"Using {backend.name} backend")
 
@@ -115,7 +126,8 @@ def main():
                 skipped += 1
                 continue
             log.info(f"  {f.name}")
-            result = translate_transcript(cfg, fn, f, cache, backend)
+            runtime.stage = "document-translation"
+            result = translate_transcript(cfg, fn, f, cache, backend, runtime=runtime)
             if result:
                 total += 1
             cache.save()
@@ -127,4 +139,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

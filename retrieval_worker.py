@@ -24,7 +24,7 @@ from typing import Any, Callable
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from retrieval_budget import BatchBudget, BudgetSession, UsageCounter
-from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace
+from retrieval_diagnostics import ExceptionFact, capture_provider_failure, exception_trace, worker_trace_line
 from retrieval_lifecycle import RetrievalTrace, WorkerLifetime
 from retrieval_process import enter_windows_job
 from retrieval_protocol import (
@@ -35,6 +35,7 @@ from retrieval_protocol import (
     read_request_envelope,
     result_within_limit,
 )
+from runtime_logging import record_local_failure
 from transcript_provider_settings import ProviderSettings
 
 
@@ -140,13 +141,18 @@ def _write_error_diagnostic(
         # The supervisor consumes only this known exception category from its
         # private pipe. No path, message, provider data or credential follows.
         try:
-            print(f"ET worker diagnostic write failed: {type(exc).__name__}", file=sys.stderr)
+            if sys.stderr is not None:
+                sys.stderr.write(f"ET worker diagnostic write failed: {type(exc).__name__}\n")
+                for fact in trace:
+                    sys.stderr.write(worker_trace_line(fact) + "\n")
         except (OSError, ValueError):
-            pass
+            return
 
 
 def main(argv: list[str]) -> int:
     if len(argv) != 1:
+        record_local_failure("invocation_refusal", {"entry": "retrieval_worker", "stage": "argument-parsing",
+                                                    "refusal_code": "expected_request_file"})
         return 2
     request_path = Path(argv[0])
     trace = RetrievalTrace.from_environment()
@@ -192,6 +198,7 @@ def main(argv: list[str]) -> int:
         else:
             budget = UsageCounter()
 
+        phase[0] = "launcher"
         factory = _launcher_factory(envelope)
         context = {"workdir": str(request_path.parent)}
         launcher_spec = (envelope.get("launcher") or {}).get("spec")
@@ -239,9 +246,12 @@ def main(argv: list[str]) -> int:
         tmp_path.write_bytes(data)
         os.replace(tmp_path, result_path)
         return 0
-    except BaseException as exc:
+    except (KeyboardInterrupt, SystemExit) as exc:
         _write_error_diagnostic(request_path, phase[0], exception_trace(exc))
         raise
+    except Exception as exc:
+        _write_error_diagnostic(request_path, phase[0], exception_trace(exc))
+        return 1
 
 
 if __name__ == "__main__":

@@ -11,6 +11,8 @@ Usage:
 
 import json
 import re
+from runtime_logging import record_local_failure
+from retrieval_diagnostics import exception_trace
 import time
 import argparse
 from pathlib import Path
@@ -159,8 +161,8 @@ def llm_judge(judge_translator, en: str, zh: str) -> dict:
         match = re.search(r'\{[^{}]+\}', result)
         if match:
             return json.loads(match.group())
-    except Exception:
-        pass
+    except Exception as error:
+        record_local_failure("translation_evaluation_failure", {"stage": "judge", "exception_trace": exception_trace(error)})
     return {"accuracy": 0, "terminology": 0, "numbers": 0, "fluency": 0, "formatting": 0, "comment": "评分失败"}
 
 
