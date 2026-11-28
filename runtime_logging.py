@@ -19,7 +19,7 @@ from typing import Mapping
 
 from lock import SingleInstanceLock
 from retrieval_diagnostics import exception_trace
-from runtime_scope import OWNER, redact_text, run_identity, safe_public_word, state_root, storage_path
+from runtime_scope import OWNER, redact_diagnostic_tree, redact_text, run_identity, safe_public_word, state_root, storage_path
 
 _ROTATION_BYTES = 2 * 1024 * 1024
 _LOCK_SECONDS = 1.0
@@ -193,17 +193,6 @@ def configure_run_logging(
     return root
 
 
-def _redact_facts(value):
-    if isinstance(value, str):
-        return redact_text(value)
-    if isinstance(value, dict):
-        return {redact_text(key) if isinstance(key, str) else key: _redact_facts(item)
-                for key, item in value.items()}
-    if isinstance(value, (list, tuple)):
-        return [_redact_facts(item) for item in value]
-    return value
-
-
 def append_failure(
     path: Path, payload: Mapping[str, object], *, report: FailureReporter | None = None,
 ) -> bool:
@@ -212,7 +201,7 @@ def append_failure(
         with closing(rotating_file_handler(path, report=report)) as handler:
             handler.handle(logging.makeLogRecord({
                 "name": OWNER, "levelno": logging.ERROR, "levelname": "ERROR",
-                "msg": json.dumps(_redact_facts(dict(payload)), ensure_ascii=True),
+                "msg": json.dumps(redact_diagnostic_tree(dict(payload)), ensure_ascii=True),
             }))
             return not handler.failed
     except (OSError, RuntimeError, TypeError, ValueError) as error:

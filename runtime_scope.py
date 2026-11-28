@@ -89,7 +89,19 @@ def default_state_root() -> Path:
     return Path.home() / ".earnings-transcripts" / "feedback"
 
 
-def _host_identity(value: str, kind: str) -> str:
+def redact_diagnostic_tree(value: Any) -> Any:
+    if isinstance(value, str):
+        return redact_text(value)
+    if isinstance(value, dict):
+        return {redact_text(key) if isinstance(key, str) else key: redact_diagnostic_tree(item)
+                for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [redact_diagnostic_tree(item) for item in value]
+    return value
+
+
+def protected_reference(value: str, *, kind: str) -> str:
+    """Keep opaque IDs stable unless they contain a credential-shaped value."""
     if redact_text(value) == value:
         return value
     return f"{kind}-{hashlib.sha256(value.encode('utf-8', errors='surrogatepass')).hexdigest()[:16]}"
@@ -99,7 +111,7 @@ def run_identity(environ: Mapping[str, str] | None = None) -> tuple[str, str]:
     env = os.environ if environ is None else environ
     run = env.get(FEEDBACK_RUN_ID_ENV) or "run-" + uuid.uuid4().hex[:12]
     attempt = env.get(FEEDBACK_ATTEMPT_ID_ENV) or "attempt-1"
-    return _host_identity(run, "run"), _host_identity(attempt, "attempt")
+    return protected_reference(run, kind="run"), protected_reference(attempt, kind="attempt")
 
 
 def state_root(environ: Mapping[str, str] | None = None) -> Path | None:

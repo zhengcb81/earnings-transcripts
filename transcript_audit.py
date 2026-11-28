@@ -25,6 +25,7 @@ from pathlib import Path
 from config import get_path, load_config
 import transcript_feedback
 from runtime_logging import EntryDiagnostics
+from runtime_scope import redact_text
 from transcript_artifact import (
     FAILURE_OUTCOMES,
     OUTCOME_LEGACY_UNVERIFIED,
@@ -86,6 +87,7 @@ def audit_files(
     suffix: str,
     ext: str,
     write_receipts: bool,
+    runtime: EntryDiagnostics | None = None,
 ) -> list[dict]:
     records: list[dict] = []
     for path in sorted(root.rglob(f"*{suffix}{ext}")):
@@ -119,7 +121,14 @@ def audit_files(
         if verdict.diagnostics:
             record["diagnostics"] = list(verdict.diagnostics)
         if write_receipts:
-            record["receipt_action"] = _receipt_action(path, verdict)
+            try:
+                record["receipt_action"] = _receipt_action(path, verdict)
+            except OSError as error:
+                transcript_feedback.report_entry_failure(
+                    "transcript_audit", "receipt-write", error,
+                    runtime=runtime, argument=verdict.file_sha256,
+                )
+                record["receipt_action"] = "failed"
         records.append(record)
     return records
 
@@ -129,13 +138,10 @@ def _receipt_action(path: Path, verdict) -> str:
         return "conflict" if verdict.outcome in FAILURE_OUTCOMES else "exists"
     if verdict.outcome != OUTCOME_LEGACY_UNVERIFIED:
         return "skipped"
-    try:
-        write_atomic(
-            receipt_path(path),
-            receipt_json_bytes(build_audit_receipt(verdict)),
-        )
-    except OSError:
-        return "failed"
+    write_atomic(
+        receipt_path(path),
+        receipt_json_bytes(build_audit_receipt(verdict)),
+    )
     return "written"
 
 
@@ -183,7 +189,7 @@ def main(argv: list[str] | None = None, *, runtime: EntryDiagnostics) -> int:
                 location="transcript_audit.py#parse_args",
                 runtime=runtime,
             )
-        runtime.begin("config-load")
+        runtime.stage = "config-load"
         try:
             cfg = load_config()
         except FileNotFoundError as exc:
@@ -194,8 +200,9 @@ def main(argv: list[str] | None = None, *, runtime: EntryDiagnostics) -> int:
                 refusal_code="config_unavailable",
                 location="transcript_audit.py#main",
                 runtime=runtime,
+                error=exc,
             )
-            print(f"error: {exc}", file=sys.stderr)
+            sys.stderr.write(f"error: {redact_text(str(exc))}\n")
             return EXIT_FAILURE
         runtime.stage = "input-resolution"
         root = (args.root or get_path(cfg, "transcripts_dir")).resolve()
@@ -208,15 +215,15 @@ def main(argv: list[str] | None = None, *, runtime: EntryDiagnostics) -> int:
                 location="transcript_audit.py#main",
                 runtime=runtime,
             )
-            print(f"error: transcripts_root_missing: {root}", file=sys.stderr)
+            sys.stderr.write(f"error: transcripts_root_missing: {redact_text(str(root))}\n")
             return EXIT_FAILURE
 
         naming = cfg.get("naming", {})
         suffix = naming.get("english_suffix", "_earnings_call")
         ext = naming.get("english_ext", ".txt")
-        runtime.stage = "stored-original-audit"
+        runtime.begin("stored-original-audit")
         records = audit_files(
-            root, cfg=cfg, suffix=suffix, ext=ext, write_receipts=args.write_receipts
+            root, cfg=cfg, suffix=suffix, ext=ext, write_receipts=args.write_receipts, runtime=runtime
         )
         transcript_feedback.emit_stored_original_audit(recorder, records)
         report = build_report(root, records, args.write_receipts)

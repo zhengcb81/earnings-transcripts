@@ -62,7 +62,7 @@ from typing import Any, Mapping
 
 from retrieval_diagnostics import exception_trace
 from runtime_logging import EntryDiagnostics, record_local_failure as record_local_failure, track_entry, warn_optional_failure
-from runtime_scope import redact_text
+from runtime_scope import protected_reference, redact_diagnostic_tree, redact_text
 from runtime_scope import (
     FEEDBACK_ATTEMPT_ID_ENV as FEEDBACK_ATTEMPT_ID_ENV,
     FEEDBACK_DIR_ENV as FEEDBACK_DIR_ENV,
@@ -1170,6 +1170,9 @@ class FeedbackRecorder:
         if disposition not in DISPOSITIONS:
             self._note_failure("feedback_write_failed:invalid_disposition")
             return False
+        step_id = protected_reference(step_id, kind="step")
+        if parent_step_id is not None:
+            parent_step_id = protected_reference(parent_step_id, kind="step")
         identifier = observation_id(
             owner=self.owner,
             run_id=self.run_id,
@@ -1189,7 +1192,7 @@ class FeedbackRecorder:
             reference = evidence_ref
             detail_reference: str | None = None
             if details is not None:
-                detail_record = dict(details)
+                detail_record = redact_diagnostic_tree(dict(details))
                 detail_identifier = details_id(detail_record)
                 detail_record["details_id"] = detail_identifier
                 if detail_identifier not in self._details_ids:
@@ -1231,6 +1234,7 @@ class FeedbackRecorder:
                 observation["parent_step_id"] = parent_step_id
             if terminal_check_id:
                 observation["terminal_check_id"] = terminal_check_id
+            observation = redact_diagnostic_tree(observation)
             if not self._append_jsonl(self.out_path, observation, sink=self._sink):
                 # The observation did not reach the sidecar; it keeps no identity
                 # here, so a later attempt may still deliver it. Save it under the

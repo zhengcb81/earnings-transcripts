@@ -415,3 +415,69 @@ def test_native_reader_bind_failure_retains_the_os_type_and_exit(isolated):
                and any(cause["type"] in {"OSError", "PermissionError"} and cause["frames"]
                        for cause in row["facts"].get("exception_trace", [])) for row in rows)
     assert b"Traceback" not in result.stderr
+
+def test_native_audit_receipt_io_failure_survives_in_f4_history(isolated):
+    runtime, env, data = isolated
+    root = data / "transcripts"
+    root.mkdir()
+    # A normal original and final receipt fit the filesystem limit, but the
+    # atomic writer's longer temporary filename does not.
+    for width in range(255, 40, -1):
+        probe = root / ("Z" * width)
+        try:
+            probe.touch()
+        except OSError:
+            continue
+        probe.unlink()
+        break
+    else:
+        pytest.fail("could not find the filesystem filename limit")
+    suffix = "_Q1_2026_earnings_call.txt"
+    ticker = "Z" * (width - 10 - len(suffix))
+    transcript = root / (ticker + suffix)
+    original = ("=" * 70 + f"\nEarnings Call Transcript\nTicker: {ticker}\n"
+                "Quarter: Q1 2026\nSource: motley_fool\nURL: N/A\n"
+                + "=" * 70 + "\n\nA business update.").encode()
+    transcript.write_bytes(original)
+    result = invoke(runtime, env, "transcript_audit.py", "--write-receipts")
+    assert result.returncode == 0 and not result.stderr
+    row, = json.loads(result.stdout)["files"]
+    assert row["receipt_action"] == "failed" and row["outcome"] == "legacy_unverified"
+    assert transcript.read_bytes() == original
+    assert not list(root.glob("*.receipt.json"))
+    cold = invoke(runtime, env, "tools/feedback_owner.py", "runtime-history",
+                  "--run-id", "run-et-p2", "--attempt-id", "attempt-et-p2")
+    assert cold.returncode == 0 and not cold.stderr
+    assert any(fact["facts"].get("stage") == "receipt-write"
+               and fact["facts"].get("argument") == row["file_sha256"]
+               and any(cause["type"] in {"OSError", "FileNotFoundError"} and cause["frames"]
+                       for cause in fact["facts"].get("exception_trace", []))
+               for fact in json.loads(cold.stdout)["events"])
+
+
+def test_native_audit_missing_config_retains_its_real_exception(isolated):
+    runtime, env, _ = isolated
+    (runtime / "config.yaml").unlink()
+    result = invoke(runtime, env, "transcript_audit.py")
+    assert result.returncode == 1 and not result.stdout and b"Config not found" in result.stderr
+    assert any(row["facts"].get("refusal_code") == "config_unavailable"
+               and any(cause["type"] == "FileNotFoundError" and cause["frames"]
+                       for cause in row["facts"].get("exception_trace", []))
+               for row in errors(env))
+
+
+def test_audit_keeps_native_names_but_redacts_f4_values_and_references(isolated):
+    runtime, env, data = isolated
+    supplied_name = f"{SECRETS[3]}_Q1_2026_earnings_call.txt"
+    root = data / "transcripts"
+    root.mkdir()
+    source = root / supplied_name
+    source.write_bytes(b"Untrusted synthetic transcript.")
+    result = invoke(runtime, env, "transcript_audit.py")
+    assert result.returncode == 0
+    assert json.loads(result.stdout)["files"][0]["file"] == supplied_name
+    records = Path(env["RESEARCH_FEEDBACK_OUT"])
+    assert json.loads(records.read_text(encoding="utf-8"))["step_id"].startswith("step-")
+    durable = [file.read_text(encoding="utf-8") for file in records.parent.glob("*.jsonl")]
+    assert_private_absent(*durable)
+    assert source.read_bytes() == b"Untrusted synthetic transcript."
