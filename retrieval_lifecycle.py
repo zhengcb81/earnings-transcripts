@@ -13,8 +13,11 @@ from typing import Any
 
 from retrieval_process import kill_worker_group
 from retrieval_protocol import REQUEST_FILENAME, RESULT_FILENAME, WORKER_ERROR_FILENAME
-from runtime_logging import append_failure
-from runtime_scope import OWNER, run_identity, safe_public_word, state_root, step_id, storage_path
+from runtime_logging import append_failure, log_segments
+from runtime_scope import (
+    OWNER, protected_reference, redact_diagnostic_tree, run_identity, safe_public_word,
+    state_root, step_id, storage_path,
+)
 
 TRACE_ENV = "ET_INTERNAL_RETRIEVAL_TRACE"
 IMPLEMENTATION = "earnings-transcripts-retrieval/1"
@@ -80,27 +83,34 @@ def read_history(run_id: str, attempt_id: str, step: str | None = None) -> dict[
     events = []
     unavailable = False
     logs = (_LOG, "runtime_errors.log") if step is None else (_LOG,)
-    for name in (log + suffix for log in logs for suffix in (".2", ".1", "")):
+    paths = (path for log in logs for path in log_segments(storage_path(root / "logs" / log)))
+    for path in paths:
         try:
-            with storage_path(root / "logs" / name).open("rb") as stream:
+            with path.open("rb") as stream:
                 for line in stream:
                     try:
                         row = json.loads(line)
                     except (ValueError, RecursionError):
                         continue
                     if (isinstance(row, dict) and row.get("owner") == OWNER
-                            and row.get("run_id") == run_id and row.get("attempt_id") == attempt_id
-                            and (step is None or row.get("step_id") == step)):
-                        if name.startswith("runtime_errors.log"):
+                            and safe_public_word(row.get("run_id"), fallback="run") == run_id
+                            and safe_public_word(row.get("attempt_id"), fallback="attempt") == attempt_id
+                            and (step is None or safe_public_word(row.get("step_id"), fallback="request") == step)):
+                        if path.name.startswith("runtime_errors.log"):
                             if row.get("event") not in {"invocation_failure", "invocation_refusal", "translation_failure"}:
                                 continue
                             row["phase"] = row["event"]
-                        events.append(row)
+                        displayed = redact_diagnostic_tree(row)
+                        for field, kind in (("run_id", "run"), ("attempt_id", "attempt"), ("step_id", "request")):
+                            original = row.get(field)
+                            if isinstance(original, str):
+                                displayed[field] = protected_reference(original, kind=kind)
+                        events.append(displayed)
         except FileNotFoundError:
             continue
         except OSError:
             unavailable = True
-    events.sort(key=lambda row: row.get("at", ""))
+    events.sort(key=lambda row: str(row.get("at", "")))
     return {"status": "found" if events else "unavailable" if unavailable else "absent", "events": events}
 
 

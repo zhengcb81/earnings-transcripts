@@ -1743,7 +1743,7 @@ def emit_invocation_refusal(
     if error is not None:
         refusal["exception_trace"] = exception_trace(error)
     if runtime is not None:
-        runtime.record("invocation_refusal", refusal)
+        refusal = runtime.record("invocation_refusal", refusal)
     else:
         identity = (recorder.run_id, recorder.attempt_id) if recorder is not None else run_identity()
         record_local_failure("invocation_refusal", refusal, identity=identity)
@@ -2149,8 +2149,10 @@ def report_entry_failure(
         "refusal_code": "invalid_cli_arguments" if expected and stage == "argument-parsing" else "runtime_failure",
         "location": entry + "#entry", "exception_trace": trace, **evidence,
     }
-    record_local_failure("invocation_failure", facts, identity=identity,
-                         report=runtime.write_failed if runtime is not None else None)
+    if runtime is not None:
+        facts = runtime.record("invocation_failure", facts)
+    else:
+        record_local_failure("invocation_failure", facts, identity=identity)
     if not publish:
         return
     try:
@@ -2181,10 +2183,7 @@ def observed_entry(entry: str, *, owner: bool = False):
     def decorate(main):
         @wraps(main)
         def run(*args, **kwargs):
-            supplied = args[0] if args else kwargs.get("argv")
-            argv = sys.argv[1:] if supplied is None else supplied
-            machine_usage = entry == "transcript_tool" and "--report-usage" in argv
-            with track_entry(entry) as diagnostics:
+            with track_entry(entry, main.__code__.co_filename) as diagnostics:
                 try:
                     return main(*args, **kwargs, runtime=diagnostics)
                 except SystemExit as error:
@@ -2197,11 +2196,11 @@ def observed_entry(entry: str, *, owner: bool = False):
                     raise
                 except Exception as error:
                     report_entry_failure(entry, diagnostics.stage, error, publish=not owner, runtime=diagnostics)
-                    if not machine_usage and sys.stderr is not None:
+                    if not diagnostics.machine_stderr and sys.stderr is not None:
                         sys.stderr.write(f"error: {entry}: {type(error).__name__} ({diagnostics.stage})\n")
                     return 1
                 finally:
-                    if not machine_usage:
+                    if not diagnostics.machine_stderr:
                         diagnostics.flush_warnings()
         return run
     return decorate

@@ -18,7 +18,10 @@ FEEDBACK_DISABLED_ENV = "RESEARCH_FEEDBACK_DISABLED"
 FEEDBACK_STATE_ROOT_ENV = "RESEARCH_FEEDBACK_STATE_ROOT"
 
 _UNSAFE_PUBLIC_WORD = re.compile(r"[\s/?#&=\\]")
-_AUTH = re.compile(r"(?i)\b(bearer|basic)\s+[^\s,;\"'<>]+")
+_AUTH = re.compile(
+    r"(?i)\b(bearer|basic)(?:[ \t]+|\r?\n[ \t]+)(?:\r?\n[ \t]+)*"
+    r"[^\s,;\"'<>]+(?:[ \t]*\r?\n[ \t]+[^\r\n]*)*"
+)
 _COOKIE = re.compile(r"(?im)(\b(?:set-cookie|cookie)[\"']?\s*:\s*)[^\r\n]*(?:\r?\n[ \t]+[^\r\n]*)*")
 _USERINFO = re.compile(r"(?i)(https?://)[^/@\s\"'<>]+@")
 _CREDENTIAL = re.compile(
@@ -83,6 +86,14 @@ def storage_path(value: str | os.PathLike[str]) -> Path:
     if absolute.startswith("\\\\"):
         return Path("\\\\?\\UNC\\" + absolute[2:])
     return Path("\\\\?\\" + absolute)
+
+
+def source_fingerprint(source: str) -> str | None:
+    """Report the actual entry bytes when source is available in this installation."""
+    try:
+        return hashlib.sha256(storage_path(source).read_bytes()).hexdigest()
+    except (OSError, ValueError):
+        return None
 
 
 def default_state_root() -> Path:

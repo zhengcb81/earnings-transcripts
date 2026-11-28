@@ -19,7 +19,10 @@ from typing import Mapping
 
 from lock import SingleInstanceLock
 from retrieval_diagnostics import exception_trace
-from runtime_scope import OWNER, redact_diagnostic_tree, redact_text, run_identity, safe_public_word, state_root, storage_path
+from runtime_scope import (
+    OWNER, redact_diagnostic_tree, redact_text, run_identity, safe_public_word,
+    source_fingerprint, state_root, storage_path,
+)
 
 _ROTATION_BYTES = 2 * 1024 * 1024
 _LOCK_SECONDS = 1.0
@@ -31,6 +34,8 @@ class EntryDiagnostics:
     entry: str
     identity: tuple[str, str] = field(default_factory=run_identity)
     stage: str = "argument-parsing"
+    entry_source_sha256: str | None = None
+    machine_stderr: bool = False
     warnings: set[tuple[str, str]] = field(default_factory=set)
     published_warnings: set[tuple[str, str]] = field(default_factory=set)
     handlers: list[logging.Handler] = field(default_factory=list)
@@ -41,8 +46,12 @@ class EntryDiagnostics:
         if persist:
             self.record("invocation_started", {"entry": self.entry, "stage": self.stage})
 
-    def record(self, event: str, facts: Mapping[str, object]) -> bool:
-        return record_local_failure(event, facts, identity=self.identity, report=self.write_failed)
+    def record(self, event: str, facts: Mapping[str, object]) -> dict[str, object]:
+        annotated = dict(facts)
+        if self.entry_source_sha256 is not None:
+            annotated["entry_source_sha256"] = self.entry_source_sha256
+        record_local_failure(event, annotated, identity=self.identity, report=self.write_failed)
+        return annotated
 
     def write_failed(self, kind: str, error: BaseException) -> None:
         self.warnings.add((kind, type(error).__name__))
@@ -54,10 +63,10 @@ class EntryDiagnostics:
 
 
 @contextmanager
-def track_entry(entry: str) -> Iterator[EntryDiagnostics]:
+def track_entry(entry: str, source: str) -> Iterator[EntryDiagnostics]:
     root = logging.getLogger()
     previous_level = root.level
-    diagnostics = EntryDiagnostics(entry)
+    diagnostics = EntryDiagnostics(entry, entry_source_sha256=source_fingerprint(source))
     try:
         yield diagnostics
     finally:
@@ -120,15 +129,43 @@ def _write_lock(path: Path) -> Iterator[None]:
         atexit.unregister(lock.release)
 
 
+def log_segments(active: Path) -> tuple[Path, Path, Path, Path]:
+    """Read established archives and the recoverable segment of an interrupted rollover."""
+    return (
+        active.with_name(active.name + ".2"),
+        active.with_name(active.name + ".rotate"),
+        active.with_name(active.name + ".1"),
+        active,
+    )
+
+
 class _OwnerFileHandler(RotatingFileHandler):
     failed = False
     report: FailureReporter | None = None
 
     def doRollover(self) -> None:
+        if self.stream is not None:
+            self.stream.close()
+            self.stream = None
+        oldest, pending, newest, active = log_segments(Path(self.baseFilename))
         try:
-            super().doRollover()
-        except PermissionError as error:
-            # A Windows reader can deny rename while allowing append.
+            # Recover a prior interruption before beginning another rollover.
+            # An existing newest means the active file already moved into place.
+            if pending.exists():
+                pending.replace(oldest if newest.exists() else newest)
+            if newest.exists():
+                newest.replace(pending)
+            try:
+                active.replace(newest)
+            except OSError:
+                if pending.exists():
+                    pending.replace(newest)
+                raise
+            # Prune the oldest archive only after the active file is safe.
+            # A refused replace leaves both older segments readable.
+            if pending.exists():
+                pending.replace(oldest)
+        except OSError as error:
             if self.report is not None:
                 self.report("et_log_rotation_deferred", error)
 

@@ -36,6 +36,7 @@ from retrieval_protocol import (
     result_within_limit,
 )
 from runtime_logging import record_local_failure
+from runtime_scope import source_fingerprint
 from transcript_provider_settings import ProviderSettings
 
 
@@ -152,7 +153,8 @@ def _write_error_diagnostic(
 def main(argv: list[str]) -> int:
     if len(argv) != 1:
         record_local_failure("invocation_refusal", {"entry": "retrieval_worker", "stage": "argument-parsing",
-                                                    "refusal_code": "expected_request_file"})
+                                                    "refusal_code": "expected_request_file",
+                                                    "entry_source_sha256": source_fingerprint(__file__)})
         return 2
     request_path = Path(argv[0])
     trace = RetrievalTrace.from_environment()

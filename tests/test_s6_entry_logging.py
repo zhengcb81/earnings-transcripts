@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import queue
@@ -481,3 +482,141 @@ def test_audit_keeps_native_names_but_redacts_f4_values_and_references(isolated)
     durable = [file.read_text(encoding="utf-8") for file in records.parent.glob("*.jsonl")]
     assert_private_absent(*durable)
     assert source.read_bytes() == b"Untrusted synthetic transcript."
+
+
+@pytest.mark.parametrize("segment", ("recent-archive", "active"))
+def test_rotation_keeps_all_files_while_a_segment_is_open(isolated, segment):
+    runtime, env, _ = isolated
+    active = Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]) / "logs" / "runtime_errors.log"
+    active.parent.mkdir(parents=True)
+    newest, oldest = [active.with_name(active.name + suffix) for suffix in (".1", ".2")]
+    active_seed = (json.dumps({"history": "n" * (2 * 1024 * 1024)}) + "\n").encode()
+    recent_seed = b'{"archive":"recent"}\n'
+    oldest_seed = b'{"archive":"oldest"}\n'
+    active.write_bytes(active_seed)
+    newest.write_bytes(recent_seed)
+    oldest.write_bytes(oldest_seed)
+    held_path, held_seed = (newest, recent_seed) if segment == "recent-archive" else (active, active_seed)
+    with held_path.open("rb") as held:
+        failure = invoke(runtime, env, "make_interleaved.py", "--invalid-rotation")
+        assert held.read(len(held_seed)) == held_seed
+    assert failure.returncode == 2 and not failure.stdout
+    if sys.platform == "win32":
+        assert b"et_log_rotation_deferred" in failure.stderr
+        assert active.read_bytes().startswith(active_seed)
+        assert newest.read_bytes() == recent_seed
+        assert oldest.read_bytes() == oldest_seed
+    else:
+        assert newest.read_bytes() == active_seed
+        assert oldest.read_bytes() == recent_seed
+    assert any(row.get("event") == "invocation_failure" for row in errors(env))
+
+
+def test_cold_lookup_recovers_credential_shaped_legacy_ids_without_writing(isolated):
+    runtime, env, _ = isolated
+    run_id = "sk-fixture-old-run-label"
+    attempt_id = "tvly-fixture-old-attempt-label"
+    step_id = "ghp_fixture_old_step_label"
+    root = Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]) / "logs"
+    root.mkdir(parents=True)
+    archive = root / "runtime_retrieval.log.2"
+    raw = (json.dumps({
+        "owner": "earnings-transcripts", "run_id": run_id, "attempt_id": attempt_id,
+        "step_id": step_id, "phase": "supervisor_disconnected",
+        "at": "2026-08-05T01:02:03+00:00", "usage": None,
+    }) + "\n").encode()
+    archive.write_bytes(raw)
+    arguments = ("runtime-history", "--run-id", run_id, "--attempt-id", attempt_id, "--step-id", step_id)
+    first, second = (invoke(runtime, env, "tools/feedback_owner.py", *arguments) for _ in range(2))
+    assert first.returncode == second.returncode == 0
+    assert first.stdout == second.stdout and first.stderr == second.stderr == b""
+    history = json.loads(first.stdout)
+    assert history["status"] == "found"
+    event, = history["events"]
+    assert event["phase"] == "supervisor_disconnected" and event["usage"] is None
+    assert all(secret.encode() not in first.stdout for secret in (run_id, attempt_id, step_id))
+    canonical = invoke(runtime, env, "tools/feedback_owner.py", "runtime-history",
+                       "--run-id", event["run_id"], "--attempt-id", event["attempt_id"],
+                       "--step-id", event["step_id"])
+    assert canonical.returncode == 0 and not canonical.stderr and canonical.stdout == first.stdout
+    assert archive.read_bytes() == raw and list(root.iterdir()) == [archive]
+    assert not Path(env["RESEARCH_FEEDBACK_OUT"]).exists()
+
+
+@pytest.mark.parametrize("scheme", ("Basic", "Bearer"))
+def test_early_invocation_hides_all_folded_auth_but_keeps_next_diagnostic(isolated, scheme):
+    runtime, env, _ = isolated
+    values = ("unprefixed-first-auth", "unprefixed-folded-auth", "unprefixed-last-fragment")
+    message = f"Authorization: {scheme} {values[0]} \t\r\n {values[1]}\r\n\t{values[2]}\r\nnext-diagnostic"
+    result = invoke(runtime, env, "make_interleaved.py", "--invalid-for-auth", message)
+    assert result.returncode == 2 and result.stdout == b""
+    assert b"next-diagnostic" in result.stderr
+    assert all(value.encode() not in result.stderr for value in values)
+    failure, = [row for row in errors(env) if row["event"] == "invocation_failure"]
+    expected = hashlib.sha256((runtime / "make_interleaved.py").read_bytes()).hexdigest()
+    assert failure["facts"]["entry_source_sha256"] == expected
+
+
+def test_early_owner_event_records_actual_source_without_opening_database(isolated):
+    runtime, env, _ = isolated
+    result = invoke(runtime, env, "tools/feedback_owner.py", "--invalid-owner-option")
+    assert result.returncode == 2 and not result.stdout
+    failure, = [row for row in errors(env) if row["event"] == "invocation_failure"]
+    expected = hashlib.sha256((runtime / "tools" / "feedback_owner.py").read_bytes()).hexdigest()
+    assert failure["facts"]["entry_source_sha256"] == expected
+    assert not list(runtime.rglob("*.sqlite"))
+
+
+def test_native_machine_usage_abbreviation_does_not_emit_human_diagnostics(isolated, tmp_path):
+    runtime, env, _ = isolated
+    for key in ("RESEARCH_FEEDBACK_STATE_ROOT", "RESEARCH_FEEDBACK_OUT"):
+        blocked = tmp_path / (key.lower() + "-block")
+        blocked.write_bytes(b"untouched")
+        env[key] = str(blocked / "destination")
+    result = invoke(runtime, env, "transcript_tool.py", "--request-stdin", "--report-us",
+                    body=b"malformed input")
+    assert result.returncode == 0
+    assert json.loads(result.stdout)["error_code"] == "invalid_json"
+    assert json.loads(result.stderr)["usage"] == {
+        "requests_used": 0, "response_bytes_used": 0, "exhausted": None,
+    }
+    assert all(path.read_bytes() == b"untouched" for path in tmp_path.glob("*-block"))
+
+
+def test_interrupted_archive_promotion_stays_cold_readable(isolated):
+    runtime, env, _ = isolated
+    active = Path(env["RESEARCH_FEEDBACK_STATE_ROOT"]) / "logs" / "runtime_errors.log"
+    active.parent.mkdir(parents=True)
+    oldest, pending, newest = [active.with_name(active.name + suffix) for suffix in (".2", ".rotate", ".1")]
+    latest_seed = (json.dumps({"history": "n" * (2 * 1024 * 1024)}) + "\n").encode()
+    active.write_bytes(latest_seed)
+    recent_seed = (json.dumps({
+        "owner": "earnings-transcripts", "run_id": "original-pending",
+        "attempt_id": "original-attempt", "event": "invocation_failure",
+        "at": "2026-08-05T01:02:03+00:00", "facts": {"stage": "source-read"},
+    }) + "\n").encode()
+    newest.write_bytes(recent_seed)
+    oldest_seed = b'{"archive":"oldest"}\n'
+    oldest.write_bytes(oldest_seed)
+    with oldest.open("rb") as held:
+        first = invoke(runtime, env, "make_interleaved.py", "--invalid-first-rotation")
+        assert first.returncode == 2 and not first.stdout
+        if sys.platform == "win32":
+            assert b"et_log_rotation_deferred" in first.stderr
+            assert pending.read_bytes() == recent_seed
+            assert oldest.read_bytes() == oldest_seed
+        assert held.read() == oldest_seed
+        lookup = invoke(runtime, env, "tools/feedback_owner.py", "runtime-history",
+                        "--run-id", "original-pending", "--attempt-id", "original-attempt")
+        assert lookup.returncode == 0 and not lookup.stderr
+        history = json.loads(lookup.stdout)
+        assert history["status"] == "found"
+        assert history["events"][0]["facts"]["stage"] == "source-read"
+    with active.open("ab") as stream:
+        stream.write(latest_seed)
+    second = invoke(runtime, env, "make_interleaved.py", "--invalid-recovered-rotation")
+    assert second.returncode == 2 and not second.stdout and b"et_log_rotation_deferred" not in second.stderr
+    assert not pending.exists()
+    assert oldest.read_bytes() == latest_seed
+    assert latest_seed in newest.read_bytes()
+    assert any(row.get("event") == "invocation_failure" for row in errors(env))

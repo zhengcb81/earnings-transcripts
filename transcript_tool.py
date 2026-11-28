@@ -272,6 +272,7 @@ def main(
         )
         transcript_feedback.finalize_delivery(recorder)
         return code
+    runtime.machine_stderr = args.report_usage and not (args.capabilities or args.flush_observations)
     if args.capabilities:
         result = {
             "schema_version": "earnings-provider-capabilities/1",
